@@ -8,7 +8,7 @@ import {
   Rocket, 
   Zap, 
   Star, 
-  CheckCircle2 as CloudCheck, 
+  CheckCircle2, 
   Database, 
   Shield, 
   Cpu
@@ -189,7 +189,7 @@ export default function DevMarketers() {
                     transition={{ duration: 3, repeat: Infinity, delay: 2 }}
                     className="size-6 rounded-full bg-emerald-500/20 flex items-center justify-center text-emerald-400 border border-emerald-500/30 z-10"
                   >
-                    <CloudCheck className="size-3.5" />
+                    <CheckCircle2 className="size-3.5" />
                   </motion.div>
                 </div>
                 <div>

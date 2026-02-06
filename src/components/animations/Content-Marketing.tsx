@@ -1,4 +1,3 @@
-
 'use client';
 
 import React, { useState, useEffect, useRef } from 'react';
@@ -27,14 +26,6 @@ import {
   Facebook,
   MessageCircle
 } from 'lucide-react';
-// @ts-ignore - Optional dependency, may not be installed
-let GoogleGenAI: any;
-try {
-  GoogleGenAI = require("@google/genai").GoogleGenAI;
-} catch {
-  GoogleGenAI = null;
-}
-
 /**
  * TYPES & INTERFACES
  */
@@ -70,7 +61,6 @@ interface Platform {
 const STEPS: WorkflowStep[] = [
   { id: 'idea', icon: FileText, title: 'Ideation', desc: 'AI-topic mapping', color: 'cyan', progress: 100, metric: 'Topics', metricValue: '142' },
   { id: 'create', icon: Edit3, title: 'Creation', desc: 'Content generation', color: 'purple', progress: 85, metric: 'Drafts', metricValue: '12' },
-  { id: 'video', icon: Video, title: 'Video', desc: 'Shorts & Reels', color: 'rose', progress: 50, metric: 'Views', metricValue: '25.4k' },
   { id: 'email', icon: Mail, title: 'Email', desc: 'Newsletter blast', color: 'amber', progress: 65, metric: 'Open Rate', metricValue: '42%' },
   { id: 'dist', icon: Share2, title: 'Distribution', desc: 'Multi-channel', color: 'pink', progress: 40, metric: 'Reach', metricValue: '85k' },
   { id: 'opt', icon: TrendingUp, title: 'Optimization', desc: 'ROI tracking', color: 'emerald', progress: 15, metric: 'Conv.', metricValue: '3.2%' },
@@ -147,21 +137,14 @@ export default function MarketingFlowAI() {
     setIsGenerating(true);
     
     try {
-      if (!GoogleGenAI) {
-        setAiInsight("Leverage short-form video hooks on Instagram to drive high-intent traffic to your LinkedIn lead magnets.");
-        return;
-      }
       const platformNames = selectedPlatforms.map(p => PLATFORMS.find(pl => pl.id === p)?.name).join(', ');
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `You are a world-class growth marketing strategist. Based on the selected distribution channels: ${platformNames}, provide exactly one punchy, highly specific, and actionable single-sentence strategy to optimize cross-platform engagement and conversion for a B2B SaaS. Avoid generic advice.`,
-        config: { 
-          maxOutputTokens: 80,
-          temperature: 0.8
-        }
-      });
-      setAiInsight(response.text || "Synchronize LinkedIn thought leadership with rapid-fire X threads for maximum multi-touch attribution.");
+      const fallbackInsights = [
+        "Synchronize LinkedIn thought leadership with rapid-fire X threads for maximum multi-touch attribution.",
+        "Leverage short-form video hooks on Instagram to drive high-intent traffic to your LinkedIn lead magnets.",
+        "Align paid social retargeting with organic content pillars for consistent messaging across channels.",
+      ];
+      await new Promise((r) => setTimeout(r, 600));
+      setAiInsight(`For ${platformNames || 'your channels'}: ${fallbackInsights[Math.floor(Math.random() * fallbackInsights.length)]}`);
     } catch (e) {
       setAiInsight("Leverage short-form video hooks on Instagram to drive high-intent traffic to your LinkedIn lead magnets.");
     } finally {
@@ -217,16 +200,15 @@ export default function MarketingFlowAI() {
               </div>
             </div>
 
-            <div className="grid grid-cols-6 gap-3 relative">
+            <div className="grid grid-cols-5 gap-3 relative">
               {/* Connectors */}
-              <div className="absolute top-6 left-[8%] right-[8%] h-[1px] bg-white/10 -z-10" />
+              <div className="absolute top-6 left-[10%] right-[10%] h-[1px] bg-white/10 -z-10" />
               
               {STEPS.map((step) => (
                 <motion.button
                   key={step.id}
                   onClick={() => setActiveStep(step.id)}
-                  whileHover={{ y: -2, transition: { duration: 0.2 } }}
-                  whileTap={{ scale: 0.95 }}
+                  whileHover={{ y: -2 }}
                   className={`relative flex flex-col items-center gap-2 group p-2 rounded-xl transition-colors ${activeStep === step.id ? 'bg-white/5' : ''}`}
                 >
                   <div className={`w-10 h-10 rounded-full flex items-center justify-center border transition-all ${
@@ -238,12 +220,11 @@ export default function MarketingFlowAI() {
                   </div>
                   <div className="text-center">
                     <p className="text-[10px] font-bold leading-none">{step.title}</p>
-                    <p className="text-[8px] text-slate-500 font-medium mt-1 truncate w-14">{step.desc}</p>
+                    <p className="text-[8px] text-slate-500 font-medium mt-1 truncate w-16">{step.desc}</p>
                   </div>
                   {activeStep === step.id && (
                     <motion.div 
                       layoutId="active-dot"
-                      transition={{ type: "spring", stiffness: 500, damping: 30 }}
                       className={`absolute -bottom-1 w-1 h-1 rounded-full bg-${step.color}-400`}
                     />
                   )}
@@ -255,10 +236,9 @@ export default function MarketingFlowAI() {
             <AnimatePresence mode="wait">
               <motion.div 
                 key={activeStep}
-                initial={{ opacity: 0, y: 15, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: -15, scale: 0.98 }}
-                transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -10 }}
                 className="mt-6 p-4 rounded-xl bg-slate-800/50 border border-white/5 flex flex-col gap-4"
               >
                 <div className="flex gap-4 items-center">
@@ -273,7 +253,6 @@ export default function MarketingFlowAI() {
                       <motion.div 
                         initial={{ width: 0 }}
                         animate={{ width: `${STEPS.find(s => s.id === activeStep)?.progress}%` }}
-                        transition={{ duration: 1.2, ease: "circOut" }}
                         className={`h-full bg-gradient-to-r from-indigo-500 to-cyan-400`}
                       />
                     </div>
@@ -337,7 +316,6 @@ export default function MarketingFlowAI() {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
                     className="space-y-2 py-1"
                   >
                     <div className="h-2 w-full bg-indigo-500/10 rounded animate-pulse" />
@@ -346,12 +324,11 @@ export default function MarketingFlowAI() {
                 ) : (
                   <motion.p 
                     key="content"
-                    initial={{ opacity: 0, y: 10, filter: 'blur(5px)' }}
-                    animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
-                    transition={{ duration: 0.6, ease: "easeOut" }}
+                    initial={{ opacity: 0, y: 5 }}
+                    animate={{ opacity: 1, y: 0 }}
                     className="text-xs text-indigo-100/80 leading-relaxed font-medium italic"
                   >
-                    &ldquo;{aiInsight}&rdquo;
+                    &quot;{aiInsight}&quot;
                   </motion.p>
                 )}
               </AnimatePresence>
@@ -377,7 +354,7 @@ export default function MarketingFlowAI() {
         </footer>
 
         {/* DYNAMIC TAILWIND COLOR SAFE-LIST (Inline) */}
-        <div className="hidden border-cyan-400 border-purple-400 border-pink-400 border-emerald-400 border-blue-400 border-indigo-400 border-slate-400 border-amber-400 border-rose-400 bg-cyan-500 bg-purple-500 bg-pink-500 bg-emerald-500 bg-blue-500 bg-indigo-500 bg-slate-500 bg-amber-500 bg-rose-500 text-cyan-400 text-purple-400 text-pink-400 text-emerald-400 text-blue-400 text-indigo-400 text-slate-400 text-amber-400 text-rose-400 shadow-cyan-500/20 shadow-purple-500/20 shadow-pink-500/20 shadow-emerald-500/20 shadow-blue-500/20 shadow-indigo-500/20 shadow-slate-500/20 shadow-amber-500/20 shadow-rose-500/20 bg-cyan-500/10 bg-purple-500/10 bg-pink-500/10 bg-emerald-500/10 bg-blue-500/10 bg-indigo-500/10 bg-slate-500/10 bg-amber-500/10 bg-rose-500/10" />
+        <div className="hidden border-cyan-400 border-purple-400 border-pink-400 border-emerald-400 border-blue-400 border-indigo-400 border-slate-400 border-amber-400 bg-cyan-500 bg-purple-500 bg-pink-500 bg-emerald-500 bg-blue-500 bg-indigo-500 bg-slate-500 bg-amber-500 text-cyan-400 text-purple-400 text-pink-400 text-emerald-400 text-blue-400 text-indigo-400 text-slate-400 text-amber-400 shadow-cyan-500/20 shadow-purple-500/20 shadow-pink-500/20 shadow-emerald-500/20 shadow-blue-500/20 shadow-indigo-500/20 shadow-slate-500/20 shadow-amber-500/20 bg-cyan-500/10 bg-purple-500/10 bg-pink-500/10 bg-emerald-500/10 bg-blue-500/10 bg-indigo-500/10 bg-slate-500/10 bg-amber-500/10" />
       </div>
     </div>
   );

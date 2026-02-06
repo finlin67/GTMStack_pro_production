@@ -2,7 +2,6 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   Network, 
@@ -123,14 +122,8 @@ export default function ABMPipelineStrategy() {
               <button onClick={() => setActiveTab('quarterly')} className={`relative z-10 flex-1 text-[8px] font-extrabold uppercase tracking-wide transition-colors ${activeTab === 'quarterly' ? 'text-[#0a192f]' : 'text-slate-400'}`}>Qtr</button>
             </div>
             <button className="text-slate-400 hover:text-[#00d2ff] transition-colors"><Settings size={16} /></button>
-            <div className="w-7 h-7 rounded-full border border-[#00d2ff]/30 overflow-hidden relative">
-               <Image
-                 src="https://picsum.photos/100/100?random=88"
-                 alt="Profile"
-                 fill
-                 className="object-cover"
-                 sizes="28px"
-               />
+            <div className="w-7 h-7 rounded-full border border-[#00d2ff]/30 overflow-hidden">
+               <img src="https://picsum.photos/100/100?random=88" alt="Profile" className="w-full h-full object-cover" />
             </div>
           </div>
         </header>

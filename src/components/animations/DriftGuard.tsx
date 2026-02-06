@@ -1,3 +1,5 @@
+'use client';
+
 // FILE: DriftGuard.tsx
 import React, { useState, useEffect, useMemo } from 'react';
 import { motion, AnimatePresence } from "framer-motion";

@@ -146,19 +146,20 @@ export default function ExpertiseDetailPage({ params }: Props) {
 
   const heroConfig = getExpertiseHeroConfig(item.slug)
 
+  const pillarTintOverlay =
+    {
+      'content-engagement': '#0E1748',
+      'demand-growth': '#0D1645',
+      'strategy-insights': '#0C1442',
+      'systems-operations': '#0D1650',
+    }[pillarId]
+
   return (
     <ExpertiseDetailContent
       item={item}
       pillarId={pillarId}
       pillarTitle={pillarTitle}
-      accent={
-        {
-          'content-engagement': '#FFDB58',
-          'demand-growth': '#1FCB97',
-          'strategy-insights': '#3A3776',
-          'systems-operations': '#36C0CF',
-        }[pillarId]
-      }
+      pillarTintOverlay={pillarTintOverlay}
       challenges={challenges}
       executionStack={executionStack}
       results={results}

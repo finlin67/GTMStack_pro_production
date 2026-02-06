@@ -1,3 +1,5 @@
+'use client';
+
 // FILE: NexusStakeholderPortal.tsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import Image from 'next/image';

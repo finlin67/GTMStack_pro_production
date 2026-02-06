@@ -1,3 +1,4 @@
+'use client';
 // FILE: EngineeringWorkflow.tsx
 import React, { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';

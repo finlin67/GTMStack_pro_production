@@ -1,3 +1,4 @@
+'use client';
 
 // FILE: Omni-Analytics.tsx
 import React, { useState, useEffect, useCallback, useRef } from 'react';
@@ -52,7 +53,7 @@ const INITIAL_ACTIVITIES: ActivityItem[] = [
 ];
 
 /**
- * INLINED SUB-COMPONENTS
+ * INLINED SUB-COMPONENTS (Not Exported)
  */
 const MetricCard = ({ label, value, trend, icon: Icon, bars, isNegative = false }: any) => (
   <div className="bg-white/5 border border-white/10 rounded-lg p-2 flex flex-col justify-between h-[75px]">
@@ -91,8 +92,8 @@ const FunnelStep = ({ label, value, width, color, rounded = "" }: any) => (
 );
 
 const ChannelMini = ({ icon: Icon, label, val }: any) => (
-  <div className="bg-white/5 border border-white/10 rounded-lg p-2 flex items-center gap-2">
-    <Icon className="size-3 text-primary" />
+  <div className="bg-white/5 border border-white/10 rounded-lg p-2 flex items-center gap-2 overflow-hidden">
+    <Icon className="size-3 text-primary shrink-0" />
     <div className="flex-1 min-w-0">
       <div className="flex justify-between items-center mb-1">
         <span className="text-[8px] font-bold truncate uppercase">{label}</span>
@@ -111,7 +112,8 @@ const ChannelMini = ({ icon: Icon, label, val }: any) => (
 
 /**
  * MAIN COMPONENT: OmnichannelAnalytics
- * Designed for 600x600px square containers.
+ * Optimized for Landing Page Tiles.
+ * Scales responsively within a w-full h-full parent.
  */
 export default function OmnichannelAnalytics() {
   const [stats, setStats] = useState<Stats>({
@@ -153,114 +155,116 @@ export default function OmnichannelAnalytics() {
   }, [updateStats]);
 
   return (
-    <div className="w-[600px] h-[600px] overflow-hidden relative bg-[#120a06] text-white font-sans p-4 flex flex-col gap-4 selection:bg-primary/30">
-      {/* Header */}
-      <header className="flex items-center justify-between shrink-0">
-        <div className="flex items-center gap-2">
-          <div className="size-7 bg-primary rounded flex items-center justify-center shadow-[0_0_10px_rgba(248,105,22,0.4)]">
-            <BarChart3 className="size-4 text-white" />
-          </div>
-          <div>
-            <h1 className="text-sm font-black tracking-tight leading-none">OMNICHANNEL LIVE</h1>
-            <div className="flex items-center gap-1 mt-1">
-              <motion.div 
-                animate={{ opacity: [1, 0.3, 1] }} 
-                transition={{ repeat: Infinity, duration: 1.5 }}
-                className="size-1.5 rounded-full bg-green-500" 
-              />
-              <span className="text-[8px] uppercase tracking-tighter text-white/40 font-bold">Real-time Stream Active</span>
+    <div className="w-full h-full flex items-center justify-center bg-[#120a06]">
+      <div className="relative w-full h-full aspect-square max-w-[600px] max-h-[600px] overflow-hidden bg-[#120a06] text-white font-sans p-4 flex flex-col gap-4 selection:bg-primary/30 border border-white/5 shadow-2xl rounded-2xl">
+        {/* Header */}
+        <header className="flex items-center justify-between shrink-0">
+          <div className="flex items-center gap-2">
+            <div className="size-7 bg-primary rounded flex items-center justify-center shadow-[0_0_10px_rgba(248,105,22,0.4)]">
+              <BarChart3 className="size-4 text-white" />
+            </div>
+            <div>
+              <h1 className="text-sm font-black tracking-tight leading-none uppercase">Omnichannel</h1>
+              <div className="flex items-center gap-1 mt-1">
+                <motion.div 
+                  animate={{ opacity: [1, 0.3, 1] }} 
+                  transition={{ repeat: Infinity, duration: 1.5 }}
+                  className="size-1.5 rounded-full bg-green-500" 
+                />
+                <span className="text-[8px] uppercase tracking-tighter text-white/40 font-bold">Real-time Stream Active</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex items-center gap-2">
-          <div className="text-right">
-            <p className="text-[8px] text-white/40 font-bold uppercase">System Status</p>
-            <p className="text-[10px] font-bold text-green-400">OPTIMIZED</p>
-          </div>
-          <div className="size-8 rounded-full border border-white/10 bg-[url('https://picsum.photos/seed/dash/40/40')] bg-cover" />
-        </div>
-      </header>
-
-      {/* Metric Grid (2x2) */}
-      <div className="grid grid-cols-2 gap-2 shrink-0">
-        <MetricCard label="Total Sales" value={`$${stats.totalSales.toLocaleString(undefined, { maximumFractionDigits: 0 })}`} trend="+12%" icon={TrendingUp} bars={[30, 50, 40, 70, 90]} />
-        <MetricCard label="Active Users" value={stats.activeTraffic} trend="+5%" icon={Users} bars={[20, 40, 60, 50, 80]} />
-        <MetricCard label="ROI Efficiency" value={`${Math.round(stats.roi)}%`} trend="+8%" icon={Activity} bars={[60, 50, 70, 60, 95]} />
-        <MetricCard label="Abandon Rate" value={`${stats.cartAbandonment}%`} trend="-2%" icon={ShoppingCart} bars={[80, 60, 50, 40, 30]} isNegative />
-      </div>
-
-      {/* Main Analysis Section (Split View) */}
-      <div className="flex gap-3 flex-1 min-h-0">
-        {/* Conversion Funnel (Left) */}
-        <div className="w-[55%] bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col">
-          <h3 className="text-[10px] font-black uppercase text-white/40 mb-3 tracking-widest">Conversion Flow</h3>
-          <div className="flex-1 flex flex-col items-center justify-center gap-1">
-            <FunnelStep label="AWARENESS" value={stats.funnel.awareness} width="w-full" color="bg-orange-500" rounded="rounded-t-lg" />
-            <FunnelStep label="INTEREST" value={stats.funnel.interest} width="w-[85%]" color="bg-orange-600" />
-            <FunnelStep label="CONSIDER" value={stats.funnel.consideration} width="w-[70%]" color="bg-red-500" />
-            <FunnelStep label="PURCHASE" value={stats.funnel.purchase} width="w-[55%]" color="bg-red-700" rounded="rounded-b-lg" />
-          </div>
-          <div className="grid grid-cols-2 gap-2 mt-4">
-            <div className="text-center">
-              <p className="text-xs font-bold text-primary">68%</p>
-              <p className="text-[7px] uppercase font-bold text-white/30">Retention</p>
+          <div className="flex items-center gap-2">
+            <div className="text-right hidden sm:block">
+              <p className="text-[8px] text-white/40 font-bold uppercase">System Status</p>
+              <p className="text-[10px] font-bold text-green-400">OPTIMIZED</p>
             </div>
-            <div className="text-center">
-              <p className="text-xs font-bold">$84</p>
-              <p className="text-[7px] uppercase font-bold text-white/30">Avg Order</p>
-            </div>
+            <div className="size-8 rounded-full border border-white/10 bg-[url('https://picsum.photos/seed/dash/40/40')] bg-cover" />
           </div>
+        </header>
+
+        {/* Metric Grid (2x2) */}
+        <div className="grid grid-cols-2 gap-2 shrink-0">
+          <MetricCard label="Total Sales" value={`$${stats.totalSales.toLocaleString(undefined, { maximumFractionDigits: 0 })}`} trend="+12%" icon={TrendingUp} bars={[30, 50, 40, 70, 90]} />
+          <MetricCard label="Active Users" value={stats.activeTraffic} trend="+5%" icon={Users} bars={[20, 40, 60, 50, 80]} />
+          <MetricCard label="ROI Efficiency" value={`${Math.round(stats.roi)}%`} trend="+8%" icon={Activity} bars={[60, 50, 70, 60, 95]} />
+          <MetricCard label="Abandon Rate" value={`${stats.cartAbandonment}%`} trend="-2%" icon={ShoppingCart} bars={[80, 60, 50, 40, 30]} isNegative />
         </div>
 
-        {/* Activity Feed (Right) */}
-        <div className="w-[45%] flex flex-col gap-2">
-          <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex-1 flex flex-col overflow-hidden">
-            <h3 className="text-[10px] font-black uppercase text-white/40 mb-2 tracking-widest">Live Activity</h3>
-            <div className="space-y-2 flex-1 overflow-hidden">
-              <AnimatePresence mode="popLayout">
-                {activities.map((item) => (
-                  <motion.div 
-                    key={item.id}
-                    layout
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, scale: 0.9 }}
-                    className="bg-white/5 border border-white/5 rounded p-2 flex items-center gap-2 group cursor-pointer"
-                  >
-                    <div className={`size-6 rounded-full bg-white/5 flex items-center justify-center ${item.color}`}>
-                      <item.icon className="size-3" />
-                    </div>
-                    <div className="flex-1 min-w-0">
-                      <div className="flex justify-between items-center">
-                        <span className="text-[9px] font-bold truncate">{item.user}</span>
-                        <span className="text-[7px] text-white/30">{item.time}</span>
+        {/* Main Analysis Section (Split View) */}
+        <div className="flex gap-3 flex-1 min-h-0">
+          {/* Conversion Funnel (Left) */}
+          <div className="w-[55%] bg-white/5 border border-white/10 rounded-xl p-3 flex flex-col">
+            <h3 className="text-[10px] font-black uppercase text-white/40 mb-3 tracking-widest">Conversion Flow</h3>
+            <div className="flex-1 flex flex-col items-center justify-center gap-1">
+              <FunnelStep label="AWARENESS" value={stats.funnel.awareness} width="w-full" color="bg-orange-500" rounded="rounded-t-lg" />
+              <FunnelStep label="INTEREST" value={stats.funnel.interest} width="w-[85%]" color="bg-orange-600" />
+              <FunnelStep label="CONSIDER" value={stats.funnel.consideration} width="w-[70%]" color="bg-red-500" />
+              <FunnelStep label="PURCHASE" value={stats.funnel.purchase} width="w-[55%]" color="bg-red-700" rounded="rounded-b-lg" />
+            </div>
+            <div className="grid grid-cols-2 gap-2 mt-4">
+              <div className="text-center">
+                <p className="text-xs font-bold text-primary">68%</p>
+                <p className="text-[7px] uppercase font-bold text-white/30">Retention</p>
+              </div>
+              <div className="text-center">
+                <p className="text-xs font-bold">$84</p>
+                <p className="text-[7px] uppercase font-bold text-white/30">Avg Order</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Activity Feed (Right) */}
+          <div className="w-[45%] flex flex-col gap-2">
+            <div className="bg-white/5 border border-white/10 rounded-xl p-3 flex-1 flex flex-col overflow-hidden">
+              <h3 className="text-[10px] font-black uppercase text-white/40 mb-2 tracking-widest">Live Activity</h3>
+              <div className="space-y-2 flex-1 overflow-hidden">
+                <AnimatePresence mode="popLayout">
+                  {activities.map((item) => (
+                    <motion.div 
+                      key={item.id}
+                      layout
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, scale: 0.9 }}
+                      className="bg-white/5 border border-white/5 rounded p-2 flex items-center gap-2 group cursor-pointer"
+                    >
+                      <div className={`size-6 rounded-full bg-white/5 flex items-center justify-center ${item.color} shrink-0`}>
+                        <item.icon className="size-3" />
                       </div>
-                      <p className="text-[8px] text-white/50 truncate">{item.action} {item.source}</p>
-                    </div>
-                    {item.badge && <span className="text-[8px] font-black text-green-400">{item.badge}</span>}
-                  </motion.div>
-                ))}
-              </AnimatePresence>
+                      <div className="flex-1 min-w-0">
+                        <div className="flex justify-between items-center">
+                          <span className="text-[9px] font-bold truncate">{item.user}</span>
+                          <span className="text-[7px] text-white/30">{item.time}</span>
+                        </div>
+                        <p className="text-[8px] text-white/50 truncate">{item.action} {item.source}</p>
+                      </div>
+                      {item.badge && <span className="text-[8px] font-black text-green-400 shrink-0">{item.badge}</span>}
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-      {/* Footer Channels */}
-      <div className="grid grid-cols-3 gap-2 shrink-0">
-        <ChannelMini icon={Globe} label="Web" val="75%" />
-        <ChannelMini icon={Instagram} label="Social" val="38%" />
-        <ChannelMini icon={Store} label="Store" val="45%" />
-      </div>
-
-      <footer className="shrink-0 flex justify-between items-center border-t border-white/10 pt-2">
-        <p className="text-[7px] text-white/20 font-bold uppercase tracking-widest">Encrypted Live Pipeline v4.2.0</p>
-        <div className="flex gap-2">
-          <div className="size-1.5 rounded-full bg-primary" />
-          <div className="size-1.5 rounded-full bg-white/10" />
-          <div className="size-1.5 rounded-full bg-white/10" />
+        {/* Footer Channels */}
+        <div className="grid grid-cols-3 gap-2 shrink-0">
+          <ChannelMini icon={Globe} label="Web" val="75%" />
+          <ChannelMini icon={Instagram} label="Social" val="38%" />
+          <ChannelMini icon={Store} label="Store" val="45%" />
         </div>
-      </footer>
+
+        <footer className="shrink-0 flex justify-between items-center border-t border-white/10 pt-2">
+          <p className="text-[7px] text-white/20 font-bold uppercase tracking-widest">Encrypted Live Pipeline v4.2.0</p>
+          <div className="flex gap-2">
+            <div className="size-1.5 rounded-full bg-primary" />
+            <div className="size-1.5 rounded-full bg-white/10" />
+            <div className="size-1.5 rounded-full bg-white/10" />
+          </div>
+        </footer>
+      </div>
     </div>
   );
 }

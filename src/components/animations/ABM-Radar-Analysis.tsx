@@ -1,3 +1,6 @@
+'use client';
+
+
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { LineChart, Line, ResponsiveContainer, YAxis } from 'recharts';
 // @ts-ignore - Optional dependency, may not be installed

@@ -1,3 +1,4 @@
+'use client';
 
 import React from 'react';
 import { TelemetryData } from './Industrial-MFG-Tile';

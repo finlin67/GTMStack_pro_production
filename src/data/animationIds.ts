@@ -9,6 +9,7 @@ const ANIMATION_IDS = [
   'marketing-analytics-carousel',
   'marketing-automation-live-feed',
   'automation-engine-dashboard',
+  'live-email-automation',
   'pipeline-dashboard',
   'quantum-dashboard',
   'omni-analytics',

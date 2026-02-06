@@ -18,8 +18,7 @@ const GTMStackHero = () => {
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
-      const el = e.currentTarget as HTMLDivElement;
-      const rect = el.getBoundingClientRect();
+      const rect = (e.currentTarget as HTMLDivElement).getBoundingClientRect();
       setMousePos({
         x: e.clientX - rect.left,
         y: e.clientY - rect.top

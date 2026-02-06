@@ -18,6 +18,10 @@ const MarketingAutomationLiveFeed = dynamic(
   () => import('@/src/components/animations/Marketing-Automation-Live-Feed'),
   { ssr: false }
 )
+const LiveEmailAutomation = dynamic(
+  () => import('@/src/components/animations/Live-Email-Automation'),
+  { ssr: false }
+)
 const ABMPipelineStrategy = dynamic(
   () => import('@/src/components/animations/ABM-Pipeline-Strategy'),
   { ssr: false }
@@ -203,6 +207,19 @@ export const ANIMATION_REGISTRY: AnimationEntry[] = [
     component: MarketingAutomationVariant2,
     featured: false,
     order: 2,
+  },
+  {
+    id: 'live-email-automation',
+    title: 'Live Email Automation',
+    description: 'Real-time email automation pipeline with nurture flows, engagement metrics, and delivery status.',
+    marketingFunction: 'marketing-automation',
+    tags: ['automation', 'email', 'nurture', 'live-feed'],
+    sourceType: 'custom',
+    componentPath: 'Live-Email-Automation.tsx',
+    component: LiveEmailAutomation,
+    featured: false,
+    route: '/expertise/marketing-automation',
+    order: 3,
   },
   {
     id: 'pipeline-dashboard',

@@ -1,6 +1,4 @@
 // FILE: SEOAnimation.tsx
-'use client';
-
 import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
@@ -144,7 +142,7 @@ export default function SEOAnimation() {
   }, []);
 
   return (
-    <div className="w-full h-full overflow-hidden relative bg-[#020617] text-white selection:bg-emerald-500/30 font-display flex flex-col p-6 gap-5">
+    <div className="w-[600px] h-[600px] overflow-hidden relative bg-[#020617] text-white selection:bg-emerald-500/30 font-display flex flex-col p-6 gap-5">
       
       {/* HEADER SECTION */}
       <motion.div 
@@ -332,10 +330,9 @@ export default function SEOAnimation() {
         <div className="flex items-center gap-4">
           <div className="flex -space-x-2.5">
             {[1, 2, 3, 4].map(i => (
-              // eslint-disable-next-line @next/next/no-img-element
-              <img
+              <img 
                 key={i}
-                className="size-7 rounded-full border-2 border-[#020617] object-cover ring-1 ring-emerald-500/20"
+                className="size-7 rounded-full border-2 border-[#020617] object-cover ring-1 ring-emerald-500/20" 
                 src={`https://api.dicebear.com/7.x/avataaars/svg?seed=growth${i}`}
                 alt="Expert"
               />
