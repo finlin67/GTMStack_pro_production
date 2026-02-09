@@ -619,6 +619,53 @@ export const industryItems: IndustryItem[] = [
     ]
   },
   {
+    title: "Fleet Management & Logistics",
+    slug: "fleet-management-logistics",
+    description: "Connected fleet intelligence and operational velocity. Turning data into route optimization and revenue for VP of Fleet Operations and Director of Logistics.",
+    longDescription: "Connected fleet intelligence and operational velocity for logistics and supply chain leaders. Intelligent route optimization, telematics & IoT data, supply chain resilience, sustainability & safety. Digital twin of the supply chain.",
+    positioning: "Connected Fleet expert. Fleet Intelligence & Operational Velocity for VP of Fleet Operations, Director of Logistics, Sustainability Officers.",
+    gtmRealities: [
+      "Fragmented systems make end-to-end visibility across transportation, warehousing, and fulfillment difficult.",
+      "Complex multi-stakeholder buying groups require coordinated ABM and sales alignment.",
+      "Telematics and IoT data must feed route optimization and sustainability reporting.",
+      "Sustainability Officers and fleet leaders need unified dashboards and metrics."
+    ],
+    playbook: [
+      "Intelligent Route Optimization: Data-driven routing reducing empty miles and fuel waste.",
+      "Telematics & IoT Data: Unified vehicle, driver, and cargo intelligence.",
+      "Supply Chain Resilience: Predictive capacity, demand signals, multi-tier visibility.",
+      "Sustainability & Safety: Emissions tracking, safety metrics, ESG reporting."
+    ],
+    proof: [
+      {
+        company: "AMCS",
+        role: "Verticalized ABM Launch",
+        outcome: "Launched ABM engine for industrial/logistics buyers.",
+        metrics: "$1.2M pipeline in 90 days; 35% MQL increase; 87% marketing-sourced pipeline growth."
+      }
+    ],
+    featured: true,
+    featuredExpertise: [
+      "revenue-operations",
+      "account-based-marketing-abm",
+      "marketing-automation",
+      "omnichannel-marketing"
+    ],
+    featuredCaseStudies: [
+      "amcs-verticalized-abm-launch",
+      "end-to-end-abm-framework-amcs",
+      "prgx-unified-revenue-operating-model"
+    ],
+    tags: ["Fleet Management", "Logistics", "Connected Fleet", "Sustainability"],
+    icon: "Truck",
+    stats: [
+      { label: "Pipeline in 90 days", value: "$1.2M" },
+      { label: "MQL increase", value: "35%" },
+      { label: "Pipeline growth", value: "87%" },
+      { label: "Empty miles reduction", value: "15%" }
+    ]
+  },
+  {
     slug: 'cybersecurity',
     title: 'Cybersecurity',
     description: 'Trust-building that closes enterprise deals. Credibility strategies for skeptical security buyers.',

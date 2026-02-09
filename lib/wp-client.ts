@@ -23,6 +23,13 @@ export type WPPost = {
     if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`);
     return (await res.json()) as WPPost[];
   }
+
+  export async function fetchLatestPosts(perPage = 6): Promise<WPPost[]> {
+    const url = `${BASE}/posts?per_page=${perPage}&_embed=1`;
+    const res = await fetch(url, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`);
+    return (await res.json()) as WPPost[];
+  }
   
   export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
     const url = `${BASE}/posts?slug=${encodeURIComponent(slug)}&_embed=1`;

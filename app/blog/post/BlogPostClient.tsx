@@ -11,20 +11,8 @@ const TEAL = '#00A8A8'
 const CYAN = '#36C0CF'
 const GOLD = '#FFD700'
 const PURPLE = '#6A4C93'
-
-const pathVariants = {
-  initial: { pathLength: 0, opacity: 0 },
-  animate: {
-    pathLength: [0, 1, 0.8],
-    opacity: [0, 0.2, 0.08],
-    transition: {
-      duration: 3.5,
-      repeat: Infinity,
-      ease: 'easeInOut' as const,
-      times: [0, 0.5, 1] as [number, number, number],
-    },
-  },
-}
+const NAVY = '#0A0F2D'
+const MIDNIGHT = '#1E2A5E'
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '').trim()
@@ -53,7 +41,7 @@ export default function BlogPostClient() {
   const [toc, setToc] = useState<{ id: string; text: string; level: number }[]>([])
   const contentRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
-  const isBodyInView = useInView(bodyRef, { once: true, margin: '-50px 0px' })
+  const isBodyInView = useInView(bodyRef, { once: true, margin: '-80px 0px' })
   const shouldReduceMotion = useReducedMotion() ?? false
 
   useEffect(() => {
@@ -74,7 +62,7 @@ export default function BlogPostClient() {
         } else {
           const related = allPosts
             .filter((p) => p.id !== postData.id)
-            .slice(0, 3)
+            .slice(0, 4)
           setRelatedPosts(related)
         }
       } catch (e: unknown) {
@@ -121,30 +109,34 @@ export default function BlogPostClient() {
     if (text.includes('abm') || text.includes('account-based')) return 'ABM'
     if (text.includes('revops') || text.includes('revenue ops')) return 'RevOps'
     if (text.includes('demand') || text.includes('pipeline')) return 'Demand'
+    if (text.includes('product') || text.includes('product-led')) return 'Product'
     if (text.includes('revenue') || text.includes('growth')) return 'Revenue'
     return 'Insights'
   }, [])
+
+  const displayDate = post ? formatDate(post.date) : ''
 
   return (
     <div className="min-h-screen bg-[#0A0F2D] text-white">
       {/* Loading */}
       {loading && (
-        <div className="flex items-center justify-center py-32">
-          <div className="w-10 h-10 border-2 border-[#36C0CF]/40 border-t-[#36C0CF] rounded-full animate-spin" />
+        <div className="flex items-center justify-center py-32" aria-busy="true">
+          <div className="w-12 h-12 border-2 border-[#36C0CF]/40 border-t-[#36C0CF] rounded-full animate-spin" aria-hidden="true" />
+          <span className="sr-only">Loading post</span>
         </div>
       )}
 
       {/* Error */}
       {!loading && error && (
-        <div className="container-width py-16">
+        <div className="container-width py-12">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[#F0F0F0] hover:text-[#00A8A8] transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-sm text-[#E8E8E8] hover:text-[#00A8A8] transition-colors mb-6"
           >
-            <ArrowLeft className="w-4 h-4" />
+            <ArrowLeft className="w-4 h-4" aria-hidden="true" />
             Back to Blog
           </Link>
-          <div className="rounded-xl border border-red-500/50 bg-red-500/10 p-6 text-red-200">
+          <div className="rounded-xl border-2 border-red-500/50 bg-red-500/10 p-6 text-red-200" role="alert">
             {error}
           </div>
         </div>
@@ -163,127 +155,165 @@ export default function BlogPostClient() {
                 />
               ) : (
                 <div className="w-full h-full flex items-center justify-center">
-                  <FileText className="w-24 h-24 text-[#36C0CF]/30" />
+                  <FileText className="w-24 h-24 text-[#36C0CF]/25" aria-hidden="true" />
                 </div>
               )}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0A0F2D] via-[#0A0F2D]/60 to-transparent" />
+              <div
+                className="absolute inset-0"
+                style={{
+                  background: 'linear-gradient(to top, #0A0F2D 0%, rgba(10,15,45,0.92) 15%, transparent 50%), linear-gradient(to right, rgba(10,15,45,0.5) 0%, transparent 30%)',
+                }}
+              />
               <div className="absolute inset-0 flex items-end">
-                <div className="container-width pb-6 md:pb-10">
+                <div className="container-width pb-5 md:pb-8">
                   <Link
                     href="/blog"
-                    className="inline-flex items-center gap-2 text-sm text-[#F0F0F0] hover:text-[#00A8A8] transition-colors mb-4"
+                    className="inline-flex items-center gap-2 text-xs md:text-sm text-[#E8E8E8] hover:text-[#00A8A8] transition-colors mb-4"
                   >
-                    <ArrowLeft className="w-4 h-4" />
+                    <ArrowLeft className="w-4 h-4" aria-hidden="true" />
                     Back to Blog
                   </Link>
                   <div className="flex flex-wrap gap-2 mb-3">
                     <span
                       className="inline-block px-3 py-1 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: `${PURPLE}40`, color: '#C4B5FD' }}
+                      style={{ backgroundColor: `${PURPLE}50`, color: '#C4B5FD' }}
                     >
                       {inferCategory(post)}
                     </span>
-                    <span
+                    <motion.span
+                      animate={shouldReduceMotion ? {} : { opacity: [1, 0.9, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
                       className="inline-block px-3 py-1 rounded-lg text-xs font-bold"
-                      style={{ backgroundColor: `${GOLD}25`, color: GOLD }}
+                      style={{ backgroundColor: `${GOLD}25`, color: GOLD, borderWidth: 1, borderColor: `${GOLD}40` }}
                     >
-                      {formatDate(post.date)}
+                      {displayDate}
+                    </motion.span>
+                    <span className="inline-block px-3 py-1 rounded-lg text-xs font-bold text-[#E8E8E8]/90">
+                      GTMStack
                     </span>
                   </div>
                   <motion.h1
-                    initial={{ opacity: 0, y: 12 }}
+                    initial={{ opacity: 0, y: 16 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5 }}
-                    className="font-display font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl tracking-tight text-white max-w-4xl"
+                    className="font-display font-bold text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl tracking-tight text-white max-w-4xl leading-tight"
                     style={{
-                      textShadow: `0 0 60px rgba(54,192,207,0.4), 0 0 100px rgba(54,192,207,0.2)`,
+                      textShadow: `0 0 40px rgba(54,192,207,0.5), 0 0 80px rgba(54,192,207,0.25)`,
                     }}
                     dangerouslySetInnerHTML={{ __html: post.title?.rendered || post.slug }}
                   />
                   <motion.p
-                    initial={{ opacity: 0, y: 8 }}
+                    initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.5, delay: 0.1 }}
-                    className="mt-3 text-lg text-[#F0F0F0] max-w-3xl line-clamp-2"
+                    className="mt-2 md:mt-3 text-base md:text-lg text-[#E8E8E8] max-w-3xl line-clamp-2"
                   >
                     {stripHtml(post.excerpt?.rendered || '')}
                   </motion.p>
                 </div>
               </div>
             </div>
-            {/* Pulsing path accent */}
-            <div className="absolute bottom-0 left-0 right-0 h-px overflow-hidden">
-              <motion.div
-                className="h-full w-full"
-                style={{ background: `linear-gradient(90deg, transparent, ${CYAN}80, transparent)` }}
-                animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
-                transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-              />
-            </div>
+            <motion.div
+              className="absolute bottom-0 left-0 right-0 h-0.5"
+              style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, ${TEAL}, transparent)` }}
+              animate={shouldReduceMotion ? {} : { opacity: [0.5, 1, 0.5] }}
+              transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+            />
           </section>
 
-          {/* Main content + TOC */}
-          <div className="container-width py-6 md:py-10">
-            <div className="grid lg:grid-cols-[1fr_240px] gap-8">
+          {/* TOC Top (mobile) */}
+          {toc.length > 0 && (
+            <nav
+              aria-label="Table of contents"
+              className="lg:hidden border-b border-white/10 py-3 overflow-x-auto"
+            >
+              <div className="container-width flex gap-2 min-w-max pb-1">
+                {toc.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className="shrink-0 px-3 py-1.5 rounded-lg text-sm font-medium text-[#E8E8E8] hover:text-[#00A8A8] hover:bg-[#1E2A5E]/60 transition-colors"
+                  >
+                    {item.text}
+                  </a>
+                ))}
+              </div>
+            </nav>
+          )}
+
+          {/* Main content + TOC sidebar */}
+          <div className="container-width py-5 md:py-8">
+            <div className="grid lg:grid-cols-[1fr_220px] gap-6 lg:gap-8">
               {/* Article body */}
               <div ref={bodyRef} className="min-w-0">
                 <motion.article
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 24 }}
                   animate={isBodyInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ duration: 0.5 }}
                   ref={contentRef}
                   className={`
                     prose prose-invert prose-lg max-w-none
-                    prose-headings:font-display prose-headings:font-bold prose-headings:text-white
-                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:scroll-mt-24
-                    prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-3 prose-h3:scroll-mt-24
-                    prose-p:text-[#F0F0F0] prose-p:leading-relaxed prose-p:mb-4
-                    prose-a:text-[#00A8A8] prose-a:no-underline hover:prose-a:underline
-                    prose-strong:text-white
-                    prose-ul:text-[#F0F0F0] prose-ol:text-[#F0F0F0]
-                    prose-blockquote:border-l-[#FFD700] prose-blockquote:border-l-4 prose-blockquote:bg-[#1E2A5E]/40 prose-blockquote:py-2 prose-blockquote:px-4 prose-blockquote:rounded-r-lg prose-blockquote:text-[#FFD700] prose-blockquote:italic
-                    prose-pre:bg-[#0D1540] prose-pre:border prose-pre:border-[#36C0CF]/40 prose-pre:rounded-xl prose-pre:overflow-x-auto
-                    prose-code:text-[#36C0CF] prose-code:bg-[#0D1540]/80 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:before:content-none prose-code:after:content-none
+                    prose-headings:font-display prose-headings:font-bold prose-headings:text-white prose-headings:scroll-mt-28
+                    prose-h2:text-2xl prose-h2:md:text-3xl prose-h2:lg:text-[1.75rem] prose-h2:mt-12 prose-h2:mb-5 prose-h2:pb-1
+                    prose-h3:text-xl prose-h3:md:text-2xl prose-h3:mt-8 prose-h3:mb-4
+                    prose-p:text-[#E8E8E8] prose-p:leading-[1.7] prose-p:mb-4 prose-p:text-[15px] md:prose-p:text-base
+                    prose-a:text-[#00A8A8] prose-a:no-underline hover:prose-a:underline prose-a:font-medium
+                    prose-strong:text-white prose-strong:font-semibold
+                    prose-ul:text-[#E8E8E8] prose-ol:text-[#E8E8E8] prose-li:my-1
+                    prose-blockquote:border-l-4 prose-blockquote:border-[#FFD700] prose-blockquote:bg-[#1E2A5E]/50 prose-blockquote:py-3 prose-blockquote:px-5 prose-blockquote:rounded-r-xl prose-blockquote:text-[#FFD700] prose-blockquote:italic prose-blockquote:font-medium prose-blockquote:shadow-[0_0_30px_rgba(255,215,0,0.15)]
+                    prose-pre:bg-[#0D1540] prose-pre:border-2 prose-pre:border-[#36C0CF]/50 prose-pre:rounded-xl prose-pre:overflow-x-auto prose-pre:shadow-[0_0_20px_rgba(54,192,207,0.1)]
+                    prose-code:text-[#36C0CF] prose-code:bg-[#0D1540]/90 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[13px] prose-code:before:content-none prose-code:after:content-none
                     prose-img:rounded-xl prose-img:border prose-img:border-white/10
                   `}
                   dangerouslySetInnerHTML={{ __html: post.content?.rendered || '' }}
                 />
 
-                {/* Article content styling */}
                 <style jsx global>{`
                   .prose iframe,
-                  .prose [data-oembed] iframe {
+                  .prose [data-oembed] iframe,
+                  .prose .wp-block-embed iframe {
                     aspect-ratio: 16/9;
                     width: 100%;
                     max-width: 100%;
                     border-radius: 0.75rem;
-                    border: 1px solid rgba(54, 192, 207, 0.3);
+                    border: 2px solid rgba(54, 192, 207, 0.4);
+                    box-shadow: 0 0 24px rgba(54, 192, 207, 0.15);
+                  }
+                  .prose .wp-block-embed,
+                  .prose [data-oembed] {
+                    margin: 1.5rem 0;
                   }
                   .prose blockquote {
-                    box-shadow: 0 0 30px rgba(255, 215, 0, 0.15);
+                    animation: blockquote-glow 3s ease-in-out infinite;
+                  }
+                  @keyframes blockquote-glow {
+                    0%, 100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.15); }
+                    50% { box-shadow: 0 0 40px rgba(255, 215, 0, 0.25); }
+                  }
+                  @media (prefers-reduced-motion: reduce) {
+                    .prose blockquote { animation: none; }
                   }
                 `}</style>
               </div>
 
-              {/* TOC Sidebar */}
+              {/* TOC Sidebar (desktop) */}
               {toc.length > 0 && (
                 <motion.aside
-                  initial={{ opacity: 0, x: 10 }}
+                  initial={{ opacity: 0, x: 8 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.2 }}
+                  transition={{ delay: 0.15 }}
                   className="hidden lg:block"
                 >
-                  <div className="sticky top-24 rounded-xl border border-white/10 bg-[#1E2A5E]/40 p-5">
-                    <h3 className="font-bold text-white text-sm mb-4">On this page</h3>
-                    <nav aria-label="Table of contents" className="space-y-2">
+                  <div className="sticky top-24 rounded-xl border-2 border-white/10 bg-[#1E2A5E]/50 p-4">
+                    <h3 className="font-bold text-white text-xs uppercase tracking-wider mb-4">On this page</h3>
+                    <nav className="space-y-2" aria-label="Article sections">
                       {toc.map((item) => (
                         <a
                           key={item.id}
                           href={`#${item.id}`}
-                          className={`block text-sm transition-colors hover:text-[#00A8A8] ${
-                            item.level === 3 ? 'pl-4' : ''
+                          className={`block text-sm transition-colors hover:text-[#00A8A8] py-0.5 border-l-2 border-transparent hover:border-[#00A8A8] pl-3 -ml-px ${
+                            item.level === 3 ? 'pl-5 text-[#E8E8E8]/90' : 'font-medium text-[#E8E8E8]'
                           }`}
-                          style={{ color: '#F0F0F0' }}
                         >
                           {item.text}
                         </a>
@@ -296,32 +326,32 @@ export default function BlogPostClient() {
           </div>
 
           {/* Author bio */}
-          <section className="border-t border-white/10 py-6 md:py-8">
+          <section className="border-t border-white/10 py-5 md:py-6">
             <div className="container-width">
               <motion.div
                 initial={{ opacity: 0, y: 12 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                className="flex flex-wrap items-center gap-4 rounded-xl border border-white/10 bg-[#1E2A5E]/40 p-6"
+                viewport={{ once: true, margin: '-30px' }}
+                className="flex flex-wrap items-center gap-4 rounded-xl border-2 border-white/10 bg-[#1E2A5E]/40 p-5"
               >
                 <div
-                  className="w-14 h-14 rounded-full flex items-center justify-center shrink-0"
-                  style={{ backgroundColor: `${TEAL}30` }}
+                  className="w-12 h-12 rounded-full flex items-center justify-center shrink-0"
+                  style={{ backgroundColor: `${TEAL}30`, borderWidth: 2, borderColor: `${TEAL}50` }}
                 >
-                  <User className="w-7 h-7" style={{ color: TEAL }} />
+                  <User className="w-6 h-6" style={{ color: TEAL }} aria-hidden="true" />
                 </div>
-                <div>
-                  <h4 className="font-bold text-white">GTMStack.pro</h4>
-                  <p className="text-sm text-[#F0F0F0] mt-0.5 max-w-xl">
+                <div className="min-w-0 flex-1">
+                  <h4 className="font-bold text-white text-sm">GTMStack.pro</h4>
+                  <p className="text-sm text-[#E8E8E8] mt-0.5 max-w-xl leading-relaxed">
                     Strategic GTM consulting—ABM, RevOps, demand gen, and revenue scale. 20+ years building predictable growth engines.
                   </p>
                   <Link
                     href="/about"
-                    className="inline-flex items-center gap-2 mt-2 text-sm font-medium hover:underline"
+                    className="inline-flex items-center gap-2 mt-2 text-sm font-semibold hover:underline"
                     style={{ color: TEAL }}
                   >
                     View More from Author
-                    <ArrowRight className="w-4 h-4" />
+                    <ArrowRight className="w-4 h-4" aria-hidden="true" />
                   </Link>
                 </div>
               </motion.div>
@@ -330,22 +360,27 @@ export default function BlogPostClient() {
 
           {/* Related posts */}
           {relatedPosts.length > 0 && (
-            <section className="py-6 md:py-10 bg-[#080B1E]">
+            <section className="py-5 md:py-8 bg-[#080B1E]" aria-label="Related posts">
               <div className="container-width">
-                <h2 className="font-display font-bold text-2xl text-white mb-6">Related Posts</h2>
-                <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                <h2 className="font-display font-bold text-xl md:text-2xl text-white mb-5">Related Posts</h2>
+                <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {relatedPosts.map((p, i) => (
                     <motion.div
                       key={p.id}
                       initial={{ opacity: 0, y: 16 }}
                       whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: i * 0.08 }}
+                      viewport={{ once: true, margin: '-20px' }}
+                      transition={{ delay: i * 0.06 }}
                     >
                       <Link href={`/blog/post?slug=${p.slug}`}>
                         <motion.div
-                          whileHover={{ y: -4, scale: 1.02, boxShadow: `0 12px 40px ${CYAN}30` }}
-                          className="rounded-xl overflow-hidden border border-white/10 bg-[#1E2A5E]/50 transition-all duration-300 hover:border-[#36C0CF]/50"
+                          whileHover={{
+                            y: -6,
+                            scale: 1.02,
+                            boxShadow: `0 16px 48px ${CYAN}25`,
+                          }}
+                          transition={{ duration: 0.25 }}
+                          className="h-full rounded-xl overflow-hidden border-2 border-white/[0.08] bg-[#1E2A5E]/50 transition-all duration-300 hover:border-[#36C0CF]/50"
                         >
                           <div className="aspect-video relative bg-[#0D1540]">
                             {getFeaturedImageUrl(p) ? (
@@ -356,21 +391,21 @@ export default function BlogPostClient() {
                               />
                             ) : (
                               <div className="w-full h-full flex items-center justify-center">
-                                <FileText className="w-12 h-12 text-[#36C0CF]/30" />
+                                <FileText className="w-12 h-12 text-[#36C0CF]/25" aria-hidden="true" />
                               </div>
                             )}
                           </div>
-                          <div className="p-4">
+                          <div className="p-3">
                             <span
-                              className="inline-block px-2 py-0.5 rounded text-[10px] font-bold mb-2"
+                              className="inline-block px-2 py-0.5 rounded text-[10px] font-bold mb-1.5"
                               style={{ backgroundColor: `${TEAL}25`, color: TEAL }}
                             >
                               {inferCategory(p)}
                             </span>
-                            <h3 className="font-bold text-white text-sm line-clamp-2">
+                            <h3 className="font-bold text-white text-sm line-clamp-2 leading-snug">
                               {stripHtml(p.title?.rendered || p.slug)}
                             </h3>
-                            <p className="mt-1 text-xs text-[#F0F0F0] line-clamp-2">
+                            <p className="mt-1 text-xs text-[#E8E8E8] line-clamp-2">
                               {stripHtml(p.excerpt?.rendered || '')}
                             </p>
                           </div>
@@ -385,8 +420,8 @@ export default function BlogPostClient() {
 
           {/* CTA Footer */}
           <section
-            className="py-10 md:py-14"
-            style={{ background: 'linear-gradient(180deg, #0D1540 0%, #0A0F2D 100%)' }}
+            className="py-8 md:py-12"
+            style={{ background: `linear-gradient(180deg, ${MIDNIGHT} 0%, ${NAVY} 100%)` }}
           >
             <motion.div
               initial={{ opacity: 0, y: 16 }}
@@ -394,17 +429,22 @@ export default function BlogPostClient() {
               viewport={{ once: true }}
               className="container-width text-center max-w-2xl mx-auto"
             >
-              <h2 className="font-display text-2xl md:text-4xl font-bold text-white mb-3">
+              <h2 className="font-display text-2xl md:text-4xl font-bold text-white mb-2">
                 Ready to discuss this strategy?
               </h2>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_50px_rgba(0,168,168,0.5)]"
-                style={{ backgroundColor: TEAL }}
-              >
-                Book a Call
-                <ArrowRight className="w-5 h-5" />
-              </Link>
+              <p className="text-[#E8E8E8] text-sm md:text-base mb-5">
+                Book a call to map your GTM route.
+              </p>
+              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,168,168,0.5)]"
+                  style={{ backgroundColor: TEAL }}
+                >
+                  Book a Call
+                  <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                </Link>
+              </motion.div>
             </motion.div>
           </section>
         </>

@@ -78,6 +78,7 @@ export const heroVisualMap: Record<string, string> = {
   "pubsec-government": "/images/heroes/industries/public-sector.webp",
 
   "supply-chain-logistics": "/images/heroes/industries/supplychain.webp",
+  "fleet-management-logistics": "/images/heroes/industries/supplychain.webp",
 
   "energy-utilities": "/images/heroes/industries/energy.webp",
 
