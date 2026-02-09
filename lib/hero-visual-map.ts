@@ -1,4 +1,4 @@
-﻿// Maps slugs from expertise, industries, and case studies to right-side hero image paths.
+// Maps slugs from expertise, industries, and case studies to right-side hero image paths.
 
 // Images live in /public/images/heroes and subdirectories.
 
@@ -75,6 +75,7 @@ export const heroVisualMap: Record<string, string> = {
   "healthcare": "/images/heroes/industries/healthcare.webp",
 
   "public-sector-education": "/images/heroes/industries/public-sector.webp",
+  "pubsec-government": "/images/heroes/industries/public-sector.webp",
 
   "supply-chain-logistics": "/images/heroes/industries/supplychain.webp",
 

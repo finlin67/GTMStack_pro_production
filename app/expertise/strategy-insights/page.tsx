@@ -16,7 +16,7 @@ import { AnimatedStatCard } from '@/components/ui/AnimatedStatCard'
 export const metadata: Metadata = {
   title: 'Strategy & Insights',
   description:
-    'ABM frameworks, customer experience, lifecycle marketing, and market research that inform strategy.',
+    'ABM frameworks, customer experience, lifecycle marketing, and product marketing that inform strategy.',
 }
 
 export default function StrategyInsightsPillarPage() {
@@ -45,7 +45,7 @@ export default function StrategyInsightsPillarPage() {
         label="Strategy & Insights"
         title="ABM frameworks that scale"
         titleHighlight="and drive revenue"
-        description="Account-based marketing, customer experience, lifecycle marketing, and market research that inform strategy and deliver measurable pipeline impact."
+        description="Account-based marketing, customer experience, lifecycle marketing, and product marketing that inform strategy and deliver measurable pipeline impact."
         primaryCta={{ label: 'View Expertise', href: '#expertise' }}
         secondaryCta={{ label: 'Get in Touch', href: '/contact' }}
         align="left"

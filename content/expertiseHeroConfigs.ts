@@ -141,14 +141,16 @@ export const expertiseHeroConfigs: Record<string, ExpertiseHeroConfig> = {
     ],
     tagline: 'Lifecycle design that keeps routing, scoring, and comms aligned.',
   },
-  'market-research': {
+  'product-marketing': {
     engine: 'scan',
-    accent: 'indigo',
+    accent: 'cyan',
     metrics: [
-      { label: 'Voice of customer', value: 'Looped' },
-      { label: 'ICP clarity', value: 'Tight' },
+      { label: 'Time-to-revenue', value: '45% faster' },
+      { label: 'Launch engagement', value: '340% lift' },
+      { label: 'Feature adoption', value: '2x' },
+      { label: 'Pipeline increase', value: '126%' },
     ],
-    tagline: 'Decision-grade research that anchors messaging, ICP, and roadmap.',
+    tagline: 'Positioning, messaging & go-to-market plays that turn features into revenue.',
   },
   'ai-in-marketing': {
     engine: 'flow',

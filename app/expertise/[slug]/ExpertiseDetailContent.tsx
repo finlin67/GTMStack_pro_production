@@ -5,7 +5,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import * as Icons from 'lucide-react'
-import { ArrowRight, ArrowLeft, Compass, Sparkles, Layers, LineChart, ChevronRight } from 'lucide-react'
+import { ArrowRight, ArrowLeft, Compass, Sparkles, Layers, LineChart, ChevronRight, Search, MessageSquare, Rocket, BookOpen, RefreshCw } from 'lucide-react'
 import { ExpertiseItem } from '@/lib/types'
 import { CaseStudyItem } from '@/lib/types'
 import { IndustryItem } from '@/lib/types'
@@ -51,6 +51,16 @@ const ROUTE_STEPS = [
   { title: 'Optimize to proof', detail: 'Run sprints, tune levers, and lock proof points before scaling spend.', icon: LineChart },
 ]
 
+const ROUTE_STEPS_BY_SLUG: Record<string, { title: string; detail: string; icon: React.ComponentType<{ className?: string }> }[]> = {
+  'product-marketing': [
+    { title: 'Market & buyer research', detail: 'Understand buyer needs, competitive landscape, and market positioning opportunities.', icon: Search },
+    { title: 'Positioning & messaging framework', detail: 'Define clear positioning, value props, and messaging hierarchy for the product.', icon: MessageSquare },
+    { title: 'Launch & GTM playbook', detail: 'Coordinate cross-functional launch campaigns, timelines, and success metrics.', icon: Rocket },
+    { title: 'Sales enablement & collateral', detail: 'Create battlecards, demo scripts, and collateral that accelerate deals.', icon: BookOpen },
+    { title: 'Adoption & feedback loops', detail: 'Instrument adoption metrics and close feedback loops with product and sales.', icon: RefreshCw },
+  ],
+}
+
 interface ExpertiseDetailContentProps {
   item: ExpertiseItem
   pillarId: PillarId
@@ -86,6 +96,7 @@ export function ExpertiseDetailContent({
 
   const [resultValues, setResultValues] = useState(results.map((r) => r.value))
 
+  const jitterIntensity = item.slug === 'product-marketing' ? 0.42 : 0.18
   const jitter = useCallback(() => {
     if (shouldReduceMotion) return
     setResultValues((prev) =>
@@ -94,17 +105,18 @@ export function ExpertiseDetailContent({
         if (!m) return v
         const [, pre = '', num, suf = ''] = m
         const n = parseFloat(num.replace(/,/g, ''))
-        const jittered = n + (Math.random() - 0.5) * 0.18 * Math.max(n, 1)
+        const jittered = n + (Math.random() - 0.5) * jitterIntensity * Math.max(n, 1)
         return `${pre}${Math.round(Math.max(jittered, 0))}${suf}`
       })
     )
-  }, [shouldReduceMotion])
+  }, [shouldReduceMotion, jitterIntensity])
 
   useEffect(() => {
     if (!isResultsInView || shouldReduceMotion) return
-    const t = setInterval(jitter, 1800 + Math.random() * 1200)
+    const intervalMs = item.slug === 'product-marketing' ? 1200 + Math.random() * 800 : 1800 + Math.random() * 1200
+    const t = setInterval(jitter, intervalMs)
     return () => clearInterval(t)
-  }, [isResultsInView, jitter, shouldReduceMotion])
+  }, [isResultsInView, jitter, shouldReduceMotion, item.slug])
 
   type IconName = keyof typeof Icons
   const IconComponent = Icons[(item.icon || 'Sparkles') as IconName] as React.ComponentType<{ className?: string }> | undefined
@@ -328,8 +340,8 @@ export function ExpertiseDetailContent({
             </svg>
           </div>
           <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4 relative z-10">Route Map</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-2 relative z-10">
-            {ROUTE_STEPS.map((step, i) => {
+          <div className={`grid gap-2 relative z-10 ${(ROUTE_STEPS_BY_SLUG[item.slug] ?? ROUTE_STEPS).length === 5 ? 'md:grid-cols-2 lg:grid-cols-5' : 'md:grid-cols-2 lg:grid-cols-4'}`}>
+            {(ROUTE_STEPS_BY_SLUG[item.slug] ?? ROUTE_STEPS).map((step, i) => {
               const Icon = step.icon
               return (
                 <motion.div
@@ -411,7 +423,7 @@ export function ExpertiseDetailContent({
       <section ref={resultsRef} className="relative py-4 md:py-6 bg-[#0A0F2D]">
         <div className="container-width">
           <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4">Results</h2>
-          <div className="grid md:grid-cols-3 gap-4">
+          <div className={`grid gap-4 ${results.length >= 5 ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' : 'md:grid-cols-3'}`}>
             {results.map((r, i) => (
               <motion.div
                 key={r.label}
@@ -420,21 +432,21 @@ export function ExpertiseDetailContent({
                 transition={{ duration: 0.35, delay: i * 0.08 }}
                 whileHover={{
                   scale: 1.06,
-                  boxShadow: `0 0 60px ${GOLD}40`,
-                  borderColor: `${GOLD}70`,
+                  boxShadow: item.slug === 'product-marketing' ? `0 0 48px ${CYAN}50, 0 0 24px ${GOLD}30` : `0 0 60px ${GOLD}40`,
+                  borderColor: item.slug === 'product-marketing' ? `${CYAN}70` : `${GOLD}70`,
                 }}
-                className="rounded-xl border-2 p-6 text-center backdrop-blur-sm transition-all bg-[#0D1540]/80"
+                className={`rounded-xl border-2 text-center backdrop-blur-sm transition-all bg-[#0D1540]/80 ${item.slug === 'product-marketing' ? 'p-8 md:p-10' : 'p-6'}`}
                 style={{ borderColor: `${CYAN}40` }}
               >
                 <motion.span
                   key={resultValues[i]}
                   initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
-                  className="block text-4xl md:text-5xl lg:text-6xl font-bold text-[#FFD700] tabular-nums mb-1 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]"
+                  className={`block font-bold text-[#FFD700] tabular-nums mb-1 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)] ${item.slug === 'product-marketing' ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl' : 'text-4xl md:text-5xl lg:text-6xl'}`}
                 >
                   {resultValues[i] ?? r.value}
                 </motion.span>
-                <p className="text-sm text-[#F0F0F0] font-medium">{r.label}</p>
+                <p className={`font-medium text-white ${item.slug === 'product-marketing' ? 'text-base' : 'text-sm'}`}>{r.label}</p>
               </motion.div>
             ))}
           </div>
@@ -557,7 +569,7 @@ export function ExpertiseDetailContent({
           className="container-width text-center max-w-2xl mx-auto"
         >
           <h2 className="font-display text-2xl md:text-4xl font-bold text-white mb-3">
-            Ready for {item.title} results?
+            {item.slug === 'product-marketing' ? 'Ready for product marketing that wins?' : `Ready for ${item.title} results?`}
           </h2>
           <Link
             href="/contact"

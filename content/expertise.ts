@@ -651,16 +651,6 @@ export const expertiseItems: ExpertiseItem[] = [
     ]
   },
   {
-    slug: 'market-research',
-    title: 'Market Research & Intelligence',
-    description: 'Market insights that inform strategy. Competitive analysis, buyer research, and market positioning that guides GTM decisions.',
-    pillar: 'strategy-insights',
-    pillarLabel: 'Strategy & Insights',
-    tags: ['Research', 'Competitive', 'Intelligence'],
-    icon: 'Search',
-    order: 5,
-  },
-  {
     title: "MarTech Optimization",
     slug: "martech-optimization",
     positioning: "Transforming a noisy, underutilized marketing tech stack into a lean, integrated ecosystem that accelerates revenue instead of dragging it down.",
@@ -754,13 +744,18 @@ export const expertiseItems: ExpertiseItem[] = [
   {
     title: "Product Marketing",
     slug: "product-marketing",
-    positioning: "Defining the narrative, positioning, messaging, personas, and go-to-market strategy that connect product value to real customer problems and drive market adoption.",
+    description: "Positioning, messaging & go-to-market plays that turn features into revenue.",
+    positioning: "Positioning, messaging & go-to-market plays that turn features into revenue.",
+    pillar: 'strategy-insights',
+    pillarLabel: 'Strategy & Insights',
+    tags: ['Gong', 'Highspot', 'Productboard', 'Amplitude', 'LaunchDarkly'],
+    icon: 'Package',
+    order: 5,
     challenges: [
-      "Organizations struggle to communicate product value in a clear, differentiated, customer-centric narrative.",
-      "Personas and ICP profiles are outdated, vague, or unused by GTM teams.",
-      "Product launches lack structured messaging frameworks, enablement, and cross-functional alignment.",
-      "Feedback loops between customers, product, sales, and marketing are inconsistent or informal.",
-      "Content and campaigns fail to reflect the true value proposition or competitive advantage."
+      "Misaligned product narratives across teams and channels.",
+      "Weak competitive positioning that fails to differentiate.",
+      "Slow time-to-market for launches and feature rollouts.",
+      "Low feature adoption due to unclear value messaging."
     ],
     modern_plays: [
       "Positioning & Messaging Architecture: Creating layered messaging for brand, product, persona, and solution levels.",
@@ -773,7 +768,7 @@ export const expertiseItems: ExpertiseItem[] = [
       company: "Salesforce",
       role: "Campaigns Lead, Sales Cloud",
       outcome: "Drove Sales Cloud narrative consistency, campaign messaging, and persona-based GTM activation.",
-      metrics: "Improved alignment across sales and marketing; contributed to significant pipeline growth across targeted industries."
+      metrics: "45–60% Faster Time-to-Revenue; 340–400% Launch Engagement Lift; 120–150% Pipeline Increase from Positioning; 2–3x Feature Adoption Rate; +25–35 pts Win Rate Improvement"
     },
     relevant_expertise_slugs: [
       "content-strategy-systems",

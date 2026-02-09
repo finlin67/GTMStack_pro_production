@@ -76,7 +76,6 @@ const slugToTileVariant: Record<string, TileVariant> = {
   'customer-experience': 'omnichannelNodes',
   'customer-experience-cx': 'omnichannelNodes',
   'customer-marketing': 'omnichannelNodes',
-  'market-research': 'growthExperiments',
 }
 
 const allVariants: TileVariant[] = [

@@ -104,7 +104,7 @@ export const PILLARS: Pillar[] = [
   {
     id: 'strategy-insights',
     title: 'Strategy & Insights',
-    description: 'ABM frameworks, customer experience, lifecycle marketing, and market research that inform strategy.',
+    description: 'ABM frameworks, customer experience, lifecycle marketing, and product marketing that inform strategy.',
     href: '/expertise/strategy-insights',
     icon: 'Target',
     color: 'accent',

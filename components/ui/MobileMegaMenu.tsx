@@ -40,7 +40,7 @@ const menuTitles: Record<string, string> = {
   'customer-experience-cx': 'Customer Experience (CX)',
   'customer-marketing': 'Customer Marketing',
   'lifecycle-marketing': 'Lifecycle Marketing',
-  'market-research': 'Market Research',
+  'product-marketing': 'Product Marketing',
   'ai-in-marketing': 'AI in Marketing',
   'marketing-automation': 'Marketing Automation',
   'marketing-operations': 'Marketing Operations',

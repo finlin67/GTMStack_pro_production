@@ -33,7 +33,6 @@ const SLUG_TO_PILLAR: Record<string, PillarId> = {
   'customer-experience-cx': 'strategy-insights',
   'customer-marketing': 'strategy-insights',
   'lifecycle-marketing': 'strategy-insights',
-  'market-research': 'strategy-insights',
   'product-marketing': 'strategy-insights',
   'sales-enablement': 'strategy-insights',
   'sales-enablement-alignment': 'strategy-insights',
@@ -76,7 +75,7 @@ const DEFAULT_EXECUTION_STACK = [
 
 function parseProofMetrics(metrics?: string): { value: string; label: string }[] {
   if (!metrics) return []
-  const parts = metrics.split(/[;,]+\s*/).filter(Boolean).slice(0, 3)
+  const parts = metrics.split(/[;,]+\s*/).filter(Boolean).slice(0, 5)
   return parts.map((p) => {
     const m = p.match(/^([\d.]+[x%]?\+?)\s+(.+)$/i) || p.match(/^([^a-zA-Z]+)\s+(.+)$/)
     if (m) return { value: m[1].trim(), label: m[2].trim() }

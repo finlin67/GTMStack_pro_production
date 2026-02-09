@@ -109,7 +109,7 @@ export const industryItems: IndustryItem[] = [
       'demand-generation',
       'marketing-operations',
       'marketing-automation',
-      'market-research',
+      'product-marketing',
       'seo',
     ],
     featuredCaseStudies: [],
@@ -480,6 +480,53 @@ export const industryItems: IndustryItem[] = [
     ]
   },
   {
+    title: "Public Sector & Government",
+    slug: "pubsec-government",
+    description: "Modernizing citizen services with 2-Speed Architecture — stable legacy systems + agile cloud engagement. Digital transformation lead for government.",
+    longDescription: "Modernizing citizen services with 2-Speed Architecture — stable legacy systems + agile cloud engagement. Digital transformation lead for government. Agentic AI for constituent service, grant & case management optimization, trust & compliance.",
+    positioning: "Digital Transformation Lead for government. 2-Speed Architecture: legacy stability + modern citizen engagement.",
+    gtmRealities: [
+      "Extremely long buying cycles with complex procurement and multi-level approvals.",
+      "Strict compliance and data privacy rules limit targeting strategies.",
+      "Resource constraints make operational efficiency and automation crucial.",
+      "Fragmented systems hinder visibility into constituent journeys.",
+      "Ecosystem spans Agency CIOs, Program Directors, and Grant Managers."
+    ],
+    playbook: [
+      "2-Speed Architecture: Stable legacy systems + agile cloud engagement.",
+      "Agentic AI for Constituent Service: Streamlining citizen inquiries and case management.",
+      "Grant & Case Management Optimization: Data visibility, reporting speed, automation.",
+      "Trust & Compliance: Data governance, audit trails, regulatory alignment."
+    ],
+    proof: [
+      {
+        company: "Salesforce",
+        role: "Global Marketing Operations Leader (Salesforce.org)",
+        outcome: "Built the reporting and operational backbone for NGO and Education demand generation.",
+        metrics: "190% faster reporting; 24x team growth; 100% digital service availability; 65% lift in qualified engagement."
+      }
+    ],
+    featured: true,
+    featuredExpertise: [
+      "customer-experience-cx",
+      "lifecycle-marketing",
+      "marketing-analytics-reporting",
+      "sales-enablement"
+    ],
+    featuredCaseStudies: [
+      "revenue-analytics-dashboard-salesforce",
+      "data-qa-integrity-pipeline-salesforce"
+    ],
+    tags: ["Public Sector", "Government", "2-Speed Architecture", "Citizen Services"],
+    icon: "Landmark",
+    stats: [
+      { label: "Faster reporting", value: "190%" },
+      { label: "Team growth", value: "24x" },
+      { label: "Qualified engagement lift", value: "65%" },
+      { label: "Digital service availability", value: "100%" }
+    ]
+  },
+  {
     title: "Retail & Ecommerce",
     slug: "retail-ecommerce",
     description: "Helping retailers modernize customer engagement, optimize omnichannel experiences, and drive measurable revenue lift through data-driven activation and AI-powered personalization.",
@@ -659,7 +706,7 @@ export const industryItems: IndustryItem[] = [
       'account-based-marketing-abm',
       'lifecycle-marketing',
       'event-marketing',
-      'market-research',
+      'product-marketing',
     ],
     featuredCaseStudies: [],
   },
@@ -752,7 +799,7 @@ export const industryItems: IndustryItem[] = [
       'marketing-automation',
       'content-marketing',
       'account-based-marketing-abm',
-      'market-research',
+      'product-marketing',
     ],
     featuredCaseStudies: [
       'marketing-flight-planner-ai-tool',

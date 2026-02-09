@@ -14,6 +14,7 @@ export const heroOverlayMap: Record<string, string> = {
   "retail-ecommerce": "/images/heroes/overlays/retail-flow.svg",
   "healthcare": "/images/heroes/overlays/health-cross.svg",
   "public-sector-education": "/images/heroes/overlays/public-lines.svg",
+  "pubsec-government": "/images/heroes/overlays/public-lines.svg",
   "supply-chain-logistics": "/images/heroes/overlays/supplychain-routes.svg",
   "energy-utilities": "/images/heroes/overlays/energy-wave.svg",
 

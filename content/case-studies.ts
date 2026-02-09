@@ -254,7 +254,7 @@ export const caseStudyItems: CaseStudyItem[] = [
     industry: 'b2b-saas',
     expertise: [
       'marketing-operations',
-      'market-research',
+      'product-marketing',
       'growth-marketing',
     ],
     metrics: [

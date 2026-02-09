@@ -37,7 +37,7 @@ const PILLARS = [
       { label: "Customer Experience (CX)", href: "/expertise/customer-experience-cx" },
       { label: "Customer Marketing", href: "/expertise/customer-marketing" },
       { label: "Lifecycle Marketing", href: "/expertise/lifecycle-marketing" },
-      { label: "Market Research", href: "/expertise/market-research" },
+      { label: "Product Marketing", href: "/expertise/product-marketing" },
     ],
   },
   {
