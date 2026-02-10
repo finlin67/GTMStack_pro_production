@@ -136,7 +136,7 @@ export default function BlogPage() {
     return result
   }, [posts, filter, searchQuery])
 
-  const featuredPost = filteredPosts[0]
+  const featuredPost = filteredPosts[0] ?? null
   const gridPosts = useMemo(() => {
     if (!featuredPost) return filteredPosts
     return filteredPosts.filter((p) => p.id !== featuredPost.id)

@@ -109,7 +109,7 @@ export default function BlogPostClient() {
     if (text.includes('abm') || text.includes('account-based')) return 'ABM'
     if (text.includes('revops') || text.includes('revenue ops')) return 'RevOps'
     if (text.includes('demand') || text.includes('pipeline')) return 'Demand'
-    if (text.includes('product') || text.includes('product-led')) return 'Product'
+    if (text.includes('product') || text.includes('product-led') || text.includes('plg')) return 'Product'
     if (text.includes('revenue') || text.includes('growth')) return 'Revenue'
     return 'Insights'
   }, [])

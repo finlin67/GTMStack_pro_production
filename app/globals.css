@@ -2,15 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Design System: CSS Custom Properties */
+/* Design System: CSS Custom Properties - Premium GTMStack Palette */
 :root {
-  /* Color tokens */
-  --color-background: theme('colors.slate.50');
-  --color-background-alt: theme('colors.white');
-  --color-foreground: theme('colors.slate.900');
-  --color-foreground-muted: theme('colors.slate.600');
-  --color-border: theme('colors.slate.200');
-  --color-border-strong: theme('colors.slate.300');
+  /* Background tokens */
+  --color-background: #020617;
+  --color-background-alt: #0A0F2D;
+  --color-background-card: rgba(10, 15, 45, 0.6);
+  /* Foreground tokens */
+  --color-foreground: #FFFFFF;
+  --color-foreground-muted: #67E8F9;
+  --color-border: rgba(255, 255, 255, 0.08);
+  --color-border-strong: rgba(0, 212, 255, 0.3);
+  /* Accent tokens */
+  --color-accent-primary: #00D4FF;
+  --color-accent-secondary: #3B82F6;
+  --color-gradient-start: #C026D3;
+  --color-gradient-end: #3B82F6;
+  --color-success: #22C55E;
   
   /* Spacing tokens */
   --section-padding-y: theme('spacing.24');
@@ -88,9 +96,12 @@
     @apply py-24 md:py-32 lg:py-40;
   }
   
-  /* Text gradient utility */
+  /* Text gradient utility - Premium GTMStack gradient (pink-purple → blue) */
   .text-gradient {
-    @apply bg-gradient-to-r from-brand-600 via-brand-500 to-accent-500 bg-clip-text text-transparent;
+    background: linear-gradient(135deg, #C026D3 0%, #3B82F6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
   
   /* Card base styles */

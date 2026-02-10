@@ -308,7 +308,7 @@ export default function B2BSaaSPage() {
                 style={{ borderColor: `${CYAN}40` }}
               >
                 <motion.span
-                  key={statValues[i]}
+                  key={s.label}
                   initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
                   className="block text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFD700] tabular-nums mb-1 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]"

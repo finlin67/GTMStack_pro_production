@@ -69,7 +69,7 @@ export default function RetailPage() {
         if (!m) return v
         const [, pre = '', num, suf = ''] = m
         const n = parseFloat(num.replace(/,/g, ''))
-        const jittered = n + (Math.random() - 0.5) * 0.25 * Math.max(n, 1)
+        const jittered = n + (Math.random() - 0.5) * 0.35 * Math.max(n, 1)
         return `${pre}${Math.round(Math.max(jittered, 0))}${suf}`
       })
     )
@@ -240,7 +240,7 @@ export default function RetailPage() {
                 style={{ borderColor: `${PEACH}40` }}
               >
                 <motion.span
-                  key={statValues[i]}
+                  key={s.label}
                   initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
                   className="block text-3xl md:text-4xl lg:text-5xl font-bold text-[#FFD700] tabular-nums mb-1 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]"

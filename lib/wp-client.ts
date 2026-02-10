@@ -32,7 +32,7 @@ export type WPPost = {
   }
   
   export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
-    const url = `${BASE}/posts?slug=${encodeURIComponent(slug)}&_embed=1`;
+    const url = `${BASE}/posts?slug=${encodeURIComponent(slug)}&_embed=1&context=view`;
     const res = await fetch(url, { cache: "no-store" });
     if (!res.ok) throw new Error(`Failed to fetch post: ${res.status}`);
     const posts = (await res.json()) as WPPost[];

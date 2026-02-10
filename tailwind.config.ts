@@ -9,8 +9,20 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Design System: Colors - Dark SaaS Core
+      // Design System: Colors - Premium GTMStack Palette
       colors: {
+        // Site-wide: deep navy to almost-black backgrounds
+        'navy-deep': '#0A0F2D',
+        'navy-dark': '#020617',
+        // Primary accent: electric cyan to blue
+        'accent-cyan': '#00D4FF',
+        'accent-blue': '#3B82F6',
+        // Gradient text: pink-purple to blue
+        'gradient-pink': '#C026D3',
+        // Positive metrics / growth
+        'success-green': '#22C55E',
+        // Secondary text (light cyan)
+        'text-cyan': '#67E8F9',
         // Primary ramp: deep navy → cobalt → electric blue
         brand: {
           50: '#f0f4ff',
@@ -173,6 +185,8 @@ const config: Config = {
         'glow-accent': '0 0 40px -8px rgba(249, 115, 22, 0.4)',
         'glow-violet': '0 0 40px -8px rgba(139, 92, 246, 0.4)',
         'glow-cyan': '0 0 40px -8px rgba(34, 211, 238, 0.3)',
+        'glow-electric': '0 0 40px -4px rgba(0, 212, 255, 0.5), 0 0 80px -8px rgba(59, 130, 246, 0.25)',
+        'glow-cyan-soft': '0 0 60px -15px rgba(0, 212, 255, 0.25)',
         'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)',
         'dark-soft': '0 2px 8px -2px rgba(0, 0, 0, 0.3), 0 4px 16px -4px rgba(0, 0, 0, 0.4)',
         'dark-medium': '0 4px 12px -2px rgba(0, 0, 0, 0.4), 0 8px 24px -4px rgba(0, 0, 0, 0.5)',

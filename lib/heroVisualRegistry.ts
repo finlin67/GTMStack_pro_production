@@ -5,13 +5,10 @@ import MarketingAnalytics from '@/src/components/animations/Marketing-Analytics-
 import MarketingAutomationLiveFeed from '@/src/components/animations/Marketing-Automation-Live-Feed'
 import ABMPipelineStrategy from '@/src/components/animations/ABM-Pipeline-Strategy'
 import GTMStackPro from '@/src/components/animations/GTMStackPro'
-import ContentMarketingAnimation from '@/src/components/animations/ContentMarketingAnimation'
-import LeadGenTileAnimation from '@/src/components/animations/LeadGenTileAnimation'
-import EmailMarketingHero from '@/src/components/animations/EmailMarketingHero'
 import PipelineDashboard from '@/src/components/animations/PipelineDashboard'
 import QuantumDashboard from '@/src/components/animations/QuantumDashboard'
 import DemandGenFlow from '@/src/components/animations/DemandGenFlow'
-import DevMarketers from '@/src/components/animations/DevMarketers'
+import IndustrialDashboard from '@/src/components/animations/IndustrialDashboard'
 
 export type HeroVisualMediaType = 'animation' | 'image'
 
@@ -38,16 +35,22 @@ export const HERO_VISUAL_REGISTRY: HeroVisualEntry[] = [
     component: GTMStackPro,
   },
   {
-    route: '/expertise/video-marketing',
-    title: 'Video Marketing',
+    route: '/expertise/account-based-marketing-abm',
+    title: 'ABM',
     mediaType: 'animation',
-    component: VideoMarketingAnalyticsTile,
+    component: ABMPipelineStrategy,
   },
   {
-    route: '/expertise/search-engine-optimization',
-    title: 'SEO',
+    route: '/expertise/demand-generation',
+    title: 'Demand Generation',
     mediaType: 'animation',
-    component: SEOAnimation,
+    component: DemandGenFlow,
+  },
+  {
+    route: '/expertise/marketing-automation',
+    title: 'Marketing Automation',
+    mediaType: 'animation',
+    component: MarketingAutomationLiveFeed,
   },
   {
     route: '/expertise/marketing-operations',
@@ -62,40 +65,22 @@ export const HERO_VISUAL_REGISTRY: HeroVisualEntry[] = [
     component: QuantumDashboard,
   },
   {
-    route: '/expertise/marketing-automation',
-    title: 'Marketing Automation',
+    route: '/expertise/search-engine-optimization',
+    title: 'SEO',
     mediaType: 'animation',
-    component: MarketingAutomationLiveFeed,
+    component: SEOAnimation,
   },
   {
-    route: '/expertise/account-based-marketing-abm',
-    title: 'ABM',
+    route: '/expertise/video-marketing',
+    title: 'Video Marketing',
     mediaType: 'animation',
-    component: ABMPipelineStrategy,
+    component: VideoMarketingAnalyticsTile,
   },
   {
-    route: '/expertise/content-marketing',
-    title: 'Content Marketing',
+    route: '/industries/manufacturing',
+    title: 'Manufacturing',
     mediaType: 'animation',
-    component: ContentMarketingAnimation,
-  },
-  {
-    route: '/expertise/demand-generation',
-    title: 'Demand Generation',
-    mediaType: 'animation',
-    component: DemandGenFlow,
-  },
-  {
-    route: '/expertise/email-marketing',
-    title: 'Email Marketing',
-    mediaType: 'animation',
-    component: EmailMarketingHero,
-  },
-  {
-    route: '/industries/developer-tools',
-    title: 'Developer Tools & DevOps',
-    mediaType: 'animation',
-    component: DevMarketers,
+    component: IndustrialDashboard,
   },
 ]
 

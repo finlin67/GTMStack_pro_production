@@ -77,7 +77,7 @@ export default function FleetManagementLogisticsPage() {
         if (!m) return v
         const [, pre = '', num, suf = ''] = m
         const n = parseFloat(num.replace(/,/g, ''))
-        const jittered = n + (Math.random() - 0.5) * 0.25 * Math.max(n, 1)
+        const jittered = n + (Math.random() - 0.5) * 0.35 * Math.max(n, 1)
         const rounded = Math.round(Math.max(jittered, 0))
         return `${pre}${rounded}${suf}`
       })
@@ -307,7 +307,7 @@ export default function FleetManagementLogisticsPage() {
                 style={{ borderColor: `${FOREST_GREEN}40` }}
               >
                 <motion.span
-                  key={statValues[i]}
+                  key={s.label}
                   initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
                   className="block text-2xl md:text-3xl lg:text-4xl font-bold text-[#FFD700] tabular-nums mb-1 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)]"
