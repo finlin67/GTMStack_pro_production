@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { motion, useInView, useReducedMotion } from 'framer-motion'
+import { motion, useReducedMotion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, FileText, MessageSquare, User } from 'lucide-react'
 import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
 import { getFeaturedImageUrl } from '@/lib/wp-media'
@@ -39,7 +39,6 @@ export default function BlogPostClient() {
   const [toc, setToc] = useState<{ id: string; text: string; level: number }[]>([])
   const contentRef = useRef<HTMLDivElement>(null)
   const bodyRef = useRef<HTMLDivElement>(null)
-  const isBodyInView = useInView(bodyRef, { once: true, margin: '-80px 0px' })
   const shouldReduceMotion = useReducedMotion() ?? false
 
   useEffect(() => {
@@ -51,6 +50,13 @@ export default function BlogPostClient() {
     ;(async () => {
       try {
         const postData = await fetchPostBySlug(slug)
+        if (postData && process.env.NODE_ENV !== 'production') {
+          const contentLen = postData.content?.rendered?.length ?? 0
+          const excerptLen = postData.excerpt?.rendered?.length ?? 0
+          const sanitizedLen = contentLen ? sanitizeHtml(postData.content?.rendered || '').length : 0
+          // eslint-disable-next-line no-console
+          console.log('[BlogPostClient] content.rendered length:', contentLen, 'excerpt:', excerptLen, 'sanitized length:', sanitizedLen)
+        }
         setPost(postData)
         if (!postData) {
           setError('Post not found')
@@ -248,7 +254,7 @@ export default function BlogPostClient() {
               <div ref={bodyRef} className="min-w-0">
                 <motion.article
                   initial={{ opacity: 0, y: 24 }}
-                  animate={isBodyInView ? { opacity: 1, y: 0 } : {}}
+                  animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
                   ref={contentRef}
                   className={`

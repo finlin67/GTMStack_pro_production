@@ -104,7 +104,14 @@ export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) throw new Error(`Failed to fetch post: ${res.status}`)
   const posts = (await res.json()) as WPPost[]
-  return posts[0] ?? null
+  const post = posts[0] ?? null
+  if (post && typeof process !== 'undefined' && process.env?.NODE_ENV !== 'production') {
+    const contentLen = post.content?.rendered?.length ?? 0
+    const excerptLen = post.excerpt?.rendered?.length ?? 0
+    // eslint-disable-next-line no-console
+    console.log('[wp-client fetchPostBySlug]', { slug, contentLen, excerptLen })
+  }
+  return post
 }
 
 /** GET /categories — for filter pills and slug→id mapping */
