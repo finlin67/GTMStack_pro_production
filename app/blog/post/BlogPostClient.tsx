@@ -6,6 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowLeft, ArrowRight, FileText, MessageSquare, User } from 'lucide-react'
 import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
+import { getFeaturedImageUrl } from '@/lib/wp-media'
 import { sanitizeHtml } from '@/lib/sanitize-html'
 
 const TEAL = '#00A8A8'
@@ -17,10 +18,6 @@ const MIDNIGHT = '#1E2A5E'
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '').trim()
-}
-
-function getFeaturedImageUrl(post: WPPost): string | null {
-  return post._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? null
 }
 
 function slugify(text: string) {

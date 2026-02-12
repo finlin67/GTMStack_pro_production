@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, FileText } from 'lucide-react'
 import { fetchLatestPosts, WPPost, getPostCategories } from '@/lib/wp-client'
+import { getFeaturedImageUrl } from '@/lib/wp-media'
 
 const TEAL = '#00A8A8'
 const CYAN = '#36C0CF'
@@ -12,10 +13,6 @@ const GOLD = '#FFD700'
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '').trim()
-}
-
-function getFeaturedImageUrl(post: WPPost): string | null {
-  return post._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? null
 }
 
 function primaryCategory(post: WPPost): string {

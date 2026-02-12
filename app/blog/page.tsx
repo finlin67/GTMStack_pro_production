@@ -27,10 +27,24 @@ export default async function BlogPage({
   let posts: Awaited<ReturnType<typeof fetchPostsWithTotal>>['posts'] = []
   let totalPages = 1
   let categories: Awaited<ReturnType<typeof fetchCategories>> = []
+  let categoriesError: string | undefined
+  let postsError: string | undefined
 
+  // Fetch categories first; surface errors but don't block posts.
   try {
     categories = await fetchCategories()
-    const categoryId = categorySlug ? categories.find((c) => c.slug === categorySlug)?.id : undefined
+  } catch (e) {
+    console.error('Blog categories fetch error:', e)
+    categories = []
+    categoriesError =
+      e instanceof Error ? e.message : 'Failed to load blog categories'
+  }
+
+  // Fetch posts with optional category filter.
+  try {
+    const categoryId = categorySlug
+      ? categories.find((c) => c.slug === categorySlug)?.id
+      : undefined
     const postsResult = await fetchPostsWithTotal({
       search: q,
       categoryIds: categoryId ? [categoryId] : undefined,
@@ -40,8 +54,14 @@ export default async function BlogPage({
     posts = postsResult.posts
     totalPages = postsResult.totalPages
   } catch (e) {
-    console.error('Blog fetch error:', e)
+    console.error('Blog posts fetch error:', e)
+    postsError = e instanceof Error ? e.message : 'Failed to load blog posts'
   }
+
+  const errorMessage =
+    postsError && categoriesError
+      ? `Posts: ${postsError} — Categories: ${categoriesError}`
+      : postsError || categoriesError
 
   return (
     <Suspense
@@ -60,6 +80,7 @@ export default async function BlogPage({
         totalPages={totalPages}
         categories={categories}
         initialQuery={{ q, category: categorySlug, page: pageParam }}
+        error={errorMessage}
       />
     </Suspense>
   )

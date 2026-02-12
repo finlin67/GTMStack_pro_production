@@ -6,7 +6,8 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Search, FileText, ChevronLeft, ChevronRight, Flame, Mail } from 'lucide-react'
 import type { WPPost, WPTerm } from '@/lib/wp-client'
-import { getPostCategories, getFeaturedImageUrl } from '@/lib/wp-client'
+import { getPostCategories } from '@/lib/wp-client'
+import { getFeaturedImageUrl } from '@/lib/wp-media'
 
 const TEAL = '#00A8A8'
 const CYAN = '#36C0CF'
@@ -80,6 +81,7 @@ export type BlogIndexClientProps = {
   totalPages: number
   categories: WPTerm[]
   initialQuery: { q?: string; category?: string; tag?: string; page?: string }
+  error?: string
 }
 
 export default function BlogIndexClient({
@@ -87,6 +89,7 @@ export default function BlogIndexClient({
   totalPages,
   categories,
   initialQuery,
+  error,
 }: BlogIndexClientProps) {
   const router = useRouter()
   const searchParams = useSearchParams()
@@ -263,7 +266,13 @@ export default function BlogIndexClient({
           </div>
         </motion.div>
 
-        {initialPosts.length === 0 && (
+        {error && (
+          <div className="mb-4 rounded-xl border border-red-500/40 bg-red-500/10 px-4 py-3 text-sm text-red-100">
+            {error}
+          </div>
+        )}
+
+        {!error && initialPosts.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}

@@ -9,8 +9,30 @@ import type { WPPost, WPTerm, FetchPostsParams } from './wp-client'
 function getBaseUrl(): string {
   const raw = process.env.WORDPRESS_API_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
   if (!raw) throw new Error('Missing WORDPRESS_API_URL (or NEXT_PUBLIC_WORDPRESS_API_URL) env var')
-  const base = raw.replace(/\r/g, '').trim().replace(/\/+$/, '')
+
+  // Normalize and ensure we point at the WP REST API root.
+  // Accepted inputs:
+  // - Site root:              https://example.com
+  // - API root:               https://example.com/wp-json/wp/v2
+  // - Partial API roots:      https://example.com/wp-json or .../wp-json/wp
+  let base = raw.replace(/\r/g, '').trim().replace(/\/+$/, '')
   if (!base.startsWith('http')) throw new Error('WORDPRESS_API_URL must start with http(s)')
+  if (base.endsWith('/wp-json/wp/v2')) {
+    // Already pointing at the v2 REST root.
+  } else if (base.endsWith('/wp-json/wp')) {
+    base = `${base}/v2`
+  } else if (base.endsWith('/wp-json')) {
+    base = `${base}/wp/v2`
+  } else {
+    // Treat as site root (or some non-API path); append full REST prefix.
+    base = `${base}/wp-json/wp/v2`
+  }
+
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
+    console.log('[wordpress:getBaseUrl] resolved base URL:', base)
+  }
+
   return base
 }
 
@@ -28,7 +50,16 @@ export async function fetchPostsWithTotal(
   if (categoryIds?.length) url.searchParams.set('categories', categoryIds.join(','))
   if (tagIds?.length) url.searchParams.set('tags', tagIds.join(','))
 
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
+    console.log('[wordpress:fetchPostsWithTotal] URL:', url.toString())
+  }
+
   const res = await fetch(url.toString(), { next: { revalidate: 60 } })
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
+    console.log('[wordpress:fetchPostsWithTotal] status:', res.status, 'x-total-pages:', res.headers.get('X-WP-TotalPages'))
+  }
   if (!res.ok) {
     const text = await res.text().catch(() => '')
     throw new Error(`Failed to fetch posts: ${res.status} ${text.slice(0, 200)}`)
@@ -40,7 +71,16 @@ export async function fetchPostsWithTotal(
 
 export async function fetchCategories(): Promise<WPTerm[]> {
   const url = `${getBaseUrl()}/categories?per_page=100&orderby=count&order=desc`
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
+    console.log('[wordpress:fetchCategories] URL:', url)
+  }
+
   const res = await fetch(url, { next: { revalidate: 60 } })
+  if (process.env.NODE_ENV !== 'production') {
+    // eslint-disable-next-line no-console
+    console.log('[wordpress:fetchCategories] status:', res.status)
+  }
   if (!res.ok) throw new Error(`Failed to fetch categories: ${res.status}`)
   const data = (await res.json()) as Array<{ id: number; name: string; slug: string; count: number }>
   return data.map((c) => ({ id: c.id, name: c.name, slug: c.slug, taxonomy: 'category', count: c.count }))
