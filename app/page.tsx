@@ -9,7 +9,6 @@ import {
   Zap,
   Target,
   BarChart3,
-  Layers,
   Cpu,
   Rocket,
   TrendingUp,
@@ -17,45 +16,32 @@ import {
   DollarSign,
   ChevronRight,
 } from 'lucide-react'
-import { getHeroVisualForPath } from '@/lib/heroVisualRegistry'
 
-/* New palette constants */
+/* Palette — main.png style: navy, cyan, gradient, green */
 const NAVY_DEEP = '#0A0F2D'
 const NAVY_DARK = '#020617'
-const ACCENT_CYAN = '#00D4FF'
+const ACCENT_CYAN = '#00CFFF'
 const ACCENT_BLUE = '#3B82F6'
 const GRADIENT_PINK = '#C026D3'
 const SUCCESS_GREEN = '#22C55E'
 const TEXT_CYAN = '#67E8F9'
 
-/* Preserved: Animated dashboard element in hero upper right — do not delete or modify */
-const HeroDashboardVisual = dynamic(
-  () =>
-    import('@/lib/heroVisualRegistry').then((mod) => {
-      const entry = mod.getHeroVisualForPath('/')
-      if (entry?.mediaType === 'animation' && entry.component) {
-        const C = entry.component
-        return { default: () => <C /> }
-      }
-      return import('@/components/ui/HeroVisual').then((m) => ({
-        default: () => <m.HeroVisual variant="signatureConstellation" />,
-      }))
-    }),
-  {
-    ssr: false,
-    loading: () => (
-      <div className="absolute inset-0 rounded-2xl bg-[#0A0F2D]/80 animate-pulse flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-[#00D4FF]/40 border-t-[#00D4FF] rounded-full animate-spin" />
-      </div>
-    ),
-  }
-)
+/* AIGrowth animated tile — hero right side, used as-is */
+const AIGrowth = dynamic(() => import('@/src/components/animations/AIGrowth'), {
+  ssr: false,
+  loading: () => (
+    <div className="absolute inset-0 rounded-2xl bg-navy-deep/80 animate-pulse flex items-center justify-center">
+      <div className="w-8 h-8 border-2 border-accent-cyan/40 border-t-accent-cyan rounded-full animate-spin" aria-hidden="true" />
+    </div>
+  ),
+})
 
+/* Path variants — EnterpriseSalesMotionDashboard style */
 const pathVariants = {
   initial: { pathLength: 0, opacity: 0 },
   animate: {
     pathLength: [0, 1, 1],
-    opacity: [0, 0.5, 0.15],
+    opacity: [0, 0.6, 0.2],
     transition: {
       duration: 4,
       repeat: Infinity,
@@ -69,7 +55,7 @@ function HeroFlowBackground() {
   const reduced = useReducedMotion() ?? false
   if (reduced) return null
   return (
-    <div className="pointer-events-none absolute inset-0 z-0 opacity-80">
+    <div className="pointer-events-none absolute inset-0 z-0 opacity-90">
       <svg viewBox="0 0 1200 800" className="h-full w-full" preserveAspectRatio="xMidYMid slice">
         <defs>
           <linearGradient id="cyanBlueGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -78,7 +64,7 @@ function HeroFlowBackground() {
             <stop offset="100%" stopColor={ACCENT_CYAN} stopOpacity="0.4" />
           </linearGradient>
         </defs>
-        <g stroke={`url(#cyanBlueGrad)`} strokeWidth="1.2" fill="none" strokeLinecap="round">
+        <g stroke={`url(#cyanBlueGrad)`} strokeWidth="1.5" fill="none" strokeLinecap="round">
           <motion.path
             d="M 0 180 C 220 160, 450 200, 700 180 C 950 160, 1100 200, 1200 180"
             variants={pathVariants}
@@ -183,39 +169,56 @@ export default function HomePage() {
   const timelineScrollRef = useRef<HTMLDivElement>(null)
 
   return (
-    <div className="min-h-screen text-white" style={{ background: `linear-gradient(180deg, ${NAVY_DEEP} 0%, ${NAVY_DARK} 50%, ${NAVY_DEEP} 100%)` }}>
+    <div
+      className="min-h-screen text-white"
+      style={{
+        background: `linear-gradient(180deg, ${NAVY_DEEP} 0%, ${NAVY_DARK} 50%, ${NAVY_DEEP} 100%)`,
+      }}
+    >
       {/* ========== HERO ========== */}
       <section
         ref={heroRef}
-        className="relative overflow-hidden pt-16 pb-12 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20"
+        className="relative overflow-hidden pt-20 pb-16 md:pt-24 md:pb-20 lg:pt-28 lg:pb-24"
         style={{
-          background: `linear-gradient(135deg, ${NAVY_DEEP} 0%, #0d1338 30%, ${NAVY_DARK} 60%, ${NAVY_DEEP} 100%)`,
+          background: `linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background-alt) 25%, var(--color-background) 55%, var(--color-background-alt) 100%)`,
         }}
       >
         <HeroFlowBackground />
         <div className="container-width relative z-10">
-          <div className="grid lg:grid-cols-[1.1fr_1fr] gap-8 lg:gap-12 items-center">
-            <div>
+          <div className="grid lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
+            <div className="space-y-6">
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
-                className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.08] tracking-tight"
-                style={{
-                  background: `linear-gradient(135deg, ${GRADIENT_PINK} 0%, ${ACCENT_BLUE} 100%)`,
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  textShadow: 'none',
-                }}
+                className="font-display font-bold text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-[1.06] tracking-tight text-white"
               >
-                Turn Your Go-To-Market Into a Revenue Machine
+                Turn Your{' '}
+                <span
+                  className="inline-block bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage: `linear-gradient(135deg, ${GRADIENT_PINK} 0%, ${ACCENT_BLUE} 100%)`,
+                    WebkitBackgroundClip: 'text',
+                  }}
+                >
+                  Go-To-Market
+                </span>{' '}
+                Into a{' '}
+                <span
+                  className="inline-block bg-clip-text text-transparent"
+                  style={{
+                    backgroundImage: `linear-gradient(135deg, ${GRADIENT_PINK} 0%, ${ACCENT_BLUE} 100%)`,
+                    WebkitBackgroundClip: 'text',
+                  }}
+                >
+                  Revenue Machine
+                </span>
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.1 }}
-                className="mt-5 text-lg md:text-xl leading-relaxed max-w-2xl"
+                className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-2xl"
                 style={{ color: TEXT_CYAN }}
               >
                 Strategic B2B GTM consulting that bridges strategy & execution. We build scalable
@@ -226,38 +229,38 @@ export default function HomePage() {
                 initial={{ opacity: 0, y: 16 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
-                className="mt-8 flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 pt-2"
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-[#020617] transition-all duration-300 hover:scale-[1.02]"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-navy-dark transition-all duration-300 hover:scale-[1.03]"
                   style={{
                     backgroundColor: ACCENT_CYAN,
-                    boxShadow: `0 0 30px rgba(0,212,255,0.35)`,
+                    boxShadow: `0 0 30px rgba(0,207,255,0.2)`,
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.boxShadow = `0 0 50px rgba(0,212,255,0.5), 0 0 80px rgba(59,130,246,0.2)`
+                    e.currentTarget.style.boxShadow = `0 0 50px rgba(0,207,255,0.2), 0 0 90px rgba(59,130,246,0.12)`
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.boxShadow = `0 0 30px rgba(0,212,255,0.35)`
+                    e.currentTarget.style.boxShadow = `0 0 30px rgba(0,207,255,0.2)`
                   }}
                 >
                   Get Started
-                  <ArrowRight className="w-5 h-5" />
+                  <ArrowRight className="w-5 h-5" aria-hidden="true" />
                 </Link>
                 <Link
                   href="/projects"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.02] border-2"
+                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.03] border-2"
                   style={{
-                    borderColor: `${ACCENT_CYAN}60`,
+                    borderColor: 'rgba(0,207,255,0.5)',
                     color: TEXT_CYAN,
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.borderColor = ACCENT_CYAN
-                    e.currentTarget.style.boxShadow = `0 0 30px rgba(0,212,255,0.2)`
+                    e.currentTarget.style.boxShadow = `0 0 35px rgba(0,207,255,0.25)`
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = `${ACCENT_CYAN}60`
+                    e.currentTarget.style.borderColor = 'rgba(0,207,255,0.5)'
                     e.currentTarget.style.boxShadow = 'none'
                   }}
                 >
@@ -266,23 +269,22 @@ export default function HomePage() {
               </motion.div>
             </div>
 
-            {/* Preserved: Animated dashboard in upper right — do not delete or modify */}
+            {/* DO NOT MODIFY: animated dashboard block (must remain byte-for-byte identical).
+                Surrounding layout may change, but this JSX must not be edited, moved, or refactored. */}
             <div className="relative hidden lg:block h-[320px] lg:h-[380px] xl:h-[420px]">
               <div
                 className="absolute inset-0 rounded-2xl overflow-hidden border-2 backdrop-blur-sm"
                 style={{
-                  borderColor: 'rgba(0,212,255,0.2)',
-                  backgroundColor: 'rgba(10,15,45,0.6)',
-                  boxShadow: `0 0 60px -15px rgba(0,212,255,0.3), inset 0 1px 0 rgba(255,255,255,0.05)`,
+                  borderColor: `${ACCENT_CYAN}66`,
+                  boxShadow: `0 0 60px ${ACCENT_CYAN}30`,
                 }}
               >
-                <HeroDashboardVisual />
+                <AIGrowth />
               </div>
             </div>
           </div>
         </div>
 
-        {/* Glowing divider */}
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-0.5"
           style={{ background: `linear-gradient(90deg, transparent, ${ACCENT_CYAN}, ${ACCENT_BLUE}, transparent)` }}
@@ -294,7 +296,7 @@ export default function HomePage() {
       {/* ========== STATS PROOF GRID ========== */}
       <section
         ref={statsRef}
-        className="relative py-12 md:py-16"
+        className="relative py-16 md:py-20"
         style={{
           background: `linear-gradient(180deg, ${NAVY_DARK} 0%, ${NAVY_DEEP} 50%, ${NAVY_DARK} 100%)`,
         }}
@@ -310,32 +312,28 @@ export default function HomePage() {
               return (
                 <motion.div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 24 }}
                   animate={isStatsInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: i * 0.08, duration: 0.4 }}
+                  transition={{ delay: i * 0.08, duration: 0.45 }}
                   whileHover={{
-                    scale: 1.03,
-                    boxShadow: `0 0 40px rgba(0,212,255,0.2), 0 0 80px rgba(0,212,255,0.1)`,
+                    scale: 1.04,
+                    boxShadow: `0 0 50px rgba(0,207,255,0.2), 0 0 90px rgba(0,207,255,0.1)`,
                   }}
-                  className="relative rounded-xl border-2 p-5 md:p-6 backdrop-blur-sm transition-all duration-300"
-                  style={{
-                    borderColor: 'rgba(0,212,255,0.15)',
-                    backgroundColor: 'rgba(10,15,45,0.5)',
-                  }}
+                  className="relative glass-card-surface-alt p-6 md:p-8"
                 >
-                  <div className="flex items-center gap-2 mb-2">
-                    <Icon className="w-5 h-5" style={{ color: ACCENT_CYAN }} />
-                  </div>
+                  <div className="flex items-center gap-2 mb-3">
+                    <Icon className="w-5 h-5" style={{ color: ACCENT_CYAN }} aria-hidden="true" />
+                        </div>
                   <p
                     className="text-3xl md:text-4xl lg:text-5xl font-bold tabular-nums"
                     style={{
                       color: SUCCESS_GREEN,
-                      textShadow: `0 0 20px rgba(34,197,94,0.3)`,
+                      textShadow: `0 0 24px rgba(34,197,94,0.2)`,
                     }}
                   >
                     {statValues[i] ?? stat.value}
                   </p>
-                  <p className="text-xs md:text-sm font-medium mt-1" style={{ color: TEXT_CYAN }}>
+                  <p className="text-xs md:text-sm font-medium mt-1.5" style={{ color: TEXT_CYAN }}>
                     {stat.label}
                   </p>
                 </motion.div>
@@ -345,65 +343,55 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ========== VALUE CARDS ========== */}
+      {/* ========== VALUE CARDS — Glassmorphism ========== */}
       <section
-        className="relative py-12 md:py-16"
-        style={{ background: NAVY_DARK }}
+        className="relative py-16 md:py-24"
+        style={{ background: 'var(--color-background)' }}
       >
         <div className="container-width">
           <motion.h2
-            initial={{ opacity: 0, y: 16 }}
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="font-display text-2xl md:text-3xl lg:text-4xl font-bold mb-8 md:mb-10"
-            style={{
-              background: `linear-gradient(135deg, ${GRADIENT_PINK} 0%, ${ACCENT_BLUE} 100%)`,
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
+            className="font-display text-3xl md:text-4xl lg:text-5xl font-bold mb-10 md:mb-14 text-white"
           >
-            How We Drive Growth
+            How We <span className="text-gradient">Drive Growth</span>
           </motion.h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 md:gap-6">
             {VALUE_CARDS.map((card, i) => {
               const Icon = card.icon
               return (
                 <motion.div
                   key={card.title}
-                  initial={{ opacity: 0, y: 16 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-40px' }}
-                  transition={{ delay: i * 0.06 }}
+                  viewport={{ once: true, margin: '-50px' }}
+                  transition={{ delay: i * 0.07 }}
                   whileHover={{
-                    y: -6,
+                    y: -8,
                     scale: 1.02,
-                    boxShadow: `0 12px 40px rgba(0,212,255,0.15), 0 0 60px rgba(0,212,255,0.08)`,
+                    boxShadow: `0 16px 48px rgba(0,207,255,0.18), 0 0 70px rgba(0,207,255,0.1)`,
                   }}
-                  className="group rounded-xl border-2 p-5 md:p-6 transition-all duration-300"
-                  style={{
-                    borderColor: 'rgba(0,212,255,0.15)',
-                    backgroundColor: 'rgba(10,15,45,0.6)',
-                  }}
+                  className="group glass-card-surface p-6 md:p-7"
                 >
                   <div
-                    className="w-11 h-11 rounded-xl flex items-center justify-center mb-4 transition-colors"
-                    style={{ backgroundColor: 'rgba(0,212,255,0.15)' }}
+                    className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors"
+                    style={{ backgroundColor: 'rgba(0,207,255,0.12)' }}
                   >
-                    <Icon className="w-6 h-6" style={{ color: ACCENT_CYAN }} />
-                  </div>
-                  <h3 className="font-bold text-lg text-white mb-2">{card.title}</h3>
-                  <p className="text-sm leading-relaxed mb-4" style={{ color: TEXT_CYAN }}>
+                    <Icon className="w-6 h-6" style={{ color: ACCENT_CYAN }} aria-hidden="true" />
+        </div>
+                  <h3 className="font-bold text-lg text-white mb-2.5">{card.title}</h3>
+                  <p className="text-sm leading-relaxed mb-5" style={{ color: TEXT_CYAN }}>
                     {card.copy}
                   </p>
-                  <Link
+            <Link
                     href={card.href}
-                    className="inline-flex items-center gap-1 text-sm font-semibold transition-colors group-hover:gap-2"
+                    className="inline-flex items-center gap-1.5 text-sm font-semibold transition-all group-hover:gap-2.5"
                     style={{ color: ACCENT_CYAN }}
                   >
                     Learn More
-                    <ChevronRight className="w-4 h-4" />
-                  </Link>
+                    <ChevronRight className="w-4 h-4" aria-hidden="true" />
+            </Link>
                 </motion.div>
               )
             })}
@@ -413,30 +401,28 @@ export default function HomePage() {
 
       {/* ========== INTERACTIVE TIMELINE TEASER ========== */}
       <section
-        className="relative py-12 md:py-16 overflow-hidden"
+        className="relative py-16 md:py-24 overflow-hidden"
         style={{
-          background: `linear-gradient(180deg, ${NAVY_DEEP} 0%, rgba(2,6,23,0.95) 50%, ${NAVY_DEEP} 100%)`,
+          background: `linear-gradient(180deg, var(--color-background-alt) 0%, var(--color-background) 50%, var(--color-background-alt) 100%)`,
         }}
       >
         <div className="container-width">
-          <div className="flex flex-wrap items-center justify-between gap-4 mb-6">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-white">
+          <div className="flex flex-wrap items-center justify-between gap-6 mb-8">
+            <h2 className="font-display text-2xl md:text-3xl lg:text-4xl font-bold text-white">
               Proven Track Record
             </h2>
-            <div className="flex gap-2">
+            <div className="flex gap-2" role="group" aria-label="Filter timeline">
               {(['all', 'industry', 'expertise'] as const).map((f) => (
                 <button
                   key={f}
                   onClick={() => setTimelineFilter(f)}
-                  className={`px-4 py-2.5 rounded-xl text-sm font-semibold capitalize transition-all ${
-                    timelineFilter === f
-                      ? 'text-[#020617]'
-                      : 'border-2 text-[#67E8F9] hover:border-[#00D4FF]/50'
+                  className={`px-5 py-3 rounded-xl text-sm font-semibold capitalize transition-all ${
+                    timelineFilter === f ? 'text-navy-dark' : 'border-2 text-text-cyan hover:border-accent-cyan/60'
                   }`}
                   style={
                     timelineFilter === f
-                      ? { backgroundColor: ACCENT_CYAN, boxShadow: `0 0 24px rgba(0,212,255,0.4)` }
-                      : { borderColor: 'rgba(0,212,255,0.2)', backgroundColor: 'transparent' }
+                      ? { backgroundColor: ACCENT_CYAN, boxShadow: `0 0 28px rgba(0,207,255,0.2)` }
+                      : { borderColor: 'rgba(0,207,255,0.25)', backgroundColor: 'transparent' }
                   }
                 >
                   {f}
@@ -446,63 +432,59 @@ export default function HomePage() {
           </div>
           <div
             ref={timelineScrollRef}
-            className="flex gap-4 overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide"
+            className="flex gap-5 overflow-x-auto pb-4 -mx-4 px-4 scrollbar-hide"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {TIMELINE_ITEMS.map((item, i) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, x: 20 }}
+                initial={{ opacity: 0, x: 24 }}
                 whileInView={{ opacity: 1, x: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.05 }}
+                transition={{ delay: i * 0.06 }}
                 whileHover={{
-                  scale: 1.03,
-                  y: -4,
-                  boxShadow: `0 8px 32px rgba(0,212,255,0.12)`,
+                  scale: 1.04,
+                  y: -6,
+                  boxShadow: `0 12px 40px rgba(0,207,255,0.15)`,
                 }}
-                className="flex-shrink-0 w-[260px] md:w-[300px] rounded-xl border-2 p-5 transition-all duration-300 group"
-                style={{
-                  borderColor: 'rgba(0,212,255,0.15)',
-                  backgroundColor: 'rgba(10,15,45,0.5)',
-                }}
+                className="flex-shrink-0 w-[280px] md:w-[320px] glass-card-surface-alt p-6 group"
               >
                 <div className="flex items-center justify-between mb-3">
                   <span className="font-bold" style={{ color: SUCCESS_GREEN }}>
                     {item.year}
                   </span>
                   <motion.div
-                    animate={{ rotate: 360 }}
+                    animate={shouldReduceMotion ? {} : { rotate: 360 }}
                     transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
-                    className="w-8 h-8 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                    style={{ backgroundColor: 'rgba(0,212,255,0.2)' }}
+                    className="w-9 h-9 rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                    style={{ backgroundColor: 'rgba(0,207,255,0.15)' }}
                   >
-                    <Rocket className="w-4 h-4" style={{ color: ACCENT_CYAN }} />
+                    <Rocket className="w-5 h-5" style={{ color: ACCENT_CYAN }} aria-hidden="true" />
                   </motion.div>
                 </div>
-                <h4 className="font-semibold text-white mb-1">{item.title}</h4>
+                <h4 className="font-semibold text-white mb-1.5">{item.title}</h4>
                 <span className="text-xs" style={{ color: TEXT_CYAN }}>{item.tag}</span>
               </motion.div>
             ))}
-          </div>
+            </div>
         </div>
       </section>
 
       {/* ========== FINAL CTA ========== */}
       <section
-        className="relative py-16 md:py-24"
+        className="relative py-20 md:py-32"
         style={{
           background: `linear-gradient(180deg, ${NAVY_DEEP} 0%, ${NAVY_DARK} 50%, ${NAVY_DEEP} 100%)`,
         }}
       >
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="container-width text-center max-w-3xl mx-auto"
         >
           <h2
-            className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-5"
+            className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mb-6"
             style={{
               background: `linear-gradient(135deg, ${GRADIENT_PINK} 0%, ${ACCENT_BLUE} 100%)`,
               WebkitBackgroundClip: 'text',
@@ -511,49 +493,49 @@ export default function HomePage() {
             }}
           >
             Ready to Build Your Growth Engine?
-          </h2>
-          <p className="text-lg md:text-xl mb-10" style={{ color: TEXT_CYAN }}>
+            </h2>
+          <p className="text-lg md:text-xl lg:text-2xl mb-12" style={{ color: TEXT_CYAN }}>
             From strategy to execution — let&apos;s map your route to predictable revenue.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <Link
-              href="/contact"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-[#020617] transition-all duration-300 hover:scale-[1.03]"
+            </p>
+          <div className="flex flex-wrap items-center justify-center gap-5">
+              <Link
+                href="/contact"
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-navy-dark transition-all duration-300 hover:scale-[1.04]"
               style={{
                 backgroundColor: ACCENT_CYAN,
-                boxShadow: `0 0 40px rgba(0,212,255,0.4)`,
+                boxShadow: `0 0 45px rgba(0,207,255,0.2)`,
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.boxShadow = `0 0 60px rgba(0,212,255,0.5), 0 0 100px rgba(59,130,246,0.2)`
+                e.currentTarget.style.boxShadow = `0 0 65px rgba(0,207,255,0.2), 0 0 110px rgba(59,130,246,0.12)`
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.boxShadow = `0 0 40px rgba(0,212,255,0.4)`
+                e.currentTarget.style.boxShadow = `0 0 45px rgba(0,207,255,0.2)`
               }}
             >
-              Start a Conversation
-              <ArrowRight className="w-5 h-5" />
-            </Link>
-            <Link
-              href="/case-studies"
-              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-white border-2 transition-all duration-300 hover:scale-[1.03]"
+                  Start a Conversation
+              <ArrowRight className="w-5 h-5" aria-hidden="true" />
+              </Link>
+              <Link
+                href="/case-studies"
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-xl font-semibold text-white border-2 transition-all duration-300 hover:scale-[1.04]"
               style={{
-                borderColor: `${ACCENT_CYAN}80`,
+                borderColor: 'rgba(0,207,255,0.6)',
                 color: TEXT_CYAN,
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.borderColor = ACCENT_CYAN
-                e.currentTarget.style.boxShadow = `0 0 30px rgba(0,212,255,0.25)`
+                e.currentTarget.style.boxShadow = `0 0 35px rgba(0,207,255,0.2)`
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = `${ACCENT_CYAN}80`
+                e.currentTarget.style.borderColor = 'rgba(0,207,255,0.6)'
                 e.currentTarget.style.boxShadow = 'none'
               }}
             >
-              View Case Studies
-            </Link>
+                View Case Studies
+              </Link>
           </div>
         </motion.div>
       </section>
-    </div>
+        </div>
   )
 }

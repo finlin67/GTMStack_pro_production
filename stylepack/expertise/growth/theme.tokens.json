@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "sourceImage": ".\\inspiration\\demand-growth.png",
+    "targetPage": "app/page.tsx",
+    "generatedAt": "2026-02-11T00:33:39.840Z"
+  },
+  "palette": [
+    "#102040",
+    "#203050",
+    "#205060",
+    "#404060",
+    "#20a0a0",
+    "#a0a0b0",
+    "#207080",
+    "#9090a0",
+    "#b0b0c0",
+    "#30b0b0"
+  ],
+  "roles": {
+    "background": "#102040",
+    "backgroundAlt": "#203050",
+    "foreground": "#FFFFFF",
+    "muted": "#20a0a0",
+    "accentPrimary": "#205060",
+    "accentSecondary": "#404060",
+    "gradientStart": "#20a0a0",
+    "gradientEnd": "#404060",
+    "success": "#22C55E",
+    "highlight": "#FACC15"
+  },
+  "usageRules": {
+    "headings": "Headings are white base; gradient only on emphasized spans (1–2 phrases).",
+    "overlays": "Background overlays/glows must be subtle (10–20% opacity) and localized.",
+    "materials": "Cards use dark glass (blur + thin border + hover glow).",
+    "motion": "Premium subtle motion; respect prefers-reduced-motion."
+  }
+}

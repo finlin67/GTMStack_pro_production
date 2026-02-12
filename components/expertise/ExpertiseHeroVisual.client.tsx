@@ -41,6 +41,11 @@ function getMarketingFunctionFromPath(pathname: string): MarketingFunction | nul
     '/expertise/demand-generation': 'demand-generation',
     '/expertise/email-marketing': 'email-marketing',
     '/expertise/omnichannel-marketing': 'omnichannel-marketing',
+    '/expertise/customer-experience-cx': 'customer-experience-cx',
+    '/expertise/customer-marketing': 'customer-marketing',
+    '/expertise/event-marketing': 'event-marketing',
+    '/expertise/growth-marketing': 'growth-marketing',
+    '/expertise/lifecycle-marketing': 'lifecycle-marketing',
     '/': 'home',
   }
   return routeToFunction[pathname] || null

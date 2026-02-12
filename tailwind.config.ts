@@ -9,13 +9,16 @@ const config: Config = {
   ],
   theme: {
     extend: {
-      // Design System: Colors - Premium GTMStack Palette
+      // Design System: Colors - Premium GTMStack Palette (main.png)
       colors: {
         // Site-wide: deep navy to almost-black backgrounds
         'navy-deep': '#0A0F2D',
         'navy-dark': '#020617',
+        // Semantic background tokens
+        'bg0': '#020617',
+        'bg1': '#0A0F2D',
         // Primary accent: electric cyan to blue
-        'accent-cyan': '#00D4FF',
+        'accent-cyan': '#00CFFF',
         'accent-blue': '#3B82F6',
         // Gradient text: pink-purple to blue
         'gradient-pink': '#C026D3',
@@ -23,6 +26,7 @@ const config: Config = {
         'success-green': '#22C55E',
         // Secondary text (light cyan)
         'text-cyan': '#67E8F9',
+        'text-cyan-soft': '#67E8F9',
         // Primary ramp: deep navy → cobalt → electric blue
         brand: {
           50: '#f0f4ff',
@@ -185,8 +189,9 @@ const config: Config = {
         'glow-accent': '0 0 40px -8px rgba(249, 115, 22, 0.4)',
         'glow-violet': '0 0 40px -8px rgba(139, 92, 246, 0.4)',
         'glow-cyan': '0 0 40px -8px rgba(34, 211, 238, 0.3)',
-        'glow-electric': '0 0 40px -4px rgba(0, 212, 255, 0.5), 0 0 80px -8px rgba(59, 130, 246, 0.25)',
-        'glow-cyan-soft': '0 0 60px -15px rgba(0, 212, 255, 0.25)',
+        'glow-electric': '0 0 40px -4px rgba(0, 207, 255, 0.5), 0 0 80px -8px rgba(59, 130, 246, 0.25)',
+        'glow-cyan-soft': '0 0 60px -15px rgba(0, 207, 255, 0.25)',
+        'glow-cyan-hover': '0 0 35px rgba(0, 207, 255, 0.25)',
         'inner-soft': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.05)',
         'dark-soft': '0 2px 8px -2px rgba(0, 0, 0, 0.3), 0 4px 16px -4px rgba(0, 0, 0, 0.4)',
         'dark-medium': '0 4px 12px -2px rgba(0, 0, 0, 0.4), 0 8px 24px -4px rgba(0, 0, 0, 0.5)',
@@ -240,12 +245,20 @@ const config: Config = {
           '50%': { opacity: '0.8' },
         },
       },
-      // Design System: Background patterns
+      // Design System: Background patterns & gradients
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-brand': 'linear-gradient(135deg, #C026D3 0%, #3B82F6 100%)',
+        'gradient-bg-vertical': 'linear-gradient(180deg, #0A0F2D 0%, #020617 50%, #0A0F2D 100%)',
+        'gradient-bg-hero': 'linear-gradient(135deg, #0A0F2D 0%, #0d1338 25%, #020617 55%, #0A0F2D 100%)',
         'grid-pattern': `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.05)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e")`,
         'dot-pattern': `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='16' height='16' fill='none'%3e%3ccircle fill='rgb(148 163 184 / 0.1)' cx='10' cy='10' r='1.5'/%3e%3c/svg%3e")`,
+      },
+      // Border color for cyan glow surfaces
+      borderColor: {
+        'cyan-glow': 'rgba(0, 207, 255, 0.18)',
+        'cyan-glow-strong': 'rgba(0, 207, 255, 0.5)',
       },
     },
   },

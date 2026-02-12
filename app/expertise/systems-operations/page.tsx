@@ -13,6 +13,47 @@ import { HERO_VISUALS } from '@/lib/heroVisuals'
 import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
 import { AnimatedStatCard } from '@/components/ui/AnimatedStatCard'
 
+/** Systems & Operations reference styling — scoped to this page only */
+const SO_CSS = `
+.theme-systems-operations {
+  --bg-primary: #020617;
+  --bg-secondary: #071229;
+  --bg-card: #0B1633;
+  --brand-cyan: #22D3EE;
+  --brand-cyan-hover: #06B6D4;
+  --brand-orange: #F97316;
+  --brand-amber: #FACC15;
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  --border-subtle: #1E293B;
+}
+.theme-systems-operations { background: var(--bg-primary); min-height: 100vh; }
+.theme-systems-operations section { background: var(--bg-secondary) !important; }
+.theme-systems-operations section[class*="from-slate"],
+.theme-systems-operations section[class*="from-brand"],
+.theme-systems-operations section[class*="bg-gradient"] { background: var(--bg-secondary) !important; }
+.theme-systems-operations .card,
+.theme-systems-operations [class*="rounded-xl"][class*="border"],
+.theme-systems-operations [class*="rounded-lg"][class*="border"],
+.theme-systems-operations .dark-card { background-color: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+.theme-systems-operations .bg-slate-50 { background-color: var(--bg-card) !important; border-color: var(--border-subtle); }
+.theme-systems-operations h1, .theme-systems-operations h2, .theme-systems-operations h3 { color: var(--text-primary) !important; }
+.theme-systems-operations p, .theme-systems-operations li { color: var(--text-muted); }
+.theme-systems-operations .so-cta-primary { background: var(--brand-orange) !important; color: #fff; }
+.theme-systems-operations .so-cta-primary:hover { background: var(--brand-amber) !important; }
+.theme-systems-operations .so-accent-text { color: var(--brand-cyan); }
+.theme-systems-operations .so-muted { color: var(--text-muted); }
+.theme-systems-operations .btn.bg-brand-500 { background: var(--brand-orange) !important; color: #fff; }
+.theme-systems-operations .btn.bg-brand-500:hover { background: var(--brand-amber) !important; }
+.theme-systems-operations .bg-brand-100 { background-color: color-mix(in srgb, var(--brand-cyan) 20%, transparent) !important; }
+.theme-systems-operations .text-brand-600, .theme-systems-operations .text-brand-700 { color: var(--brand-cyan) !important; }
+.theme-systems-operations .border-brand-500\\/20 { border-color: var(--border-subtle) !important; }
+.theme-systems-operations .hover\\:border-brand-500\\/40:hover { border-color: var(--brand-cyan) !important; }
+.theme-systems-operations .from-brand-400, .theme-systems-operations .via-cool-400, .theme-systems-operations .to-cyan-400 { --tw-gradient-from: var(--brand-cyan); --tw-gradient-to: var(--brand-cyan); }
+.theme-systems-operations .text-gold-400 { color: var(--brand-amber) !important; }
+`
+
 export const metadata: Metadata = {
   title: 'Systems & Operations',
   description:
@@ -40,6 +81,8 @@ export default function SystemsOperationsPillarPage() {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: SO_CSS }} />
+      <div className="theme-systems-operations">
       {/* Hero (Dark) */}
       <HeroDark
         label="Systems & Operations"
@@ -71,19 +114,19 @@ export default function SystemsOperationsPillarPage() {
                 <h3 className="font-semibold text-slate-900 mb-3">Who this is for</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 so-accent-text" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     B2B SaaS scaling marketing ops from manual to automated
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Companies with marketing automation but underutilized
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Organizations with data quality issues impacting attribution
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Companies with long reporting cycles needing real-time visibility
                   </li>
                 </ul>
@@ -93,19 +136,19 @@ export default function SystemsOperationsPillarPage() {
                 <h3 className="font-semibold text-slate-900 mb-3">Signals you need this</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Reporting takes days or weeks, not hours
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Data quality issues causing attribution gaps or routing errors
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Lead routing is manual or broken, causing sales complaints
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Attribution unclear—marketing can&apos;t prove pipeline contribution
                   </li>
                 </ul>
@@ -155,7 +198,7 @@ export default function SystemsOperationsPillarPage() {
             <StaggerItem key={idx}>
               <div className="card p-6 h-full hover:shadow-medium transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-lg shrink-0">
+                  <div className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg shrink-0 so-accent-text" style={{ backgroundColor: 'color-mix(in srgb, var(--brand-cyan) 20%, transparent)', color: 'var(--brand-cyan)' }}>
                     {idx + 1}
                   </div>
                   <div className="flex-1">
@@ -206,20 +249,21 @@ export default function SystemsOperationsPillarPage() {
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="btn bg-white text-brand-700 hover:bg-white/90 shadow-lg px-6 py-3 text-base rounded-xl group"
+              className="btn shadow-lg px-6 py-3 text-base rounded-xl group so-cta-primary"
             >
               Get in Touch
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/expertise"
-              className="btn text-white/90 hover:text-white hover:bg-white/10 px-6 py-3 text-base rounded-xl"
+              className="btn-hero-outline"
             >
               View All Expertise
             </Link>
           </div>
         </div>
       </SectionDark>
+      </div>
     </>
   )
 }

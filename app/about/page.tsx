@@ -526,7 +526,7 @@ export default function AboutPage() {
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white bg-[#00A8A8] hover:bg-[#00C4C4] transition-all duration-300 hover:scale-[1.03] hover:shadow-[0_0_40px_rgba(0,168,168,0.45)]"
+              className="btn-cta-teal"
             >
               Start a Conversation
               <ArrowRight className="w-5 h-5" />

@@ -326,7 +326,7 @@ export default function CaseStudyDetailPage({ params }: Props) {
             </Link>
             <Link
               href="/case-studies"
-              className="btn text-white/90 hover:text-white hover:bg-white/10 px-6 py-3 text-base rounded-xl"
+              className="btn-hero-outline"
             >
               View All Case Studies
             </Link>

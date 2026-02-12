@@ -54,6 +54,42 @@ const PILLAR_TITLES: Record<PillarId, string> = {
   'systems-operations': 'Systems & Operations',
 }
 
+/** Stitch reference styling: only these 5 detail pages + content-engagement pillar */
+const STITCH_SLUGS = [
+  'content-marketing',
+  'email-marketing',
+  'social-media-marketing',
+  'video-marketing',
+  'omnichannel-marketing',
+]
+
+/** PMM.AI reference styling: only these 5 detail pages + demand-growth pillar */
+const PMM_AI_SLUGS = [
+  'demand-generation',
+  'growth-marketing',
+  'paid-advertising-sem',
+  'event-marketing',
+  'search-engine-optimization',
+]
+
+/** Strategy & Insights reference styling: only these 5 detail pages + strategy-insights pillar */
+const STRATEGY_INSIGHTS_SLUGS = [
+  'customer-experience-cx',
+  'customer-marketing',
+  'account-based-marketing-abm',
+  'lifecycle-marketing',
+  'product-marketing',
+]
+
+/** Systems & Operations reference styling: only these 5 detail pages + systems-operations pillar */
+const SYSTEMS_OPERATIONS_SLUGS = [
+  'sales-enablement',
+  'ai-in-marketing',
+  'market-research',
+  'marketing-automation',
+  'martech-optimization',
+]
+
 const DEFAULT_CHALLENGES = [
   'Traditional approaches focus on volume over strategic impact.',
   'Teams lack alignment on ICP, signals, and success definitions.',
@@ -153,6 +189,12 @@ export default function ExpertiseDetailPage({ params }: Props) {
       'systems-operations': '#0D1650',
     }[pillarId]
 
+  const useStitchTheme = STITCH_SLUGS.includes(params.slug)
+  const usePmmAiTheme = PMM_AI_SLUGS.includes(params.slug)
+  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(params.slug)
+  const useSystemsOperationsTheme =
+    SYSTEMS_OPERATIONS_SLUGS.includes(params.slug) || pillarId === 'systems-operations'
+
   return (
     <ExpertiseDetailContent
       item={item}
@@ -166,6 +208,10 @@ export default function ExpertiseDetailPage({ params }: Props) {
       relatedCaseStudies={relatedCaseStudies}
       relatedIndustries={relatedIndustries}
       heroConfig={heroConfig ? { tagline: heroConfig.tagline, metrics: heroConfig.metrics } : undefined}
+      useStitchTheme={useStitchTheme}
+      usePmmAiTheme={usePmmAiTheme}
+      useStrategyInsightsTheme={useStrategyInsightsTheme}
+      useSystemsOperationsTheme={useSystemsOperationsTheme}
     />
   )
 }

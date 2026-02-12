@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
-import { ArrowRight, Building2, Heart, Users, RefreshCw, Search, Compass, Layers, Sparkles, LineChart } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { SectionHeader } from '@/components/layout/Section'
 import { SectionDark } from '@/components/layout/SectionDark'
 import { SectionLight } from '@/components/layout/SectionLight'
@@ -12,6 +12,44 @@ import { HeroDark } from '@/components/ui/HeroDark'
 import { HERO_VISUALS } from '@/lib/heroVisuals'
 import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
 import { AnimatedStatCard } from '@/components/ui/AnimatedStatCard'
+
+/** Strategy & Insights reference styling — scoped to this page only */
+const SI_CSS = `
+.theme-strategy-insights {
+  --bg-primary: #071C22;
+  --bg-secondary: #0B2A33;
+  --bg-card: #132F38;
+  --brand-primary: #2EAADC;
+  --brand-primary-hover: #38BDF8;
+  --brand-cyan: #22D3EE;
+  --text-primary: #E6F0F3;
+  --text-secondary: #A9C0C8;
+  --text-muted: #7FA1AA;
+  --border-subtle: #16424D;
+}
+.theme-strategy-insights { background: var(--bg-primary); min-height: 100vh; }
+.theme-strategy-insights section { background: var(--bg-secondary) !important; }
+.theme-strategy-insights section[class*="from-slate"],
+.theme-strategy-insights section[class*="from-brand"],
+.theme-strategy-insights section[class*="bg-gradient"] { background: var(--bg-secondary) !important; }
+.theme-strategy-insights .card,
+.theme-strategy-insights [class*="rounded-xl"][class*="border"],
+.theme-strategy-insights [class*="rounded-lg"][class*="border"] { background-color: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+.theme-strategy-insights .bg-slate-50 { background-color: var(--bg-card) !important; border-color: var(--border-subtle); }
+.theme-strategy-insights h1, .theme-strategy-insights h2, .theme-strategy-insights h3 { color: var(--text-primary) !important; }
+.theme-strategy-insights p, .theme-strategy-insights li { color: var(--text-secondary); }
+.theme-strategy-insights .text-slate-900 { color: var(--text-primary) !important; }
+.theme-strategy-insights .text-slate-600 { color: var(--text-secondary) !important; }
+.theme-strategy-insights .text-slate-300 { color: var(--text-muted) !important; }
+.theme-strategy-insights .text-white { color: var(--text-primary) !important; }
+.theme-strategy-insights .text-white\\/90 { color: var(--text-secondary) !important; }
+.theme-strategy-insights .si-cta-primary { background: var(--brand-primary) !important; color: #fff; }
+.theme-strategy-insights .si-cta-primary:hover { background: var(--brand-primary-hover) !important; }
+.theme-strategy-insights .btn.bg-brand-500 { background: var(--brand-primary) !important; }
+.theme-strategy-insights .btn.bg-brand-500:hover { background: var(--brand-primary-hover) !important; }
+.theme-strategy-insights .si-accent-text { color: var(--brand-cyan); }
+.theme-strategy-insights .si-muted { color: var(--text-muted); }
+`
 
 export const metadata: Metadata = {
   title: 'Strategy & Insights',
@@ -40,6 +78,8 @@ export default function StrategyInsightsPillarPage() {
 
   return (
     <>
+      <style dangerouslySetInnerHTML={{ __html: SI_CSS }} />
+      <div className="theme-strategy-insights">
       {/* Hero (Dark) */}
       <HeroDark
         label="Strategy & Insights"
@@ -71,19 +111,19 @@ export default function StrategyInsightsPillarPage() {
                 <h3 className="font-semibold text-slate-900 mb-3">Who this is for</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0 si-accent-text" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Enterprise B2B targeting named accounts with long sales cycles
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Companies with sales-led motion needing marketing that supports ABM
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Series B+ SaaS scaling from lead gen to account-based revenue
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Organizations with sales-marketing misalignment needing unified strategy
                   </li>
                 </ul>
@@ -93,19 +133,19 @@ export default function StrategyInsightsPillarPage() {
                 <h3 className="font-semibold text-slate-900 mb-3">Signals you need this</h3>
                 <ul className="space-y-2 text-sm text-slate-600">
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Marketing generating leads but sales says &quot;wrong accounts&quot;
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     High lead volume but low conversion and long sales cycles
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Sales and marketing working different account lists
                   </li>
                   <li className="flex items-start gap-2">
-                    <div className="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5 shrink-0" />
+                    <div className="w-1.5 h-1.5 rounded-full mt-1.5 shrink-0" style={{ backgroundColor: 'var(--brand-cyan)' }} />
                     Account selection based on gut feel, not data-driven scoring
                   </li>
                 </ul>
@@ -155,7 +195,10 @@ export default function StrategyInsightsPillarPage() {
             <StaggerItem key={idx}>
               <div className="card p-6 h-full hover:shadow-medium transition-all duration-300">
                 <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-brand-100 flex items-center justify-center text-brand-600 font-bold text-lg shrink-0">
+                  <div
+                    className="w-10 h-10 rounded-lg flex items-center justify-center font-bold text-lg shrink-0"
+                    style={{ backgroundColor: 'color-mix(in srgb, var(--brand-primary) 20%, transparent)', color: 'var(--brand-primary)' }}
+                  >
                     {idx + 1}
                   </div>
                   <div className="flex-1">
@@ -180,12 +223,17 @@ export default function StrategyInsightsPillarPage() {
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {proof.map((stat, idx) => (
             <AnimatedStatCard key={idx} index={idx}>
-              <div className="dark-card p-8 text-center border-brand-500/20 hover:border-brand-500/40 transition-all duration-300">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand-400 via-cool-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+              <div
+                className="dark-card p-8 text-center border border-[rgba(64,64,80,0.4)] hover:border-[rgba(64,64,80,0.6)] transition-all duration-300"
+              >
+                <div
+                  className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent mb-2 si-accent-text"
+                  style={{ color: 'var(--brand-cyan)' }}
+                >
                   {stat.value}
                 </div>
                 <p className="text-sm text-slate-300 mb-1">{stat.label}</p>
-                <p className="text-xs text-gold-400">{stat.detail}</p>
+                <p className="text-xs si-accent-text" style={{ color: 'var(--brand-cyan)' }}>{stat.detail}</p>
               </div>
             </AnimatedStatCard>
           ))}
@@ -206,20 +254,21 @@ export default function StrategyInsightsPillarPage() {
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="btn bg-white text-brand-700 hover:bg-white/90 shadow-lg px-6 py-3 text-base rounded-xl group"
+              className="btn shadow-lg px-6 py-3 text-base rounded-xl group si-cta-primary"
             >
               Get in Touch
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/expertise"
-              className="btn text-white/90 hover:text-white hover:bg-white/10 px-6 py-3 text-base rounded-xl"
+              className="btn-hero-outline"
             >
               View All Expertise
             </Link>
           </div>
         </div>
       </SectionDark>
+      </div>
     </>
   )
 }

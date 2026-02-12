@@ -12,9 +12,9 @@
   --color-foreground: #FFFFFF;
   --color-foreground-muted: #67E8F9;
   --color-border: rgba(255, 255, 255, 0.08);
-  --color-border-strong: rgba(0, 212, 255, 0.3);
-  /* Accent tokens */
-  --color-accent-primary: #00D4FF;
+  --color-border-strong: rgba(0, 207, 255, 0.3);
+  /* Accent tokens (main.png palette) */
+  --color-accent-primary: #00CFFF;
   --color-accent-secondary: #3B82F6;
   --color-gradient-start: #C026D3;
   --color-gradient-end: #3B82F6;
@@ -47,40 +47,49 @@
 /* Base layer overrides */
 @layer base {
   html {
-    scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html {
+      scroll-behavior: smooth;
+    }
+  }
   
   body {
-    @apply bg-slate-50 text-slate-900;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
   }
   
   ::selection {
-    @apply bg-brand-200 text-brand-950;
+    background-color: rgba(0, 207, 255, 0.25);
+    color: #FFFFFF;
   }
   
   /* Focus styles */
   *:focus-visible {
     @apply outline-none ring-2 ring-brand-500 ring-offset-2;
+    --tw-ring-offset-color: var(--color-background);
   }
   
-  /* Smooth scrollbar */
+  /* Smooth scrollbar - dark compatible */
   ::-webkit-scrollbar {
     width: 8px;
     height: 8px;
   }
   
   ::-webkit-scrollbar-track {
-    @apply bg-slate-100;
+    background-color: var(--color-background);
   }
   
   ::-webkit-scrollbar-thumb {
-    @apply bg-slate-300 rounded-full;
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
   }
   
   ::-webkit-scrollbar-thumb:hover {
-    @apply bg-slate-400;
+    background-color: rgba(255, 255, 255, 0.25);
   }
 }
 
@@ -102,6 +111,93 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  /* Glass card surface - dark sections (main.png style) */
+  .glass-card-surface {
+    @apply rounded-2xl border-2 backdrop-blur-md transition-all duration-300;
+    background-color: rgba(10, 15, 45, 0.6);
+    border-color: rgba(0, 207, 255, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-card-surface:hover {
+    border-color: rgba(0, 207, 255, 0.35);
+    box-shadow: 0 16px 48px rgba(0, 207, 255, 0.18), 0 0 70px rgba(0, 207, 255, 0.1);
+  }
+
+  /* Slightly lighter variant for stats / compact grids */
+  .glass-card-surface-alt {
+    @apply rounded-2xl border-2 backdrop-blur-md transition-all duration-300;
+    background-color: rgba(10, 15, 45, 0.55);
+    border-color: rgba(0, 207, 255, 0.18);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
+  }
+
+  .glass-card-surface-alt:hover {
+    border-color: rgba(0, 207, 255, 0.35);
+    box-shadow: 0 16px 48px rgba(0, 207, 255, 0.18), 0 0 70px rgba(0, 207, 255, 0.1);
+  }
+
+  /* Thin border with cyan glow on hover */
+  .border-cyan-glow {
+    @apply border-2 transition-all duration-300;
+    border-color: rgba(0, 207, 255, 0.18);
+  }
+
+  .border-cyan-glow:hover {
+    border-color: rgba(0, 207, 255, 0.5);
+    box-shadow: 0 0 35px rgba(0, 207, 255, 0.25);
+  }
+
+  /* CTA button - primary (cyan fill) */
+  .btn-cta-primary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold transition-all duration-300 hover:scale-[1.03];
+    background-color: #00CFFF;
+    color: #020617;
+    box-shadow: 0 0 30px rgba(0, 207, 255, 0.4);
+  }
+
+  .btn-cta-primary:hover {
+    box-shadow: 0 0 50px rgba(0, 207, 255, 0.6), 0 0 90px rgba(59, 130, 246, 0.25);
+  }
+
+  /* CTA button - secondary (outline) */
+  .btn-cta-secondary {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold border-2 transition-all duration-300 hover:scale-[1.03];
+    border-color: rgba(0, 207, 255, 0.5);
+    color: #67E8F9;
+  }
+
+  .btn-cta-secondary:hover {
+    border-color: #00CFFF;
+    box-shadow: 0 0 35px rgba(0, 207, 255, 0.25);
+  }
+
+  /* CTA on dark sections - teal fill (industry/expertise/about/blog) */
+  .btn-cta-teal {
+    @apply inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.05];
+    background-color: #00A8A8;
+    box-shadow: 0 0 60px rgba(0, 168, 168, 0.2);
+  }
+
+  .btn-cta-teal:hover {
+    box-shadow: 0 0 60px rgba(0, 168, 168, 0.6);
+  }
+
+  .btn-cta-teal-sm {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.04];
+    background-color: #00A8A8;
+    box-shadow: 0 0 40px rgba(0, 168, 168, 0.2);
+  }
+
+  .btn-cta-teal-sm:hover {
+    box-shadow: 0 0 40px rgba(0, 168, 168, 0.6);
+  }
+
+  /* Secondary button on dark hero sections */
+  .btn-hero-outline {
+    @apply btn text-white/90 hover:text-white hover:bg-white/10 px-6 py-3 text-base rounded-xl border border-white/20 transition-all duration-300;
   }
   
   /* Card base styles */
@@ -178,6 +274,11 @@
   /* Grid pattern background */
   .bg-grid {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(148 163 184 / 0.06)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
+  }
+
+  /* Grid for dark sections (subtle cyan tint) */
+  .bg-grid-dark {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(0 207 255 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
   }
   
   /* Dot pattern background */
@@ -415,6 +516,85 @@
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40' width='40' height='40'%3e%3cpath d='M0 0 L40 0 M0 0 L0 40' stroke='rgb(90 108 242)' stroke-width='0.4' fill='none'/%3e%3c/svg%3e");
     background-size: 40px 40px;
   }
+}
+
+/* ========== Demand & Growth pillar theme (scoped only) ========== */
+/* Source: stylepack/expertise/growth/STYLE_SPEC.MD + theme.tokens.json */
+.theme-demand-growth {
+  --dg-background: #102040;
+  --dg-background-alt: #203050;
+  --dg-foreground: #FFFFFF;
+  --dg-muted: #20a0a0;
+  --dg-accent-primary: #205060;
+  --dg-accent-secondary: #404060;
+  --dg-gradient-start: #20a0a0;
+  --dg-gradient-end: #404060;
+  --dg-success: #22C55E;
+  --dg-highlight: #FACC15;
+}
+
+/* Hero: Demand & Growth gradient */
+.theme-demand-growth .pillar-dg-hero {
+  background: linear-gradient(135deg, var(--dg-background) 0%, var(--dg-background-alt) 30%, var(--dg-background) 55%, var(--dg-background-alt) 100%) !important;
+}
+
+/* Dark sections: use Demand & Growth gradient (to-b: alt → base) */
+.theme-demand-growth .pillar-dg-dark {
+  background: linear-gradient(to bottom, var(--dg-background-alt) 0%, var(--dg-background) 100%) !important;
+}
+
+/* Accent bullets and list markers (teal/muted) */
+.theme-demand-growth [class*="bg-brand-500"] {
+  background-color: var(--dg-muted) !important;
+}
+
+.theme-demand-growth [class*="bg-brand-100"] {
+  background-color: color-mix(in srgb, var(--dg-muted) 22%, transparent) !important;
+}
+
+.theme-demand-growth [class*="text-brand-600"] {
+  color: var(--dg-accent-primary) !important;
+}
+
+/* Card borders and dark cards */
+.theme-demand-growth .dark-card,
+.theme-demand-growth [class*="border-brand-500"] {
+  border-color: color-mix(in srgb, var(--dg-muted) 40%, transparent) !important;
+}
+
+.theme-demand-growth .dark-card:hover,
+.theme-demand-growth [class*="hover:border-brand-500"]:hover {
+  border-color: color-mix(in srgb, var(--dg-muted) 60%, transparent) !important;
+}
+
+/* Stat value gradient: Demand & Growth gradient (muted → accentSecondary) */
+.theme-demand-growth .dark-card [class*="bg-gradient-to-r"],
+.theme-demand-growth [class*="bg-clip-text"][class*="from-brand"] {
+  background: linear-gradient(135deg, var(--dg-gradient-start) 0%, var(--dg-gradient-end) 100%) !important;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Highlight metric (e.g. stat detail line) */
+.theme-demand-growth .text-gold-400,
+.theme-demand-growth [class*="text-gold-400"] {
+  color: var(--dg-highlight) !important;
+}
+
+/* Primary CTA button (filled) - white bg, accent text */
+.theme-demand-growth .btn.bg-white {
+  background-color: #fff !important;
+  color: var(--dg-accent-primary) !important;
+}
+
+.theme-demand-growth .btn.bg-white:hover {
+  background-color: rgba(255,255,255,0.9) !important;
+}
+
+/* CTA section gradient */
+.theme-demand-growth .pillar-dg-cta {
+  background: linear-gradient(135deg, var(--dg-accent-primary) 0%, var(--dg-accent-secondary) 50%, var(--dg-background) 100%) !important;
 }
 
 /* Animation delay utilities */

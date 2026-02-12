@@ -1,14 +1,65 @@
-Route,Title,Media Type,Local File Name,Notes
-/,GTMStack,animation,GTMStackPro.tsx,hero-tiles
-/expertise/account-based-marketing-abm,ABM,animation,ABM-Pipeline-Strategy.tsx,hero-tiles
-/expertise/demand-generation,Demand Generation,animation,DemandGenFlow.tsx,hero-tiles
-/expertise/marketing-automation,Marketing Automation,animation,Marketing-Automation-Live-Feed.tsx,hero-tiles
-/expertise/marketing-operations,Marketing Operations,animation,Marketing-Analytics-Carousel.tsx,hero-tiles
-/expertise/marketing-operations,Marketing Operations,animation,PipelineDashboard.tsx,hero-tiles
-/expertise/omnichannel-marketing,Omnichannel Marketing,animation,QuantumDashboard.tsx,hero-tiles
-/expertise/omnichannel-marketing,Omnichannel Marketing,animation,Omni-Analytics.tsx,hero-tiles
-/expertise/search-engine-optimization,SEO,animation,SEO-GrowthFlow.tsx,hero-tiles
-/expertise/video-marketing,Video Marketing,animation,Video-Marketing-Analytics.tsx,hero-tiles
-/industries/manufacturing,Manufacturing,animation,IndustrialDashboard.tsx,hero-tiles
-/industries/manufacturing,Manufacturing,animation,Industrial-MFG-Tile.tsx,hero-tiles
-/expertise/marketing-automation,Marketing Automation,animation,Live-Email-Automation.tsx,hero-tiles
+Route,Title,Local File Name,Update-Library,Media Type,Notes
+/expertise/account-based-marketing-abm,ABM,abm-network-dashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/account-based-marketing-abm,ABM,ABM-Pipeline-Strategy.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/account-based-marketing-abm,ABM,ABM-Radar-Analysis.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/account-based-marketing-abm,ABM,ABMTileAnimation.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/content-marketing,Content Marketing,CampaignTile.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/content-marketing,Content Marketing,Content-Engagement-Marketing.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/content-marketing,Content Marketing,ContentMarketing.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/content-marketing,Content Marketing,Content-Marketing.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/customer-experience-cx,Customer Experience (CX),ContentMarketingAnimation.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/customer-experience-cx,Customer Experience (CX),GTMAudienceTileHero.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/customer-marketing,Customer Marketing,ContentMarketingHero.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/customer-marketing,Customer Marketing,CRMCampaignsTile.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/demand-generation,Demand Generation,DemandGenerationHero.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/demand-generation,Demand Generation,DemandGenFlow.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/demand-generation,Demand Generation,DemandGenTile.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/developer-tools/,Developer Tools & DevOps,Developer-Marketing.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/developer-tools/,Developer Tools & DevOps,DevMarketers.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/email-marketing,Email Marketing,DemandGenerationHeroTile.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/email-marketing,Email Marketing,EmailMarketingHero.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/event-marketing,Event Marketing,EventMarketing.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/event-marketing,Event Marketing,ExecutiveLogisticsDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/growth-marketing,Growth Marketing,ContentGrowthDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/growth-marketing,Growth Marketing,GrowthMarketingHero.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/education/,K-12 and High-Education,EduMarketersDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/education/,K-12 and High-Education,HigherEDMarketingTile.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/lifecycle-marketing,Lifecycle Marketing,ApexShieldLifecycleEngine.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/lifecycle-marketing,Lifecycle Marketing,NexusStakeholderPortal.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/manufacturing,Manufacturing,IndustrialDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/manufacturing/,Manufacturing,Manufacturing-LifecycleDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/marketing-operations,Marketing Operations,Marketing-Analytics-Carousel.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/marketing-operations,Marketing Operations,MarketingOperationsTile.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/marketing-operations,Marketing Operations,PipelineDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/omnichannel-marketing,Omnichannel Marketing,Omni-Analytics.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/omnichannel-marketing,Omnichannel Marketing,QuantumDashboard.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/search-engine-optimization,SEO,SEOAnimation.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/search-engine-optimization,SEO,SEO-GrowthFlow.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/video-marketing,Video Marketing,Video-Marketing-Analytics.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/video-marketing,Video Marketing,Video-Marketing-Analytics-Tile.tsx,src/data/animations.ts,animation,hero-tiles
+/expertise/video-marketing,Video Marketing,VideoMarketingHero.tsx,src/data/animations.ts,animation,hero-tiles
+/industries/ai-ml/,AI - ML,GTMStackPro.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/ai-in-marketing,AI in Marketing,AIGrowth.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/b2b-saas/,B2B SaaS,RevOpsMeshTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/content-engagement,Content & Engagement,ContentEngagementTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/cybersecurity/,Cybersecurity,OmnichannelLiveAnalytics.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/demand-and-growth,Demand & Growth,DemandGrowthTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/energy-utilities/,Energy: Oil & Gas,EnergyGridTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/,Expertise,GtmCoreTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/financial-services/,Financial Services,WealthManageTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/fleet-management-logistics/,Fleet Management and Logistics,SystemsProcessTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/,GTMStack,AIGrowth.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/healthcare/,Healthcare & Health Technology,HealthCareTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/marketing-automation,Marketing Automation,Marketing-Automation-Live-Feed.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/sales-enablement,Sales Enablement,SalesEnablementTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/social-media-marketing,Social Media Marketing,SocialMediaTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/telecommunications/,Telecommunications,TelcoAITile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/waste-management/,Waste Management,WasteMan.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/paid-advertising,Paid Advertising (SEM),GrowthSEMTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/product-marketing,Product Marketing,ProductGTMTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/public-sector-governement/,Public Sector and Government,PubSecTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/retail/,Retail & Ecommerce,OmniRetailTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/strategy-insights,Strategy & Insights,StrategyInsightsTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/systems-operations,Systems & Operations,PlgJourneyDashboard.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/expertise/martech-optimization,MarTech Optimization,MarTechTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles
+/industries/non-profit-ngo/,Non-profit NGO,NGOTile.tsx,lib/heroVisualRegistry.ts,animation,hero-tiles

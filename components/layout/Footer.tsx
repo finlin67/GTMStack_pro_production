@@ -132,10 +132,10 @@ export function Footer() {
             © {new Date().getFullYear()} GTMstack.pro. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-300 transition-colors">
+            <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">
               Privacy
             </Link>
-            <Link href="/terms" className="text-sm text-slate-500 hover:text-slate-300 transition-colors">
+            <Link href="/terms" className="text-sm text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">
               Terms
             </Link>
           </div>

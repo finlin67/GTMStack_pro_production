@@ -123,6 +123,15 @@ All components follow consistent patterns:
 - Button variants: primary, secondary, accent, ghost, outline
 - Animation: FadeIn, StaggerContainer, HoverScale
 
+## Blog (WordPress)
+
+The blog is powered by **headless WordPress**. Content is authored in WordPress and fetched via the REST API. See **[docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md](docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md)** for:
+
+- Architecture & API integration
+- Environment variables (`NEXT_PUBLIC_WORDPRESS_API_URL`, `WORDPRESS_API_URL`)
+- Managing content in WordPress
+- Extending the blog and troubleshooting
+
 ## Content Management
 
 Content is managed through TypeScript files in `/content/`:

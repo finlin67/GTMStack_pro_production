@@ -16,8 +16,8 @@ const ExpertiseHeroVisual = dynamic(
   {
     ssr: false,
     loading: () => (
-      <div className="absolute inset-0 rounded-2xl bg-[#0A0F2D]/80 animate-pulse flex items-center justify-center">
-        <div className="w-8 h-8 border-2 border-[#36C0CF]/40 border-t-[#36C0CF] rounded-full animate-spin" />
+      <div className="absolute inset-0 rounded-2xl bg-navy-deep/80 animate-pulse flex items-center justify-center">
+        <div className="w-8 h-8 border-2 border-cyan-400/40 border-t-cyan-400 rounded-full animate-spin" />
       </div>
     ),
   }
@@ -27,6 +27,167 @@ const CYAN = '#36C0CF'
 const BLUE = '#146EF5'
 const TEAL = '#00A8A8'
 const GOLD = '#FFD700'
+
+/** Demand & Growth pillar theme — stylepack/expertise/growth/theme.tokens.json */
+const DG_THEME = {
+  background: '#102040',
+  backgroundAlt: '#203050',
+  foreground: '#FFFFFF',
+  muted: '#20a0a0',
+  accentPrimary: '#205060',
+  accentSecondary: '#404060',
+  gradientStart: '#20a0a0',
+  gradientEnd: '#404060',
+  success: '#22C55E',
+  highlight: '#FACC15',
+  ctaGradient: false,
+}
+
+/** Stitch reference — only for 6 Content & Engagement pages (exact tokens) */
+const STITCH_THEME = {
+  background: '#0f172a',
+  backgroundAlt: '#1e40af',
+  foreground: '#FFFFFF',
+  muted: '#3b82f6',
+  accentPrimary: 'var(--orange-grad)',
+  accentSecondary: '#7dd3fc',
+  gradientStart: '#1e3a8a',
+  gradientEnd: '#7dd3fc',
+  success: '#22C55E',
+  highlight: '#fbbf24',
+  ctaGradient: true,
+}
+
+const STITCH_CSS = `
+.stitch-content-engagement {
+  --primary: #3b82f6;
+  --background-dark: #0f172a;
+  --blue-grad: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #7dd3fc 100%);
+  --orange-grad: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  --header-footer-grad: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+}
+.stitch-content-engagement { background: var(--background-dark); min-height: 100vh; }
+.stitch-content-engagement section[class*="from-slate"],
+.stitch-content-engagement section[class*="from-brand"] { background: var(--background-dark) !important; }
+.stitch-content-engagement .stitch-accent-text { background: var(--blue-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+`
+
+/** PMM.AI reference — only for 6 Demand & Growth pages (exact tokens) */
+const PMM_AI_THEME = {
+  background: '#0b1720',
+  backgroundAlt: '#0f2632',
+  foreground: '#FFFFFF',
+  muted: '#2ea7ff',
+  accentPrimary: 'var(--orange-grad)',
+  accentSecondary: '#7dd3fc',
+  gradientStart: '#1e3a8a',
+  gradientEnd: '#7dd3fc',
+  success: '#22C55E',
+  highlight: '#fbbf24',
+  ctaGradient: true,
+}
+
+const PMM_AI_CSS = `
+.theme-demand-growth {
+  --primary: #2ea7ff;
+  --background-dark: #0b1720;
+  --panel-bg: #0f2632;
+  --muted-text: rgba(255,255,255,0.70);
+  --blue-grad: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #7dd3fc 100%);
+  --orange-grad: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  --header-footer-grad: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+}
+.theme-demand-growth { background: var(--background-dark); min-height: 100vh; }
+/* Force PMM.AI canvas on all dark sections */
+.theme-demand-growth section:not([class*="bg-white"]):not([class*="bg-slate-50"]) { background: var(--background-dark) !important; }
+.theme-demand-growth section[class*="from-slate"],
+.theme-demand-growth section[class*="from-brand"],
+.theme-demand-growth section[class*="bg-gradient"] { background: var(--background-dark) !important; }
+/* Panels/cards use panel-bg */
+.theme-demand-growth .dark-card,
+.theme-demand-growth [class*="border-brand"] { background-color: var(--panel-bg) !important; border-color: rgba(255,255,255,0.1) !important; }
+/* Blue gradient for emphasized text only */
+.theme-demand-growth .pmm-accent-text { background: var(--blue-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+/* Orange gradient for primary CTAs only */
+.theme-demand-growth .pmm-cta-primary { background: var(--orange-grad) !important; color: #fff; }
+/* Muted text */
+.theme-demand-growth .pmm-muted { color: var(--muted-text); }
+`
+
+/** Strategy & Insights reference — only for 6 pages (pillar + 5 detail slugs); deep teal-navy + cyan/blue */
+const SI_THEME = {
+  background: '#071C22',
+  backgroundAlt: '#0B2A33',
+  foreground: '#E6F0F3',
+  muted: '#7FA1AA',
+  accentPrimary: '#2EAADC',
+  accentSecondary: '#22D3EE',
+  highlight: '#22D3EE',
+}
+
+const STRATEGY_INSIGHTS_CSS = `
+.theme-strategy-insights {
+  --bg-primary: #071C22;
+  --bg-secondary: #0B2A33;
+  --bg-card: #132F38;
+  --brand-primary: #2EAADC;
+  --brand-primary-hover: #38BDF8;
+  --brand-cyan: #22D3EE;
+  --text-primary: #E6F0F3;
+  --text-secondary: #A9C0C8;
+  --text-muted: #7FA1AA;
+  --border-subtle: #16424D;
+}
+.theme-strategy-insights { background: var(--bg-primary); min-height: 100vh; }
+.theme-strategy-insights section:not([class*="bg-white"]):not([class*="bg-slate-50"]) { background: var(--bg-secondary) !important; }
+.theme-strategy-insights section[class*="from-slate"],
+.theme-strategy-insights section[class*="from-brand"],
+.theme-strategy-insights section[class*="bg-gradient"] { background: var(--bg-secondary) !important; }
+.theme-strategy-insights .dark-card,
+.theme-strategy-insights [class*="border-brand"] { background-color: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+.theme-strategy-insights .si-cta-primary { background: var(--brand-primary) !important; color: #fff; }
+.theme-strategy-insights .si-cta-primary:hover { background: var(--brand-primary-hover) !important; }
+.theme-strategy-insights .si-accent-text { color: var(--brand-cyan); }
+.theme-strategy-insights .si-muted { color: var(--text-muted); }
+`
+
+/** Systems & Operations reference — only for 6 pages (pillar + 5 detail slugs); deep navy + cyan + orange/amber */
+const SO_THEME = {
+  background: '#020617',
+  backgroundAlt: '#071229',
+  foreground: '#F8FAFC',
+  muted: '#22D3EE',
+  accentPrimary: '#F97316',
+  accentSecondary: '#22D3EE',
+  highlight: '#FACC15',
+}
+
+const SYSTEMS_OPERATIONS_CSS = `
+.theme-systems-operations {
+  --bg-primary: #020617;
+  --bg-secondary: #071229;
+  --bg-card: #0B1633;
+  --brand-cyan: #22D3EE;
+  --brand-cyan-hover: #06B6D4;
+  --brand-orange: #F97316;
+  --brand-amber: #FACC15;
+  --text-primary: #F8FAFC;
+  --text-muted: #94A3B8;
+  --text-dim: #64748B;
+  --border-subtle: #1E293B;
+}
+.theme-systems-operations { background: var(--bg-primary); min-height: 100vh; }
+.theme-systems-operations section:not([class*="bg-white"]):not([class*="bg-slate-50"]) { background: var(--bg-secondary) !important; }
+.theme-systems-operations section[class*="from-slate"],
+.theme-systems-operations section[class*="from-brand"],
+.theme-systems-operations section[class*="bg-gradient"] { background: var(--bg-secondary) !important; }
+.theme-systems-operations .dark-card,
+.theme-systems-operations [class*="border-brand"] { background-color: var(--bg-card) !important; border-color: var(--border-subtle) !important; }
+.theme-systems-operations .so-cta-primary { background: var(--brand-orange) !important; color: #fff; }
+.theme-systems-operations .so-cta-primary:hover { background: var(--brand-amber) !important; }
+.theme-systems-operations .so-accent-text { color: var(--brand-cyan); }
+.theme-systems-operations .so-muted { color: var(--text-muted); }
+`
 
 export type PillarId = 'content-engagement' | 'demand-growth' | 'strategy-insights' | 'systems-operations'
 
@@ -73,6 +234,10 @@ interface ExpertiseDetailContentProps {
   relatedCaseStudies: CaseStudyItem[]
   relatedIndustries: IndustryItem[]
   heroConfig?: { tagline?: string; metrics?: { label: string; value: string }[] }
+  useStitchTheme?: boolean
+  usePmmAiTheme?: boolean
+  useStrategyInsightsTheme?: boolean
+  useSystemsOperationsTheme?: boolean
 }
 
 export function ExpertiseDetailContent({
@@ -87,6 +252,10 @@ export function ExpertiseDetailContent({
   relatedCaseStudies,
   relatedIndustries,
   heroConfig,
+  useStitchTheme = false,
+  usePmmAiTheme = false,
+  useStrategyInsightsTheme = false,
+  useSystemsOperationsTheme = false,
 }: ExpertiseDetailContentProps) {
   const challengesRef = useRef<HTMLDivElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
@@ -122,22 +291,49 @@ export function ExpertiseDetailContent({
   const IconComponent = Icons[(item.icon || 'Sparkles') as IconName] as React.ComponentType<{ className?: string }> | undefined
   const tagline = heroConfig?.tagline ?? item.description ?? item.positioning ?? ''
 
-  return (
-    <div className="min-h-screen bg-[#0A0F2D] text-white">
+  const isDemandGrowth = pillarId === 'demand-growth'
+  const theme = usePmmAiTheme
+    ? PMM_AI_THEME
+    : useStitchTheme
+      ? STITCH_THEME
+      : useStrategyInsightsTheme
+        ? SI_THEME
+        : useSystemsOperationsTheme
+          ? SO_THEME
+          : isDemandGrowth
+            ? DG_THEME
+            : null
+  const bg = theme ? theme.background : 'var(--color-background-alt)'
+  const bgAlt = theme ? theme.backgroundAlt : 'var(--color-background-alt)'
+  const bgDark = theme ? theme.background : 'var(--color-background)'
+  const accent = theme ? theme.muted : CYAN
+  const accent2 = theme ? theme.accentSecondary : BLUE
+  const ctaBg = theme ? theme.accentPrimary : TEAL
+  const ctaGradient = theme && 'ctaGradient' in theme && theme.ctaGradient
+  const highlightColor = theme ? theme.highlight : GOLD
+  const heroGradient =
+    usePmmAiTheme || useStitchTheme
+      ? 'var(--background-dark)'
+      : useStrategyInsightsTheme || useSystemsOperationsTheme
+        ? 'var(--bg-primary)'
+        : theme && isDemandGrowth
+          ? `linear-gradient(135deg, ${theme.background} 0%, ${theme.backgroundAlt} 30%, ${theme.background} 50%, ${theme.backgroundAlt} 70%, ${theme.background} 100%)`
+          : `linear-gradient(135deg, var(--color-background-alt) 0%, var(--color-background-alt) 30%, ${pillarTintOverlay} 50%, var(--color-background-alt) 70%, var(--color-background-alt) 100%)`
+
+  const content = (
+    <div className="min-h-screen text-white" style={theme ? { backgroundColor: bg } : { backgroundColor: 'var(--color-background-alt)' }}>
       {/* ========== HERO ========== */}
       <section
         className="relative overflow-hidden pt-8 pb-6 md:pt-12 md:pb-8"
-        style={{
-          background: `linear-gradient(135deg, #0A0F2D 0%, #0D1540 30%, ${pillarTintOverlay} 50%, #0D1540 70%, #0A0F2D 100%)`,
-        }}
+        style={{ background: heroGradient }}
       >
         <div className="pointer-events-none absolute inset-0 z-0 opacity-70">
           <svg viewBox="0 0 1200 600" className="h-full w-full" preserveAspectRatio="xMidYMid slice">
             <defs>
               <linearGradient id={`heroGrad-${pillarId}`} x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor={BLUE} stopOpacity="0.6" />
-                <stop offset="50%" stopColor={CYAN} stopOpacity="0.7" />
-                <stop offset="100%" stopColor={BLUE} stopOpacity="0.5" />
+                <stop offset="0%" stopColor={accent2} stopOpacity="0.6" />
+                <stop offset="50%" stopColor={accent} stopOpacity="0.7" />
+                <stop offset="100%" stopColor={accent2} stopOpacity="0.5" />
               </linearGradient>
             </defs>
             <g stroke={`url(#heroGrad-${pillarId})`} strokeWidth="2.5" fill="none" strokeLinecap="round">
@@ -165,12 +361,12 @@ export function ExpertiseDetailContent({
           </svg>
         </div>
         <div className="container-width relative z-10">
-          <nav className="flex items-center gap-2 text-xs md:text-sm mb-3 text-[#F0F0F0]" aria-label="Breadcrumb">
-            <Link href="/" className="hover:text-[#36C0CF] transition-colors">Home</Link>
+          <nav className="flex items-center gap-2 text-xs md:text-sm mb-3 text-white/90" aria-label="Breadcrumb">
+            <Link href="/" className="transition-colors hover:opacity-90" style={{ color: accent }}>Home</Link>
             <span className="text-white/60">/</span>
-            <Link href="/expertise" className="hover:text-[#36C0CF] transition-colors">Expertise</Link>
+            <Link href="/expertise" className="transition-colors hover:opacity-90" style={{ color: accent }}>Expertise</Link>
             <span className="text-white/60">/</span>
-            <Link href={`/expertise/${pillarId}`} className="hover:text-[#36C0CF] transition-colors">
+            <Link href={`/expertise/${pillarId}`} className="transition-colors hover:opacity-90" style={{ color: accent }}>
               {pillarTitle}
             </Link>
             <span className="text-white/60">/</span>
@@ -182,21 +378,21 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border text-xs mb-2"
-                style={{ borderColor: `${CYAN}60`, backgroundColor: `${CYAN}20` }}
+                style={{ borderColor: `${accent}99`, backgroundColor: `${accent}33` }}
               >
                 {IconComponent && (
-                  <span className="inline-flex text-[#36C0CF]">
+                  <span className="inline-flex" style={{ color: accent }}>
                     <IconComponent className="w-3.5 h-3.5" />
                   </span>
                 )}
-                <span className="text-[#36C0CF] font-medium">{pillarTitle}</span>
+                <span className="font-medium" style={{ color: accent }}>{pillarTitle}</span>
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
                 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-white"
-                style={{ textShadow: `0 0 40px rgba(54,192,207,0.5), 0 0 80px rgba(54,192,207,0.3)` }}
+                style={{ textShadow: theme ? `0 0 40px ${accent}80, 0 0 80px ${accent}33` : `0 0 40px rgba(54,192,207,0.2), 0 0 80px rgba(54,192,207,0.15)` }}
               >
                 {item.title} Expertise
               </motion.h1>
@@ -204,7 +400,7 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.08 }}
-                className="mt-2 text-base md:text-lg text-[#F0F0F0] max-w-2xl font-medium"
+                className="mt-2 text-base md:text-lg text-white/90 max-w-2xl font-medium"
               >
                 {tagline}
               </motion.p>
@@ -216,8 +412,14 @@ export function ExpertiseDetailContent({
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_rgba(0,168,168,0.6)]"
-                  style={{ backgroundColor: TEAL }}
+                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.04] ${usePmmAiTheme ? 'pmm-cta-primary' : ''} ${useStrategyInsightsTheme ? 'si-cta-primary' : ''} ${useSystemsOperationsTheme ? 'so-cta-primary' : ''}`}
+                  style={
+                    usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme
+                      ? undefined
+                      : ctaGradient
+                        ? { background: ctaBg, color: '#fff' }
+                        : { backgroundColor: ctaBg, boxShadow: theme ? undefined : '0 0 40px rgba(0,168,168,0.2)' }
+                  }
                 >
                   Book a Strategy Call
                   <ArrowRight className="w-5 h-5" />
@@ -233,11 +435,11 @@ export function ExpertiseDetailContent({
                   {heroConfig.metrics.map((m) => (
                     <div
                       key={m.label}
-                      className="rounded-lg border p-2.5 backdrop-blur-sm bg-[#0A0F2D]/80"
-                      style={{ borderColor: `${CYAN}50` }}
+                      className={`rounded-lg border p-2.5 backdrop-blur-sm ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                      style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}CC` }}
                     >
-                      <div className="text-[10px] text-[#F0F0F0] uppercase tracking-wide">{m.label}</div>
-                      <div className="text-base font-bold text-[#FFD700]">{m.value}</div>
+                      <div className="text-[10px] text-white/90 uppercase tracking-wide">{m.label}</div>
+                      <div className="text-base font-bold" style={{ color: highlightColor }}>{m.value}</div>
                     </div>
                   ))}
                 </motion.div>
@@ -252,7 +454,7 @@ export function ExpertiseDetailContent({
             >
               <div
                 className="relative mx-auto w-full max-w-[480px] aspect-square rounded-2xl overflow-hidden border-2"
-                style={{ borderColor: `${CYAN}60`, boxShadow: `0 0 60px ${CYAN}30` }}
+                style={{ borderColor: `${accent}99`, boxShadow: theme ? `0 0 60px ${accent}33` : `0 0 60px ${CYAN}20` }}
               >
                 <ExpertiseHeroVisual
                   config={heroConfig ? { engine: 'scan', accent: 'cyan', metrics: heroConfig.metrics ?? [], tagline: heroConfig.tagline ?? '' } : undefined}
@@ -264,16 +466,16 @@ export function ExpertiseDetailContent({
         </div>
       </section>
 
-      {/* Pulsing cyan divider */}
+      {/* Pulsing accent divider */}
       <motion.div
         className="h-0.5 w-full"
-        style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
       />
 
       {/* ========== CHALLENGES ========== */}
-      <section ref={challengesRef} className="relative py-4 md:py-6 bg-[#080B1E]">
+      <section ref={challengesRef} className="relative py-4 md:py-6" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
           <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3">Common Challenges</h2>
           <motion.ul
@@ -287,11 +489,11 @@ export function ExpertiseDetailContent({
                 key={c}
                 variants={{ hidden: { opacity: 0, x: -8 }, visible: { opacity: 1, x: 0 } }}
                 whileHover={{ x: 4, scale: 1.01 }}
-                className="flex items-center gap-2 rounded-lg border p-3 transition-colors bg-[#0A0F2D]/90"
-                style={{ borderColor: `${CYAN}50` }}
+                className={`flex items-center gap-2 rounded-lg border p-3 transition-colors ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
               >
-                <div className="w-1.5 h-1.5 rounded-full shrink-0 bg-[#FFD700]" />
-                <span className="text-sm text-white">{c}</span>
+                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: highlightColor }} />
+                <span className={`text-sm ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white'}`}>{c}</span>
               </motion.li>
             ))}
           </motion.ul>
@@ -300,20 +502,20 @@ export function ExpertiseDetailContent({
 
       <motion.div
         className="h-0.5 w-full"
-        style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut', delay: 0.3 }}
       />
 
       {/* ========== ROUTE MAP ========== */}
-      <section className="relative py-4 md:py-6 bg-[#0A0F2D] overflow-hidden">
+      <section className="relative py-4 md:py-6 overflow-hidden" style={{ backgroundColor: bg }}>
         <div className="container-width relative">
           <div className="pointer-events-none absolute inset-0 opacity-80">
             <svg viewBox="0 0 500 180" className="w-full h-32 md:h-40" preserveAspectRatio="none">
               <defs>
                 <linearGradient id={`routeGrad-${pillarId}`} x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" stopColor={BLUE} stopOpacity="0.9" />
-                  <stop offset="100%" stopColor={CYAN} stopOpacity="0.8" />
+                  <stop offset="0%" stopColor={accent2} stopOpacity="0.9" />
+                  <stop offset="100%" stopColor={accent} stopOpacity="0.8" />
                 </linearGradient>
               </defs>
               <motion.path
@@ -350,25 +552,25 @@ export function ExpertiseDetailContent({
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true, margin: '-20px' }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
-                  whileHover={{ scale: 1.05, y: -6, boxShadow: `0 12px 40px ${CYAN}50` }}
-                  className="rounded-xl border-2 p-4 backdrop-blur-sm transition-all bg-[#0D1540]/90"
-                  style={{ borderColor: `${CYAN}50` }}
+                  whileHover={{ scale: 1.05, y: -6, boxShadow: `0 12px 40px ${accent}80` }}
+                  className={`rounded-xl border-2 p-4 backdrop-blur-sm transition-all ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                  style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bgAlt}E6` }}
                 >
                   <div
                     className="w-9 h-9 rounded-lg flex items-center justify-center mb-2"
-                    style={{ backgroundColor: `${CYAN}30`, borderColor: `${CYAN}60`, borderWidth: 1 }}
+                    style={{ backgroundColor: `${accent}4D`, borderColor: `${accent}99`, borderWidth: 1 }}
                   >
                     <motion.div
                       animate={shouldReduceMotion ? {} : { rotate: [0, 8, -8, 0] }}
                       transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
-                      className="text-[#36C0CF]"
+                      style={{ color: accent }}
                     >
                       <Icon className="w-5 h-5" />
                     </motion.div>
                   </div>
-                  <span className="text-xs font-bold text-[#36C0CF]">Step {i + 1}</span>
+                  <span className="text-xs font-bold" style={{ color: accent }}>Step {i + 1}</span>
                   <h3 className="font-bold text-white mt-0.5 mb-1 text-sm">{step.title}</h3>
-                  <p className="text-xs text-[#F0F0F0] leading-snug">{step.detail}</p>
+                  <p className={`text-xs leading-snug ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white/90'}`}>{step.detail}</p>
                 </motion.div>
               )
             })}
@@ -378,13 +580,13 @@ export function ExpertiseDetailContent({
 
       <motion.div
         className="h-0.5 w-full"
-        style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2.2, repeat: Infinity, ease: 'easeInOut', delay: 0.2 }}
       />
 
       {/* ========== EXECUTION STACK ========== */}
-      <section className="relative py-4 md:py-6 bg-[#080B1E]">
+      <section className="relative py-4 md:py-6" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
           <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3">Execution Stack</h2>
           <motion.div
@@ -401,9 +603,9 @@ export function ExpertiseDetailContent({
                 whileInView={{ opacity: 1, rotateY: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: i * 0.03 }}
-                whileHover={{ scale: 1.06, boxShadow: `0 0 24px ${CYAN}40` }}
-                className="rounded-lg border-2 p-3 text-center text-white text-sm font-medium transition-colors bg-[#0A0F2D]/90"
-                style={{ borderColor: `${CYAN}40` }}
+                whileHover={{ scale: 1.06, boxShadow: `0 0 24px ${accent}66` }}
+                className={`rounded-lg border-2 p-3 text-center text-white text-sm font-medium transition-colors ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}66`, backgroundColor: `${bg}E6` }}
               >
                 {tool}
               </motion.div>
@@ -414,13 +616,13 @@ export function ExpertiseDetailContent({
 
       <motion.div
         className="h-0.5 w-full"
-        style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2.4, repeat: Infinity, ease: 'easeInOut', delay: 0.5 }}
       />
 
       {/* ========== RESULTS ========== */}
-      <section ref={resultsRef} className="relative py-4 md:py-6 bg-[#0A0F2D]">
+      <section ref={resultsRef} className="relative py-4 md:py-6" style={{ backgroundColor: bg }}>
         <div className="container-width">
           <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4">Results</h2>
           <div className={`grid gap-4 ${results.length >= 5 ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' : 'md:grid-cols-3'}`}>
@@ -432,21 +634,22 @@ export function ExpertiseDetailContent({
                 transition={{ duration: 0.35, delay: i * 0.08 }}
                 whileHover={{
                   scale: 1.06,
-                  boxShadow: item.slug === 'product-marketing' ? `0 0 48px ${CYAN}50, 0 0 24px ${GOLD}30` : `0 0 60px ${GOLD}40`,
-                  borderColor: item.slug === 'product-marketing' ? `${CYAN}70` : `${GOLD}70`,
+                  boxShadow: item.slug === 'product-marketing' ? `0 0 48px ${accent}80, 0 0 24px ${highlightColor}4D` : `0 0 60px ${highlightColor}66`,
+                  borderColor: item.slug === 'product-marketing' ? `${accent}B3` : `${highlightColor}B3`,
                 }}
-                className={`rounded-xl border-2 text-center backdrop-blur-sm transition-all bg-[#0D1540]/80 ${item.slug === 'product-marketing' ? 'p-8 md:p-10' : 'p-6'}`}
-                style={{ borderColor: `${CYAN}40` }}
+                className={`rounded-xl border-2 text-center backdrop-blur-sm transition-all ${item.slug === 'product-marketing' ? 'p-8 md:p-10' : 'p-6'} ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}66`, backgroundColor: `${bgAlt}CC` }}
               >
                 <motion.span
                   key={resultValues[i]}
                   initial={{ opacity: 0.9 }}
                   animate={{ opacity: 1 }}
-                  className={`block font-bold text-[#FFD700] tabular-nums mb-1 drop-shadow-[0_0_20px_rgba(255,215,0,0.4)] ${item.slug === 'product-marketing' ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl' : 'text-4xl md:text-5xl lg:text-6xl'}`}
+                  className={`block font-bold tabular-nums mb-1 ${usePmmAiTheme ? 'pmm-accent-text ' : useStitchTheme ? 'stitch-accent-text ' : useStrategyInsightsTheme ? 'si-accent-text ' : useSystemsOperationsTheme ? 'so-accent-text ' : ''}${item.slug === 'product-marketing' ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl' : 'text-4xl md:text-5xl lg:text-6xl'}`}
+                  style={usePmmAiTheme || useStitchTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { color: highlightColor, textShadow: theme ? undefined : '0 0 20px rgba(255,215,0,0.2)' }}
                 >
                   {resultValues[i] ?? r.value}
                 </motion.span>
-                <p className={`font-medium text-white ${item.slug === 'product-marketing' ? 'text-base' : 'text-sm'}`}>{r.label}</p>
+                <p className={`font-medium ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white'} ${item.slug === 'product-marketing' ? 'text-base' : 'text-sm'}`}>{r.label}</p>
               </motion.div>
             ))}
           </div>
@@ -455,13 +658,13 @@ export function ExpertiseDetailContent({
 
       <motion.div
         className="h-0.5 w-full"
-        style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2.3, repeat: Infinity, ease: 'easeInOut', delay: 0.4 }}
       />
 
       {/* ========== RELATED ========== */}
-      <section className="relative py-4 md:py-6 bg-[#080B1E]">
+      <section className="relative py-4 md:py-6" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
           <h2 className="font-display text-xl font-bold text-white mb-3">Related</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
@@ -472,18 +675,18 @@ export function ExpertiseDetailContent({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: i * 0.04 }}
-                whileHover={{ y: -6, boxShadow: `0 8px 32px ${CYAN}40` }}
+                whileHover={{ y: -6, boxShadow: `0 8px 32px ${accent}66` }}
               >
                 <Link
                   href={`/expertise/${e.slug}`}
-                  className="block rounded-xl border-2 p-4 bg-[#0A0F2D]/90 transition-all duration-300 group"
-                  style={{ borderColor: `${CYAN}50` }}
+                  className={`block rounded-xl border-2 p-4 transition-all duration-300 group ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                  style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
                 >
-                  <h4 className="font-semibold text-white group-hover:text-[#36C0CF] transition-colors mb-0.5 text-sm">
+                  <h4 className="font-semibold text-white transition-colors mb-0.5 text-sm group-hover:opacity-90" style={{ color: 'inherit' }}>
                     {e.title}
                   </h4>
-                  <p className="text-xs text-[#F0F0F0] line-clamp-2">{e.description}</p>
-                  <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-[#36C0CF]">
+                  <p className={`text-xs line-clamp-2 ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white/90'}`}>{e.description}</p>
+                  <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium" style={{ color: accent }}>
                     Explore <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
@@ -496,18 +699,18 @@ export function ExpertiseDetailContent({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: (3 + i) * 0.04 }}
-                whileHover={{ y: -6, boxShadow: `0 8px 32px ${CYAN}40` }}
+                whileHover={{ y: -6, boxShadow: `0 8px 32px ${accent}66` }}
               >
                 <Link
                   href={`/case-studies/${cs.slug}`}
-                  className="block rounded-xl border-2 p-4 bg-[#0A0F2D]/90 transition-all duration-300 group"
-                  style={{ borderColor: `${CYAN}50` }}
+                  className={`block rounded-xl border-2 p-4 transition-all duration-300 group ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                  style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
                 >
-                  <h4 className="font-semibold text-white group-hover:text-[#36C0CF] transition-colors mb-0.5 text-sm">
+                  <h4 className="font-semibold text-white transition-colors mb-0.5 text-sm group-hover:opacity-90">
                     {cs.title}
                   </h4>
-                  <p className="text-xs text-[#F0F0F0] line-clamp-2">{cs.description}</p>
-                  <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-[#36C0CF]">
+                  <p className={`text-xs line-clamp-2 ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white/90'}`}>{cs.description}</p>
+                  <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium" style={{ color: accent }}>
                     View Case Study <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
@@ -520,18 +723,18 @@ export function ExpertiseDetailContent({
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.25, delay: (5 + i) * 0.04 }}
-                whileHover={{ y: -6, boxShadow: `0 8px 32px ${CYAN}40` }}
+                whileHover={{ y: -6, boxShadow: `0 8px 32px ${accent}66` }}
               >
                 <Link
                   href={`/industries/${ind.slug}`}
-                  className="block rounded-xl border-2 p-4 bg-[#0A0F2D]/90 transition-all duration-300 group"
-                  style={{ borderColor: `${CYAN}50` }}
+                  className={`block rounded-xl border-2 p-4 transition-all duration-300 group ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                  style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
                 >
-                  <h4 className="font-semibold text-white group-hover:text-[#36C0CF] transition-colors mb-0.5 text-sm">
+                  <h4 className="font-semibold text-white transition-colors mb-0.5 text-sm group-hover:opacity-90">
                     {ind.title}
                   </h4>
-                  <p className="text-xs text-[#F0F0F0] line-clamp-2">{ind.description}</p>
-                  <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium text-[#36C0CF]">
+                  <p className={`text-xs line-clamp-2 ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white/90'}`}>{ind.description}</p>
+                  <span className="mt-1.5 inline-flex items-center gap-1 text-xs font-medium" style={{ color: accent }}>
                     Explore <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </span>
                 </Link>
@@ -541,7 +744,7 @@ export function ExpertiseDetailContent({
           <div className="mt-4">
             <Link
               href="/expertise"
-              className="inline-flex items-center gap-2 text-[#F0F0F0] hover:text-[#36C0CF] transition-colors text-sm"
+              className="inline-flex items-center gap-2 transition-colors text-sm hover:opacity-90 text-white/90"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to All Expertise
@@ -552,7 +755,7 @@ export function ExpertiseDetailContent({
 
       <motion.div
         className="h-0.5 w-full"
-        style={{ background: `linear-gradient(90deg, transparent, ${CYAN}, transparent)` }}
+        style={{ background: `linear-gradient(90deg, transparent, ${accent}, transparent)` }}
         animate={shouldReduceMotion ? {} : { opacity: [0.4, 1, 0.4] }}
         transition={{ duration: 2.6, repeat: Infinity, ease: 'easeInOut', delay: 0.6 }}
       />
@@ -560,7 +763,7 @@ export function ExpertiseDetailContent({
       {/* ========== FOOTER CTA ========== */}
       <section
         className="relative py-8 md:py-10"
-        style={{ background: 'linear-gradient(180deg, #0D1540 0%, #0A0F2D 100%)' }}
+        style={{ background: theme ? `linear-gradient(180deg, ${bgAlt} 0%, ${bg} 100%)` : 'linear-gradient(180deg, var(--color-background-alt) 0%, var(--color-background-alt) 100%)' }}
       >
         <motion.div
           initial={{ opacity: 0, y: 16 }}
@@ -573,8 +776,8 @@ export function ExpertiseDetailContent({
           </h2>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_60px_rgba(54,192,207,0.6)]"
-            style={{ backgroundColor: TEAL }}
+            className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.05] ${usePmmAiTheme ? 'pmm-cta-primary' : ''} ${useStrategyInsightsTheme ? 'si-cta-primary' : ''} ${useSystemsOperationsTheme ? 'so-cta-primary' : ''}`}
+            style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : ctaGradient ? { background: ctaBg, color: '#fff' } : { backgroundColor: ctaBg }}
           >
             Get in Touch
             <ArrowRight className="w-5 h-5" />
@@ -583,4 +786,38 @@ export function ExpertiseDetailContent({
       </section>
     </div>
   )
+
+  if (usePmmAiTheme) {
+    return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: PMM_AI_CSS }} />
+        <div className="theme-demand-growth">{content}</div>
+      </>
+    )
+  }
+  if (useStitchTheme) {
+    return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: STITCH_CSS }} />
+        <div className="stitch-content-engagement">{content}</div>
+      </>
+    )
+  }
+  if (useStrategyInsightsTheme) {
+    return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: STRATEGY_INSIGHTS_CSS }} />
+        <div className="theme-strategy-insights">{content}</div>
+      </>
+    )
+  }
+  if (useSystemsOperationsTheme) {
+    return (
+      <>
+        <style dangerouslySetInnerHTML={{ __html: SYSTEMS_OPERATIONS_CSS }} />
+        <div className="theme-systems-operations">{content}</div>
+      </>
+    )
+  }
+  return content
 }

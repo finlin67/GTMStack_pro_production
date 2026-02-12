@@ -162,8 +162,7 @@ export default function FleetManagementLogisticsPage() {
               >
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.04] hover:shadow-[0_0_40px_rgba(0,168,168,0.6)]"
-                  style={{ backgroundColor: TEAL }}
+                  className="btn-cta-teal-sm"
                 >
                   Discuss Your Challenges
                   <ArrowRight className="w-5 h-5" />
@@ -475,8 +474,7 @@ export default function FleetManagementLogisticsPage() {
           <p className="text-[#F0F0F0] mb-5">Let&apos;s map your route with Connected Fleet intelligence — data into route optimization and revenue.</p>
           <Link
             href="/contact"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.05] hover:shadow-[0_0_60px_rgba(0,168,168,0.6)]"
-            style={{ backgroundColor: TEAL }}
+            className="btn-cta-teal"
           >
             Let&apos;s map your route
             <ArrowRight className="w-5 h-5" />

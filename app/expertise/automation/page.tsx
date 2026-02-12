@@ -421,7 +421,7 @@ export default function MarketingAutomationPage() {
           <div className="mt-8">
             <Link
               href="/expertise"
-              className="inline-flex items-center gap-2 text-slate-400 hover:text-[#36C0CF] transition-colors"
+              className="inline-flex items-center gap-2 text-slate-400 hover:text-[#36C0CF] hover:underline focus-visible:underline transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               Back to All Expertise

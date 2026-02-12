@@ -4,8 +4,9 @@ import React, { useEffect, useState, useRef, useCallback } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { ArrowLeft, ArrowRight, FileText, User } from 'lucide-react'
-import { fetchPostBySlug, fetchPosts, WPPost } from '@/lib/wp-client'
+import { ArrowLeft, ArrowRight, FileText, MessageSquare, User } from 'lucide-react'
+import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
+import { sanitizeHtml } from '@/lib/sanitize-html'
 
 const TEAL = '#00A8A8'
 const CYAN = '#36C0CF'
@@ -52,15 +53,20 @@ export default function BlogPostClient() {
     }
     ;(async () => {
       try {
-        const [postData, allPosts] = await Promise.all([
-          fetchPostBySlug(slug),
-          fetchPosts(),
-        ])
+        const postData = await fetchPostBySlug(slug)
         setPost(postData)
         if (!postData) {
           setError('Post not found')
         } else {
-          const related = allPosts
+          // Related posts by same category (WP taxonomy); fallback to latest if no categories
+          const categoryIds = postData.categories?.length
+            ? postData.categories
+            : undefined
+          const relatedResult = await fetchPosts({
+            categoryIds,
+            per_page: 5,
+          })
+          const related = relatedResult
             .filter((p) => p.id !== postData.id)
             .slice(0, 4)
           setRelatedPosts(related)
@@ -104,14 +110,9 @@ export default function BlogPostClient() {
     }
   }, [])
 
-  const inferCategory = useCallback((p: WPPost): string => {
-    const text = `${stripHtml(p.title?.rendered || '')} ${stripHtml(p.excerpt?.rendered || '')}`.toLowerCase()
-    if (text.includes('abm') || text.includes('account-based')) return 'ABM'
-    if (text.includes('revops') || text.includes('revenue ops')) return 'RevOps'
-    if (text.includes('demand') || text.includes('pipeline')) return 'Demand'
-    if (text.includes('product') || text.includes('product-led') || text.includes('plg')) return 'Product'
-    if (text.includes('revenue') || text.includes('growth')) return 'Revenue'
-    return 'Insights'
+  const primaryCategory = useCallback((p: WPPost): string => {
+    const cats = getPostCategories(p)
+    return cats[0]?.name ?? 'Insights'
   }, [])
 
   const displayDate = post ? formatDate(post.date) : ''
@@ -178,7 +179,7 @@ export default function BlogPostClient() {
                       className="inline-block px-3 py-1 rounded-lg text-xs font-bold"
                       style={{ backgroundColor: `${PURPLE}50`, color: '#C4B5FD' }}
                     >
-                      {inferCategory(post)}
+                      {primaryCategory(post)}
                     </span>
                     <motion.span
                       animate={shouldReduceMotion ? {} : { opacity: [1, 0.9, 1] }}
@@ -200,7 +201,9 @@ export default function BlogPostClient() {
                     style={{
                       textShadow: `0 0 40px rgba(54,192,207,0.5), 0 0 80px rgba(54,192,207,0.25)`,
                     }}
-                    dangerouslySetInnerHTML={{ __html: post.title?.rendered || post.slug }}
+                    dangerouslySetInnerHTML={{
+                      __html: sanitizeHtml(post.title?.rendered || post.slug),
+                    }}
                   />
                   <motion.p
                     initial={{ opacity: 0, y: 10 }}
@@ -265,7 +268,9 @@ export default function BlogPostClient() {
                     prose-code:text-[#36C0CF] prose-code:bg-[#0D1540]/90 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-[13px] prose-code:before:content-none prose-code:after:content-none
                     prose-img:rounded-xl prose-img:border prose-img:border-white/10
                   `}
-                  dangerouslySetInnerHTML={{ __html: post.content?.rendered || '' }}
+                  dangerouslySetInnerHTML={{
+                    __html: sanitizeHtml(post.content?.rendered || ''),
+                  }}
                 />
 
                 <style jsx global>{`
@@ -358,11 +363,12 @@ export default function BlogPostClient() {
             </div>
           </section>
 
-          {/* Related posts */}
+          {/* Related posts (by category when available) */}
           {relatedPosts.length > 0 && (
             <section className="py-5 md:py-8 bg-[#080B1E]" aria-label="Related posts">
               <div className="container-width">
-                <h2 className="font-display font-bold text-xl md:text-2xl text-white mb-5">Related Posts</h2>
+                <h2 className="font-display font-bold text-xl md:text-2xl text-white mb-5">Expand Your Knowledge</h2>
+                <p className="text-sm text-white/80 mb-5">More insights from the GTMStack team.</p>
                 <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
                   {relatedPosts.map((p, i) => (
                     <motion.div
@@ -373,13 +379,13 @@ export default function BlogPostClient() {
                       transition={{ delay: i * 0.06 }}
                     >
                       <Link href={`/blog/post?slug=${p.slug}`}>
-                        <motion.div
-                          whileHover={{
-                            y: -6,
-                            scale: 1.02,
-                            boxShadow: `0 16px 48px ${CYAN}25`,
-                          }}
-                          transition={{ duration: 0.25 }}
+                    <motion.div
+                      whileHover={{
+                        y: -4,
+                        scale: 1.02,
+                        boxShadow: `0 12px 32px ${CYAN}25`,
+                      }}
+                      transition={{ duration: 0.2 }}
                           className="h-full rounded-xl overflow-hidden border-2 border-white/[0.08] bg-[#1E2A5E]/50 transition-all duration-300 hover:border-[#36C0CF]/50"
                         >
                           <div className="aspect-video relative bg-[#0D1540]">
@@ -400,7 +406,7 @@ export default function BlogPostClient() {
                               className="inline-block px-2 py-0.5 rounded text-[10px] font-bold mb-1.5"
                               style={{ backgroundColor: `${TEAL}25`, color: TEAL }}
                             >
-                              {inferCategory(p)}
+                              {primaryCategory(p)}
                             </span>
                             <h3 className="font-bold text-white text-sm line-clamp-2 leading-snug">
                               {stripHtml(p.title?.rendered || p.slug)}
@@ -417,6 +423,40 @@ export default function BlogPostClient() {
               </div>
             </section>
           )}
+
+          {/* Join the Conversation — TODO: wire to WP comments API when available */}
+          <section className="py-5 md:py-8 bg-[#080B1E]" aria-label="Comments">
+            <div className="container-width">
+              <motion.div
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.4 }}
+                className="rounded-2xl border-2 border-white/[0.08] bg-[#1E2A5E]/50 p-6 md:p-8 text-center max-w-2xl mx-auto"
+              >
+                <MessageSquare className="w-12 h-12 mx-auto mb-3 text-[#36C0CF]" aria-hidden="true" />
+                <h2 className="font-display font-bold text-xl md:text-2xl text-white mb-2">Join the Conversation</h2>
+                <p className="text-sm text-white/80 mb-5">
+                  Have thoughts on this topic? Our community of GTM experts is discussing this post.
+                </p>
+                <div className="flex flex-wrap items-center justify-center gap-3">
+                  <Link
+                    href={`/blog/post?slug=${slug}#comments`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.03]"
+                    style={{ backgroundColor: TEAL }}
+                  >
+                    View comments
+                  </Link>
+                  <Link
+                    href={`/blog/post?slug=${slug}#comments`}
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white bg-white/10 border border-white/20 hover:bg-white/15 transition-colors"
+                  >
+                    Post a thought
+                  </Link>
+                </div>
+              </motion.div>
+            </div>
+          </section>
 
           {/* CTA Footer */}
           <section
@@ -435,11 +475,10 @@ export default function BlogPostClient() {
               <p className="text-[#E8E8E8] text-sm md:text-base mb-5">
                 Book a call to map your GTM route.
               </p>
-              <motion.div whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.98 }}>
+              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
                 <Link
                   href="/contact"
-                  className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:shadow-[0_0_50px_rgba(0,168,168,0.5)]"
-                  style={{ backgroundColor: TEAL }}
+                  className="btn-cta-teal"
                 >
                   Book a Call
                   <ArrowRight className="w-5 h-5" aria-hidden="true" />

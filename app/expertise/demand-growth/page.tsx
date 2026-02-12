@@ -38,10 +38,39 @@ export default function DemandGrowthPillarPage() {
     { value: '4 months', label: 'Time to results', detail: 'SQL lift achieved' },
   ]
 
+  const pmmAiVars = `
+.theme-demand-growth {
+  --primary: #2ea7ff;
+  --background-dark: #0b1720;
+  --panel-bg: #0f2632;
+  --muted-text: rgba(255,255,255,0.70);
+  --blue-grad: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #7dd3fc 100%);
+  --orange-grad: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
+  --header-footer-grad: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+}
+.theme-demand-growth { background: var(--background-dark); min-height: 100vh; }
+/* Force PMM.AI canvas on all dark sections */
+.theme-demand-growth section:not([class*="bg-white"]):not([class*="bg-slate-50"]) { background: var(--background-dark) !important; }
+.theme-demand-growth section[class*="from-slate"],
+.theme-demand-growth section[class*="from-brand"],
+.theme-demand-growth section[class*="bg-gradient"] { background: var(--background-dark) !important; }
+/* Panels/cards use panel-bg */
+.theme-demand-growth .dark-card,
+.theme-demand-growth [class*="border-brand"] { background-color: var(--panel-bg) !important; border-color: rgba(255,255,255,0.1) !important; }
+/* Blue gradient for emphasized text only */
+.theme-demand-growth .pmm-accent-text { background: var(--blue-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+/* Orange gradient for primary CTAs only */
+.theme-demand-growth .pmm-cta-primary { background: var(--orange-grad) !important; color: #fff; }
+/* Muted text */
+.theme-demand-growth .pmm-muted { color: var(--muted-text); }
+`
+
   return (
-    <>
+    <div className="theme-demand-growth">
+      <style dangerouslySetInnerHTML={{ __html: pmmAiVars }} />
       {/* Hero (Dark) */}
       <HeroDark
+        className="pillar-dg-hero"
         label="Demand & Growth"
         title="Pipeline-building programs"
         titleHighlight="that scale"
@@ -116,7 +145,7 @@ export default function DemandGrowthPillarPage() {
       </SectionLight>
 
       {/* Expertise Modules (Dark) */}
-      <SectionDark variant="theater" padding="lg" motif="signal" accentOrb id="expertise">
+      <SectionDark className="pillar-dg-dark" variant="theater" padding="lg" motif="signal" accentOrb id="expertise">
         <SectionHeader
           label="Expertise"
           title="Demand & Growth Capabilities"
@@ -170,7 +199,7 @@ export default function DemandGrowthPillarPage() {
       </SectionLight>
 
       {/* Proof Band (Dark) */}
-      <SectionDark variant="stats" padding="lg" motif="signal" accentOrb>
+      <SectionDark className="pillar-dg-dark" variant="stats" padding="lg" motif="signal" accentOrb>
         <SectionHeader
           label="Proof"
           title="Outcomes delivered"
@@ -180,12 +209,12 @@ export default function DemandGrowthPillarPage() {
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {proof.map((stat, idx) => (
             <AnimatedStatCard key={idx} index={idx}>
-              <div className="dark-card p-8 text-center border-brand-500/20 hover:border-brand-500/40 transition-all duration-300">
-                <div className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-brand-400 via-cool-400 to-cyan-400 bg-clip-text text-transparent mb-2">
+              <div className="dark-card p-8 text-center transition-all duration-300">
+                <div className="pmm-accent-text text-4xl md:text-5xl font-bold mb-2">
                   {stat.value}
                 </div>
-                <p className="text-sm text-slate-300 mb-1">{stat.label}</p>
-                <p className="text-xs text-gold-400">{stat.detail}</p>
+                <p className="text-sm pmm-muted mb-1">{stat.label}</p>
+                <p className="text-xs pmm-muted">{stat.detail}</p>
               </div>
             </AnimatedStatCard>
           ))}
@@ -193,7 +222,7 @@ export default function DemandGrowthPillarPage() {
       </SectionDark>
 
       {/* CTA (Dark) */}
-      <SectionDark variant="cta" padding="lg" motif="signal" accentOrb>
+      <SectionDark className="pillar-dg-dark pillar-dg-cta" variant="cta" padding="lg" motif="signal" accentOrb>
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="text-center lg:text-left max-w-2xl">
             <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
@@ -206,21 +235,21 @@ export default function DemandGrowthPillarPage() {
           <div className="flex flex-wrap items-center gap-4">
             <Link
               href="/contact"
-              className="btn bg-white text-brand-700 hover:bg-white/90 shadow-lg px-6 py-3 text-base rounded-xl group"
+              className="pmm-cta-primary btn shadow-lg px-6 py-3 text-base rounded-xl group hover:opacity-90"
             >
               Get in Touch
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
             <Link
               href="/expertise"
-              className="btn text-white/90 hover:text-white hover:bg-white/10 px-6 py-3 text-base rounded-xl"
+              className="btn-hero-outline"
             >
               View All Expertise
             </Link>
           </div>
         </div>
       </SectionDark>
-    </>
+    </div>
   )
 }
 

@@ -27,11 +27,11 @@ export default function OptimizationPillarPage() {
         <div className="container-width relative">
           <FadeIn>
             <nav className="flex items-center gap-2 text-sm mb-6">
-              <Link href="/" className="text-slate-500 hover:text-brand-600 transition-colors">
+              <Link href="/" className="text-slate-500 hover:text-brand-600 hover:underline focus-visible:underline transition-colors">
                 Home
               </Link>
               <span className="text-slate-300">/</span>
-              <Link href="/expertise" className="text-slate-500 hover:text-brand-600 transition-colors">
+              <Link href="/expertise" className="text-slate-500 hover:text-brand-600 hover:underline focus-visible:underline transition-colors">
                 Expertise
               </Link>
               <span className="text-slate-300">/</span>

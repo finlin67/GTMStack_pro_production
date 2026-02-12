@@ -1,62 +1,71 @@
-export type WPPost = {
-  id: number;
-  slug: string;
-  title: { rendered: string };
-  excerpt: { rendered: string };
-  content: { rendered: string };
-  date: string;
-  _embedded?: {
-    "wp:featuredmedia"?: Array<{
-      source_url?: string;
-      alt_text?: string;
-    }>;
-  };
-};
-
 /**
- * Read WORDPRESS_API_URL at call-time (not module top-level),
- * and sanitize common copy/paste issues.
- *
- * Expected value:
- *   https://m.gtmstack.pro/wp-json/wp/v2
+ * WordPress REST API v2 — server-side only (uses WORDPRESS_API_URL).
+ * Use for Server Components and API routes. For client, use lib/wp-client.ts.
+ * Fetches use next.revalidate for ISR; ensure categories/posts are set up in WP.
  */
+
+import type { WPPost, WPTerm, FetchPostsParams } from './wp-client'
+
 function getBaseUrl(): string {
-  const raw = process.env.WORDPRESS_API_URL;
-  if (!raw) throw new Error("Missing WORDPRESS_API_URL env var");
-
-  // Remove hidden CRLF, whitespace, and trailing slashes
-  const base = raw.replace(/\r/g, "").trim().replace(/\/+$/, "");
-
-  if (!base.startsWith("http")) {
-    throw new Error("WORDPRESS_API_URL must start with http(s)");
-  }
-
-  return base;
+  const raw = process.env.WORDPRESS_API_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
+  if (!raw) throw new Error('Missing WORDPRESS_API_URL (or NEXT_PUBLIC_WORDPRESS_API_URL) env var')
+  const base = raw.replace(/\r/g, '').trim().replace(/\/+$/, '')
+  if (!base.startsWith('http')) throw new Error('WORDPRESS_API_URL must start with http(s)')
+  return base
 }
 
-export async function getPosts(): Promise<WPPost[]> {
-  const url = `${getBaseUrl()}/posts?per_page=10&_embed=1`;
+export type { WPPost, WPTerm, FetchPostsParams }
 
-  // For static export builds, ensure we fetch fresh content at build time
-  const res = await fetch(url, { cache: "no-store" });
+export async function fetchPostsWithTotal(
+  params: FetchPostsParams = {}
+): Promise<{ posts: WPPost[]; totalPages: number }> {
+  const { search, categoryIds, tagIds, page = 1, per_page = 10 } = params
+  const url = new URL(`${getBaseUrl()}/posts`)
+  url.searchParams.set('per_page', String(per_page))
+  url.searchParams.set('page', String(page))
+  url.searchParams.set('_embed', '1')
+  if (search?.trim()) url.searchParams.set('search', search.trim())
+  if (categoryIds?.length) url.searchParams.set('categories', categoryIds.join(','))
+  if (tagIds?.length) url.searchParams.set('tags', tagIds.join(','))
 
+  const res = await fetch(url.toString(), { next: { revalidate: 60 } })
   if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`Failed to fetch posts: ${res.status} ${text.slice(0, 200)}`);
+    const text = await res.text().catch(() => '')
+    throw new Error(`Failed to fetch posts: ${res.status} ${text.slice(0, 200)}`)
   }
+  const posts = (await res.json()) as WPPost[]
+  const totalPages = Math.max(1, parseInt(res.headers.get('X-WP-TotalPages') ?? '1', 10))
+  return { posts, totalPages }
+}
 
-  return (await res.json()) as WPPost[];
+export async function fetchCategories(): Promise<WPTerm[]> {
+  const url = `${getBaseUrl()}/categories?per_page=100&orderby=count&order=desc`
+  const res = await fetch(url, { next: { revalidate: 60 } })
+  if (!res.ok) throw new Error(`Failed to fetch categories: ${res.status}`)
+  const data = (await res.json()) as Array<{ id: number; name: string; slug: string; count: number }>
+  return data.map((c) => ({ id: c.id, name: c.name, slug: c.slug, taxonomy: 'category', count: c.count }))
+}
+
+export async function fetchTags(): Promise<WPTerm[]> {
+  const url = `${getBaseUrl()}/tags?per_page=100&orderby=count&order=desc`
+  const res = await fetch(url, { cache: 'no-store' })
+  if (!res.ok) throw new Error(`Failed to fetch tags: ${res.status}`)
+  const data = (await res.json()) as Array<{ id: number; name: string; slug: string; count: number }>
+  return data.map((t) => ({ id: t.id, name: t.name, slug: t.slug, taxonomy: 'post_tag', count: t.count }))
 }
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
-  const url = `${getBaseUrl()}/posts?slug=${encodeURIComponent(slug)}&_embed=1`;
-  const res = await fetch(url, { cache: "no-store" });
-
+  const url = `${getBaseUrl()}/posts?slug=${encodeURIComponent(slug)}&_embed=1&context=view`
+  const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`Failed to fetch post: ${res.status} ${text.slice(0, 200)}`);
+    const text = await res.text().catch(() => '')
+    throw new Error(`Failed to fetch post: ${res.status} ${text.slice(0, 200)}`)
   }
+  const posts = (await res.json()) as WPPost[]
+  return posts[0] ?? null
+}
 
-  const posts = (await res.json()) as WPPost[];
-  return posts[0] ?? null;
+export async function getPosts(params: FetchPostsParams = {}): Promise<WPPost[]> {
+  const { posts } = await fetchPostsWithTotal(params)
+  return posts
 }

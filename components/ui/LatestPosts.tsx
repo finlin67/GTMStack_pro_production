@@ -4,7 +4,7 @@ import React, { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, FileText } from 'lucide-react'
-import { fetchLatestPosts, WPPost } from '@/lib/wp-client'
+import { fetchLatestPosts, WPPost, getPostCategories } from '@/lib/wp-client'
 
 const TEAL = '#00A8A8'
 const CYAN = '#36C0CF'
@@ -18,14 +18,9 @@ function getFeaturedImageUrl(post: WPPost): string | null {
   return post._embedded?.['wp:featuredmedia']?.[0]?.source_url ?? null
 }
 
-function inferCategory(post: WPPost): string {
-  const text = `${stripHtml(post.title?.rendered || '')} ${stripHtml(post.excerpt?.rendered || '')}`.toLowerCase()
-  if (text.includes('abm') || text.includes('account-based')) return 'ABM'
-  if (text.includes('revops') || text.includes('revenue ops')) return 'RevOps'
-  if (text.includes('demand') || text.includes('pipeline')) return 'Demand'
-  if (text.includes('product') || text.includes('product-led')) return 'Product'
-  if (text.includes('revenue') || text.includes('growth')) return 'Revenue'
-  return 'Insights'
+function primaryCategory(post: WPPost): string {
+  const cats = getPostCategories(post)
+  return cats[0]?.name ?? 'Insights'
 }
 
 function formatDate(dateStr: string) {
@@ -75,12 +70,12 @@ export default function LatestPosts({
   if (loading) {
     return (
       <section
-        className={`rounded-2xl border-2 border-white/10 bg-[#0A0F2D] p-8 md:p-10 ${className}`}
+        className={`rounded-2xl border-2 border-white/10 bg-navy-deep p-8 md:p-10 ${className}`}
         aria-busy="true"
       >
         <div className="flex items-center justify-center py-16">
           <div
-            className="w-12 h-12 rounded-full border-2 border-[#36C0CF]/40 border-t-[#36C0CF] animate-spin"
+            className="w-12 h-12 rounded-full border-2 border-cyan-400/40 border-t-cyan-400 animate-spin"
             aria-hidden="true"
           />
           <span className="sr-only">Loading latest posts</span>
@@ -115,7 +110,7 @@ export default function LatestPosts({
   return (
     <section
       ref={gridRef}
-      className={`rounded-2xl border-2 border-white/10 bg-[#0A0F2D] p-6 md:p-8 ${className}`}
+      className={`rounded-2xl border-2 border-white/10 bg-navy-deep p-6 md:p-8 ${className}`}
       aria-label="Latest blog posts"
     >
       {(title || viewAllHref) && (
@@ -158,9 +153,9 @@ export default function LatestPosts({
                   boxShadow: `0 16px 48px rgba(54,192,207,0.2)`,
                 }}
                 transition={{ duration: 0.25 }}
-                className="h-full rounded-xl overflow-hidden border-2 border-white/[0.08] bg-[#1E2A5E]/50 transition-all duration-300 hover:border-[#36C0CF]/50"
+                className="h-full rounded-xl overflow-hidden border-2 border-white/[0.08] bg-brand-800/50 transition-all duration-300 hover:border-cyan-400/50"
               >
-                <div className="aspect-video relative bg-[#0D1540]">
+                <div className="aspect-video relative bg-brand-800">
                   {getFeaturedImageUrl(post) ? (
                     <img
                       src={getFeaturedImageUrl(post)!}
@@ -169,7 +164,7 @@ export default function LatestPosts({
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">
-                      <FileText className="w-14 h-14 text-[#36C0CF]/25" aria-hidden="true" />
+                      <FileText className="w-14 h-14 text-cyan-400/25" aria-hidden="true" />
                     </div>
                   )}
                 </div>
@@ -184,7 +179,7 @@ export default function LatestPosts({
                         borderColor: `${TEAL}40`,
                       }}
                     >
-                      {inferCategory(post)}
+                      {primaryCategory(post)}
                     </span>
                     {i === 0 && (
                       <span
@@ -203,10 +198,10 @@ export default function LatestPosts({
                   <h3 className="font-bold text-white text-sm line-clamp-2 leading-snug">
                     {stripHtml(post.title?.rendered || post.slug)}
                   </h3>
-                  <p className="mt-1.5 text-xs text-[#E8E8E8] line-clamp-2">
+                  <p className="mt-1.5 text-xs text-slate-200 line-clamp-2">
                     {stripHtml(post.excerpt?.rendered || '')}
                   </p>
-                  <div className="mt-2 flex items-center gap-3 text-[10px] text-[#E8E8E8]/70">
+                  <div className="mt-2 flex items-center gap-3 text-[10px] text-slate-400">
                     <span>{formatDate(post.date)}</span>
                     <span>GTMStack</span>
                   </div>
