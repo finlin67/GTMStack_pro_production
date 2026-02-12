@@ -21,6 +21,7 @@ import TelcoAITile from '@/src/components/animations/TelcoAITile'
 import WasteMan from '@/src/components/animations/WasteMan'
 import WealthManageTile from '@/src/components/animations/WealthManageTile'
 import GTMStackPro from '@/src/components/animations/GTMStackPro'
+// CSV: SocialMediaTile.tsx — file not present, using SocialMediaHero
 import SocialMediaHero from '@/src/components/animations/SocialMediaHero'
 
 export type HeroVisualMediaType = 'animation' | 'image'
@@ -38,22 +39,22 @@ export interface HeroVisualEntry {
 /**
  * Registry mapping routes to hero visuals (animations or images).
  * Source of truth: src/components/animations/gtmstack-pro-library.csv
- * Keep in sync when adding/removing rows. See docs/hero-visual-library-spec.md.
+ * Keep in sync when adding/removing rows. Routes normalized (no trailing slash).
  */
 export const HERO_VISUAL_REGISTRY: HeroVisualEntry[] = [
   { route: '/', title: 'GTMStack', mediaType: 'animation', component: AIGrowth },
   { route: '/expertise', title: 'Expertise', mediaType: 'animation', component: GTMStackPro },
   { route: '/expertise/ai-in-marketing', title: 'AI in Marketing', mediaType: 'animation', component: AIGrowth },
   { route: '/expertise/content-engagement', title: 'Content & Engagement', mediaType: 'animation', component: ContentEngagementTile },
-  { route: '/expertise/demand-growth', title: 'Demand & Growth', mediaType: 'animation', component: DemandGrowthTile },
-  { route: '/expertise/marketing-automation', title: 'Marketing Automation', mediaType: 'animation', component: MarketingAutomationLiveFeed },
-  { route: '/expertise/martech-optimization', title: 'MarTech Optimization', mediaType: 'animation', component: MarTechTile },
+  { route: '/expertise/demand-and-growth', title: 'Demand & Growth', mediaType: 'animation', component: DemandGrowthTile },
   { route: '/expertise/paid-advertising', title: 'Paid Advertising (SEM)', mediaType: 'animation', component: GrowthSEMTile },
   { route: '/expertise/product-marketing', title: 'Product Marketing', mediaType: 'animation', component: GrowthSEMTile },
+  { route: '/expertise/marketing-automation', title: 'Marketing Automation', mediaType: 'animation', component: MarketingAutomationLiveFeed },
   { route: '/expertise/sales-enablement', title: 'Sales Enablement', mediaType: 'animation', component: SalesEnablementTile },
   { route: '/expertise/social-media-marketing', title: 'Social Media Marketing', mediaType: 'animation', component: SocialMediaHero },
   { route: '/expertise/strategy-insights', title: 'Strategy & Insights', mediaType: 'animation', component: StrategyInsightsTile },
   { route: '/expertise/systems-operations', title: 'Systems & Operations', mediaType: 'animation', component: PlgJourneyDashboard },
+  { route: '/expertise/martech-optimization', title: 'MarTech Optimization', mediaType: 'animation', component: MarTechTile },
   { route: '/industries/ai-ml', title: 'AI - ML', mediaType: 'animation', component: GTMStackPro },
   { route: '/industries/b2b-saas', title: 'B2B SaaS', mediaType: 'animation', component: RevOpsMeshTile },
   { route: '/industries/cybersecurity', title: 'Cybersecurity', mediaType: 'animation', component: OmnichannelLiveAnalytics },

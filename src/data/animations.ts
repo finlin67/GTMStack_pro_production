@@ -1,6 +1,7 @@
 import type { ComponentType } from 'react'
 import dynamic from 'next/dynamic'
 
+// Source of truth for route/title/component: src/components/animations/gtmstack-pro-library.csv (Update-Library: src/data/animations.ts)
 // Dynamic imports for performance - lazy load animations
 const VideoMarketingAnalyticsTile = dynamic(
   () => import('@/src/components/animations/Video-Marketing-Analytics'),
