@@ -22,19 +22,23 @@ const CHAOS_POSITIONS = [
   { x: 480, y: 250, r: 30 },
 ];
 
-// Dark Blue & Gray palette for a premium, modern tech feel
+// Vibrant Gradient Palette: Blue, Purple, Green, Orange, Cyan, Red, Indigo
 const COLORS = [
-  'bg-[#1E293B]', // Slate 800
-  'bg-[#111827]', // Gray 900
-  'bg-[#172554]', // Blue 950
-  'bg-[#334155]', // Slate 700
-  'bg-[#0F172A]', // Slate 900
-  'bg-[#1F2937]', // Gray 800
-  'bg-[#374151]', // Gray 700
+  'bg-gradient-to-br from-blue-500 to-blue-700',       // Data Layer
+  'bg-gradient-to-br from-violet-500 to-violet-700',   // Global Network
+  'bg-gradient-to-br from-emerald-500 to-emerald-700', // Integration
+  'bg-gradient-to-br from-amber-500 to-orange-600',    // Automation
+  'bg-gradient-to-br from-cyan-500 to-cyan-700',       // Stack Orchestration
+  'bg-gradient-to-br from-rose-500 to-rose-700',       // Audience Targeting
+  'bg-gradient-to-br from-purple-500 to-indigo-700',   // Analytics
 ];
 
 const ICONS = [Database, Globe, Share2, Zap, Layers, Target, BarChart3];
 const LABELS = ['Data Layer', 'Global Network', 'Integration', 'Automation', 'Stack Orchestration', 'Audience Targeting', 'Analytics'];
+
+// Vibrant Cyan Accent
+const ACCENT_COLOR = '#22d3ee'; // cyan-400
+const TEXT_ACCENT_COLOR = '#22d3ee'; 
 
 export default function GTMStackHero() {
   const [phase, setPhase] = useState<AnimationPhase>(AnimationPhase.CHAOS);
@@ -83,9 +87,9 @@ export default function GTMStackHero() {
   return (
     <div className="relative flex flex-col items-center justify-center min-h-screen bg-[#020617] p-8">
       
-      {/* 600x600 Container - Dark Navy/Black for Premium feel */}
+      {/* 600x600 Container - Matching the deep site background */}
       <div 
-        className="relative bg-[#0B1120] rounded-3xl shadow-2xl overflow-hidden border border-slate-800"
+        className="relative bg-[#020617] rounded-3xl shadow-2xl overflow-hidden border border-[#1e293b]"
         style={{ width: CONTAINER_SIZE, height: CONTAINER_SIZE }}
       >
         <BackgroundGrid />
@@ -106,12 +110,12 @@ export default function GTMStackHero() {
                      <motion.path
                        d={`M${m.chaosX + MODULE_SIZE_CHAOS/2},${m.chaosY + MODULE_SIZE_CHAOS/2} Q300,300 ${nextM.chaosX + MODULE_SIZE_CHAOS/2},${nextM.chaosY + MODULE_SIZE_CHAOS/2}`}
                        fill="none"
-                       stroke="#00C2B2" // Teal Accent
+                       stroke={ACCENT_COLOR}
                        strokeWidth="2"
                        initial={{ pathLength: 0, opacity: 0 }}
                        animate={{ 
                          pathLength: phase === AnimationPhase.ROUTES ? 1 : 0, 
-                         opacity: phase === AnimationPhase.ROUTES ? 0.6 : 0.2
+                         opacity: phase === AnimationPhase.ROUTES ? 0.8 : 0.15
                        }}
                        exit={{ opacity: 0 }}
                        transition={{ duration: 1.5, ease: "easeInOut" }}
@@ -120,13 +124,13 @@ export default function GTMStackHero() {
                       <motion.path
                        d={`M${m.chaosX + MODULE_SIZE_CHAOS/2},${m.chaosY + MODULE_SIZE_CHAOS/2} Q${m.chaosX},${crossM.chaosY} ${crossM.chaosX + MODULE_SIZE_CHAOS/2},${crossM.chaosY + MODULE_SIZE_CHAOS/2}`}
                        fill="none"
-                       stroke="#00C2B2" // Teal Accent
+                       stroke={ACCENT_COLOR}
                        strokeWidth="1"
                        strokeDasharray="4 4"
                        initial={{ pathLength: 0, opacity: 0 }}
                        animate={{ 
                          pathLength: phase === AnimationPhase.ROUTES ? 1 : 0, 
-                         opacity: phase === AnimationPhase.ROUTES ? 0.3 : 0
+                         opacity: phase === AnimationPhase.ROUTES ? 0.4 : 0
                        }}
                        exit={{ opacity: 0 }}
                        transition={{ duration: 1.8, ease: "easeInOut", delay: 0.2 }}
@@ -160,7 +164,7 @@ export default function GTMStackHero() {
                   width: isStack ? MODULE_WIDTH_STACK : MODULE_SIZE_CHAOS,
                   height: isStack ? MODULE_HEIGHT_STACK : MODULE_SIZE_CHAOS,
                   rotate: isStack ? 0 : module.chaosRotation,
-                  borderRadius: isStack ? 8 : 12, // 8px radius for stack bars, 12 for chaos chips
+                  borderRadius: isStack ? 6 : 12, // Slightly sharper corners for stack to match modern UI
                 }}
                 transition={{
                   type: "spring",
@@ -169,8 +173,12 @@ export default function GTMStackHero() {
                   mass: 0.8,
                   delay: isStack ? i * 0.05 : 0 // Stagger effect on stack
                 }}
-                className={`absolute flex items-center justify-center shadow-lg ${module.color} text-white border border-white/10`}
+                // Module Styling: Gradient background, white/20 border for contrast, deep shadow
+                className={`absolute flex items-center justify-center ${module.color} text-white border border-white/20 shadow-[0_4px_20px_-2px_rgba(0,0,0,0.5)]`}
               >
+                {/* Inner Highlight for Glass/Premium feel */}
+                <div className="absolute inset-0 rounded-[inherit] border border-white/10 pointer-events-none" />
+
                 {/* Content inside module */}
                 <div className="relative w-full h-full flex items-center px-4 overflow-hidden">
                   <motion.div
@@ -181,8 +189,8 @@ export default function GTMStackHero() {
                         width: isStack ? 'auto' : '100%',
                     }}
                   >
-                     {/* Icon Color: Teal for consistency */}
-                     <Icon size={isStack ? 18 : 20} className="text-[#00C2B2]" />
+                     {/* Icon Color: White to stand out against vibrant gradients */}
+                     <Icon size={isStack ? 18 : 20} className="text-white drop-shadow-sm" />
                   </motion.div>
                   
                   {/* Text Label - Only visible in Stack phase */}
@@ -193,7 +201,7 @@ export default function GTMStackHero() {
                       x: isStack ? 0 : -10
                     }}
                     transition={{ duration: 0.3 }}
-                    className="text-sm font-medium whitespace-nowrap tracking-wide text-slate-200"
+                    className="text-sm font-semibold whitespace-nowrap tracking-wide text-white drop-shadow-sm"
                   >
                     {module.label}
                   </motion.span>
@@ -221,7 +229,7 @@ export default function GTMStackHero() {
             <div className="flex items-center justify-center gap-2 text-slate-400 font-medium">
                <motion.span 
                  animate={{ 
-                    color: phase === AnimationPhase.ROUTES ? '#00C2B2' : '#64748b',
+                    color: phase === AnimationPhase.ROUTES ? TEXT_ACCENT_COLOR : '#64748b',
                     scale: phase === AnimationPhase.ROUTES ? 1.05 : 1
                  }}
                >
@@ -245,7 +253,7 @@ export default function GTMStackHero() {
             {[AnimationPhase.CHAOS, AnimationPhase.ROUTES, AnimationPhase.STACK].map((p, i) => (
                 <motion.div
                     key={p}
-                    className={`h-1.5 rounded-full ${phase === p ? 'bg-[#00C2B2]' : 'bg-slate-800'}`}
+                    className={`h-1.5 rounded-full ${phase === p ? 'bg-[#22d3ee]' : 'bg-[#1e293b]'}`}
                     animate={{ width: phase === p ? 24 : 6 }}
                     transition={{ duration: 0.3 }}
                 />

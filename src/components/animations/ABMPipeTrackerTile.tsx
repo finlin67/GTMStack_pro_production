@@ -196,4 +196,14 @@ export default function ABMPipeTrackerTile() {
               transition={{ delay: 1.2 }}
               className="flex items-center gap-2.5"
             >
-              <div className="size-1.5
+              <div className="size-1.5 rounded-full bg-green-800" />
+              <span className="text-white/30 text-[9px] font-bold uppercase tracking-widest">
+                Active Pipeline
+              </span>
+            </motion.div>
+          </div>
+        </footer>
+      </motion.div>
+    </div>
+  );
+}

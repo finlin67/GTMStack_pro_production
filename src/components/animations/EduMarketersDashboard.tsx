@@ -24,13 +24,6 @@ import {
   Target,
   Zap
 } from 'lucide-react';
-// @ts-ignore - Optional dependency, may not be installed
-let GoogleGenAI: any;
-try {
-  GoogleGenAI = require("@google/genai").GoogleGenAI;
-} catch {
-  GoogleGenAI = null;
-}
 
 // --- Types & Interfaces ---
 interface StatsState {
@@ -60,30 +53,12 @@ export default function EduMarketersDashboard() {
   const [isGenerating, setIsGenerating] = useState(false);
   const [aiResult, setAiResult] = useState<string | null>(null);
 
-  // Gemini Strategy Generation Logic
+  // Strategy Generation Logic (disabled - @google/genai removed)
   const generateStrategy = async () => {
     setIsGenerating(true);
-    if (!GoogleGenAI) {
-      setAiResult("AI features unavailable - package not installed.");
-      setIsGenerating(false);
-      return;
-    }
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: 'Create a high-impact, 3-step growth strategy for K-12 EdTech. Use strict bullet points, max 25 words total.',
-        config: {
-          systemInstruction: "You are an elite SaaS Growth Architect. Deliver ultra-efficient, executive-level directives.",
-        }
-      });
-      setAiResult(response.text || "Strategic engine synchronized.");
-    } catch (error) {
-      console.error("AI Generation Error:", error);
-      setAiResult("Sync error. Please verify intelligence connection.");
-    } finally {
-      setIsGenerating(false);
-    }
+    // AI features disabled - @google/genai removed
+    setAiResult("AI features unavailable - package not installed.");
+    setIsGenerating(false);
   };
 
   // Real-time Data Jitter Loop

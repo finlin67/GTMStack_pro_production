@@ -80,7 +80,7 @@ export default function GTMAudienceTile() {
             <span className="font-[Poppins] text-[10px] font-bold uppercase tracking-wider" style={{ color: colors.orange }}>Audience</span>
           </div>
           <h4 className="text-sm font-semibold text-white font-[Inter]">Segment Growth</h4>
-          <p className="text-[10px] text-slate-400 leading-relaxed italic font-[Inter]">"Identify key demographics & psychographics"</p>
+          <p className="text-[10px] text-slate-400 leading-relaxed italic font-[Inter]">&quot;Identify key demographics &amp; psychographics&quot;</p>
         </div>
       </motion.div>
 

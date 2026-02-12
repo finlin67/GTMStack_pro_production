@@ -7,13 +7,6 @@ import {
   Cpu, Zap, TrendingDown, ShieldCheck, Plane, 
   Package, Award, Loader2, Search, Binary 
 } from 'lucide-react';
-// @ts-ignore - Optional dependency, may not be installed
-let GoogleGenAI: any;
-try {
-  GoogleGenAI = require("@google/genai").GoogleGenAI;
-} catch {
-  GoogleGenAI = null;
-}
 
 interface StatsState {
   duration: number;
@@ -65,44 +58,9 @@ export default function EngineeringWorkflow() {
     setReport(null);
     setConceptImage(null);
 
-    if (!GoogleGenAI) {
-      setAiLoading(false);
-      setReport({ component: componentName, roadmap: ["AI features unavailable"], riskFactor: "Low" });
-      return;
-    }
-
-    const ai = new GoogleGenAI({ apiKey: process.env.API_KEY || '' });
-    
-    try {
-      // 1. Generate Report
-      const textResponse = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `Generate a short technical engineering validation roadmap for a "${componentName}" in a 36-month aerospace/automotive cycle. 
-        Format as JSON: { "component": "${componentName}", "roadmap": ["Phase 1: ...", "Phase 2: ...", "Phase 3: ..."], "riskFactor": "Low/Medium/High" }`,
-        config: { responseMimeType: "application/json" }
-      });
-
-      const parsedReport = JSON.parse(textResponse.text || '{}');
-      setReport(parsedReport);
-
-      // 2. Generate Concept Image
-      const imageResponse = await ai.models.generateContent({
-        model: 'gemini-2.5-flash-image',
-        contents: {
-          parts: [{ text: `A high-tech blueprint and 3D render of an advanced engineering component: ${componentName}. Cyberpunk aesthetic, blueprint grid background, cinematic lighting, 4k resolution. Wide aspect ratio.` }]
-        }
-      });
-
-      for (const part of imageResponse.candidates?.[0]?.content?.parts || []) {
-        if (part.inlineData) {
-          setConceptImage(`data:image/png;base64,${part.inlineData.data}`);
-        }
-      }
-    } catch (error) {
-      console.error("AI Generation Error:", error);
-    } finally {
-      setAiLoading(false);
-    }
+    // AI features disabled - @google/genai removed
+    setAiLoading(false);
+    setReport({ component: componentName, roadmap: ["AI features unavailable"], riskFactor: "Low" });
   };
 
   return (

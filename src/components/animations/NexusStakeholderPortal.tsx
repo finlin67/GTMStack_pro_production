@@ -26,13 +26,6 @@ import {
   Users,
   Box
 } from 'lucide-react';
-// @ts-ignore - Optional dependency, may not be installed
-let GoogleGenAI: any;
-try {
-  GoogleGenAI = require("@google/genai").GoogleGenAI;
-} catch {
-  GoogleGenAI = null;
-}
 
 // --- Types ---
 interface Stats {
@@ -106,33 +99,14 @@ export default function NexusStakeholderPortal() {
   const [aiInsight, setAiInsight] = useState<string>("Analyzing metrics...");
   const [isGeneratingInsight, setIsGeneratingInsight] = useState(false);
 
-  // Gemini AI Insight Generator
+  // AI Insight Generator (disabled - @google/genai removed)
   const generateInsight = useCallback(async (currentStats: Stats) => {
     if (isGeneratingInsight) return;
     setIsGeneratingInsight(true);
     setAiInsight("Generating insight...");
-    if (!GoogleGenAI) {
-      setAiInsight("AI insights unavailable - package not installed.");
-      setIsGeneratingInsight(false);
-      return;
-    }
-    try {
-      const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
-      const response = await ai.models.generateContent({
-        model: 'gemini-3-flash-preview',
-        contents: `Provide a super concise (max 8 words) tech insight based on: Accuracy ${currentStats.accuracy.toFixed(2)}%, Latency ${currentStats.latency}ms. Tone: Tech Lead.`,
-      });
-      setAiInsight(response.text || "Metrics nominal.");
-    } catch (error: any) {
-      console.error("AI Insight failed:", error);
-      if (error.toString().includes("quota") || error.toString().includes("429")) {
-        setAiInsight("Rate limit reached.");
-      } else {
-        setAiInsight("Error fetching insight.");
-      }
-    } finally {
-      setIsGeneratingInsight(false);
-    }
+    // AI features disabled - @google/genai removed
+    setAiInsight("AI insights unavailable - package not installed.");
+    setIsGeneratingInsight(false);
   }, [isGeneratingInsight]);
 
   // Organic Jitter Logic
