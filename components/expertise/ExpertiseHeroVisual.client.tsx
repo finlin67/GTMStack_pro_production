@@ -65,7 +65,7 @@ export function ExpertiseHeroVisual({ animation, config, borderClassName, tileVa
 
   // Check for ?anim= query param or use registry entry
   useEffect(() => {
-    const animParam = searchParams.get('anim')
+    const animParam = searchParams?.get('anim')
     if (animParam) {
       const anim = getAnimationById(animParam)
       if (anim) {

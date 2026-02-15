@@ -32,7 +32,7 @@ export function AnimationDetailClient({ params }: Props) {
 
   useEffect(() => {
     // Check for ?anim= query param first
-    const animParam = searchParams.get('anim')
+    const animParam = searchParams?.get('anim')
     const animId = animParam || params.id
 
     const anim = getAnimationById(animId)

@@ -98,9 +98,9 @@ export default function BlogIndexClient({
   const isGridInView = useInView(gridRef, { once: true, margin: '-50px 0px' })
   const shouldReduceMotion = useReducedMotion() ?? false
 
-  const q = searchParams.get('q') ?? ''
-  const category = searchParams.get('category') ?? ''
-  const pageParam = searchParams.get('page') ?? '1'
+  const q = searchParams?.get('q') ?? ''
+  const category = searchParams?.get('category') ?? ''
+  const pageParam = searchParams?.get('page') ?? '1'
   const currentPage = Math.max(1, parseInt(pageParam, 10) || 1)
 
   // When URL params differ from server-provided initial (e.g. /blog?q=foo), refetch so first paint shows correct data.
@@ -143,7 +143,7 @@ export default function BlogIndexClient({
 
   const updateUrl = useCallback(
     (updates: { q?: string; category?: string; tag?: string; page?: string }) => {
-      const params = new URLSearchParams(searchParams.toString())
+      const params = new URLSearchParams(searchParams?.toString() ?? '')
       if (updates.q !== undefined) {
         if (updates.q) params.set('q', updates.q)
         else params.delete('q')

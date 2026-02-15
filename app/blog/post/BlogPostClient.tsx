@@ -31,7 +31,7 @@ function slugify(text: string) {
 
 export default function BlogPostClient() {
   const searchParams = useSearchParams()
-  const slug = searchParams.get('slug') || ''
+  const slug = searchParams?.get('slug') || ''
   const [post, setPost] = useState<WPPost | null>(null)
   const [relatedPosts, setRelatedPosts] = useState<WPPost[]>([])
   const [loading, setLoading] = useState(true)
