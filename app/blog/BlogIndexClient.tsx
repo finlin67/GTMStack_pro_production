@@ -6,7 +6,7 @@ import { useRouter, useSearchParams } from 'next/navigation'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, Search, FileText, ChevronLeft, ChevronRight, Flame, Mail } from 'lucide-react'
 import type { WPPost, WPTerm } from '@/lib/wp-client'
-import { getPostCategories } from '@/lib/wp-client'
+import { getPostCategories, fetchPostsWithTotal } from '@/lib/wp-client'
 import { getFeaturedImageUrl } from '@/lib/wp-media'
 
 const TEAL = '#00A8A8'
@@ -103,6 +103,40 @@ export default function BlogIndexClient({
   const pageParam = searchParams.get('page') ?? '1'
   const currentPage = Math.max(1, parseInt(pageParam, 10) || 1)
 
+  // When URL params differ from server-provided initial (e.g. /blog?q=foo), refetch so first paint shows correct data.
+  const [urlDrivenData, setUrlDrivenData] = useState<{ posts: WPPost[]; totalPages: number } | null>(null)
+  const initialQ = initialQuery.q ?? ''
+  const initialCategory = initialQuery.category ?? ''
+  const initialPage = initialQuery.page ?? '1'
+  const urlMatchesInitial = q === initialQ && category === initialCategory && pageParam === initialPage
+
+  useEffect(() => {
+    if (urlMatchesInitial) {
+      setUrlDrivenData(null)
+      return
+    }
+    let cancelled = false
+    const categoryId = category ? categories.find((c) => c.slug === category)?.id : undefined
+    fetchPostsWithTotal({
+      search: q || undefined,
+      categoryIds: categoryId != null ? [categoryId] : undefined,
+      page: currentPage,
+      per_page: POSTS_PER_PAGE,
+    })
+      .then(({ posts, totalPages }) => {
+        if (!cancelled) setUrlDrivenData({ posts, totalPages })
+      })
+      .catch(() => {
+        if (!cancelled) setUrlDrivenData(null)
+      })
+    return () => {
+      cancelled = true
+    }
+  }, [q, category, pageParam, currentPage, urlMatchesInitial, categories])
+
+  const displayedPosts = urlDrivenData?.posts ?? initialPosts
+  const displayedTotalPages = urlDrivenData?.totalPages ?? totalPages
+
   useEffect(() => {
     setSearchInput(q)
   }, [q])
@@ -140,11 +174,11 @@ export default function BlogIndexClient({
     return () => clearTimeout(t)
   }, [searchInput, q, updateUrl])
 
-  const featuredPost = initialPosts[0] ?? null
+  const featuredPost = displayedPosts[0] ?? null
   const gridPosts = useMemo(() => {
-    if (!featuredPost) return initialPosts
-    return initialPosts.filter((p) => p.id !== featuredPost.id)
-  }, [initialPosts, featuredPost])
+    if (!featuredPost) return displayedPosts
+    return displayedPosts.filter((p) => p.id !== featuredPost.id)
+  }, [displayedPosts, featuredPost])
 
   const formatDate = useCallback((dateStr: string) => {
     try {
@@ -272,7 +306,7 @@ export default function BlogIndexClient({
           </div>
         )}
 
-        {!error && initialPosts.length === 0 && (
+        {!error && displayedPosts.length === 0 && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -282,7 +316,7 @@ export default function BlogIndexClient({
           </motion.div>
         )}
 
-        {initialPosts.length > 0 && (
+        {displayedPosts.length > 0 && (
           <div className="flex flex-col lg:flex-row gap-8">
             <main className="lg:flex-1 min-w-0">
             {/* Featured Post */}
@@ -416,7 +450,7 @@ export default function BlogIndexClient({
             </div>
 
             {/* Pagination */}
-            {totalPages > 1 && (
+            {displayedTotalPages > 1 && (
               <motion.nav
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -440,18 +474,18 @@ export default function BlogIndexClient({
                   Previous
                 </motion.button>
                 <span className="text-[#E8E8E8] text-sm px-4 font-medium">
-                  Page {currentPage} of {totalPages}
+                  Page {currentPage} of {displayedTotalPages}
                 </span>
                 <motion.button
-                  onClick={() => updateUrl({ page: String(Math.min(totalPages, currentPage + 1)) })}
-                  disabled={currentPage >= totalPages}
+                  onClick={() => updateUrl({ page: String(Math.min(displayedTotalPages, currentPage + 1)) })}
+                  disabled={currentPage >= displayedTotalPages}
                   whileHover={
-                    currentPage < totalPages ? { scale: 1.03 } : {}
+                    currentPage < displayedTotalPages ? { scale: 1.03 } : {}
                   }
-                  whileTap={currentPage < totalPages ? { scale: 0.98 } : {}}
+                  whileTap={currentPage < displayedTotalPages ? { scale: 0.98 } : {}}
                   className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-xl font-semibold transition-all duration-300 disabled:opacity-40 disabled:cursor-not-allowed"
                   style={{
-                    backgroundColor: currentPage < totalPages ? TEAL : '#1E2A5E',
+                    backgroundColor: currentPage < displayedTotalPages ? TEAL : '#1E2A5E',
                     color: 'white',
                   }}
                 >
@@ -471,7 +505,7 @@ export default function BlogIndexClient({
                   Trending Now
                 </h3>
                 <ol className="space-y-3">
-                  {initialPosts.slice(0, 4).map((p, idx) => (
+                  {displayedPosts.slice(0, 4).map((p, idx) => (
                     <li key={p.id}>
                       <Link
                         href={`/blog/post?slug=${p.slug}`}
@@ -537,7 +571,7 @@ export default function BlogIndexClient({
           </div>
         )}
 
-        {initialPosts.length > 3 && (
+        {displayedPosts.length > 3 && (
           <motion.aside
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -549,7 +583,7 @@ export default function BlogIndexClient({
               Quick Links
             </h3>
             <div className="flex flex-wrap gap-x-4 gap-y-1">
-              {initialPosts.slice(0, 5).map((p) => (
+              {displayedPosts.slice(0, 5).map((p) => (
                 <Link
                   key={p.id}
                   href={`/blog/post?slug=${p.slug}`}

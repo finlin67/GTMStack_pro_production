@@ -1,17 +1,11 @@
-import { Metadata } from 'next'
-import { notFound } from 'next/navigation'
 import {
-  expertiseItems,
-  getExpertiseBySlug,
   getExpertiseByPillar,
 } from '@/content/expertise'
 import { getCaseStudiesByExpertise } from '@/content/case-studies'
 import { industryItems } from '@/content/industries'
 import { getExpertiseHeroConfig } from '@/content/expertiseHeroConfigs'
-import { getPageBySlug } from '@/lib/pageRegistry'
-import ExpertiseCategoryTemplate from '@/src/templates/expertise/ExpertiseCategoryTemplate'
-import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemplate'
-import { ExpertiseDetailContent, type PillarId } from './ExpertiseDetailContent'
+import { ExpertiseDetailContent, type PillarId } from '@/app/expertise/[slug]/ExpertiseDetailContent'
+import type { ExpertiseItem } from '@/lib/types'
 
 const SLUG_TO_PILLAR: Record<string, PillarId> = {
   'content-marketing': 'content-engagement',
@@ -57,7 +51,6 @@ const PILLAR_TITLES: Record<PillarId, string> = {
   'systems-operations': 'Systems & Operations',
 }
 
-/** Stitch reference styling: only these 5 detail pages + content-engagement pillar */
 const STITCH_SLUGS = [
   'content-marketing',
   'email-marketing',
@@ -65,8 +58,6 @@ const STITCH_SLUGS = [
   'video-marketing',
   'omnichannel-marketing',
 ]
-
-/** PMM.AI reference styling: only these 5 detail pages + demand-growth pillar */
 const PMM_AI_SLUGS = [
   'demand-generation',
   'growth-marketing',
@@ -74,8 +65,6 @@ const PMM_AI_SLUGS = [
   'event-marketing',
   'search-engine-optimization',
 ]
-
-/** Strategy & Insights reference styling: only these 5 detail pages + strategy-insights pillar */
 const STRATEGY_INSIGHTS_SLUGS = [
   'customer-experience-cx',
   'customer-marketing',
@@ -83,8 +72,6 @@ const STRATEGY_INSIGHTS_SLUGS = [
   'lifecycle-marketing',
   'product-marketing',
 ]
-
-/** Systems & Operations reference styling: only these 5 detail pages + systems-operations pillar */
 const SYSTEMS_OPERATIONS_SLUGS = [
   'sales-enablement',
   'ai-in-marketing',
@@ -112,6 +99,12 @@ const DEFAULT_EXECUTION_STACK = [
   'Pipeline quality',
 ]
 
+const DEFAULT_RESULTS = [
+  { value: '3-5x', label: 'Pipeline efficiency uplift' },
+  { value: '30-50%', label: 'Faster time-to-signal' },
+  { value: '2-3x', label: 'Lift in qualified pipeline' },
+]
+
 function parseProofMetrics(metrics?: string): { value: string; label: string }[] {
   if (!metrics) return []
   const parts = metrics.split(/[;,]+\s*/).filter(Boolean).slice(0, 5)
@@ -124,38 +117,21 @@ function parseProofMetrics(metrics?: string): { value: string; label: string }[]
   })
 }
 
-const DEFAULT_RESULTS = [
-  { value: '3-5x', label: 'Pipeline efficiency uplift' },
-  { value: '30-50%', label: 'Faster time-to-signal' },
-  { value: '2-3x', label: 'Lift in qualified pipeline' },
-]
-
-interface Props {
-  params: { slug: string }
+export interface ExpertiseTopicTemplateProps {
+  /** Expertise item (same as app/expertise/[slug] page) */
+  item: ExpertiseItem
+  pageTitle?: string
+  theme?: 'dark' | 'light'
+  heroVisualId?: string
 }
 
-export async function generateStaticParams() {
-  return expertiseItems.map((item) => ({ slug: item.slug }))
-}
-
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const item = getExpertiseBySlug(params.slug)
-  if (!item) return { title: 'Not Found' }
-  const registryRow = getPageBySlug('expertise', params.slug)
-  const title = registryRow?.pageTitle ?? `${item.title} Expertise`
-  return {
-    title,
-    description: item.description ?? item.positioning,
-  }
-}
-
-export default function ExpertiseDetailPage({ params }: Props) {
-  const item = getExpertiseBySlug(params.slug)
-
-  if (!item) {
-    notFound()
-  }
-
+/**
+ * Minimal v1 template for expertise.topic (detail) pages.
+ * Reuses ExpertiseDetailContent with same data derivation as app/expertise/[slug].
+ */
+export default function ExpertiseTopicTemplate({
+  item,
+}: ExpertiseTopicTemplateProps) {
   const pillarId: PillarId =
     (item.pillar as PillarId) ?? SLUG_TO_PILLAR[item.slug] ?? 'strategy-insights'
   const pillarTitle = PILLAR_TITLES[pillarId]
@@ -169,8 +145,7 @@ export default function ExpertiseDetailPage({ params }: Props) {
     item.tags && item.tags.length > 0 ? item.tags : DEFAULT_EXECUTION_STACK
 
   const parsedResults = parseProofMetrics(item.proof?.metrics)
-  const results =
-    parsedResults.length >= 3 ? parsedResults : DEFAULT_RESULTS
+  const results = parsedResults.length >= 3 ? parsedResults : DEFAULT_RESULTS
 
   const relatedExpertise = item.pillar
     ? getExpertiseByPillar(item.pillar)
@@ -180,8 +155,8 @@ export default function ExpertiseDetailPage({ params }: Props) {
 
   const relatedCaseStudies = getCaseStudiesByExpertise(item.slug).slice(0, 3)
 
-  const relatedIndustries = industryItems.filter(
-    (i) => i.featuredExpertise?.includes(item.slug)
+  const relatedIndustries = industryItems.filter((i) =>
+    i.featuredExpertise?.includes(item.slug)
   ).slice(0, 3)
 
   const heroConfig = getExpertiseHeroConfig(item.slug)
@@ -194,14 +169,13 @@ export default function ExpertiseDetailPage({ params }: Props) {
       'systems-operations': '#0D1650',
     }[pillarId]
 
-  const useStitchTheme = STITCH_SLUGS.includes(params.slug)
-  const usePmmAiTheme = PMM_AI_SLUGS.includes(params.slug)
-  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(params.slug)
+  const useStitchTheme = STITCH_SLUGS.includes(item.slug)
+  const usePmmAiTheme = PMM_AI_SLUGS.includes(item.slug)
+  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(item.slug)
   const useSystemsOperationsTheme =
-    SYSTEMS_OPERATIONS_SLUGS.includes(params.slug) || pillarId === 'systems-operations'
+    SYSTEMS_OPERATIONS_SLUGS.includes(item.slug) || pillarId === 'systems-operations'
 
-  const registryRow = getPageBySlug('expertise', params.slug)
-  const defaultContent = (
+  return (
     <ExpertiseDetailContent
       item={item}
       pillarId={pillarId}
@@ -213,29 +187,15 @@ export default function ExpertiseDetailPage({ params }: Props) {
       relatedExpertise={relatedExpertise}
       relatedCaseStudies={relatedCaseStudies}
       relatedIndustries={relatedIndustries}
-      heroConfig={heroConfig ? { tagline: heroConfig.tagline, metrics: heroConfig.metrics } : undefined}
+      heroConfig={
+        heroConfig
+          ? { tagline: heroConfig.tagline, metrics: heroConfig.metrics }
+          : undefined
+      }
       useStitchTheme={useStitchTheme}
       usePmmAiTheme={usePmmAiTheme}
       useStrategyInsightsTheme={useStrategyInsightsTheme}
       useSystemsOperationsTheme={useSystemsOperationsTheme}
     />
   )
-
-  if (registryRow) {
-    const registryProps = {
-      pageTitle: registryRow.pageTitle,
-      theme: registryRow.theme ?? undefined,
-      heroVisualId: registryRow.heroVisualId ? registryRow.heroVisualId : undefined,
-    }
-    if (registryRow.templateId === 'expertise.topic') {
-      return <ExpertiseTopicTemplate item={item} {...registryProps} />
-    }
-    return (
-      <ExpertiseCategoryTemplate {...registryProps}>
-        {defaultContent}
-      </ExpertiseCategoryTemplate>
-    )
-  }
-
-  return defaultContent
 }

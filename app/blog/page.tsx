@@ -11,18 +11,15 @@ import {
 
 const POSTS_PER_PAGE = 9
 
-type SearchParams = { q?: string; category?: string; tag?: string; page?: string }
+export const dynamic = 'force-static'
 
-export default async function BlogPage({
-  searchParams,
-}: {
-  searchParams: Promise<SearchParams> | SearchParams
-}) {
-  const params = await Promise.resolve(searchParams)
-  const q = typeof params?.q === 'string' ? params.q : undefined
-  const categorySlug = typeof params?.category === 'string' ? params.category : undefined
-  const pageParam = typeof params?.page === 'string' ? params.page : '1'
-  const page = Math.max(1, parseInt(pageParam, 10) || 1)
+export default async function BlogPage() {
+  // Static export: do not read searchParams here so /blog can be prerendered.
+  // BlogIndexClient uses useSearchParams() for q/category/page and refetches when URL differs.
+  const q: string | undefined = undefined
+  const categorySlug: string | undefined = undefined
+  const pageParam = '1'
+  const page = 1
 
   let posts: Awaited<ReturnType<typeof fetchPostsWithTotal>>['posts'] = []
   let totalPages = 1

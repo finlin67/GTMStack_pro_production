@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation'
 import { industryItems, getIndustryBySlug } from '@/content/industries'
 import { getExpertiseBySlug } from '@/content/expertise'
 import { getCaseStudyBySlug } from '@/content/case-studies'
+import { getPageBySlug } from '@/lib/pageRegistry'
+import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
 import IndustryPageContent from '@/components/industries/IndustryPageContent'
 
 interface Props {
@@ -18,9 +20,10 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = getIndustryBySlug(params.slug)
   if (!item) return { title: 'Not Found' }
-
+  const registryRow = getPageBySlug('industries', params.slug)
+  const title = registryRow?.pageTitle ?? `${item.title} Industry Solutions | GTMstack.pro`
   return {
-    title: `${item.title} Industry Solutions | GTMstack.pro`,
+    title,
     description: item.description,
   }
 }
@@ -47,12 +50,29 @@ export default function IndustryDetailPage({ params }: Props) {
     ? `${industry.title} companies face unique GTM challenges. ${industry.positioning} Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
     : `${industry.title} companies face unique GTM challenges. Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
 
-  return (
-    <IndustryPageContent 
-      industry={industry} 
+  const registryRow = getPageBySlug('industries', params.slug)
+  const defaultContent = (
+    <IndustryPageContent
+      industry={industry}
       featuredExpertise={featuredExpertise}
       featuredCaseStudies={featuredCaseStudies.length > 0 ? featuredCaseStudies : undefined}
       whyNow={whyNowText}
     />
   )
+
+  if (registryRow) {
+    return (
+      <IndustryTemplate
+        industry={industry}
+        featuredExpertise={featuredExpertise}
+        featuredCaseStudies={featuredCaseStudies.length > 0 ? featuredCaseStudies : undefined}
+        whyNow={whyNowText}
+        pageTitle={registryRow.pageTitle}
+        theme={registryRow.theme ?? undefined}
+        heroVisualId={registryRow.heroVisualId ? registryRow.heroVisualId : undefined}
+      />
+    )
+  }
+
+  return defaultContent
 }
