@@ -57,7 +57,7 @@ For each of the four sub-categories there are five landing pages under each, 20 
 ------> Event Marketing -->	/expertise/event-marketing	
 		
 - Strategy & insights	/expertise/strategy-insights	
-------> Account Based Mmarketing -->	/expertise/account-based-marketing	
+------> Account Based Mmarketing --> /expertise/account-based-marketing	
 ------> Customer Experience CX	--> /expertise/customer-experience-cx	
 ------> Customer Marketing -->	/expertise/customer-marketing	
 ------> Lifecycle Marketing -->	/expertise/lifecycle-marketing	
@@ -65,11 +65,11 @@ For each of the four sub-categories there are five landing pages under each, 20 
 		
 - Systems & Operations	--> /expertise/systems-operations	
 ------> AI in Marketing	--> /expertise/ai-in-marketing	
-------> Marketing Automation	/expertise/marketing-automation	
-------> Marketing Operations	/expertise/marketing-operations	/expertise/marketing-analytics-reporting
-------> Martech Optimization	/expertise/martech-optimization	
-------> Sales Enablement	/expertise/sales-enablement	/expertise/sales-enablement-alignment
- 
+------> Marketing Automation --> /expertise/marketing-automation	
+------> Marketing Operations --> /expertise/marketing-operations	
+------> Marketing Analytics --> /expertise/marketing-analytics-reporting
+------> Martech Optimization --> /expertise/martech-optimization	
+------> Sales Enablement 	--> /expertise/sales-enablement	 
 
 --------------------------------------------------------------------------------
 For the Industries section, each detail/Landing pages resolves via /industries/slug all sourced from "/industries/ (PLEASE NOTE THAT this URL https://gtmstack.pro/industries/ has a 403 error) 
@@ -77,14 +77,23 @@ Each "Industry" is a standalone page, in simple terms the Industries section sho
 --------------------------------------------------------------------------------
  Routes - Landing --> Industries Routes - Detail Pages (dynamic) resolve via 
 - Industries --> /industries
-------> B2B SaaS -->  /industries/b2b-saas
-------> Financial Services --> /industries/fintech
-------> Healthcare --> /industries/healthtech
-------> Developer Software --> /industries/developer-tools
-------> Ecommerce and Retail --> /industries/ecommerce
-------> Cybersecurity --> /industries/cybersecurity
-------> Climate --> /industries/climate-tech
-------> AI/ML --> /industries/ai-ml
+-------> B2B SaaS ---> /industries/b2b-saas/
+------> Cybersecurity ---> /industries/cybersecurity/
+------> Developer Tools & DevOps ---> /industries/developer-tools/
+------> Developer Tools & DevOps ---> /industries/developer-tools/
+------> K-12 and High-Education ---> /industries/education/
+------> K-12 and High-Education ---> /industries/education/
+------> Energy: Oil & Gas ---> /industries/energy-utilities/
+------> Financial Services ---> /industries/financial-services/
+------> Fleet Management and Logistics ---> /industries/fleet-management-logistics/
+------> Healthcare & Health Technology ---> /industries/healthcare/
+------> Manufacturing ---> /industries/manufacturing
+------> Manufacturing ---> /industries/manufacturing/
+------> Non-profit NGO ---> /industries/non-profit-ngo/
+------> Public Sector and Government ---> /industries/public-sector-governement/
+------> Retail & Ecommerce ---> /industries/retail/
+------> Telecommunications ---> /industries/telecommunications/
+------> Waste Management ---> /industries/waste-management/
 
 --------------------------------------------------------------------------------
 For the "Case Stdies" --> PLEASE shift, or re-route or rename Case Studies to Projects: Within the Projects section, each detail/Landing pages should resolves via /project/slug all sourced from "/projects/". Each "Project" is a standalone page, in simple terms the Projects section should reflect:
