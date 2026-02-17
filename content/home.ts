@@ -1,134 +1,135 @@
 import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 
-/** Home page content for HomeTemplate (PageContent shape). */
+/** Industries-style home content for HomeTemplate (Revenue Architect layout). */
 export const HOME_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'Founder-Led GTM Consulting',
-    titleStart: 'The Revenue Architect for ',
-    titleGradient: 'B2B Tech',
+    badge: 'Vertical Expertise',
+    titleStart: 'Industries: Tailored',
+    titleGradient: 'Revenue Architecture',
     subtitle:
-      'Engineering predictable revenue growth for enterprise tech through strategic precision. We bridge the gap between product innovation and market dominance.',
-    ctaPrimary: 'Start Your Build',
-    ctaSecondary: 'View Methodology',
+      'Generic strategies fail in complex markets. We deploy vertical-specific GTM blueprints engineered to navigate regulatory constraints, technical sales cycles, and multi-stakeholder purchasing.',
+    ctaPrimary: 'Explore Industries',
+    ctaSecondary: 'Get Audited',
   },
   stats: [
-    { value: '140%', label: 'Pipeline Growth' },
-    { value: '85%', label: 'Retention Rate' },
-    { value: '32%', label: 'Win Rate Increase' },
-    { value: '24%', label: 'CAC Reduction' },
+    { value: '3x', label: 'Pipeline Growth' },
+    { value: '2.4x', label: 'Deal Velocity' },
+    { value: '40%', label: 'Win Rate Lift' },
+    { value: '-25%', label: 'CAC Reduction' },
+    { value: '98%', label: 'Forecast Accuracy' },
+    { value: '12wk', label: 'Time to Value' },
   ],
   methodology: {
-    title: 'The Architectural Method',
-    description:
-      'A rigid, four-phase engineering framework designed to eliminate leakage and maximize capture across your entire GTM motion.',
+    title: 'Architectural Method by Industry',
+    subtitle:
+      'Our four-phase engagement model adapts structurally to the physics of your market.',
     steps: [
       {
-        number: '01',
-        icon: 'Search',
-        title: 'Audit',
-        description:
-          'Deep forensic dive into GTM, tech stack, funnel leakage.',
-        progress: '25%',
+        label: '01 Audit',
+        description: 'Deep diagnostic of your GTM engine against industry benchmarks.',
+        exampleLabel: 'Example: GovTech',
+        exampleDetail:
+          'RFP win-rate analysis & compliance bottleneck identification.',
       },
       {
-        number: '02',
-        icon: 'DraftingCompass',
-        title: 'Design',
+        label: '02 Architect',
         description:
-          'Blueprint for scalable revenue infrastructure.',
-        progress: '50%',
+          'Designing the optimal revenue structure, org chart, and tech stack.',
+        exampleLabel: 'Example: FinTech',
+        exampleDetail:
+          'Constructing high-velocity PLG loops with enterprise sales overlays.',
       },
       {
-        number: '03',
-        icon: 'Rocket',
-        title: 'Build',
-        description:
-          'Execute tech integration + campaigns + enablement.',
-        progress: '75%',
+        label: '03 Align',
+        description: 'Synchronizing marketing, sales, and CS around a single truth.',
+        exampleLabel: 'Example: Energy',
+        exampleDetail:
+          'Aligning field sales with centralized account-based marketing data.',
       },
       {
-        number: '04',
-        icon: 'Settings',
-        title: 'Optimize',
+        label: '04 Accelerate',
         description:
-          'Continuous tuning + A/B testing + scaling.',
-        progress: '100%',
+          'Executing the blueprint and iterating based on live market data.',
+        exampleLabel: 'Example: B2B SaaS',
+        exampleDetail:
+          'Rapid experimentation across pricing tiers and channel partners.',
       },
     ],
   },
-  expertise: {
-    title: 'Core Capabilities',
-    items: [
+  sectors: {
+    sectionTitle: 'Sector Specializations',
+    sectionSubtitle: 'Where we have deployed architecture successfully.',
+    cards: [
       {
-        icon: 'TrendingUp',
-        title: 'Sales Velocity',
+        title: 'FinTech',
         description:
-          'Increasing speed and frequency of closed-won deals via pipeline rigor + coaching.',
-        tags: ['Pipeline Rigor', 'Coaching', 'Deal Velocity'],
+          'Navigating complex compliance while accelerating user acquisition in saturated markets.',
       },
       {
-        icon: 'Map',
-        title: 'GTM Strategy',
+        title: 'HealthTech',
         description:
-          'Market entry + positioning blueprint for competitive dominance.',
-        tags: ['Market Entry', 'Positioning', 'Competitive Edge'],
+          'Enterprise sales structures for selling into hospital systems and payer networks.',
       },
       {
-        icon: 'Network',
-        title: 'Demand Gen Systems',
+        title: 'Cybersecurity',
         description:
-          'Automated high-intent pipeline engines.',
-        tags: ['High-Intent', 'Automation', 'Pipeline'],
+          'Shifting from technical feature selling to C-level risk mitigation narratives.',
       },
       {
-        icon: 'Settings',
-        title: 'Revenue Ops',
+        title: 'Manufacturing',
         description:
-          'Tool, data, and reporting alignment for full GTM visibility.',
-        tags: ['Tech Stack', 'Data Alignment', 'Reporting'],
+          'Digital transformation GTM strategies for legacy industrial players.',
+      },
+      {
+        title: 'B2B SaaS',
+        description:
+          'From PLG to Enterprise sales motion transitions. Pricing optimization.',
+      },
+      {
+        title: 'Energy',
+        description:
+          'Market entry strategies for renewables and grid modernization tech.',
+      },
+      {
+        title: 'Retail Tech',
+        description:
+          'Omnichannel integration sales strategies and partnership ecosystem development.',
+      },
+      {
+        title: 'GovTech',
+        description:
+          'Optimizing capture management and proposal processes for public sector.',
+      },
+      {
+        title: 'EdTech',
+        description:
+          'District-level sales architecture vs B2C subscription models.',
+      },
+      {
+        title: 'Logistics',
+        description:
+          'Supply chain visibility platforms and brokerage GTM scaling.',
+      },
+      {
+        title: 'Professional Services',
+        description:
+          'Productizing service offerings to increase valuation multiples.',
+      },
+      {
+        title: 'Telecom',
+        description:
+          '5G infrastructure monetization and B2B connectivity sales.',
       },
     ],
   },
-  quote: {
-    text: "We reject the 'growth at all costs' narrative in favor of ",
-    highlight: 'predictable revenue growth',
+  quoteBand: {
+    quoteLine:
+      'Every industry has unique constraints. Our architecture delivers precision where it matters most.',
+    kicker: 'The Revenue Architect Promise',
   },
-  caseStudies: {
-    title: 'Explore Further',
-    subtitle: 'See how this expertise translates into real-world results.',
-    items: [
-      {
-        title: 'SaaS Pipeline Expansion',
-        description:
-          'Unified ABM and RevOps for a Series B SaaS company. Clear attribution and routing drove pipeline growth and deal velocity.',
-        outcomeLabel: 'Pipeline growth',
-        outcomeValue: '126%',
-      },
-      {
-        title: 'Fintech GTM Launch',
-        description:
-          'From ICP definition to first revenue. Demand systems and sales playbooks aligned for a regulated market.',
-        outcomeLabel: 'Time to first deal',
-        outcomeValue: '-40%',
-      },
-      {
-        title: 'Manufacturing ABM',
-        description:
-          'Account-based motion and intent signals for industrial accounts. Sales focused on in-market opportunities.',
-        outcomeLabel: 'SQLs from intent',
-        outcomeValue: '74',
-      },
-    ],
-    industries: [
-      { title: 'SaaS & Technology', description: '', quote: 'Predictable pipeline from day one.' },
-      { title: 'Fintech', description: '', quote: 'GTM that respects compliance and velocity.' },
-      { title: 'Manufacturing', description: '', quote: 'ABM that reaches the right decision-makers.' },
-    ],
-  },
-  ctaBottom: {
-    title: 'Ready to engineer your growth?',
-    subtitle:
-      'Stop guessing and start building. Our diagnostic audit uncovers the exact bottlenecks holding your revenue back.',
-    buttonText: 'Schedule Audit',
+  bottomCta: {
+    title: 'Action',
+    subtitle: 'Ready to optimize your revenue architecture?',
+    buttonLabel: 'Schedule Audit',
   },
 }
