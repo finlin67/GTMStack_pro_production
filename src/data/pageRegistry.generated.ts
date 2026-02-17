@@ -6,7 +6,6 @@ export type TemplateId =
   | 'expertise.topic'
   | 'industry.base'
   | 'caseStudy.base'
-  | 'home.base'
 
 export type Theme = 'dark' | 'light' | undefined
 
