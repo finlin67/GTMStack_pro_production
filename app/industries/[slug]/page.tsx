@@ -4,6 +4,7 @@ import { industryItems, getIndustryBySlug } from '@/content/industries'
 import { getExpertiseBySlug } from '@/content/expertise'
 import { getCaseStudyBySlug } from '@/content/case-studies'
 import { getPageBySlug } from '@/lib/pageRegistry'
+import { getIndustryContentByKey } from '@/src/content/registry'
 import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
 import IndustryPageContent from '@/components/industries/IndustryPageContent'
 
@@ -51,6 +52,8 @@ export default function IndustryDetailPage({ params }: Props) {
     : `${industry.title} companies face unique GTM challenges. Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
 
   const registryRow = getPageBySlug('industries', params.slug)
+  const resolved =
+    registryRow?.contentKey ? getIndustryContentByKey(registryRow.contentKey) : null
   const defaultContent = (
     <IndustryPageContent
       industry={industry}
@@ -63,13 +66,14 @@ export default function IndustryDetailPage({ params }: Props) {
   if (registryRow) {
     return (
       <IndustryTemplate
-        industry={industry}
+        industry={resolved ?? industry}
         featuredExpertise={featuredExpertise}
         featuredCaseStudies={featuredCaseStudies.length > 0 ? featuredCaseStudies : undefined}
         whyNow={whyNowText}
         pageTitle={registryRow.pageTitle}
         theme={registryRow.theme ?? undefined}
         heroVisualId={registryRow.heroVisualId ? registryRow.heroVisualId : undefined}
+        contentKey={registryRow.contentKey || undefined}
       />
     )
   }

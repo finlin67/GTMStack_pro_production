@@ -123,6 +123,7 @@ export interface ExpertiseTopicTemplateProps {
   pageTitle?: string
   theme?: 'dark' | 'light'
   heroVisualId?: string
+  contentKey?: string
 }
 
 /**

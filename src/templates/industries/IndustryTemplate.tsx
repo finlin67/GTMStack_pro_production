@@ -10,6 +10,7 @@ export interface IndustryTemplateProps {
   pageTitle?: string
   theme?: 'dark' | 'light'
   heroVisualId?: string
+  contentKey?: string
 }
 
 /**

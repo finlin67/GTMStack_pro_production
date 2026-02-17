@@ -1,0 +1,39 @@
+import type { ExpertiseItem, IndustryItem } from '@/lib/types'
+import type { HomeTemplateContent } from '@/src/templates/home/HomeTemplate'
+import { HOME_CONTENT } from '@/content/home'
+import { DEMAND_GENERATION_EXPERTISE } from '@/content/expertise/demand-generation'
+import { industryItems } from '@/content/industries'
+
+export type ContentKey = string
+
+const industryByKey: Record<string, IndustryItem> = Object.fromEntries(
+  industryItems.map((item) => [`industries:${item.slug}`, item])
+)
+
+const contentByKey: Record<string, unknown> = {
+  'home:index': HOME_CONTENT,
+  'expertise:demand-generation': DEMAND_GENERATION_EXPERTISE,
+  ...industryByKey,
+}
+
+export function getContentByKey(key: string): unknown | null {
+  return key in contentByKey ? contentByKey[key] : null
+}
+
+export function getHomeContentByKey(key: string): HomeTemplateContent | null {
+  if (!key.startsWith('home:')) return null
+  const content = getContentByKey(key)
+  return content != null ? (content as HomeTemplateContent) : null
+}
+
+export function getExpertiseContentByKey(key: string): ExpertiseItem | null {
+  if (!key.startsWith('expertise:')) return null
+  const content = getContentByKey(key)
+  return content != null ? (content as ExpertiseItem) : null
+}
+
+export function getIndustryContentByKey(key: string): IndustryItem | null {
+  if (!key.startsWith('industries:')) return null
+  const content = getContentByKey(key)
+  return content != null ? (content as IndustryItem) : null
+}
