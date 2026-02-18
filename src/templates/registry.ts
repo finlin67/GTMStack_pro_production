@@ -6,6 +6,7 @@ import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
 import CaseStudyTemplate from '@/src/templates/caseStudies/CaseStudyTemplate'
 import HomeTemplate from '@/src/templates/home/HomeTemplate'
 
+
 export type TemplateComponent =
   | typeof ExpertiseCategoryTemplate
   | typeof ExpertiseTopicTemplate
