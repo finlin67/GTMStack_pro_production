@@ -20,6 +20,7 @@ export interface PageRegistryRow {
 }
 
 export const PAGE_REGISTRY: PageRegistryRow[] = [
+  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.base', contentKey: "home:index", theme: undefined, heroVisualId: "" },
   { route: "/expertise/demand-growth", fileRef: "content/expertise.ts", pageTitle: "Demand & Growth", templateId: 'expertise.category', contentKey: "pillar:demand-growth", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/demand-generation", fileRef: "content/expertise.ts", pageTitle: "Demand Generation", templateId: 'expertise.topic', contentKey: "expertise:demand-generation", theme: 'dark', heroVisualId: "" },
   { route: "/industries/healthcare", fileRef: "content/industries.ts", pageTitle: "Healthcare & Health Technology", templateId: 'industry.base', contentKey: "industry:healthcare", theme: 'light', heroVisualId: "" },
@@ -29,6 +30,7 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
 ]
 
 export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
+  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.base', contentKey: "home:index", theme: undefined, heroVisualId: "" },
   "/expertise/demand-growth": { route: "/expertise/demand-growth", fileRef: "content/expertise.ts", pageTitle: "Demand & Growth", templateId: 'expertise.category', contentKey: "pillar:demand-growth", theme: 'dark', heroVisualId: "" },
   "/expertise/demand-generation": { route: "/expertise/demand-generation", fileRef: "content/expertise.ts", pageTitle: "Demand Generation", templateId: 'expertise.topic', contentKey: "expertise:demand-generation", theme: 'dark', heroVisualId: "" },
   "/industries/healthcare": { route: "/industries/healthcare", fileRef: "content/industries.ts", pageTitle: "Healthcare & Health Technology", templateId: 'industry.base', contentKey: "industry:healthcare", theme: 'light', heroVisualId: "" },

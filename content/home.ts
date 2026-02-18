@@ -125,6 +125,20 @@ export const HOME_CONTENT: HomeTemplateContent = {
       { title: 'Manufacturing', description: '', quote: 'ABM that reaches the right decision-makers.' },
     ],
   },
+
+  founder: {
+    name: 'Michael',
+    role: 'Global GTM Strategist & Revenue Architect',
+    image: 'https://placehold.co/800x800/png', // replace with real image later
+    bio: 'A veteran of enterprise GTM. I build scalable revenue engines that connect strategy to execution.',
+    yearsExperience: '20+',
+    timeline: [
+      { icon: 'account_balance', title: 'Wall Street Origins', description: 'M&A Analyst specializing in tech acquisitions.' },
+      { icon: 'cloud_done', title: 'The Salesforce Era', description: 'Lead Strategist for Enterprise GTM at global scale.' },
+      { icon: 'rocket_launch', title: 'RevenueArchitect Founded', description: 'Engineering predictable growth for B2B tech.' },
+    ],
+  },
+
   ctaBottom: {
     title: 'Ready to engineer your growth?',
     subtitle:

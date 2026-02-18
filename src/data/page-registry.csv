@@ -1,4 +1,5 @@
 route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
+/,content/home.ts,Home,home.base,home:index,,
 /expertise/demand-growth,content/expertise.ts,Demand & Growth,expertise.category,pillar:demand-growth,dark,
 /expertise/demand-generation,content/expertise.ts,Demand Generation,expertise.topic,expertise:demand-generation,dark,
 /industries/healthcare,content/industries.ts,Healthcare & Health Technology,industry.base,industry:healthcare,light,
