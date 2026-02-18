@@ -252,7 +252,7 @@ const QuoteSection = ({ content }: { content: PageContent }) => {
       <div className="max-w-4xl mx-auto text-center relative z-10">
         <Quote className="text-amber-500 w-16 h-16 mb-8 opacity-50 mx-auto" />
         <blockquote className="text-3xl md:text-5xl font-black text-white leading-tight italic">
-          "{content.quote.text} <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-emerald-500">{content.quote.highlight}</span>."
+          &ldquo;{content.quote.text} <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-emerald-500">{content.quote.highlight}</span>.&rdquo;
         </blockquote>
       </div>
     </section>

@@ -5,7 +5,7 @@ export interface CaseStudyTemplateProps {
   theme?: 'dark' | 'light'
   heroVisualId?: string
   /** Existing case study page content (same components/markup as app/case-studies/[slug]) */
-  children: ReactNode
+  children?: ReactNode
 }
 
 /**
@@ -13,7 +13,7 @@ export interface CaseStudyTemplateProps {
  * Thin wrapper: no layout/design changes; renders the same content passed as children.
  */
 export default function CaseStudyTemplate({
-  children,
+  children = null,
 }: CaseStudyTemplateProps) {
   return <>{children}</>
 }
