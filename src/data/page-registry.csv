@@ -4,3 +4,4 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /industries/healthcare,content/industries.ts,Healthcare & Health Technology,industry.base,industry:healthcare,light,
 /case-studies/event-to-store-lift-retail,content/case-studies.ts,Event-to-Store Revenue Lift,caseStudy.base,project:event-to-store-lift-retail,dark,
 /expertise/content-engagement,content/expertise.ts,Content & Engagement,expertise.category,pillar:content-engagement,dark,
+/expertise,content/expertise.ts,Expertise,expertise.main,expertise:main,dark,

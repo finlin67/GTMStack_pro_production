@@ -1,7 +1,9 @@
-import type { ExpertiseItem, IndustryItem } from '@/lib/types'
+﻿import type { ExpertiseItem, IndustryItem } from '@/lib/types'
 import type { HomeTemplateContent } from '@/src/templates/home/HomeTemplate'
+
 import { HOME_CONTENT } from '@/content/home'
 import { DEMAND_GENERATION_EXPERTISE } from '@/content/expertise/demand-generation'
+import { EXPERTISE_MAIN_CONTENT } from '@/content/expertise/main'
 import { industryItems } from '@/content/industries'
 
 export type ContentKey = string
@@ -12,6 +14,7 @@ const industryByKey: Record<string, IndustryItem> = Object.fromEntries(
 
 const contentByKey: Record<string, unknown> = {
   'home:index': HOME_CONTENT,
+  'expertise:main': EXPERTISE_MAIN_CONTENT,
   'expertise:demand-generation': DEMAND_GENERATION_EXPERTISE,
   ...industryByKey,
 }
