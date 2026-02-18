@@ -30,7 +30,7 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
   { route: "/industries/healthcare", fileRef: "content/industries.ts", pageTitle: "Healthcare & Health Technology", templateId: 'industry.base', contentKey: "industry:healthcare", theme: 'light', heroVisualId: "" },
   { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "project:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/content-engagement", fileRef: "content/expertise.ts", pageTitle: "Content & Engagement", templateId: 'expertise.category', contentKey: "pillar:content-engagement", theme: 'dark', heroVisualId: "" },
-  { route: "/expertise", fileRef: "content/expertise.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
+  { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
   { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Industries", templateId: 'industries.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" }
 ]
 
@@ -41,6 +41,6 @@ export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
   "/industries/healthcare": { route: "/industries/healthcare", fileRef: "content/industries.ts", pageTitle: "Healthcare & Health Technology", templateId: 'industry.base', contentKey: "industry:healthcare", theme: 'light', heroVisualId: "" },
   "/case-studies/event-to-store-lift-retail": { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "project:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   "/expertise/content-engagement": { route: "/expertise/content-engagement", fileRef: "content/expertise.ts", pageTitle: "Content & Engagement", templateId: 'expertise.category', contentKey: "pillar:content-engagement", theme: 'dark', heroVisualId: "" },
-  "/expertise": { route: "/expertise", fileRef: "content/expertise.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
+  "/expertise": { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
   "/industries": { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Industries", templateId: 'industries.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" }
 }

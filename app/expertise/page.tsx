@@ -1,7 +1,7 @@
 import type { ComponentType } from 'react'
 import { notFound } from 'next/navigation'
 import { getPageByRoute } from '@/lib/pageRegistry'
-import { getExpertiseContentByKey } from '@/src/content/registry'
+import { getContentByKey } from '@/src/content/registry'
 import { getTemplate } from '@/src/templates/registry'
 
 /** Common props passed by registry-driven pages; template-specific props are optional at call site. */
@@ -17,7 +17,7 @@ export default function ExpertisePage() {
   if (!row) notFound()
 
   const Template = getTemplate(row.templateId as Parameters<typeof getTemplate>[0]) as ComponentType<RegistryTemplateProps>
-  const content = row.contentKey ? getExpertiseContentByKey(row.contentKey) : null
+  const content = row.contentKey ? getContentByKey(row.contentKey) : null
 
   return (
     <Template
