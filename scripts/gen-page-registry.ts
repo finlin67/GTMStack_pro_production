@@ -10,7 +10,7 @@ const CSV_PATH = path.join(ROOT, 'src', 'data', 'page-registry.csv')
 const OUT_PATH = path.join(ROOT, 'src', 'data', 'pageRegistry.generated.ts')
 
 const REQUIRED_FIELDS = ['route', 'fileRef', 'pageTitle', 'templateId', 'contentKey'] as const
-const TEMPLATE_IDS = ['expertise.category', 'expertise.topic', 'industry.base', 'caseStudy.base'] as const
+const TEMPLATE_IDS = ['expertise.category', 'expertise.topic', 'industry.base', 'caseStudy.base', 'home.base'] as const
 const THEMES = ['dark', 'light'] as const
 
 function parseCsvRow(line: string): string[] {
@@ -106,6 +106,7 @@ export type TemplateId =
   | 'expertise.topic'
   | 'industry.base'
   | 'caseStudy.base'
+  | 'home.base'
 
 export type Theme = 'dark' | 'light' | undefined
 

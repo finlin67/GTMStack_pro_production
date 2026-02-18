@@ -68,6 +68,15 @@ Each top-level section (`/expertise`, `/industries`, `/services`, `/blog`) has i
 
 The nav is designed to sit over dark gradients; buttons and active states use the **brand** and **accent** color ramps (see section 4).
 
+### 2.3 Page registry (templates & content)
+
+Pages can resolve their template and content from `src/data/page-registry.csv`. To change how a page is rendered:
+
+- **Change a page’s template**: set `templateId` for that route (e.g. `home.base`, `expertise.category`).
+- **Change which content a page uses**: set `contentKey` for that route (e.g. `home:index`); content is resolved via `src/content/registry.ts`.
+
+After editing the CSV, run: `npm run gen:registry && npm run build`.
+
 ---
 
 ## 3. Animations & hero tiles (top-right header)

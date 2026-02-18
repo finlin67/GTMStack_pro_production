@@ -9,6 +9,7 @@ import { getCaseStudiesByExpertise } from '@/content/case-studies'
 import { industryItems } from '@/content/industries'
 import { getExpertiseHeroConfig } from '@/content/expertiseHeroConfigs'
 import { getPageBySlug } from '@/lib/pageRegistry'
+import { getExpertiseContentByKey } from '@/src/content/registry'
 import ExpertiseCategoryTemplate from '@/src/templates/expertise/ExpertiseCategoryTemplate'
 import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemplate'
 import { ExpertiseDetailContent, type PillarId } from './ExpertiseDetailContent'
@@ -201,6 +202,8 @@ export default function ExpertiseDetailPage({ params }: Props) {
     SYSTEMS_OPERATIONS_SLUGS.includes(params.slug) || pillarId === 'systems-operations'
 
   const registryRow = getPageBySlug('expertise', params.slug)
+  const resolved =
+    registryRow?.contentKey ? getExpertiseContentByKey(registryRow.contentKey) : null
   const defaultContent = (
     <ExpertiseDetailContent
       item={item}
@@ -226,9 +229,15 @@ export default function ExpertiseDetailPage({ params }: Props) {
       pageTitle: registryRow.pageTitle,
       theme: registryRow.theme ?? undefined,
       heroVisualId: registryRow.heroVisualId ? registryRow.heroVisualId : undefined,
+      contentKey: registryRow.contentKey || undefined,
     }
     if (registryRow.templateId === 'expertise.topic') {
-      return <ExpertiseTopicTemplate item={item} {...registryProps} />
+      return (
+        <ExpertiseTopicTemplate
+          item={resolved ?? item}
+          {...registryProps}
+        />
+      )
     }
     return (
       <ExpertiseCategoryTemplate {...registryProps}>

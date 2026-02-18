@@ -5,6 +5,7 @@ export interface ExpertiseCategoryTemplateProps {
   pageTitle?: string
   theme?: 'dark' | 'light'
   heroVisualId?: string
+  contentKey?: string
   /** Existing pillar page content (same components/markup as current routes) */
   children: ReactNode
 }
