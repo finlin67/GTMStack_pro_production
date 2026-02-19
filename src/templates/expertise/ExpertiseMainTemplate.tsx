@@ -31,6 +31,7 @@ import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Linkedin, Twitter } from 'lucide-react'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 
 type Props = {
   content: unknown
@@ -97,30 +98,9 @@ export default function ExpertiseMainTemplate({
         <section className="relative min-h-[85vh] w-full overflow-hidden flex items-center">
           <div className="absolute inset-0 blueprint-grid opacity-[0.07]"></div>
 
-          {/* Technical Diagram Background SVG */}
-          <div className="absolute right-0 top-1/2 -translate-y-1/2 w-1/2 h-full opacity-20 pointer-events-none hidden lg:block">
-            <svg
-              className="w-full h-full text-[#2463eb]"
-              viewBox="0 0 400 400"
-              xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true"
-            >
-              <defs>
-                <pattern height="40" id="grid-pattern" patternUnits="userSpaceOnUse" width="40">
-                  <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" strokeWidth="0.5"></path>
-                </pattern>
-              </defs>
-              <rect fill="url(#grid-pattern)" height="100%" width="100%"></rect>
-              <circle cx="200" cy="200" fill="none" r="100" stroke="currentColor" strokeDasharray="4 4" strokeWidth="1"></circle>
-              <circle cx="200" cy="200" fill="none" r="140" stroke="currentColor" strokeWidth="0.5"></circle>
-              <line stroke="currentColor" strokeWidth="0.5" x1="200" x2="200" y1="60" y2="340"></line>
-              <line stroke="currentColor" strokeWidth="0.5" x1="60" x2="340" y1="200" y2="200"></line>
-              <rect fill="currentColor" fillOpacity="0.2" height="40" stroke="currentColor" strokeWidth="1" width="40" x="180" y="180"></rect>
-            </svg>
-          </div>
-
           <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
-            <div className="max-w-3xl">
+            <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_1fr] gap-10 lg:gap-16 items-center">
+              <div className="max-w-3xl">
               <div className="mb-6 inline-flex items-center gap-2 rounded border border-[#2463eb]/30 bg-[#2463eb]/10 px-3 py-1 text-xs font-bold tracking-widest text-[#2463eb] uppercase backdrop-blur-sm">
                 <span className="flex h-1.5 w-1.5 rounded-full bg-[#2463eb] animate-pulse"></span>
                 {(content.hero as Record<string, string> | undefined)?.badge}
@@ -142,6 +122,10 @@ export default function ExpertiseMainTemplate({
                 <button className="flex items-center justify-center gap-2 rounded border border-slate-600 bg-transparent px-8 py-4 text-base font-bold text-white transition-all hover:bg-white/5 hover:border-slate-400">
                   {(content.hero as Record<string, string> | undefined)?.ctaSecondary}
                 </button>
+              </div>
+              </div>
+              <div className="hidden lg:flex justify-center items-center">
+                <HeroVisualByRoute />
               </div>
             </div>
           </div>

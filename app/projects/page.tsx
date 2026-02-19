@@ -6,8 +6,7 @@ import { SectionHeader } from '@/components/layout/Section'
 import { SectionDark } from '@/components/layout/SectionDark'
 import { SectionLight } from '@/components/layout/SectionLight'
 import { HeroDark } from '@/components/ui/HeroDark'
-import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
-import { HERO_VISUALS } from '@/lib/heroVisuals'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 import { CaseStudyCard } from '@/components/ui/Card'
 import { CardGrid, CardGridItem } from '@/components/ui/CardGrid'
 import { FilterChips } from '@/components/ui/FilterChips'
@@ -56,13 +55,13 @@ export default function ProjectsPage() {
       {/* Hero (Dark) */}
       <HeroDark
         align="left"
-        motif={HERO_VISUALS.caseStudies.default.motif || 'signal'}
+        motif="signal"
         title="Outcome-first GTM projects"
         titleHighlight="proven signals"
         description="B2B outcomes delivered with accountable motions—positioning, data, automation, and plays working together."
         primaryCta={{ label: 'View featured results', href: '#featured' }}
         secondaryCta={{ label: 'See all', href: '#all-projects' }}
-        rightVisual={ensureHeroVisualWithImage(HERO_VISUALS.caseStudies.default, 'caseStudies')}
+        rightVisual={<HeroVisualByRoute />}
       />
 
       {/* Featured Projects (Light Filters + Grid) */}

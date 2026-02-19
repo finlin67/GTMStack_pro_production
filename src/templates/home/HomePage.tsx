@@ -2,6 +2,7 @@
 "use client";
 
 import React from "react";
+import HeroVisualByRoute from "@/src/components/hero/HeroVisualByRoute.client";
 import { 
   ScanSearch, 
   Layers, 
@@ -156,11 +157,9 @@ const Hero = ({ content }: { content: PageContent }) => {
           </div>
         </div>
 
-        {/* Right Column: Animation Slot */}
-        <div className="hidden md:flex justify-center items-center h-[600px]">
-          <div className="w-full h-full overflow-hidden rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center">
-             <span className="text-white/20 font-bold uppercase tracking-widest">Animation Slot</span>
-          </div>
+        {/* Right Column: Route-based hero visual from heroVisualRegistry */}
+        <div className="hidden lg:flex justify-center items-center h-[600px]">
+          <HeroVisualByRoute />
         </div>
       </div>
     </section>

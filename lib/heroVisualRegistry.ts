@@ -44,6 +44,8 @@ export interface HeroVisualEntry {
 export const HERO_VISUAL_REGISTRY: HeroVisualEntry[] = [
   { route: '/', title: 'GTMStack', mediaType: 'animation', component: AIGrowth },
   { route: '/expertise', title: 'Expertise', mediaType: 'animation', component: GTMStackPro },
+  { route: '/industries', title: 'Industries', mediaType: 'animation', component: GTMStackPro },
+  { route: '/projects', title: 'Projects', mediaType: 'animation', component: GTMStackPro },
   { route: '/expertise/ai-in-marketing', title: 'AI in Marketing', mediaType: 'animation', component: AIGrowth },
   { route: '/expertise/content-engagement', title: 'Content & Engagement', mediaType: 'animation', component: ContentEngagementTile },
   { route: '/expertise/demand-and-growth', title: 'Demand & Growth', mediaType: 'animation', component: DemandGrowthTile },

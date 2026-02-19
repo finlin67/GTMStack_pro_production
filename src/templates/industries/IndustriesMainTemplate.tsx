@@ -2,12 +2,12 @@
 
 import React, { useRef } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
 import * as Icons from 'lucide-react'
 import { PILLARS } from '@/lib/types'
 import type { IndustryItem } from '@/lib/types'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 
 type IconName = keyof typeof Icons
 
@@ -189,21 +189,9 @@ export default function IndustriesMainTemplate({ content }: IndustriesMainTempla
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative hidden lg:block h-[280px] lg:h-[340px] xl:h-[380px] rounded-2xl overflow-hidden border-2 backdrop-blur-sm"
-              style={{
-                borderColor: 'rgba(0,207,255,0.2)',
-                backgroundColor: 'rgba(10,15,45,0.6)',
-                boxShadow: `0 0 60px -15px rgba(0,207,255,0.3), inset 0 1px 0 rgba(255,255,255,0.05)`,
-              }}
+              className="relative hidden lg:flex justify-center items-center h-[600px]"
             >
-              <Image
-                src="/images/heroes/industries-default.webp"
-                alt="Industries GTM expertise"
-                fill
-                className="object-cover opacity-90"
-                sizes="(max-width: 1024px) 0vw, 50vw"
-                priority
-              />
+              <HeroVisualByRoute />
             </motion.div>
           </div>
         </div>
