@@ -6,6 +6,8 @@ import { DEMAND_GENERATION_EXPERTISE } from '@/content/expertise/demand-generati
 import { EXPERTISE_MAIN_CONTENT } from '@/content/expertise/main'
 import INDUSTRIES_MAIN_CONTENT from '@/content/industries/main'
 import { industryItems } from '@/content/industries'
+import { PROJECTS_MAIN_CONTENT } from '@/content/projects/main'
+import { GALLERY_MAIN_CONTENT } from '@/content/gallery/main'
 
 export type ContentKey = string
 
@@ -19,6 +21,8 @@ const contentByKey: Record<string, unknown> = {
   'expertise:main': EXPERTISE_MAIN_CONTENT,
   'expertise:demand-generation': DEMAND_GENERATION_EXPERTISE,
   'industries:main': INDUSTRIES_MAIN_CONTENT,
+  'projects:main': PROJECTS_MAIN_CONTENT,
+  'gallery:main': GALLERY_MAIN_CONTENT,
   ...industryByKey,
 }
 

@@ -7,3 +7,5 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /expertise/content-engagement,content/expertise.ts,Content & Engagement,expertise.category,pillar:content-engagement,dark,
 /expertise,content/expertise/main.ts,Expertise,expertise.main,expertise:main,dark,
 /industries,content/industries/main.ts,Industries,industries.main,industries:main,dark,
+/projects,content/projects/main.ts,Projects,projects.main,projects:main,dark,
+/gallery,content/gallery/main.ts,Animation Gallery,gallery.main,gallery:main,dark,

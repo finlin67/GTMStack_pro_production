@@ -1,11 +1,10 @@
-import {
-  getExpertiseByPillar,
-} from '@/content/expertise'
+import { getExpertiseByPillar } from '@/content/expertise'
 import { getCaseStudiesByExpertise } from '@/content/case-studies'
 import { industryItems } from '@/content/industries'
 import { getExpertiseHeroConfig } from '@/content/expertiseHeroConfigs'
-import { ExpertiseDetailContent, type PillarId } from '@/app/expertise/[slug]/ExpertiseDetailContent'
+import { ExpertiseDetailContent } from '@/app/expertise/[slug]/ExpertiseDetailContent'
 import type { ExpertiseItem } from '@/lib/types'
+import { getPillarTopicComponent, type PillarId } from './pillars/pillarMap'
 
 const SLUG_TO_PILLAR: Record<string, PillarId> = {
   'content-marketing': 'content-engagement',
@@ -176,7 +175,7 @@ export default function ExpertiseTopicTemplate({
   const useSystemsOperationsTheme =
     SYSTEMS_OPERATIONS_SLUGS.includes(item.slug) || pillarId === 'systems-operations'
 
-  return (
+  const detailContent = (
     <ExpertiseDetailContent
       item={item}
       pillarId={pillarId}
@@ -198,5 +197,12 @@ export default function ExpertiseTopicTemplate({
       useStrategyInsightsTheme={useStrategyInsightsTheme}
       useSystemsOperationsTheme={useSystemsOperationsTheme}
     />
+  )
+
+  const PillarComponent = getPillarTopicComponent(pillarId)
+  return (
+    <PillarComponent item={item} pillarId={pillarId}>
+      {detailContent}
+    </PillarComponent>
   )
 }

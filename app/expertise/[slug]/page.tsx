@@ -239,11 +239,17 @@ export default function ExpertiseDetailPage({ params }: Props) {
         />
       )
     }
-    return (
-      <ExpertiseCategoryTemplate {...registryProps}>
-        {defaultContent}
-      </ExpertiseCategoryTemplate>
-    )
+    if (registryRow.templateId === 'expertise.category') {
+      const categoryPillarId =
+        registryRow.contentKey?.startsWith('pillar:')
+          ? (registryRow.contentKey.replace('pillar:', '') as PillarId)
+          : (params.slug as PillarId)
+      return (
+        <ExpertiseCategoryTemplate pillarId={categoryPillarId} {...registryProps}>
+          {defaultContent}
+        </ExpertiseCategoryTemplate>
+      )
+    }
   }
 
   return defaultContent

@@ -5,8 +5,10 @@ export type TemplateId =
   | 'expertise.category'
   | 'expertise.topic'
   | 'expertise.main'
+  | 'gallery.main'
   | 'industry.base'
   | 'industries.main'
+  | 'projects.main'
   | 'caseStudy.base'
   | 'home.base'
   | 'home.main'
@@ -31,7 +33,9 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
   { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "project:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/content-engagement", fileRef: "content/expertise.ts", pageTitle: "Content & Engagement", templateId: 'expertise.category', contentKey: "pillar:content-engagement", theme: 'dark', heroVisualId: "" },
   { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
-  { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Industries", templateId: 'industries.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" }
+  { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Industries", templateId: 'industries.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" },
+  { route: "/projects", fileRef: "content/projects/main.ts", pageTitle: "Projects", templateId: 'projects.main', contentKey: "projects:main", theme: 'dark', heroVisualId: "" },
+  { route: "/gallery", fileRef: "content/gallery/main.ts", pageTitle: "Animation Gallery", templateId: 'gallery.main', contentKey: "gallery:main", theme: 'dark', heroVisualId: "" }
 ]
 
 export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
@@ -42,5 +46,7 @@ export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
   "/case-studies/event-to-store-lift-retail": { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "project:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   "/expertise/content-engagement": { route: "/expertise/content-engagement", fileRef: "content/expertise.ts", pageTitle: "Content & Engagement", templateId: 'expertise.category', contentKey: "pillar:content-engagement", theme: 'dark', heroVisualId: "" },
   "/expertise": { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
-  "/industries": { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Industries", templateId: 'industries.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" }
+  "/industries": { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Industries", templateId: 'industries.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" },
+  "/projects": { route: "/projects", fileRef: "content/projects/main.ts", pageTitle: "Projects", templateId: 'projects.main', contentKey: "projects:main", theme: 'dark', heroVisualId: "" },
+  "/gallery": { route: "/gallery", fileRef: "content/gallery/main.ts", pageTitle: "Animation Gallery", templateId: 'gallery.main', contentKey: "gallery:main", theme: 'dark', heroVisualId: "" }
 }
