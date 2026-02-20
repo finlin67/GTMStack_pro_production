@@ -1,0 +1,32 @@
+ Volume in drive C is Windows
+ Volume Serial Number is FE35-CE81
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\docs
+
+02/20/2026  12:00 PM    <DIR>          .
+02/20/2026  08:25 AM    <DIR>          ..
+02/03/2026  01:11 PM             7,172 ABOUT_PAGE_REFACTOR_PLAN.md
+02/03/2026  01:11 PM             1,758 ABOUT_PAGE_SECTIONS.md
+02/11/2026  08:39 PM             6,603 ACCESSIBILITY_CONTRAST_AUDIT.md
+02/11/2026  05:35 PM             7,911 ANIMATION_LIBRARY_AND_ROUTING.md
+02/11/2026  09:02 PM             7,427 BLOG-WORDPRESS-DEVELOPER-GUIDE.md
+02/04/2026  10:32 AM             4,354 CASE_STUDIES.md
+02/11/2026  08:30 PM             5,034 CONSOLIDATION_SUMMARY.md
+02/03/2026  01:11 PM             2,691 CSV_UPDATE_CHECKLIST.md
+02/03/2026  01:11 PM             9,150 CURSOR_PROMPT_EXISTING_SITE.md
+02/03/2026  01:11 PM             2,892 CURSOR_QUICK_PROMPT.md
+02/03/2026  01:11 PM             7,719 CV_PROOF_SUMMARY.md
+02/03/2026  01:11 PM             9,815 developer-routing-and-hero-visuals.md
+02/20/2026  12:00 PM                 0 docs.txt
+02/03/2026  01:11 PM             7,098 EXPERTISE_REWRITE_COMPLETE.md
+02/03/2026  01:11 PM             9,752 GALLERY_MANAGEMENT_GUIDE.md
+02/14/2026  07:10 PM             8,378 gtmstackpro-page-review.md
+02/03/2026  01:11 PM             3,378 hero-visual-library-spec.md
+02/03/2026  01:11 PM    <DIR>          page-specs
+02/03/2026  01:11 PM            12,052 REFACTOR_PLAN.md
+02/03/2026  01:11 PM             2,305 REFACTOR_SUMMARY.md
+02/18/2026  07:28 AM            16,334 SITE-DEVELOPER-GUIDE.md
+02/03/2026  01:11 PM             5,791 WEBSITE_SUMMARY.md
+02/20/2026  11:48 AM            20,529 WEBSITE_UPDATE_FEB2026.md
+              22 File(s)        158,143 bytes
+               3 Dir(s)  486,815,424,512 bytes free
