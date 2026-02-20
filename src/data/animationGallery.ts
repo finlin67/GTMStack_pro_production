@@ -1,6 +1,6 @@
 // src/data/animationGallery.ts
 import type { ComponentType } from "react";
-import { ANIMATION_REGISTRY } from "./animations";
+import { ANIMATION_CATALOG } from "./animationCatalog.generated";
 
 export type GalleryAnimationItem = {
   id: string;
@@ -9,31 +9,25 @@ export type GalleryAnimationItem = {
   tags: string[];
   marketingFunction?: string;
   thumbnailSrc?: string;
+  repoUrl?: string;
+  usedOnPages?: boolean;
 
   // Optional for Step 3 (modal live preview). Keep undefined for now if not available.
   load?: () => Promise<{ default: ComponentType<any> }>;
 };
 
-function toId(input: string): string {
-  return input
-    .toLowerCase()
-    .trim()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
 export function getGalleryAnimations(): GalleryAnimationItem[] {
-  // NOTE: we only map metadata here. No component imports.
-  return ANIMATION_REGISTRY.map((a: any) => {
-    const id = a.id ?? toId(a.title ?? a.route ?? "animation");
-    return {
-      id,
-      title: a.title ?? id,
-      route: a.route,
-      tags: Array.isArray(a.tags) ? a.tags : [],
-      marketingFunction: a.marketingFunction,
-      thumbnailSrc: a.thumbnailSrc ?? `/animation-thumbs/${id}.png`,
-      // load intentionally omitted for now unless your registry already provides a loader function
-    };
-  });
+  // Use auto-discovered catalog from src/components/animations
+  // This includes ALL animations, not just those in ANIMATION_REGISTRY
+  return ANIMATION_CATALOG.map((item) => ({
+    id: item.id,
+    title: item.title,
+    route: undefined, // Not available in catalog
+    tags: [], // Not available in catalog
+    marketingFunction: undefined, // Not available in catalog
+    thumbnailSrc: item.thumbnailSrc,
+    repoUrl: item.repoUrl,
+    usedOnPages: item.usedOnPages,
+    // load intentionally omitted for now unless your registry already provides a loader function
+  }));
 }

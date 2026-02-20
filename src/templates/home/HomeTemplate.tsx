@@ -95,6 +95,6 @@ export type HomeTemplateProps = {
 
 // --- Template Component (body only; layout provides header/footer) ---
 
-export default function HomeTemplate({ content }: HomeTemplateProps) {
-  return <HomePage content={content as React.ComponentProps<typeof HomePage>['content']} />
+export default function HomeTemplate({ content, heroVisualId }: HomeTemplateProps) {
+  return <HomePage content={content as React.ComponentProps<typeof HomePage>['content']} heroVisualId={heroVisualId} />
 }

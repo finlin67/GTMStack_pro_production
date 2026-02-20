@@ -10,6 +10,7 @@
     "export": "next build",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
     "gen:registry": "npx tsx scripts/gen-page-registry.ts",
+    "gen:animations": "npx tsx scripts/gen-animation-catalog.ts",
     "validate:registry": "npx tsx scripts/validate-page-registry.ts",
     "prebuild": "npm run gen:registry",
     "link-audit": "node scripts/link-audit.mjs"

@@ -1,0 +1,6 @@
+- Be concise. Avoid explaining what you're about to do — just do it.
+- Never ask clarifying questions. Make your best decision and proceed.
+- Reference only actual file names and paths from this codebase.
+- Make minimal, targeted changes. Do not refactor unrelated code.
+- Always check existing patterns in the codebase before writing new code.
+- Prioritize correctness over completeness in every response.

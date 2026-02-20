@@ -1,7 +1,7 @@
 'use client'
 
-import { useState, useMemo } from 'react'
-import { Search, Sparkles } from 'lucide-react'
+import { useState, useMemo, useCallback } from 'react'
+import { Search, Sparkles, Copy } from 'lucide-react'
 import Image from 'next/image'
 import {
   ANIMATION_REGISTRY,
@@ -92,6 +92,11 @@ export default function GalleryMainTemplate({
       prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
     )
   }
+
+  const handleCopyId = useCallback((id: string, e: React.MouseEvent) => {
+    e.stopPropagation()
+    void navigator.clipboard.writeText(id)
+  }, [])
 
   const clearFilters = () => {
     setSearchQuery('')
@@ -243,6 +248,26 @@ export default function GalleryMainTemplate({
                   )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                   <div className="absolute top-2 right-2 flex gap-1">
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        handleCopyId(anim.id, e)
+                      }}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault()
+                          e.stopPropagation()
+                          handleCopyId(anim.id, e as any)
+                        }
+                      }}
+                      className="p-1.5 rounded bg-white/10 text-white hover:bg-white/20 transition-colors cursor-pointer"
+                      title="Copy ID"
+                      aria-label={`Copy ID ${anim.id}`}
+                    >
+                      <Copy className="w-3.5 h-3.5" />
+                    </div>
                     {anim.featured && (
                       <span className="px-2 py-0.5 rounded bg-brand-500/90 text-white text-[10px] font-bold uppercase">
                         Featured

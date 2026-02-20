@@ -125,7 +125,7 @@ const IconMap = ({ name, className }: { name: string; className?: string }) => {
 
 // --- Sections ---
 
-const Hero = ({ content }: { content: PageContent }) => {
+const Hero = ({ content, heroVisualId }: { content: PageContent; heroVisualId?: string }) => {
   return (
     <section className="relative pt-24 pb-32 px-6 overflow-hidden bg-[#0B132B]">
       <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -157,9 +157,9 @@ const Hero = ({ content }: { content: PageContent }) => {
           </div>
         </div>
 
-        {/* Right Column: Route-based hero visual from heroVisualRegistry */}
+        {/* Right Column: heroVisualId from page-registry.csv or route-based fallback */}
         <div className="hidden lg:flex justify-center items-center h-[600px]">
-          <HeroVisualByRoute />
+          <HeroVisualByRoute heroVisualId={heroVisualId} />
         </div>
       </div>
     </section>
@@ -357,10 +357,10 @@ const CTASection = ({ content }: { content: PageContent }) => {
 
 // --- Main Component ---
 
-export default function HomePage({ content }: { content: PageContent }) {
+export default function HomePage({ content, heroVisualId }: { content: PageContent; heroVisualId?: string }) {
   return (
     <main className="w-full font-sans">
-      <Hero content={content} />
+      <Hero content={content} heroVisualId={heroVisualId} />
       <StatsSection content={content} />
       <MethodologySection content={content} />
       <ExpertiseSection content={content} />

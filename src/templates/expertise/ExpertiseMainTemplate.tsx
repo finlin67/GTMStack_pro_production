@@ -43,6 +43,7 @@ type Props = {
 export default function ExpertiseMainTemplate({
   content: rawContent,
   theme = 'dark',
+  heroVisualId,
 }: Props) {
   const content = rawContent as Record<string, unknown> | null
   if (!content) return null
@@ -125,7 +126,7 @@ export default function ExpertiseMainTemplate({
               </div>
               </div>
               <div className="hidden lg:flex justify-center items-center">
-                <HeroVisualByRoute />
+                <HeroVisualByRoute heroVisualId={heroVisualId} />
               </div>
             </div>
           </div>
