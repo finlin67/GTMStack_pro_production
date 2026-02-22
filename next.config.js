@@ -34,12 +34,13 @@ const baseConfig = {
 
 module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER
-  const distDir = isDev ? '.next' : 'out'
+  const isStaticExport = process.env.STATIC_EXPORT === '1'
+  const distDir = isStaticExport ? 'out' : '.next'
   const config = {
     ...baseConfig,
     distDir,
   }
-  if (!isDev) {
+  if (isStaticExport) {
     config.output = 'export'
     config.trailingSlash = true
   }

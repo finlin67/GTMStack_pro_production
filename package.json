@@ -5,15 +5,20 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:static": "cross-env STATIC_EXPORT=1 next build",
     "start": "next start",
     "lint": "next lint",
-    "export": "next build",
+    "export": "cross-env STATIC_EXPORT=1 next build",
+    "gen:all": "npm run gen:registry && npm run gen:animations",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
     "gen:registry": "npx tsx scripts/gen-page-registry.ts",
     "gen:animations": "npx tsx scripts/gen-animation-catalog.ts",
+    "gen:page-catalog": "npx tsx scripts/generate-page-catalog.ts",
     "validate:registry": "npx tsx scripts/validate-page-registry.ts",
     "prebuild": "npm run gen:registry",
-    "link-audit": "node scripts/link-audit.mjs"
+    "link-audit": "node scripts/link-audit.mjs",
+    "page:upsert": "node scripts/page-upsert.mjs",
+    "registry:audit": "node scripts/registry-audit.mjs"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -36,14 +41,15 @@
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.0",
     "@types/node": "^20.0.0",
-    "tsx": "^4.19.0",
     "@types/react": "^18.3.0",
     "@types/react-dom": "^18.3.0",
     "autoprefixer": "^10.4.0",
+    "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
+    "tsx": "^4.21.0",
     "typescript": "^5.4.0"
   }
 }
