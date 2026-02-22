@@ -7,7 +7,6 @@ import {
   ANIMATION_REGISTRY,
   getAllMarketingFunctions,
   getAllTags,
-  type AnimationEntry,
   type MarketingFunction,
 } from '@/src/data/animations'
 import { getGithubUrl } from '@/lib/galleryGithubMap'
@@ -47,7 +46,12 @@ export default function GalleryMainTemplate({
   const [selectedCategory, setSelectedCategory] = useState<MarketingFunction | 'all'>('all')
   const [selectedTags, setSelectedTags] = useState<string[]>([])
   const [sortBy, setSortBy] = useState<'featured' | 'title' | 'category'>('featured')
-  const [modalAnimation, setModalAnimation] = useState<AnimationEntry | null>(null)
+  const [selectedId, setSelectedId] = useState<string | null>(null)
+
+  const selectedAnimation = useMemo(
+    () => ANIMATION_REGISTRY.find((a) => a.id === selectedId) ?? null,
+    [selectedId]
+  )
 
   const categories = ['all', ...getAllMarketingFunctions()]
   const allTags = getAllTags()
@@ -227,7 +231,7 @@ export default function GalleryMainTemplate({
             {filteredAnimations.map((anim) => (
               <button
                 key={anim.id}
-                onClick={() => setModalAnimation(anim)}
+                onClick={() => setSelectedId(anim.id)}
                 className="group text-left rounded-xl border border-white/10 bg-slate-800/30 overflow-hidden hover:border-brand-500/30 hover:shadow-lg hover:shadow-brand-500/10 transition-all duration-300 hover:-translate-y-0.5"
               >
                 <div className="aspect-video relative bg-slate-900/80 overflow-hidden">
@@ -318,9 +322,9 @@ export default function GalleryMainTemplate({
 
       {/* Modal */}
       <GalleryModal
-        animation={modalAnimation}
-        onClose={() => setModalAnimation(null)}
-        githubUrl={modalAnimation ? getGithubUrl(modalAnimation.id) : undefined}
+        animation={selectedAnimation}
+        onClose={() => setSelectedId(null)}
+        githubUrl={selectedId ? getGithubUrl(selectedId) : undefined}
       />
     </>
   )

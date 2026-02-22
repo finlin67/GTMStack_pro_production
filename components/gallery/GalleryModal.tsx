@@ -1,12 +1,21 @@
 'use client'
 
+import type { ComponentType } from 'react'
 import { useEffect, useCallback } from 'react'
 import { X, Github } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-import type { AnimationEntry } from '@/src/data/animations'
+
+/** Minimal shape the modal needs – parent passes selected animation from registry */
+interface GalleryModalAnimation {
+  title: string
+  description: string
+  marketingFunction: string
+  tags: string[]
+  component: ComponentType
+}
 
 interface GalleryModalProps {
-  animation: AnimationEntry | null
+  animation: GalleryModalAnimation | null
   onClose: () => void
   githubUrl?: string
 }
