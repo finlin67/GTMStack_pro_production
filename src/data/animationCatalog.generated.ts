@@ -21,17 +21,20 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     usedOnPages: false,
   },
   {
-    id: "a-b-m90-days",
-    title: "A B M90 Days",
-    componentPath: "@/components/animations/ABM90Days",
-    thumbnailSrc: "/animation-thumbs/a-b-m90-days.png",
-    usedOnPages: false,
-  },
-  {
     id: "a-i-growth",
     title: "A I Growth",
     componentPath: "@/components/animations/AIGrowth",
     thumbnailSrc: "/animation-thumbs/a-i-growth.png",
+    usedOnPages: false,
+  },
+  {
+    id: "a-b-m90-days",
+    title: "ABM Flow Premium Tile ⭐ ",
+    componentPath: "@/components/animations/ABM90Days",
+    thumbnailSrc: "/animation-thumbs/a-b-m90-days.png",
+    repoUrl: "finlin67/-ABM-Flow-Premium-Tile on main",
+    description: "ABM Flow Premium Tile\n\n## 🧠 Context & Creative Strategy\nThe ABM Flow Premium Tile is designed to provide a high-impact, real-time visualization of Account-Based Marketing (ABM) funnels. It bridges the gap between raw data and executive-level storytelling by using a particle-based \"flow\" that represents accounts moving through the pipeline.\n\n## 🎯 Purpose & Value Proposition\n- **Real-time Visibility**: Instantly see the health of your ABM efforts.\n- **Engagement Tracking**: Visualize how many accounts are transitioning from targeting to active engagement.\n- **Pipeline Velocity**: Get a sense of how quickly opportunities are being created.",
+    keywords: ["abm","pipeline","tracking"],
     usedOnPages: false,
   },
   {

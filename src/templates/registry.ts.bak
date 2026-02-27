@@ -1,0 +1,65 @@
+// Fixed duplicate import aliases on February 23, 2026 to prevent redefinition errors
+// Import aliases must be unique across all templates. Pillar versions use 'Pillar' suffix.
+// Topic/main versions keep standard naming convention.
+
+import type { TemplateId } from '@/src/data/pageRegistry.generated'
+import ExpertiseCategoryTemplate from '@/src/templates/expertise/ExpertiseCategoryTemplate'
+import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemplate'
+import ExpertiseMainTemplate from '@/src/templates/expertise/ExpertiseMainTemplate'
+import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
+import IndustriesMainTemplate from '@/src/templates/industries/IndustriesMainTemplate'
+import ProjectsTemplate from '@/src/templates/projects/ProjectsTemplate'
+import CaseStudyTemplate from '@/src/templates/caseStudies/CaseStudyTemplate'
+import HomeTemplate from '@/src/templates/home/HomeTemplate'
+import GalleryMainTemplate from '@/src/templates/gallery/GalleryMainTemplate.client'
+import FallbackTemplate from '@/src/templates/FallbackTemplate'
+// Topic version: main demand growth template
+import DemandGrowthTemplate from '@/src/templates/expertise/DemandGrowth'
+// Pillar version: uses explicit 'Pillar' suffix to avoid name collision
+import DemandGrowthPillarTemplate from '@/src/templates/expertise/pillars/demand-growthpillar'
+
+export type TemplateComponent =
+  | typeof ExpertiseCategoryTemplate
+  | typeof ExpertiseTopicTemplate
+  | typeof IndustryTemplate
+  | typeof IndustriesMainTemplate
+  | typeof ProjectsTemplate
+  | typeof CaseStudyTemplate
+  | typeof HomeTemplate
+  | typeof ExpertiseMainTemplate
+  | typeof GalleryMainTemplate
+  | typeof FallbackTemplate
+  | typeof DemandGrowthTemplate
+  | typeof DemandGrowthPillarTemplate
+
+/** TemplateId from page registry. Use base.fallback when template is detached. */
+export type RegistryTemplateId = TemplateId | (string & {})
+
+/**
+ * Maps templateId (from page registry) to the v1 template component.
+ * Used for template-driven rendering; routing is unchanged in v1.
+ */
+export const TEMPLATE_BY_ID: Record<RegistryTemplateId, TemplateComponent> = {
+  'expertise.category': ExpertiseCategoryTemplate,
+  'expertise.topic': ExpertiseTopicTemplate,
+  'expertise.main': ExpertiseMainTemplate,
+  'industry.base': IndustryTemplate,
+  'industries.main': IndustriesMainTemplate,
+  'projects.main': ProjectsTemplate,
+  'caseStudy.base': CaseStudyTemplate,
+  'home.base': HomeTemplate,
+  'home.main': HomeTemplate,
+  'gallery.main': GalleryMainTemplate,
+  'base.fallback': FallbackTemplate,
+  'expertise.demand-growthpillar': DemandGrowthPillarTemplate,
+  'expertise.demand-growth': DemandGrowthTemplate,
+}
+
+export function getTemplate(templateId: RegistryTemplateId): TemplateComponent {
+  const Component = TEMPLATE_BY_ID[templateId]
+  if (!Component) {
+    throw new Error(`Unknown templateId: ${templateId}`)
+  }
+  return Component
+}
+

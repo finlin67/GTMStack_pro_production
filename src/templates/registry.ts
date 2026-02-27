@@ -1,4 +1,5 @@
 import type { TemplateId } from '@/src/data/pageRegistry.generated'
+import { getUploadedTemplate } from './uploadedRegistry.generated'
 import ExpertiseCategoryTemplate from '@/src/templates/expertise/ExpertiseCategoryTemplate'
 import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemplate'
 import ExpertiseMainTemplate from '@/src/templates/expertise/ExpertiseMainTemplate'
@@ -28,7 +29,7 @@ export type RegistryTemplateId = TemplateId
  * Maps templateId (from page registry) to the v1 template component.
  * Used for template-driven rendering; routing is unchanged in v1.
  */
-export const TEMPLATE_BY_ID: Record<RegistryTemplateId, TemplateComponent> = {
+export const TEMPLATE_BY_ID: Record<string, TemplateComponent> = {
   'expertise.category': ExpertiseCategoryTemplate,
   'expertise.topic': ExpertiseTopicTemplate,
   'expertise.main': ExpertiseMainTemplate,
@@ -41,7 +42,12 @@ export const TEMPLATE_BY_ID: Record<RegistryTemplateId, TemplateComponent> = {
   'gallery.main': GalleryMainTemplate,
 }
 
-export function getTemplate(templateId: RegistryTemplateId): TemplateComponent {
+export function getTemplate(templateId: string): TemplateComponent {
+  // First try uploaded templates
+  const Uploaded = getUploadedTemplate(templateId)
+  if (Uploaded) return Uploaded as TemplateComponent
+
+  // Fall back to legacy
   const Component = TEMPLATE_BY_ID[templateId]
   if (!Component) {
     throw new Error(`Unknown templateId: ${templateId}`)

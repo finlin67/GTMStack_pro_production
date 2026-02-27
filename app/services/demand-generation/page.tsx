@@ -1,40 +1,32 @@
-import dynamic from 'next/dynamic'
-import type { Metadata } from 'next'
-import { HeroDark } from '@/components/ui/HeroDark'
-import { getServiceHeroBackgroundPreset } from '@/lib/heroPresets'
-import { Reveal } from '@/components/ui/Reveal'
+import type { ComponentType } from 'react'
+import { notFound } from 'next/navigation'
+import { getPageByRoute } from '@/lib/pageRegistry'
+import { getContentByKey } from '@/src/content/registry'
+import { getTemplate } from '@/src/templates/registry'
 
-const DemandGenerationHero = dynamic(
-  () => import('@/src/components/animations/DemandGenerationHero'),
-  { ssr: false }
-)
+// Thin wrapper delegating to registry-driven renderer so clean URL uses templates
 
-export const metadata: Metadata = {
-  title: 'Demand Generation | Services',
-  description:
-    'Full-funnel demand systems that move prospects from awareness to revenue with precision.',
+type RegistryTemplateProps = {
+  pageTitle?: string
+  theme?: 'dark' | 'light'
+  heroVisualId?: string
+  content: unknown
 }
 
 export default function DemandGenerationServicePage() {
-  const backgroundVariant =
-    getServiceHeroBackgroundPreset('/services/demand-generation') ?? 'funnelStages'
+  const row = getPageByRoute('/services/demand-generation')
+  if (!row) notFound()
+
+  const Template = getTemplate(row.templateId as Parameters<typeof getTemplate>[0]) as ComponentType<RegistryTemplateProps>
+  const content = row.contentKey ? getContentByKey(row.contentKey) : null
 
   return (
-    <Reveal>
-      <HeroDark
-        label="Service"
-        title="Demand Generation"
-        description="Pipeline-focused plays, instrumentation, and optimization to prove and scale demand."
-        align="left"
-        size="default"
-        backgroundVariant={backgroundVariant}
-        rightVisual={
-          <div className="aspect-square max-w-lg w-full bg-gradient-to-br from-blue-50 to-indigo-50 rounded-2xl p-8 flex items-center justify-center">
-            <DemandGenerationHero />
-          </div>
-        }
-      />
-    </Reveal>
+    <Template
+      pageTitle={row.pageTitle}
+      theme={row.theme ?? undefined}
+      heroVisualId={row.heroVisualId ?? undefined}
+      content={content}
+    />
   )
 }
 

@@ -4,6 +4,7 @@
  */
 import { PAGE_REGISTRY } from '../src/data/pageRegistry.generated'
 import { TEMPLATE_BY_ID } from '../src/templates/registry'
+import { getUploadedTemplate } from '../src/templates/uploadedRegistry.generated'
 import { getExpertiseBySlug, getExpertiseByPillar } from '../content/expertise'
 import { getIndustryBySlug } from '../content/industries'
 import { getCaseStudyBySlug } from '../content/case-studies'
@@ -29,19 +30,27 @@ function main(): void {
   for (let i = 0; i < PAGE_REGISTRY.length; i++) {
     const r = PAGE_REGISTRY[i]
     if (seen.has(r.route)) {
-      console.error(`[validate-page-registry] Duplicate route: "${r.route}" (rows ${seen.get(r.route)! + 1} and ${i + 1})`)
+      console.error(
+          `[validate-page-registry] Duplicate route: "${r.route}" (rows ${seen.get(r.route)! + 1} and ${i + 1})`
+      )
       failed = true
     } else {
       seen.set(r.route, i)
     }
   }
 
-  // 2) templateId exists in templates/registry
-  const validTemplateIds = new Set(Object.keys(TEMPLATE_BY_ID))
+  // 2) templateId must resolve (legacy OR uploaded)
   for (let i = 0; i < PAGE_REGISTRY.length; i++) {
     const row = PAGE_REGISTRY[i]
-    if (!validTemplateIds.has(row.templateId)) {
-      console.error(`[validate-page-registry] Unknown templateId "${row.templateId}" for route "${row.route}"`)
+    const templateId = row.templateId as string
+
+    const legacyOk = Boolean((TEMPLATE_BY_ID as Record<string, unknown>)[templateId])
+    const uploadedOk = Boolean(getUploadedTemplate(templateId))
+
+    if (!legacyOk && !uploadedOk) {
+      console.error(
+          `[validate-page-registry] templateId does not resolve: "${templateId}" (route "${row.route}")`
+      )
       failed = true
     }
   }
