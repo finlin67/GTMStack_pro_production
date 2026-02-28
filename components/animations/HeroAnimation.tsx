@@ -12,12 +12,12 @@ export type Mode = 'card' | 'hero'
 
 const SEOKeywordDiscovery = dynamic(
   () => import('../../src/components/animations/SEOKeywordDiscovery'),
-  { ssr: false, suspense: true }
+  { ssr: false }
 )
 
 const DemandGenerationHero = dynamic(
   () => import('../../src/components/animations/DemandGenerationHero'),
-  { ssr: false, suspense: true }
+  { ssr: false }
 )
 
 interface HeroAnimationProps {

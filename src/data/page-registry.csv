@@ -6,7 +6,7 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /case-studies/event-to-store-lift-retail,content/case-studies.ts,Event-to-Store Revenue Lift,caseStudy.base,case-studies:event-to-store-lift-retail,dark,
 /expertise/content-engagement,content/expertise.ts,Content & Engagement,Uploaded_Expertise_ContentEngagement_v1,default:content,dark,
 /expertise,content/expertise/main.ts,Expertise,expertise.main,expertise:main,dark,
-/industries,content/industries/main.ts,Industries,industries.main,industries:main,dark,
+/industries,content/industries/main.ts,Architecting Growth by Industry,Uploaded_Industries_v1,industries:main,dark,
 /gallery,content/gallery/main.ts,Animation Gallery,gallery.main,gallery:main,dark,
 /p/test,content/home.ts,Test CMS Page,home.main,home:main,dark,
 /about,content/about.ts,About GTM Stack,home.main,about:main,dark,

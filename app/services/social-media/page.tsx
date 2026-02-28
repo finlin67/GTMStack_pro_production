@@ -1,13 +1,8 @@
-import dynamic from 'next/dynamic'
 import type { Metadata } from 'next'
 import { HeroDark } from '@/components/ui/HeroDark'
 import { getServiceHeroBackgroundPreset } from '@/lib/heroPresets'
 import { Reveal } from '@/components/ui/Reveal'
-
-const SocialMediaHero = dynamic(
-  () => import('@/src/components/animations/SocialMediaHero'),
-  { ssr: false }
-)
+import { SocialMediaHero } from './Hero.client'
 
 export const metadata: Metadata = {
   title: 'Social Media | Services',

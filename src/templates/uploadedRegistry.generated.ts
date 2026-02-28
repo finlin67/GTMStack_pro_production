@@ -6,6 +6,7 @@ import Template_3 from './expertise_demandgrowth_v1'
 import Template_4 from './FallbackTemplate'
 import Template_5 from './Uploaded_Expertise_ContentEngagement_v1'
 import Template_6 from './Uploaded_Expertise_DemandGrowth_v1'
+import Template_7 from './Uploaded_Industries_v1'
 
 export const UPLOADED_TEMPLATE_BY_ID: Record<string, ComponentType<any>> = {
   'ContentEngagement': Template_0,
@@ -15,6 +16,7 @@ export const UPLOADED_TEMPLATE_BY_ID: Record<string, ComponentType<any>> = {
   'FallbackTemplate': Template_4,
   'Uploaded_Expertise_ContentEngagement_v1': Template_5,
   'Uploaded_Expertise_DemandGrowth_v1': Template_6,
+  'Uploaded_Industries_v1': Template_7,
 }
 
 export function getUploadedTemplate(templateId: string): ComponentType<any> | undefined {

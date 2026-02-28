@@ -5,19 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af2f52d7-aee5-417d-89b4-59f125aab264" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/app/admin/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/admin/translator/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/admin/manager/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/admin/upload/route.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/p/[[...slug]]/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/templates/DefaultPage.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.clinerules" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/GTMStack_pro.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/about/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/about/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/contact/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/contact/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/[[...slug]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/[[...slug]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/case-studies/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/case-studies/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/case-studies/ai-visualizations/[id]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/case-studies/ai-visualizations/[id]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/expertise/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/[slug]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/expertise/analytics/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/analytics/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/expertise/automation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/automation/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/expertise/content-engagement/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/content-engagement/page.tsx" afterDir="false" />
@@ -26,23 +18,33 @@
       <change beforePath="$PROJECT_DIR$/app/expertise/strategy-insights/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/strategy-insights/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/expertise/strategy/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/strategy/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/expertise/systems-operations/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/expertise/systems-operations/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/industries/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/[slug]/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/industries/b2b-saas/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/b2b-saas/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/industries/financial-services/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/financial-services/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/industries/fleet-management-logistics/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/fleet-management-logistics/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/industries/manufacturing/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/manufacturing/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/industries/pubsec-government/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/pubsec-government/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/industries/retail/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/industries/retail/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/resume/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/resume/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/p/[[...slug]]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/p/[[...slug]]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/projects/[slug]/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/projects/[slug]/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/content-marketing/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/content-marketing/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/services/demand-generation/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/demand-generation/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/gen-page-registry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/gen-page-registry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/validate-page-registry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/validate-page-registry.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/content/registry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/content/registry.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/paid-advertising/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/paid-advertising/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/seo/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/seo/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/social-media/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/social-media/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/services/video-creative/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/app/services/video-creative/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/components/animations/HeroAnimation.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/components/animations/HeroAnimation.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/content/expertise.ts" beforeDir="false" afterPath="$PROJECT_DIR$/content/expertise.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/animationCatalog.generated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/animationCatalog.generated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/data/animationMeta.overrides.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/animationMeta.overrides.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/page-registry.csv" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/page-registry.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/data/pageRegistry.generated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/pageRegistry.generated.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/templates/registry.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/registry.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/ContentEngagement.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/ContentEngagement.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/ContentEngagementPillar.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/ContentEngagementPillar.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/DefaultPage.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/DefaultPage.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/templates/uploadedRegistry.generated.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/templates/uploadedRegistry.generated.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="1190" />
+    <option name="cachedIndexableFilesCount" value="623" />
     <option name="fileBasedEmbeddingIndicesEnabled" value="true" />
   </component>
   <component name="Git.Settings">
@@ -73,7 +75,7 @@
     <urls />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
+    <option name="selectedTabId" value="ProjectErrors" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
@@ -95,24 +97,28 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
     &quot;database.data.extractors.current.export.id&quot;: &quot;Comma-separated (CSV)_id&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;js.debugger.nextJs.config.created.client&quot;: &quot;true&quot;,
     &quot;js.debugger.nextJs.config.created.server&quot;: &quot;true&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/GitProd/z1_GTMStack_pro&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMThirdPartyAiProvidersConfigurable&quot;,
     &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Prod\\GTM Stack\\GTMStack-Feb\\GTMStack_pro\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\GitProd\\z1_GTMStack_pro\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RecapUselessUpdatesCounter">
-    <option name="suspendCountdown" value="7" />
+  <component name="RecapSpentCounter">
+    <option name="endsOfQuotaMs" value="1774731600000" />
+    <option name="spentUsd" value="0.0032625" />
   </component>
   <component name="RunManager" selected="JavaScript Debug.localhost:3000">
     <configuration name="Next.js: debug client-side" type="JavascriptDebugType" uri="http://localhost:3000/">
@@ -155,6 +161,10 @@
       <workItem from="1771994595334" duration="5429000" />
       <workItem from="1772023121546" duration="24894000" />
       <workItem from="1772050411599" duration="3639000" />
+      <workItem from="1772223829738" duration="1537000" />
+      <workItem from="1772226754215" duration="5434000" />
+      <workItem from="1772238105013" duration="1000" />
+      <workItem from="1772239580849" duration="247000" />
     </task>
     <task id="LOCAL-00001" summary="change that row’s templateId to a valid template id. Based on the rest of your expertise pillar/category pages, it should be expertise.category">
       <option name="closed" value="true" />
@@ -189,7 +199,6 @@
         <line-breakpoint enabled="true" type="javascript">
           <url>file://$PROJECT_DIR$/src/data/animationCatalog.generated.ts</url>
           <line>18</line>
-          <properties lambdaOrdinal="-1" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

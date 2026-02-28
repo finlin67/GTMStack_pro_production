@@ -132,7 +132,7 @@ const DEFAULT_RESULTS = [
 ]
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -140,9 +140,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const item = getExpertiseBySlug(params.slug)
+  const { slug } = await params
+  const item = getExpertiseBySlug(slug)
   if (!item) return { title: 'Not Found' }
-  const registryRow = getPageBySlug('expertise', params.slug)
+  const registryRow = getPageBySlug('expertise', slug)
   const title = registryRow?.pageTitle ?? `${item.title} Expertise`
   return {
     title,
@@ -150,8 +151,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ExpertiseDetailPage({ params }: Props) {
-  const item = getExpertiseBySlug(params.slug)
+export default async function ExpertiseDetailPage({ params }: Props) {
+  const { slug } = await params
+  const item = getExpertiseBySlug(slug)
 
   if (!item) {
     notFound()
@@ -179,13 +181,13 @@ export default function ExpertiseDetailPage({ params }: Props) {
         .slice(0, 4)
     : []
 
-  const relatedCaseStudies = getCaseStudiesByExpertise(item.slug).slice(0, 3)
+  const relatedCaseStudies = getCaseStudiesByExpertise(slug).slice(0, 3)
 
   const relatedIndustries = industryItems.filter(
-    (i) => i.featuredExpertise?.includes(item.slug)
+    (i) => i.featuredExpertise?.includes(slug)
   ).slice(0, 3)
 
-  const heroConfig = getExpertiseHeroConfig(item.slug)
+  const heroConfig = getExpertiseHeroConfig(slug)
 
   const pillarTintOverlay =
     {
@@ -195,13 +197,13 @@ export default function ExpertiseDetailPage({ params }: Props) {
       'systems-operations': '#0D1650',
     }[pillarId]
 
-  const useStitchTheme = STITCH_SLUGS.includes(params.slug)
-  const usePmmAiTheme = PMM_AI_SLUGS.includes(params.slug)
-  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(params.slug)
+  const useStitchTheme = STITCH_SLUGS.includes(slug)
+  const usePmmAiTheme = PMM_AI_SLUGS.includes(slug)
+  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(slug)
   const useSystemsOperationsTheme =
-    SYSTEMS_OPERATIONS_SLUGS.includes(params.slug) || pillarId === 'systems-operations'
+    SYSTEMS_OPERATIONS_SLUGS.includes(slug) || pillarId === 'systems-operations'
 
-  const registryRow = getPageBySlug('expertise', params.slug)
+  const registryRow = getPageBySlug('expertise', slug)
   const resolved =
     registryRow?.contentKey ? getExpertiseContentByKey(registryRow.contentKey) : null
   const defaultContent = (
@@ -243,7 +245,7 @@ export default function ExpertiseDetailPage({ params }: Props) {
       const categoryPillarId =
         registryRow.contentKey?.startsWith('pillar:')
           ? (registryRow.contentKey.replace('pillar:', '') as PillarId)
-          : (params.slug as PillarId)
+          : (slug as PillarId)
       return (
         <ExpertiseCategoryTemplate pillarId={categoryPillarId} {...registryProps}>
           {defaultContent}

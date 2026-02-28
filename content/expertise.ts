@@ -406,7 +406,8 @@ export const expertiseItems: ExpertiseItem[] = [
     relevant_case_study_slugs: [
       "abm-system-launch-prgx",
       "end-to-end-abm-framework-amcs"
-    ]
+    ],
+    pillar: 'demand-growth',
   },
   {
     title: "Digital Marketing",

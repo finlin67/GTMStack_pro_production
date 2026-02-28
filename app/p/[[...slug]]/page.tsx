@@ -6,7 +6,7 @@ import { getTemplate } from '@/src/templates/registry'
 import { getContentByKey } from '@/src/content/registry'
 
 type Props = {
-  params: { slug?: string[] }
+  params: Promise<{ slug?: string[] }>
 }
 
 /**
@@ -30,7 +30,8 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const route = reconstructRoute(params.slug)
+  const { slug } = await params
+  const route = reconstructRoute(slug)
   const page = PAGE_REGISTRY.find((p) => p.route === route)
   
   if (!page) {
@@ -42,8 +43,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function RegistryPage({ params }: Props) {
-  const route = reconstructRoute(params.slug)
+export default async function RegistryPage({ params }: Props) {
+  const { slug } = await params
+  const route = reconstructRoute(slug)
   
   // Find the object where the route exactly matches the reconstructed path string
   const page = PAGE_REGISTRY.find((p) => p.route === route)

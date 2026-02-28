@@ -6,7 +6,7 @@ import { getTemplate } from '@/src/templates/registry'
 import { getContentByKey } from '@/src/content/registry'
 
 type Props = {
-  params: { slug?: string[] }
+  params: Promise<{ slug?: string[] }>
 }
 
 const RESERVED_PREFIXES = [
@@ -50,7 +50,7 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const { slug } = params
+  const { slug } = await params
   if (slug && slug.length > 0 && RESERVED_PREFIXES.includes(slug[0])) {
     return {}
   }
@@ -67,8 +67,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function RegistryPage({ params }: Props) {
-  const { slug } = params
+export default async function RegistryPage({ params }: Props) {
+  const { slug } = await params
 
   // IMPORTANT: do not intercept these prefixes
   if (slug && slug.length > 0 && RESERVED_PREFIXES.includes(slug[0])) {

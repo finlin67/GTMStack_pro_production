@@ -6,7 +6,7 @@ import CaseStudyTemplate from '@/src/templates/caseStudies/CaseStudyTemplate'
 import RenderCaseStudy from '@/lib/renderCaseStudy'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -14,10 +14,11 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const item = getCaseStudyBySlug(params.slug)
+  const { slug } = await params
+  const item = getCaseStudyBySlug(slug)
   if (!item) return { title: 'Not Found' }
   const registryRow =
-    getPageBySlug('projects', params.slug) ?? getPageBySlug('case-studies', params.slug)
+    getPageBySlug('projects', slug) ?? getPageBySlug('case-studies', slug)
   const title = registryRow?.pageTitle ?? `${item.title} Case Study | GTMstack.pro`
   return {
     title,
@@ -25,15 +26,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ProjectDetailPage({ params }: Props) {
-  const caseStudy = getCaseStudyBySlug(params.slug)
+export default async function ProjectDetailPage({ params }: Props) {
+  const { slug } = await params
+  const caseStudy = getCaseStudyBySlug(slug)
 
   if (!caseStudy) {
     notFound()
   }
 
   const registryRow =
-    getPageBySlug('projects', params.slug) ?? getPageBySlug('case-studies', params.slug)
+    getPageBySlug('projects', slug) ?? getPageBySlug('case-studies', slug)
   const defaultContent = <RenderCaseStudy caseStudy={caseStudy} routeKind="projects" />
 
   if (registryRow) {
