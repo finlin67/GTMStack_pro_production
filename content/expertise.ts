@@ -785,6 +785,8 @@ export const expertiseItems: ExpertiseItem[] = [
   {
     title: "Revenue Operations (RevOps)",
     slug: "revenue-operations",
+    pillar: 'systems-operations',
+    pillarLabel: 'Systems & Operations',
     positioning: "Aligning Sales, Marketing, and Finance around a unified revenue engine, with shared data, processes, and forecasts that turn strategy into predictable growth.",
     challenges: [
       "Sales, Marketing, and Finance operate on different definitions of pipeline, forecasts, and success.",
@@ -953,6 +955,28 @@ export const expertiseItems: ExpertiseItem[] = [
     tags: ['Video', 'Webinars', 'ON24'],
     icon: 'Video',
     order: 5,
+  },
+  {
+    slug: 'demand-growth',
+    title: 'Demand & Growth',
+    description: 'Systematic demand generation and growth programs that drive predictable pipeline and revenue.',
+    pillar: 'demand-growth',
+    pillarLabel: 'Demand & Growth',
+    tags: ['Demand Gen', 'ABM', 'Growth'],
+    icon: 'TrendingUp',
+    featured: false,
+    order: 0,
+  },
+  {
+    slug: 'strategy-insights',
+    title: 'Strategy & Insights',
+    description: 'Master blueprints for winning enterprise accounts through engineered clarity and strategic GTM architecture.',
+    pillar: 'strategy-insights',
+    pillarLabel: 'Strategy & Insights',
+    tags: ['Strategy', 'ABM', 'Analytics'],
+    icon: 'Target',
+    featured: false,
+    order: 0,
   },
 ]
 

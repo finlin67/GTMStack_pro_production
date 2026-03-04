@@ -34,7 +34,14 @@ export default function B2BSaaSPage() {
     heroVisualId: row.heroVisualId ?? undefined,
   }
 
-  if (row.templateId === 'industry.base') {
+  if ([
+    'industry.base',
+    'Uploaded_B2BTechIndustry_v1',
+    'Uploaded_IndustrialIndustry_v1',
+    'Uploaded_Sector_v1',
+    'Uploaded_Healthcare_v1',
+    'Uploaded_EDUtech_v1',
+  ].includes(row.templateId)) {
     return (
       <Template
         {...commonProps}

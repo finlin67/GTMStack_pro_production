@@ -344,7 +344,7 @@ export const industryItems: IndustryItem[] = [
     featuredCaseStudies: [],
   },
   {
-    slug: 'ecommerce',
+    slug: 'retail',
     title: 'E-Commerce & Retail Tech',
     description: 'Revenue optimization across the commerce journey. Acquisition to retention strategies that maximize LTV.',
     longDescription: 'End-to-end commerce growth from customer acquisition to retention. Expertise in marketplace dynamics, D2C brands, and retail technology platforms. Modern growth plays include omnichannel attribution, lifecycle marketing, and conversion optimization that maximizes customer lifetime value.',
@@ -435,7 +435,7 @@ export const industryItems: IndustryItem[] = [
   },
   {
     title: "Public Sector & Education",
-    slug: "public-sector-education",
+    slug: "non-profit-education",
     description: "Enabling government and education organizations to modernize service delivery, improve constituent experience, and adopt data-driven GTM motions within highly regulated environments.",
     longDescription: "Enabling government and education organizations to modernize service delivery, improve constituent experience, and adopt data-driven GTM motions within highly regulated environments.",
     positioning: "Enabling government and education organizations to modernize service delivery, improve constituent experience, and adopt data-driven GTM motions within highly regulated environments.",

@@ -8,6 +8,8 @@
     "start": "next start",
     "build:static": "cross-env STATIC_EXPORT=1 next build",
     "lint": "next lint",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck",
     "export": "cross-env STATIC_EXPORT=1 next build",
     "gen:all": "npm run gen:registry && npm run gen:animations",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
@@ -18,7 +20,12 @@
     "prebuild": "npm run gen:registry",
     "link-audit": "node scripts/link-audit.mjs",
     "page:upsert": "node scripts/page-upsert.mjs",
-    "registry:audit": "node scripts/registry-audit.mjs"
+    "registry:audit": "node scripts/registry-audit.mjs",
+    "gen:thumbnails": "node scripts/generate-thumbnails.js",
+    "cleanup:thumbnail-factory": "node scripts/cleanup-thumbnail-factory.js",
+    "gen:thumbnails:once": "npm run gen:thumbnails && npm run cleanup:thumbnail-factory",
+    "diag:easing": "node scripts/find-invalid-easing.js",
+    "prepare": "husky"
   },
   "dependencies": {
     "@mdx-js/loader": "^3.0.0",
@@ -31,12 +38,15 @@
     "gray-matter": "^4.0.3",
     "isomorphic-dompurify": "^3.0.0-rc.2",
     "lucide-react": "^0.400.0",
+    "motion": "^12.34.5",
     "next": "^16.1.6",
     "next-mdx-remote": "^5.0.0",
+    "puppeteer": "^24.37.5",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "recharts": "^3.7.0"
+    "recharts": "^3.7.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.0",
@@ -47,9 +57,19 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.1",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
+    "ts-morph": "^27.0.2",
     "tsx": "^4.21.0",
     "typescript": "^5.4.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --max-warnings=0"
+    ]
   }
 }

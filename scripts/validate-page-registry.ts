@@ -63,7 +63,17 @@ function main(): void {
     }
   }
 
-  // 4) Dynamic sections: slug exists in content
+  // 4) Block deprecated /services routes
+  for (const row of PAGE_REGISTRY) {
+    if (row.route.startsWith('/services/')) {
+      console.error(
+        `[validate-page-registry] Deprecated route found: "${row.route}". Services routes must be redirected in app/services and removed from the registry.`
+      )
+      failed = true
+    }
+  }
+
+  // 5) Dynamic sections: slug exists in content
   for (const row of PAGE_REGISTRY) {
     const parsed = parseDynamicRoute(row.route)
     if (!parsed) continue

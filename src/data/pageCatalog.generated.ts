@@ -102,43 +102,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-account-based-marketing",
-    "name": "Service: Account-Based Marketing (ABM)",
-    "route": "/services/account-based-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-account-based-marketing-abm",
     "name": "Account-Based Marketing (ABM)",
     "route": "/expertise/account-based-marketing-abm",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-account-based-marketing-abm",
-    "name": "Service: Account-Based Marketing (ABM)",
-    "route": "/services/account-based-marketing-abm",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -170,43 +136,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-attribution-and-measurement",
-    "name": "Service: Attribution & Measurement",
-    "route": "/services/attribution-and-measurement",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-bi-data-engineering",
     "name": "BI & Data Engineering (GTM-Focused)",
     "route": "/expertise/bi-data-engineering",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-bi-data-engineering",
-    "name": "Service: BI & Data Engineering (GTM-Focused)",
-    "route": "/services/bi-data-engineering",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -238,43 +170,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-ai-in-marketing",
-    "name": "Service: AI in Marketing",
-    "route": "/services/ai-in-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-content-marketing",
     "name": "Content Marketing",
     "route": "/expertise/content-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-content-marketing",
-    "name": "Service: Content Marketing",
-    "route": "/services/content-marketing",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -306,43 +204,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-content-strategy-systems",
-    "name": "Service: Content Strategy Systems",
-    "route": "/services/content-strategy-systems",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-channel-partner-marketing",
     "name": "Channel Partner Marketing",
     "route": "/expertise/channel-partner-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-channel-partner-marketing",
-    "name": "Service: Channel Partner Marketing",
-    "route": "/services/channel-partner-marketing",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -374,43 +238,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-customer-experience",
-    "name": "Service: Customer Experience (CX)",
-    "route": "/services/customer-experience",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-customer-experience-cx",
     "name": "Customer Experience (CX)",
     "route": "/expertise/customer-experience-cx",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-customer-experience-cx",
-    "name": "Service: Customer Experience (CX)",
-    "route": "/services/customer-experience-cx",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -442,43 +272,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-customer-marketing",
-    "name": "Service: Customer Marketing",
-    "route": "/services/customer-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-data-governance",
     "name": "Data Governance",
     "route": "/expertise/data-governance",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-data-governance",
-    "name": "Service: Data Governance",
-    "route": "/services/data-governance",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -497,27 +293,10 @@ export const PAGE_CATALOG = [
     "name": "Demand Generation",
     "route": "/expertise/demand-generation",
     "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-demand-generation",
-    "name": "Service: Demand Generation",
-    "route": "/services/demand-generation",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
+    "themeKey": "topic-demand",
+    "accentHex": "#F59E0B",
+    "accentName": "Inherits Demand / Gold",
+    "tone": "Performance + acceleration; pipeline and revenue outcomes.",
     "sections": [
       "The Problem Pattern (light)",
       "The System Blueprint (dark)",
@@ -530,23 +309,6 @@ export const PAGE_CATALOG = [
     "id": "expertise-digital-marketing",
     "name": "Digital Marketing",
     "route": "/expertise/digital-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-digital-marketing",
-    "name": "Service: Digital Marketing",
-    "route": "/services/digital-marketing",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -578,43 +340,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-email-marketing",
-    "name": "Service: Email Marketing & Nurture",
-    "route": "/services/email-marketing",
-    "kind": "topic",
-    "themeKey": "topic-content",
-    "accentHex": "#7C3AED",
-    "accentName": "Inherits Content / Purple",
-    "tone": "Narrative intelligence; scalable storytelling systems.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-event-marketing",
     "name": "Event Marketing & Webinars",
     "route": "/expertise/event-marketing",
-    "kind": "topic",
-    "themeKey": "topic-demand",
-    "accentHex": "#F59E0B",
-    "accentName": "Inherits Demand / Gold",
-    "tone": "Performance + acceleration; pipeline and revenue outcomes.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-event-marketing",
-    "name": "Service: Event Marketing & Webinars",
-    "route": "/services/event-marketing",
     "kind": "topic",
     "themeKey": "topic-demand",
     "accentHex": "#F59E0B",
@@ -646,43 +374,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-event-field-marketing",
-    "name": "Service: Event Marketing & Field Marketing",
-    "route": "/services/event-field-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-growth-marketing",
     "name": "Growth Marketing",
     "route": "/expertise/growth-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-growth-marketing",
-    "name": "Service: Growth Marketing",
-    "route": "/services/growth-marketing",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -714,43 +408,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-lifecycle-marketing",
-    "name": "Service: Lifecycle Marketing",
-    "route": "/services/lifecycle-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-marketing-automation",
     "name": "Marketing Automation",
     "route": "/expertise/marketing-automation",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Inherits Systems / Cyan",
-    "tone": "Technical precision; architecture, data, and integration clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-marketing-automation",
-    "name": "Service: Marketing Automation",
-    "route": "/services/marketing-automation",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -782,43 +442,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-marketing-analytics-reporting",
-    "name": "Service: Marketing Analytics & Reporting",
-    "route": "/services/marketing-analytics-reporting",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-marketing-operations",
     "name": "Marketing Operations",
     "route": "/expertise/marketing-operations",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-marketing-operations",
-    "name": "Service: Marketing Operations",
-    "route": "/services/marketing-operations",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -850,43 +476,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-martech-optimization",
-    "name": "Service: MarTech Optimization",
-    "route": "/services/martech-optimization",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-omnichannel-marketing",
     "name": "Omnichannel Marketing",
     "route": "/expertise/omnichannel-marketing",
-    "kind": "topic",
-    "themeKey": "topic-content",
-    "accentHex": "#7C3AED",
-    "accentName": "Inherits Content / Purple",
-    "tone": "Narrative intelligence; scalable storytelling systems.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-omnichannel-marketing",
-    "name": "Service: Omnichannel Marketing",
-    "route": "/services/omnichannel-marketing",
     "kind": "topic",
     "themeKey": "topic-content",
     "accentHex": "#7C3AED",
@@ -918,43 +510,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-paid-advertising",
-    "name": "Service: Paid Advertising",
-    "route": "/services/paid-advertising",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-paid-advertising-sem",
     "name": "Paid Advertising & SEM",
     "route": "/expertise/paid-advertising-sem",
-    "kind": "topic",
-    "themeKey": "topic-demand",
-    "accentHex": "#F59E0B",
-    "accentName": "Inherits Demand / Gold",
-    "tone": "Performance + acceleration; pipeline and revenue outcomes.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-paid-advertising-sem",
-    "name": "Service: Paid Advertising & SEM",
-    "route": "/services/paid-advertising-sem",
     "kind": "topic",
     "themeKey": "topic-demand",
     "accentHex": "#F59E0B",
@@ -986,43 +544,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-product-marketing",
-    "name": "Service: Product Marketing",
-    "route": "/services/product-marketing",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-revenue-operations",
     "name": "Revenue Operations (RevOps)",
     "route": "/expertise/revenue-operations",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-revenue-operations",
-    "name": "Service: Revenue Operations (RevOps)",
-    "route": "/services/revenue-operations",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -1054,43 +578,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-search-engine-optimization",
-    "name": "Service: Search Engine Optimization (SEO)",
-    "route": "/services/search-engine-optimization",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-sales-enablement",
     "name": "Sales Enablement",
     "route": "/expertise/sales-enablement",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Inherits Systems / Cyan",
-    "tone": "Technical precision; architecture, data, and integration clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-sales-enablement",
-    "name": "Service: Sales Enablement",
-    "route": "/services/sales-enablement",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -1122,43 +612,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-sales-enablement-alignment",
-    "name": "Service: Sales Enablement & Alignment",
-    "route": "/services/sales-enablement-alignment",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-social-media",
     "name": "Social Media",
     "route": "/expertise/social-media",
-    "kind": "topic",
-    "themeKey": "topic-systems",
-    "accentHex": "#06B6D4",
-    "accentName": "Default (needs pillar override) / Cyan",
-    "tone": "Systematic, structured, modern SaaS clarity.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-social-media",
-    "name": "Service: Social Media",
-    "route": "/services/social-media",
     "kind": "topic",
     "themeKey": "topic-systems",
     "accentHex": "#06B6D4",
@@ -1190,43 +646,9 @@ export const PAGE_CATALOG = [
     ]
   },
   {
-    "id": "services-social-media-marketing",
-    "name": "Service: Social Media Marketing",
-    "route": "/services/social-media-marketing",
-    "kind": "topic",
-    "themeKey": "topic-content",
-    "accentHex": "#7C3AED",
-    "accentName": "Inherits Content / Purple",
-    "tone": "Narrative intelligence; scalable storytelling systems.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
     "id": "expertise-video-marketing",
     "name": "Video Marketing & Webinars",
     "route": "/expertise/video-marketing",
-    "kind": "topic",
-    "themeKey": "topic-content",
-    "accentHex": "#7C3AED",
-    "accentName": "Inherits Content / Purple",
-    "tone": "Narrative intelligence; scalable storytelling systems.",
-    "sections": [
-      "The Problem Pattern (light)",
-      "The System Blueprint (dark)",
-      "Implementation Model (light)",
-      "Proof / Metrics (dark)",
-      "CTA (light)"
-    ]
-  },
-  {
-    "id": "services-video-marketing",
-    "name": "Service: Video Marketing & Webinars",
-    "route": "/services/video-marketing",
     "kind": "topic",
     "themeKey": "topic-content",
     "accentHex": "#7C3AED",

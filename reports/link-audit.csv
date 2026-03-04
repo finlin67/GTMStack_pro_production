@@ -1,14 +1,15 @@
 Section,Source File,Line,Label/Href,Link Target,Status,Notes
-Nav,,,Navbar.tsx link,/,Yes,ok
+Nav,,,Navbar.tsx link,/,No,MISSING
 Nav,,,Navbar.tsx industries,/industries/[slug],Yes,dynamic
 Nav,,,Footer.tsx obj,/about,Yes,ok
 Nav,,,Footer.tsx obj,/case-studies,Yes,ok
+Nav,,,Footer.tsx obj,/gallery,Yes,ok
 Nav,,,Footer.tsx obj,/industries,Yes,ok
 Nav,,,Footer.tsx obj,/resume,Yes,ok
 Nav,,,Footer.tsx obj,/contact,Yes,ok
-Nav,,,Footer.tsx link,/,Yes,ok
-Nav,,,Footer.tsx link,/privacy,No,MISSING
-Nav,,,Footer.tsx link,/terms,No,MISSING
+Nav,,,Footer.tsx link,/,No,MISSING
+Nav,,,Footer.tsx link,/privacy,Yes,dynamic
+Nav,,,Footer.tsx link,/terms,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/content-engagement,Yes,ok
 Nav,,,MegaMenu.tsx obj,/expertise/content-marketing,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/email-marketing,Yes,dynamic
@@ -26,7 +27,7 @@ Nav,,,MegaMenu.tsx obj,/expertise/account-based-marketing-abm,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/customer-experience-cx,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/customer-marketing,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/lifecycle-marketing,Yes,dynamic
-Nav,,,MegaMenu.tsx obj,/expertise/market-research,Yes,dynamic
+Nav,,,MegaMenu.tsx obj,/expertise/product-marketing,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/systems-operations,Yes,ok
 Nav,,,MegaMenu.tsx obj,/expertise/ai-in-marketing,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/marketing-automation,Yes,dynamic
@@ -34,15 +35,21 @@ Nav,,,MegaMenu.tsx obj,/expertise/marketing-operations,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/martech-optimization,Yes,dynamic
 Nav,,,MegaMenu.tsx obj,/expertise/sales-enablement,Yes,dynamic
 Nav,,,MegaMenu.tsx link,/expertise,Yes,ok
+Nav,,,MobileMegaMenu.tsx link,/case-studies,Yes,ok
+Nav,,,MobileMegaMenu.tsx link,/gallery,Yes,ok
+Nav,,,MobileMegaMenu.tsx link,/industries,Yes,ok
+Nav,,,MobileMegaMenu.tsx link,/about,Yes,ok
+Nav,,,MobileMegaMenu.tsx link,/contact,Yes,ok
 Nav,,,MobileMegaMenu.tsx industries,/industries/[slug],Yes,dynamic
 Nav,,,PILLARS (types),/expertise/content-engagement,Yes,ok
 Nav,,,PILLARS (types),/expertise/demand-growth,Yes,ok
 Nav,,,PILLARS (types),/expertise/strategy-insights,Yes,ok
 Nav,,,PILLARS (types),/expertise/systems-operations,Yes,ok
-Link,app\about\page.tsx,111,,/expertise,ok,
-Link,app\about\page.tsx,112,,/case-studies,ok,
-Link,app\about\page.tsx,273,,/contact,ok,
-Link,app\blog\post\BlogPostClient.tsx,38,,/blog,ok,
+Link,app\blog\post\BlogPostClient.tsx,94,,/blog,ok,
+Link,app\blog\post\BlogPostClient.tsx,95,,/methodology,ok,dynamic
+Link,app\blog\post\BlogPostClient.tsx,96,,/gallery,ok,
+Link,app\blog\post\BlogPostClient.tsx,97,,/contact,ok,
+Link,app\blog\[slug]\page.tsx,35,,/blog,ok,
 Link,app\case-studies\ai-visualizations\page.tsx,105,,/case-studies,ok,
 Link,app\case-studies\ai-visualizations\page.tsx,339,,/contact,ok,
 Link,app\case-studies\ai-visualizations\[id]\AnimationDetailClient.tsx,91,,/case-studies/ai-visualizations,ok,
@@ -50,69 +57,32 @@ Link,app\case-studies\ai-visualizations\[id]\AnimationDetailClient.tsx,242,,/con
 Link,app\case-studies\page.tsx,83,,/case-studies/ai-visualizations,ok,
 Link,app\case-studies\page.tsx,248,,/contact,ok,
 Link,app\case-studies\page.tsx,254,,/expertise,ok,
-Link,app\case-studies\[slug]\page.tsx,83,,/contact,ok,
-Link,app\case-studies\[slug]\page.tsx,84,,/case-studies,ok,
-Link,app\contact\page.tsx,96,,/,ok,
-Link,app\contact\page.tsx,97,,/contact,ok,
-Link,app\expertise\analytics\page.tsx,30,,/,ok,
-Link,app\expertise\analytics\page.tsx,34,,/expertise,ok,
-Link,app\expertise\analytics\page.tsx,135,,/contact,ok,
-Link,app\expertise\analytics\page.tsx,136,,/case-studies,ok,
-Link,app\expertise\automation\page.tsx,30,,/,ok,
-Link,app\expertise\automation\page.tsx,34,,/expertise,ok,
-Link,app\expertise\automation\page.tsx,135,,/contact,ok,
-Link,app\expertise\automation\page.tsx,136,,/case-studies,ok,
-Link,app\expertise\content-engagement\page.tsx,50,,/contact,ok,
-Link,app\expertise\content-engagement\page.tsx,215,,/expertise,ok,
-Link,app\expertise\demand-growth\page.tsx,50,,/contact,ok,
-Link,app\expertise\demand-growth\page.tsx,215,,/expertise,ok,
-Link,app\expertise\optimization\page.tsx,30,,/,ok,
-Link,app\expertise\optimization\page.tsx,34,,/expertise,ok,
-Link,app\expertise\optimization\page.tsx,135,,/contact,ok,
-Link,app\expertise\optimization\page.tsx,136,,/case-studies,ok,
-Link,app\expertise\page.tsx,43,,/case-studies,ok,
-Link,app\expertise\page.tsx,60,,/expertise,ok,
-Link,app\expertise\page.tsx,159,,/industries,ok,
-Link,app\expertise\page.tsx,234,,/contact,ok,
-Link,app\expertise\strategy\page.tsx,60,,/,ok,
-Link,app\expertise\strategy\page.tsx,62,,/expertise,ok,
-Link,app\expertise\strategy\page.tsx,92,,/case-studies,ok,
-Link,app\expertise\strategy\page.tsx,274,,/contact,ok,
-Link,app\expertise\strategy-insights\page.tsx,50,,/contact,ok,
-Link,app\expertise\strategy-insights\page.tsx,215,,/expertise,ok,
-Link,app\expertise\systems-operations\page.tsx,50,,/contact,ok,
-Link,app\expertise\systems-operations\page.tsx,215,,/expertise,ok,
-Link,app\expertise\[slug]\page.tsx,204,,/expertise,ok,
-Link,app\expertise\[slug]\page.tsx,351,,/contact,ok,
-Link,app\expertise\[slug]\page.tsx,357,,/case-studies,ok,
-Link,app\industries\page.tsx,39,,/case-studies,ok,
-Link,app\industries\page.tsx,173,,/contact,ok,
-Link,app\not-found.tsx,21,,/,ok,
-Link,app\page.tsx,70,,/contact,ok,
-Link,app\page.tsx,74,,/expertise,ok,
-Link,app\page.tsx,192,,/case-studies,ok,
-Link,app\page.tsx,309,,/about,ok,
-Link,app\projects\page.tsx,226,,/contact,ok,
-Link,app\projects\page.tsx,232,,/expertise,ok,
-Link,app\projects\[slug]\page.tsx,83,,/contact,ok,
-Link,app\projects\[slug]\page.tsx,84,,/projects,ok,
-Link,app\resume\page.tsx,123,,/,ok,
-Link,app\resume\page.tsx,124,,/resume,ok,
-Link,app\resume\page.tsx,296,,/contact,ok,
-Link,app\resume\page.tsx,297,,/case-studies,ok,
-Link,components\expertise\ExpertiseHero.tsx,87,,/,ok,
+Link,app\expertise\[slug]\ExpertiseDetailContent.tsx,365,,/,BROKEN,
+Link,app\expertise\[slug]\ExpertiseDetailContent.tsx,367,,/expertise,ok,
+Link,app\expertise\[slug]\ExpertiseDetailContent.tsx,414,,/contact,ok,
+Link,app\expertise\[slug]\page.tsx.old.tsx,365,,/,BROKEN,
+Link,app\expertise\[slug]\page.tsx.old.tsx,367,,/expertise,ok,
+Link,app\expertise\[slug]\page.tsx.old.tsx,414,,/contact,ok,
+Link,app\HomeDefaultClient.tsx,117,,/expertise,ok,
+Link,app\HomeDefaultClient.tsx,235,,/contact,ok,
+Link,app\HomeDefaultClient.tsx,252,,/projects,ok,
+Link,app\HomeDefaultClient.tsx,519,,/case-studies,ok,
+Link,app\not-found.tsx,21,,/,BROKEN,
+Link,components\admin\AdminLayout.tsx,62,,/,BROKEN,
+Link,components\expertise\ExpertiseHero.tsx,87,,/,BROKEN,
 Link,components\expertise\ExpertiseHero.tsx,91,,/expertise,ok,
 Link,components\expertise\ExpertiseHero.tsx,135,,/contact,ok,
 Link,components\industries\IndustryPageContent.tsx,97,,/contact,ok,
 Link,components\industries\IndustryPageContent.tsx,98,,/case-studies,ok,
 Link,components\layout\Footer.tsx,8,,/about,ok,
 Link,components\layout\Footer.tsx,9,,/case-studies,ok,
-Link,components\layout\Footer.tsx,10,,/industries,ok,
-Link,components\layout\Footer.tsx,11,,/resume,ok,
-Link,components\layout\Footer.tsx,14,,/contact,ok,
-Link,components\layout\Footer.tsx,35,,/,ok,
-Link,components\layout\Footer.tsx,134,,/privacy,BROKEN,
-Link,components\layout\Footer.tsx,137,,/terms,BROKEN,
+Link,components\layout\Footer.tsx,10,,/gallery,ok,
+Link,components\layout\Footer.tsx,11,,/industries,ok,
+Link,components\layout\Footer.tsx,12,,/resume,ok,
+Link,components\layout\Footer.tsx,15,,/contact,ok,
+Link,components\layout\Footer.tsx,36,,/,BROKEN,
+Link,components\layout\Footer.tsx,135,,/privacy,ok,dynamic
+Link,components\layout\Footer.tsx,138,,/terms,ok,dynamic
 Link,components\layout\MegaMenu.tsx,9,,/expertise/content-engagement,ok,
 Link,components\layout\MegaMenu.tsx,12,,/expertise/content-marketing,ok,dynamic
 Link,components\layout\MegaMenu.tsx,13,,/expertise/email-marketing,ok,dynamic
@@ -130,7 +100,7 @@ Link,components\layout\MegaMenu.tsx,36,,/expertise/account-based-marketing-abm,o
 Link,components\layout\MegaMenu.tsx,37,,/expertise/customer-experience-cx,ok,dynamic
 Link,components\layout\MegaMenu.tsx,38,,/expertise/customer-marketing,ok,dynamic
 Link,components\layout\MegaMenu.tsx,39,,/expertise/lifecycle-marketing,ok,dynamic
-Link,components\layout\MegaMenu.tsx,40,,/expertise/market-research,ok,dynamic
+Link,components\layout\MegaMenu.tsx,40,,/expertise/product-marketing,ok,dynamic
 Link,components\layout\MegaMenu.tsx,45,,/expertise/systems-operations,ok,
 Link,components\layout\MegaMenu.tsx,48,,/expertise/ai-in-marketing,ok,dynamic
 Link,components\layout\MegaMenu.tsx,49,,/expertise/marketing-automation,ok,dynamic
@@ -138,33 +108,169 @@ Link,components\layout\MegaMenu.tsx,50,,/expertise/marketing-operations,ok,dynam
 Link,components\layout\MegaMenu.tsx,51,,/expertise/martech-optimization,ok,dynamic
 Link,components\layout\MegaMenu.tsx,52,,/expertise/sales-enablement,ok,dynamic
 Link,components\layout\MegaMenu.tsx,96,,/expertise,ok,
-Link,components\layout\Navbar.tsx,181,,/,ok,
+Link,components\layout\Navbar.tsx,181,,/,BROKEN,
 Link,components\layout\Navbar.tsx,206,,/case-studies,ok,
-Link,components\layout\Navbar.tsx,225,,/about,ok,
-Link,components\layout\Navbar.tsx,231,,/contact,ok,
-Link,components\layout\Navbar.tsx,305,,/industries,ok,
+Link,components\layout\Navbar.tsx,212,,/gallery,ok,
+Link,components\layout\Navbar.tsx,231,,/about,ok,
+Link,components\layout\Navbar.tsx,237,,/contact,ok,
+Link,components\layout\Navbar.tsx,311,,/industries,ok,
 Link,components\ui\IndustriesDropdown.tsx,26,,/industries,ok,
-Link,components\ui\MobileMegaMenu.tsx,151,,/expertise,ok,
-Link,components\ui\MobileMegaMenu.tsx,166,,/industries,ok,
+Link,components\ui\MobileMegaMenu.tsx,76,,/case-studies,ok,
+Link,components\ui\MobileMegaMenu.tsx,79,,/gallery,ok,
+Link,components\ui\MobileMegaMenu.tsx,82,,/industries,ok,
+Link,components\ui\MobileMegaMenu.tsx,85,,/about,ok,
+Link,components\ui\MobileMegaMenu.tsx,88,,/contact,ok,
+Link,components\ui\MobileMegaMenu.tsx,169,,/expertise,ok,
+Link,content\expertise\main.ts,12,,/,BROKEN,
+Link,content\expertise\main.ts,13,,/expertise,ok,
+Link,content\expertise\main.ts,14,,/industries,ok,
+Link,content\expertise\main.ts,15,,/case-studies,ok,
+Link,content\expertise\main.ts,16,,/contact,ok,
+Link,content\expertise\main.ts,113,,/expertise/content-engagement,ok,
+Link,content\expertise\main.ts,114,,/expertise/demand-growth,ok,
+Link,content\expertise\main.ts,115,,/expertise/strategy-insights,ok,
+Link,content\expertise\main.ts,116,,/expertise/systems-operations,ok,
+Link,content\expertise\pillars\content-engagement.ts,11,,/expertise,ok,
+Link,content\expertise\pillars\content-engagement.ts,12,,/case-studies,ok,
+Link,content\expertise\pillars\content-engagement.ts,13,,/gallery,ok,
+Link,content\expertise\pillars\content-engagement.ts,14,,/industries,ok,
+Link,content\expertise\pillars\content-engagement.ts,15,,/about,ok,
+Link,content\expertise\pillars\content-engagement.ts,16,,/blog,ok,
+Link,content\expertise\pillars\content-engagement.ts,31,,/contact,ok,
+Link,content\expertise\pillars\content-engagement.ts,107,,/blog/future-content-roi,ok,dynamic
+Link,content\expertise\pillars\content-engagement.ts,115,,/case-studies/saas-unicorn-growth,ok,dynamic
+Link,lib\renderCaseStudy.tsx,75,,/contact,ok,
 Link,lib\types.ts,92,,/expertise/content-engagement,ok,
 Link,lib\types.ts,100,,/expertise/demand-growth,ok,
 Link,lib\types.ts,108,,/expertise/strategy-insights,ok,
 Link,lib\types.ts,116,,/expertise/systems-operations,ok,
 Link,src\components\animations\PipelineDashboard.tsx,271,,/lead/12345,BROKEN,
-Broken,components\layout\Footer.tsx,134,,/privacy,BROKEN,
-Broken,components\layout\Footer.tsx,137,,/terms,BROKEN,
+Link,src\content\content-engagement.ts,8,,/,BROKEN,
+Link,src\content\content-engagement.ts,9,,/methodology,ok,dynamic
+Link,src\content\content-engagement.ts,10,,/expertise,ok,
+Link,src\content\content-engagement.ts,11,,/projects,ok,
+Link,src\content\content-engagement.ts,12,,/industries,ok,
+Link,src\content\content-engagement.ts,13,,/about,ok,
+Link,src\content\content-engagement.ts,14,,/blog,ok,
+Link,src\content\content-engagement.ts,15,,/gallery,ok,
+Link,src\content\content-engagement.ts,24,,/storytelling,ok,dynamic
+Link,src\content\content-engagement.ts,25,,/audit,ok,dynamic
+Link,src\content\content-engagement.ts,84,,/blog/content-roi,ok,dynamic
+Link,src\content\content-engagement.ts,92,,/projects/saas-growth,ok,dynamic
+Link,src\content\content-engagement.ts,100,,/gallery/visual-systems,BROKEN,
+Link,src\staging-templates\demand-growth.tsx,154,,/,BROKEN,
+Link,src\staging-templates\DemandGrowthPillar.tsx,150,,/,BROKEN,
+Link,src\templates\blog\BlogMainTemplate.tsx,168,,/,BROKEN,
+Link,src\templates\ContentEngagement.tsx,25,,/,BROKEN,
+Link,src\templates\ContentEngagement.tsx,26,,/methodology,ok,dynamic
+Link,src\templates\ContentEngagement.tsx,27,,/expertise,ok,
+Link,src\templates\ContentEngagement.tsx,28,,/projects,ok,
+Link,src\templates\ContentEngagement.tsx,29,,/industries,ok,
+Link,src\templates\ContentEngagement.tsx,30,,/about,ok,
+Link,src\templates\ContentEngagement.tsx,31,,/blog,ok,
+Link,src\templates\ContentEngagement.tsx,32,,/gallery,ok,
+Link,src\templates\ContentEngagement.tsx,42,,/storytelling,ok,dynamic
+Link,src\templates\ContentEngagement.tsx,43,,/audit,ok,dynamic
+Link,src\templates\ContentEngagement.tsx,110,,/blog/content-roi,ok,dynamic
+Link,src\templates\ContentEngagement.tsx,120,,/projects/saas-growth,ok,dynamic
+Link,src\templates\ContentEngagement.tsx,129,,/gallery/visual-systems,BROKEN,
+Link,src\templates\ContentEngagementPillar.tsx,25,,/,BROKEN,
+Link,src\templates\ContentEngagementPillar.tsx,26,,/methodology,ok,dynamic
+Link,src\templates\ContentEngagementPillar.tsx,27,,/expertise,ok,
+Link,src\templates\ContentEngagementPillar.tsx,28,,/projects,ok,
+Link,src\templates\ContentEngagementPillar.tsx,29,,/industries,ok,
+Link,src\templates\ContentEngagementPillar.tsx,30,,/about,ok,
+Link,src\templates\ContentEngagementPillar.tsx,31,,/blog,ok,
+Link,src\templates\ContentEngagementPillar.tsx,32,,/gallery,ok,
+Link,src\templates\ContentEngagementPillar.tsx,42,,/storytelling,ok,dynamic
+Link,src\templates\ContentEngagementPillar.tsx,43,,/audit,ok,dynamic
+Link,src\templates\ContentEngagementPillar.tsx,110,,/blog/content-roi,ok,dynamic
+Link,src\templates\ContentEngagementPillar.tsx,120,,/projects/saas-growth,ok,dynamic
+Link,src\templates\ContentEngagementPillar.tsx,129,,/gallery/visual-systems,BROKEN,
+Link,src\templates\expertise\DemandGrowth.tsx,154,,/,BROKEN,
+Link,src\templates\expertise\pillars\demand-growth.tsx,154,,/,BROKEN,
+Link,src\templates\expertise\pillars\demand-growthpillar.tsx,154,,/,BROKEN,
+Link,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,98,,/,BROKEN,
+Link,src\templates\FallbackTemplate.tsx,146,,/,BROKEN,
+Link,src\templates\industries\IndustriesMainTemplate.tsx,195,,/methodology,ok,dynamic
+Link,src\templates\industries\IndustriesMainTemplate.tsx,322,,/industries,ok,
+Link,src\templates\industries\IndustriesMainTemplate.tsx,449,,/contact,ok,
+Link,src\templates\industries\IndustriesMainTemplate.tsx,455,,/case-studies,ok,
+Link,src\templates\industries\IndustriesMainTemplate.tsx,493,,/expertise,ok,
+Link,src\templates\projects\ProjectsTemplate.tsx,120,,/,BROKEN,
+Broken,app\expertise\[slug]\ExpertiseDetailContent.tsx,365,,/,BROKEN,
+Broken,app\expertise\[slug]\page.tsx.old.tsx,365,,/,BROKEN,
+Broken,app\not-found.tsx,21,,/,BROKEN,
+Broken,components\admin\AdminLayout.tsx,62,,/,BROKEN,
+Broken,components\expertise\ExpertiseHero.tsx,87,,/,BROKEN,
+Broken,components\layout\Footer.tsx,36,,/,BROKEN,
+Broken,components\layout\Navbar.tsx,181,,/,BROKEN,
+Broken,content\expertise\main.ts,12,,/,BROKEN,
 Broken,src\components\animations\PipelineDashboard.tsx,271,,/lead/12345,BROKEN,
+Broken,src\content\content-engagement.ts,8,,/,BROKEN,
+Broken,src\content\content-engagement.ts,100,,/gallery/visual-systems,BROKEN,
+Broken,src\staging-templates\demand-growth.tsx,154,,/,BROKEN,
+Broken,src\staging-templates\DemandGrowthPillar.tsx,150,,/,BROKEN,
+Broken,src\staging-templates\DemandGrowthPillar.tsx,474,,/,BROKEN,
+Broken,src\templates\blog\BlogMainTemplate.tsx,168,,/,BROKEN,
+Broken,src\templates\ContentEngagement.tsx,25,,/,BROKEN,
+Broken,src\templates\ContentEngagement.tsx,129,,/gallery/visual-systems,BROKEN,
+Broken,src\templates\ContentEngagementPillar.tsx,25,,/,BROKEN,
+Broken,src\templates\ContentEngagementPillar.tsx,129,,/gallery/visual-systems,BROKEN,
+Broken,src\templates\expertise\DemandGrowth.tsx,154,,/,BROKEN,
+Broken,src\templates\expertise\pillars\demand-growth.tsx,154,,/,BROKEN,
+Broken,src\templates\expertise\pillars\demand-growthpillar.tsx,154,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,98,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,107,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,113,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,119,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,125,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,131,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,157,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,161,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,164,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,167,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,172,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,215,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,221,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,403,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,443,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,456,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,497,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,526,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,534,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,542,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,550,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,565,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,573,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,581,,/,BROKEN,
+Broken,src\templates\expertise\pillars\SystemsOperationsPillar.tsx,589,,/,BROKEN,
+Broken,src\templates\FallbackTemplate.tsx,146,,/,BROKEN,
+Broken,src\templates\FallbackTemplate.tsx,483,,/,BROKEN,
+Broken,src\templates\projects\ProjectsTemplate.tsx,120,,/,BROKEN,
+Orphan,,,,/(local)/gallery-admin,unreferenced,
+Orphan,,,,/admin,unreferenced,
+Orphan,,,,/admin/content-validator,unreferenced,
+Orphan,,,,/admin/translator,unreferenced,
 Orphan,,,,/blog/post,unreferenced,
 Orphan,,,,/case-studies/ai-visualizations/[id],unreferenced,dynamic
-Orphan,,,,/case-studies/[slug],unreferenced,dynamic
 Orphan,,,,/expertise/analytics,unreferenced,
 Orphan,,,,/expertise/automation,unreferenced,
 Orphan,,,,/expertise/optimization,unreferenced,
 Orphan,,,,/expertise/strategy,unreferenced,
-Orphan,,,,/projects/[slug],unreferenced,dynamic
+Orphan,,,,/gallery/admin,unreferenced,
+Orphan,,,,/gallery/animations,unreferenced,
+Orphan,,,,/industries/b2b-saas,unreferenced,
+Orphan,,,,/industries/financial-services,unreferenced,
+Orphan,,,,/industries/fleet-management-logistics,unreferenced,
+Orphan,,,,/industries/manufacturing,unreferenced,
+Orphan,,,,/industries/pubsec-government,unreferenced,
+Orphan,,,,/industries/retail,unreferenced,
+Orphan,,,,/p/[[...slug]],unreferenced,dynamic
 Orphan,,,,/services/content-marketing,unreferenced,
 Orphan,,,,/services/demand-generation,unreferenced,
 Orphan,,,,/services/paid-advertising,unreferenced,
 Orphan,,,,/services/seo,unreferenced,
 Orphan,,,,/services/social-media,unreferenced,
 Orphan,,,,/services/video-creative,unreferenced,
+Orphan,,,,/tools/prompt-builder,unreferenced,

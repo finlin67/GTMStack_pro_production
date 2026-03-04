@@ -17,35 +17,12 @@ interface MobileMegaMenuProps {
   onClose: () => void
 }
 
-const pillarIcons: Record<string, IconName> = {
-  'content-engagement': 'PenTool',
-  'demand-growth': 'Megaphone',
-  'strategy-insights': 'LineChart',
-  'systems-operations': 'Layers',
-}
-
-// Menu display titles (matching exact requirements)
-const menuTitles: Record<string, string> = {
-  'content-marketing': 'Content Marketing',
-  'email-marketing': 'Email Marketing',
-  'omnichannel-marketing': 'Omnichannel Marketing',
-  'social-media-marketing': 'Social Media Marketing',
-  'video-marketing': 'Video Marketing',
-  'demand-generation': 'Demand Generation',
-  'seo': 'Search Engine Optimization',
-  'growth-marketing': 'Growth Marketing',
-  'paid-advertising-sem': 'Paid Advertising (SEM)',
-  'event-marketing': 'Event Marketing',
-  'account-based-marketing-abm': 'Account-Based Marketing (ABM)',
-  'customer-experience-cx': 'Customer Experience (CX)',
-  'customer-marketing': 'Customer Marketing',
-  'lifecycle-marketing': 'Lifecycle Marketing',
-  'product-marketing': 'Product Marketing',
-  'ai-in-marketing': 'AI in Marketing',
-  'marketing-automation': 'Marketing Automation',
-  'marketing-operations': 'Marketing Operations',
-  'martech-optimization': 'MarTech Optimization',
-  'sales-enablement': 'Sales Enablement',
+const getIcon = (name?: string) => {
+  if (!name) return null
+  const IconComponent = Icons[name as IconName]
+  return typeof IconComponent === 'function'
+    ? (IconComponent as React.ComponentType<{ className?: string }>)
+    : null
 }
 
 export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
@@ -91,11 +68,7 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
             </div>
             {/* Pillar Accordions */}
             {pillars.map((pillar) => {
-              const pillarIconName = pillarIcons[pillar.id]
-              const IconComponent = pillarIconName ? Icons[pillarIconName as IconName] : null
-              const PillarIcon = IconComponent && typeof IconComponent === 'function'
-                ? (IconComponent as React.ComponentType<{ className?: string }>)
-                : null
+              const PillarIcon = getIcon(pillar.icon)
               const isExpanded = expandedPillar === pillar.id
 
               return (
@@ -135,10 +108,7 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                         className="ml-12 mt-1 space-y-1"
                       >
                         {pillar.items.map((item) => {
-                          const IconComponent = item.icon ? Icons[item.icon as IconName] : null
-                          const ItemIcon = IconComponent && typeof IconComponent === 'function'
-                            ? (IconComponent as React.ComponentType<{ className?: string }>)
-                            : null
+                          const ItemIcon = getIcon(item.icon)
 
                           return (
                             <li key={item.slug}>
@@ -146,12 +116,12 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                                 href={`/expertise/${item.slug}`}
                                 onClick={onClose}
                                 className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
-                                aria-label={`Navigate to ${menuTitles[item.slug] || item.title}`}
+                                aria-label={`Navigate to ${item.title}`}
                               >
                                 {ItemIcon && (
                                   <ItemIcon className="w-3.5 h-3.5 text-slate-500 shrink-0" aria-hidden="true" />
                                 )}
-                                <span>{menuTitles[item.slug] || item.title}</span>
+                                <span>{item.title}</span>
                               </Link>
                             </li>
                           )
