@@ -59,58 +59,69 @@ export function GalleryModal({ animation, onClose, githubUrl }: GalleryModalProp
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
           transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-          className="relative w-full max-w-4xl max-h-[90vh] rounded-2xl bg-slate-900 border border-white/10 shadow-2xl overflow-hidden flex flex-col"
+          className="relative w-full max-w-6xl max-h-[90vh] rounded-[2rem] bg-slate-900 border border-white/10 shadow-2xl overflow-hidden flex flex-col"
           onClick={(e) => e.stopPropagation()}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-4 border-b border-white/10 bg-slate-900/95 shrink-0">
-            <div>
-              <h2 className="text-lg font-semibold text-white">{animation.title}</h2>
-              <p className="text-sm text-slate-400 mt-0.5 line-clamp-1">
+          <div className="flex items-center justify-between px-8 py-6 border-b border-white/10 bg-slate-900/95 shrink-0">
+            <div className="flex-1">
+              <h2 className="text-2xl font-bold text-white mb-1">{animation.title}</h2>
+              <p className="text-sm text-slate-400 line-clamp-2 max-w-2xl">
                 {animation.description}
               </p>
             </div>
-            <div className="flex items-center gap-2">
-              <a
-                href={repoUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 text-white text-sm font-medium transition-colors"
-              >
-                <Github className="w-4 h-4" />
-                View on GitHub
-              </a>
+            <div className="flex items-center gap-3 ml-6">
+              {repoUrl && repoUrl !== 'https://github.com' && (
+                <a
+                  href={repoUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-sm font-semibold transition-all hover:scale-105"
+                >
+                  <Github className="w-4 h-4" />
+                  <span className="hidden sm:inline">View Source</span>
+                </a>
+              )}
               <button
                 onClick={onClose}
-                className="p-2 rounded-lg hover:bg-white/10 text-slate-400 hover:text-white transition-colors"
-                aria-label="Close"
+                className="p-2.5 rounded-xl hover:bg-white/10 text-slate-400 hover:text-white transition-all hover:rotate-90"
+                aria-label="Close modal"
+                title="Close (ESC)"
               >
-                <X className="w-5 h-5" />
+                <X className="w-6 h-6" />
               </button>
             </div>
           </div>
 
           {/* Live animation preview */}
-          <div className="flex-1 min-h-0 overflow-auto p-6 flex items-center justify-center bg-slate-950/50">
-            <div className="w-full max-w-[600px] aspect-square max-h-[500px] rounded-xl border border-white/10 bg-slate-900/80 overflow-hidden shadow-xl">
+          <div className="flex-1 min-h-0 overflow-auto p-8 flex items-center justify-center bg-slate-950/50">
+            <div className="w-full max-w-[700px] aspect-square max-h-[600px] rounded-2xl border border-white/10 bg-slate-900/80 overflow-hidden shadow-2xl">
               <Component />
             </div>
           </div>
 
-          {/* Footer tags */}
-          <div className="px-6 py-4 border-t border-white/10 bg-slate-900/95 shrink-0">
-            <div className="flex flex-wrap gap-2">
-              <span className="text-xs font-medium text-slate-500 uppercase tracking-wider">
-                {animation.marketingFunction.replace(/-/g, ' ')}
-              </span>
-              {animation.tags.slice(0, 5).map((tag) => (
-                <span
-                  key={tag}
-                  className="px-2 py-1 rounded-md bg-white/5 text-slate-300 text-xs"
-                >
-                  {tag}
+          {/* Footer tags & metadata */}
+          <div className="px-8 py-6 border-t border-white/10 bg-slate-900/95 shrink-0">
+            <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+              <div className="flex items-center gap-3">
+                <span className="text-[10px] font-black text-slate-500 uppercase tracking-[0.2em]">
+                  Category
                 </span>
-              ))}
+                <span className="px-3 py-1.5 rounded-lg bg-[#24cae0]/10 border border-[#24cae0]/20 text-[#24cae0] text-xs font-bold uppercase tracking-wider">
+                  {animation.marketingFunction.replace(/-/g, ' ')}
+                </span>
+              </div>
+              <div className="hidden sm:block w-px h-6 bg-white/10" />
+              <div className="flex flex-wrap gap-2 flex-1">
+                {animation.tags.slice(0, 6).map((tag) => (
+                  <span
+                    key={tag}
+                    className="px-3 py-1 rounded-md bg-white/5 hover:bg-white/10 text-slate-300 text-xs font-medium transition-colors"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </motion.div>

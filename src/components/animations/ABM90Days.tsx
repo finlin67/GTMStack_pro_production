@@ -82,7 +82,7 @@ export default function ABM90Days() {
               <div className="size-12 rounded-full border-2 border-blue-500/30 p-0.5 bg-[#0f172a] overflow-hidden">
                 <img 
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuC1wgq0srUJ72Ewc4kqi9W0RRsDzUFhJ444jGib-JF0LPp3olGKQyHwEKaVl2QHMAuVWsoau_W07LMUEJI_UmFtkZ30Hxg6ock1LUbQZ4S471CUBbByPS4kcub-F_XpGmDkfzmOpV9CCzBFZ7eOa9M6JBdxdztEIfCXNwZQszAtLFEQa0y9wZYga4wXqGVhEKBuMpRErDKeGHZru696F-67Wpb79EIUcOeGTBC4nuhCdHx0_urSpQ6th1fa8uD987sp-3dI9j19Hqs" 
-                  alt="Avatar"
+                  alt="Buying Committee Member Profile"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
@@ -101,7 +101,7 @@ export default function ABM90Days() {
               <div className="size-10 rounded-full border-2 border-violet-500/30 p-0.5 bg-[#0f172a] overflow-hidden">
                 <img 
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9M1oLpEnjvqEqeS_QqwzRejTXqHPmAZ6oQ62aIeAv9fPC70YLxgf9yq9fL7IAvcpStEEF-57oTIz2n_PtD05ET0E68AWpvmi8otx9UMZh44Ds_pMPGQ25QAYnJ9At0mUPY42BpWN27dAcvVOzykXpoY3cZaTG09ROlD3ZmeQQ9dFlmyJi6waV_58HiYPS-Bf0f4HsDQkcbFvEJw21PgpX4p4emByvn6XXT17xAAYV6bXAeMedcgzFEXoHALva4aHm6tHr926vuyI" 
-                  alt="Avatar"
+                  alt="Technical Stakeholder Profile"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>
@@ -117,7 +117,7 @@ export default function ABM90Days() {
                <div className="size-14 rounded-full border-2 border-blue-400/30 p-0.5 bg-[#0f172a] overflow-hidden">
                 <img 
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAOSHjgS4p2zMc3aq27SFo65x_mG4zsW2HeDnTA4gHsD6uTB2H8aCn3KS_xcoVd9UROxSrwE3l2yPaQmfpQzFurlYTa4jmrb5Dnz6Qqxm0jHvZMCtofi-mKbx1Ou39RhuLxlZsiHqC-lpU8GcXwdQNeheoTKKuWPbASi0tMPznNkPXyCSSmRABD0lF7yvvPslxZUXlbWQHnkyyYTi7Z-5Be2Vb5JCCdLH2HnOXuyWzE1u2M_5R-6HTe_X0I-NNQTtm-z-2UoVKEs0o" 
-                  alt="Avatar"
+                  alt="C-Level Executive Profile"
                   className="w-full h-full object-cover rounded-full"
                 />
               </div>

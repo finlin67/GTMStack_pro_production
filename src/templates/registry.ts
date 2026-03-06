@@ -34,6 +34,11 @@ export const TEMPLATE_BY_ID: Record<string, TemplateComponent> = {
   'expertise.topic': ExpertiseTopicTemplate,
   'expertise.main': ExpertiseMainTemplate,
   'industry.base': IndustryTemplate,
+  'Uploaded_B2BTechIndustry_v1': IndustryTemplate,
+  'Uploaded_IndustrialIndustry_v1': IndustryTemplate,
+  'Uploaded_Sector_v1': IndustryTemplate,
+  'Uploaded_Healthcare_v1': IndustryTemplate,
+  'Uploaded_EDUtech_v1': IndustryTemplate,
   'industries.main': IndustriesMainTemplate,
   'projects.main': ProjectsTemplate,
   'caseStudy.base': CaseStudyTemplate,
@@ -43,6 +48,9 @@ export const TEMPLATE_BY_ID: Record<string, TemplateComponent> = {
 }
 
 export function getTemplate(templateId: string): TemplateComponent {
+  const CompatibilityComponent = TEMPLATE_BY_ID[templateId]
+  if (CompatibilityComponent) return CompatibilityComponent
+
   // First try uploaded templates
   const Uploaded = getUploadedTemplate(templateId)
   if (Uploaded) return Uploaded as TemplateComponent

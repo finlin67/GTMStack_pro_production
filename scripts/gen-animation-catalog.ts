@@ -223,7 +223,7 @@ function run(): void {
     const o = overrides[id] ?? {}
     const title = o.title ?? humanize(file)
     const componentPath = `@/components/animations/${file.replace(/\.tsx$/, '')}`
-    const thumbnailSrc = o.thumbnailSrc ?? `/animation-thumbs/${id}.png`
+    const thumbnailSrc = o.thumbnailSrc ?? `/images/gallery-thumbnails/${file.replace(/\.tsx$/, '')}.png`
     const repoUrl = o.repoUrl ?? getGithubUrl(id)
     const usedOnPages = usedIds.has(id)
     

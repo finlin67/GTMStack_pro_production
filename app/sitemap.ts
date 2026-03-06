@@ -73,20 +73,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  // ── Service pages (e.g. /services/demand-generation) ─────────────────────
-  const servicePages: MetadataRoute.Sitemap = SERVICE_SLUGS.map((slug) => ({
-    url: `${BASE_URL}/services/${slug}`,
-    lastModified: now,
-    changeFrequency: 'monthly',
-    priority: 0.65,
-  }))
-
   return [
     ...staticPages,
     ...pillarPages,
     ...expertisePages,
     ...industryPages,
     ...caseStudyPages,
-    ...servicePages,
   ]
 }

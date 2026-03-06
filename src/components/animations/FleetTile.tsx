@@ -100,7 +100,7 @@ export default function FleetTile() {
         <div className="flex items-center gap-4">
           <img 
             src="https://i.pravatar.cc/150?u=fo8842"
-            alt="Driver Profile"
+            alt="Fleet Driver Marcus Sterling Profile Picture"
             className="w-12 h-12 rounded-xl border border-primary/30 object-cover shadow-sm"
           />
           <div>

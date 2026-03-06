@@ -295,7 +295,7 @@ export default function Navbar() {
                           className="flex items-center gap-3 py-2.5 px-2 hover:bg-white/5 rounded-lg transition-colors"
                         >
                           <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-brand-200">
-                            <Icon className="h-5 w-5" />
+                            <Icon className="h-5 w-5" aria-hidden="true" />
                           </div>
                           <div className="flex-1">
                             <p className="text-sm font-medium text-white">{industry.title}</p>

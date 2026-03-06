@@ -8,6 +8,7 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
@@ -41,6 +42,7 @@
   "exclude": [
     "node_modules",
     "gtmstack-site",
-    "gtmstack-abm"
+    "gtmstack-abm",
+    "**/*.tsx.tsx"
   ]
 }

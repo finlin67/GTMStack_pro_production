@@ -1,301 +1,286 @@
-"use client";
 
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
-import React from 'react';
-import { motion } from 'framer-motion';
+'use client'; // <--- THIS MUST BE THE FIRST LINE
+import React from "react";
 import { 
-  Building2, 
-  ShieldCheck, 
-  Cpu, 
-  ShoppingBag, 
-  HeartPulse, 
-  Zap, 
+  Layers, 
+  ZapOff, 
+  Timer, 
+  Database, 
+  Palette, 
+  TrendingUp, 
+  LineChart, 
+  Network, 
+  BadgeCheck, 
+  Quote, 
+  ExternalLink, 
+  ArrowRight, 
   Globe, 
-  BarChart3,
-  ArrowRight,
-  PlayCircle,
-  Target,
-  FileText,
-  Video,
-  Rocket,
-  ChevronRight,
-  EyeOff,
-  Timer,
-  Brain,
-  Gavel,
-  TrendingUp
-} from 'lucide-react';
+  Mail, 
+  Share2 
+} from "lucide-react";
+
+const industriesData = [
+  { id: "saas", name: "SaaS & Software", desc: "Scaling recurring revenue through optimized digital experiences.", icon: Database },
+  { id: "fintech", name: "FinTech & Banking", desc: "Building trust and accelerating user acquisition in secure markets.", icon: LineChart },
+  { id: "healthcare", name: "Healthcare & Life Sciences", desc: "Connecting patients and providers with compliant, clear messaging.", icon: Network },
+  { id: "manufacturing", name: "Manufacturing & Logistics", desc: "Modernizing legacy sales motions into digital growth engines.", icon: Layers },
+];
 
 export default function Template(props: { content?: unknown; pageTitle?: string }) {
-  // Defensive fallback for content
-  const content = (props.content as any) || {};
-  const title = props.pageTitle || content.heroTitle || "Architecting Growth by Industry";
-
-  const industries = [
-    { name: "Enterprise SaaS", icon: Cpu, desc: "High-velocity PLG and SLG strategies for software leaders." },
-    { name: "FinTech", icon: ShieldCheck, desc: "Navigating trust and security in the digital finance era." },
-    { name: "HealthTech", icon: HeartPulse, desc: "Patient-centric growth models for regulated environments." },
-    { name: "E-Commerce", icon: ShoppingBag, desc: "Optimizing conversion and LTV in the retail landscape." },
-    { name: "Cybersecurity", icon: ShieldCheck, desc: "Communicating complex defense value to the C-suite." },
-    { name: "Clean Energy", icon: Zap, desc: "Scaling sustainable solutions for a greener future." },
-    { name: "Logistics", icon: Globe, desc: "Streamlining global supply chain communication." },
-    { name: "AdTech", icon: BarChart3, desc: "Data-driven strategies for the attention economy." }
-  ];
-
   const challenges = [
-    { title: "Market Saturation", desc: "Breaking through the noise in crowded legacy sectors.", icon: EyeOff },
-    { title: "Long Sales Cycles", desc: "Shortening the path from lead to closed-won revenue.", icon: Timer },
-    { title: "Technical Complexity", desc: "Simplifying abstract value for non-technical buyers.", icon: Brain },
-    { title: "Regulatory Hurdles", desc: "Navigating compliance without sacrificing speed.", icon: Gavel },
-    { title: "Scale Inefficiency", desc: "Optimizing the unit economics of your GTM engine.", icon: TrendingUp }
+    { title: "Market Saturation", desc: "Breaking through the noise in overcrowded digital landscapes.", icon: ZapOff },
+    { title: "Long Sales Cycles", desc: "Maintaining momentum across complex multi-stakeholder journeys.", icon: Timer },
+    { title: "Data Silos", desc: "Unifying fragmented insights into actionable GTM strategies.", icon: Database },
+    { title: "Brand Dilution", desc: "Ensuring consistency across global, multi-channel operations.", icon: Palette },
+    { title: "Low Conversion", desc: "Optimizing touchpoints to turn passive interest into revenue.", icon: TrendingUp },
   ];
 
   return (
-    <div className="min-h-screen bg-white font-sans antialiased">
-      <main>
-        {/* Hero Section */}
-        <section className="relative overflow-hidden bg-[#0B132B] py-24 sm:py-32">
-          {/* Glowing blur circles */}
-          <div className="absolute top-0 left-1/4 w-96 h-96 bg-[#2463eb]/20 rounded-full blur-[120px] pointer-events-none"></div>
-          <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-[#06B6D4]/20 rounded-full blur-[120px] pointer-events-none"></div>
-          
-          <div className="relative z-10 mx-auto max-w-7xl px-6 lg:px-8 text-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="mx-auto max-w-3xl"
-            >
-              <div className="mb-6 inline-flex items-center rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-3 py-1 text-sm font-medium text-[#06B6D4] backdrop-blur-sm">
-                <span className="mr-2 h-2 w-2 rounded-full bg-[#06B6D4] animate-pulse"></span>
-                Industry-Specific Growth
+    <div className="min-h-screen bg-slate-900 selection:bg-cyan-500 selection:text-white font-sans">
+      {/* Hero Section */}
+      <section className="relative w-full py-24 lg:py-40 px-6 lg:px-20 overflow-hidden bg-slate-900">
+        <div className="absolute top-[-10%] right-[-5%] w-[500px] h-[500px] bg-indigo-600/20 rounded-full blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-cyan-500/10 rounded-full blur-[100px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center relative z-10">
+          <div className="flex flex-col gap-8">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 w-fit">
+              <span className="h-2 w-2 rounded-full bg-cyan-400 animate-pulse"></span>
+              <span className="text-xs font-bold text-cyan-400 uppercase tracking-widest">Industry Expertise</span>
+            </div>
+            <h1 className="text-6xl lg:text-8xl font-black leading-[0.9] tracking-tight text-white">
+              Architecting <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-indigo-400 to-emerald-400">Growth by Industry</span>
+            </h1>
+            <p className="text-xl text-slate-300 font-light max-w-xl leading-relaxed">
+              We don't just build marketing campaigns; we engineer revenue systems tailored to the unique physics of your specific market.
+            </p>
+            <div className="flex flex-wrap gap-4 pt-4">
+              <button className="flex items-center justify-center h-14 px-10 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold transition-all shadow-xl shadow-indigo-500/20 group">
+                <span>Explore Industries</span>
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <button className="flex items-center justify-center h-14 px-10 rounded-xl border border-white/20 hover:border-white/40 hover:bg-white/5 text-white font-semibold transition-all">
+                Request Industry Audit
+              </button>
+            </div>
+          </div>
+
+          <div className="relative h-[500px] lg:h-[600px] w-full rounded-3xl overflow-hidden border border-white/10 shadow-2xl bg-slate-800/50 backdrop-blur-md group">
+            <img 
+              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop" 
+              alt="Global connectivity"
+              className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay transition-transform duration-1000 group-hover:scale-110"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent"></div>
+            
+            {/* Floating Badges */}
+            <div className="absolute top-12 left-12 p-5 bg-slate-800/90 backdrop-blur-xl rounded-2xl border border-cyan-500/30 shadow-2xl">
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 rounded-xl bg-cyan-500/20 flex items-center justify-center">
+                  <LineChart className="text-cyan-400 h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 uppercase font-bold tracking-tighter">Market Velocity</p>
+                  <p className="text-lg font-black text-white">+124%</p>
+                </div>
               </div>
-              <h1 className="text-4xl font-black tracking-tight text-white sm:text-7xl mb-6">
-                {title.split(' ').map((word: string, i: number) => {
-                  const isGrowth = word.toLowerCase().includes('growth');
-                  return (
-                    <span key={i} className={isGrowth ? "bg-gradient-to-r from-[#06B6D4] to-[#2463eb] bg-clip-text text-transparent" : ""}>
-                      {word}{' '}
+            </div>
+
+            <div className="absolute bottom-20 right-12 p-5 bg-slate-800/90 backdrop-blur-xl rounded-2xl border border-indigo-500/30 shadow-2xl">
+              <div className="flex items-center gap-4">
+                <div className="h-10 w-10 rounded-xl bg-indigo-500/20 flex items-center justify-center">
+                  <Network className="text-indigo-400 h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs text-slate-400 uppercase font-bold tracking-tighter">Connected GTM</p>
+                  <p className="text-lg font-black text-white">Unified</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Challenges Section - Light Balance */}
+      <section className="py-24 lg:py-32 px-6 bg-slate-50">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-6">
+              Solving Industry-Specific <span className="text-indigo-600">Challenges</span>
+            </h2>
+            <p className="text-lg text-slate-600 max-w-2xl mx-auto font-medium">
+              Every industry has its own friction points. We identify and eliminate them through data-driven architectural shifts.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+            {challenges.map((challenge) => (
+              <div key={challenge.title} className="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition-all duration-300">
+                <div className="h-14 w-14 rounded-xl bg-cyan-50 flex items-center justify-center mb-6 text-cyan-600">
+                  <challenge.icon className="h-8 w-8" />
+                </div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{challenge.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{challenge.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Industries Grid Section - Bright/Clean Mode */}
+      <section className="py-24 lg:py-32 px-6 bg-white">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+            <div className="max-w-2xl">
+              <h2 className="text-4xl lg:text-5xl font-black text-slate-900 tracking-tight mb-6">
+                Specialized <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-500 to-indigo-500">Verticals</span>
+              </h2>
+              <p className="text-lg text-slate-600 font-light">
+                Deep expertise across the most competitive sectors in the global economy.
+              </p>
+            </div>
+            <a href="#" className="text-indigo-600 hover:text-indigo-500 font-bold flex items-center gap-2 group">
+              View All Industries
+              <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </a>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industriesData.map((industry) => (
+              <a key={industry.id} href={`/industry/${industry.id}`} className="group relative h-full p-8 rounded-2xl bg-slate-50 border border-slate-200 hover:border-indigo-300 transition-all duration-300 hover:-translate-y-2 hover:shadow-xl overflow-hidden block">
+                <div className="relative z-10">
+                  <div className="h-14 w-14 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 text-indigo-600 group-hover:scale-110 group-hover:text-emerald-500 transition-all">
+                    <industry.icon className="h-8 w-8" />
+                  </div>
+                  <h3 className="text-xl font-bold text-slate-900 mb-3 group-hover:text-indigo-600 transition-colors">{industry.name}</h3>
+                  <p className="text-slate-600 text-sm leading-relaxed">{industry.desc}</p>
+                  <div className="mt-6 pt-6 border-t border-slate-200 opacity-0 group-hover:opacity-100 transition-opacity">
+                    <span className="text-xs font-bold text-indigo-600 uppercase tracking-widest flex items-center gap-2">
+                      Case Study <ExternalLink className="h-3 w-3" />
                     </span>
-                  );
-                })}
-              </h1>
-              <p className="mt-6 text-lg leading-8 text-slate-300 max-w-2xl mx-auto">
-                {content.heroSubtitle || "Precision-engineered GTM strategies tailored to the unique dynamics of your sector. Accelerate complex cycles with domain-specific expertise."}
-              </p>
-              <div className="mt-10 flex items-center justify-center gap-x-6">
-                <button className="group flex h-12 items-center justify-center gap-2 rounded-lg bg-[#2463eb] px-6 text-sm font-bold text-white transition-all hover:bg-blue-700">
-                  <PlayCircle className="h-5 w-5" />
-                  View Industry Solutions
-                </button>
-                <a className="text-sm font-semibold leading-6 text-white hover:text-[#06B6D4] transition-colors flex items-center gap-1" href="#industries">
-                  Explore Sectors <ChevronRight className="h-4 w-4" />
-                </a>
-              </div>
-            </motion.div>
-          </div>
-        </section>
-
-        {/* Challenges Section */}
-        <section className="bg-[#F1F4F8] py-24 text-slate-900">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:text-center mb-16">
-              <h2 className="text-base font-semibold leading-7 text-[#2463eb] uppercase tracking-widest">The Challenge</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">Common Industry Roadblocks</p>
-              <p className="mt-6 text-lg leading-8 text-slate-600">
-                Every sector faces distinct hurdles. We identify and dismantle the specific barriers preventing your high-velocity growth.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-              {challenges.map((challenge, idx) => (
-                <motion.div 
-                  key={idx}
-                  whileHover={{ y: -5 }}
-                  className="bg-white p-6 rounded-xl border border-slate-200 shadow-sm hover:shadow-md transition-all"
-                >
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[#06B6D4]/10 text-[#06B6D4] mb-4">
-                    <challenge.icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="text-sm font-bold text-slate-900 mb-2">{challenge.title}</h3>
-                  <p className="text-xs text-slate-500 leading-relaxed">{challenge.desc}</p>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Industries Grid Section */}
-        <section className="bg-[#0B132B] py-24 sm:py-32" id="industries">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="mx-auto max-w-2xl lg:text-center mb-16">
-              <h2 className="text-base font-semibold leading-7 text-[#06B6D4] uppercase tracking-widest">Sectors We Serve</h2>
-              <p className="mt-2 text-3xl font-bold tracking-tight text-white sm:text-4xl">Specialized GTM Architecture</p>
-              <p className="mt-6 text-lg leading-8 text-slate-400">
-                Domain expertise across 8 key verticals. We don't just understand your product; we understand your market.
-              </p>
-            </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {industries.map((industry, idx) => (
-                <motion.div 
-                  key={idx}
-                  whileHover={{ scale: 1.02 }}
-                  className="group relative flex flex-col gap-6 rounded-xl bg-[#162447]/50 backdrop-blur p-6 shadow-lg transition-all border border-white/5 hover:border-[#06B6D4]/50 hover:shadow-[0_0_20px_rgba(6,182,212,0.1)]"
-                >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-lg bg-[#06B6D4]/10 text-[#06B6D4] group-hover:bg-[#06B6D4] group-hover:text-[#0B132B] transition-colors">
-                    <industry.icon className="h-6 w-6" />
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold leading-8 text-white">{industry.name}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-400">{industry.desc}</p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* GTM Lifecycle */}
-        <section className="bg-[#0B132B] py-24 relative overflow-hidden border-t border-white/5">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8 relative z-10">
-            <div className="mb-16">
-              <h2 className="text-3xl font-bold tracking-tight text-white sm:text-4xl">The GTM Lifecycle</h2>
-              <p className="mt-4 text-lg text-slate-400">Our proven methodology ensures every tactic serves a revenue goal.</p>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-              {[
-                { step: "01", title: "Audit & Strategy", icon: Target, desc: "Deep dive into your current metrics and market positioning." },
-                { step: "02", title: "Stack Alignment", icon: FileText, desc: "Ensuring your tools and teams are perfectly synchronized." },
-                { step: "03", title: "Execution", icon: Video, desc: "Launching high-impact campaigns across your key channels." },
-                { step: "04", title: "Optimization", icon: Rocket, desc: "Continuous A/B testing and performance-driven scaling." }
-              ].map((item, idx) => (
-                <div key={idx} className="relative flex flex-col gap-4">
-                  <div className="flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#162447] border border-[#06B6D4] text-[#06B6D4] font-bold shadow-[0_0_15px_rgba(6,182,212,0.3)]">
-                      {item.step}
-                    </div>
-                    {idx < 3 && <div className="hidden md:block h-px bg-[#06B6D4]/30 flex-1 ml-4"></div>}
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-bold text-white flex items-center gap-2">
-                      <item.icon className="h-5 w-5 text-[#06B6D4]" />
-                      {item.title}
-                    </h3>
-                    <p className="text-sm text-slate-400 mt-2">{item.desc}</p>
                   </div>
                 </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Proof Strip */}
-        <section className="bg-[#E8EDF4] py-20 border-y border-slate-200">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center divide-y md:divide-y-0 md:divide-x divide-slate-200">
-              <div className="px-4 py-4">
-                <dt className="text-base leading-7 text-slate-600 font-medium">Average Revenue Lift</dt>
-                <dd className="order-first text-5xl font-black tracking-tight text-[#2463eb] sm:text-6xl">+42%</dd>
-              </div>
-              <div className="px-4 py-4">
-                <dt className="text-base leading-7 text-slate-600 font-medium">Cycle Reduction</dt>
-                <dd className="order-first text-5xl font-black tracking-tight text-[#2463eb] sm:text-6xl">-28%</dd>
-              </div>
-              <div className="px-4 py-4">
-                <dt className="text-base leading-7 text-slate-600 font-medium">Pipeline Velocity</dt>
-                <dd className="order-first text-5xl font-black tracking-tight text-[#2463eb] sm:text-6xl">2.4x</dd>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Case Studies */}
-        <section className="bg-[#0B132B] py-24 sm:py-32">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="flex justify-between items-end mb-12">
-              <div>
-                <h2 className="text-3xl font-bold tracking-tight text-white">Industry Case Studies</h2>
-                <p className="mt-2 text-slate-400">Real results for market-leading organizations.</p>
-              </div>
-              <a className="hidden md:flex items-center text-[#06B6D4] font-semibold hover:text-white transition-colors" href="#">
-                View All Work <ArrowRight className="ml-1 h-5 w-5" />
               </a>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="group relative overflow-hidden rounded-xl bg-[#162447] cursor-pointer">
-                <div className="aspect-video w-full overflow-hidden relative">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
-                  <img src="https://picsum.photos/seed/fintech/800/450" alt="Fintech" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <PlayCircle className="h-16 w-16 text-[#06B6D4] opacity-90 group-hover:scale-110 transition-transform" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#06B6D4] transition-colors">Neobank Market Entry</h3>
-                  <p className="mt-2 text-sm text-slate-400">How we architected a $10M pipeline in 6 months for a European challenger bank.</p>
-                </div>
-              </div>
-              <div className="group relative overflow-hidden rounded-xl bg-[#162447] cursor-pointer">
-                <div className="aspect-video w-full overflow-hidden relative">
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all z-10"></div>
-                  <img src="https://picsum.photos/seed/saas/800/450" alt="SaaS" className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-                  <div className="absolute inset-0 flex items-center justify-center z-20">
-                    <PlayCircle className="h-16 w-16 text-[#06B6D4] opacity-90 group-hover:scale-110 transition-transform" />
-                  </div>
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-white group-hover:text-[#06B6D4] transition-colors">Cloud Infrastructure Pivot</h3>
-                  <p className="mt-2 text-sm text-slate-400">Repositioning a legacy provider for the AI-first enterprise market.</p>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Footer */}
-        <footer className="bg-[#050a18] border-t border-white/10 pt-16 pb-8 text-sm">
-          <div className="mx-auto max-w-7xl px-6 lg:px-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-              <div className="col-span-2 md:col-span-1">
-                <div className="flex items-center gap-2 mb-4">
-                  <div className="flex h-6 w-6 items-center justify-center rounded bg-[#2463eb] text-white text-xs font-bold">G</div>
-                  <span className="font-bold text-white tracking-tighter">GTM STACK</span>
-                </div>
-                <p className="text-slate-500 pr-4">Designing high-velocity revenue engines for modern enterprise growth.</p>
-              </div>
-              <div>
-                <h3 className="font-bold text-white mb-4">Expertise</h3>
-                <ul className="flex flex-col gap-2 text-slate-400">
-                  <li><a className="hover:text-[#06B6D4] transition-colors" href="#">Growth Strategy</a></li>
-                  <li><a className="hover:text-[#06B6D4] transition-colors" href="#">Stack Audit</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-white mb-4">Industries</h3>
-                <ul className="flex flex-col gap-2 text-slate-400">
-                  <li><a className="hover:text-[#06B6D4] transition-colors" href="#">Enterprise SaaS</a></li>
-                  <li><a className="hover:text-[#06B6D4] transition-colors" href="#">FinTech</a></li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="font-bold text-white mb-4">Connect</h3>
-                <div className="flex gap-4">
-                  <a className="text-slate-400 hover:text-white transition-colors" href="#">LinkedIn</a>
-                  <a className="text-slate-400 hover:text-white transition-colors" href="#">Twitter</a>
-                </div>
-              </div>
+      {/* Proof Strip */}
+      <div className="w-full bg-indigo-50 border-y border-indigo-100 py-20">
+        <div className="mx-auto max-w-7xl px-6 grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-indigo-200">
+          <div className="flex flex-col gap-2 px-4">
+            <p className="text-6xl lg:text-7xl font-black text-indigo-600 tracking-tighter">343%</p>
+            <p className="text-slate-800 font-black uppercase tracking-widest text-sm mt-2">Engagement Lift</p>
+            <p className="text-slate-500 text-sm font-medium">Average across SaaS clients</p>
+          </div>
+          <div className="flex flex-col gap-2 px-4 pt-12 md:pt-0">
+            <p className="text-6xl lg:text-7xl font-black text-emerald-500 tracking-tighter">4.2x</p>
+            <p className="text-slate-800 font-black uppercase tracking-widest text-sm mt-2">Content ROI</p>
+            <p className="text-slate-500 text-sm font-medium">Attributed revenue growth</p>
+          </div>
+          <div className="flex flex-col gap-2 px-4 pt-12 md:pt-0">
+            <p className="text-6xl lg:text-7xl font-black text-cyan-500 tracking-tighter">180%</p>
+            <p className="text-slate-800 font-black uppercase tracking-widest text-sm mt-2">Market Reach</p>
+            <p className="text-slate-500 text-sm font-medium">Organic authority expansion</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Quote Section */}
+      <section className="py-24 lg:py-40 px-6 bg-white text-center">
+        <div className="max-w-4xl mx-auto">
+          <Quote className="h-20 w-20 text-slate-200 mx-auto mb-8" />
+          <h2 className="text-4xl lg:text-6xl font-black text-slate-900 leading-[1.1] tracking-tight">
+            Industry expertise isn't a checkbox — it's the <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-500 to-cyan-500">foundation of signal.</span>
+          </h2>
+          <p className="mt-10 text-slate-600 text-xl max-w-2xl mx-auto font-medium leading-relaxed">
+            In specialized markets, generic strategies are noise. We apply rigorous architectural principles to ensure your GTM motion resonates with the specific frequency of your buyers.
+          </p>
+          <div className="mt-12 flex items-center justify-center gap-4">
+            <div className="h-14 w-14 rounded-full bg-emerald-50 flex items-center justify-center">
+              <BadgeCheck className="text-emerald-500 h-8 w-8" />
             </div>
-            <div className="border-t border-white/5 pt-8 text-center text-slate-600">
-              <p>© 2026 GTM STACK Inc. All rights reserved.</p>
+            <div className="text-left">
+              <p className="font-black text-slate-900 uppercase tracking-tighter">GTM STACK Methodology</p>
+              <p className="text-sm text-slate-500">Validated across 50+ enterprise deployments</p>
             </div>
           </div>
-        </footer>
-      </main>
+        </div>
+      </section>
+
+      {/* Final CTA */}
+      <section className="py-24 lg:py-32 px-6 bg-slate-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-cyan-400 to-transparent opacity-30"></div>
+        <div className="max-w-5xl mx-auto text-center relative z-10">
+          <h2 className="text-4xl lg:text-7xl font-black text-white mb-8 tracking-tight">
+            Ready to Architect Your <br /> <span className="text-cyan-400">Industry Dominance?</span>
+          </h2>
+          <p className="text-slate-300 text-xl mb-12 max-w-2xl mx-auto font-light">
+            Stop publishing noise. Start engineering growth with a GTM system built for your specific market physics.
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
+            <button className="w-full sm:w-auto inline-flex items-center justify-center h-16 px-12 rounded-2xl bg-cyan-500 hover:bg-cyan-400 text-slate-900 font-black text-xl transition-all shadow-xl shadow-cyan-500/20">
+              Schedule Industry Audit
+            </button>
+            <button className="w-full sm:w-auto inline-flex items-center justify-center h-16 px-12 rounded-2xl border border-white/20 hover:bg-white/10 text-white font-bold text-lg transition-all">
+              View Case Studies
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-slate-950 border-t border-white/10 pt-24 pb-12 px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-16 mb-20">
+            <div className="col-span-1 md:col-span-2">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex items-center justify-center h-10 w-10 rounded-xl bg-gradient-to-br from-indigo-500 to-cyan-500">
+                  <Layers className="text-white h-6 w-6" />
+                </div>
+                <span className="text-white font-black text-2xl tracking-tighter uppercase">GTM STACK</span>
+              </div>
+              <p className="text-slate-400 text-lg max-w-md leading-relaxed font-light">
+                The global design system for high-velocity revenue engines. We combine data science with architectural strategy to build the future of GTM.
+              </p>
+              <div className="flex gap-6 mt-10">
+                {[Globe, Mail, Share2, Network].map((Icon, i) => (
+                  <a key={i} href="#" className="text-slate-500 hover:text-cyan-400 transition-colors">
+                    <Icon className="h-6 w-6" />
+                  </a>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-white font-black uppercase tracking-widest mb-8 text-sm">Expertise</h4>
+              <ul className="space-y-4 text-slate-400 font-medium">
+                {["Content Strategy", "Revenue Ops", "Demand Gen", "Brand Systems", "Data Science"].map((item) => (
+                  <li key={item}><a className="hover:text-cyan-400 transition-colors" href="#">{item}</a></li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-white font-black uppercase tracking-widest mb-8 text-sm">Company</h4>
+              <ul className="space-y-4 text-slate-400 font-medium">
+                {["About GTM", "Our Process", "Careers", "Contact", "Privacy"].map((item) => (
+                  <li key={item}><a className="hover:text-cyan-400 transition-colors" href="#">{item}</a></li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+            <p className="text-slate-500 text-sm font-medium">© 2026 GTM STACK Global. All rights reserved.</p>
+            <div className="flex items-center gap-8">
+              <a href="#" className="text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest">Terms</a>
+              <a href="#" className="text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest">Cookies</a>
+              <a href="#" className="text-slate-500 hover:text-white text-xs font-bold uppercase tracking-widest">Security</a>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

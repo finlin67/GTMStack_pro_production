@@ -200,19 +200,6 @@ function main() {
       tone: resolved.tone,
       sections: [...SECTIONS.pillarOrTopic],
     });
-
-    // Services alias route (Services = Expertise)
-    pages.push({
-      id: slugToId("services", item.slug),
-      name: `Service: ${item.title}`,
-      route: `/services/${item.slug}`,
-      kind: "topic",
-      themeKey: resolved.themeKey,
-      accentHex: resolved.accentHex,
-      accentName: resolved.accentName,
-      tone: resolved.tone,
-      sections: [...SECTIONS.pillarOrTopic],
-    });
   }
 
   // --- Industries ---

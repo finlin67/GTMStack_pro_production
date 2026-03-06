@@ -213,7 +213,7 @@ function FloatingAvatar({ src, className, delay }: FloatingAvatarProps) {
                 y: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: delay } // Floating effect
             }}
         >
-            <img className="w-full h-full object-cover" src={src} alt="Avatar" />
+            <img className="w-full h-full object-cover" src={src} alt="Event Pulse Participant Avatar" />
         </motion.div>
     );
 }

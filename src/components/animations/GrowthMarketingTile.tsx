@@ -106,7 +106,7 @@ export default function GrowthMarketingTile({ metrics: initialMetrics }: GrowthM
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
             >
               <img
-                alt="Active user"
+                alt="Growth Marketing Active User Profile"
                 className="w-full h-full object-cover"
                 src={metrics.avatar1Url}
               />
@@ -119,7 +119,7 @@ export default function GrowthMarketingTile({ metrics: initialMetrics }: GrowthM
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
             >
               <img
-                alt="Advocate user"
+                alt="Growth Marketing Brand Advocate Profile"
                 className="w-full h-full object-cover"
                 src={metrics.avatar2Url}
               />

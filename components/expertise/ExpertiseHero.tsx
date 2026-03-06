@@ -104,7 +104,7 @@ export function ExpertiseHero({
 
           <StaggerItem>
             <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white text-sm font-semibold backdrop-blur-sm">
-              {Icon && <Icon className="w-4 h-4 text-white" />}
+              {Icon && <Icon className="w-4 h-4 text-white" aria-hidden="true" />}
               <span className="text-xs uppercase tracking-[0.12em] text-slate-200">{config?.engine ?? 'scan'}</span>
               <span className="h-1 w-1 rounded-full bg-white/50" />
               <span>{item.pillarLabel}</span>

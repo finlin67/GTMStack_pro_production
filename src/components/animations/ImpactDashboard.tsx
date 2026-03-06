@@ -197,7 +197,7 @@ export default function ImpactAgencyDashboard() {
               <div className="size-10 rounded-full border border-white/10 shadow-xl overflow-hidden relative">
                 <Image
                   src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=100&h=100&fit=crop"
-                  alt="Profile"
+                  alt="Global Director Alex Sterling Profile"
                   fill
                   className="object-cover"
                   sizes="40px"

@@ -1,0 +1,36 @@
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 309B-AB23
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content-automation\briefs\expertise
+
+03/05/2026  12:05 PM    <DIR>          .
+03/05/2026  11:51 AM    <DIR>          ..
+03/04/2026  05:31 PM             7,881 account-based-marketing.md
+03/04/2026  05:37 PM             7,362 analytics.md
+03/04/2026  05:55 PM             6,356 competitive-intel.md
+03/04/2026  08:39 PM             6,638 content-engagement.md
+03/04/2026  08:40 PM             7,102 content-marketing.md
+03/04/2026  08:40 PM             6,739 crm-management.md
+03/05/2026  09:30 AM             6,995 customer-marketing.md
+03/05/2026  09:29 AM             6,972 demand-generation.md
+03/05/2026  09:30 AM             6,370 demand-growth.md
+03/05/2026  09:29 AM             7,856 event-marketing.md
+03/05/2026  10:58 AM             7,895 expertise.md
+03/05/2026  12:05 PM                 0 files.txt
+03/05/2026  10:02 AM             8,009 lead-gen-scoring.md
+03/04/2026  05:37 PM             7,362 marketing-analytics-reporting.md
+03/05/2026  10:07 AM             7,107 marketing-automation.md
+03/05/2026  10:57 AM             7,767 martech-optimization.md
+03/04/2026  04:28 PM                 0 non-profit-education.md
+03/05/2026  10:13 AM             6,885 paid-advertising-sem.md
+03/05/2026  10:14 AM             6,908 product-marketing.md
+03/05/2026  10:54 AM             7,759 roi-analysis.md
+03/05/2026  10:57 AM             7,568 sales-enablement.md
+03/05/2026  10:39 AM             7,465 search-engine-optimization.md
+03/05/2026  10:48 AM             7,693 social-media-marketing.md
+03/05/2026  10:52 AM             7,447 strategy-insights.md
+03/05/2026  09:28 AM             7,240 strategy.md
+03/05/2026  10:55 AM             7,385 systems-operations.md
+03/05/2026  10:15 AM             7,645 web-design-ui-ux.md
+              27 File(s)        182,406 bytes
+               2 Dir(s)  599,750,471,680 bytes free
