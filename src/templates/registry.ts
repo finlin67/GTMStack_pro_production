@@ -41,7 +41,24 @@ export const TEMPLATE_BY_ID: Record<RegistryTemplateId, TemplateComponent> = {
   'gallery.main': GalleryMainTemplate,
 }
 
+// Admin CMS: Track runtime-uploaded templates (dev/staging only)
+const uploadedRegistry: Map<string, TemplateComponent> = new Map()
+
+export function registerUploadedTemplate(templateId: string, component: TemplateComponent): void {
+  if (process.env.ALLOW_TEMPLATE_UPLOADS !== 'true') {
+    console.warn('⚠️ Template upload attempted but ALLOW_TEMPLATE_UPLOADS != true')
+    return
+  }
+  uploadedRegistry.set(templateId, component)
+  console.log(`✅ Registered uploaded template: ${templateId}`)
+}
+
 export function getTemplate(templateId: RegistryTemplateId): TemplateComponent {
+  // Check uploaded registry first (dev/staging only)
+  if (uploadedRegistry.has(templateId)) {
+    return uploadedRegistry.get(templateId)!
+  }
+  
   const Component = TEMPLATE_BY_ID[templateId]
   if (!Component) {
     throw new Error(`Unknown templateId: ${templateId}`)

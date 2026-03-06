@@ -34,15 +34,21 @@ const baseConfig = {
 
 module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER
-  const distDir = isDev ? '.next' : 'out'
+  const forceStatic = process.env.STATIC_EXPORT === 'true'
+  
   const config = {
     ...baseConfig,
-    distDir,
   }
-  if (!isDev) {
+  
+  // Only use static export when explicitly requested via STATIC_EXPORT=true
+  if (forceStatic) {
     config.output = 'export'
+    config.distDir = 'out'
     config.trailingSlash = true
+  } else {
+    config.distDir = '.next'
   }
+  
   return withMDX(config)
 }
 

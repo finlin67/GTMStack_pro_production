@@ -87,7 +87,7 @@ const searchBarVariants: Variants = {
 const cursorVariants: Variants = {
   blink: {
     opacity: [1, 0, 1],
-    transition: { duration: 0.8, repeat: Infinity, ease: 'steps(2)' },
+    transition: { duration: 0.8, repeat: Infinity, ease: 'linear' },
   },
 }
 

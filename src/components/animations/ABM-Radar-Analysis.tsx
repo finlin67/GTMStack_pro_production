@@ -333,9 +333,9 @@ export default function App() {
             {/* Background Wireframe Decorator */}
             <div className="absolute inset-0 flex items-center justify-center opacity-20 pointer-events-none">
               <svg className="wireframe-stroke animate-spin-slow" height="300" viewBox="0 0 100 100" width="300">
-                <rect fill="none" height="80" stroke="white" stroke-width="0.5" width="80" x="10" y="10" strokeDasharray="4"></rect>
-                <circle cx="50" cy="50" fill="none" r="30" stroke="white" stroke-width="0.5" strokeDasharray="2"></circle>
-                <path d="M10 50 L90 50 M50 10 L50 90" stroke="white" stroke-width="0.5" strokeDasharray="1"></path>
+                <rect fill="none" height="80" stroke="white" strokeWidth="0.5" width="80" x="10" y="10" strokeDasharray="4"></rect>
+                <circle cx="50" cy="50" fill="none" r="30" stroke="white" strokeWidth="0.5" strokeDasharray="2"></circle>
+                <path d="M10 50 L90 50 M50 10 L50 90" stroke="white" strokeWidth="0.5" strokeDasharray="1"></path>
               </svg>
             </div>
 

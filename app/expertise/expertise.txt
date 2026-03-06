@@ -1,0 +1,88 @@
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 309B-AB23
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise
+
+02/28/2026  12:01 PM    <DIR>          .
+02/27/2026  01:43 PM    <DIR>          ..
+02/21/2026  09:27 AM    <DIR>          analytics
+02/21/2026  09:27 AM    <DIR>          automation
+02/21/2026  09:27 AM    <DIR>          content-engagement
+02/21/2026  09:27 AM    <DIR>          demand-growth
+02/28/2026  12:01 PM                 0 expertise.txt
+02/21/2026  09:27 AM    <DIR>          optimization
+02/21/2026  09:27 AM             1,000 page.tsx
+02/21/2026  09:27 AM    <DIR>          strategy
+02/21/2026  09:27 AM    <DIR>          strategy-insights
+02/21/2026  09:27 AM    <DIR>          systems-operations
+02/21/2026  09:27 AM    <DIR>          [slug]
+               2 File(s)          1,000 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\analytics
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM             5,786 page.tsx
+               1 File(s)          5,786 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\automation
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM               454 layout.tsx
+02/21/2026  09:27 AM            18,220 page.tsx
+               2 File(s)         18,674 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\content-engagement
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM             3,930 page.tsx
+               1 File(s)          3,930 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\demand-growth
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM            13,135 page.tsx
+               1 File(s)         13,135 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\optimization
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM             5,732 page.tsx
+               1 File(s)          5,732 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\strategy
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM            14,208 page.tsx
+               1 File(s)         14,208 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\strategy-insights
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM            14,545 page.tsx
+               1 File(s)         14,545 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\systems-operations
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM            14,929 page.tsx
+               1 File(s)         14,929 bytes
+
+ Directory of C:\GitProd\GTMStack_pro\app\expertise\[slug]
+
+02/21/2026  09:27 AM    <DIR>          .
+02/28/2026  12:01 PM    <DIR>          ..
+02/21/2026  09:27 AM            41,215 ExpertiseDetailContent.tsx
+02/21/2026  09:27 AM             9,186 page.tsx
+               2 File(s)         50,401 bytes
+
+     Total Files Listed:
+              13 File(s)        142,340 bytes
+              29 Dir(s)  666,920,431,616 bytes free

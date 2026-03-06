@@ -15,7 +15,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "a-b-m-pipe-tracker-tile",
     title: "A B M Pipe Tracker Tile",
     componentPath: "@/components/animations/ABMPipeTrackerTile",
-    thumbnailSrc: "/animation-thumbs/a-b-m-pipe-tracker-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ABMPipeTrackerTile.png",
 
     usedOnPages: false,
   },
@@ -23,7 +23,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "a-b-m-tile-animation",
     title: "A B M Tile Animation",
     componentPath: "@/components/animations/ABMTileAnimation",
-    thumbnailSrc: "/animation-thumbs/a-b-m-tile-animation.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ABMTileAnimation.png",
 
     usedOnPages: false,
   },
@@ -31,7 +31,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "a-b-m90-days",
     title: "A B M90 Days",
     componentPath: "@/components/animations/ABM90Days",
-    thumbnailSrc: "/animation-thumbs/a-b-m90-days.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ABM90Days.png",
 
     usedOnPages: false,
   },
@@ -39,7 +39,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "a-i-growth",
     title: "A I Growth",
     componentPath: "@/components/animations/AIGrowth",
-    thumbnailSrc: "/animation-thumbs/a-i-growth.png",
+    thumbnailSrc: "/images/gallery-thumbnails/AIGrowth.png",
 
     usedOnPages: false,
   },
@@ -47,7 +47,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "abm-network-dashboard",
     title: "Abm Network Dashboard",
     componentPath: "@/components/animations/abm-network-dashboard",
-    thumbnailSrc: "/animation-thumbs/abm-network-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/abm-network-dashboard.png",
 
     usedOnPages: false,
   },
@@ -55,7 +55,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "a-b-m-pipeline-strategy",
     title: "ABM Pipeline Strategy",
     componentPath: "@/components/animations/ABM-Pipeline-Strategy",
-    thumbnailSrc: "/animation-thumbs/a-b-m-pipeline-strategy.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ABM-Pipeline-Strategy.png",
 
     usedOnPages: false,
   },
@@ -63,7 +63,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "a-b-m-radar-analysis",
     title: "ABM Radar Analysis",
     componentPath: "@/components/animations/ABM-Radar-Analysis",
-    thumbnailSrc: "/animation-thumbs/a-b-m-radar-analysis.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ABM-Radar-Analysis.png",
 
     usedOnPages: false,
   },
@@ -71,7 +71,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "airplane",
     title: "Airplane",
     componentPath: "@/components/animations/Airplane",
-    thumbnailSrc: "/animation-thumbs/airplane.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Airplane.png",
 
     usedOnPages: false,
   },
@@ -79,7 +79,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "apex-shield-lifecycle-engine",
     title: "Apex Shield Lifecycle Engine",
     componentPath: "@/components/animations/ApexShieldLifecycleEngine",
-    thumbnailSrc: "/animation-thumbs/apex-shield-lifecycle-engine.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ApexShieldLifecycleEngine.png",
 
     usedOnPages: false,
   },
@@ -87,7 +87,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "automation-engine-dashboard",
     title: "Automation Engine Dashboard",
     componentPath: "@/components/animations/automation-engine-dashboard",
-    thumbnailSrc: "/animation-thumbs/automation-engine-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/automation-engine-dashboard.png",
 
     usedOnPages: false,
   },
@@ -95,7 +95,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "background-grid",
     title: "Background Grid",
     componentPath: "@/components/animations/BackgroundGrid",
-    thumbnailSrc: "/animation-thumbs/background-grid.png",
+    thumbnailSrc: "/images/gallery-thumbnails/BackgroundGrid.png",
 
     usedOnPages: false,
   },
@@ -103,7 +103,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "c-r-m-campaigns-tile",
     title: "C R M Campaigns Tile",
     componentPath: "@/components/animations/CRMCampaignsTile",
-    thumbnailSrc: "/animation-thumbs/c-r-m-campaigns-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/CRMCampaignsTile.png",
 
     usedOnPages: false,
   },
@@ -111,7 +111,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "campaign-tile",
     title: "Campaign Tile",
     componentPath: "@/components/animations/CampaignTile",
-    thumbnailSrc: "/animation-thumbs/campaign-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/CampaignTile.png",
 
     usedOnPages: false,
   },
@@ -119,7 +119,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "clinical-holographic-control-surface",
     title: "Clinical Holographic Control Surface",
     componentPath: "@/components/animations/ClinicalHolographicControlSurface",
-    thumbnailSrc: "/animation-thumbs/clinical-holographic-control-surface.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ClinicalHolographicControlSurface.png",
 
     usedOnPages: false,
   },
@@ -127,7 +127,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-engagement-marketing",
     title: "Content Engagement Marketing",
     componentPath: "@/components/animations/Content-Engagement-Marketing",
-    thumbnailSrc: "/animation-thumbs/content-engagement-marketing.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Content-Engagement-Marketing.png",
 
     usedOnPages: false,
   },
@@ -135,7 +135,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-engagement-tile",
     title: "Content Engagement Tile",
     componentPath: "@/components/animations/ContentEngagementTile",
-    thumbnailSrc: "/animation-thumbs/content-engagement-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ContentEngagementTile.png",
 
     usedOnPages: false,
   },
@@ -143,7 +143,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-marketing",
     title: "Content Marketing",
     componentPath: "@/components/animations/Content-Marketing",
-    thumbnailSrc: "/animation-thumbs/content-marketing.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Content-Marketing.png",
 
     usedOnPages: false,
   },
@@ -151,7 +151,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-marketing",
     title: "Content Marketing",
     componentPath: "@/components/animations/ContentMarketing",
-    thumbnailSrc: "/animation-thumbs/content-marketing.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ContentMarketing.png",
 
     usedOnPages: false,
   },
@@ -159,7 +159,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-marketing-animation",
     title: "Content Marketing Animation",
     componentPath: "@/components/animations/ContentMarketingAnimation",
-    thumbnailSrc: "/animation-thumbs/content-marketing-animation.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ContentMarketingAnimation.png",
 
     usedOnPages: false,
   },
@@ -167,7 +167,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-marketing-hero",
     title: "Content Marketing Hero",
     componentPath: "@/components/animations/ContentMarketingHero",
-    thumbnailSrc: "/animation-thumbs/content-marketing-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ContentMarketingHero.png",
 
     usedOnPages: false,
   },
@@ -175,7 +175,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "content-strategist-dashboard",
     title: "Content Strategist Dashboard",
     componentPath: "@/components/animations/ContentStrategistDashboard",
-    thumbnailSrc: "/animation-thumbs/content-strategist-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ContentStrategistDashboard.png",
 
     usedOnPages: false,
   },
@@ -183,7 +183,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "demand-gen-flow",
     title: "Demand Gen Flow",
     componentPath: "@/components/animations/DemandGenFlow",
-    thumbnailSrc: "/animation-thumbs/demand-gen-flow.png",
+    thumbnailSrc: "/images/gallery-thumbnails/DemandGenFlow.png",
 
     usedOnPages: false,
   },
@@ -191,7 +191,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "demand-generation-hero",
     title: "Demand Generation Hero",
     componentPath: "@/components/animations/DemandGenerationHero",
-    thumbnailSrc: "/animation-thumbs/demand-generation-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/DemandGenerationHero.png",
 
     usedOnPages: false,
   },
@@ -199,7 +199,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "demand-generation-hero-tile",
     title: "Demand Generation Hero Tile",
     componentPath: "@/components/animations/DemandGenerationHeroTile",
-    thumbnailSrc: "/animation-thumbs/demand-generation-hero-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/DemandGenerationHeroTile.png",
 
     usedOnPages: false,
   },
@@ -207,7 +207,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "demand-growth-tile",
     title: "Demand Growth Tile",
     componentPath: "@/components/animations/DemandGrowthTile",
-    thumbnailSrc: "/animation-thumbs/demand-growth-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/DemandGrowthTile.png",
 
     usedOnPages: false,
   },
@@ -215,7 +215,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "dev-marketers",
     title: "Dev Marketers",
     componentPath: "@/components/animations/DevMarketers",
-    thumbnailSrc: "/animation-thumbs/dev-marketers.png",
+    thumbnailSrc: "/images/gallery-thumbnails/DevMarketers.png",
 
     usedOnPages: false,
   },
@@ -223,7 +223,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "developer-marketing",
     title: "Developer Marketing",
     componentPath: "@/components/animations/Developer-Marketing",
-    thumbnailSrc: "/animation-thumbs/developer-marketing.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Developer-Marketing.png",
 
     usedOnPages: false,
   },
@@ -231,7 +231,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "drift-guard",
     title: "Drift Guard",
     componentPath: "@/components/animations/DriftGuard",
-    thumbnailSrc: "/animation-thumbs/drift-guard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/DriftGuard.png",
 
     usedOnPages: false,
   },
@@ -239,7 +239,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "e-d-u-marketing-tile",
     title: "E D U Marketing Tile",
     componentPath: "@/components/animations/EDUMarketingTile",
-    thumbnailSrc: "/animation-thumbs/e-d-u-marketing-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EDUMarketingTile.png",
 
     usedOnPages: false,
   },
@@ -247,7 +247,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "ed-journey-k12-ecosystem",
     title: "Ed Journey K12 Ecosystem",
     componentPath: "@/components/animations/EdJourneyK12Ecosystem",
-    thumbnailSrc: "/animation-thumbs/ed-journey-k12-ecosystem.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EdJourneyK12Ecosystem.png",
 
     usedOnPages: false,
   },
@@ -255,7 +255,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "ed-tech-compact-r-o-i-funnel",
     title: "Ed Tech Compact R O I Funnel",
     componentPath: "@/components/animations/EdTechCompactROIFunnel",
-    thumbnailSrc: "/animation-thumbs/ed-tech-compact-r-o-i-funnel.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EdTechCompactROIFunnel.png",
 
     usedOnPages: false,
   },
@@ -263,7 +263,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "ed-tech-r-o-i-funnel",
     title: "Edtech ROI Funnel",
     componentPath: "@/components/animations/EdTech-ROI-Funnel",
-    thumbnailSrc: "/animation-thumbs/ed-tech-r-o-i-funnel.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EdTech-ROI-Funnel.png",
 
     usedOnPages: false,
   },
@@ -271,7 +271,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "edu-marketers-dashboard",
     title: "Edu Marketers Dashboard",
     componentPath: "@/components/animations/EduMarketersDashboard",
-    thumbnailSrc: "/animation-thumbs/edu-marketers-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EduMarketersDashboard.png",
 
     usedOnPages: false,
   },
@@ -279,7 +279,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "email-automation-component",
     title: "Email Automation Component",
     componentPath: "@/components/animations/EmailAutomationComponent",
-    thumbnailSrc: "/animation-thumbs/email-automation-component.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EmailAutomationComponent.png",
 
     usedOnPages: false,
   },
@@ -287,7 +287,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "email-marketing-hero",
     title: "Email Marketing Hero",
     componentPath: "@/components/animations/EmailMarketingHero",
-    thumbnailSrc: "/animation-thumbs/email-marketing-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EmailMarketingHero.png",
 
     usedOnPages: false,
   },
@@ -295,7 +295,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "energy-flow-digital",
     title: "Energy Flow Digital",
     componentPath: "@/components/animations/EnergyFlowDigital",
-    thumbnailSrc: "/animation-thumbs/energy-flow-digital.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EnergyFlowDigital.png",
 
     usedOnPages: false,
   },
@@ -303,7 +303,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "energy-grid-tile",
     title: "Energy Grid Tile",
     componentPath: "@/components/animations/EnergyGridTile",
-    thumbnailSrc: "/animation-thumbs/energy-grid-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EnergyGridTile.png",
 
     usedOnPages: false,
   },
@@ -311,7 +311,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "engineering-excellence-workflow-tile",
     title: "Engineering Excellence Workflow Tile",
     componentPath: "@/components/animations/EngineeringExcellenceWorkflowTile",
-    thumbnailSrc: "/animation-thumbs/engineering-excellence-workflow-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EngineeringExcellenceWorkflowTile.png",
 
     usedOnPages: false,
   },
@@ -319,7 +319,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "engineering-workflow",
     title: "Engineering Workflow",
     componentPath: "@/components/animations/EngineeringWorkflow",
-    thumbnailSrc: "/animation-thumbs/engineering-workflow.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EngineeringWorkflow.png",
 
     usedOnPages: false,
   },
@@ -327,7 +327,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "engineering-workflow-system",
     title: "Engineering Workflow System",
     componentPath: "@/components/animations/EngineeringWorkflowSystem",
-    thumbnailSrc: "/animation-thumbs/engineering-workflow-system.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EngineeringWorkflowSystem.png",
 
     usedOnPages: false,
   },
@@ -335,7 +335,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "enterprise-sales-motion-dashboard",
     title: "Enterprise Sales Motion Dashboard",
     componentPath: "@/components/animations/EnterpriseSalesMotionDashboard",
-    thumbnailSrc: "/animation-thumbs/enterprise-sales-motion-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EnterpriseSalesMotionDashboard.png",
 
     usedOnPages: false,
   },
@@ -343,7 +343,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "eoc-logistics-dashboard",
     title: "Eoc Logistics Dashboard",
     componentPath: "@/components/animations/EocLogisticsDashboard",
-    thumbnailSrc: "/animation-thumbs/eoc-logistics-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EocLogisticsDashboard.png",
 
     usedOnPages: false,
   },
@@ -351,7 +351,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "esg-analytics-hub",
     title: "Esg Analytics Hub",
     componentPath: "@/components/animations/EsgAnalyticsHub",
-    thumbnailSrc: "/animation-thumbs/esg-analytics-hub.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EsgAnalyticsHub.png",
 
     usedOnPages: false,
   },
@@ -359,7 +359,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "event-marketing",
     title: "Event Marketing",
     componentPath: "@/components/animations/EventMarketing",
-    thumbnailSrc: "/animation-thumbs/event-marketing.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EventMarketing.png",
 
     usedOnPages: false,
   },
@@ -367,7 +367,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "event-marketing-tile",
     title: "Event Marketing Tile",
     componentPath: "@/components/animations/EventMarketingTile",
-    thumbnailSrc: "/animation-thumbs/event-marketing-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EventMarketingTile.png",
 
     usedOnPages: false,
   },
@@ -375,7 +375,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "event-pulse",
     title: "Event Pulse",
     componentPath: "@/components/animations/EventPulse",
-    thumbnailSrc: "/animation-thumbs/event-pulse.png",
+    thumbnailSrc: "/images/gallery-thumbnails/EventPulse.png",
 
     usedOnPages: false,
   },
@@ -383,7 +383,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "executive-logistics-dashboard",
     title: "Executive Logistics Dashboard",
     componentPath: "@/components/animations/ExecutiveLogisticsDashboard",
-    thumbnailSrc: "/animation-thumbs/executive-logistics-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ExecutiveLogisticsDashboard.png",
 
     usedOnPages: false,
   },
@@ -391,7 +391,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "financial-tile",
     title: "Financial Tile",
     componentPath: "@/components/animations/FinancialTile",
-    thumbnailSrc: "/animation-thumbs/financial-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/FinancialTile.png",
 
     usedOnPages: false,
   },
@@ -399,7 +399,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "fleet-r-o-i-calculator",
     title: "Fleet R O I Calculator",
     componentPath: "@/components/animations/FleetROICalculator",
-    thumbnailSrc: "/animation-thumbs/fleet-r-o-i-calculator.png",
+    thumbnailSrc: "/images/gallery-thumbnails/FleetROICalculator.png",
 
     usedOnPages: false,
   },
@@ -407,7 +407,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "fleet-tile",
     title: "Fleet Tile",
     componentPath: "@/components/animations/FleetTile",
-    thumbnailSrc: "/animation-thumbs/fleet-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/FleetTile.png",
 
     usedOnPages: false,
   },
@@ -415,7 +415,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "g-t-m-audience-tile",
     title: "G T M Audience Tile",
     componentPath: "@/components/animations/GTMAudienceTile",
-    thumbnailSrc: "/animation-thumbs/g-t-m-audience-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GTMAudienceTile.png",
 
     usedOnPages: false,
   },
@@ -423,7 +423,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "g-t-m-audience-tile-hero",
     title: "G T M Audience Tile Hero",
     componentPath: "@/components/animations/GTMAudienceTileHero",
-    thumbnailSrc: "/animation-thumbs/g-t-m-audience-tile-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GTMAudienceTileHero.png",
 
     usedOnPages: false,
   },
@@ -431,7 +431,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "g-t-m-stack-hero",
     title: "G T M Stack Hero",
     componentPath: "@/components/animations/GTMStackHero",
-    thumbnailSrc: "/animation-thumbs/g-t-m-stack-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GTMStackHero.png",
 
     usedOnPages: false,
   },
@@ -439,7 +439,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "g-t-m-stack-pro",
     title: "G T M Stack Pro",
     componentPath: "@/components/animations/GTMStackPro",
-    thumbnailSrc: "/animation-thumbs/g-t-m-stack-pro.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GTMStackPro.png",
 
     usedOnPages: false,
   },
@@ -447,7 +447,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "growth-marketing-hero",
     title: "Growth Marketing Hero",
     componentPath: "@/components/animations/GrowthMarketingHero",
-    thumbnailSrc: "/animation-thumbs/growth-marketing-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GrowthMarketingHero.png",
 
     usedOnPages: false,
   },
@@ -455,7 +455,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "growth-marketing-tile",
     title: "Growth Marketing Tile",
     componentPath: "@/components/animations/GrowthMarketingTile",
-    thumbnailSrc: "/animation-thumbs/growth-marketing-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GrowthMarketingTile.png",
 
     usedOnPages: false,
   },
@@ -463,7 +463,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "growth-s-e-m-tile",
     title: "Growth S E M Tile",
     componentPath: "@/components/animations/GrowthSEMTile",
-    thumbnailSrc: "/animation-thumbs/growth-s-e-m-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/GrowthSEMTile.png",
 
     usedOnPages: false,
   },
@@ -471,7 +471,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "gtmstack-hero",
     title: "Gtmstack Hero",
     componentPath: "@/components/animations/gtmstack-hero",
-    thumbnailSrc: "/animation-thumbs/gtmstack-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/gtmstack-hero.png",
 
     usedOnPages: false,
   },
@@ -479,7 +479,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "health-care-tile",
     title: "Health Care Tile",
     componentPath: "@/components/animations/HealthCareTile",
-    thumbnailSrc: "/animation-thumbs/health-care-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/HealthCareTile.png",
 
     usedOnPages: false,
   },
@@ -487,7 +487,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "higher-e-d-marketing-tile",
     title: "Higher E D Marketing Tile",
     componentPath: "@/components/animations/HigherEDMarketingTile",
-    thumbnailSrc: "/animation-thumbs/higher-e-d-marketing-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/HigherEDMarketingTile.png",
 
     usedOnPages: false,
   },
@@ -495,7 +495,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "impact-dashboard",
     title: "Impact Dashboard",
     componentPath: "@/components/animations/ImpactDashboard",
-    thumbnailSrc: "/animation-thumbs/impact-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ImpactDashboard.png",
 
     usedOnPages: false,
   },
@@ -503,7 +503,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "industrial-dashboard",
     title: "Industrial Dashboard",
     componentPath: "@/components/animations/IndustrialDashboard",
-    thumbnailSrc: "/animation-thumbs/industrial-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/IndustrialDashboard.png",
 
     usedOnPages: false,
   },
@@ -511,7 +511,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "industrial-m-f-g-tile",
     title: "Industrial MFG Tile",
     componentPath: "@/components/animations/Industrial-MFG-Tile",
-    thumbnailSrc: "/animation-thumbs/industrial-m-f-g-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Industrial-MFG-Tile.png",
 
     usedOnPages: false,
   },
@@ -519,7 +519,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "kpi-spotlight-mosaic",
     title: "Kpi Spotlight Mosaic",
     componentPath: "@/components/animations/KpiSpotlightMosaic",
-    thumbnailSrc: "/animation-thumbs/kpi-spotlight-mosaic.png",
+    thumbnailSrc: "/images/gallery-thumbnails/KpiSpotlightMosaic.png",
 
     usedOnPages: false,
   },
@@ -527,7 +527,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "lead-gen-banner",
     title: "Lead Gen Banner",
     componentPath: "@/components/animations/LeadGenBanner",
-    thumbnailSrc: "/animation-thumbs/lead-gen-banner.png",
+    thumbnailSrc: "/images/gallery-thumbnails/LeadGenBanner.png",
 
     usedOnPages: false,
   },
@@ -535,7 +535,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "lead-gen-tile-animation",
     title: "Lead Gen Tile Animation",
     componentPath: "@/components/animations/LeadGenTileAnimation",
-    thumbnailSrc: "/animation-thumbs/lead-gen-tile-animation.png",
+    thumbnailSrc: "/images/gallery-thumbnails/LeadGenTileAnimation.png",
 
     usedOnPages: false,
   },
@@ -543,7 +543,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "lifecycle-360",
     title: "Lifecycle 360",
     componentPath: "@/components/animations/Lifecycle-360",
-    thumbnailSrc: "/animation-thumbs/lifecycle-360.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Lifecycle-360.png",
 
     usedOnPages: false,
   },
@@ -551,7 +551,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "lifecycle-engine",
     title: "Lifecycle Engine",
     componentPath: "@/components/animations/LifecycleEngine",
-    thumbnailSrc: "/animation-thumbs/lifecycle-engine.png",
+    thumbnailSrc: "/images/gallery-thumbnails/LifecycleEngine.png",
 
     usedOnPages: false,
   },
@@ -559,7 +559,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "live-email-automation",
     title: "Live Email Automation",
     componentPath: "@/components/animations/Live-Email-Automation",
-    thumbnailSrc: "/animation-thumbs/live-email-automation.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Live-Email-Automation.png",
 
     usedOnPages: false,
   },
@@ -567,7 +567,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "manufacturing-lifecycle-dashboard",
     title: "Manufacturing Lifecycledashboard",
     componentPath: "@/components/animations/Manufacturing-LifecycleDashboard",
-    thumbnailSrc: "/animation-thumbs/manufacturing-lifecycle-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Manufacturing-LifecycleDashboard.png",
 
     usedOnPages: false,
   },
@@ -575,7 +575,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "manufacturing-lifecycle-dashboard (1)",
     title: "Manufacturing Lifecycledashboard (1)",
     componentPath: "@/components/animations/Manufacturing-LifecycleDashboard (1)",
-    thumbnailSrc: "/animation-thumbs/manufacturing-lifecycle-dashboard (1).png",
+    thumbnailSrc: "/images/gallery-thumbnails/Manufacturing-LifecycleDashboard (1).png",
 
     usedOnPages: false,
   },
@@ -583,7 +583,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "mar-tech-tile",
     title: "Mar Tech Tile",
     componentPath: "@/components/animations/MarTechTile",
-    thumbnailSrc: "/animation-thumbs/mar-tech-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/MarTechTile.png",
 
     usedOnPages: false,
   },
@@ -591,7 +591,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "marketing-analytics-carousel",
     title: "Marketing Analytics Carousel",
     componentPath: "@/components/animations/Marketing-Analytics-Carousel",
-    thumbnailSrc: "/animation-thumbs/marketing-analytics-carousel.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Marketing-Analytics-Carousel.png",
 
     usedOnPages: false,
   },
@@ -599,7 +599,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "marketing-automation-live-feed",
     title: "Marketing Automation Live Feed",
     componentPath: "@/components/animations/Marketing-Automation-Live-Feed",
-    thumbnailSrc: "/animation-thumbs/marketing-automation-live-feed.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Marketing-Automation-Live-Feed.png",
 
     usedOnPages: false,
   },
@@ -607,7 +607,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "marketing-automation-live-feed (1)",
     title: "Marketing Automation Live Feed (1)",
     componentPath: "@/components/animations/Marketing-Automation-Live-Feed (1)",
-    thumbnailSrc: "/animation-thumbs/marketing-automation-live-feed (1).png",
+    thumbnailSrc: "/images/gallery-thumbnails/Marketing-Automation-Live-Feed (1).png",
 
     usedOnPages: false,
   },
@@ -615,7 +615,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "marketing-funnel",
     title: "Marketing Funnel",
     componentPath: "@/components/animations/MarketingFunnel",
-    thumbnailSrc: "/animation-thumbs/marketing-funnel.png",
+    thumbnailSrc: "/images/gallery-thumbnails/MarketingFunnel.png",
 
     usedOnPages: false,
   },
@@ -623,7 +623,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "marketing-operations-tile",
     title: "Marketing Operations Tile",
     componentPath: "@/components/animations/MarketingOperationsTile",
-    thumbnailSrc: "/animation-thumbs/marketing-operations-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/MarketingOperationsTile.png",
 
     usedOnPages: false,
   },
@@ -631,7 +631,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "n-g-o-s-d-o-tile",
     title: "N G O S D O Tile",
     componentPath: "@/components/animations/NGOSDOTile",
-    thumbnailSrc: "/animation-thumbs/n-g-o-s-d-o-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/NGOSDOTile.png",
 
     usedOnPages: false,
   },
@@ -639,7 +639,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "n-g-o-tile",
     title: "N G O Tile",
     componentPath: "@/components/animations/NGOTile",
-    thumbnailSrc: "/animation-thumbs/n-g-o-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/NGOTile.png",
 
     usedOnPages: false,
   },
@@ -647,7 +647,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "nexus-stakeholder-portal",
     title: "Nexus Stakeholder Portal",
     componentPath: "@/components/animations/NexusStakeholderPortal",
-    thumbnailSrc: "/animation-thumbs/nexus-stakeholder-portal.png",
+    thumbnailSrc: "/images/gallery-thumbnails/NexusStakeholderPortal.png",
 
     usedOnPages: false,
   },
@@ -655,7 +655,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "oil-gas-tile",
     title: "Oil Gas Tile",
     componentPath: "@/components/animations/OilGasTile",
-    thumbnailSrc: "/animation-thumbs/oil-gas-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/OilGasTile.png",
 
     usedOnPages: false,
   },
@@ -663,7 +663,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "omni-analytics",
     title: "Omni Analytics",
     componentPath: "@/components/animations/Omni-Analytics",
-    thumbnailSrc: "/animation-thumbs/omni-analytics.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Omni-Analytics.png",
 
     usedOnPages: false,
   },
@@ -671,7 +671,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "omni-retail-tile",
     title: "Omni Retail Tile",
     componentPath: "@/components/animations/OmniRetailTile",
-    thumbnailSrc: "/animation-thumbs/omni-retail-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/OmniRetailTile.png",
 
     usedOnPages: false,
   },
@@ -679,7 +679,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "omnichannel-live-analytics",
     title: "Omnichannel Live Analytics",
     componentPath: "@/components/animations/OmnichannelLiveAnalytics",
-    thumbnailSrc: "/animation-thumbs/omnichannel-live-analytics.png",
+    thumbnailSrc: "/images/gallery-thumbnails/OmnichannelLiveAnalytics.png",
 
     usedOnPages: false,
   },
@@ -687,7 +687,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "paid-advertising-hero",
     title: "Paid Advertising Hero",
     componentPath: "@/components/animations/PaidAdvertisingHero",
-    thumbnailSrc: "/animation-thumbs/paid-advertising-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/PaidAdvertisingHero.png",
 
     usedOnPages: false,
   },
@@ -695,7 +695,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "pipeline-dashboard",
     title: "Pipeline Dashboard",
     componentPath: "@/components/animations/PipelineDashboard",
-    thumbnailSrc: "/animation-thumbs/pipeline-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/PipelineDashboard.png",
 
     usedOnPages: false,
   },
@@ -703,7 +703,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "plg-journey-dashboard",
     title: "Plg Journey Dashboard",
     componentPath: "@/components/animations/PlgJourneyDashboard",
-    thumbnailSrc: "/animation-thumbs/plg-journey-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/PlgJourneyDashboard.png",
 
     usedOnPages: false,
   },
@@ -711,7 +711,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "power-grid-dashboard",
     title: "Power Grid Dashboard",
     componentPath: "@/components/animations/PowerGridDashboard",
-    thumbnailSrc: "/animation-thumbs/power-grid-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/PowerGridDashboard.png",
 
     usedOnPages: false,
   },
@@ -719,7 +719,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "pub-sec-tile",
     title: "Pub Sec Tile",
     componentPath: "@/components/animations/PubSecTile",
-    thumbnailSrc: "/animation-thumbs/pub-sec-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/PubSecTile.png",
 
     usedOnPages: false,
   },
@@ -727,7 +727,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "quantum-dashboard",
     title: "Quantum Dashboard",
     componentPath: "@/components/animations/QuantumDashboard",
-    thumbnailSrc: "/animation-thumbs/quantum-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/QuantumDashboard.png",
 
     usedOnPages: false,
   },
@@ -735,7 +735,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "rev-ops-dash",
     title: "Rev Ops Dash",
     componentPath: "@/components/animations/RevOpsDash",
-    thumbnailSrc: "/animation-thumbs/rev-ops-dash.png",
+    thumbnailSrc: "/images/gallery-thumbnails/RevOpsDash.png",
 
     usedOnPages: false,
   },
@@ -743,7 +743,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "rev-ops-dashboard",
     title: "Rev Ops Dashboard",
     componentPath: "@/components/animations/RevOpsDashboard",
-    thumbnailSrc: "/animation-thumbs/rev-ops-dashboard.png",
+    thumbnailSrc: "/images/gallery-thumbnails/RevOpsDashboard.png",
 
     usedOnPages: false,
   },
@@ -751,7 +751,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "rev-ops-mesh-tile",
     title: "Rev Ops Mesh Tile",
     componentPath: "@/components/animations/RevOpsMeshTile",
-    thumbnailSrc: "/animation-thumbs/rev-ops-mesh-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/RevOpsMeshTile.png",
 
     usedOnPages: false,
   },
@@ -759,7 +759,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "s-e-o-animation",
     title: "S E O Animation",
     componentPath: "@/components/animations/SEOAnimation",
-    thumbnailSrc: "/animation-thumbs/s-e-o-animation.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SEOAnimation.png",
 
     usedOnPages: false,
   },
@@ -767,7 +767,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "s-e-o-hero",
     title: "S E O Hero",
     componentPath: "@/components/animations/SEOHero",
-    thumbnailSrc: "/animation-thumbs/s-e-o-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SEOHero.png",
 
     usedOnPages: false,
   },
@@ -775,7 +775,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "s-e-o-keyword-discovery",
     title: "S E O Keyword Discovery",
     componentPath: "@/components/animations/SEOKeywordDiscovery",
-    thumbnailSrc: "/animation-thumbs/s-e-o-keyword-discovery.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SEOKeywordDiscovery.png",
 
     usedOnPages: false,
   },
@@ -783,7 +783,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "sales-enablement-tile",
     title: "Sales Enablement Tile",
     componentPath: "@/components/animations/SalesEnablementTile",
-    thumbnailSrc: "/animation-thumbs/sales-enablement-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SalesEnablementTile.png",
 
     usedOnPages: false,
   },
@@ -791,7 +791,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "scalability-radar",
     title: "Scalability Radar",
     componentPath: "@/components/animations/ScalabilityRadar",
-    thumbnailSrc: "/animation-thumbs/scalability-radar.png",
+    thumbnailSrc: "/images/gallery-thumbnails/ScalabilityRadar.png",
 
     usedOnPages: false,
   },
@@ -799,7 +799,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "s-e-o-growth-flow",
     title: "SEO Growthflow",
     componentPath: "@/components/animations/SEO-GrowthFlow",
-    thumbnailSrc: "/animation-thumbs/s-e-o-growth-flow.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SEO-GrowthFlow.png",
 
     usedOnPages: false,
   },
@@ -807,7 +807,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "social-media-hero",
     title: "Social Media Hero",
     componentPath: "@/components/animations/SocialMediaHero",
-    thumbnailSrc: "/animation-thumbs/social-media-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SocialMediaHero.png",
 
     usedOnPages: false,
   },
@@ -815,7 +815,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "strategy-insights-tile",
     title: "Strategy Insights Tile",
     componentPath: "@/components/animations/StrategyInsightsTile",
-    thumbnailSrc: "/animation-thumbs/strategy-insights-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/StrategyInsightsTile.png",
 
     usedOnPages: false,
   },
@@ -823,7 +823,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "systems-process-tile",
     title: "Systems Process Tile",
     componentPath: "@/components/animations/SystemsProcessTile",
-    thumbnailSrc: "/animation-thumbs/systems-process-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/SystemsProcessTile.png",
 
     usedOnPages: false,
   },
@@ -831,7 +831,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "telco-a-i-tile",
     title: "Telco A I Tile",
     componentPath: "@/components/animations/TelcoAITile",
-    thumbnailSrc: "/animation-thumbs/telco-a-i-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/TelcoAITile.png",
 
     usedOnPages: false,
   },
@@ -839,7 +839,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "telemetry-grid",
     title: "Telemetry Grid",
     componentPath: "@/components/animations/TelemetryGrid",
-    thumbnailSrc: "/animation-thumbs/telemetry-grid.png",
+    thumbnailSrc: "/images/gallery-thumbnails/TelemetryGrid.png",
 
     usedOnPages: false,
   },
@@ -847,7 +847,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "video-creative-hero",
     title: "Video Creative Hero",
     componentPath: "@/components/animations/VideoCreativeHero",
-    thumbnailSrc: "/animation-thumbs/video-creative-hero.png",
+    thumbnailSrc: "/images/gallery-thumbnails/VideoCreativeHero.png",
 
     usedOnPages: false,
   },
@@ -855,7 +855,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "video-marketing-analytics",
     title: "Video Marketing Analytics",
     componentPath: "@/components/animations/Video-Marketing-Analytics",
-    thumbnailSrc: "/animation-thumbs/video-marketing-analytics.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Video-Marketing-Analytics.png",
 
     usedOnPages: false,
   },
@@ -863,7 +863,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "video-marketing-analytics-tile",
     title: "Video Marketing Analytics Tile",
     componentPath: "@/components/animations/Video-Marketing-Analytics-Tile",
-    thumbnailSrc: "/animation-thumbs/video-marketing-analytics-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/Video-Marketing-Analytics-Tile.png",
 
     usedOnPages: false,
   },
@@ -871,7 +871,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "waste-man",
     title: "Waste Man",
     componentPath: "@/components/animations/WasteMan",
-    thumbnailSrc: "/animation-thumbs/waste-man.png",
+    thumbnailSrc: "/images/gallery-thumbnails/WasteMan.png",
 
     usedOnPages: false,
   },
@@ -879,7 +879,7 @@ export const ANIMATION_CATALOG: AnimationCatalogItem[] = [
     id: "wealth-manage-tile",
     title: "Wealth Manage Tile",
     componentPath: "@/components/animations/WealthManageTile",
-    thumbnailSrc: "/animation-thumbs/wealth-manage-tile.png",
+    thumbnailSrc: "/images/gallery-thumbnails/WealthManageTile.png",
 
     usedOnPages: false,
   }

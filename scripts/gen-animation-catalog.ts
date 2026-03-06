@@ -223,7 +223,8 @@ async function run(): Promise<void> {
     const o = overrides[id] ?? {}
     const title = o.title ?? humanize(file)
     const componentPath = `@/components/animations/${file.replace(/\.tsx$/, '')}`
-    const thumbnailSrc = o.thumbnailSrc ?? `/animation-thumbs/${id}.png`
+      const thumbnailFileName = file.replace(/\.tsx$/, '.png')
+      const thumbnailSrc = o.thumbnailSrc ?? `/images/gallery-thumbnails/${thumbnailFileName}`
     const repoUrl = o.repoUrl ?? getGithubUrl(id)
     const usedOnPages = usedIds.has(id)
     
