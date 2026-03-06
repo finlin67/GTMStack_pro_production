@@ -1,117 +1,64 @@
-/**
- * Content object for SEO expertise page.
- * Used by Uploaded_Expertise_DemandGrowth_v1 template.
- */
-
 export const SEARCH_ENGINE_OPTIMIZATION_CONTENT = {
   brand: {
-    tagline: "Organic Growth Through Strategic SEO",
-    description: "SEO is the compounding engine of growth. Long-term, organic traffic drives the most qualified, cost-effective pipeline for B2B companies.",
+    tagline: "GTMStack.pro: Elevating Digital Presence Through Strategic SEO.",
+    description: "GTMStack.pro specializes in advanced Search Engine Optimization strategies, designed to significantly enhance organic visibility, drive qualified traffic, and achieve measurable business growth for enterprise-level clients."
   },
   hero: {
-    headline: "Search Engine Optimization",
-    subheadline: "The compounding engine of organic growth and qualified pipeline",
-    description: "SEO is the highest-ROI demand channel when executed strategically. Organic search captures high-intent buyers already searching for solutions in your space. We build comprehensive SEO programs that drive consistent, qualified traffic and establish authority.",
-    primaryCTA: { label: "Explore SEO Strategy", href: "#capabilities" },
-    secondaryCTA: { label: "Request SEO Audit", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-      alt: "SEO strategy and organic growth",
-    },
+    headline: "Master Organic Growth with GTMStack.pro's SEO Expertise.",
+    subheadline: "Transform your digital footprint into a powerful revenue engine.",
+    description: "In today's competitive digital landscape, organic search is paramount. GTMStack.pro delivers data-driven SEO solutions that ensure your brand dominates search results, captures high-intent audiences, and secures sustainable market leadership.",
+    primaryCTA: { text: "Discover Our SEO Solutions", link: "/seo-solutions" },
+    secondaryCTA: { text: "Request a Strategic Consultation", link: "/contact" },
+    image: { src: "/images/seo-hero.webp", alt: "SEO dashboard showing growth metrics and search rankings" }
   },
   metricsSection: {
-    headline: "SEO Impact & Benchmarks",
+    headline: "Proven Impact: Driving Tangible Results for Industry Leaders.",
     stats: [
-      { value: "6.2x", label: "SEO ROI", description: "Highest ROI of any demand channel" },
-      { value: "+420%", label: "Organic Traffic Growth", description: "Average improvement in year 2" },
-      { value: "35%", label: "Pipeline from Organic", description: "Typical contribution to overall pipeline" },
-    ],
+      { label: "Average Organic Traffic Increase", value: "150%+" },
+      { label: "First-Page Keyword Rankings", value: "85%+" },
+      { label: "Client ROI from SEO", value: "5x+" }
+    ]
   },
   capabilitiesSection: {
-    headline: "SEO Services & Capabilities",
+    headline: "Comprehensive SEO Capabilities for Unrivaled Performance.",
     items: [
-      {
-        icon: "search",
-        title: "Technical SEO & Crawlability",
-        description: "Site architecture, page speed, mobile optimization, structured data. Ensuring search engines can crawl and index your site effectively.",
-      },
-      {
-        icon: "article",
-        title: "On-Page SEO & Content Optimization",
-        description: "Keyword research, content optimization, meta tags, internal linking. Each page optimized for target keywords and user intent.",
-      },
-      {
-        icon: "link",
-        title: "Authority & Link Building",
-        description: "Strategic link acquisition, press coverage, partnerships. Building domain authority through high-quality backlinks.",
-      },
-      {
-        icon: "trending_up",
-        title: "Keyword Strategy & Competitive Analysis",
-        description: "Identifying high-value keyword opportunities. Competitive analysis to find gaps and opportunities.",
-      },
-      {
-        icon: "assessment",
-        title: "SEO Measurement & Reporting",
-        description: "Tracking rankings, traffic, conversions, and pipeline impact. Monthly optimization and strategic adjustments.",
-      },
-    ],
+      { title: "Technical SEO Audits & Optimization", description: "Deep-dive analysis and remediation of website architecture, crawlability, indexability, and site speed to establish a robust foundation for search engines." },
+      { title: "Advanced Keyword Strategy", description: "Identification and targeting of high-value, long-tail, and semantic keywords aligned with user intent and business objectives, leveraging proprietary tools and competitive intelligence." },
+      { title: "Content Strategy & Optimization", description: "Development of authoritative, engaging, and SEO-optimized content that resonates with target audiences and establishes thought leadership, driving organic visibility and conversions." },
+      { title: "Link Building & Authority Development", description: "Strategic acquisition of high-quality, relevant backlinks from authoritative domains to enhance domain authority, trust, and search engine rankings." },
+      { title: "Local & International SEO", description: "Tailored strategies to dominate local search results and expand global reach, including multi-language optimization and geo-targeting." },
+      { title: "Performance Monitoring & Reporting", description: "Continuous tracking, analysis, and transparent reporting on key SEO metrics, providing actionable insights and demonstrating measurable ROI." }
+    ]
   },
   philosophySection: {
-    headline: "SEO Philosophy",
+    headline: "Our Strategic Approach to Sustainable SEO Success.",
     principles: [
-      {
-        title: "Intent-First, Not Just Keywords",
-        description: "Successful SEO starts with understanding user intent. What are buyers searching for? What problems are they trying to solve?",
-      },
-      {
-        title: "Content is The Foundation",
-        description: "SEO without great content is technical optimization without purpose. Content drives ranking, authority, and conversion.",
-      },
-      {
-        title: "Long-Term Asset Building",
-        description: "SEO is a long-term game. Unlike paid ads that stop working when you stop paying, SEO compounds over time.",
-      },
-      {
-        title: "Experience & Authority Signals",
-        description: "Google increasingly rewards experience (E), expertise (E), authority (A), and trustworthiness (T). Building EEAT is critical.",
-      },
-    ],
+      { title: "Data-Driven Decisions", description: "Every strategy is rooted in rigorous data analysis, ensuring optimal resource allocation and predictable outcomes." },
+      { title: "Holistic Integration", description: "SEO is not an isolated tactic; we integrate it seamlessly with your broader GTM strategy for synergistic impact." },
+      { title: "Ethical & Future-Proof", description: "We adhere to white-hat SEO practices, building long-term, sustainable growth that withstands algorithm updates." },
+      { title: "Client-Centric Partnership", description: "We operate as an extension of your team, providing transparent communication and bespoke solutions tailored to your unique challenges." }
+    ]
   },
   growthSection: {
-    headline: "SEO Compounds Over Time",
-    narrative: "Most companies underestimate the power of organic search. The truth: SEO is the highest ROI demand channel available. A site with strong SEO rankings in your core markets can generate pipeline consistently, year after year, with minimal ongoing cost. This compounds—better rankings today lead to more traffic and authority tomorrow, which lead to even better rankings.",
+    headline: "Accelerate Your Digital Trajectory.",
+    narrative: "GTMStack.pro empowers businesses to transcend conventional marketing by harnessing the unparalleled power of organic search. Our strategic SEO initiatives are designed not just to rank, but to convert, driving a continuous stream of qualified leads and customers directly to your digital doorstep. Experience exponential growth and solidify your market position with a partner dedicated to your long-term success.",
     metrics: [
-      { label: "Cost Per Lead", value: "85% Lower", description: "vs. paid advertising" },
-      { label: "Traffic Growth", value: "Compounding", description: "Gets better each year" },
-      { label: "Lifetime Value", value: "3x Higher", description: "Organic conversion quality" },
-    ],
+      { label: "Average Client Lifetime Value Increase", value: "30%+" },
+      { label: "Conversion Rate Improvement from Organic", value: "25%+" }
+    ]
   },
   ctaSection: {
-    title: "Ready to Build Your Organic Growth Engine?",
-    subtitle: "Let's create a comprehensive SEO strategy that compounds over time.",
-    button: { label: "Schedule SEO Strategy Call", href: "/contact" },
+    title: "Ready to Dominate Search?",
+    subtitle: "Partner with GTMStack.pro and unlock your full organic potential.",
+    button: { text: "Start Your SEO Transformation", link: "/contact" }
   },
   footer: {
-    description: "Strategic SEO for B2B technology companies. Building the compounding engine of organic growth and authority.",
+    description: "GTMStack.pro is a premier Go-To-Market strategy firm, specializing in advanced digital marketing solutions that drive measurable growth and market leadership for enterprise clients.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "SEO & Content", href: "/expertise/search-engine-optimization" },
-          { label: "Content Marketing", href: "/expertise/content-marketing" },
-          { label: "Demand Generation", href: "/expertise/demand-generation" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["SEO", "Content Marketing", "PPC", "Analytics"] },
+      { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] },
+      { title: "Resources", links: ["Case Studies", "Whitepapers", "Webinars"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }

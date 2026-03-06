@@ -66,6 +66,17 @@ interface PageContent {
   };
 }
 
+function isPageContent(value: unknown): value is Partial<PageContent> {
+  if (!value || typeof value !== 'object') return false
+  const candidate = value as Partial<PageContent>
+  return (
+    !!candidate.header &&
+    typeof candidate.header.logoText?.main === 'string' &&
+    !!candidate.hero &&
+    typeof candidate.hero.title?.main === 'string'
+  )
+}
+
 const DEFAULT_CONTENT: PageContent = {
   header: {
     logoText: { main: "REVENUE", accent: "ARCHITECT" },
@@ -181,7 +192,71 @@ const Icon = ({ name, className = "w-6 h-6" }: { name: string; className?: strin
 };
 
 export default function Template(props: { content?: unknown; pageTitle?: string }) {
-  const content = (props.content as PageContent) || DEFAULT_CONTENT;
+  const incoming = isPageContent(props.content)
+    ? (props.content as Partial<PageContent>)
+    : undefined
+
+  const content: PageContent = {
+    ...DEFAULT_CONTENT,
+    ...incoming,
+    header: {
+      ...DEFAULT_CONTENT.header,
+      ...(incoming?.header ?? {}),
+      logoText: {
+        ...DEFAULT_CONTENT.header.logoText,
+        ...(incoming?.header?.logoText ?? {}),
+      },
+      navLinks: incoming?.header?.navLinks ?? DEFAULT_CONTENT.header.navLinks,
+      cta: {
+        ...DEFAULT_CONTENT.header.cta,
+        ...(incoming?.header?.cta ?? {}),
+      },
+    },
+    hero: {
+      ...DEFAULT_CONTENT.hero,
+      ...(incoming?.hero ?? {}),
+      title: {
+        ...DEFAULT_CONTENT.hero.title,
+        ...(incoming?.hero?.title ?? {}),
+      },
+      primaryCTA: {
+        ...DEFAULT_CONTENT.hero.primaryCTA,
+        ...(incoming?.hero?.primaryCTA ?? {}),
+      },
+      secondaryCTA: {
+        ...DEFAULT_CONTENT.hero.secondaryCTA,
+        ...(incoming?.hero?.secondaryCTA ?? {}),
+      },
+      visual: {
+        ...DEFAULT_CONTENT.hero.visual,
+        ...(incoming?.hero?.visual ?? {}),
+      },
+    },
+    metrics: incoming?.metrics ?? DEFAULT_CONTENT.metrics,
+    services: {
+      ...DEFAULT_CONTENT.services,
+      ...(incoming?.services ?? {}),
+      pillars: incoming?.services?.pillars ?? DEFAULT_CONTENT.services.pillars,
+    },
+    philosophy: {
+      ...DEFAULT_CONTENT.philosophy,
+      ...(incoming?.philosophy ?? {}),
+    },
+    teasers: incoming?.teasers ?? DEFAULT_CONTENT.teasers,
+    ctaBand: {
+      ...DEFAULT_CONTENT.ctaBand,
+      ...(incoming?.ctaBand ?? {}),
+      cta: {
+        ...DEFAULT_CONTENT.ctaBand.cta,
+        ...(incoming?.ctaBand?.cta ?? {}),
+      },
+    },
+    footer: {
+      ...DEFAULT_CONTENT.footer,
+      ...(incoming?.footer ?? {}),
+      sections: incoming?.footer?.sections ?? DEFAULT_CONTENT.footer.sections,
+    },
+  }
 
   const { header, hero, metrics, services, philosophy, teasers, ctaBand, footer } = content;
 

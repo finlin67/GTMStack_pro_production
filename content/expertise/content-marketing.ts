@@ -1,133 +1,66 @@
-/**
- * Content object for Content Marketing expertise page.
- * Used by Uploaded_Expertise_ContentEngagement_v1 template.
- */
-
-export const CONTENT_MARKETING_CONTENT = {
-  metadata: {
-    title: "Content Marketing - GTMStack Pro",
-    siteName: "GTMStack.pro",
-    logoIcon: "edit",
+export const CONTENT_MARKETING_PERSONALIZATION_CONTENT = {
+  brand: {
+    tagline: "Strategic Insights for Driving Customer Engagement & Revenue Growth.",
+    description: "We transform generic content outreach into deeply relevant, personalized experiences, recognizing that genuine engagement in today's digital landscape demands a tailored approach. Moving beyond broadcasting, we build authentic relationships that accelerate your business objectives."
   },
-  navigation: [
-    { label: "Home", href: "/" },
-    { label: "Expertise", href: "/expertise", active: true },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Industries", href: "/industries" },
-    { label: "About", href: "/about" },
-  ],
   hero: {
-    badge: "Expertise Topic",
-    headline: {
-      main: "Content",
-      highlight: "Marketing",
-    },
-    description: "Strategic narrative engines that drive organic growth, build authority, and fuel demand. We engineer content systems that turn your expertise into sustainable competitive advantage.",
-    primaryCTA: { label: "Explore Content Strategy", href: "#services" },
-    secondaryCTA: { label: "Request Audit", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1634496685180-e0ad3f33c23c?q=80&w=2070&auto=format&fit=crop",
-      alt: "Content strategy and narrative architecture",
-    },
-    floatingBadges: [
-      { icon: "edit", label: "Strategic" },
-      { icon: "trending_up", label: "Growth-Driven" },
-    ],
+    headline: "Content Marketing & Personalization: Forge Deeper Connections, Drive Measurable Growth.",
+    subheadline: "Elevate your marketing from broad strokes to precision engagement, delivering the right message to the right audience at the optimal moment.",
+    description: "In an information-saturated world, generic content fails to resonate. Our expertise lies in crafting highly relevant, personalized content experiences that cut through the noise, build trust, and convert prospects into loyal customers. We champion a data-driven approach, ensuring every interaction is meaningful and impactful.",
+    primaryCTA: { text: "Strategize Your Personalized Content", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Expertise", link: "/expertise/content-marketing-personalization#capabilities" },
+    image: { src: "/images/content-marketing-personalization-hero.webp", alt: "Personalized content strategy dashboard showing audience segments and engagement metrics" }
   },
-  stats: [
-    { value: "343%", label: "Content ROI Lift", subtext: "Average improvement from strategic frameworks" },
-    { value: "4.2x", label: "Engagement Increase", subtext: "Year-over-year audience growth" },
-    { value: "180%", label: "Organic Traffic", subtext: "Sustainable growth from SEO and authority" },
-  ],
-  services: {
-    title: "Content Services",
+  metricsSection: {
+    headline: "Quantifiable Impact: Driving Performance Through Personalization",
+    stats: [
+      { label: "Increase in Marketing Qualified Leads (MQLs)", value: "30%" },
+      { label: "Increase in Platform Sign-ups", value: "20%" },
+      { label: "Improved Customer Engagement & Conversion", value: "Significant" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Strategic Capabilities in Content & Personalization",
     items: [
-      {
-        icon: "edit_note",
-        title: "Content Strategy & Architecture",
-        description: "Building modular content systems aligned to buyer journeys. Strategic pillars, editorial calendars, and measurement frameworks that scale.",
-      },
-      {
-        icon: "article",
-        title: "Long-Form & Blog Content",
-        description: "Authoritative, SEO-optimized content that educates and positions your brand. In-depth guides, research reports, and thought leadership.",
-      },
-      {
-        icon: "description",
-        title: "Demand Generation Content",
-        description: "Conversion-focused content designed to move buyers through stages. Landing pages, case studies, whitepapers, and ROI calculators.",
-      },
-      {
-        icon: "hub",
-        title: "Content Orchestration",
-        description: "Coordinating content across channels—web, email, social, paid. Ensuring consistent messaging and maximum reach.",
-      },
-      {
-        icon: "data_usage",
-        title: "Content Analytics & Measurement",
-        description: "Tracking content performance tied to pipeline and revenue. Attribution modeling, engagement scoring, and optimization cycles.",
-      },
-    ],
+      { title: "Audience-Centric Content Strategy", description: "We develop sophisticated content strategies rooted in deep buyer persona development, ensuring every piece addresses your target audience’s specific needs, pain points, and journey stage." },
+      { title: "Personalized Engagement Journeys", description: "We design and implement dynamic customer journeys, leveraging marketing automation to deliver highly relevant content and experiences at every touchpoint, fostering deeper connections." },
+      { title: "Data-Driven Optimization & ROI", description: "Our approach is rigorously data-driven. We continuously track, analyze, and refine content performance, ensuring maximum ROI and strategic alignment with your business objectives." },
+      { title: "Integrated Marketing Automation", description: "We expertly configure and optimize marketing automation platforms to streamline content delivery, nurture leads efficiently, and scale personalized interactions across channels." }
+    ]
   },
-  quote: {
-    text: "Content is engineered connection — every piece must perform a specific revenue function.",
-    subtext: "Content that doesn't move the needle isn't content—it's noise. We apply rigor and data to the art of storytelling.",
+  philosophySection: {
+    headline: "Our Foundational Principles for Content Excellence",
+    principles: [
+      { title: "Content as Conversation", description: "We believe content should foster a two-way dialogue, not a monologue. Our strategies are designed to engage, listen, and respond, building authentic relationships." },
+      { title: "Purpose-Driven Content", description: "Every piece of content must serve a clear strategic purpose. We reject content for content's sake, focusing instead on delivering genuine value that moves audiences towards a desired outcome." },
+      { title: "Precision Personalization", description: "True personalization extends beyond names; it's about delivering the *right* content, at the *right* time, through the *right* channel, tailored to individual needs and context." },
+      { title: "Continuous Strategic Refinement", description: "Our methodologies, including A/B testing and content mapping, ensure ongoing optimization. We adapt and evolve strategies based on performance insights and market shifts." }
+    ]
   },
-  explore: {
-    title: "Explore Further",
-    viewAllHref: "/expertise",
-    cards: [
-      {
-        category: "CASE STUDY",
-        title: "500K MRR with Content-Led GTM",
-        description: "How a B2B SaaS scaled from 0 to $500K MRR primarily through strategic content and organic growth.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "View Case Study",
-        href: "/case-studies",
-      },
-      {
-        category: "INSIGHTS",
-        title: "Content ROI Framework",
-        description: "How to measure and optimize content performance tied directly to pipeline and revenue outcomes.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "Read Article",
-        href: "/insights",
-      },
-      {
-        category: "RESOURCE",
-        title: "Content Audit Checklist",
-        description: "Self-assessment tool to evaluate your current content strategy maturity and identify gaps.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "Download",
-        href: "/resources",
-      },
-    ],
+  growthSection: {
+    headline: "Accelerating Your Business Growth Through Strategic Content",
+    narrative: "In today's competitive landscape, growth hinges on relevance. We empower B2B companies, particularly those with complex products in SaaS, Fintech, and Retail, to transcend generic marketing. By meticulously segmenting audiences, mapping content to specific buyer journeys, and leveraging advanced automation, we transform passive viewers into engaged prospects and loyal customers. Our focus on data-driven insights ensures that every content investment yields measurable returns, driving lead generation, improving conversion rates, and fostering sustainable revenue growth.",
+    metrics: [
+      { label: "Enhanced Lead Quality", value: "Proven" },
+      { label: "Accelerated Sales Cycles", value: "Optimized" },
+      { label: "Increased Customer Lifetime Value", value: "Strategic" }
+    ]
   },
   ctaSection: {
-    title: "Ready to Engineer Your Content Strategy?",
-    subtitle: "Let's build a content system that drives predictable pipeline and sustainable growth.",
-    button: { label: "Schedule a Content Audit", href: "/contact" },
+    title: "Ready to Elevate Your Content Strategy?",
+    subtitle: "Partner with GTMStack.pro to unlock the full potential of personalized content marketing, driving deeper engagement and accelerating your revenue growth.",
+    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
   },
   footer: {
-    description: "Strategic content systems for B2B technology companies. Transforming expertise into sustainable competitive advantage.",
+    description: "GTMStack.pro specializes in Content Marketing & Personalization, crafting bespoke strategies that drive engagement, build loyalty, and accelerate revenue for B2B enterprises.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Content Marketing", href: "/expertise/content-marketing" },
-          { label: "Demand Generation", href: "/expertise/demand-generation" },
-          { label: "SEO & Content", href: "/expertise/search-engine-optimization" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["Content Strategy", "Personalization", "Marketing Automation", "Performance Optimization"] },
+      { title: "Company", links: ["About Us", "Contact", "Careers"] },
+      { title: "Resources", links: ["Blog", "Case Studies", "Whitepapers"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
-}
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
+};
+
+// Backward-compatible alias used by existing registry imports.
+export const CONTENT_MARKETING_CONTENT = CONTENT_MARKETING_PERSONALIZATION_CONTENT;

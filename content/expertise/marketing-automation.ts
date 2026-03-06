@@ -1,143 +1,65 @@
-/**
- * Content object for Marketing Automation expertise page.
- * Used by Uploaded_SystemOperations_v1 template.
- */
-
 export const MARKETING_AUTOMATION_CONTENT = {
-  header: {
-    title: "Marketing Automation",
-    subtitle: "Workflow orchestration that scales personalization and nurtures at speed",
+  brand: {
+    tagline: "Intelligent Automation for Unrivaled Growth.",
+    description: "GTMStack.pro empowers businesses to transcend manual limitations, leveraging sophisticated marketing automation strategies to drive efficiency, personalize customer journeys, and achieve measurable ROI. We transform your marketing operations into a precision-engineered growth engine."
   },
   hero: {
-    headline: "Marketing Automation",
-    subheadline: "Orchestrating workflows that nurture prospects and accelerate pipeline at scale",
-    description: "Marketing automation empowers teams to nurture leads, coordinate campaigns, and personalize at scale. Without automation, sending 1:1 personalized messages to thousands of prospects is impossible. With automation done right, you can orchestrate complex, multi-step campaigns that nurture buyers through their journey.",
-    primaryCTA: { label: "Explore MA Strategy", href: "#services" },
-    secondaryCTA: { label: "Assess Your MA Stack", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-      alt: "Marketing automation and workflow orchestration",
-    },
+    headline: "Master Marketing Automation for Exponential Business Growth.",
+    subheadline: "Strategically implement, optimize, and scale your marketing efforts with GTMStack.pro's expert guidance.",
+    description: "In today's competitive landscape, effective marketing automation is not just an advantage—it's a necessity. We provide end-to-end solutions, from platform selection and strategic blueprinting to seamless integration and continuous optimization, ensuring your marketing works smarter, not harder.",
+    primaryCTA: { text: "Schedule a Strategic Consultation", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Capabilities", link: "/capabilities" },
+    image: { src: "/images/marketing-automation-hero.webp", alt: "Digital dashboard showing marketing automation workflows and analytics" }
   },
-  metrics: {
-    title: "Marketing Automation Impact",
+  metricsSection: {
+    headline: "Quantifiable Impact: The Power of Strategic Automation",
+    stats: [
+      { label: "Increase in Lead Conversion", value: "30%+" },
+      { label: "Reduction in Manual Marketing Tasks", value: "45%+" },
+      { label: "Improvement in Customer Retention", value: "20%+" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Core Marketing Automation Expertise",
     items: [
-      {
-        value: "+280%",
-        label: "Lead Nurture Efficiency",
-        description: "More leads nurtured with same team",
-      },
-      {
-        value: "3.5x",
-        label: "Campaign ROI",
-        description: "Through personalization at scale",
-      },
-      {
-        value: "-45%",
-        label: "Sales Cycle Reduction",
-        description: "From faster nurture and qualification",
-      },
-    ],
+      { title: "Strategy & Blueprinting", description: "Developing bespoke automation strategies aligned with your business objectives, mapping customer journeys, and defining key performance indicators." },
+      { title: "Platform Selection & Implementation", description: "Guiding you through the selection of the ideal marketing automation platform (MAP) and ensuring flawless implementation and configuration." },
+      { title: "Workflow Design & Optimization", description: "Crafting intelligent, multi-channel workflows for lead nurturing, customer onboarding, retention, and re-engagement, continuously optimizing for performance." },
+      { title: "Data Integration & Segmentation", description: "Seamlessly integrating your MAP with CRM and other systems, enabling robust data synchronization and advanced audience segmentation for hyper-personalization." },
+      { title: "Analytics & Reporting", description: "Establishing comprehensive tracking and reporting frameworks to provide actionable insights into campaign performance, ROI, and customer behavior." },
+      { title: "Training & Enablement", description: "Empowering your internal teams with the knowledge and skills to effectively manage and leverage your marketing automation infrastructure." }
+    ]
   },
-  services: {
-    title: "Marketing Automation Services",
-    items: [
-      {
-        icon: "schema",
-        title: "MA Platform Selection & Setup",
-        description: "Evaluating marketing automation platforms (Marketo, HubSpot, Pardot, etc.) and implementing your chosen platform.",
-      },
-      {
-        icon: "workspaces",
-        title: "Workflow Design & Orchestration",
-        description: "Designing lead scoring workflows, nurture sequences, and campaign flows. Ensuring workflows are optimized and scalable.",
-      },
-      {
-        icon: "mail",
-        title: "Email Campaign Strategy",
-        description: "Email orchestration, segmentation, personalization, and A/B testing. Building email programs that drive engagement.",
-      },
-      {
-        icon: "data_usage",
-        title: "Data & Lead Management",
-        description: "Database hygiene, lead scoring rules, CRM synchronization. Ensuring data quality and lead flow.",
-      },
-      {
-        icon: "training",
-        title: "Team Training & Enablement",
-        description: "Training marketing and sales teams on platform usage. Best practices and workflow management.",
-      },
-    ],
+  philosophySection: {
+    headline: "Our Strategic Approach to Marketing Automation",
+    principles: [
+      { title: "Data-Driven Personalization", description: "Every automation initiative is rooted in data, enabling highly personalized experiences that resonate with individual customer needs and preferences." },
+      { title: "Scalability & Future-Proofing", description: "We design automation solutions that are not only effective today but also scalable and adaptable to your evolving business requirements and market dynamics." },
+      { title: "ROI-Centric Optimization", description: "Our focus is on delivering tangible business outcomes. We continuously monitor, test, and refine automation processes to maximize your return on investment." },
+      { title: "Seamless Integration", description: "Recognizing the interconnectedness of modern tech stacks, we prioritize seamless integration with your existing systems for a unified operational view." }
+    ]
   },
-  philosophy: {
-    title: "Marketing Automation Philosophy",
-    points: [
-      {
-        title: "Automation Scales, Not Replaces",
-        description: "Automation lets small teams do big things. But bad automation at scale is a disaster. Strategy precedes tools.",
-      },
-      {
-        title: "Lead Scoring is Core",
-        description: "Good lead scoring separates MQLs from SQLs and ensures sales focuses on high-quality leads. Scoring rules must be explicit and data-driven.",
-      },
-      {
-        title: "Nurture Programs Drive Conversion",
-        description: "The most common failure: generating leads but not nurturing them. Nurture sequences move buyers from awareness to consideration.",
-      },
-      {
-        title: "Segmentation Drives Personalization",
-        description: "Generic nurture sequences underperform. Segmented, personalized sequences drive engagement and conversion.",
-      },
-    ],
+  growthSection: {
+    headline: "Driving Measurable Growth Through Automation",
+    narrative: "GTMStack.pro transforms your marketing from a series of disparate tasks into a cohesive, automated ecosystem. By streamlining operations, enhancing personalization, and providing deep analytical insights, we empower your business to acquire, nurture, and retain customers more effectively, fueling sustainable and predictable growth.",
+    metrics: [
+      { label: "Enhanced Customer Lifetime Value", value: "Significant" },
+      { label: "Accelerated Sales Cycle", value: "Up to 25%" },
+      { label: "Improved Marketing Efficiency", value: "Substantial" }
+    ]
   },
-  teasers: {
-    title: "Marketing Automation Resources",
-    items: [
-      {
-        category: "CASE STUDY",
-        title: "MA Increased Lead Conversion by 155%",
-        description: "How proper workflow design and lead scoring improved lead-to-customer conversion rates.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "FRAMEWORK",
-        title: "Lead Scoring Best Practices",
-        description: "How to build explicit, data-driven lead scoring models that accurately predict MQL and SQL.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "TEMPLATE",
-        title: "Nurture Email Sequence Template",
-        description: "Ready-to-use nurture sequences for different buyer stages and personas.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      },
-    ],
-  },
-  ctaBand: {
-    title: "Ready to Optimize Your Marketing Automation?",
-    subtitle: "Let's design automation workflows that nurture leads and accelerate pipeline.",
-    cta: { label: "Schedule MA Strategy Call", href: "/contact" },
+  ctaSection: {
+    title: "Ready to Revolutionize Your Marketing Operations?",
+    subtitle: "Partner with GTMStack.pro to unlock the full potential of marketing automation and achieve your most ambitious growth targets.",
+    button: { text: "Begin Your Automation Journey", link: "/contact" }
   },
   footer: {
-    description: "Strategic marketing automation that enables scalable, personalized nurturing at every stage.",
+    description: "GTMStack.pro is your strategic partner in mastering the complexities of modern GTM strategies, driving efficiency, and accelerating growth through expert implementation and optimization.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Marketing Automation", href: "/expertise/marketing-automation" },
-          { label: "Martech Optimization", href: "/expertise/martech-optimization" },
-          { label: "Marketing Analytics", href: "/expertise/marketing-analytics-reporting" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["Marketing Automation", "CRM Implementation", "Sales Enablement", "Data Analytics"] },
+      { title: "Company", links: ["About Us", "Our Philosophy", "Careers", "Contact"] },
+      { title: "Resources", links: ["Blog", "Case Studies", "Whitepapers", "Webinars"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }

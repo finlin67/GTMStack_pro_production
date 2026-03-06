@@ -1,143 +1,68 @@
-/**
- * Content object for Marketing Analytics & Reporting expertise page.
- * Used by Uploaded_SystemOperations_v1 template.
- */
-
-export const MARKETING_ANALYTICS_REPORTING_CONTENT = {
-  header: {
-    title: "Marketing Analytics & Reporting",
-    subtitle: "Data-driven insights that accelerate optimization and prove marketing impact",
+export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
+  brand: {
+    tagline: "Transforming Marketing Data into Actionable Insights and Measurable ROI.",
+    description: "We move beyond complex tracking to build reporting dashboards and attribution models that deliver clear, concise narratives, driving informed decisions and demonstrating the true impact of your marketing investments. It's about understanding what truly moves the needle for your business."
   },
   hero: {
-    headline: "Marketing Analytics & Reporting",
-    subheadline: "Transforming data into actionable insights that drive revenue impact",
-    description: "Marketing analytics is the foundation of continuous optimization. Without clear measurement and reporting, you're flying blind. We build comprehensive analytics and reporting systems that prove marketing impact, reveal optimization opportunities, and guide strategic decisions.",
-    primaryCTA: { label: "Explore Analytics Strategy", href: "#services" },
-    secondaryCTA: { label: "Audit Your Analytics", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-      alt: "Marketing analytics and data insights",
-    },
+    headline: "Unlock Your Marketing ROI with Actionable Reporting & Precise Attribution.",
+    subheadline: "Stop guessing. Start growing. We build the data infrastructure that reveals true campaign impact and optimizes every marketing dollar.",
+    description: "Our expertise lies in translating raw marketing data into strategic insights. We design and implement robust reporting dashboards and sophisticated attribution models that empower you to make data-driven decisions, justify spend, and accelerate revenue growth.",
+    primaryCTA: { text: "Get Actionable Insights", link: "#contact" },
+    secondaryCTA: { text: "Explore Our Approach", link: "#capabilities" },
+    image: { src: "/images/reporting-dashboards-attribution-hero.webp", alt: "Modern data visualization dashboard showing marketing performance metrics and attribution models" }
   },
-  metrics: {
-    title: "Analytics Impact",
+  metricsSection: {
+    headline: "The Impact of Strategic Data & Attribution",
+    stats: [
+      { label: "Improved Campaign ROI", value: "25%+" },
+      { label: "Enhanced Decision Accuracy", value: "90%" },
+      { label: "Optimized Marketing Spend", value: "30%+" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Expertise in Data-Driven Marketing & Attribution",
     items: [
-      {
-        value: "+42%",
-        label: "Optimization Lift",
-        description: "From data-driven insights",
-      },
-      {
-        value: "5.1x",
-        label: "Analytics ROI",
-        description: "Every dollar invested returns",
-      },
-      {
-        value: "-38%",
-        label: "CAC Reduction",
-        description: "Through systematic optimization",
-      },
-    ],
+      { title: "Strategic Dashboard Design", description: "We build custom dashboards tailored to your specific business objectives and KPIs, ensuring clarity and relevance for every stakeholder." },
+      { title: "Advanced Attribution Modeling", description: "Leveraging multi-touch, algorithmic, and custom models, we accurately measure the true impact of every marketing touchpoint across the customer journey." },
+      { title: "Data-Driven Insights & Storytelling", description: "We translate complex data into clear, concise narratives and actionable recommendations that inform strategic decision-making and drive measurable results." },
+      { title: "CRM & Data Integration", description: "Seamlessly integrate data from various sources, including CRMs, ad platforms, and analytics tools, for a unified view of performance." },
+      { title: "KPI Definition & Measurement", description: "Establish and track the most critical Key Performance Indicators that directly align with your business goals, moving beyond vanity metrics." },
+      { title: "Ongoing Optimization & Validation", description: "We continuously monitor, refine, and validate your reporting dashboards and attribution models to ensure accuracy and adapt to evolving business priorities." }
+    ]
   },
-  services: {
-    title: "Analytics & Measurement Services",
-    items: [
-      {
-        icon: "assessment",
-        title: "Analytics Infrastructure & Tracking",
-        description: "Implementing proper tracking, event structure, and data collection. Ensuring clean, reliable data.",
-      },
-      {
-        icon: "analytics",
-        title: "Attribution Modeling",
-        description: "Understanding which touchpoints drive revenue. First-click, last-click, and multi-touch attribution models.",
-      },
-      {
-        icon: "dashboard",
-        title: "Dashboard & Reporting",
-        description: "Building dashboards and reports that reveal insights. Executive dashboards tied to business outcomes.",
-      },
-      {
-        icon: "trending_up",
-        title: "Funnel & Conversion Analysis",
-        description: "Identifying leaks and optimization opportunities in conversion funnels.",
-      },
-      {
-        icon: "lightbulb",
-        title: "Insights & Optimization",
-        description: "Translating data into actionable insights. A/B testing frameworks and experimentation roadmaps.",
-      },
-    ],
+  philosophySection: {
+    headline: "Our Guiding Principles for Actionable Data",
+    principles: [
+      { title: "Data is for Understanding, Not Just Collecting", description: "We believe the true value of data lies in its interpretation and application. Our focus is on translating raw information into strategic insights that drive action." },
+      { title: "Focus on the Story, Not Just the Numbers", description: "Effective reporting tells a compelling story about your marketing performance. We design dashboards that visualize the entire customer journey and highlight impactful touchpoints." },
+      { title: "Actionability Over Complexity", description: "While sophisticated, our solutions prioritize actionable insights. We ensure that every dashboard and attribution model directly informs strategic decisions and campaign optimization." },
+      { title: "Iterate and Refine", description: "Attribution models and dashboards are not static. We advocate for a phased approach, starting simple and iterating based on evolving data, business needs, and market dynamics." }
+    ]
   },
-  philosophy: {
-    title: "Analytics Philosophy",
-    points: [
-      {
-        title: "Data Drives Decisions",
-        description: "All strategic and tactical decisions should be grounded in data. Intuition is good, but data is better.",
-      },
-      {
-        title: "Measure What Matters",
-        description: "Not all metrics matter equally. Focus on metrics that connect to revenue: MAU, CAC, LTV, conversion rate, pipeline impact.",
-      },
-      {
-        title: "Attribution is Hard",
-        description: "Single-touch attribution (first-click or last-click) tells incomplete stories. Multi-touch models are complex but more accurate.",
-      },
-      {
-        title: "Continuous Optimization",
-        description: "Analytics is not a one-time exercise. Measurement and optimization are continuous, iterative processes.",
-      },
-    ],
+  growthSection: {
+    headline: "Driving Measurable Growth Through Insight",
+    narrative: "Our approach to reporting and attribution has evolved from merely building complex tracking systems to focusing intensely on actionable insights. We've seen firsthand how overwhelming data without strategic direction can hinder growth. By shifting the emphasis to dashboards that translate raw data into clear, concise narratives, we empower businesses to make informed decisions, optimize marketing spend, and demonstrate the true ROI of their efforts. This isn't just about assigning credit; it's about understanding the entire customer journey and what truly moves the needle for your business.",
+    metrics: [
+      { label: "Campaign ROI Improvement", value: "20-40%" },
+      { label: "Lead Conversion Rate Increase", value: "15-30%" },
+      { label: "Marketing Spend Optimization", value: "25%+" }
+    ]
   },
-  teasers: {
-    title: "Analytics Case Studies & Resources",
-    items: [
-      {
-        category: "CASE STUDY",
-        title: "Analytics-Driven 42% Performance Lift",
-        description: "How systematic measurement and testing drove significant improvements in conversion rates and CAC.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "FRAMEWORK",
-        title: "Multi-Touch Attribution Model",
-        description: "Understanding which touchpoints drive revenue and optimizing accordingly.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "TEMPLATE",
-        title: "Marketing Metrics Dashboard",
-        description: "KPI framework and dashboard template for executive reporting.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      },
-    ],
-  },
-  ctaBand: {
-    title: "Ready to Build Your Analytics System?",
-    subtitle: "Let's create comprehensive measurement and reporting that guides optimization and proves impact.",
-    cta: { label: "Schedule Analytics Strategy Call", href: "/contact" },
+  ctaSection: {
+    title: "Ready to Transform Your Marketing Data into Strategic Advantage?",
+    subtitle: "Partner with GTMStack.pro to build robust reporting dashboards and attribution models that deliver actionable insights and drive real business results.",
+    button: { text: "Schedule a Consultation", link: "#contact" }
   },
   footer: {
-    description: "Strategic marketing analytics that drives data-informed decisions and continuous optimization.",
+    description: "GTMStack.pro transforms your marketing data into actionable insights with custom-built reporting dashboards and robust attribution models, optimizing your campaigns for maximum ROI.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Marketing Analytics", href: "/expertise/marketing-analytics-reporting" },
-          { label: "Marketing Automation", href: "/expertise/marketing-automation" },
-          { label: "MarTech Optimization", href: "/expertise/martech-optimization" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["Reporting & Attribution", "Marketing Analytics", "CRM Integration", "Campaign Optimization"] },
+      { title: "Company", links: ["About Us", "Our Philosophy", "Contact"] },
+      { title: "Resources", links: ["Blog", "Case Studies", "FAQs"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }
+
+// Backward-compatible alias used by existing registry imports.
+export const MARKETING_ANALYTICS_REPORTING_CONTENT = REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT

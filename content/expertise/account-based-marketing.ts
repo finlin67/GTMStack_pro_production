@@ -1,117 +1,65 @@
-/**
- * Content object for Account-Based Marketing expertise page.
- * Used by Uploaded_Expertise_DemandGrowth_v1 template.
- */
-
 export const ACCOUNT_BASED_MARKETING_CONTENT = {
   brand: {
-    tagline: "Precision GTM for High-Value Accounts",
-    description: "ABM is the art and science of targeting, engaging, and closing high-value accounts. We build account-centric motion from pipeline to signature.",
+    tagline: "Unlock the full potential of Account-Based Marketing by building a strategic, data-driven program that drives revenue growth and strengthens your relationships with high-value accounts.",
+    description: "Account-Based Marketing (ABM) transcends traditional targeting; it's a fundamental shift towards understanding and engaging high-value accounts with precision. In a competitive landscape, ABM delivers superior ROI by fostering deeper relationships and driving revenue growth through targeted, personalized engagement, moving beyond volume to value."
   },
   hero: {
-    headline: "Account-Based Marketing",
-    subheadline: "Orchestrated, precision GTM for your highest-value accounts",
-    description: "ABM flips demand generation on its head—instead of casting wide nets, we orchestrate laser-focused campaigns tailored to specific target accounts. Each piece of marketing is personalized, coordinated, and designed to accelerate deals.",
-    primaryCTA: { label: "Explore ABM Strategy", href: "#capabilities" },
-    secondaryCTA: { label: "Request ABM Assessment", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      alt: "Account-based marketing orchestration",
-    },
+    headline: "Master Account-Based Marketing: Drive Precision Growth with High-Value Accounts",
+    subheadline: "Shift from broad campaigns to strategic, personalized engagement that accelerates revenue and builds lasting relationships.",
+    description: "Our expertise in Account-Based Marketing is rooted in a holistic approach that deeply integrates sales and marketing around a shared understanding of your most valuable accounts. We move beyond mere targeting to cultivate profound relationships, ensuring every interaction is meaningful and contributes to measurable business outcomes.",
+    primaryCTA: { text: "Build Your Strategic ABM Program", link: "/contact" },
+    secondaryCTA: { text: "Explore Our ABM Framework", link: "/expertise/account-based-marketing#our-approach" },
+    image: { src: "/images/abm-hero.jpg", alt: "Strategic team collaborating on an account-based marketing plan" }
   },
   metricsSection: {
-    headline: "ABM Impact",
+    headline: "Achieve Tangible Results with a Strategic ABM Approach",
     stats: [
-      { value: "+42%", label: "Win Rate Improvement", description: "Average increase in deal closure rates" },
-      { value: "5.2x", label: "Sales Productivity", description: "Revenue per sales rep with ABM" },
-      { value: "$3.8M", label: "Average ACV Growth", description: "Accounts engaged through ABM motion" },
-    ],
+      { label: "Higher ROI", value: "3X+" },
+      { label: "Increased Win Rates", value: "20%+" },
+      { label: "Deeper Account Relationships", value: "Proven" }
+    ]
   },
   capabilitiesSection: {
-    headline: "ABM Services & Capabilities",
+    headline: "Our Comprehensive ABM Capabilities",
     items: [
-      {
-        icon: "target",
-        title: "Target Account Selection",
-        description: "Identifying and prioritizing high-value accounts based on fit, signal, and revenue potential. Account scoring and segmentation.",
-      },
-      {
-        icon: "person",
-        title: "Buying Committee Mapping",
-        description: "Identifying and profiling decision-makers and influencers within target accounts. Persona development and relationship mapping.",
-      },
-      {
-        icon: "mail",
-        title: "Personalized Engagement",
-        description: "Coordinated, personalized outreach across channels. Email, LinkedIn, direct mail, ads—all orchestrated around the account.",
-      },
-      {
-        icon: "campaign",
-        title: "Multi-Channel Campaigns",
-        description: "Paid advertising, content, events, and sales enablement all coordinated around target accounts.",
-      },
-      {
-        icon: "analytics",
-        title: "Account Engagement Tracking",
-        description: "Real-time visibility into account health, engagement velocity, and buying committee activity.",
-      },
-    ],
+      { title: "Strategic Account Identification & Scoring", description: "We define and prioritize your ideal customer profiles (ICPs) and high-value accounts using advanced scoring models, ensuring focus on the most promising opportunities." },
+      { title: "Personalized Content & Engagement Orchestration", description: "Develop compelling, account-specific narratives and orchestrate multi-channel engagement strategies, including account-specific website experiences, to resonate deeply with decision-makers." },
+      { title: "Sales & Marketing Alignment", description: "Facilitate seamless collaboration between sales and marketing teams, ensuring shared understanding, unified strategy, and consistent execution across the entire account journey." },
+      { title: "Performance Measurement & Optimization", description: "Implement robust tracking and analytics to measure ABM program effectiveness, focusing on engagement, pipeline acceleration, and revenue outcomes for continuous improvement." },
+      { title: "Sales Enablement & CRM Integration", description: "Empower your sales team with critical account intelligence and integrate ABM activities with CRM and marketing automation platforms for streamlined execution and visibility." }
+    ]
   },
   philosophySection: {
-    headline: "ABM Philosophy",
+    headline: "Our Foundational Principles for ABM Success",
     principles: [
-      {
-        title: "Precision Over Volume",
-        description: "Quality over quantity. Focus marketing resources on accounts with the highest contract value and best fit.",
-      },
-      {
-        title: "Sales & Marketing Alignment",
-        description: "ABM requires deep collaboration between sales and marketing. Shared targets, coordinated motion, aligned metrics.",
-      },
-      {
-        title: "Buying Committee Orchestration",
-        description: "Modern B2B sales require alignment of 6-8+ decision-makers. ABM addresses the committee, not individuals.",
-      },
-      {
-        title: "Account-Centric Metrics",
-        description: "Success is measured in account engagement, pipeline velocity, and revenue. Not leads or email opens.",
-      },
-    ],
+      { title: "Engagement Over Lead Generation", description: "We prioritize deep, meaningful engagement with target accounts, understanding that true value comes from sustained interaction, not just initial contact." },
+      { title: "Relationships Over Transactions", description: "Our approach builds long-term, trust-based relationships with accounts, recognizing that enduring partnerships drive greater lifetime value than singular deals." },
+      { title: "Understanding Over Mere Targeting", description: "It's not just about *who* you target, but *why*. We delve into the unique business challenges, goals, and psychology of each account to tailor truly impactful strategies." },
+      { title: "Outcomes Over Activities", description: "We focus on measurable business outcomes—pipeline growth, win rates, revenue—rather than simply tracking marketing activities, ensuring every effort contributes to strategic goals." },
+      { title: "Trust Through Collaboration", description: "The most successful ABM programs are built on a foundation of trust, fostered by genuine collaboration between sales and marketing, demonstrating a unified commitment to the account's success." }
+    ]
   },
   growthSection: {
-    headline: "ABM Drives Deal Velocity",
-    narrative: "ABM fundamentally changes the sales and marketing relationship. Instead of marketing throwing leads at sales, both teams align around a shared set of target accounts and orchestrate a coordinated motion. Sales knows which accounts marketing is activating. Marketing knows which accounts are in active deals. This alignment accelerates velocity and improves close rates.",
+    headline: "Transform Your Go-to-Market with Strategic ABM",
+    narrative: "We partner with B2B companies facing complex sales cycles and seeking to maximize value from high-potential accounts. Our phased engagement model begins with a strategic assessment, moving through program design and implementation support, to ongoing optimization. This ensures your ABM framework is not only effective but also scalable, driving accelerated sales cycles, enhanced customer lifetime value, and optimized marketing spend.",
     metrics: [
-      { label: "Average Deal Cycle", value: "-35%", description: "Shorter time to close" },
-      { label: "Sales Productivity", value: "+48%", description: "Revenue per rep" },
-      { label: "Win Rate", value: "+28%", description: "Improvement vs. outbound" },
-    ],
+      { label: "Accelerated Sales Cycles", value: "Significant Reduction" },
+      { label: "Enhanced Customer Lifetime Value", value: "Substantial Increase" },
+      { label: "Optimized Marketing Spend", value: "Maximized Efficiency" }
+    ]
   },
   ctaSection: {
-    title: "Ready to Implement Account-Based Marketing?",
-    subtitle: "Let's build a precision GTM motion around your highest-value accounts.",
-    button: { label: "Schedule ABM Assessment", href: "/contact" },
+    title: "Ready to Build a High-Impact ABM Strategy?",
+    subtitle: "Partner with us to unlock precision growth, deepen account relationships, and achieve measurable revenue outcomes.",
+    button: { text: "Schedule Your ABM Consultation", link: "/contact" }
   },
   footer: {
-    description: "Strategic account-based marketing for B2B technology companies. Accelerating deals through precision orchestration.",
+    description: "GTMStack.pro empowers B2B organizations to achieve strategic growth through expert guidance in Account-Based Marketing and other advanced go-to-market strategies.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Account-Based Marketing", href: "/expertise/account-based-marketing" },
-          { label: "Sales Enablement", href: "/expertise/sales-enablement" },
-          { label: "Demand Generation", href: "/expertise/demand-generation" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["/services/abm", "/services/go-to-market-strategy", "/services/sales-enablement"] },
+      { title: "Company", links: ["/about", "/contact", "/careers"] },
+      { title: "Resources", links: ["/blog", "/case-studies", "/whitepapers"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }

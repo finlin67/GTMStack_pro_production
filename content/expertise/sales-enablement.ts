@@ -1,117 +1,66 @@
-/**
- * Content object for Sales Enablement expertise page.
- * Used by Uploaded_Expertise_DemandGrowth_v1 template.
- */
-
-export const SALES_ENABLEMENT_CONTENT = {
+export const EXPERTISE_CONTENT = {
   brand: {
-    tagline: "Sales Acceleration Through Enablement",
-    description: "Sales enablement is the bridge between marketing and revenue. We build systems that empower sales to sell faster and close more deals.",
+    tagline: "Mastering Go-To-Market. Delivering Unstoppable Growth.",
+    description: "GTMStack.pro is the strategic partner for businesses seeking to optimize their Go-To-Market engines. We combine deep expertise with actionable strategies to drive predictable revenue growth and operational excellence."
   },
   hero: {
-    headline: "Sales Enablement",
-    subheadline: "Empowering sales to accelerate deals and close more revenue",
-    description: "Sales enablement is the critical bridge between demand generation and revenue. It ensures your sales team has the messaging, content, skills, and tools to accelerate deals. We build comprehensive sales enablement programs that improve deal velocity and win rates.",
-    primaryCTA: { label: "Explore Sales Enablement", href: "#capabilities" },
-    secondaryCTA: { label: "Request Enablement Audit", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      alt: "Sales enablement and acceleration",
-    },
+    headline: "Unrivaled GTM Expertise for Unstoppable Growth.",
+    subheadline: "Transforming Go-To-Market Challenges into Strategic Advantages.",
+    description: "At GTMStack.pro, our expertise is your competitive edge. We provide the strategic insight, operational frameworks, and hands-on execution required to build, optimize, and scale high-performing Go-To-Market systems.",
+    primaryCTA: { text: "Schedule an Expert Consultation", link: "/contact" },
+    secondaryCTA: { text: "Explore Our GTM Framework", link: "/framework" },
+    image: { src: "/images/expertise-hero.webp", alt: "GTMStack.pro experts collaborating on a strategic Go-To-Market plan" }
   },
   metricsSection: {
-    headline: "Sales Enablement Impact",
+    headline: "Our Expertise Delivers Tangible Results.",
     stats: [
-      { value: "+35%", label: "Deal Velocity", description: "Faster time to close with enablement" },
-      { value: "+28%", label: "Win Rate", description: "Improvement from better messaging and content" },
-      { value: "+18%", label: "Sales Productivity", description: "Revenue per rep increase" },
-    ],
+      { label: "Average Client Revenue Growth", value: "35%+" },
+      { label: "Sales Cycle Reduction", value: "20%" },
+      { label: "Marketing ROI Improvement", value: "30%+" }
+    ]
   },
   capabilitiesSection: {
-    headline: "Sales Enablement Services",
+    headline: "Core Pillars of Our GTM Expertise.",
     items: [
-      {
-        icon: "description",
-        title: "Sales Collateral & Assets",
-        description: "One-sheets, case studies, battle cards, ROI calculators, proposals. Content designed for sales to use in deals.",
-      },
-      {
-        icon: "school",
-        title: "Sales Messaging & Training",
-        description: "Value proposition, competitive positioning, discovery messaging. Training on how to use messaging effectively.",
-      },
-      {
-        icon: "videocam",
-        title: "Sales Presentations & Decks",
-        description: "Pitch decks, presentation templates, demo scripts. Visual storytelling that accelerates buyer conversations.",
-      },
-      {
-        icon: "assessment",
-        title: "Sales Tools & CRM Optimization",
-        description: "Sales stack evaluation, CRM configuration, reports and dashboards. Tooling that improves productivity.",
-      },
-      {
-        icon: "trending_up",
-        title: "Sales Coaching & Execution",
-        description: "Sales training, role playing, call coaching. Ongoing support to ensure adoption of new messaging and tools.",
-      },
-    ],
+      { title: "Strategic GTM Blueprinting", description: "Developing comprehensive Go-To-Market strategies aligned with your business objectives, market dynamics, and customer journey." },
+      { title: "Sales & Marketing Alignment", description: "Orchestrating seamless collaboration between sales and marketing teams to optimize lead flow, conversion rates, and revenue generation." },
+      { title: "Revenue Operations (RevOps) Optimization", description: "Designing and implementing robust RevOps frameworks that unify data, processes, and technology across your GTM functions for maximum efficiency." },
+      { title: "Performance Analytics & Insights", description: "Leveraging advanced data analytics to provide actionable insights, identify growth opportunities, and ensure continuous GTM optimization." },
+      { title: "Technology Stack Integration", description: "Advising on and implementing the optimal GTM technology stack, ensuring seamless integration and maximizing ROI from your tools." }
+    ]
   },
   philosophySection: {
-    headline: "Sales Enablement Philosophy",
+    headline: "Our Guiding Principles: The Foundation of Our Expertise.",
     principles: [
-      {
-        title: "Front-Line Centric",
-        description: "Enablement is built around sales—their challenges, workflows, and needs. What makes reps' jobs easier and deals faster?",
-      },
-      {
-        title: "Messaging First",
-        description: "Without clear, compelling messaging, all the collateral in the world won't help. Message comes first.",
-      },
-      {
-        title: "Adoption Through Use",
-        description: "Great enablement gets used because it solves real problems sales reps have. Alignment with sales workflows is critical.",
-      },
-      {
-        title: "Continuous Optimization",
-        description: "What works in January might not work in March. Enablement must evolve with market conditions and competitive threats.",
-      },
-    ],
+      { title: "Data-Driven Decisions", description: "Every strategy and recommendation is rooted in rigorous data analysis, ensuring informed choices and predictable outcomes." },
+      { title: "Holistic GTM Integration", description: "We believe true GTM success comes from a unified approach, breaking down silos between sales, marketing, and operations." },
+      { title: "Sustainable Growth", description: "Our solutions are designed not just for immediate impact, but for building scalable, resilient GTM engines that drive long-term value." },
+      { title: "Client Empowerment", description: "We partner with you, transferring knowledge and building internal capabilities to ensure your team's continued success." }
+    ]
   },
   growthSection: {
-    headline: "Sales Enablement Multiplies Demand",
-    narrative: "Imagine doubling your marketing spend but only improving pipeline by 20%. That's what happens when sales can't effectively move qualified leads into deals. Sales enablement fixes this. Better messaging, better collateral, better training, better tools—all of these help sales move prospects faster and close more deals. Enablement multiplies the value of demand generation.",
+    headline: "Accelerating Your Path to Market Leadership.",
+    narrative: "Our expertise isn't just theoretical; it's forged in the trenches of countless GTM transformations. We understand the complexities of scaling, the nuances of market entry, and the critical importance of operational efficiency. By partnering with GTMStack.pro, you gain access to a collective intelligence that has consistently propelled businesses past their growth plateaus and towards market dominance.",
     metrics: [
-      { label: "Opportunity Value", value: "+$180K", description: "Average higher contract values" },
-      { label: "Sales Cycle", value: "-25%", description: "Shorter time to close" },
-      { label: "Forecast Accuracy", value: "+35%", description: "More predictable pipeline" },
-    ],
+      { label: "Collective Years of GTM Experience", value: "100+" },
+      { label: "Successful GTM Transformations", value: "50+" }
+    ]
   },
   ctaSection: {
-    title: "Ready to Empower Your Sales Team?",
-    subtitle: "Let's build a sales enablement program that accelerates deals and multiplies revenue.",
-    button: { label: "Schedule Enablement Audit", href: "/contact" },
+    title: "Ready to Elevate Your Go-To-Market Strategy?",
+    subtitle: "Connect with our GTM experts to discover how tailored strategies can unlock your next phase of growth.",
+    button: { text: "Speak with an Expert", link: "/contact" }
   },
   footer: {
-    description: "Strategic sales enablement that empowers reps to sell faster and close more deals.",
+    description: "GTMStack.pro is dedicated to empowering businesses with unparalleled Go-To-Market expertise, driving sustainable growth and operational excellence.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Sales Enablement", href: "/expertise/sales-enablement" },
-          { label: "Messaging & Positioning", href: "/expertise/product-marketing" },
-          { label: "Strategy & Wins", href: "/expertise/customer-marketing" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["GTM Strategy", "Sales Enablement", "Marketing Optimization", "RevOps Consulting", "Technology Integration"] },
+      { title: "Company", links: ["About Us", "Our Expertise", "Case Studies", "Blog", "Careers"] },
+      { title: "Resources", links: ["GTM Framework", "Webinars", "Whitepapers", "FAQs"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }
+
+// Backward-compatible alias used by existing registry imports.
+export const SALES_ENABLEMENT_CONTENT = EXPERTISE_CONTENT

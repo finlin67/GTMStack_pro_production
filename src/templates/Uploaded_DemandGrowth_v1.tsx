@@ -69,6 +69,18 @@ interface PageContent {
   };
 }
 
+function isPageContent(value: unknown): value is Partial<PageContent> {
+  if (!value || typeof value !== 'object') return false
+  const candidate = value as Partial<PageContent>
+  // Guard for this uploaded template schema; incompatible schemas should use defaults.
+  return (
+    !!candidate.nav &&
+    typeof candidate.nav.brand === 'string' &&
+    !!candidate.hero &&
+    typeof candidate.hero.titleMain === 'string'
+  )
+}
+
 /**
  * DEFAULT CONTENT DATA
  */
@@ -216,8 +228,51 @@ const Icons = {
  * MAIN TEMPLATE COMPONENT
  */
 export default function Template(props: { content?: unknown; pageTitle?: string }) {
-  // Merge or fallback to default content
-  const content = (props.content as PageContent) || DEFAULT_CONTENT;
+  // Safely merge partial payloads from registry content with template defaults.
+  const incoming = isPageContent(props.content)
+    ? (props.content as Partial<PageContent>)
+    : undefined
+
+  const content: PageContent = {
+    ...DEFAULT_CONTENT,
+    ...incoming,
+    nav: {
+      ...DEFAULT_CONTENT.nav,
+      ...(incoming?.nav ?? {}),
+    },
+    hero: {
+      ...DEFAULT_CONTENT.hero,
+      ...(incoming?.hero ?? {}),
+      stats: {
+        ...DEFAULT_CONTENT.hero.stats,
+        ...(incoming?.hero?.stats ?? {}),
+      },
+    },
+    metrics: incoming?.metrics ?? DEFAULT_CONTENT.metrics,
+    services: {
+      ...DEFAULT_CONTENT.services,
+      ...(incoming?.services ?? {}),
+      items: incoming?.services?.items ?? DEFAULT_CONTENT.services.items,
+    },
+    philosophy: {
+      ...DEFAULT_CONTENT.philosophy,
+      ...(incoming?.philosophy ?? {}),
+    },
+    teasers: {
+      ...DEFAULT_CONTENT.teasers,
+      ...(incoming?.teasers ?? {}),
+      items: incoming?.teasers?.items ?? DEFAULT_CONTENT.teasers.items,
+    },
+    ctaSection: {
+      ...DEFAULT_CONTENT.ctaSection,
+      ...(incoming?.ctaSection ?? {}),
+    },
+    footer: {
+      ...DEFAULT_CONTENT.footer,
+      ...(incoming?.footer ?? {}),
+      links: incoming?.footer?.links ?? DEFAULT_CONTENT.footer.links,
+    },
+  }
 
   return (
     <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">

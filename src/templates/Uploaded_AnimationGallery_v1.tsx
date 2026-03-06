@@ -233,9 +233,10 @@ const Icons = {
   )
 };
 
-export default function Template(props: { content?: unknown; pageTitle?: string }) {
+export default function Template(props: { content?: unknown; pageTitle?: string; onCardClick?: (cardId: string | number) => void }) {
   const content = (props.content as GalleryContentProps) || DEFAULT_CONTENT;
   const { header, hero, sidebar, gallery, footer } = content;
+  const { onCardClick } = props;
 
   const [selectedTag, setSelectedTag] = React.useState('All Assets');
 
@@ -393,7 +394,8 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
             {filteredCards.map((card) => (
               <div 
                 key={card.id} 
-                className="group relative bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-[#24cae0]/60 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#24cae0]/10"
+                onClick={() => onCardClick?.(card.id)}
+                className="group relative bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-[#24cae0]/60 rounded-2xl overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-[#24cae0]/10 cursor-pointer"
               >
                 {card.isFeatured && (
                   <div className="absolute top-4 left-4 z-10">

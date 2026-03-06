@@ -171,21 +171,21 @@ export default function EventMarketing() {
         className="absolute top-[30%] left-[25%] size-8 rounded-full border-2 border-primary overflow-hidden shadow-lg shadow-primary/20"
         animate={floatAnimation(0)}
       >
-        <img className="w-full h-full object-cover" alt="Attendee" src="https://picsum.photos/100/100?random=1" />
+        <img className="w-full h-full object-cover" alt="Event Marketing Attendee Profile" src="https://picsum.photos/100/100?random=1" />
       </motion.div>
 
       <motion.div 
         className="absolute top-[70%] left-[65%] size-10 rounded-full border-2 border-purple-500 overflow-hidden shadow-lg shadow-purple-500/20"
         animate={floatAnimation(1)}
       >
-        <img className="w-full h-full object-cover" alt="Attendee" src="https://picsum.photos/100/100?random=2" />
+        <img className="w-full h-full object-cover" alt="Event Marketing Participant" src="https://picsum.photos/100/100?random=2" />
       </motion.div>
 
       <motion.div 
         className="absolute top-[45%] right-[15%] size-7 rounded-full border-2 border-cyan-400 overflow-hidden shadow-lg shadow-cyan-400/20"
         animate={floatAnimation(2)}
       >
-        <img className="w-full h-full object-cover" alt="Attendee" src="https://picsum.photos/100/100?random=3" />
+        <img className="w-full h-full object-cover" alt="Event Marketing Engagement Avatar" src="https://picsum.photos/100/100?random=3" />
       </motion.div>
     </div>
   );

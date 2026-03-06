@@ -1,143 +1,68 @@
-/**
- * Content object for Customer Marketing expertise page.
- * Used by Uploaded_StratInsights_v1 template.
- */
-
-export const CUSTOMER_MARKETING_CONTENT = {
-  header: {
-    title: "Customer Marketing & Expansion",
-    subtitle: "Turning customers into advocates and expanding revenue from existing accounts",
+export const GTMSTACK_PRO_CONTENT = {
+  brand: {
+    tagline: "Mastering the Art and Science of Go-To-Market Excellence.",
+    description: "GTMStack.pro empowers high-growth companies to achieve unparalleled market penetration and sustainable revenue acceleration through data-driven strategies and expert execution."
   },
   hero: {
-    headline: "Customer Marketing",
-    subheadline: "Maximizing customer lifetime value through strategic engagement and expansion",
-    description: "Customer marketing focuses on existing customer success, retention, and expansion. It's often the most underinvested area of GTM, yet it has the highest ROI. We build customer marketing programs that increase retention, drive product adoption, and expand revenue.",
-    primaryCTA: { label: "Explore Customer Marketing", href: "#services" },
-    secondaryCTA: { label: "Audit Your Customer Program", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      alt: "Customer marketing and expansion",
-    },
+    headline: "Unlock Unrivaled Market Performance with GTMStack.pro Expertise.",
+    subheadline: "Navigate complex markets, optimize your go-to-market strategy, and accelerate revenue growth with our proven methodologies and deep industry insight.",
+    description: "In today's competitive landscape, a robust Go-To-Market strategy isn't just an advantage—it's a necessity. GTMStack.pro provides the strategic foresight and tactical execution required to transform your market potential into tangible business outcomes.",
+    primaryCTA: { text: "Explore Our Expertise", link: "/expertise" },
+    secondaryCTA: { text: "Schedule a Consultation", link: "/contact" },
+    image: { src: "/images/hero-expertise.webp", alt: "Strategic planning session demonstrating GTMStack.pro's expertise" }
   },
-  metrics: {
-    title: "Customer Marketing ROI",
+  metricsSection: {
+    headline: "Proven Impact: Driving Measurable Success for Industry Leaders.",
+    stats: [
+      { label: "Average Revenue Growth", value: "35%+" },
+      { label: "Market Penetration Increase", value: "2.5x" },
+      { label: "Client Retention Rate", value: "98%" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Core Expertise: Strategic Pillars for Market Dominance.",
     items: [
-      {
-        value: "3.2x",
-        label: "Net Revenue Retention",
-        description: "Growth from existing customers",
-      },
-      {
-        value: "+68%",
-        label: "Expansion Revenue",
-        description: "Additional revenue from current accounts",
-      },
-      {
-        value: "92%",
-        label: "Retention Rate",
-        description: "Reduced churn through customer success",
-      },
-    ],
+      { title: "Market Entry & Expansion", description: "Develop and execute comprehensive strategies for successful new market entry and aggressive expansion in existing territories." },
+      { title: "Product-Led Growth (PLG) Strategy", description: "Architect and optimize PLG frameworks that drive organic adoption, conversion, and sustained user engagement." },
+      { title: "Sales & Marketing Alignment", description: "Integrate sales and marketing efforts into a cohesive, high-performance engine that maximizes lead conversion and pipeline velocity." },
+      { title: "Revenue Operations (RevOps) Optimization", description: "Streamline your entire revenue stack, from tools and processes to data analytics, ensuring efficiency and scalability." },
+      { title: "Pricing & Packaging Strategy", description: "Craft optimal pricing models and packaging structures that capture maximum value and accelerate market adoption." },
+      { title: "Competitive Intelligence & Positioning", description: "Gain a decisive edge with deep competitive analysis and strategic positioning that differentiates your offering." }
+    ]
   },
-  services: {
-    title: "Customer Marketing Services",
-    items: [
-      {
-        icon: "people",
-        title: "Customer Community & Advocacy",
-        description: "Building engaged customer communities, user groups, and reference programs. Turning satisfied customers into advocates.",
-      },
-      {
-        icon: "trending_up",
-        title: "Expansion & Upsell Programs",
-        description: "Identifying expansion opportunities within existing accounts. Orchestrating expansion campaigns and sales support.",
-      },
-      {
-        icon: "school",
-        title: "Customer Education & Onboarding",
-        description: "Ensuring customers achieve value quickly. Education programs, certifications, and training.",
-      },
-      {
-        icon: "feed",
-        title: "Customer Communications",
-        description: "Regular engagement through newsletters, webinars, and product updates. Keeping customers informed and engaged.",
-      },
-      {
-        icon: "assessment",
-        title: "Customer Health Scoring",
-        description: "Tracking customer sentiment, product usage, and health. Identifying expansion and churn risks early.",
-      },
-    ],
+  philosophySection: {
+    headline: "Our Guiding Principles: The Foundation of Go-To-Market Excellence.",
+    principles: [
+      { title: "Data-Driven Decisions", description: "Every strategy is rooted in rigorous data analysis, ensuring informed choices and predictable outcomes." },
+      { title: "Holistic Approach", description: "We view GTM as an interconnected ecosystem, optimizing every touchpoint from product to customer success." },
+      { title: "Sustainable Growth", description: "Our strategies are designed not just for immediate gains, but for long-term, scalable, and resilient growth." },
+      { title: "Client-Centric Partnership", description: "We embed ourselves as an extension of your team, working collaboratively to achieve shared objectives." },
+      { title: "Continuous Innovation", description: "The market evolves, and so do we. We constantly refine our methodologies to stay ahead of emerging trends." }
+    ]
   },
-  philosophy: {
-    title: "Customer Marketing Philosophy",
-    points: [
-      {
-        title: "Expansion is Easier Than Acquisition",
-        description: "Selling to existing customers is 5-7x cheaper than acquiring new ones. Customer expansion should be a core revenue driver.",
-      },
-      {
-        title: "Customer Success Enables Growth",
-        description: "Customers who achieve value stay longer and spend more. Customer marketing works hand-in-hand with customer success.",
-      },
-      {
-        title: "Advocates Drive Growth",
-        description: "Your best sales team is your happy customers. Customer marketing creates advocates who influence and refer.",
-      },
-      {
-        title: "Retention Fuels Compounding",
-        description: "A 5% improvement in retention compounds to 20%+ improvement in lifetime value. Customer marketing directly impacts valuation.",
-      },
-    ],
+  growthSection: {
+    headline: "Accelerating Your Trajectory: A Partnership in Growth.",
+    narrative: "At GTMStack.pro, we don't just advise; we partner with you to implement transformative Go-To-Market strategies that deliver measurable results. Our expertise translates into accelerated market penetration, optimized revenue funnels, and a fortified competitive position. We empower your team with the insights and frameworks needed to sustain growth long after our engagement.",
+    metrics: [
+      { label: "Client Portfolio Growth", value: "200% in 3 years" },
+      { label: "Average ROI on GTM Initiatives", value: "4.5x" }
+    ]
   },
-  teasers: {
-    title: "Customer Marketing Insights",
-    items: [
-      {
-        category: "CASE STUDY",
-        title: "3x Revenue Growth from Customer Expansion",
-        description: "How a systematic customer marketing program drove $6M in annual expansion revenue.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "RESEARCH",
-        title: "Net Revenue Retention Benchmarks",
-        description: "Industry benchmarks and growth playbooks for expansion and retention.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "TEMPLATE",
-        title: "Customer Health Scoring Model",
-        description: "Churn prediction and expansion opportunity identification framework.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-      },
-    ],
-  },
-  ctaBand: {
-    title: "Ready to Maximize Customer Lifetime Value?",
-    subtitle: "Let's build a customer marketing program that drives retention and expansion.",
-    cta: { label: "Schedule Customer Strategy Call", href: "/contact" },
+  ctaSection: {
+    title: "Ready to Redefine Your Market Success?",
+    subtitle: "Connect with GTMStack.pro to discover how our expertise can transform your Go-To-Market strategy and unlock your full growth potential.",
+    button: { text: "Start Your GTM Transformation", link: "/contact" }
   },
   footer: {
-    description: "Strategic customer marketing that maximizes lifetime value and drives expansion revenue.",
+    description: "GTMStack.pro is your strategic partner for Go-To-Market excellence, empowering businesses to achieve sustainable growth and market leadership.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Customer Marketing", href: "/expertise/customer-marketing" },
-          { label: "Product Marketing", href: "/expertise/product-marketing" },
-          { label: "Customer Success Strategy", href: "/about" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["Market Entry", "PLG Strategy", "RevOps Optimization", "Pricing Strategy"] },
+      { title: "Company", links: ["About Us", "Our Expertise", "Case Studies", "Blog"] },
+      { title: "Resources", links: ["Whitepapers", "Webinars", "FAQs", "Contact Us"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }
+
+// Backward-compatible alias used by existing registry imports.
+export const CUSTOMER_MARKETING_CONTENT = GTMSTACK_PRO_CONTENT

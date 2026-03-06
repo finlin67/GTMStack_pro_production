@@ -38,11 +38,6 @@ const baseConfig = {
         permanent: true,
       },
       {
-        source: '/expertise/crm-mangement',
-        destination: '/expertise/marketing-operations',
-        permanent: true,
-      },
-      {
         source: '/expertise/competitive-intel',
         destination: '/expertise/product-marketing',
         permanent: true,
@@ -115,4 +110,6 @@ module.exports = (phase) => {
   }
   return withMDX(config)
 }
+
+
 

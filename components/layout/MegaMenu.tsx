@@ -35,7 +35,7 @@ export default function MegaMenu() {
             <div key={pillar.title} className="space-y-3">
               <Link href={pillar.href} className="flex items-center gap-2 text-white font-semibold">
                 <span className="h-9 w-9 rounded-xl bg-white/5 flex items-center justify-center">
-                  {Icon && <Icon className="h-5 w-5 text-brand-300" />}
+                  {Icon && <Icon className="h-5 w-5 text-brand-300" aria-hidden="true" />}
                 </span>
                 {pillar.title}
               </Link>

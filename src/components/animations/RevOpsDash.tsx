@@ -104,7 +104,7 @@ export default function RevOpsDash() {
           </button>
           <div className="pl-2">
             <div className="size-9 rounded-full bg-gradient-to-tr from-blue-500 to-orange-400 p-[2px]">
-              <img src="https://picsum.photos/id/433/100/100" alt="Profile" className="w-full h-full rounded-full object-cover border-2 border-[#020617]" />
+              <img src="https://picsum.photos/id/433/100/100" alt="Revenue Operations Manager Profile" className="w-full h-full rounded-full object-cover border-2 border-[#020617]" />
             </div>
           </div>
         </div>

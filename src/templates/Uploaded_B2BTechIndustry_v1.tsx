@@ -1,10 +1,9 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { TechnologyPlatformsContentProps } from './content';
 
 type Props = {
-  content: TechnologyPlatformsContentProps;
+  content: any;
 };
 
 const DomainIcon = ({ type }: { type: string }) => {
@@ -85,7 +84,7 @@ export default function TechnologyPlatforms({ content }: Props) {
         </div>
         
         <div className="hidden md:flex items-center space-x-10 text-sm font-medium tracking-wide uppercase">
-          {content.nav.links.map((link, index) => (
+          {content.nav.links.map((link: any, index: number) => (
             <a 
               key={index} 
               href={link.href}
@@ -160,7 +159,7 @@ export default function TechnologyPlatforms({ content }: Props) {
       {/* Metrics Section */}
       <section className="bg-slate-100 dark:bg-slate-900/50 py-16 px-8 border-y border-slate-200 dark:border-slate-800">
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12">
-          {content.metrics.map((metric, index) => (
+          {content.metrics.map((metric: any, index: number) => (
             <div 
               key={index} 
               className={`flex flex-col items-center text-center ${
@@ -191,7 +190,7 @@ export default function TechnologyPlatforms({ content }: Props) {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {content.domainsSection.domains.map((domain, index) => (
+            {content.domainsSection.domains.map((domain: any, index: number) => (
               <div 
                 key={index}
                 className={`bg-white dark:bg-slate-900/80 p-8 rounded-xl border border-slate-200 dark:border-slate-800 hover:shadow-[0_0_30px_rgba(59,130,246,0.1)] hover:border-blue-500/30 transition-all group cursor-pointer ${
@@ -262,7 +261,7 @@ export default function TechnologyPlatforms({ content }: Props) {
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {content.insightsSection.insights.map((insight, index) => (
+            {content.insightsSection.insights.map((insight: any, index: number) => (
               <a key={index} href={insight.href} className="block">
                 <article className="bg-white dark:bg-slate-900/50 group cursor-pointer overflow-hidden rounded-lg border border-slate-200 dark:border-slate-800 hover:border-blue-500/30 transition-all shadow-sm hover:shadow-md">
                   <div className="h-48 bg-slate-200 dark:bg-slate-800 relative">
@@ -325,13 +324,13 @@ export default function TechnologyPlatforms({ content }: Props) {
             </p>
           </div>
           
-          {content.footer.columns.map((column, index) => (
+          {content.footer.columns.map((column: any, index: number) => (
             <div key={index}>
               <h6 className="text-slate-900 dark:text-white font-bold mb-6 uppercase tracking-wider text-sm">
                 {column.title}
               </h6>
               <ul className="space-y-4 text-slate-500 dark:text-slate-400 text-sm">
-                {column.links.map((link, linkIndex) => (
+                {column.links.map((link: any, linkIndex: number) => (
                   <li key={linkIndex}>
                     <a href={link.href} className="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
                       {link.label}
@@ -346,7 +345,7 @@ export default function TechnologyPlatforms({ content }: Props) {
         <div className="max-w-7xl mx-auto mt-16 pt-8 border-t border-slate-200 dark:border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500 dark:text-slate-500 font-medium gap-4">
           <p>{content.footer.copyright}</p>
           <div className="flex space-x-8">
-            {content.footer.bottomLinks.map((link, index) => (
+            {content.footer.bottomLinks.map((link: any, index: number) => (
               <a key={index} href={link.href} className="hover:text-slate-900 dark:hover:text-white transition-colors">
                 {link.label}
               </a>

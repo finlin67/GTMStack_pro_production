@@ -8,7 +8,8 @@ import { ArrowRight, Search, FileText, ChevronLeft, ChevronRight, Flame, Mail } 
 import type { WPPost, WPTerm } from '@/lib/wp-client'
 import { getPostCategories, fetchPostsWithTotal } from '@/lib/wp-client'
 import { getFeaturedImageUrl } from '@/lib/wp-media'
-import BlogMainTemplate from '@/src/templates/blog/BlogMainTemplate'
+import Uploaded_BlogFeed_v1 from '@/src/templates/Uploaded_BlogFeed_v1'
+import { adaptBlogFeedData } from '@/lib/blog-adapter'
 
 const TEAL = '#00A8A8'
 const CYAN = '#36C0CF'
@@ -175,93 +176,19 @@ export default function BlogIndexClient({
     return () => clearTimeout(t)
   }, [searchInput, q, updateUrl])
 
-  const featuredPost = displayedPosts[0] ?? null
-  const gridPosts = useMemo(() => {
-    if (!featuredPost) return displayedPosts
-    return displayedPosts.filter((p) => p.id !== featuredPost.id)
-  }, [displayedPosts, featuredPost])
-
-  const formatDate = useCallback((dateStr: string) => {
-    try {
-      return new Date(dateStr).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    } catch {
-      return dateStr
-    }
-  }, [])
-
-  const primaryCategory = useCallback((post: WPPost): string => {
-    const cats = getPostCategories(post)
-    return cats[0]?.name ?? 'Insights'
-  }, [])
-
-  const filterPills = useMemo(() => {
-    const all = { slug: '', name: 'All Posts' }
-    const fromApi = categories.map((c) => ({ slug: c.slug, name: c.name }))
-    return [all, ...fromApi]
-  }, [categories])
-
-  // Build content object for BlogMainTemplate
-  const content = useMemo(() => {
-    const categoryNames = filterPills.map(p => p.name)
-    
-    // Featured posts (first 3)
-    const featuredPosts = displayedPosts.slice(0, 3).map((post, idx) => ({
-      id: post.id,
-      category: primaryCategory(post),
-      categoryColor: idx === 0 ? 'bg-[#2463EB]/20 text-[#2463EB]' : idx === 1 ? 'bg-[#00A8A8]/20 text-[#00A8A8]' : 'bg-[#FFD700]/20 text-[#FFD700]',
-      metric: idx === 0 ? '+45%' : idx === 1 ? '+32%' : '+28%',
-      title: stripHtml(post.title?.rendered || post.slug),
-      description: stripHtml(post.excerpt?.rendered || '').substring(0, 100) + '...'
-    }))
-
-    // Feed posts (remaining)
-    const feedPosts = displayedPosts.slice(3).map((post, idx) => {
-      const iconNames = ['PieChart', 'Gauge', 'PiggyBank', 'TrendingUp', 'Activity', 'BarChart3']
-      const graphicTypes: ('line' | 'bar' | 'circle')[] = ['line', 'bar', 'circle']
-      return {
-        id: post.id,
-        tag: primaryCategory(post),
-        tagColor: 'text-[#00A8A8]',
-        date: formatDate(post.date),
-        readTime: '5 min',
-        title: stripHtml(post.title?.rendered || post.slug),
-        description: stripHtml(post.excerpt?.rendered || '').substring(0, 120) + '...',
-        statIconName: iconNames[idx % iconNames.length],
-        statText: 'Performance',
-        graphicType: graphicTypes[idx % graphicTypes.length]
-      }
+  // Adapt WP data to new template props
+  const adaptedContent = useMemo(() => {
+    return adaptBlogFeedData({
+      posts: displayedPosts,
+      categories,
+      selectedCategory: category,
+      searchQuery: searchInput,
     })
-
-    return {
-      navItems: ['Insights', 'Methodology', 'Gallery', 'Contact'],
-      heroReportTag: 'GTM Insights',
-      heroTitle: 'Insights That Drive Growth',
-      heroDescription: 'Tactical guides, teardowns, and frameworks for modern GTM teams. Scale your revenue engine with data-backed strategies.',
-      featuredPosts,
-      categories: categoryNames,
-      feedPosts,
-      footerLinks: ['Privacy', 'Terms', 'Contact', 'About']
-    }
-  }, [displayedPosts, filterPills, primaryCategory, formatDate])
+  }, [displayedPosts, categories, category, searchInput])
 
   return (
-    <BlogMainTemplate 
-      content={content} 
-      theme="dark"
-      searchValue={searchInput}
-      onSearchChange={setSearchInput}
-      selectedCategory={category}
-      onCategoryClick={(cat) => updateUrl({ category: cat || undefined, page: '1' })}
-      error={error}
-      pagination={displayedTotalPages > 1 ? {
-        currentPage,
-        totalPages: displayedTotalPages,
-        onPageChange: (page) => updateUrl({ page: String(page) })
-      } : undefined}
+    <Uploaded_BlogFeed_v1 
+      content={adaptedContent}
     />
   )
 }

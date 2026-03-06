@@ -1,133 +1,69 @@
-/**
- * Content object for Social Media Marketing expertise page.
- * Used by Uploaded_Expertise_ContentEngagement_v1 template.
- */
-
-export const SOCIAL_MEDIA_MARKETING_CONTENT = {
-  metadata: {
-    title: "Social Media Marketing - GTMStack Pro",
-    siteName: "GTMStack.pro",
-    logoIcon: "share",
+export const GO_TO_MARKET_STRATEGY_CONTENT = {
+  brand: {
+    tagline: "Mastering Market Entry and Sustainable Growth.",
+    description: "GTMStack.pro empowers businesses to achieve unparalleled market success through meticulously crafted and expertly executed Go-to-Market strategies. We transform ambition into market dominance."
   },
-  navigation: [
-    { label: "Home", href: "/" },
-    { label: "Expertise", href: "/expertise", active: true },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Industries", href: "/industries" },
-    { label: "About", href: "/about" },
-  ],
   hero: {
-    badge: "Expertise Topic",
-    headline: {
-      main: "Social Media &",
-      highlight: "Reputation",
-    },
-    description: "Community-building and brand authority through organic and paid social. Engagement strategies that turn followers into advocates and amplify your GTM motion.",
-    primaryCTA: { label: "Explore Social Strategy", href: "#services" },
-    secondaryCTA: { label: "Request Social Audit", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=2070&auto=format&fit=crop",
-      alt: "Social media marketing and community engagement",
-    },
-    floatingBadges: [
-      { icon: "group", label: "Community" },
-      { icon: "trending_up", label: "Growth" },
-    ],
+    headline: "Launch with Precision. Dominate Your Market.",
+    subheadline: "Crafting Data-Driven Go-to-Market Strategies for Unrivaled Success.",
+    description: "In today's competitive landscape, a robust Go-to-Market strategy isn't just an advantage—it's a necessity. GTMStack.pro provides the strategic foresight and tactical execution plans to ensure your product or service achieves maximum impact, accelerates adoption, and secures sustainable growth from day one.",
+    primaryCTA: { text: "Develop Your GTM Strategy", link: "/contact" },
+    secondaryCTA: { text: "Explore Our GTM Framework", link: "/gtm-framework" },
+    image: { src: "/images/gtm-hero.jpg", alt: "Strategic business leaders analyzing market data on a digital dashboard" }
   },
-  stats: [
-    { value: "+350%", label: "Engagement Growth", subtext: "Average increase in community engagement" },
-    { value: "3.8x", label: "Social ROI", subtext: "Return on paid social spend" },
-    { value: "156%", label: "Follower Growth", subtext: "Year-over-year organic reach expansion" },
-  ],
-  services: {
-    title: "Social Media Services",
+  metricsSection: {
+    headline: "Quantifiable Impact: The GTMStack.pro Advantage",
+    stats: [
+      { label: "Average Market Share Growth", value: "25%+" },
+      { label: "Reduced Time-to-Market", value: "30%" },
+      { label: "First-Year Revenue Uplift", value: "40%+" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Comprehensive Go-to-Market Expertise",
     items: [
-      {
-        icon: "campaign",
-        title: "Social Strategy & Planning",
-        description: "LinkedIn, Twitter, and platform-specific strategies. Content calendars, narrative frameworks, and voice guidelines.",
-      },
-      {
-        icon: "create",
-        title: "Content Creation & Copywriting",
-        description: "Platform-native content—short-form, long-form, video teasers. Optimized for engagement and algorithm performance.",
-      },
-      {
-        icon: "thumb_up",
-        title: "Community Management",
-        description: "Active moderation, comment response, and relationship building. Turning engaged followers into active community members.",
-      },
-      {
-        icon: "trending_up",
-        title: "Paid Social Campaigns",
-        description: "LinkedIn Ads, Twitter promotions, platform-specific paid strategies. Lead generation and awareness campaigns.",
-      },
-      {
-        icon: "assessment",
-        title: "Social Analytics & Reporting",
-        description: "Tracking reach, engagement, conversions, and pipeline impact. Optimization based on data.",
-      },
-    ],
+      { title: "Market & Competitive Intelligence", description: "Deep-dive analysis to identify opportunities, understand customer needs, and benchmark against competitors, forming the bedrock of your strategy." },
+      { title: "Target Audience & ICP Definition", description: "Precise identification and segmentation of your ideal customer profiles (ICPs) and buyer personas to tailor messaging and channels effectively." },
+      { title: "Value Proposition & Messaging", description: "Crafting compelling value propositions and resonant messaging that clearly articulate your unique selling points and market fit." },
+      { title: "Channel Strategy & Activation", description: "Developing optimal distribution and sales channels, alongside activation plans for maximum reach and conversion efficiency." },
+      { title: "Launch Planning & Execution", description: "Detailed planning for product launches, including timelines, resource allocation, and cross-functional coordination for flawless execution." },
+      { title: "Sales Enablement & Training", description: "Equipping your sales teams with the tools, content, and training necessary to effectively communicate value and close deals." },
+      { title: "Performance Monitoring & Optimization", description: "Establishing key performance indicators (KPIs) and continuous monitoring frameworks to track success and iterate for ongoing improvement." }
+    ]
   },
-  quote: {
-    text: "Social media is where your buyers spend their attention — and you should be there too.",
-    subtext: "But presence without strategy is just noise. We build social systems that drive meaningful engagement and amplify GTM.",
+  philosophySection: {
+    headline: "Our Strategic Principles for GTM Success",
+    principles: [
+      { title: "Data-Driven Decisions", description: "Every strategy is built on rigorous data analysis and market insights, ensuring decisions are informed, not assumed." },
+      { title: "Customer-Centric Approach", description: "We place your customer at the core of every GTM plan, designing experiences that resonate and build lasting loyalty." },
+      { title: "Agile & Adaptive Frameworks", description: "Our methodologies are designed for flexibility, allowing for rapid iteration and adaptation to dynamic market conditions." },
+      { title: "Integrated & Holistic Planning", description: "We ensure seamless alignment across all functions—product, marketing, sales, and support—for a unified market presence." }
+    ]
   },
-  explore: {
-    title: "Explore Further",
-    viewAllHref: "/expertise",
-    cards: [
-      {
-        category: "CASE STUDY",
-        title: "LinkedIn Strategy Generated 400 MQLs",
-        description: "How a strategic LinkedIn presence and content program generated 400+ qualified leads in 6 months.",
-        image: "https://images.unsplash.com/photo-1611532736579-6b16e2b50449?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "View Case Study",
-        href: "/case-studies",
-      },
-      {
-        category: "INSIGHTS",
-        title: "B2B Social Media ROI Framework",
-        description: "How to measure social media impact on pipeline, revenue, and brand authority.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "Read Article",
-        href: "/insights",
-      },
-      {
-        category: "TEMPLATE",
-        title: "Social Content Calendar Template",
-        description: "Ready-to-use content calendar and strategy framework for B2B GTM.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "Download",
-        href: "/resources",
-      },
-    ],
+  growthSection: {
+    headline: "Accelerating Your Path to Market Leadership",
+    narrative: "At GTMStack.pro, we don't just build strategies; we engineer growth. Our approach integrates market intelligence with actionable plans, ensuring every step from product conception to market dominance is optimized for efficiency and impact. We empower you to not only enter new markets but to lead them, transforming potential into tangible revenue and sustained competitive advantage.",
+    metrics: [
+      { label: "Customer Acquisition Cost Reduction", value: "15-20%" },
+      { label: "Increased Customer Lifetime Value", value: "20%+" },
+      { label: "Faster Market Penetration", value: "Significant" }
+    ]
   },
   ctaSection: {
-    title: "Ready to Build Your Social Authority?",
-    subtitle: "Let's create a social strategy that builds brand authority and drives pipeline.",
-    button: { label: "Schedule Social Strategy Call", href: "/contact" },
+    title: "Ready to Define Your Market Dominance?",
+    subtitle: "Partner with GTMStack.pro to build a Go-to-Market strategy that delivers measurable results and lasting success.",
+    button: { text: "Schedule a GTM Consultation", link: "/contact" }
   },
   footer: {
-    description: "Strategic social media programs that build community, authority, and revenue for B2B technology companies.",
+    description: "GTMStack.pro is your strategic partner for navigating complex markets and achieving exceptional growth. We provide expert Go-to-Market strategies that drive results.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Social Media Marketing", href: "/expertise/social-media-marketing" },
-          { label: "Demand Generation", href: "/expertise/demand-generation" },
-          { label: "Content Marketing", href: "/expertise/content-marketing" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["/services/gtm-strategy", "/services/market-research", "/services/launch-planning"] },
+      { title: "Company", links: ["/about", "/our-team", "/careers"] },
+      { title: "Resources", links: ["/blog", "/case-studies", "/contact"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }
+
+// Backward-compatible alias used by existing registry imports.
+export const SOCIAL_MEDIA_MARKETING_CONTENT = GO_TO_MARKET_STRATEGY_CONTENT

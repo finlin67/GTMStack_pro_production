@@ -26,7 +26,7 @@ const SLUG_TO_PILLAR: Record<string, PillarId> = {
   'content-engagement': 'content-engagement',
   'content-marketing': 'content-engagement',
   'content-strategy-systems': 'content-engagement',
-  'crm-mangement': 'systems-operations',
+  'crm-management': 'systems-operations',
   'customer-experience': 'strategy-insights',
   'customer-experience-cx': 'strategy-insights',
   'customer-marketing': 'strategy-insights',

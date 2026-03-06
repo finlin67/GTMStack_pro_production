@@ -56,7 +56,7 @@ All topic pages use the `expertise.topic` template and reference the expertise c
 
 **Systems & Operations** (5 topics)
 - `/expertise/analytics` (alternate)
-- `/expertise/crm-mangement` (note: maintains original CSV spelling)
+- `/expertise/crm-management`
 - `/expertise/data-governance`
 - `/expertise/marketing-analytics-reporting`
 - `/expertise/marketing-automation`
@@ -111,7 +111,7 @@ Some routes reference existing expertise content but may not have perfectly matc
 |-------|-------|-----------------|--------|
 | `/expertise/analytics` | Reporting Dashboards & Attribution | `expertise:marketing-analytics-reporting` | ⚠️ Uses alternate |
 | `/expertise/competitive-intel` | Competitive Intelligence & Positioning | `expertise:product-marketing` | ⚠️ Uses fallback |
-| `/expertise/crm-mangement` | CRM Management & Integration | `expertise:marketing-operations` | ⚠️ Uses fallback, typo in slug |
+| `/expertise/crm-management` | CRM Management & Integration | `expertise:marketing-operations` | ⚠ Uses fallback |
 | `/expertise/lead-gen-scoring` | Lead Generation & Scoring | `expertise:demand-generation` | ⚠️ Uses fallback |
 | `/expertise/roi-analysis` | ROI & Break-Even Analysis | `expertise:revenue-operations` | ⚠️ Uses fallback |
 | `/expertise/web-design-ui-ux` | Responsive Web Design & UI/UX | `expertise:digital-marketing` | ⚠️ Uses fallback |
@@ -124,9 +124,8 @@ You should consider:
    - Add proper `ExpertiseItem` objects in `content/expertise.ts` for routes that use fallback mappings
    - Ensure each item has the correct `slug` matching the route
 
-2. **Fix Slug Typo** (Optional)
-   - Route has `/expertise/crm-mangement` (with typo)
-   - Consider renaming to `/expertise/crm-management` if intentional
+2. **Fix Slug Typo** (Completed)
+   - Route is now `/expertise/crm-management`
 
 3. **Update Pillar Assignments**
    - Review the `pillar` property in each ExpertiseItem to ensure correct categorization
@@ -178,7 +177,7 @@ You should consider:
 2. **Create missing expertise items** for routes marked with ⚠️ if needed
 3. **Verify content display** on individual expertise topic pages
 4. **Update ExpertiseHeroVisual mappings** if adding new hero visual configurations
-5. **Consider fixing crm-mangement typo** for consistency
+5. **Use standardized route** `/expertise/crm-management` across all mappings and docs
 
 ---
 

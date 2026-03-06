@@ -1,143 +1,66 @@
-/**
- * Content object for Product Marketing expertise page.
- * Used by Uploaded_StratInsights_v1 template.
- */
-
-export const PRODUCT_MARKETING_CONTENT = {
-  header: {
-    title: "Product Marketing",
-    subtitle: "Positioning, messaging, and launch strategies that accelerate adoption",
+export const EXPERTISE_CONTENT = {
+  brand: {
+    tagline: "Mastering Go-To-Market. Accelerating Your Growth.",
+    description: "GTMStack.pro is the definitive partner for organizations seeking to optimize their Go-To-Market strategies, execution, and technology stack. We transform potential into predictable revenue."
   },
   hero: {
-    headline: "Product Marketing",
-    subheadline: "Strategic positioning and messaging that accelerates product adoption and demand",
-    description: "Product marketing is the bridge between product and market. It focuses on positioning, messaging, launch strategies, and competitive narrative. Effective product marketing accelerates adoption, improves win rates, and creates clear market narrative.",
-    primaryCTA: { label: "Explore Product Marketing", href: "#services" },
-    secondaryCTA: { label: "Get Positioning Audit", href: "/contact" },
-    image: {
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      alt: "Product marketing and positioning",
-    },
+    headline: "Unlocking Predictable Growth Through Unrivaled GTM Expertise.",
+    subheadline: "Navigate the complexities of market entry and expansion with GTMStack.pro's strategic insights and hands-on execution.",
+    description: "In today's dynamic landscape, a robust Go-To-Market strategy is not just an advantage—it's a necessity. GTMStack.pro brings a depth of knowledge and a proven methodology to every engagement, ensuring your GTM initiatives are not only effective but also scalable and sustainable.",
+    primaryCTA: { text: "Schedule an Expert Consultation", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Services", link: "/services" },
+    image: { src: "/images/expertise-hero.webp", alt: "Professionals collaborating on a GTM strategy dashboard" }
   },
-  metrics: {
-    title: "Product Marketing Impact",
+  metricsSection: {
+    headline: "Tangible Impact, Measurable Results.",
+    stats: [
+      { label: "Average Revenue Growth", value: "35%+" },
+      { label: "GTM Efficiency Improvement", value: "20%-" },
+      { label: "Successful Market Entries", value: "90%+" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Pillars of Go-To-Market Expertise.",
     items: [
-      {
-        value: "+45%",
-        label: "Win Rate Improvement",
-        description: "From better messaging and positioning",
-      },
-      {
-        value: "6.2x",
-        label: "Launch Impact",
-        description: "ROI from coordinated product launch",
-      },
-      {
-        value: "-38%",
-        label: "Sales Cycle Reduction",
-        description: "Faster deal closure with clear value prop",
-      },
-    ],
+      { title: "Strategic GTM Blueprinting", description: "Crafting comprehensive Go-To-Market strategies tailored to your unique product, market, and business objectives, ensuring alignment across sales, marketing, and product teams." },
+      { title: "GTM Technology Stack Optimization", description: "Designing, implementing, and optimizing your GTM tech stack to enhance efficiency, automate processes, and provide actionable insights for data-driven decision-making." },
+      { title: "Performance Marketing & Demand Generation", description: "Developing and executing high-impact demand generation campaigns that drive qualified leads, accelerate pipeline velocity, and maximize ROI across all channels." },
+      { title: "Sales Enablement & Process Optimization", description: "Empowering your sales teams with the tools, training, and processes needed to convert leads more effectively, shorten sales cycles, and achieve consistent quota attainment." },
+      { title: "Market Intelligence & Competitive Analysis", description: "Providing deep market insights and competitive analysis to identify opportunities, mitigate risks, and position your offerings for maximum impact and differentiation." }
+    ]
   },
-  services: {
-    title: "Product Marketing Services",
-    items: [
-      {
-        icon: "assessment",
-        title: "Market & Competitive Analysis",
-        description: "Understanding target market dynamics, buyer pain points, and competitive landscape. Market opportunity sizing.",
-      },
-      {
-        icon: "target",
-        title: "Positioning & Messaging",
-        description: "Developing clear, differentiated positioning. Core messaging framework and narrative architecture.",
-      },
-      {
-        icon: "campaign",
-        title: "Launch Strategy & Execution",
-        description: "Coordinating product launches across sales, marketing, and customer success. Go-to-market playbooks.",
-      },
-      {
-        icon: "article",
-        title: "Sales Collateral & Enablement",
-        description: "Creating battle cards, competitive guides, and sales presentations. Equipping sales to win.",
-      },
-      {
-        icon: "trending_up",
-        title: "Adoption & Demand Gen",
-        description: "Driving initial adoption and demand generation for new products. Launch campaigns and proof-of-concept strategies.",
-      },
-    ],
+  philosophySection: {
+    headline: "Our Guiding Principles: The Foundation of Your Success.",
+    principles: [
+      { title: "Data-Driven Decisions", description: "Every strategy, every tactic, every recommendation is rooted in rigorous data analysis and market intelligence, ensuring optimal outcomes." },
+      { title: "Holistic Integration", description: "We believe GTM success stems from seamless integration across all functions—sales, marketing, product, and customer success—working in concert." },
+      { title: "Sustainable Growth", description: "Our solutions are designed not just for immediate impact, but for long-term scalability and adaptability, building a resilient GTM engine." },
+      { title: "Client-Centric Partnership", description: "We operate as an extension of your team, deeply understanding your challenges and co-creating solutions that deliver measurable value." }
+    ]
   },
-  philosophy: {
-    title: "Product Marketing Philosophy",
-    points: [
-      {
-        title: "Positioning Precedes Everything",
-        description: "Before you build collateral or launch, you need clear positioning. Positioning answers: who are we building for, why are we different, and why should they care?",
-      },
-      {
-        title: "Competitive Context Matters",
-        description: "Your positioning isn't decided in a vacuum—it's relative to competitive alternatives. Competitive analysis is foundational.",
-      },
-      {
-        title: "Clarity Wins Markets",
-        description: "In crowded markets, clarity wins. Clear positioning cuts through noise and creates preference. Vague positioning creates confusion and longer sales cycles.",
-      },
-      {
-        title: "Messaging Must Evolve",
-        description: "Positioning and messaging aren't set once. As market conditions change, competitive threats emerge, and you learn from customers, messaging must evolve.",
-      },
-    ],
+  growthSection: {
+    headline: "Transforming Ambition into Market Leadership.",
+    narrative: "At GTMStack.pro, we don't just advise; we partner with you to execute transformative Go-To-Market strategies. Our expertise has consistently propelled clients from nascent market positions to dominant industry leadership, navigating complex landscapes with precision and foresight. We empower businesses to not only meet but exceed their growth objectives, building robust GTM frameworks that stand the test of time and market shifts.",
+    metrics: [
+      { label: "Client Retention Rate", value: "95%" },
+      { label: "Average Project ROI", value: "4.5x" }
+    ]
   },
-  teasers: {
-    title: "Product Marketing Resources",
-    items: [
-      {
-        category: "CASE STUDY",
-        title: "Repositioning Increased Win Rate by 45%",
-        description: "How a clear, differentiated positioning improved win rates and accelerated deal velocity.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "FRAMEWORK",
-        title: "Competitive Positioning Canvas",
-        description: "Visual framework for defining clear, differentiated product positioning.",
-        image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2070&auto=format&fit=crop",
-      },
-      {
-        category: "GUIDE",
-        title: "Product Launch Playbook",
-        description: "Step-by-step framework for executing successful product launches.",
-        image: "https://images.unsplash.com/photo-1516321318423-f06f70504cff?q=80&w=2070&auto=format&fit=crop",
-      },
-    ],
-  },
-  ctaBand: {
-    title: "Ready to Define Your Market Position?",
-    subtitle: "Let's develop clear, differentiated positioning that accelerates adoption and market success.",
-    cta: { label: "Schedule Positioning Workshop", href: "/contact" },
+  ctaSection: {
+    title: "Ready to Elevate Your Go-To-Market Strategy?",
+    subtitle: "Connect with GTMStack.pro's experts to build a GTM engine that delivers predictable, accelerated growth.",
+    button: { text: "Start Your GTM Transformation", link: "/contact" }
   },
   footer: {
-    description: "Strategic product marketing that drives market positioning and accelerates product adoption.",
+    description: "GTMStack.pro is dedicated to empowering businesses with unparalleled Go-To-Market expertise, driving sustainable growth and market leadership.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Product Marketing", href: "/expertise/product-marketing" },
-          { label: "Sales Enablement", href: "/expertise/sales-enablement" },
-          { label: "Customer Marketing", href: "/expertise/customer-marketing" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Company", links: ["About Us", "Services", "Case Studies", "Blog", "Contact"] },
+      { title: "Resources", links: ["GTM Playbooks", "Webinars", "Whitepapers", "FAQs"] },
+      { title: "Legal", links: ["Privacy Policy", "Terms of Service"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
 }
+
+// Backward-compatible alias used by existing registry imports.
+export const PRODUCT_MARKETING_CONTENT = EXPERTISE_CONTENT

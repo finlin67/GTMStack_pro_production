@@ -1,0 +1,25 @@
+{
+  "name": "content-automation",
+  "version": "1.0.0",
+  "description": "Batch content hydration system for GTMStack.pro",
+  "type": "module",
+  "main": "hydrate.js",
+  "scripts": {
+    "hydrate": "node hydrate.js",
+    "hydrate:skip": "node hydrate.js --skip-existing",
+    "hydrate:overwrite": "node hydrate.js --overwrite",
+    "hydrate:dry-run": "node hydrate.js --skip-existing --dry-run",
+    "hydrate:dry-run:overwrite": "node hydrate.js --overwrite --dry-run"
+  },
+  "keywords": [
+    "content",
+    "automation",
+    "genai"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/generative-ai": "^0.19.0",
+    "dotenv": "^17.3.1"
+  }
+}

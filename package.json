@@ -28,6 +28,7 @@
     "prepare": "husky"
   },
   "dependencies": {
+    "@google/genai": "^1.43.0",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.2.0",
@@ -71,5 +72,23 @@
     "*.{ts,tsx}": [
       "eslint --max-warnings=0"
     ]
-  }
+  },
+  "description": "A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.",
+  "main": "next.config.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finlin67/z1_GTMStack_pro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/finlin67/z1_GTMStack_pro/issues"
+  },
+  "homepage": "https://github.com/finlin67/z1_GTMStack_pro#readme"
 }

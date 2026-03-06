@@ -4,7 +4,7 @@ Is this a new page?,Route,Page Title,Template,Content Key,Theme,Data Source,Sect
 NEW PAGE,/expertise/competitive-intel,Competitive Intelligence & Positioning,expertise.topic,default:content,dark,content/expertise.ts,Strategy & Insights,
 ,/expertise/content-engagement,Content & Engagement,Uploaded_Expertise_ContentEngagement_v1,default:content,dark,content/expertise.ts,Content & Engagement,
 ,/expertise/content-marketing,Content Creation & Personalization,expertise.topic,default:content,dark,content/expertise.ts,Content & Engagement,
-,/expertise/crm-mangement,CRM Management & Integration,expertise.topic,default:content,dark,content/expertise.ts,Systems & Operations,
+,/expertise/crm-management,CRM Management & Integration,expertise.topic,default:content,dark,content/expertise.ts,Systems & Operations,
 ,/expertise/customer-marketing,Customer Marketing & Journey Mapping,expertise.topic,default:content,dark,content/expertise.ts,Strategy & Insights,
 ,/expertise/data-governance,Data Governence & Audits,expertise.topic,default:content,dark,content/expertise.ts,Systems & Operations,
 ,/expertise/demand-generation,Demand Generation Campaigns,expertise.topic,expertise:demand-generation,dark,content/expertise.ts,Demand & Growth,

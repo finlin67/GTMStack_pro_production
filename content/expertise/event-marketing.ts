@@ -1,133 +1,75 @@
-/**
- * Content object for Event Marketing expertise page.
- * Used by Uploaded_Expertise_ContentEngagement_v1 template.
- */
-
 export const EVENT_MARKETING_CONTENT = {
-  metadata: {
-    title: "Event Marketing - GTMStack Pro",
-    siteName: "GTMStack.pro",
-    logoIcon: "calendar",
+  brand: {
+    tagline: "Elevating Experiences, Driving Results.",
+    description: "GTMStack.pro is a premier B2B marketing agency specializing in comprehensive Go-To-Market strategies. We empower businesses to achieve sustainable growth through innovative, data-driven solutions across various marketing disciplines."
   },
-  navigation: [
-    { label: "Home", href: "/" },
-    { label: "Expertise", href: "/expertise", active: true },
-    { label: "Case Studies", href: "/case-studies" },
-    { label: "Industries", href: "/industries" },
-    { label: "About", href: "/about" },
-  ],
   hero: {
-    badge: "Expertise Topic",
-    headline: {
-      main: "Event &",
-      highlight: "Tradeshow",
+    headline: "Mastering Event Marketing: From Concept to Conversion.",
+    subheadline: "Crafting unforgettable B2B events that drive engagement, generate leads, and accelerate your sales pipeline.",
+    description: "In today's competitive landscape, impactful events are more than just gatherings—they're strategic growth engines. GTMStack.pro designs and executes end-to-end event marketing strategies that captivate audiences, deliver measurable ROI, and solidify your market position.",
+    primaryCTA: {
+      text: "Explore Our Event Solutions",
+      link: "/event-solutions"
     },
-    description: "High-impact event programs that build relationships, accelerate deals, and drive measurable revenue. Virtual, hybrid, and in-person events engineered for GTM impact.",
-    primaryCTA: { label: "Explore Event Strategy", href: "#services" },
-    secondaryCTA: { label: "Request Event Audit", href: "/contact" },
+    secondaryCTA: {
+      text: "Schedule a Consultation",
+      link: "/contact"
+    },
     image: {
-      src: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-      alt: "Event marketing and audience engagement",
-    },
-    floatingBadges: [
-      { icon: "event", label: "Strategic" },
-      { icon: "people", label: "Engagement" },
-    ],
+      src: "/images/event-marketing-hero.webp",
+      alt: "Professionals networking at a successful B2B event"
+    }
   },
-  stats: [
-    { value: "+280%", label: "Event-Driven Pipeline", subtext: "Average contribution from event programs" },
-    { value: "4.5x", label: "Event ROI", subtext: "Return on event investment" },
-    { value: "92%", label: "Attendee Conversion", subtext: "MQL conversion rate" },
-  ],
-  services: {
-    title: "Event Services",
+  metricsSection: {
+    headline: "Proven Impact: Our Event Marketing Success",
+    stats: [
+      { label: "Average Lead Conversion Rate", value: "35%" },
+      { label: "Client Event ROI Improvement", value: "2.5x" },
+      { label: "Attendee Engagement Score", value: "92%" }
+    ]
+  },
+  capabilitiesSection: {
+    headline: "Our Comprehensive Event Marketing Expertise",
     items: [
-      {
-        icon: "event",
-        title: "Event Strategy & Planning",
-        description: "Building event portfolios aligned to buyer journey and revenue goals. Virtual, hybrid, and in-person event strategies.",
-      },
-      {
-        icon: "videocam",
-        title: "Webinar & Virtual Events",
-        description: "Production-grade webinars and virtual events. Tech stack selection, scriptwriting, talent coaching, and promotion.",
-      },
-      {
-        icon: "place",
-        title: "In-Person & Tradeshow",
-        description: "Strategic tradeshow participation and booth design. Pre-event activation, booth experience, and lead capture.",
-      },
-      {
-        icon: "mail",
-        title: "Event Promotion & Follow-Up",
-        description: "Integrated campaigns to drive attendance and post-event nurturing. Email sequences, paid campaigns, and sales enablement.",
-      },
-      {
-        icon: "analytics",
-        title: "Event Measurement & ROI",
-        description: "Tracking event impact on pipeline, revenue, and attendee lifetime value. Attribution and optimization.",
-      },
-    ],
+      { title: "Strategy & Planning", description: "Developing bespoke event strategies aligned with your business objectives, audience segmentation, and measurable KPIs." },
+      { title: "Event Execution & Management", description: "Seamless end-to-end management of virtual, hybrid, and in-person events, covering logistics, vendor coordination, and on-site support." },
+      { title: "Content & Experience Design", description: "Crafting compelling agendas, engaging content, and interactive experiences that resonate with your target audience." },
+      { title: "Promotion & Registration", description: "Multi-channel promotional campaigns, targeted outreach, and optimized registration flows to maximize attendance." },
+      { title: "Post-Event Follow-up & ROI Analysis", description: "Strategic lead nurturing, feedback collection, and comprehensive performance reporting to demonstrate tangible business impact." }
+    ]
   },
-  quote: {
-    text: "Events are the highest-engagement channel—when orchestrated correctly.",
-    subtext: "Most events fail because they're isolated experiences. We integrate events into the full GTM motion.",
+  philosophySection: {
+    headline: "Our Approach to Event Marketing Excellence",
+    principles: [
+      { title: "Audience-Centric Design", description: "Every event is meticulously designed around the needs and interests of your target audience, ensuring maximum relevance and engagement." },
+      { title: "Data-Driven Optimization", description: "We leverage analytics at every stage, from pre-event targeting to post-event ROI analysis, to continuously refine and improve performance." },
+      { title: "Seamless Integration", description: "Our event strategies are integrated with your broader marketing and sales efforts, creating a cohesive and impactful customer journey." }
+    ]
   },
-  explore: {
-    title: "Explore Further",
-    viewAllHref: "/expertise",
-    cards: [
-      {
-        category: "CASE STUDY",
-        title: "Virtual Event Generated $800K Pipeline",
-        description: "How a single virtual event, strategically promoted and executed, drove qualified deals worth $800K in pipeline.",
-        image: "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "View Case Study",
-        href: "/case-studies",
-      },
-      {
-        category: "INSIGHTS",
-        title: "Event ROI Framework",
-        description: "How to measure event success tied to pipeline, revenue, and customer lifetime value.",
-        image: "https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "Read Article",
-        href: "/insights",
-      },
-      {
-        category: "TEMPLATE",
-        title: "Event Planning Checklist",
-        description: "Complete checklist for planning, executing, and measuring events.",
-        image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=2070&auto=format&fit=crop",
-        ctaLabel: "Download",
-        href: "/resources",
-      },
-    ],
+  growthSection: {
+    headline: "Accelerate Your Business Growth Through Strategic Events",
+    narrative: "In an increasingly digital world, well-executed events stand out as powerful opportunities for direct engagement, thought leadership, and relationship building. GTMStack.pro helps you harness this power, transforming events from isolated occurrences into integral components of your growth strategy. We focus on creating experiences that not only attract but also convert, ensuring every event contributes directly to your bottom line and market leadership.",
+    metrics: [
+      { label: "Pipeline Generated", value: "$50M+" },
+      { label: "New Customer Acquisition", value: "150+" },
+      { label: "Brand Awareness Lift", value: "40%" }
+    ]
   },
   ctaSection: {
-    title: "Ready to Architect Your Event Strategy?",
-    subtitle: "Let's build an event program that drives predictable pipeline and brand authority.",
-    button: { label: "Schedule Event Strategy Call", href: "/contact" },
+    title: "Ready to Host Your Next Breakthrough Event?",
+    subtitle: "Partner with GTMStack.pro to design and execute events that deliver exceptional results and elevate your brand.",
+    button: {
+      text: "Start Your Event Strategy",
+      link: "/contact"
+    }
   },
   footer: {
-    description: "Strategic event programs that drive revenue and build relationships for B2B technology companies.",
+    description: "GTMStack.pro is your strategic partner for B2B marketing excellence, delivering innovative solutions that drive growth and market leadership.",
     sections: [
-      {
-        title: "Expertise",
-        links: [
-          { label: "Event Marketing", href: "/expertise/event-marketing" },
-          { label: "Demand Generation", href: "/expertise/demand-generation" },
-          { label: "Content Marketing", href: "/expertise/content-marketing" },
-        ],
-      },
-      {
-        title: "Company",
-        links: [
-          { label: "About", href: "/about" },
-          { label: "Case Studies", href: "/case-studies" },
-          { label: "Contact", href: "/contact" },
-        ],
-      },
+      { title: "Services", links: ["Go-To-Market Strategy", "Demand Generation", "Content Marketing", "Event Marketing"] },
+      { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] },
+      { title: "Resources", links: ["Case Studies", "Whitepapers", "Webinars", "FAQs"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved.",
-  },
-}
+    copyright: "© 2026 GTMStack.pro. All rights reserved."
+  }
+};
