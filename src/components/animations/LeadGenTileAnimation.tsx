@@ -129,6 +129,9 @@ export default function LeadGenTileAnimation() {
   useEffect(() => {
     const interval = setInterval(() => spawnParticle(), 1500);
     return () => clearInterval(interval);
+    // spawnParticle intentionally captures local component state and ref setters.
+    // Keeping a stable interval is preferred to rebinding on every render.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // Conversion rate calculation

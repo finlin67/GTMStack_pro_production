@@ -20,7 +20,7 @@ import { MARKETING_ANALYTICS_REPORTING_CONTENT } from '@/content/expertise/marke
 import { MARKETING_AUTOMATION_CONTENT } from '@/content/expertise/marketing-automation'
 import { MARTECH_OPTIMIZATION_CONTENT } from '@/content/expertise/martech-optimization'
 import { EXPERTISE_MAIN_CONTENT } from '@/content/expertise/main'
-import INDUSTRIES_MAIN_CONTENT from '@/content/industries/main'
+import { INDUSTRIES_MAIN_CONTENT } from '@/content/industries/main'
 import { industryItems } from '@/content/industries'
 import { expertiseItems } from '@/content/expertise'
 import { PROJECTS_MAIN_CONTENT } from '@/content/projects/main'

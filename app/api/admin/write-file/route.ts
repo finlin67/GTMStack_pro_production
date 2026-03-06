@@ -4,11 +4,7 @@ import path from 'node:path'
 import { cookies } from 'next/headers'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
-<<<<<<< HEAD
 export const dynamic = 'force-dynamic'
-
-=======
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
 const ALLOWED_PREFIXES = ['src/templates/', 'content/', 'src/content/']
 
 function isPathAllowed(filePath: string): boolean {

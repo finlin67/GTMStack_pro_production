@@ -5,11 +5,7 @@ import { execSync } from 'node:child_process'
 import { cookies } from 'next/headers'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
-<<<<<<< HEAD
 export const dynamic = 'force-dynamic'
-
-=======
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
 const REG_PATH = path.join(process.cwd(), 'src', 'templates', 'registry.ts')
 
 async function requireAuth(): Promise<boolean> {

@@ -98,23 +98,13 @@ const baseConfig = {
 
 module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER
-<<<<<<< HEAD
-  const forceStatic = process.env.STATIC_EXPORT === 'true'
-  
-=======
   const isStaticExport = process.env.STATIC_EXPORT === '1'
   const distDir = isStaticExport ? 'out' : '.next'
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
   const config = {
     ...baseConfig,
   }
-<<<<<<< HEAD
-  
-  // Only use static export when explicitly requested via STATIC_EXPORT=true
-  if (forceStatic) {
-=======
+
   if (isStaticExport) {
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
     config.output = 'export'
     config.distDir = 'out'
     config.trailingSlash = true

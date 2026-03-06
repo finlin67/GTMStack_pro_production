@@ -5,10 +5,6 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /case-studies/event-to-store-lift-retail,content/case-studies.ts,Event-to-Store Revenue Lift,caseStudy.base,case-studies:event-to-store-lift-retail,dark,
 /contact,content/contact.ts,Contact Us,home.main,contact:main,light,
 /expertise,content/expertise/main.ts,Expertise,expertise.main,expertise:main,dark,
-<<<<<<< HEAD
-/industries,content/industries/main.ts,Industries,Uploaded_Industries_v1,industries:main,dark,
-/gallery,content/gallery/main.ts,Animation Gallery,gallery.main,gallery:main,dark,
-=======
 /expertise/account-based-marketing,content/expertise.ts,Account-Based Marketing (ABM),Uploaded_Expertise_DemandGrowth_v1,expertise:account-based-marketing,dark,
 /expertise/content-engagement,content/expertise.ts,Content & Engagement,Uploaded_Expertise_ContentEngagement_v1,default:content,dark,
 /expertise/content-marketing,content/expertise.ts,Content Creation & Personalization,Uploaded_Expertise_ContentEngagement_v1,expertise:content-marketing,dark,
@@ -44,4 +40,3 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /p/test,content/home.ts,Test CMS Page,home.main,home:main,dark,
 /projects,content/projects/main.ts,Projects,projects.main,projects:main,dark,
 /resume,content/resume.ts,Resume,home.main,resume:main,light,
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837

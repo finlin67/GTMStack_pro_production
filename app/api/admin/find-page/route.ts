@@ -4,11 +4,7 @@ import path from 'node:path'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 import { cookies } from 'next/headers'
 
-<<<<<<< HEAD
 export const dynamic = 'force-dynamic'
-
-=======
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
 function parseCsvRow(line: string): string[] {
   const out: string[] = []
   let cur = ''

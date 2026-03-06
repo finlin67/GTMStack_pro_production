@@ -47,26 +47,6 @@ export const TEMPLATE_BY_ID: Record<string, TemplateComponent> = {
   'gallery.main': GalleryMainTemplate,
 }
 
-<<<<<<< HEAD
-// Admin CMS: Track runtime-uploaded templates (dev/staging only)
-const uploadedRegistry: Map<string, TemplateComponent> = new Map()
-
-export function registerUploadedTemplate(templateId: string, component: TemplateComponent): void {
-  if (process.env.ALLOW_TEMPLATE_UPLOADS !== 'true') {
-    console.warn('⚠️ Template upload attempted but ALLOW_TEMPLATE_UPLOADS != true')
-    return
-  }
-  uploadedRegistry.set(templateId, component)
-  console.log(`✅ Registered uploaded template: ${templateId}`)
-}
-
-export function getTemplate(templateId: RegistryTemplateId): TemplateComponent {
-  // Check uploaded registry first (dev/staging only)
-  if (uploadedRegistry.has(templateId)) {
-    return uploadedRegistry.get(templateId)!
-  }
-  
-=======
 export function getTemplate(templateId: string): TemplateComponent {
   const CompatibilityComponent = TEMPLATE_BY_ID[templateId]
   if (CompatibilityComponent) return CompatibilityComponent
@@ -76,7 +56,6 @@ export function getTemplate(templateId: string): TemplateComponent {
   if (Uploaded) return Uploaded as TemplateComponent
 
   // Fall back to legacy
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
   const Component = TEMPLATE_BY_ID[templateId]
   if (!Component) {
     throw new Error(`Unknown templateId: ${templateId}`)

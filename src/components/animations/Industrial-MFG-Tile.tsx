@@ -206,7 +206,7 @@ export default function IndustrialMFGTile() {
 
   useEffect(() => {
     fetchInsights();
-  }, []);
+  }, [fetchInsights]);
 
   return (
     <div className="w-full h-full flex items-center justify-center p-2 sm:p-4">

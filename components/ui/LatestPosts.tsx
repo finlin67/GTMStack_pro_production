@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState, useRef } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { ArrowRight, FileText } from 'lucide-react'
 import { fetchLatestPosts, WPPost, getPostCategories } from '@/lib/wp-client'
@@ -154,10 +155,12 @@ export default function LatestPosts({
               >
                 <div className="aspect-video relative bg-brand-800">
                   {getFeaturedImageUrl(post) ? (
-                    <img
+                    <Image
                       src={getFeaturedImageUrl(post)!}
-                      alt=""
-                      className="w-full h-full object-cover"
+                      alt={stripHtml(post.title?.rendered || post.slug)}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      className="object-cover"
                     />
                   ) : (
                     <div className="w-full h-full flex items-center justify-center">

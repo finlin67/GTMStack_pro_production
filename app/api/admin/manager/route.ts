@@ -4,11 +4,7 @@ import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 
-<<<<<<< HEAD
 export const dynamic = 'force-dynamic'
-
-=======
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
 const execAsync = promisify(exec);
 
 const TEMPLATES_DIR = path.join(process.cwd(), 'src', 'templates');

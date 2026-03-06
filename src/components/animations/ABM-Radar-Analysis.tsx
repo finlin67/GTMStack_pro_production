@@ -295,7 +295,7 @@ export default function App() {
 
   useEffect(() => {
     fetchInsights();
-  }, []);
+  }, [fetchInsights]);
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-background-dark">

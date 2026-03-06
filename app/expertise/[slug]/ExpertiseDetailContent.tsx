@@ -6,9 +6,7 @@ import dynamic from 'next/dynamic'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import * as Icons from 'lucide-react'
 import { ArrowRight, ArrowLeft, Compass, Sparkles, Layers, LineChart, ChevronRight, Search, MessageSquare, Rocket, BookOpen, RefreshCw } from 'lucide-react'
-import { ExpertiseItem } from '@/lib/types'
-import { CaseStudyItem } from '@/lib/types'
-import { IndustryItem } from '@/lib/types'
+import { ExpertiseItem, CaseStudyItem, IndustryItem } from '@/lib/types'
 
 /* Preserved: Animated dashboard element in hero upper right — do not delete or modify */
 const ExpertiseHeroVisual = dynamic(

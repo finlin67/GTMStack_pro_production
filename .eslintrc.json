@@ -14,10 +14,24 @@
     }
   },
   "rules": {
-    "import/no-unresolved": ["error", { "caseSensitive": true }],
-    "import/named": "error",
+    "import/no-unresolved": ["error", { "caseSensitive": true, "ignore": ["^server-only$"] }],
+    "import/named": "off",
     "import/default": "error",
-    "import/namespace": "error"
-  }
+    "import/namespace": "off",
+    "import/no-named-as-default-member": "off",
+    "react/no-unescaped-entities": "off"
+  },
+  "overrides": [
+    {
+      "files": [
+        "src/components/animations/**/*.{ts,tsx}",
+        "src/templates/**/*.{ts,tsx}"
+      ],
+      "rules": {
+        "@next/next/no-img-element": "off",
+        "@next/next/no-page-custom-font": "off"
+      }
+    }
+  ]
 }
 

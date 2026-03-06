@@ -1,10 +1,4 @@
 import { ComponentType } from 'react'
-<<<<<<< HEAD
-import Template_0 from './Uploaded_Industries_v1'
-
-export const UPLOADED_TEMPLATE_BY_ID: Record<string, ComponentType<any>> = {
-  'Uploaded_Industries_v1': Template_0,
-=======
 import Template_0 from './ContentEngagement'
 import Template_1 from './ContentEngagementPillar'
 import Template_2 from './DefaultPage'
@@ -39,7 +33,6 @@ export const UPLOADED_TEMPLATE_BY_ID: Record<string, ComponentType<any>> = {
   'Uploaded_Healthcare_v1': Template_13,
   'Uploaded_CaseStudies_v1': Template_14,
   'Uploaded_CaseStudySingle_v1': Template_15,
->>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
 }
 
 export function getUploadedTemplate(templateId: string): ComponentType<any> | undefined {

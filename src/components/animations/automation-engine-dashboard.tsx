@@ -245,6 +245,8 @@ const PerformanceChart: React.FC = () => {
     return () => {
       if (timeoutRef.current) clearTimeout(timeoutRef.current);
     };
+    // updateData is intentionally recursive and schedules itself via timeoutRef.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

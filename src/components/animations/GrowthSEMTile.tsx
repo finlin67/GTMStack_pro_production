@@ -50,7 +50,7 @@ export default function GrowthSEMTile() {
     });
     
     return controls.stop;
-  }, []);
+  }, [roasValue]);
 
   return (
     <div className="relative w-full max-w-[600px] aspect-square bg-[#0c1a1b] rounded-2xl border border-[#224649] overflow-hidden flex items-center justify-center shadow-2xl">
