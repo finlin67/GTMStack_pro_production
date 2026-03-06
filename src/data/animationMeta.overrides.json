@@ -1,0 +1,32 @@
+{
+  "a-b-m-pipe-tracker-tile": {
+    "title": "ABM Pipe Tracker Tile",
+    "description": "ABM Pipeline Strategy Dashboard\nA high-fidelity, interactive React component visualizing an Account-Based Marketing (ABM) strategy pipeline. This project demonstrates complex UI animations, real-time data simulation, and a \"SaaS Premium\" dark-mode aesthetic using Tailwind CSS and Framer Motion.\n\n🚀 Key Features\nReal-time Data Simulation: The dashboard simulates live metrics (Targeting, Engagement) using setInterval hooks inside useEffect, creating a dynamic sense of activity.\nAdvanced Animations:\nSVG Path Drawing: Graphs and trend lines animate in using motion.path with easing functions.\nShimmer Effects: The \"Launch Campaign\" button features a continuous skewed gradient overlay (animate={{ x: [\"-100%\", \"200%\"] }}).\nLayout Transitions: The \"Monthly/Quarterly\" toggle uses a spring-based layout transition (layoutId concept simulated via absolute positioning) for the active state background.\nHover Micro-interactions: Cards lift and glow (colored box-shadow) on interaction.\nHigh-Fidelity Design:\nGlassmorphism: Usage of semi-transparent backgrounds (bg-opacity) with backdrops.\nNeon Aesthetics: Specialized color palette (#00d2ff, #f59f0a) against deep navy backgrounds (#0a192f, #112240).\nScaling Architecture: The app uses a CSS transform scaling strategy to fit a 1280px wide dashboard design into a fixed 600x600px container for thumbnail preview purposes.",
+    "repoUrl": "https://github.com/finlin67/ABM-Pipeline-Strategy-Dashboard",
+    "keywords": [
+      "revenue"
+    ]
+  },
+  "abm-network-dashboard": {
+    "title": "Abm Network Dashboard",
+    "description": "ABM Pipeline Strategy Dashboard\nA high-fidelity, interactive React component visualizing an Account-Based Marketing (ABM) strategy pipeline. This project demonstrates complex UI animations, real-time data simulation, and a \"SaaS Premium\" dark-mode aesthetic using Tailwind CSS and Framer Motion.\n\n🚀 Key Features\nReal-time Data Simulation: The dashboard simulates live metrics (Targeting, Engagement) using setInterval hooks inside useEffect, creating a dynamic sense of activity.\nAdvanced Animations:\nSVG Path Drawing: Graphs and trend lines animate in using motion.path with easing functions.\nShimmer Effects: The \"Launch Campaign\" button features a continuous skewed gradient overlay (animate={{ x: [\"-100%\", \"200%\"] }}).\nLayout Transitions: The \"Monthly/Quarterly\" toggle uses a spring-based layout transition (layoutId concept simulated via absolute positioning) for the active state background.\nHover Micro-interactions: Cards lift and glow (colored box-shadow) on interaction.\nHigh-Fidelity Design:\nGlassmorphism: Usage of semi-transparent backgrounds (bg-opacity) with backdrops.\nNeon Aesthetics: Specialized color palette (#00d2ff, #f59f0a) against deep navy backgrounds (#0a192f, #112240).\nScaling Architecture: The app uses a CSS transform scaling strategy to fit a 1280px wide dashboard design into a fixed 600x600px container for thumbnail preview purposes.\n🛠 Tech Stack\nReact 19: Component architecture and state management.\nTailwind CSS: Utility-first styling for rapid UI development.\nFramer Motion: Complex animation sequences and gesture handling.\nLucide React: Consistent, lightweight iconography mapped from original SVGs.\n📦 Component Structure\nApp.tsx\nThe entry point wrapper. It handles the Scaling Strategy:\n\nOuter Container: 600x600px (Fixed).\nInner Content: 1280x720px (Design resolution).\nTransform: scale(0.46875) ensures the HD design fits perfectly within the thumbnail viewport without altering internal layout logic.\nDashboard.tsx\nThe main view controller containing:\n\nHeader: Navigation, status indicators, and profile settings.\nFunnel Section: Three FunnelCard components visualizing the conversion pipeline (Targeting -> Engagement -> Opportunity).\nGrowth Insights: An SVG-based chart visualizing growth trends over a custom drawn grid.\nFooter: Key Performance Indicators (KPIs) and action buttons.\nSubcomponents\nFunnelCard: A reusable card for pipeline stages with integrated mini-charts and motion effects.\nStatBox: A footer component for displaying high-level metrics (ROI, Pipeline Value).\nTargetItem: A row item for the \"Priority Targets\" list showing account tiers and status.\n🎨 Customization\nTo modify the color theme, update the COLORS constant in Dashboard.tsx. The app relies heavily on Tailwind's arbitrary value syntax (e.g., bg-[#0a192f]) to achieve its specific \"Deep Navy\" look used in modern SaaS interfaces.",
+    "repoUrl": "https://github.com/finlin67/ABM-Pipeline-Strategy-Dashboard",
+    "keywords": [
+      "abm",
+      "dashboard",
+      "revenue",
+      "test"
+    ]
+  },
+  "a-b-m90-days": {
+    "title": "ABM Flow Premium Tile ⭐ ",
+    "description": "ABM Flow Premium Tile\n\n## 🧠 Context & Creative Strategy\nThe ABM Flow Premium Tile is designed to provide a high-impact, real-time visualization of Account-Based Marketing (ABM) funnels. It bridges the gap between raw data and executive-level storytelling by using a particle-based \"flow\" that represents accounts moving through the pipeline.\n\n## 🎯 Purpose & Value Proposition\n- **Real-time Visibility**: Instantly see the health of your ABM efforts.\n- **Engagement Tracking**: Visualize how many accounts are transitioning from targeting to active engagement.\n- **Pipeline Velocity**: Get a sense of how quickly opportunities are being created.",
+    "keywords": [
+      "abm",
+      "pipeline",
+      "tracking"
+    ],
+    "repoUrl": "finlin67/-ABM-Flow-Premium-Tile on main",
+    "thumbnailSrc": "/animation-thumbs/a-b-m90-days.png"
+  }
+}

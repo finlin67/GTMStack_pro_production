@@ -1,0 +1,289 @@
+ Volume in drive C is Windows
+ Volume Serial Number is FE35-CE81
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src
+
+02/24/2026  10:05 PM    <DIR>          .
+02/24/2026  05:33 PM    <DIR>          ..
+02/18/2026  07:45 PM    <DIR>          components
+02/24/2026  09:04 PM    <DIR>          content
+02/24/2026  09:54 PM    <DIR>          data
+02/03/2026  01:11 PM               884 files.txt
+02/22/2026  01:51 AM    <DIR>          lib
+02/24/2026  10:05 PM                 0 src.txt
+02/23/2026  11:43 PM    <DIR>          staging-templates
+02/24/2026  09:29 PM    <DIR>          templates
+               2 File(s)            884 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\components
+
+02/18/2026  07:45 PM    <DIR>          .
+02/24/2026  10:05 PM    <DIR>          ..
+02/23/2026  10:28 PM    <DIR>          animations
+02/18/2026  07:45 PM    <DIR>          hero
+02/15/2026  10:37 AM               269 types.ts
+               1 File(s)            269 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\components\animations
+
+02/23/2026  10:28 PM    <DIR>          .
+02/18/2026  07:45 PM    <DIR>          ..
+02/23/2026  03:40 PM            16,891 abm-network-dashboard.tsx
+02/23/2026  03:40 PM            19,826 ABM-Pipeline-Strategy.tsx
+02/12/2026  03:39 PM            16,780 ABM-Radar-Analysis.tsx
+02/23/2026  03:40 PM            13,365 ABM90Days.tsx
+02/23/2026  03:40 PM             8,731 ABMPipeTrackerTile.tsx
+02/23/2026  03:40 PM            16,874 ABMTileAnimation.tsx
+02/23/2026  03:40 PM             7,864 AIGrowth.tsx
+02/23/2026  03:40 PM            10,566 Airplane.tsx
+02/09/2026  02:05 PM             6,784 animationsFeb9.txt
+02/23/2026  03:40 PM            16,671 ApexShieldLifecycleEngine.tsx
+02/23/2026  03:40 PM            17,165 automation-engine-dashboard.tsx
+02/15/2026  10:36 AM               571 BackgroundGrid.tsx
+02/23/2026  03:40 PM            15,222 CampaignTile.tsx
+02/23/2026  03:40 PM            17,130 ClinicalHolographicControlSurface.tsx
+02/23/2026  03:40 PM            15,586 Content-Engagement-Marketing.tsx
+02/23/2026  03:40 PM            17,342 Content-Marketing.tsx
+02/23/2026  03:40 PM            15,229 ContentEngagementTile.tsx
+02/23/2026  03:40 PM            14,878 ContentMarketing.tsx
+02/23/2026  03:40 PM            17,725 ContentMarketingAnimation.tsx
+02/23/2026  03:40 PM            26,616 ContentMarketingHero.tsx
+02/23/2026  03:40 PM            18,631 ContentStrategistDashboard.tsx
+02/23/2026  03:40 PM            10,961 CRMCampaignsTile.tsx
+02/23/2026  03:40 PM            17,162 DemandGenerationHero.tsx
+02/23/2026  03:40 PM            24,709 DemandGenerationHeroTile.tsx
+02/23/2026  03:40 PM            20,283 DemandGenFlow.tsx
+02/23/2026  03:40 PM             8,993 DemandGrowthTile.tsx
+02/23/2026  03:40 PM            21,628 Developer-Marketing.tsx
+02/23/2026  03:40 PM            13,886 DevMarketers.tsx
+02/23/2026  03:40 PM            10,388 DriftGuard.tsx
+02/23/2026  03:40 PM            21,702 EdJourneyK12Ecosystem.tsx
+02/03/2026  01:11 PM                 0 EdTech-ROI-Funnel.tsx
+02/23/2026  03:40 PM            12,131 EdTechCompactROIFunnel.tsx
+02/23/2026  03:40 PM            13,620 EduMarketersDashboard.tsx
+02/23/2026  03:40 PM            19,595 EDUMarketingTile.tsx
+02/04/2026  08:31 PM               180 EmailAutomationComponent.tsx
+02/23/2026  03:40 PM            21,467 EmailMarketingHero.tsx
+02/23/2026  03:40 PM            16,961 EnergyFlowDigital.tsx
+02/23/2026  03:40 PM            12,577 EnergyGridTile.tsx
+02/23/2026  03:40 PM            10,457 EngineeringExcellenceWorkflowTile.tsx
+02/23/2026  03:40 PM            13,470 EngineeringWorkflow.tsx
+02/23/2026  03:40 PM            23,277 EngineeringWorkflowSystem.tsx
+02/23/2026  03:40 PM            22,096 EnterpriseSalesMotionDashboard.tsx
+02/23/2026  03:40 PM            14,182 EocLogisticsDashboard.tsx
+02/23/2026  03:40 PM            17,424 EsgAnalyticsHub.tsx
+02/23/2026  03:40 PM             8,284 EventMarketing.tsx
+02/23/2026  03:40 PM            20,935 EventMarketingTile.tsx
+02/23/2026  03:40 PM            10,722 EventPulse.tsx
+02/23/2026  03:40 PM            24,815 ExecutiveLogisticsDashboard.tsx
+01/18/2026  12:58 PM               224 files.txt
+02/23/2026  03:40 PM            15,232 FinancialTile.tsx
+02/03/2026  01:11 PM                 0 FleetROICalculator.tsx
+02/23/2026  03:40 PM             9,929 FleetTile.tsx
+02/23/2026  03:40 PM            31,027 GrowthMarketingHero.tsx
+02/23/2026  03:40 PM            10,093 GrowthMarketingTile.tsx
+02/23/2026  03:40 PM             8,918 GrowthSEMTile.tsx
+02/23/2026  03:40 PM            10,434 GTMAudienceTile.tsx
+02/23/2026  03:40 PM            10,434 GTMAudienceTileHero.tsx
+02/04/2026  08:33 PM            10,410 gtmstack-hero.tsx
+02/11/2026  01:19 PM             7,465 gtmstack-pro-library.csv
+02/23/2026  03:40 PM            11,728 GTMStackHero.tsx
+02/23/2026  03:40 PM            19,826 GTMStackPro.tsx
+02/23/2026  03:40 PM            12,337 HealthCareTile.tsx
+02/23/2026  03:40 PM            11,718 HigherEDMarketingTile.tsx
+02/23/2026  03:40 PM            25,306 ImpactDashboard.tsx
+01/25/2026  09:27 PM             3,130 index.ts
+02/04/2026  08:33 PM            13,572 Industrial-MFG-Tile.tsx
+02/23/2026  03:40 PM            12,412 IndustrialDashboard.tsx
+02/23/2026  03:40 PM            21,064 KpiSpotlightMosaic.tsx
+02/23/2026  03:40 PM            10,310 LeadGenBanner.tsx
+02/23/2026  03:40 PM            16,395 LeadGenTileAnimation.tsx
+02/23/2026  03:40 PM            20,847 Lifecycle-360.tsx
+02/03/2026  01:11 PM                10 LifecycleEngine.tsx
+02/23/2026  03:40 PM            12,343 Live-Email-Automation.tsx
+02/23/2026  03:40 PM            12,136 Manufacturing-LifecycleDashboard (1).tsx
+02/23/2026  03:40 PM            12,136 Manufacturing-LifecycleDashboard.tsx
+02/23/2026  03:40 PM            19,703 Marketing-Analytics-Carousel.tsx
+02/23/2026  03:40 PM            17,759 Marketing-Automation-Live-Feed (1).tsx
+02/23/2026  03:40 PM            13,280 Marketing-Automation-Live-Feed.tsx
+02/23/2026  03:40 PM            12,538 MarketingFunnel.tsx
+02/23/2026  03:40 PM             6,877 MarketingOperationsTile.tsx
+02/23/2026  03:40 PM            15,345 MarTechTile.tsx
+02/01/2026  01:04 PM            15,368 master-gtmstack-pro-library.xlsx
+02/23/2026  03:40 PM            16,533 NexusStakeholderPortal.tsx
+02/23/2026  03:40 PM            12,073 NGOSDOTile.tsx
+02/23/2026  03:40 PM            13,755 NGOTile.tsx
+02/23/2026  03:40 PM             9,459 OilGasTile.tsx
+02/23/2026  03:40 PM            11,998 Omni-Analytics.tsx
+02/23/2026  03:40 PM            13,446 OmnichannelLiveAnalytics.tsx
+02/23/2026  03:40 PM            13,860 OmniRetailTile.tsx
+02/23/2026  03:40 PM            14,864 PaidAdvertisingHero.tsx
+02/23/2026  03:40 PM            14,008 PipelineDashboard.tsx
+02/23/2026  03:40 PM            11,950 PlgJourneyDashboard.tsx
+02/23/2026  03:40 PM            13,564 PowerGridDashboard.tsx
+02/23/2026  03:40 PM            11,116 PubSecTile.tsx
+02/23/2026  03:40 PM            19,474 QuantumDashboard.tsx
+02/23/2026  03:40 PM            15,195 RevOpsDash.tsx
+02/23/2026  03:40 PM            23,340 RevOpsDashboard.tsx
+02/23/2026  03:40 PM             9,981 RevOpsMeshTile.tsx
+02/23/2026  03:40 PM            12,919 SalesEnablementTile.tsx
+02/23/2026  03:40 PM            12,227 ScalabilityRadar.tsx
+02/23/2026  03:40 PM            16,094 SEO-GrowthFlow.tsx
+02/11/2026  01:59 PM               155 SEOAnimation.tsx
+02/23/2026  03:40 PM            30,477 SEOHero.tsx
+02/23/2026  03:40 PM            12,743 SEOKeywordDiscovery.tsx
+02/23/2026  03:40 PM            16,239 SocialMediaHero.tsx
+02/23/2026  03:40 PM             7,415 StrategyInsightsTile.tsx
+02/23/2026  03:40 PM            12,714 SystemsProcessTile.tsx
+02/23/2026  03:40 PM            13,273 TelcoAITile.tsx
+02/04/2026  08:24 PM             3,867 TelemetryGrid.tsx
+02/23/2026  10:31 PM             2,731 tiles.txt
+02/23/2026  03:40 PM            16,489 Video-Marketing-Analytics-Tile.tsx
+02/23/2026  03:40 PM            16,484 Video-Marketing-Analytics.tsx
+02/23/2026  03:40 PM            32,179 VideoCreativeHero.tsx
+01/27/2026  04:23 PM               541 v_gtmstack-pro-library.csv
+02/23/2026  03:40 PM            12,338 WasteMan.tsx
+02/23/2026  03:40 PM            15,235 WealthManageTile.tsx
+             116 File(s)      1,611,394 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\components\hero
+
+02/18/2026  07:45 PM    <DIR>          .
+02/18/2026  07:45 PM    <DIR>          ..
+02/19/2026  06:21 PM             1,624 HeroVisualByRoute.client.tsx
+               1 File(s)          1,624 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\content
+
+02/24/2026  09:04 PM    <DIR>          .
+02/24/2026  10:05 PM    <DIR>          ..
+02/24/2026  09:56 PM             4,711 content-engagement.ts
+02/24/2026  04:18 PM                 0 fallback.ts
+02/24/2026  12:03 PM             2,506 registry.ts
+02/24/2026  11:10 AM             2,103 registry.ts.bak
+               4 File(s)          9,320 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\data
+
+02/24/2026  09:54 PM    <DIR>          .
+02/24/2026  10:05 PM    <DIR>          ..
+02/23/2026  01:39 PM            29,879 animationCatalog.generated.ts
+02/23/2026  03:40 PM             1,175 animationGallery.ts
+02/04/2026  06:46 PM               826 animationIds.ts
+02/22/2026  05:40 PM             4,793 animationMeta.overrides.json
+02/22/2026  02:07 AM               899 animationMeta.overrides.ts
+02/22/2026  02:45 PM            31,310 animations.ts
+02/24/2026  09:59 PM            10,380 page-registry.csv
+02/24/2026  11:10 AM             1,005 page-registry.csv.bak
+02/22/2026  01:32 AM            58,587 pageCatalog.generated.ts
+02/24/2026  09:59 PM            42,234 pageRegistry.generated.ts
+02/24/2026  11:57 AM             2,809 registry-review.md
+02/24/2026  05:04 PM            58,214 sitemap.ts
+              12 File(s)        242,111 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\lib
+
+02/22/2026  01:51 AM    <DIR>          .
+02/24/2026  10:05 PM    <DIR>          ..
+02/22/2026  10:05 AM             1,477 animationOverrides.fs.ts
+02/22/2026  01:50 AM               398 localOnly.ts
+               2 File(s)          1,875 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\staging-templates
+
+02/23/2026  11:43 PM    <DIR>          .
+02/24/2026  10:05 PM    <DIR>          ..
+02/23/2026  09:23 PM            10,462 demand-growth.tsx
+02/23/2026  07:11 PM            22,781 DemandGrowthPillar.tsx
+               2 File(s)         33,243 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates
+
+02/24/2026  09:29 PM    <DIR>          .
+02/24/2026  10:05 PM    <DIR>          ..
+02/23/2026  03:40 PM    <DIR>          blog
+02/15/2026  02:40 PM    <DIR>          caseStudies
+02/24/2026  09:56 PM            16,683 ContentEngagementPillar.tsx
+02/24/2026  03:34 PM               712 DefaultPage.tsx
+02/23/2026  10:39 PM    <DIR>          expertise
+02/24/2026  07:16 PM            23,336 FallbackTemplate.tsx
+02/23/2026  03:40 PM    <DIR>          gallery
+02/18/2026  03:00 PM    <DIR>          home
+02/18/2026  04:53 PM    <DIR>          industries
+02/23/2026  03:40 PM    <DIR>          projects
+02/24/2026  01:39 PM             3,153 registry.ts
+02/24/2026  11:10 AM             2,998 registry.ts.bak
+               5 File(s)         46,882 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\blog
+
+02/23/2026  03:40 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/23/2026  03:40 PM            20,721 BlogMainTemplate.tsx
+02/23/2026  03:40 PM            22,484 BlogPostTemplate.tsx
+               2 File(s)         43,205 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\caseStudies
+
+02/15/2026  02:40 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/18/2026  03:29 PM               557 CaseStudyTemplate.tsx
+               1 File(s)            557 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\expertise
+
+02/23/2026  10:39 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/24/2026  12:03 PM            10,462 DemandGrowth.tsx
+02/18/2026  10:22 PM               956 ExpertiseCategoryTemplate.tsx
+02/19/2026  06:21 PM            16,469 ExpertiseMainTemplate.tsx
+02/24/2026  11:37 AM             7,352 ExpertiseTopicTemplate.tsx
+02/24/2026  09:14 PM    <DIR>          pillars
+               4 File(s)         35,239 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\expertise\pillars
+
+02/24/2026  09:14 PM    <DIR>          .
+02/23/2026  10:39 PM    <DIR>          ..
+02/24/2026  09:03 PM            16,683 ContentEngagementPillar.tsx
+02/24/2026  12:22 PM            10,462 demand-growth.tsx
+02/23/2026  09:28 PM            10,462 demand-growthpillar.tsx
+02/18/2026  10:22 PM               464 DemandGrowthPillar.tsx
+02/24/2026  09:57 PM             2,393 pillarMap.ts
+02/18/2026  10:22 PM               476 StrategyInsightsPillar.tsx
+02/23/2026  03:40 PM            24,417 SystemsOperationsPillar.tsx
+               7 File(s)         65,357 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\gallery
+
+02/23/2026  03:40 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/23/2026  03:40 PM            13,403 GalleryMainTemplate.client.tsx
+               1 File(s)         13,403 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\home
+
+02/18/2026  03:00 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/23/2026  08:40 PM            15,089 HomePage.tsx
+02/19/2026  06:21 PM             2,159 HomeTemplate.tsx
+               2 File(s)         17,248 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\industries
+
+02/18/2026  04:53 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/23/2026  08:40 PM            25,429 IndustriesMainTemplate.tsx
+02/18/2026  07:28 AM               963 IndustryTemplate.tsx
+               2 File(s)         26,392 bytes
+
+ Directory of C:\Prod\GTM Stack\GTMStack-Feb\GTMStack_pro\src\templates\projects
+
+02/23/2026  03:40 PM    <DIR>          .
+02/24/2026  09:29 PM    <DIR>          ..
+02/23/2026  03:40 PM            16,954 ProjectsTemplate.tsx
+               1 File(s)         16,954 bytes
+
+     Total Files Listed:
+             165 File(s)      2,165,957 bytes
+              50 Dir(s)  431,902,310,400 bytes free

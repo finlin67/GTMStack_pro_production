@@ -1,0 +1,1327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Complete sitemap for GTMStack.pro - Expert GTM, Marketing Operations, and Revenue Growth Strategy">
+    <title>Sitemap | GTMStack.pro</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        header {
+            margin-bottom: 40px;
+            border-bottom: 3px solid #2563eb;
+            padding-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #1e293b;
+            margin-bottom: 10px;
+        }
+
+        .header-info {
+            color: #64748b;
+            font-size: 1rem;
+        }
+
+        .last-updated {
+            font-style: italic;
+            color: #94a3b8;
+            margin-top: 5px;
+        }
+
+        nav {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f1f5f9;
+            border-radius: 6px;
+        }
+
+        nav h2 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            color: #1e293b;
+        }
+
+        nav ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 10px;
+        }
+
+        nav a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: #1d4ed8;
+            text-decoration: underline;
+        }
+
+        .section {
+            margin: 50px 0;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #e2e8f0;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            color: #1e293b;
+        }
+
+        .section-count {
+            background: #2563eb;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .page-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+        }
+
+        .page-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 20px;
+            background: #f8fafc;
+            transition: all 0.2s;
+        }
+
+        .page-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .page-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 8px;
+        }
+
+        .page-title a {
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .page-title a:hover {
+            text-decoration: underline;
+        }
+
+        .page-url {
+            font-size: 0.85rem;
+            color: #059669;
+            font-family: 'Courier New', monospace;
+            margin-bottom: 12px;
+            word-break: break-all;
+        }
+
+        .page-description {
+            color: #475569;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            margin-bottom: 12px;
+        }
+
+        .page-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 12px;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+
+        .badge-featured {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-pillar {
+            background: #dbeafe;
+            color: #1e40af;
+        }
+
+        .badge-industry {
+            background: #e0e7ff;
+            color: #4338ca;
+        }
+
+        .badge-priority {
+            background: #fecdd3;
+            color: #9f1239;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .tag {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 2px 8px;
+            border-radius: 3px;
+            font-size: 0.75rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8fafc;
+            border-radius: 6px;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2563eb;
+        }
+
+        .stat-label {
+            color: #64748b;
+            font-size: 0.9rem;
+            margin-top: 4px;
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 2px solid #e2e8f0;
+            text-align: center;
+            color: #64748b;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            .page-grid {
+                grid-template-columns: 1fr;
+            }
+
+            nav ul {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🗺️ Site Map</h1>
+            <div class="header-info">
+                <p>Complete navigation for <strong>GTMStack.pro</strong> — Expert GTM, Marketing Operations, and Revenue Growth Strategy</p>
+                <p class="last-updated">Last Updated: February 24, 2026</p>
+            </div>
+        </header>
+
+        <!-- Quick Navigation -->
+        <nav>
+            <h2>Quick Navigation</h2>
+            <ul>
+                <li><a href="#static-pages">Main Pages</a></li>
+                <li><a href="#expertise-pillars">Expertise Pillars</a></li>
+                <li><a href="#expertise-topics">Expertise Topics</a></li>
+                <li><a href="#industries">Industries</a></li>
+                <li><a href="#case-studies">Case Studies</a></li>
+                <li><a href="#services">Services</a></li>
+            </ul>
+        </nav>
+
+        <!-- Statistics -->
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-value">12</div>
+                <div class="stat-label">Main Pages</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">39</div>
+                <div class="stat-label">Expertise Topics</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">21</div>
+                <div class="stat-label">Industries</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">19</div>
+                <div class="stat-label">Case Studies</div>
+            </div>
+            <div class="stat">
+                <div class="stat-value">6</div>
+                <div class="stat-label">Services</div>
+            </div>
+        </div>
+
+        <!-- Static Pages -->
+        <section class="section" id="static-pages">
+            <div class="section-header">
+                <h2>Main Pages</h2>
+                <span class="section-count">12</span>
+            </div>
+            <div class="page-grid">
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/">Home</a></div>
+                    <div class="page-url">https://gtmstack.pro/</div>
+                    <div class="page-description">Professional GTM strategy, marketing operations, and revenue growth expertise. Portfolio and capabilities overview.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 1.0</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/about">About</a></div>
+                    <div class="page-url">https://gtmstack.pro/about</div>
+                    <div class="page-description">Background, experience, and approach to GTM strategy and marketing operations.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.7</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise">Expertise</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise</div>
+                    <div class="page-description">Comprehensive overview of marketing and GTM capabilities across strategy, systems, content, and growth.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.9</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries">Industries</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries</div>
+                    <div class="page-description">Industry-specific GTM expertise and proven results across B2B SaaS, FinTech, Healthcare, Manufacturing, and more.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.9</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies">Case Studies</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies</div>
+                    <div class="page-description">Real-world examples of GTM transformations, ABM launches, and revenue operations improvements.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.9</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/ai-visualizations">AI Visualizations</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/ai-visualizations</div>
+                    <div class="page-description">Interactive AI-powered visualizations and demonstrations.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.6</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/blog">Blog</a></div>
+                    <div class="page-url">https://gtmstack.pro/blog</div>
+                    <div class="page-description">Insights, articles, and thought leadership on GTM strategy, marketing operations, and revenue growth.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.8</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/gallery">Gallery</a></div>
+                    <div class="page-url">https://gtmstack.pro/gallery</div>
+                    <div class="page-description">Visual showcase of work, projects, and creative outputs.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.8</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/projects">Projects</a></div>
+                    <div class="page-url">https://gtmstack.pro/projects</div>
+                    <div class="page-description">Featured projects and portfolio pieces demonstrating GTM capabilities.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.6</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/resume">Resume</a></div>
+                    <div class="page-url">https://gtmstack.pro/resume</div>
+                    <div class="page-description">Professional background and career history.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.5</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/contact">Contact</a></div>
+                    <div class="page-url">https://gtmstack.pro/contact</div>
+                    <div class="page-description">Get in touch for consulting, collaboration, or speaking opportunities.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.6</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Pillar Pages -->
+        <section class="section" id="expertise-pillars">
+            <div class="section-header">
+                <h2>Expertise Pillars</h2>
+                <span class="section-count">4</span>
+            </div>
+            <div class="page-grid">
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/content-engagement">Content & Engagement</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/content-engagement</div>
+                    <div class="page-description">Strategic content development, engagement frameworks, and narrative systems that drive buyer action.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-pillar">Pillar</span>
+                        <span class="badge badge-priority">Priority: 0.85</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/demand-growth">Demand & Growth</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/demand-growth</div>
+                    <div class="page-description">Scalable demand generation, pipeline creation, and growth marketing systems.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-pillar">Pillar</span>
+                        <span class="badge badge-priority">Priority: 0.85</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/strategy-insights">Strategy & Insights</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/strategy-insights</div>
+                    <div class="page-description">GTM strategy, market intelligence, and data-driven decision frameworks.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-pillar">Pillar</span>
+                        <span class="badge badge-priority">Priority: 0.85</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/systems-operations">Systems & Operations</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/systems-operations</div>
+                    <div class="page-description">Marketing operations, technology stack optimization, and operational excellence.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-pillar">Pillar</span>
+                        <span class="badge badge-priority">Priority: 0.85</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Topic Pages -->
+        <section class="section" id="expertise-topics">
+            <div class="section-header">
+                <h2>Expertise Topics</h2>
+                <span class="section-count">39</span>
+            </div>
+            <div class="page-grid">
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/account-based-marketing">Account-Based Marketing (ABM)</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/account-based-marketing</div>
+                    <div class="page-description">Designing precision GTM systems focused on winning high-value accounts through coordinated sales + marketing plays, multithreaded engagement, and intelligence-driven personalization at scale.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">ABM</span>
+                        <span class="tag">Account-Based</span>
+                        <span class="tag">6Sense</span>
+                        <span class="tag">Demandbase</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/attribution-and-measurement">Attribution & Measurement</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/attribution-and-measurement</div>
+                    <div class="page-description">Building accurate, trustworthy measurement systems that reveal which channels, messages, and plays actually drive revenue—enabling better decisions, smarter budgets, and predictive insights.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/bi-data-engineering">BI & Data Engineering (GTM-Focused)</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/bi-data-engineering</div>
+                    <div class="page-description">Designing and maintaining the data pipelines, models, and BI infrastructure required to power accurate GTM reporting, predictive insights, and AI-driven decision-making.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/ai-in-marketing">AI in Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/ai-in-marketing</div>
+                    <div class="page-description">Integrating AI, automation, and agentic systems into the marketing engine to dramatically improve speed, personalization, insight, and operational efficiency.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/content-marketing">Content Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/content-marketing</div>
+                    <div class="page-description">Building authoritative, structured content systems that fuel both human audiences and AI discovery engines, positioning the brand as the definitive voice in its category.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/content-strategy-systems">Content Strategy Systems</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/content-strategy-systems</div>
+                    <div class="page-description">Building scalable, structured content ecosystems—frameworks, taxonomies, templates, and workflows—that power consistent storytelling, AI discoverability, and multi-channel execution.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/channel-partner-marketing">Channel Partner Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/channel-partner-marketing</div>
+                    <div class="page-description">Equipping, enabling, and activating partners through co-marketing, joint campaigns, and shared GTM motions that expand market reach and accelerate revenue.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/customer-experience">Customer Experience (CX)</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/customer-experience</div>
+                    <div class="page-description">Designing seamless, end-to-end customer journeys that maximize retention, loyalty, and long-term revenue through experience-led growth.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">CX</span>
+                        <span class="tag">Customer Experience</span>
+                        <span class="tag">Journey</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/customer-marketing">Customer Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/customer-marketing</div>
+                    <div class="page-description">Deepening customer value, accelerating expansion, and strengthening loyalty through targeted programs that activate, educate, and mobilize existing customers.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/data-governance">Data Governance</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/data-governance</div>
+                    <div class="page-description">Ensuring GTM, Sales, and Marketing systems operate on trusted, high-quality data that fuels accurate reporting, effective automation, and reliable AI-driven decisions.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/demand-generation">Demand Generation</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/demand-generation</div>
+                    <div class="page-description">Building predictable, scalable pipeline through orchestrated multi-channel programs, precision targeting, and data-backed optimization across the full funnel.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/digital-marketing">Digital Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/digital-marketing</div>
+                    <div class="page-description">Modern digital marketing blends creative narrative, data-driven optimization, and orchestration across paid, organic, social, and web channels to generate measurable growth.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/email-marketing">Email Marketing & Nurture</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/email-marketing</div>
+                    <div class="page-description">Email programs that convert. Lifecycle sequences, segmentation, and automation that move buyers through the funnel.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Email</span>
+                        <span class="tag">Nurture</span>
+                        <span class="tag">Automation</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/event-marketing">Event Marketing & Webinars</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/event-marketing</div>
+                    <div class="page-description">Events that generate pipeline. Virtual and in-person event programs, webinars, and field marketing that drive qualified leads.</div>
+                    <div class="tags">
+                        <span class="tag">Events</span>
+                        <span class="tag">Webinars</span>
+                        <span class="tag">Field Marketing</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/event-field-marketing">Event Marketing & Field Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/event-field-marketing</div>
+                    <div class="page-description">Creating high-impact in-person and virtual experiences that build relationships, accelerate deals, and drive measurable revenue through targeted field and event activation.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/growth-marketing">Growth Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/growth-marketing</div>
+                    <div class="page-description">Driving accelerated, experimental, data-driven growth across acquisition, activation, retention, and expansion using rapid iteration and measurable optimization frameworks.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/lifecycle-marketing">Lifecycle Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/lifecycle-marketing</div>
+                    <div class="page-description">Designing and orchestrating end-to-end customer journeys that drive acquisition, onboarding, product adoption, expansion, and retention with measurable impact on NRR and churn.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/marketing-automation">Marketing Automation</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/marketing-automation</div>
+                    <div class="page-description">Marketing automation platforms that scale. Marketo, Eloqua, Pardot, and HubSpot implementations that automate the revenue journey.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Marketo</span>
+                        <span class="tag">Eloqua</span>
+                        <span class="tag">Pardot</span>
+                        <span class="tag">HubSpot</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/marketing-analytics-reporting">Marketing Analytics & Reporting</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/marketing-analytics-reporting</div>
+                    <div class="page-description">Turning disconnected data into a unified intelligence layer that gives leaders real-time visibility into pipeline, performance, and ROI across every GTM motion.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/marketing-operations">Marketing Operations</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/marketing-operations</div>
+                    <div class="page-description">Building the operational backbone of modern marketing: data, processes, platforms, and governance that enable scalable, predictable revenue execution.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/martech-optimization">MarTech Optimization</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/martech-optimization</div>
+                    <div class="page-description">Transforming a noisy, underutilized marketing tech stack into a lean, integrated ecosystem that accelerates revenue instead of dragging it down.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/omnichannel-marketing">Omnichannel Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/omnichannel-marketing</div>
+                    <div class="page-description">Coordinated campaigns across channels. Unified messaging and orchestration that delivers consistent buyer experiences.</div>
+                    <div class="tags">
+                        <span class="tag">Omnichannel</span>
+                        <span class="tag">Campaigns</span>
+                        <span class="tag">Orchestration</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/paid-advertising">Paid Advertising</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/paid-advertising</div>
+                    <div class="page-description">Driving high-quality demand through coordinated performance media systems that align channels, creative, and targeting to measurable pipeline and revenue impact.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/paid-advertising-sem">Paid Advertising & SEM</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/paid-advertising-sem</div>
+                    <div class="page-description">Paid campaigns that deliver ROI. Google Ads, LinkedIn Ads, and retargeting programs optimized for pipeline contribution.</div>
+                    <div class="tags">
+                        <span class="tag">Paid Ads</span>
+                        <span class="tag">SEM</span>
+                        <span class="tag">PPC</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/product-marketing">Product Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/product-marketing</div>
+                    <div class="page-description">Positioning, messaging & go-to-market plays that turn features into revenue.</div>
+                    <div class="tags">
+                        <span class="tag">Gong</span>
+                        <span class="tag">Highspot</span>
+                        <span class="tag">Productboard</span>
+                        <span class="tag">Amplitude</span>
+                        <span class="tag">LaunchDarkly</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/revenue-operations">Revenue Operations (RevOps)</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/revenue-operations</div>
+                    <div class="page-description">Aligning Sales, Marketing, and Finance around a unified revenue engine, with shared data, processes, and forecasts that turn strategy into predictable growth.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/search-engine-optimization">Search Engine Optimization (SEO)</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/search-engine-optimization</div>
+                    <div class="page-description">Using search and discovery as a strategic growth channel by combining technical SEO, content strategy, and now generative engine optimization (GEO) for AI-driven results.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/sales-enablement">Sales Enablement</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/sales-enablement</div>
+                    <div class="page-description">Sales enablement that accelerates deals. Content libraries, playbooks, and tools that reduce sales cycles and improve win rates.</div>
+                    <div class="tags">
+                        <span class="tag">Sales Enablement</span>
+                        <span class="tag">Seismic</span>
+                        <span class="tag">Content</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/sales-enablement-alignment">Sales Enablement & Alignment</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/sales-enablement-alignment</div>
+                    <div class="page-description">Aligning Sales and Marketing through shared messaging, playbooks, intelligence, and operational cadences that increase win rates and accelerate pipeline.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/social-media">Social Media</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/social-media</div>
+                    <div class="page-description">Driving awareness, engagement, and brand authority across organic and paid social channels through structured content frameworks, community signals, and narrative consistency.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/social-media-marketing">Social Media Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/social-media-marketing</div>
+                    <div class="page-description">B2B social that builds brand and drives demand. LinkedIn, Twitter, and community strategies that generate qualified leads.</div>
+                    <div class="tags">
+                        <span class="tag">Social Media</span>
+                        <span class="tag">LinkedIn</span>
+                        <span class="tag">Community</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/expertise/video-marketing">Video Marketing & Webinars</a></div>
+                    <div class="page-url">https://gtmstack.pro/expertise/video-marketing</div>
+                    <div class="page-description">Video content that educates and converts. Webinar programs, video series, and interactive content that accelerates buyer decisions.</div>
+                    <div class="tags">
+                        <span class="tag">Video</span>
+                        <span class="tag">Webinars</span>
+                        <span class="tag">ON24</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Industries -->
+        <section class="section" id="industries">
+            <div class="section-header">
+                <h2>Industries</h2>
+                <span class="section-count">21</span>
+            </div>
+            <div class="page-grid">
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/b2b-saas">B2B SaaS</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/b2b-saas</div>
+                    <div class="page-description">Revenue milestones from seed to scale. PLG motions, enterprise enablement, and expansion strategies that compound.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">PLG</span>
+                        <span class="tag">Enterprise Sales</span>
+                        <span class="tag">Freemium</span>
+                        <span class="tag">Expansion Revenue</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/fintech">FinTech & Payments</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/fintech</div>
+                    <div class="page-description">Digital trust + precision GTM for FinTech firms navigating regulation and long sales cycles.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Compliance</span>
+                        <span class="tag">Payments</span>
+                        <span class="tag">Banking</span>
+                        <span class="tag">Trust Marketing</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/financial-services">Financial Services</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/financial-services</div>
+                    <div class="page-description">Helping financial institutions modernize acquisition, risk management, operational efficiency, and customer experience through data-driven GTM systems.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Financial Services</span>
+                        <span class="tag">Banking</span>
+                        <span class="tag">Compliance</span>
+                        <span class="tag">Risk Management</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/healthcare">Healthcare</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/healthcare</div>
+                    <div class="page-description">Supporting healthcare organizations in modernizing engagement, strengthening patient experience, and navigating compliance through secure, data-driven GTM systems.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Healthcare</span>
+                        <span class="tag">HIPAA</span>
+                        <span class="tag">Patient Experience</span>
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/healthtech">HealthTech & Digital Health</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/healthtech</div>
+                    <div class="page-description">Provider trust that drives adoption. HIPAA-compliant growth strategies that navigate complex buying committees.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">HIPAA</span>
+                        <span class="tag">Provider Marketing</span>
+                        <span class="tag">Patient Acquisition</span>
+                        <span class="tag">Health Systems</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/manufacturing">Manufacturing</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/manufacturing</div>
+                    <div class="page-description">Enabling manufacturers to modernize demand generation, partner ecosystems, and digital buyer journeys across complex supply chains and long sales cycles.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Manufacturing</span>
+                        <span class="tag">Industrial</span>
+                        <span class="tag">Supply Chain</span>
+                        <span class="tag">Partner Ecosystems</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/developer-tools">Developer Tools & DevOps</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/developer-tools</div>
+                    <div class="page-description">Bottom-up adoption that scales. Community-led growth routes that respect how engineers evaluate tools.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">DevRel</span>
+                        <span class="tag">Open Source</span>
+                        <span class="tag">Community</span>
+                        <span class="tag">Technical Content</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/ecommerce">E-Commerce & Retail Tech</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/ecommerce</div>
+                    <div class="page-description">Revenue optimization across the commerce journey. Acquisition to retention strategies that maximize LTV.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">D2C</span>
+                        <span class="tag">Marketplace</span>
+                        <span class="tag">Retention</span>
+                        <span class="tag">Commerce Platforms</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/energy-utilities">Energy & Utilities</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/energy-utilities</div>
+                    <div class="page-description">Supporting energy and utility organizations as they modernize customer engagement and transition to data-driven operational models in regulated environments.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Energy</span>
+                        <span class="tag">Utilities</span>
+                        <span class="tag">Regulated Industries</span>
+                        <span class="tag">Infrastructure</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/public-sector-education">Public Sector & Education</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/public-sector-education</div>
+                    <div class="page-description">Enabling government and education organizations to modernize service delivery, improve constituent experience, and adopt data-driven GTM motions.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Public Sector</span>
+                        <span class="tag">Education</span>
+                        <span class="tag">Government</span>
+                        <span class="tag">SLED</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/pubsec-government">Public Sector & Government</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/pubsec-government</div>
+                    <div class="page-description">Modernizing citizen services with 2-Speed Architecture — stable legacy systems + agile cloud engagement. Digital transformation lead for government.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Public Sector</span>
+                        <span class="tag">Government</span>
+                        <span class="tag">2-Speed Architecture</span>
+                        <span class="tag">Citizen Services</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/retail-ecommerce">Retail & Ecommerce</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/retail-ecommerce</div>
+                    <div class="page-description">Helping retailers modernize customer engagement, optimize omnichannel experiences, and drive measurable revenue lift through data-driven activation.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Retail</span>
+                        <span class="tag">Ecommerce</span>
+                        <span class="tag">Omnichannel</span>
+                        <span class="tag">Customer Experience</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/supply-chain-logistics">Supply Chain & Logistics</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/supply-chain-logistics</div>
+                    <div class="page-description">Helping supply chain and logistics organizations improve visibility, accelerate decision-making, and modernize customer engagement across complex ecosystems.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Supply Chain</span>
+                        <span class="tag">Logistics</span>
+                        <span class="tag">Transportation</span>
+                        <span class="tag">3PL</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/fleet-management-logistics">Fleet Management & Logistics</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/fleet-management-logistics</div>
+                    <div class="page-description">Connected fleet intelligence and operational velocity. Turning data into route optimization and revenue for VP of Fleet Operations and Director of Logistics.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Fleet Management</span>
+                        <span class="tag">Logistics</span>
+                        <span class="tag">Connected Fleet</span>
+                        <span class="tag">Sustainability</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/cybersecurity">Cybersecurity</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/cybersecurity</div>
+                    <div class="page-description">Trust-building that closes enterprise deals. Credibility strategies for skeptical security buyers.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">CISO Marketing</span>
+                        <span class="tag">Trust Building</span>
+                        <span class="tag">Threat Content</span>
+                        <span class="tag">Security Community</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/climate-tech">Climate Tech & Sustainability</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/climate-tech</div>
+                    <div class="page-description">Purpose-driven growth that scales. Navigate urgency with credibility to drive adoption.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Climate</span>
+                        <span class="tag">Sustainability</span>
+                        <span class="tag">Clean Energy</span>
+                        <span class="tag">ESG</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/technology-saas">Technology & SaaS</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/technology-saas</div>
+                    <div class="page-description">Helping SaaS companies scale acquisition, retention, and expansion through precision targeting, product-led growth loops, and modern revenue operations.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">SaaS</span>
+                        <span class="tag">Technology</span>
+                        <span class="tag">PLG</span>
+                        <span class="tag">RevOps</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/industries/ai-ml">AI & Machine Learning</a></div>
+                    <div class="page-url">https://gtmstack.pro/industries/ai-ml</div>
+                    <div class="page-description">Differentiation in the AI revolution. Authentic positioning that cuts through hype to drive pipeline.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                        <span class="badge badge-industry">Industry</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">AI/ML</span>
+                        <span class="tag">LLM</span>
+                        <span class="tag">MLOps</span>
+                        <span class="tag">Vertical AI</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Case Studies -->
+        <section class="section" id="case-studies">
+            <div class="section-header">
+                <h2>Case Studies</h2>
+                <span class="section-count">19</span>
+            </div>
+            <div class="page-grid">
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/abm-system-launch-prgx">ABM System Launch - PRGX Global</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/abm-system-launch-prgx</div>
+                    <div class="page-description">Built PRGX's first fully unified ABM system—integrating targeting, personalization, measurement, and sales alignment to drive revenue impact.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">ABM</span>
+                        <span class="tag">Enterprise GTM</span>
+                        <span class="tag">Sales Alignment</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/prgx-unified-revenue-operating-model">87% YoY Pipeline Growth - PRGX Global</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/prgx-unified-revenue-operating-model</div>
+                    <div class="page-description">Architected a unified revenue operating model integrating ABM, automation, and attribution to scale predictable enterprise pipeline.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">ABM</span>
+                        <span class="tag">Revenue Operations</span>
+                        <span class="tag">Attribution</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/amcs-verticalized-abm-launch">$1.2M Pipeline in 90 Days - AMCS Group</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/amcs-verticalized-abm-launch</div>
+                    <div class="page-description">Launched ABM engine for industrial/logistics buyers with verticalized messaging, paid media, and GTM orchestration.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">ABM</span>
+                        <span class="tag">Paid Media</span>
+                        <span class="tag">Vertical GTM</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/redhat-global-abm-activation">33% of Global Pipeline - Red Hat</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/redhat-global-abm-activation</div>
+                    <div class="page-description">Scaled ABM Customer Activation framework across 200+ global enterprise accounts with lifecycle playbooks and standardized ops.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">ABM</span>
+                        <span class="tag">Lifecycle Marketing</span>
+                        <span class="tag">Global Scale</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/salesforce-demandgen-analytics-platform">4 Days to 2 Hours - Salesforce</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/salesforce-demandgen-analytics-platform</div>
+                    <div class="page-description">Rebuilt global demand gen analytics, migrating spreadsheet scorecards to real-time executive dashboards.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Marketing Ops</span>
+                        <span class="tag">Analytics</span>
+                        <span class="tag">Dashboards</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/revenue-analytics-dashboard-salesforce">Revenue Analytics Dashboard - Salesforce</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/revenue-analytics-dashboard-salesforce</div>
+                    <div class="page-description">Transformed Salesforce's global NGO and Education GTM reporting by building a unified revenue analytics system.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Revenue Operations</span>
+                        <span class="tag">Analytics</span>
+                        <span class="tag">BI</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/data-qa-integrity-pipeline-salesforce">Data QA & Integrity Pipeline - Salesforce</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/data-qa-integrity-pipeline-salesforce</div>
+                    <div class="page-description">Built a rigorous data QA and validation pipeline connecting Oracle, Business Objects, and Salesforce CRM.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Data Governance</span>
+                        <span class="tag">Data QA</span>
+                        <span class="tag">Pipeline</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/singles-and-doubles-playbook-salesforce">Singles & Doubles Playbook - Salesforce</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/singles-and-doubles-playbook-salesforce</div>
+                    <div class="page-description">Created a scalable campaign playbook for Salesforce Sales Cloud, enabling repeatable, high-impact plays.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Sales Enablement</span>
+                        <span class="tag">Playbook</span>
+                        <span class="tag">Campaign Framework</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/sales-cloud-global-campaigns-salesforce">Sales Cloud Global Campaigns - Salesforce</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/sales-cloud-global-campaigns-salesforce</div>
+                    <div class="page-description">Developed and executed global integrated campaigns for Salesforce Sales Cloud, unifying messaging and content.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Global Campaigns</span>
+                        <span class="tag">Sales Cloud</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/content-and-seo-infrastructure-crowd-factory-marketo">Content & SEO Infrastructure - Crowd Factory/Marketo</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/content-and-seo-infrastructure-crowd-factory-marketo</div>
+                    <div class="page-description">Built a content and SEO foundation that turned Crowd Factory into a demand-generating content engine.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Content Marketing</span>
+                        <span class="tag">SEO</span>
+                        <span class="tag">Thought Leadership</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/event-to-store-lift-retail">Event-to-Store Revenue Lift - Retail</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/event-to-store-lift-retail</div>
+                    <div class="page-description">Designed an event-led activation program that connected experiential marketing with in-store behavior.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Event Marketing</span>
+                        <span class="tag">Retail</span>
+                        <span class="tag">Attribution</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/marketing-flight-planner-ai-tool">Marketing Flight Planner - Portfolio</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/marketing-flight-planner-ai-tool</div>
+                    <div class="page-description">AI-powered assessment tool connecting GTM maturity diagnostics to prioritized stack and execution roadmaps.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">GTM Strategy</span>
+                        <span class="tag">Assessment</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/abm-journey-discrete-manufacturing-prgx">Discrete Manufacturing ABM Journey - PRGX</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/abm-journey-discrete-manufacturing-prgx</div>
+                    <div class="page-description">Designed an industry-specific ABM journey for discrete manufacturing accounts.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/end-to-end-abm-framework-amcs">End-to-End ABM Framework - AMCS</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/end-to-end-abm-framework-amcs</div>
+                    <div class="page-description">Built a complete ABM framework for AMCS, aligning ICP definition, account selection, and orchestration.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/enterprise-abm-activation-red-hat">Enterprise ABM Activation - Red Hat</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/enterprise-abm-activation-red-hat</div>
+                    <div class="page-description">Designed and deployed global ABM activation programs for enterprise accounts.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-featured">Featured</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/salesforce-fortune50-abm-events">Fortune 50 ABM + Events - Salesforce</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/salesforce-fortune50-abm-events</div>
+                    <div class="page-description">Established ABM Center of Excellence and high-ROI event motions for Fortune 50 enterprise accounts.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/getsatisfaction-growth-automation">164% YoY Traffic Growth - Get Satisfaction</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/getsatisfaction-growth-automation</div>
+                    <div class="page-description">Scaled inbound demand through Marketo automation, nurture architecture, and SEO/content velocity.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/salemglobal-smb-seo-ppc-engine">500% YoY Client Growth - Salem Global</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/salemglobal-smb-seo-ppc-engine</div>
+                    <div class="page-description">Built repeatable SEO/PPC program for SMBs and agencies, using microsite authority networks.</div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/case-studies/career-world-4d-interactive-resume">Career World 4D - Portfolio</a></div>
+                    <div class="page-url">https://gtmstack.pro/case-studies/career-world-4d-interactive-resume</div>
+                    <div class="page-description">Isometric interactive career map demonstrating systems thinking, UX design, and GTM narrative.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section class="section" id="services">
+            <div class="section-header">
+                <h2>Services</h2>
+                <span class="section-count">6</span>
+            </div>
+            <div class="page-grid">
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/services/content-marketing">Content Marketing</a></div>
+                    <div class="page-url">https://gtmstack.pro/services/content-marketing</div>
+                    <div class="page-description">Strategic content development and content marketing services.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.65</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/services/demand-generation">Demand Generation</a></div>
+                    <div class="page-url">https://gtmstack.pro/services/demand-generation</div>
+                    <div class="page-description">Comprehensive demand generation programs and pipeline creation.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.65</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/services/paid-advertising">Paid Advertising</a></div>
+                    <div class="page-url">https://gtmstack.pro/services/paid-advertising</div>
+                    <div class="page-description">Performance media and paid advertising management.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.65</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/services/seo">SEO</a></div>
+                    <div class="page-url">https://gtmstack.pro/services/seo</div>
+                    <div class="page-description">Search engine optimization and organic growth strategies.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.65</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/services/social-media">Social Media</a></div>
+                    <div class="page-url">https://gtmstack.pro/services/social-media</div>
+                    <div class="page-description">Social media strategy and content programs.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.65</span>
+                    </div>
+                </div>
+
+                <div class="page-card">
+                    <div class="page-title"><a href="https://gtmstack.pro/services/video-creative">Video Creative</a></div>
+                    <div class="page-url">https://gtmstack.pro/services/video-creative</div>
+                    <div class="page-description">Video content creation and creative production.</div>
+                    <div class="page-meta">
+                        <span class="badge badge-priority">Priority: 0.65</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            <p><strong>GTMStack.pro</strong> — Expert GTM, Marketing Operations, and Revenue Growth Strategy</p>
+            <p>Total Pages: <strong>97</strong> | Base URL: <strong>https://gtmstack.pro</strong></p>
+            <p style="margin-top: 10px; color: #94a3b8;">This sitemap is automatically generated and updated regularly to reflect the current site structure.</p>
+        </footer>
+    </div>
+</body>
+</html>

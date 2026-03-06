@@ -6,6 +6,18 @@
 
 import type { WPPost, WPTerm, FetchPostsParams } from './wp-client'
 
+async function parseJsonResponse<T>(res: Response, context: string): Promise<T> {
+  const raw = await res.text()
+  if (!raw.trim()) {
+    throw new Error(`${context}: empty JSON response body`)
+  }
+  try {
+    return JSON.parse(raw) as T
+  } catch {
+    throw new Error(`${context}: invalid JSON response`)
+  }
+}
+
 function getBaseUrl(): string {
   const raw = process.env.WORDPRESS_API_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
   if (!raw) throw new Error('Missing WORDPRESS_API_URL (or NEXT_PUBLIC_WORDPRESS_API_URL) env var')
@@ -64,7 +76,7 @@ export async function fetchPostsWithTotal(
     const text = await res.text().catch(() => '')
     throw new Error(`Failed to fetch posts: ${res.status} ${text.slice(0, 200)}`)
   }
-  const posts = (await res.json()) as WPPost[]
+  const posts = await parseJsonResponse<WPPost[]>(res, 'Failed to parse posts response')
   const totalPages = Math.max(1, parseInt(res.headers.get('X-WP-TotalPages') ?? '1', 10))
   return { posts, totalPages }
 }
@@ -82,7 +94,10 @@ export async function fetchCategories(): Promise<WPTerm[]> {
     console.log('[wordpress:fetchCategories] status:', res.status)
   }
   if (!res.ok) throw new Error(`Failed to fetch categories: ${res.status}`)
-  const data = (await res.json()) as Array<{ id: number; name: string; slug: string; count: number }>
+  const data = await parseJsonResponse<Array<{ id: number; name: string; slug: string; count: number }>>(
+    res,
+    'Failed to parse categories response'
+  )
   return data.map((c) => ({ id: c.id, name: c.name, slug: c.slug, taxonomy: 'category', count: c.count }))
 }
 
@@ -90,7 +105,10 @@ export async function fetchTags(): Promise<WPTerm[]> {
   const url = `${getBaseUrl()}/tags?per_page=100&orderby=count&order=desc`
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) throw new Error(`Failed to fetch tags: ${res.status}`)
-  const data = (await res.json()) as Array<{ id: number; name: string; slug: string; count: number }>
+  const data = await parseJsonResponse<Array<{ id: number; name: string; slug: string; count: number }>>(
+    res,
+    'Failed to parse tags response'
+  )
   return data.map((t) => ({ id: t.id, name: t.name, slug: t.slug, taxonomy: 'post_tag', count: t.count }))
 }
 
@@ -101,7 +119,7 @@ export async function getPostBySlug(slug: string): Promise<WPPost | null> {
     const text = await res.text().catch(() => '')
     throw new Error(`Failed to fetch post: ${res.status} ${text.slice(0, 200)}`)
   }
-  const posts = (await res.json()) as WPPost[]
+  const posts = await parseJsonResponse<WPPost[]>(res, 'Failed to parse post response')
   return posts[0] ?? null
 }
 

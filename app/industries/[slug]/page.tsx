@@ -9,7 +9,7 @@ import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
 import IndustryPageContent from '@/components/industries/IndustryPageContent'
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -19,9 +19,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const item = getIndustryBySlug(params.slug)
+  const { slug } = await params
+  const item = getIndustryBySlug(slug)
   if (!item) return { title: 'Not Found' }
-  const registryRow = getPageBySlug('industries', params.slug)
+  const registryRow = getPageBySlug('industries', slug)
   const title = registryRow?.pageTitle ?? `${item.title} Industry Solutions | GTMstack.pro`
   return {
     title,
@@ -29,8 +30,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function IndustryDetailPage({ params }: Props) {
-  const industry = getIndustryBySlug(params.slug)
+export default async function IndustryDetailPage({ params }: Props) {
+  const { slug } = await params
+  const industry = getIndustryBySlug(slug)
 
   if (!industry) {
     notFound()
@@ -38,12 +40,12 @@ export default function IndustryDetailPage({ params }: Props) {
 
   // Get featured expertise items
   const featuredExpertise = industry.featuredExpertise
-    ?.map(slug => getExpertiseBySlug(slug))
+    ?.map(s => getExpertiseBySlug(s))
     .filter((item): item is NonNullable<typeof item> => Boolean(item)) || []
 
   // Get featured case studies
   const featuredCaseStudies = industry.featuredCaseStudies
-    ?.map(slug => getCaseStudyBySlug(slug))
+    ?.map(s => getCaseStudyBySlug(s))
     .filter((item): item is NonNullable<typeof item> => Boolean(item)) || []
 
   // Generate "why now" text based on industry
@@ -51,7 +53,7 @@ export default function IndustryDetailPage({ params }: Props) {
     ? `${industry.title} companies face unique GTM challenges. ${industry.positioning} Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
     : `${industry.title} companies face unique GTM challenges. Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
 
-  const registryRow = getPageBySlug('industries', params.slug)
+  const registryRow = getPageBySlug('industries', slug)
   const resolved =
     registryRow?.contentKey ? getIndustryContentByKey(registryRow.contentKey) : null
   const defaultContent = (

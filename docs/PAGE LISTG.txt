@@ -1,0 +1,92 @@
+Top Level Pages 
+Home  -> / (Home)
+About Me -> /about
+ Expertise -> /expertise
+ Industries -> /industries
+ Case Studies ould be renamed from "Case Studies"
+ Resume -> /resume
+ Contact Me -> /contact
+
+Expertise "Home/Landing Page" (top level)
+- Content & Engagement ->	/expertise/content-engagement	
+---> Content Marketing ->	/expertise/content-marketing	
+---> Email Marketing	-> /expertise/email-marketing	
+---> Omnichannel Marketing ->	/expertise/omnichannel-marketing	
+---> Social Media Marketing	-> /expertise/social-media-marketing	
+---> Video Marketing	-> /expertise/video-marketing	
+		
+- Demand & Growth	/expertise/demand-and-growth	
+---> Demand Generation -> /expertise/demand-generation	
+---> SEO	-> /expertise/search-engine-optimization	
+---> Growth marketing	-> /expertise/growth-marketing	
+---> Paid Advertising SEM	-> /expertise/paid-advertising-sem	
+---> Event Marketing ->	/expertise/event-marketing	
+		
+- Strategy & insights	/expertise/strategy-insights	
+---> Account Based Mmarketing -> /expertise/account-based-marketing	
+---> Customer Experience CX	-> /expertise/customer-experience-cx	
+---> Customer Marketing ->	/expertise/customer-marketing	
+---> Lifecycle Marketing ->	/expertise/lifecycle-marketing	
+---> Market Research	-> /expertise/market-research	
+		
+- Systems & Operations	-> /expertise/systems-operations	
+---> AI in Marketing	-> /expertise/ai-in-marketing	
+---> Marketing Automation -> /expertise/marketing-automation	
+---> Marketing Operations -> /expertise/marketing-operations	
+---> Marketing Analytics -> /expertise/marketing-analytics-reporting
+---> Martech Optimization -> /expertise/martech-optimization	
+---> Sales Enablement 	-> /expertise/sales-enablement	 
+
+Industries "Home/Landing Page" (top level)
+B2B SaaS -> /industries/b2b-saas/
+Cybersecurity -> /industries/cybersecurity/
+Developer Tools & DevOps -> /industries/developer-tools/
+K-12 and High-Education -> /industries/education/
+Energy: Oil & Gas -> /industries/energy-utilities/
+Financial Services -> /industries/financial-services/
+Fleet Management and Logistics ->/industries/fleet-management-logistics/
+Healthcare & Health Technology -> /industries/healthcare/
+Manufacturing -> /industries/manufacturing
+Non-profit NGO -> /industries/non-profit-ngo/
+Public Sector and Government -> /industries/public-sector-governement/
+Retail & Ecommerce -> /industries/retail/
+Telecommunications -> /industries/telecommunications/
+Waste Management -> /industries/waste-management/
+
+
+Case Studies  
+--> /case-studies
+--->  /case-studies/abm-system-launch-prgx
+--->  /case-studies/abm-journey-discrete-manufacturing-prgx
+--->  /case-studies/prgx-unified-revenue-operating-model
+--->  /case-studies/amcs-verticalized-abm-launch
+--->  /case-studies/end-to-end-abm-framework-amcs
+--->  /case-studies/redhat-global-abm-activation
+--->  /case-studies/enterprise-abm-activation-red-hat
+--->  /case-studies/salesforce-demandgen-analytics-platform
+--->  /case-studies/revenue-analytics-dashboard-salesforce
+--->  /case-studies/data-qa-integrity-pipeline-salesforce
+--->  /case-studies/salesforce-fortune50-abm-events
+--->  /case-studies/singles-and-doubles-playbook-salesforce
+--->  /case-studies/sales-cloud-global-campaigns-salesforce
+--->  /case-studies/getsatisfaction-growth-automation
+--->  /case-studies/content-and-seo-infrastructure-crowd-factory-marketo
+--->  /case-studies/salemglobal-smb-seo-ppc-engine
+--->  /case-studies/event-to-store-lift-retail
+--->  /case-studies/marketing-flight-planner-ai-tool
+--->  /case-studies/career-world-4d-interactive-resume
+ 
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+

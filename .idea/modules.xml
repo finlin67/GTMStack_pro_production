@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
       <module fileurl="file://$PROJECT_DIR$/.idea/GTMStack_pro.iml" filepath="$PROJECT_DIR$/.idea/GTMStack_pro.iml" />
+=======
+      <module fileurl="file://$PROJECT_DIR$/.idea/z1_GTMStack_pro.iml" filepath="$PROJECT_DIR$/.idea/z1_GTMStack_pro.iml" />
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
     </modules>
   </component>
 </project>

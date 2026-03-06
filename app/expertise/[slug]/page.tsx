@@ -15,40 +15,47 @@ import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemp
 import { ExpertiseDetailContent, type PillarId } from './ExpertiseDetailContent'
 
 const SLUG_TO_PILLAR: Record<string, PillarId> = {
-  'content-marketing': 'content-engagement',
-  'content-strategy-systems': 'content-engagement',
-  'email-marketing': 'content-engagement',
-  'omnichannel-marketing': 'content-engagement',
-  'social-media': 'content-engagement',
-  'social-media-marketing': 'content-engagement',
-  'video-marketing': 'content-engagement',
-  'channel-partner-marketing': 'demand-growth',
-  'demand-generation': 'demand-growth',
-  'digital-marketing': 'demand-growth',
-  'event-marketing': 'demand-growth',
-  'event-field-marketing': 'demand-growth',
-  'growth-marketing': 'demand-growth',
-  'paid-advertising': 'demand-growth',
-  'paid-advertising-sem': 'demand-growth',
-  'search-engine-optimization': 'demand-growth',
+  'analytics': 'systems-operations',
   'account-based-marketing': 'strategy-insights',
   'account-based-marketing-abm': 'strategy-insights',
-  'customer-experience': 'strategy-insights',
-  'customer-experience-cx': 'strategy-insights',
-  'customer-marketing': 'strategy-insights',
-  'lifecycle-marketing': 'strategy-insights',
-  'product-marketing': 'strategy-insights',
-  'sales-enablement': 'strategy-insights',
-  'sales-enablement-alignment': 'strategy-insights',
   'ai-in-marketing': 'systems-operations',
   'attribution-and-measurement': 'systems-operations',
   'bi-data-engineering': 'systems-operations',
+  'channel-partner-marketing': 'demand-growth',
+  'competitive-intel': 'strategy-insights',
+  'content-engagement': 'content-engagement',
+  'content-marketing': 'content-engagement',
+  'content-strategy-systems': 'content-engagement',
+  'crm-management': 'systems-operations',
+  'customer-experience': 'strategy-insights',
+  'customer-experience-cx': 'strategy-insights',
+  'customer-marketing': 'strategy-insights',
   'data-governance': 'systems-operations',
+  'demand-generation': 'demand-growth',
+  'digital-marketing': 'demand-growth',
+  'email-marketing': 'content-engagement',
+  'event-field-marketing': 'demand-growth',
+  'event-marketing': 'demand-growth',
+  'growth-marketing': 'demand-growth',
+  'lead-gen-scoring': 'demand-growth',
+  'lifecycle-marketing': 'strategy-insights',
   'marketing-analytics-reporting': 'systems-operations',
   'marketing-automation': 'systems-operations',
   'marketing-operations': 'systems-operations',
   'martech-optimization': 'systems-operations',
+  'omnichannel-marketing': 'content-engagement',
+  'paid-advertising': 'demand-growth',
+  'paid-advertising-sem': 'demand-growth',
+  'product-marketing': 'strategy-insights',
   'revenue-operations': 'systems-operations',
+  'roi-analysis': 'strategy-insights',
+  'sales-enablement': 'strategy-insights',
+  'sales-enablement-alignment': 'strategy-insights',
+  'search-engine-optimization': 'demand-growth',
+  'social-media': 'content-engagement',
+  'social-media-marketing': 'content-engagement',
+  'video-marketing': 'content-engagement',
+  'web-design-ui-ux': 'content-engagement',
 }
 
 const PILLAR_TITLES: Record<PillarId, string> = {
@@ -132,7 +139,7 @@ const DEFAULT_RESULTS = [
 ]
 
 interface Props {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateStaticParams() {
@@ -140,9 +147,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
-  const item = getExpertiseBySlug(params.slug)
+  const { slug } = await params
+  const item = getExpertiseBySlug(slug)
   if (!item) return { title: 'Not Found' }
-  const registryRow = getPageBySlug('expertise', params.slug)
+  const registryRow = getPageBySlug('expertise', slug)
   const title = registryRow?.pageTitle ?? `${item.title} Expertise`
   return {
     title,
@@ -150,8 +158,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function ExpertiseDetailPage({ params }: Props) {
-  const item = getExpertiseBySlug(params.slug)
+export default async function ExpertiseDetailPage({ params }: Props) {
+  const { slug } = await params
+  const item = getExpertiseBySlug(slug)
 
   if (!item) {
     notFound()
@@ -179,13 +188,13 @@ export default function ExpertiseDetailPage({ params }: Props) {
         .slice(0, 4)
     : []
 
-  const relatedCaseStudies = getCaseStudiesByExpertise(item.slug).slice(0, 3)
+  const relatedCaseStudies = getCaseStudiesByExpertise(slug).slice(0, 3)
 
   const relatedIndustries = industryItems.filter(
-    (i) => i.featuredExpertise?.includes(item.slug)
+    (i) => i.featuredExpertise?.includes(slug)
   ).slice(0, 3)
 
-  const heroConfig = getExpertiseHeroConfig(item.slug)
+  const heroConfig = getExpertiseHeroConfig(slug)
 
   const pillarTintOverlay =
     {
@@ -195,13 +204,13 @@ export default function ExpertiseDetailPage({ params }: Props) {
       'systems-operations': '#0D1650',
     }[pillarId]
 
-  const useStitchTheme = STITCH_SLUGS.includes(params.slug)
-  const usePmmAiTheme = PMM_AI_SLUGS.includes(params.slug)
-  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(params.slug)
+  const useStitchTheme = STITCH_SLUGS.includes(slug)
+  const usePmmAiTheme = PMM_AI_SLUGS.includes(slug)
+  const useStrategyInsightsTheme = STRATEGY_INSIGHTS_SLUGS.includes(slug)
   const useSystemsOperationsTheme =
-    SYSTEMS_OPERATIONS_SLUGS.includes(params.slug) || pillarId === 'systems-operations'
+    SYSTEMS_OPERATIONS_SLUGS.includes(slug) || pillarId === 'systems-operations'
 
-  const registryRow = getPageBySlug('expertise', params.slug)
+  const registryRow = getPageBySlug('expertise', slug)
   const resolved =
     registryRow?.contentKey ? getExpertiseContentByKey(registryRow.contentKey) : null
   const defaultContent = (
@@ -243,7 +252,7 @@ export default function ExpertiseDetailPage({ params }: Props) {
       const categoryPillarId =
         registryRow.contentKey?.startsWith('pillar:')
           ? (registryRow.contentKey.replace('pillar:', '') as PillarId)
-          : (params.slug as PillarId)
+          : (slug as PillarId)
       return (
         <ExpertiseCategoryTemplate pillarId={categoryPillarId} {...registryProps}>
           {defaultContent}

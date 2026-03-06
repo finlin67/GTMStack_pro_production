@@ -1,0 +1,112 @@
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 309B-AB23
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content
+
+02/28/2026  08:51 AM    <DIR>          .
+02/27/2026  04:41 PM    <DIR>          ..
+02/27/2026  03:03 PM             5,215 about.ts
+02/27/2026  03:03 PM            34,054 case-studies.ts
+02/27/2026  03:03 PM             4,545 contact.ts
+02/28/2026  08:51 AM                 0 contentfiles.txt
+02/27/2026  03:03 PM    <DIR>          expertise
+02/27/2026  04:29 PM            54,640 expertise.ts
+02/27/2026  03:03 PM             6,658 expertiseHeroConfigs.ts
+02/27/2026  03:03 PM    <DIR>          gallery
+02/27/2026  03:03 PM             5,350 home.ts
+02/27/2026  03:03 PM    <DIR>          industries
+02/27/2026  03:03 PM            47,277 industries.ts
+02/27/2026  03:03 PM    <DIR>          projects
+02/27/2026  03:03 PM             4,862 resume.ts
+               9 File(s)        162,601 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\expertise
+
+02/27/2026  03:03 PM    <DIR>          .
+02/28/2026  08:51 AM    <DIR>          ..
+02/27/2026  03:03 PM    <DIR>          content-engagement
+02/27/2026  03:03 PM               410 demand-generation.ts
+02/27/2026  03:03 PM    <DIR>          demand-growth
+02/27/2026  03:03 PM               393 demand-growth.ts
+02/27/2026  03:03 PM             4,671 main.ts
+02/27/2026  03:03 PM    <DIR>          pillars
+02/27/2026  03:03 PM    <DIR>          strategy-insights
+02/27/2026  03:03 PM    <DIR>          systems-operations
+               3 File(s)          5,474 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\expertise\content-engagement
+
+02/27/2026  03:03 PM    <DIR>          .
+02/27/2026  03:03 PM    <DIR>          ..
+02/27/2026  03:03 PM             9,548 content-marketing.mdx
+02/27/2026  03:03 PM             9,813 email-marketing.mdx
+02/27/2026  03:03 PM             9,832 omnichannel-marketing.mdx
+02/27/2026  03:03 PM             5,518 social-media-marketing.mdx
+02/27/2026  03:03 PM             5,637 video-marketing.mdx
+               5 File(s)         40,348 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\expertise\demand-growth
+
+02/27/2026  03:03 PM    <DIR>          .
+02/27/2026  03:03 PM    <DIR>          ..
+02/27/2026  03:03 PM             6,008 demand-generation.mdx
+02/27/2026  03:03 PM             5,795 event-marketing.mdx
+02/27/2026  03:03 PM             5,475 growth-marketing.mdx
+02/27/2026  03:03 PM             5,825 paid-advertising-sem.mdx
+02/27/2026  03:03 PM             5,626 seo.mdx
+               5 File(s)         28,729 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\expertise\pillars
+
+02/27/2026  03:03 PM    <DIR>          .
+02/27/2026  03:03 PM    <DIR>          ..
+02/27/2026  03:03 PM             5,135 content-engagement.ts
+02/27/2026  03:03 PM               478 demand-growth.ts
+02/27/2026  03:03 PM             2,823 systems-operations.ts
+               3 File(s)          8,436 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\expertise\strategy-insights
+
+02/27/2026  03:03 PM    <DIR>          .
+02/27/2026  03:03 PM    <DIR>          ..
+02/27/2026  03:03 PM             6,324 account-based-marketing-abm.mdx
+02/27/2026  03:03 PM             5,267 customer-experience-cx.mdx
+02/27/2026  03:03 PM             6,057 customer-marketing.mdx
+02/27/2026  03:03 PM             5,786 lifecycle-marketing.mdx
+               4 File(s)         23,434 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\expertise\systems-operations
+
+02/27/2026  03:03 PM    <DIR>          .
+02/27/2026  03:03 PM    <DIR>          ..
+02/27/2026  03:03 PM             5,675 ai-in-marketing.mdx
+02/27/2026  03:03 PM             5,835 marketing-automation.mdx
+02/27/2026  03:03 PM             6,184 marketing-operations.mdx
+02/27/2026  03:03 PM             5,751 martech-optimization.mdx
+02/27/2026  03:03 PM             5,624 sales-enablement.mdx
+               5 File(s)         29,069 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\gallery
+
+02/27/2026  03:03 PM    <DIR>          .
+02/28/2026  08:51 AM    <DIR>          ..
+02/27/2026  03:03 PM               404 main.ts
+               1 File(s)            404 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\industries
+
+02/27/2026  03:03 PM    <DIR>          .
+02/28/2026  08:51 AM    <DIR>          ..
+02/27/2026  03:03 PM             5,624 main.ts
+               1 File(s)          5,624 bytes
+
+ Directory of C:\GitProd\z1_GTMStack_pro\content\projects
+
+02/27/2026  03:03 PM    <DIR>          .
+02/28/2026  08:51 AM    <DIR>          ..
+02/27/2026  03:03 PM             2,394 main.ts
+               1 File(s)          2,394 bytes
+
+     Total Files Listed:
+              37 File(s)        306,513 bytes
+              29 Dir(s)  688,649,826,304 bytes free

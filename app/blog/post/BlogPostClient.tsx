@@ -6,7 +6,8 @@ import { useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
 import { sanitizeHtml } from '@/lib/sanitize-html'
-import BlogPostTemplate from '@/src/templates/blog/BlogPostTemplate'
+import Uploaded_BlogSinglePost_v1 from '@/src/templates/Uploaded_BlogSinglePost_v1'
+import { adaptBlogSinglePostData } from '@/lib/blog-adapter'
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '').trim()
@@ -61,112 +62,19 @@ export default function BlogPostClient() {
     })()
   }, [slug])
 
-  const formatDate = useCallback((dateStr: string) => {
-    try {
-      return new Date(dateStr).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    } catch {
-      return dateStr
-    }
-  }, [])
-
-  const primaryCategory = useCallback((p: WPPost): string => {
-    const cats = getPostCategories(p)
-    return cats[0]?.name ?? 'Insights'
-  }, [])
-
-  const displayDate = post ? formatDate(post.date) : ''
-
-  // Build content object for BlogPostTemplate
-  const content = useMemo(() => {
+  // Adapt WP data to new template props
+  const adaptedContent = useMemo(() => {
     if (!post) return null
-
-    const cats = getPostCategories(post)
-    const primaryCat = cats[0]?.name ?? 'Insights'
-
-    return {
-      header: {
-        logoText: 'GTMStack',
-        navLinks: [
-          { label: 'Insights', href: '/blog', active: false },
-          { label: 'Methodology', href: '/methodology', active: false },
-          { label: 'Gallery', href: '/gallery', active: false },
-          { label: 'Contact', href: '/contact', active: false },
-        ],
-      },
-      hero: {
-        tag: primaryCat,
-        title: stripHtml(post.title?.rendered || post.slug),
-        highlight: '',
-        date: displayDate,
-        readTime: '5 min',
-        author: 'GTMStack.pro',
-      },
-      article: {
-        summaryTag: 'GTM Insights',
-        categoryBadge: primaryCat,
-        efficiencyDelta: '+45%',
-        efficiencyLabel: 'Performance Gain',
-        leadParagraph: stripHtml(post.excerpt?.rendered || ''),
-        bodyHtml: sanitizeHtml(post.content?.rendered || ''),
-        bodyParagraphs: [],
-        quote: '',
-        metrics: [
-          {
-            category: 'Efficiency',
-            value: '+45%',
-            label: 'Performance Gain',
-            description: 'Measured improvement in GTM operations',
-            accentColor: 'teal',
-          },
-          {
-            category: 'Scale',
-            value: '10x',
-            label: 'Revenue Growth',
-            description: 'Scalable revenue engine capabilities',
-            accentColor: 'cyan',
-          },
-          {
-            category: 'Precision',
-            value: '99%',
-            label: 'Accuracy Rate',
-            description: 'Data-driven decision making',
-            accentColor: 'gold',
-          },
-        ],
-      },
-      sidebar: {
-        telemetry: {
-          index: 'Medium',
-          actionability: 85,
-        },
-        cta: {
-          title: 'Get Your GTM Audit',
-          description: 'Discover hidden revenue opportunities in your go-to-market systems.',
-          buttonText: 'Schedule Audit',
-        },
-        newsletter: {
-          title: 'GTM Weekly',
-          description: 'Get tactical insights delivered to your inbox every Tuesday.',
-          buttonText: 'Subscribe',
-        },
-        relatedSpecs: relatedPosts.slice(0, 4).map((p) => ({
-          title: stripHtml(p.title?.rendered || p.slug),
-          category: primaryCategory(p),
-          duration: '5 min',
-          href: `/blog/post?slug=${p.slug}`,
-        })),
-      },
-    }
-  }, [post, displayDate, primaryCategory, relatedPosts])
+    return adaptBlogSinglePostData({
+      post,
+      relatedPosts,
+    })
+  }, [post, relatedPosts])
 
   if (loading) {
     return (
-      <div className="flex items-center justify-center py-32 min-h-screen bg-[#0A0F2D]" aria-busy="true">
-        <div className="w-12 h-12 border-2 border-[#36C0CF]/40 border-t-[#36C0CF] rounded-full animate-spin" aria-hidden="true" />
+      <div className="flex items-center justify-center py-32 min-h-screen bg-white dark:bg-[#020617]" aria-busy="true">
+        <div className="w-12 h-12 border-2 border-blue-400/40 border-t-blue-600 rounded-full animate-spin" aria-hidden="true" />
         <span className="sr-only">Loading post</span>
       </div>
     )
@@ -174,16 +82,16 @@ export default function BlogPostClient() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-[#0A0F2D] text-white">
-        <div className="container-width py-12">
+      <div className="min-h-screen bg-white dark:bg-[#020617] text-slate-900 dark:text-white">
+        <div className="container-width py-12 px-6 lg:px-20">
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-sm text-[#E8E8E8] hover:text-[#00A8A8] transition-colors mb-6"
+            className="inline-flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors mb-6"
           >
             <ArrowLeft className="w-4 h-4" aria-hidden="true" />
-            Back to Blog
+            Back to Insights
           </Link>
-          <div className="rounded-xl border-2 border-red-500/50 bg-red-500/10 p-6 text-red-200" role="alert">
+          <div className="rounded-xl border-2 border-red-500/50 bg-red-500/10 p-6 text-red-700 dark:text-red-200" role="alert">
             {error}
           </div>
         </div>
@@ -191,9 +99,9 @@ export default function BlogPostClient() {
     )
   }
 
-  if (!content) return null
+  if (!adaptedContent) return null
 
   return (
-    <BlogPostTemplate content={content} theme="dark" />
+    <Uploaded_BlogSinglePost_v1 content={adaptedContent} />
   )
 }

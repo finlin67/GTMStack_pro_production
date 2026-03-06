@@ -1,4 +1,5 @@
 import type { TemplateId } from '@/src/data/pageRegistry.generated'
+import { getUploadedTemplate } from './uploadedRegistry.generated'
 import ExpertiseCategoryTemplate from '@/src/templates/expertise/ExpertiseCategoryTemplate'
 import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemplate'
 import ExpertiseMainTemplate from '@/src/templates/expertise/ExpertiseMainTemplate'
@@ -28,11 +29,16 @@ export type RegistryTemplateId = TemplateId
  * Maps templateId (from page registry) to the v1 template component.
  * Used for template-driven rendering; routing is unchanged in v1.
  */
-export const TEMPLATE_BY_ID: Record<RegistryTemplateId, TemplateComponent> = {
+export const TEMPLATE_BY_ID: Record<string, TemplateComponent> = {
   'expertise.category': ExpertiseCategoryTemplate,
   'expertise.topic': ExpertiseTopicTemplate,
   'expertise.main': ExpertiseMainTemplate,
   'industry.base': IndustryTemplate,
+  'Uploaded_B2BTechIndustry_v1': IndustryTemplate,
+  'Uploaded_IndustrialIndustry_v1': IndustryTemplate,
+  'Uploaded_Sector_v1': IndustryTemplate,
+  'Uploaded_Healthcare_v1': IndustryTemplate,
+  'Uploaded_EDUtech_v1': IndustryTemplate,
   'industries.main': IndustriesMainTemplate,
   'projects.main': ProjectsTemplate,
   'caseStudy.base': CaseStudyTemplate,
@@ -41,6 +47,7 @@ export const TEMPLATE_BY_ID: Record<RegistryTemplateId, TemplateComponent> = {
   'gallery.main': GalleryMainTemplate,
 }
 
+<<<<<<< HEAD
 // Admin CMS: Track runtime-uploaded templates (dev/staging only)
 const uploadedRegistry: Map<string, TemplateComponent> = new Map()
 
@@ -59,6 +66,17 @@ export function getTemplate(templateId: RegistryTemplateId): TemplateComponent {
     return uploadedRegistry.get(templateId)!
   }
   
+=======
+export function getTemplate(templateId: string): TemplateComponent {
+  const CompatibilityComponent = TEMPLATE_BY_ID[templateId]
+  if (CompatibilityComponent) return CompatibilityComponent
+
+  // First try uploaded templates
+  const Uploaded = getUploadedTemplate(templateId)
+  if (Uploaded) return Uploaded as TemplateComponent
+
+  // Fall back to legacy
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
   const Component = TEMPLATE_BY_ID[templateId]
   if (!Component) {
     throw new Error(`Unknown templateId: ${templateId}`)

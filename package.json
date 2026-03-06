@@ -3,26 +3,49 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+<<<<<<< HEAD
     "dev": "next dev",
     "build": "next build",
     "build:static": "cross-env STATIC_EXPORT=true next build",
+=======
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
     "start": "next start",
+    "build:static": "cross-env STATIC_EXPORT=1 next build",
     "lint": "next lint",
-    "export": "next build",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && npm run typecheck",
+    "export": "cross-env STATIC_EXPORT=1 next build",
+    "gen:all": "npm run gen:registry && npm run gen:animations",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
     "gen:registry": "npx tsx scripts/gen-page-registry.ts",
     "gen:animations": "npx tsx scripts/gen-animation-catalog.ts",
+<<<<<<< HEAD
     "gen:thumbnails": "node scripts/generate-thumbnails.js",
     "cleanup:thumbnail-factory": "node scripts/cleanup-thumbnail-factory.js",
     "gen:thumbnails:once": "npm run gen:thumbnails && npm run cleanup:thumbnail-factory",
     "diag:easing": "node scripts/find-invalid-easing.js",
+=======
+    "gen:page-catalog": "npx tsx scripts/generate-page-catalog.ts",
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
     "validate:registry": "npx tsx scripts/validate-page-registry.ts",
     "prebuild": "npm run gen:registry",
     "link-audit": "node scripts/link-audit.mjs",
     "page:upsert": "node scripts/page-upsert.mjs",
+<<<<<<< HEAD
     "registry:audit": "node scripts/page-upsert.mjs --verify"
+=======
+    "registry:audit": "node scripts/registry-audit.mjs",
+    "gen:thumbnails": "node scripts/generate-thumbnails.js",
+    "cleanup:thumbnail-factory": "node scripts/cleanup-thumbnail-factory.js",
+    "gen:thumbnails:once": "npm run gen:thumbnails && npm run cleanup:thumbnail-factory",
+    "diag:easing": "node scripts/find-invalid-easing.js",
+    "prepare": "husky"
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
   },
   "dependencies": {
+    "@google/genai": "^1.43.0",
     "@mdx-js/loader": "^3.0.0",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.2.0",
@@ -33,13 +56,15 @@
     "gray-matter": "^4.0.3",
     "isomorphic-dompurify": "^3.0.0-rc.2",
     "lucide-react": "^0.400.0",
-    "next": "^14.2.0",
+    "motion": "^12.34.5",
+    "next": "^16.1.6",
     "next-mdx-remote": "^5.0.0",
     "puppeteer": "^24.37.5",
     "react": "18.2.0",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "18.2.0",
-    "recharts": "^3.7.0"
+    "recharts": "^3.7.0",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.0",
@@ -50,9 +75,41 @@
     "cross-env": "^7.0.3",
     "eslint": "^8.57.0",
     "eslint-config-next": "^14.2.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.1",
     "postcss": "^8.4.0",
     "tailwindcss": "^3.4.0",
+<<<<<<< HEAD
     "tsx": "^4.19.0",
+=======
+    "ts-morph": "^27.0.2",
+    "tsx": "^4.21.0",
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
     "typescript": "^5.4.0"
-  }
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "eslint --max-warnings=0"
+    ]
+  },
+  "description": "A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.",
+  "main": "next.config.js",
+  "directories": {
+    "doc": "docs",
+    "lib": "lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/finlin67/z1_GTMStack_pro.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/finlin67/z1_GTMStack_pro/issues"
+  },
+  "homepage": "https://github.com/finlin67/z1_GTMStack_pro#readme"
 }

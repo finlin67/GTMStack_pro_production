@@ -1,0 +1,62 @@
+Route,Section,Status,Routing Method,Expected Template,Notes
+/blog,Blog,UNMAPPED,Filesystem,N/A,Blog landing - not in registry
+/case-studies/abm-journey-discrete-manufacturing-prgx,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/abm-system-launch-prgx,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/ai-visualizations,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/amcs-verticalized-abm-launch,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/career-world-4d-interactive-resume,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/content-and-seo-infrastructure-crowd-factory-marketo,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/data-qa-integrity-pipeline-salesforce,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/end-to-end-abm-framework-amcs,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/enterprise-abm-activation-red-hat,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/getsatisfaction-growth-automation,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/marketing-high-planner-d-tool,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/prgx-unified-revenue-operating-model,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/redhat-global-abm-activation,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/revenue-analytics-dashboard-salesforce,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/salemglobal-smb-seo-ppc-engine,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/sales-cloud-global-campaigns-salesforce,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/salesforce-demandgen-analytics-platform,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/salesforce-fortune50-abm-events,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/case-studies/singles-and-doubles-playbook-salesforce,Case Studies,UNMAPPED,Filesystem,caseStudy.base,Legacy case study detail
+/expertise/account-based-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/ai-in-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/attribution-and-measurement,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/bi-data-engineering,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/channel-partner-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/content-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/content-strategy-systems,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/customer-experience,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/customer-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/data-governance,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/digital-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/email-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/event-field-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/event-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/growth-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/lifecycle-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/marketing-analytics-reporting,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/marketing-operations,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/martech-optimization,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/omnichannel-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/paid-advertising,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/paid-advertising-sem,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/product-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/revenue-operations,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/sales-enablement,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/sales-enablement-alignment,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/search-engine-optimization,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/social-media,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/social-media-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/expertise/video-marketing,Expertise,UNMAPPED,Filesystem,expertise.topic,Legacy expertise detail
+/industries/ai-ml,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/climate-tech,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/cybersecurity,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/developer-tools,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/ecommerce,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/energy-utilities,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/fintech,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/healthtech,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/public-sector-education,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/supply-chain-logistics,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail
+/industries/technology-saas,Industries,UNMAPPED,Filesystem,industry.base,Legacy industry detail

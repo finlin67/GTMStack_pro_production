@@ -1,3 +1,6 @@
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+
 import type { ComponentType } from 'react'
 import { notFound } from 'next/navigation'
 import { getPageByRoute } from '@/lib/pageRegistry'

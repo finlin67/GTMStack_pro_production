@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react'
 import dynamic from 'next/dynamic'
+import { ANIMATION_CATALOG } from '@/src/data/animationCatalog.generated'
 
 // Source of truth for route/title/component: src/components/animations/gtmstack-pro-library.csv (Update-Library: src/data/animations.ts)
 // Dynamic imports for performance - lazy load animations
@@ -221,7 +222,7 @@ export interface AnimationEntry {
  * Animation registry - single source of truth for all animations.
  * Maps marketing functions to multiple animation variations.
  */
-export const ANIMATION_REGISTRY: AnimationEntry[] = [
+const LEGACY_ANIMATION_REGISTRY: AnimationEntry[] = [
   // Home / GTMStack
   {
     id: 'gtmstack-pro',
@@ -821,6 +822,25 @@ export const ANIMATION_REGISTRY: AnimationEntry[] = [
     order: 3,
   },
 ]
+
+const metaById = Object.fromEntries(
+  ANIMATION_CATALOG.map((i) => [i.id, i])
+)
+
+function mergeGeneratedMeta(entry: AnimationEntry): AnimationEntry {
+  const meta = metaById[entry.id]
+  if (!meta) return entry
+  return {
+    ...entry,
+    title: meta.title ?? entry.title,
+    description: meta.description ?? entry.description,
+    tags: Array.from(new Set([...(entry.tags ?? []), ...((meta.keywords ?? []) as string[])])),
+    previewImage: meta.thumbnailSrc ?? entry.previewImage,
+  }
+}
+
+export const ANIMATION_REGISTRY: AnimationEntry[] =
+  LEGACY_ANIMATION_REGISTRY.map(mergeGeneratedMeta)
 
 /**
  * Get all animations for a specific marketing function

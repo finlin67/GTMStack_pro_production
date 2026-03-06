@@ -30,18 +30,91 @@ const baseConfig = {
     'localhost:5000',
     '127.0.0.1:5000',
   ],
+  async redirects() {
+    return [
+      {
+        source: '/expertise/analytics',
+        destination: '/expertise/marketing-analytics-reporting',
+        permanent: true,
+      },
+      {
+        source: '/expertise/competitive-intel',
+        destination: '/expertise/product-marketing',
+        permanent: true,
+      },
+      {
+        source: '/expertise/lead-gen-scoring',
+        destination: '/expertise/demand-generation',
+        permanent: true,
+      },
+      {
+        source: '/expertise/roi-analysis',
+        destination: '/expertise/revenue-operations',
+        permanent: true,
+      },
+      {
+        source: '/expertise/web-design-ui-ux',
+        destination: '/expertise/digital-marketing',
+        permanent: true,
+      },
+      {
+        source: '/expertise/strategy',
+        destination: '/expertise/strategy-insights',
+        permanent: true,
+      },
+      {
+        source: '/industries/ecommerce',
+        destination: '/industries/retail',
+        permanent: true,
+      },
+      {
+        source: '/industries/retail-ecommerce',
+        destination: '/industries/retail',
+        permanent: true,
+      },
+      {
+        source: '/industries/fintech',
+        destination: '/industries/financial-services',
+        permanent: true,
+      },
+      {
+        source: '/industries/b2b-saas',
+        destination: '/industries/technology-saas',
+        permanent: true,
+      },
+      {
+        source: '/industries/healthtech',
+        destination: '/industries/healthcare',
+        permanent: true,
+      },
+      {
+        source: '/industries/public-sector-education',
+        destination: '/industries/non-profit-education',
+        permanent: true,
+      },
+    ]
+  },
 }
 
 module.exports = (phase) => {
   const isDev = phase === PHASE_DEVELOPMENT_SERVER
+<<<<<<< HEAD
   const forceStatic = process.env.STATIC_EXPORT === 'true'
   
+=======
+  const isStaticExport = process.env.STATIC_EXPORT === '1'
+  const distDir = isStaticExport ? 'out' : '.next'
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
   const config = {
     ...baseConfig,
   }
+<<<<<<< HEAD
   
   // Only use static export when explicitly requested via STATIC_EXPORT=true
   if (forceStatic) {
+=======
+  if (isStaticExport) {
+>>>>>>> adcfd3e9eb8acc6351130debd6a19055607a9837
     config.output = 'export'
     config.distDir = 'out'
     config.trailingSlash = true
@@ -51,4 +124,6 @@ module.exports = (phase) => {
   
   return withMDX(config)
 }
+
+
 

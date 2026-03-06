@@ -8,13 +8,14 @@
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "esModuleInterop": true,
     "module": "esnext",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "jsx": "preserve",
+    "jsx": "react-jsx",
     "incremental": true,
     "plugins": [
       {
@@ -25,7 +26,8 @@
       "@/*": [
         "./*"
       ]
-    }
+    },
+    "target": "ES2017"
   },
   "include": [
     "next-env.d.ts",
@@ -34,11 +36,13 @@
     "**/*.mdx",
     ".next/types/**/*.ts",
     ".next-dev/types/**/*.ts",
-    ".next-build/types/**/*.ts"
+    ".next-build/types/**/*.ts",
+    ".next/dev/types/**/*.ts"
   ],
   "exclude": [
     "node_modules",
     "gtmstack-site",
-    "gtmstack-abm"
+    "gtmstack-abm",
+    "**/*.tsx.tsx"
   ]
 }

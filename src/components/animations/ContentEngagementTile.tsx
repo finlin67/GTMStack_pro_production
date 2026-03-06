@@ -70,7 +70,7 @@ export default function ContentEngagementTile() {
             <img 
               className="w-full h-full object-cover" 
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDgx_N5FcK2OGYq0VGuobO00Du9EWNX0nbyYRHT2h8Sj4wDw12XgIoEnu5HdXFtEwy3jU4dISwOtMyRQRxK8iSsNFcvNxY4k2AbZdl2Wxmmn8tKJHHK2T_reH7F9qPDnOzz2lvfb9LXyDDWjJMefRIHdXsLL5OhIHzi-_G1u3FOC5ELVrFATLwp-Zqk-gGEytorX_FZK44TwizawQOsdwTgYvk7eDzPpjKetyrhwWBmZOJq-C7eNeJNtcgHBjuuwU9cxfZ63C_z441g" 
-              alt="User"
+              alt="Content Engagement Specialist Profile"
             />
           </div>
         </div>
