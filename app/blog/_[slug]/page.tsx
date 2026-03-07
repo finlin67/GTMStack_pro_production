@@ -13,7 +13,7 @@ export async function generateStaticParams() {
   return files.map((f) => ({ slug: f.replace(/\.mdx$/, '') }))
 }
 
-export const dynamicParams = true
+export const dynamicParams = false
 
 async function getPost(slug: string) {
   const filePath = path.join(postsDir, `${slug}.mdx`)

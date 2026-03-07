@@ -3,8 +3,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { assertLocalOnly, isValidAnimationId } from '@/src/lib/localOnly'
 
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 async function readGeneratedIds(): Promise<Set<string>> {
   const mod = await import('@/src/data/animationCatalog.generated')

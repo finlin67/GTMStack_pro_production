@@ -5,7 +5,7 @@ import fs from 'node:fs'
 import { cookies } from 'next/headers'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 const REG_PATH = path.join(process.cwd(), 'src', 'templates', 'registry.ts')
 const FALLBACK_TEMPLATE_FILE = 'src/templates/FallbackTemplate.tsx'
 

@@ -9,9 +9,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { localOnlyGuard } from '@/lib/localOnlyGuard'
 
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const dynamic = 'force-static'
 
 const ROOT = process.cwd()
 const OVERRIDES_JSON = path.join(ROOT, 'src', 'data', 'animationMeta.overrides.json')

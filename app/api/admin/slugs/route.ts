@@ -4,7 +4,7 @@ import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 import fs from 'node:fs'
 import path from 'node:path'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 export async function GET() {
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value

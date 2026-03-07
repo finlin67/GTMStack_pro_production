@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { cookies } from 'next/headers'
 import { signAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 const TTL_MS = 24 * 60 * 60 * 1000 // 24h
 
 export async function POST(request: NextRequest) {

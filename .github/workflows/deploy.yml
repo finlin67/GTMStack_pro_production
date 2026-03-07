@@ -36,16 +36,16 @@ jobs:
             echo "WordPress API HTTP status: $code"
           fi
 
-      - name: Build Next.js app
+      - name: Build static export
         env:
           WORDPRESS_API_URL: ${{ secrets.WORDPRESS_API_URL }}
-        run: npm run build
+        run: npm run build:static
 
-      - name: Sanity check build output exists
+      - name: Sanity check static export exists
         run: |
-          test -d .next
-          test -f .next/BUILD_ID
-          echo "Build output looks good."
+          test -d out
+          test -f out/index.html
+          echo "Static export looks good."
 
       - name: Deploy via SFTP
         uses: appleboy/scp-action@v0.1.7
@@ -54,7 +54,7 @@ jobs:
           username: ${{ secrets.SFTP_USER }}
           key: ${{ secrets.SFTP_KEY }}
           port: ${{ secrets.SFTP_PORT }}
-          source: .next/*
+          source: out/*
           target: ${{ secrets.SFTP_TARGET }}
           strip_components: 1
           overwrite: true

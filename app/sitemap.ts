@@ -3,6 +3,8 @@ import { expertiseItems } from '@/content/expertise'
 import { industryItems } from '@/content/industries'
 import { caseStudyItems } from '@/content/case-studies'
 
+export const dynamic = 'force-static'
+
 const BASE_URL = 'https://gtmstack.pro'
 
 // ─── Pillar slugs (static routes under app/expertise/) ───────────────────────

@@ -4,7 +4,7 @@ import path from 'node:path'
 import { cookies } from 'next/headers'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 export async function POST() {
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value

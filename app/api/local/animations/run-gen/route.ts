@@ -2,8 +2,7 @@ import { NextResponse } from 'next/server'
 import { execSync } from 'node:child_process'
 import { assertLocalOnly } from '@/src/lib/localOnly'
 
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
 export async function POST() {
   assertLocalOnly()

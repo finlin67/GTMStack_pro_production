@@ -4,9 +4,7 @@ import path from 'node:path'
 import { assertLocalOnly, isValidAnimationId } from '@/src/lib/localOnly'
 import { type AnimationMetaOverride } from '@/src/lib/animationOverrides.fs'
 
-export const runtime = 'nodejs'
-export const dynamic = 'force-dynamic'
-export const revalidate = 0
+export const dynamic = 'force-static'
 
 const ROOT = process.cwd()
 const CATALOG_PATH = path.join(ROOT, 'src', 'data', 'animationCatalog.generated.ts')
