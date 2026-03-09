@@ -53,17 +53,32 @@ export default function LatestPosts({
   const [posts, setPosts] = useState<WPPost[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [lastWpSyncAt, setLastWpSyncAt] = useState<string | null>(null)
   const gridRef = useRef<HTMLDivElement>(null)
   const isInView = useInView(gridRef, { once: true, margin: '-50px 0px' })
   const shouldReduceMotion = useReducedMotion() ?? false
 
   useEffect(() => {
     const count = Math.min(6, Math.max(4, limit))
+    setLoading(true)
+    setError(null)
     fetchLatestPosts(count)
-      .then(setPosts)
+      .then((nextPosts) => {
+        setPosts(nextPosts)
+        setLastWpSyncAt(new Date().toISOString())
+      })
       .catch((e) => setError((e as Error)?.message ?? 'Failed to load posts'))
       .finally(() => setLoading(false))
   }, [limit])
+
+  const wpSyncLabel = lastWpSyncAt
+    ? new Date(lastWpSyncAt).toLocaleString('en-US', {
+        month: 'short',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: '2-digit',
+      })
+    : null
 
   if (loading) {
     return (
@@ -71,13 +86,21 @@ export default function LatestPosts({
         className={`rounded-2xl border-2 border-white/10 bg-navy-deep p-8 md:p-10 ${className}`}
         aria-busy="true"
       >
-        <div className="flex items-center justify-center py-16">
-          <div
-            className="w-12 h-12 rounded-full border-2 border-cyan-400/40 border-t-cyan-400 animate-spin"
-            aria-hidden="true"
-          />
-          <span className="sr-only">Loading latest posts</span>
+        <div className="mb-6 h-5 w-40 animate-pulse rounded bg-cyan-300/20" />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          {Array.from({ length: 3 }).map((_, idx) => (
+            <div
+              key={`latest-post-skeleton-${idx}`}
+              className="rounded-xl border border-white/10 bg-brand-800/40 p-4"
+            >
+              <div className="mb-3 aspect-video w-full animate-pulse rounded bg-cyan-300/10" />
+              <div className="mb-2 h-3 w-16 animate-pulse rounded bg-cyan-300/20" />
+              <div className="mb-2 h-3 w-full animate-pulse rounded bg-white/10" />
+              <div className="h-3 w-5/6 animate-pulse rounded bg-white/10" />
+            </div>
+          ))}
         </div>
+        <span className="sr-only">Loading latest posts</span>
       </section>
     )
   }
@@ -118,16 +141,23 @@ export default function LatestPosts({
               {title}
             </h2>
           )}
-          {viewAllHref && (
-            <Link
-              href={viewAllHref}
-              className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:underline"
-              style={{ color: TEAL }}
-            >
-              View all posts
-              <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </Link>
-          )}
+          <div className="flex items-center gap-3">
+            {wpSyncLabel && (
+              <span className="text-[11px] text-cyan-200/80">
+                WP sync: {wpSyncLabel}
+              </span>
+            )}
+            {viewAllHref && (
+              <Link
+                href={viewAllHref}
+                className="inline-flex items-center gap-2 text-sm font-semibold transition-colors hover:underline"
+                style={{ color: TEAL }}
+              >
+                View all posts
+                <ArrowRight className="w-4 h-4" aria-hidden="true" />
+              </Link>
+            )}
+          </div>
         </div>
       )}
 
