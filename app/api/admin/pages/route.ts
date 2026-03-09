@@ -4,6 +4,7 @@ import path from 'node:path'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 import { cookies } from 'next/headers'
 
+const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
 export const dynamic = 'force-static'
 function parseCsvRow(line: string): string[] {
   const out: string[] = []
@@ -47,6 +48,10 @@ function getFilesystemRoutes(dir: string, baseDir: string): string[] {
 }
 
 export async function GET() {
+  if (IS_STATIC_EXPORT) {
+    return NextResponse.json({ error: 'Not available in static export' }, { status: 404 })
+  }
+
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value
   if (!token || !verifyAdminToken(token)) {

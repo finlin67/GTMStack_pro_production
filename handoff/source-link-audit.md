@@ -1,6 +1,6 @@
 # Internal Link Audit Report
 
-Generated: 2026-03-07T20:35:48.367Z
+Generated: 2026-03-07T15:19:04.644Z
 
 ## 1. Main Navigation Audit
 

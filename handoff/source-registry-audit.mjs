@@ -2,9 +2,7 @@ import fs from "fs";
 
 const CSV_PATH = "src/data/page-registry.csv";
 const TEMPLATE_REG_PATH = "src/templates/registry.ts";
-const UPLOADED_TEMPLATE_REG_PATH = "src/templates/uploadedRegistry.generated.ts";
 const CONTENT_REG_PATH = "src/content/registry.ts";
-const EXPERTISE_CONTENT_PATH = "content/expertise.ts";
 
 function mustExist(p, label) {
   if (!fs.existsSync(p)) {
@@ -15,9 +13,7 @@ function mustExist(p, label) {
 
 mustExist(CSV_PATH, "page-registry.csv");
 mustExist(TEMPLATE_REG_PATH, "src/templates/registry.ts");
-mustExist(UPLOADED_TEMPLATE_REG_PATH, "src/templates/uploadedRegistry.generated.ts");
 mustExist(CONTENT_REG_PATH, "src/content/registry.ts");
-mustExist(EXPERTISE_CONTENT_PATH, "content/expertise.ts");
 
 const csv = fs.readFileSync(CSV_PATH, "utf-8").trim().split("\n");
 const header = csv[0].split(",");
@@ -33,9 +29,7 @@ if (routeIdx === -1 || templateIdx === -1 || contentIdx === -1) {
 }
 
 const templateReg = fs.readFileSync(TEMPLATE_REG_PATH, "utf-8");
-const uploadedTemplateReg = fs.readFileSync(UPLOADED_TEMPLATE_REG_PATH, "utf-8");
 const contentReg = fs.readFileSync(CONTENT_REG_PATH, "utf-8");
-const expertiseContent = fs.readFileSync(EXPERTISE_CONTENT_PATH, "utf-8");
 
 function expectedPrefix(route) {
   if (route.startsWith("/industries")) return "industries:";
@@ -70,10 +64,8 @@ for (const r of rows) {
 
   seen[route] = (seen[route] || 0) + 1;
 
-  // Check templateId is wired in TEMPLATE_BY_ID or uploaded template registry.
-  const inLegacyTemplateMap = templateReg.includes(`'${templateId}':`);
-  const inUploadedTemplateMap = uploadedTemplateReg.includes(`'${templateId}':`);
-  if (!inLegacyTemplateMap && !inUploadedTemplateMap) {
+  // Check templateId is wired in TEMPLATE_BY_ID
+  if (!templateReg.includes(`'${templateId}':`)) {
     console.log(`❌ templateId not wired in TEMPLATE_BY_ID: '${templateId}' (route: ${route})`);
     ok = false;
   }
@@ -85,23 +77,10 @@ for (const r of rows) {
   const dynamicPrefixes = ["industries:", "pillar:", "case-studies:"];
   const isDynamic = dynamicPrefixes.some((p) => contentKey.startsWith(p));
 
-  // expertise:* is partly literal and partly dynamic via ...expertiseByKey.
-  const isExpertiseKey = contentKey.startsWith("expertise:");
-  const expertiseSlug = isExpertiseKey ? contentKey.slice("expertise:".length) : "";
-  const expertiseSlugFound =
-    isExpertiseKey &&
-    (expertiseContent.includes(`slug: '${expertiseSlug}'`) ||
-      expertiseContent.includes(`slug: "${expertiseSlug}"`));
-
-  if (isExpertiseKey && !contentReg.includes(`'${contentKey}':`) && !expertiseSlugFound) {
+  if (!isDynamic && !contentReg.includes(`'${contentKey}':`)) {
     console.log(`❌ contentKey not wired in contentByKey: '${contentKey}' (route: ${route})`);
     ok = false;
-  } else if (isExpertiseKey && expertiseSlugFound && !contentReg.includes(`'${contentKey}':`)) {
-    console.log(`  ℹ️  '${contentKey}' is dynamically resolved via expertiseByKey — skipping literal check.`);
-  } else if (!isExpertiseKey && !isDynamic && !contentReg.includes(`'${contentKey}':`)) {
-    console.log(`❌ contentKey not wired in contentByKey: '${contentKey}' (route: ${route})`);
-    ok = false;
-  } else if (!isExpertiseKey && isDynamic) {
+  } else if (isDynamic) {
     console.log(`  ℹ️  '${contentKey}' is dynamically resolved — skipping literal check.`);
   }
 

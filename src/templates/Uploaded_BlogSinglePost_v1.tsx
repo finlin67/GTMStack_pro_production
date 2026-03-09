@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import { sanitizeHtml } from '@/lib/sanitize-html';
 
 /**
  * TypeScript Interfaces for GTMStack Insight Page
@@ -339,7 +340,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                         {section.title}
                       </h2>
                     )}
-                    <p className="text-lg">{section.content}</p>
+                    <div className="text-lg prose-content" dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }} />
                     {section.type === 'list' && section.items && (
                       <ul className="space-y-6 list-none pl-0 mt-10">
                         {section.items.map((item, i) => (

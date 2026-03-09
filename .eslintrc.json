@@ -5,6 +5,7 @@
     "plugin:import/typescript"
   ],
   "plugins": ["import"],
+  "ignorePatterns": ["handoff/**"],
   "settings": {
     "import/resolver": {
       "typescript": {

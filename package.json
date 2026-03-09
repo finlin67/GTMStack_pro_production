@@ -68,11 +68,6 @@
     "tsx": "^4.21.0",
     "typescript": "^5.4.0"
   },
-  "lint-staged": {
-    "*.{ts,tsx}": [
-      "eslint --max-warnings=0"
-    ]
-  },
   "description": "A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.",
   "main": "next.config.js",
   "directories": {

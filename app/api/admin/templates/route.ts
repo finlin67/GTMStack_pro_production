@@ -5,6 +5,7 @@ import { execSync } from 'node:child_process'
 import { cookies } from 'next/headers'
 import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
+const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
 export const dynamic = 'force-static'
 const REG_PATH = path.join(process.cwd(), 'src', 'templates', 'registry.ts')
 
@@ -124,6 +125,9 @@ function patchRegistryOverwrite(opts: { templateId: string; importPath: string; 
 }
 
 export async function GET() {
+  if (IS_STATIC_EXPORT) {
+    return NextResponse.json({ error: 'Not available in static export' }, { status: 404 })
+  }
   if (!(await requireAuth())) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   if (!fs.existsSync(REG_PATH)) return NextResponse.json({ templates: [] })
   const text = fs.readFileSync(REG_PATH, 'utf-8')
@@ -132,6 +136,9 @@ export async function GET() {
 }
 
 export async function POST(request: NextRequest) {
+  if (IS_STATIC_EXPORT) {
+    return NextResponse.json({ error: 'Not available in static export' }, { status: 404 })
+  }
   if (!(await requireAuth())) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   if (!fs.existsSync(REG_PATH)) return NextResponse.json({ error: 'Missing registry.ts' }, { status: 500 })
 
@@ -157,4 +164,5 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ ok: false, error: message, log: (out || stderr || message).trim() }, { status: 500 })
   }
 }
+
 

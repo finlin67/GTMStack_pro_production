@@ -1,5 +1,16 @@
 'use client'
 
+/**
+ * HOMEPAGE-SPECIFIC Problem → Promise Section
+ * 
+ * STATUS: Currently unused - designed for homepage implementation
+ * PURPOSE: Dark-themed "GTM Execution Gap" problem/promise strip with animated SVG pathway
+ * USAGE: Homepage feature section with hardcoded content and motion effects
+ * 
+ * NOTE: This is the specialized homepage variant. For reusable light-theme version,
+ * see components/ui/ProblemPromise.tsx
+ */
+
 import React, { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import { SectionDark } from '@/components/layout/SectionDark'

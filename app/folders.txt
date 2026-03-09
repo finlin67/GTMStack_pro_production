@@ -1,0 +1,17 @@
+﻿(local)
+about
+admin
+api
+blog
+case-studies
+contact
+expertise
+gallery
+industries
+p
+projects
+resume
+services
+thumbnail-factory
+tools
+[[...slug]]

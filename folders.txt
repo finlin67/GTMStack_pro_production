@@ -1,0 +1,17 @@
+﻿.github
+.husky
+.idea
+.next
+.vscode
+app
+components
+content
+docs
+handoff
+lib
+node_modules
+out
+public
+sandbox
+scripts
+src

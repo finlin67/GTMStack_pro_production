@@ -1055,16 +1055,6 @@ export const expertiseItems: ExpertiseItem[] = [
     ]
   },
   {
-    slug: 'social-media-marketing',
-    title: 'Social Media Marketing',
-    description: 'B2B social that builds brand and drives demand. LinkedIn, Twitter, and community strategies that generate qualified leads.',
-    pillar: 'content-engagement',
-    pillarLabel: 'Content & Engagement',
-    tags: ['Social Media', 'LinkedIn', 'Community'],
-    icon: 'Share2',
-    order: 4,
-  },
-  {
     slug: 'video-marketing',
     title: 'Video Marketing & Webinars',
     description: 'Video content that educates and converts. Webinar programs, video series, and interactive content that accelerates buyer decisions.',

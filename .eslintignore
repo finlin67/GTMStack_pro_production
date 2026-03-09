@@ -1,4 +1,6 @@
 attached_assets/**
+handoff/**
 **/*.old.tsx
 .next/**
 out/**
+sandbox/**

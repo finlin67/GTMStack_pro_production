@@ -11,10 +11,14 @@ const ALLOWED_TAGS = [
   'img', 'figure', 'figcaption', 'table', 'thead', 'tbody', 'tr', 'th', 'td',
   'div', 'span', 'hr',
   'iframe', // for embedded video (YouTube, Vimeo, Wistia)
+  'embed',  // for PDF and media embeds
+  'object', // for PDF and fallback embeds
+  'param',  // for object parameters
 ]
 const ALLOWED_ATTR = [
   'href', 'target', 'rel', 'class', 'id', 'src', 'alt', 'title', 'width', 'height',
   'frameborder', 'allow', 'allowfullscreen', 'loading', 'style',
+  'type', 'data', 'name', 'value', // for embed/object/param
 ]
 
 export function sanitizeHtml(html: string): string {

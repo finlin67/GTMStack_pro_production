@@ -1,5 +1,16 @@
 'use client'
 
+/**
+ * REUSABLE Problem/Promise Component
+ * 
+ * STATUS: Currently unused - available for future implementation
+ * PURPOSE: Generic two-column "problem vs promise" module for light theme sections
+ * USAGE: Import with configurable props (problem, promise, subtexts)
+ * 
+ * NOTE: This is the flexible, reusable variant. For homepage-specific dark version,
+ * see components/sections/ProblemPromise.tsx
+ */
+
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion/FadeIn'
 import { cn } from '@/lib/utils'
 import { PathwayOverlay } from '@/components/motifs'
