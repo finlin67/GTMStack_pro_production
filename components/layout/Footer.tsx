@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Linkedin, Twitter, Github, Mail, ArrowUpRight } from 'lucide-react'
 import { PILLARS } from '@/lib/types'
 
@@ -27,19 +28,30 @@ const socialLinks = [
 
 export function Footer() {
   return (
-    <footer className="bg-slate-900 text-slate-300">
+    <footer className="bg-slate-950 text-slate-300">
       {/* Main Footer */}
       <div className="container-width py-16 lg:py-20">
         <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 lg:gap-12">
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center">
-                <span className="text-white font-bold text-sm">G</span>
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="relative h-9 w-9 md:h-10 md:w-10 shrink-0 rounded-xl bg-slate-900/80 ring-1 ring-brand-500/60 shadow-[0_0_30px_rgba(59,130,246,0.55)] overflow-hidden">
+                <Image
+                  src="/gtmstack-logo.png"
+                  alt="GTMStack.pro logo"
+                  fill
+                  sizes="40px"
+                  className="object-contain"
+                />
               </div>
-              <span className="font-display font-bold text-xl text-white">
-                GTMstack<span className="text-brand-400">.pro</span>
-              </span>
+              <div className="flex flex-col leading-tight">
+                <span className="font-display font-semibold text-lg text-white tracking-tight">
+                  GTMStack<span className="text-brand-400">.pro</span>
+                </span>
+                <span className="text-[11px] text-slate-400">
+                  Strategic GTM consulting
+                </span>
+              </div>
             </Link>
             <p className="mt-4 text-sm text-slate-400 max-w-xs leading-relaxed">
               Strategic GTM consulting for B2B technology companies. From strategy to execution, we help you grow faster.
@@ -51,7 +63,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-700 transition-colors"
+                  className="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-600 transition-colors"
                   aria-label={social.label}
                 >
                   <social.icon className="w-5 h-5" />

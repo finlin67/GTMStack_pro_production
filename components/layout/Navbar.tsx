@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { ChevronDown, Menu, X, Cloud, Landmark, Heart, Terminal, ShoppingBag, Shield, Leaf, Cpu } from "lucide-react"
 import MegaMenu from "./MegaMenu"
@@ -174,17 +175,29 @@ export default function Navbar() {
   const safeMobileOpen = hydrated ? mobileOpen : false
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-lg border-b border-slate-200 dark:border-slate-800">
+    <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800">
       <nav className="container-width relative" ref={navRef}>
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500 to-brand-600 flex items-center justify-center">
-              <span className="text-white font-bold text-sm">G</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative h-9 w-9 md:h-10 md:w-10 shrink-0 rounded-xl bg-slate-900/80 ring-1 ring-brand-500/60 shadow-[0_0_30px_rgba(59,130,246,0.55)] overflow-hidden">
+              <Image
+                src="/gtmstack-logo.png"
+                alt="GTMStack.pro logo"
+                fill
+                sizes="40px"
+                className="object-contain"
+                priority
+              />
             </div>
-            <span className="font-display font-bold text-xl text-slate-900 dark:text-white group-hover:text-brand-600 dark:group-hover:text-brand-400 transition-colors">
-              GTMstack<span className="text-brand-600 dark:text-brand-400">.pro</span>
-            </span>
+            <div className="flex flex-col leading-tight">
+              <span className="font-display font-semibold text-base md:text-lg text-white tracking-tight">
+                GTMStack<span className="text-brand-400">.pro</span>
+              </span>
+              <span className="hidden sm:inline text-[11px] text-slate-400">
+                Strategic GTM consulting
+              </span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -195,7 +208,7 @@ export default function Navbar() {
                 onClick={() => hydrated && setOpen(!open)}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+                className="inline-flex items-center gap-1 text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
                 aria-expanded={safeOpen}
                 aria-haspopup="true"
               >
@@ -204,13 +217,13 @@ export default function Navbar() {
             </div>
             <Link
               href="/case-studies"
-              className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+              className="text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
             >
               Case Studies
             </Link>
             <Link
               href="/gallery"
-              className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+              className="text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
             >
               Gallery
             </Link>
@@ -220,7 +233,7 @@ export default function Navbar() {
                 onClick={() => hydrated && setIndustriesOpen(!industriesOpen)}
                 onMouseEnter={handleIndustriesMouseEnter}
                 onMouseLeave={handleIndustriesMouseLeave}
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+                className="inline-flex items-center gap-1 text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
                 aria-expanded={safeIndustriesOpen}
                 aria-haspopup="true"
               >
@@ -229,13 +242,13 @@ export default function Navbar() {
             </div>
             <Link
               href="/about"
-              className="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 rounded"
+              className="text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="btn bg-brand-500 text-white hover:bg-brand-400 px-4 py-2.5 text-sm rounded-full shadow-glow hover:shadow-glow-violet focus-visible:ring-brand-500"
+              className="btn bg-brand-500 text-white hover:bg-brand-400 px-5 py-2.5 text-sm rounded-full shadow-[0_0_30px_rgba(59,130,246,0.7)] hover:shadow-[0_0_40px_rgba(129,140,248,0.9)] focus-visible:ring-brand-500"
             >
               Get in Touch
             </Link>
@@ -244,7 +257,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => hydrated && setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-lg text-slate-200 hover:bg-slate-800 transition-colors"
             aria-label="Toggle menu"
           >
             {safeMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

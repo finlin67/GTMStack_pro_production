@@ -45,7 +45,7 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
-          className="bg-slate-950/95 backdrop-blur-lg border-b border-white/10"
+          className="bg-slate-950/95 backdrop-blur-2xl border-b border-white/10"
         >
           <div className="container-width py-4 space-y-1">
             {/* Quick links */}
@@ -76,14 +76,14 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                   {/* Pillar Header */}
                   <button
                     onClick={() => togglePillar(pillar.id)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
                     aria-expanded={isExpanded}
                     aria-controls={`pillar-${pillar.id}`}
                     aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${pillar.title} menu`}
                   >
                     <div className="flex items-center gap-3">
                       {PillarIcon && (
-                        <div className="w-8 h-8 rounded-lg bg-brand-500/20 border border-brand-500/30 flex items-center justify-center text-brand-400 shrink-0" aria-hidden="true">
+                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500/25 via-brand-400/10 to-slate-900/80 border border-brand-500/40 flex items-center justify-center text-brand-300 shrink-0 shadow-[0_0_20px_rgba(59,130,246,0.45)]" aria-hidden="true">
                           <PillarIcon className="w-4 h-4" />
                         </div>
                       )}
