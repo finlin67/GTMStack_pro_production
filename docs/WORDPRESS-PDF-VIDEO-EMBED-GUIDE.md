@@ -170,6 +170,9 @@ Provide text-based alternatives for accessibility:
 
 After publishing a post with embedded media:
 
+0. **Confirm post is actually published**:
+   - In WordPress, post status must be `Published` (not Draft, Private, or Scheduled).
+
 1. **Check WordPress REST API**:
    ```
    https://m.gtmstack.pro/wp-json/wp/v2/posts?search=YOUR_TITLE&_embed=1
@@ -189,18 +192,23 @@ After publishing a post with embedded media:
    - Find the text content div in the article
    - Verify `<iframe>`, `<video>`, `<embed>`, or `<object>` tags are present
 
+4. **If missing on live site, verify deployment source**:
+   - Production deploy runs from `main` branch.
+   - If changes only exist on a feature branch, merge to `main` or run manual workflow dispatch.
+
 ---
 
 ## Troubleshooting
 
 | Issue | Solution |
 |-------|----------|
-| Embed shows as text/code | Post hasn't been fetched yet. Try clearing browser cache or wait 5 minutes for caching to clear. |
+| Embed shows as text/code | Verify WordPress `content.rendered` includes embed HTML. If API is correct but live is stale, redeploy from `main`. |
 | Iframe is blank | Check the `src` URL is correct and publicly accessible. CORS may block some sources. |
 | PDF doesn't render | Your PDF plugin may not export to REST API. Use Option C (manual embed) instead. |
 | Video won't play | Ensure video URL is public. YouTube/Vimeo must be public (not private/unlisted). |
 | Sizing looks wrong | Add `width="100%" height="600"` to iframe or use CSS aspect-ratio wrapper (see Best Practices). |
 | Content truncated on mobile | Add `display: block; width: 100%;` CSS styles to container. |
+| New post visible in WP but not on `gtmstack.pro/blog` | Check post status is Published, then verify the latest production deploy was triggered from `main`. |
 
 ---
 

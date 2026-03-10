@@ -10,14 +10,34 @@ The blog uses a **headless WordPress** setup:
 
 - **WordPress** — Content is authored and managed in WordPress (e.g., `m.gtmstack.pro`).
 - **Next.js** — The frontend fetches posts via the [WordPress REST API v2](https://developer.wordpress.org/rest-api/reference/) and renders them with custom UI.
-- **Client-side fetch** — Posts are loaded in the browser after the page loads (not at build time).
+- **Static deploy + client refresh** — `/blog` is pre-rendered in static export and then refreshed in-browser from WordPress after load.
+- **Deployment trigger** — Production deployment runs from `main` branch only (`.github/workflows/deploy.yml`).
 
 ```
-┌─────────────────┐      REST API       ┌──────────────────┐      fetch()       ┌─────────────────┐
-│   WordPress     │  /wp-json/wp/v2/    │   Next.js App    │  ←──────────────   │  Blog pages &   │
-│   (m.gtmstack)  │ ─────────────────►  │   (Static HTML)  │                    │  LatestPosts    │
-└─────────────────┘                     └──────────────────┘                    └─────────────────┘
+┌─────────────────┐      REST API       ┌──────────────────┐
+│   WordPress     │  /wp-json/wp/v2/    │ Next.js Build    │
+│   (m.gtmstack)  │ ─────────────────►  │ (static export)  │
+└─────────────────┘                     └────────┬─────────┘
+                                deploy (main)
+                                  │
+                                  ▼
+                            ┌──────────────────┐      fetch()      ┌─────────────────┐
+                            │ Live static page │  ←──────────────  │ Browser client  │
+                            │ gtmstack.pro/blog│                   │ refresh from WP │
+                            └──────────────────┘                   └─────────────────┘
 ```
+
+---
+
+## Operating Model (For On-Call Engineers)
+
+Use this sequence whenever an editor says, "I published in WordPress but don't see it live."
+
+1. Verify post exists in WordPress API.
+2. Verify post is `publish` status (not draft/private/future).
+3. Verify `main` deployment happened after content or code changes.
+4. Verify browser-side refresh is succeeding (CORS + network 200).
+5. If needed, trigger a new production deploy from `main`.
 
 ---
 
@@ -26,11 +46,13 @@ The blog uses a **headless WordPress** setup:
 | File | Purpose |
 |------|---------|
 | `lib/wp-client.ts` | WordPress API client used by the blog. Exposes `fetchPosts`, `fetchPostBySlug`, `fetchLatestPosts`, and `WPPost` type. |
-| `lib/wordpress.ts` | Alternative server-side client (uses `WORDPRESS_API_URL`). Not currently imported; available for SSG/SSR if needed. |
-| `app/blog/page.tsx` | Blog index page — lists posts with filters, search, and pagination. |
+| `lib/wordpress.ts` | Server-side WordPress client used by static blog page build and category fetches. |
+| `app/blog/page.tsx` | Static blog page shell; fetches initial posts/categories at build/render time. |
+| `app/blog/BlogIndexClient.tsx` | Client refresh layer; re-fetches posts from WP on first load and query changes. |
 | `app/blog/post/page.tsx` | Wrapper for the post detail view. |
 | `app/blog/post/BlogPostClient.tsx` | Post detail page — fetches single post by slug, renders content, TOC, related posts. |
-| `components/ui/LatestPosts.tsx` | Reusable "Latest Posts" block used elsewhere (e.g., homepage). |
+| `components/ui/LatestPosts.tsx` | Reusable "Latest Posts" block with direct browser fetch from WP. |
+| `.github/workflows/deploy.yml` | Production static deploy pipeline; runs automatically on `main` pushes. |
 
 ---
 
@@ -38,8 +60,8 @@ The blog uses a **headless WordPress** setup:
 
 | Variable | Used by | Required | Purpose |
 |----------|---------|----------|---------|
-| `NEXT_PUBLIC_WORDPRESS_API_URL` | `lib/wp-client.ts` | Optional* | Base URL for the WordPress REST API. |
-| `WORDPRESS_API_URL` | `lib/wordpress.ts`, deploy workflow | Yes (build) | Same base URL; used server-side and in CI. |
+| `NEXT_PUBLIC_WORDPRESS_API_URL` | `lib/wp-client.ts` | Recommended | Browser-visible base URL for WordPress REST API. |
+| `WORDPRESS_API_URL` | `lib/wordpress.ts`, deploy workflow | Yes (deploy/build) | Server-side and CI build WordPress endpoint. |
 
 \*If `NEXT_PUBLIC_WORDPRESS_API_URL` is not set, `wp-client` falls back to:
 
@@ -53,7 +75,18 @@ https://m.gtmstack.pro/wp-json/wp/v2
 https://m.gtmstack.pro/wp-json/wp/v2
 ```
 
-For client-side fetching, `NEXT_PUBLIC_` is required so the URL is available in the browser.
+For reliable behavior, set **both** values to the same REST root.
+
+---
+
+## Publish-To-Live Workflow
+
+1. Editor publishes post in WordPress (`m.gtmstack.pro`).
+2. API exposes it at `/wp-json/wp/v2/posts`.
+3. Live `/blog` should refresh in browser from WP on load.
+4. If live site still looks stale, redeploy from `main` to refresh static shell and related artifacts.
+
+Important: merging/pushing only to feature branches does not deploy production.
 
 ---
 
@@ -117,9 +150,32 @@ The GitHub Actions workflow (` .github/workflows/deploy.yml`):
 
 1. Checks that `WORDPRESS_API_URL` is set (non-fatal if missing).
 2. Optionally verifies the API with: `GET {WORDPRESS_API_URL}/posts?per_page=1&_fields=id,slug,status`
-3. Runs `npm run build` with `WORDPRESS_API_URL` available.
+3. Runs `npm run build:static` with `WORDPRESS_API_URL` available.
+4. Deploys `out/*` via SFTP.
+
+Trigger conditions:
+
+- Auto deploy: push to `main`
+- Manual deploy: `workflow_dispatch`
 
 **GitHub secret:** Add `WORDPRESS_API_URL` (and `NEXT_PUBLIC_WORDPRESS_API_URL` if different) in repo Settings → Secrets.
+
+---
+
+## Maintenance Checklist
+
+Run weekly or after infrastructure/plugin changes:
+
+1. API health check:
+  - `https://m.gtmstack.pro/wp-json/wp/v2/posts?per_page=1&_fields=id,slug,status`
+2. CORS check:
+  - Confirm `Access-Control-Allow-Origin` includes `https://gtmstack.pro`.
+3. Env consistency:
+  - `WORDPRESS_API_URL` and `NEXT_PUBLIC_WORDPRESS_API_URL` both point to `.../wp-json/wp/v2`.
+4. Publish sanity:
+  - Publish a test post, verify it appears via API and on `/blog`.
+5. Deploy sanity:
+  - Ensure latest production deploy came from `main`.
 
 ---
 
@@ -152,10 +208,33 @@ The GitHub Actions workflow (` .github/workflows/deploy.yml`):
 
 | Issue | Check |
 |-------|--------|
-| "Failed to fetch posts" | WordPress URL correct? REST API enabled? CORS configured if WordPress is on another domain? |
+| "Failed to fetch posts" | WordPress URL correct? REST API enabled? CORS configured for `https://gtmstack.pro`? |
 | No featured images | `_embed=1` in the request? Featured image set in WordPress? |
-| Stale content | Content is fetched client-side on each visit; no caching by default. Add caching if needed. |
+| New WP post not on live `/blog` | Confirm post is `publish`; check API sees it; confirm production deploy came from `main`; hard refresh browser. |
+| Stale shell after code changes | Branch deployed? Only `main` auto-deploys to production. Merge PR, then deploy. |
 | Build fails with WordPress error | `WORDPRESS_API_URL` set in CI? WordPress site reachable from GitHub Actions? |
+
+---
+
+## Fast Triage Commands
+
+### 1. Verify latest posts from source
+
+```text
+https://m.gtmstack.pro/wp-json/wp/v2/posts?per_page=5&_fields=id,slug,date,status,title
+```
+
+### 2. Verify CORS for production origin
+
+Use browser DevTools network request to `/wp-json/wp/v2/posts` and verify:
+
+- Status `200`
+- `Access-Control-Allow-Origin: https://gtmstack.pro`
+
+### 3. Verify deploy source branch
+
+- Confirm latest successful workflow run used `main`.
+- If not, trigger manual deploy or merge branch to `main`.
 
 ---
 

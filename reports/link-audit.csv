@@ -1,5 +1,5 @@
 Section,Source File,Line,Label/Href,Link Target,Status,Notes
-npm run build:static,,,Navbar.tsx link,/,No,MISSING
+Nav,,,Navbar.tsx link,/,No,MISSING
 Nav,,,Navbar.tsx industries,/industries/[slug],Yes,dynamic
 Nav,,,Footer.tsx obj,/about,Yes,ok
 Nav,,,Footer.tsx obj,/case-studies,Yes,ok
@@ -175,7 +175,7 @@ Link,src\templates\industries\IndustriesMainTemplate.tsx,493,,/expertise,ok,
 Link,src\templates\projects\ProjectsTemplate.tsx,120,,/,BROKEN,
 Link,src\templates\Uploaded_AnimationGallery_v1.tsx,259,,/,BROKEN,
 Link,src\templates\Uploaded_BlogFeed_v1.tsx,317,,/,BROKEN,
-Link,src\templates\Uploaded_BlogSinglePost_v1.tsx,212,,/,BROKEN,
+Link,src\templates\Uploaded_BlogSinglePost_v1.tsx,213,,/,BROKEN,
 Link,src\templates\Uploaded_CaseStudies_v1.tsx,246,,/,BROKEN,
 Broken,app\expertise\[slug]\ExpertiseDetailContent.tsx,363,,/,BROKEN,
 Broken,app\expertise\[slug]\page.tsx.old.tsx,365,,/,BROKEN,
@@ -233,7 +233,7 @@ Broken,src\templates\FallbackTemplate.tsx,483,,/,BROKEN,
 Broken,src\templates\projects\ProjectsTemplate.tsx,120,,/,BROKEN,
 Broken,src\templates\Uploaded_AnimationGallery_v1.tsx,259,,/,BROKEN,
 Broken,src\templates\Uploaded_BlogFeed_v1.tsx,317,,/,BROKEN,
-Broken,src\templates\Uploaded_BlogSinglePost_v1.tsx,212,,/,BROKEN,
+Broken,src\templates\Uploaded_BlogSinglePost_v1.tsx,213,,/,BROKEN,
 Broken,src\templates\Uploaded_CaseStudies_v1.tsx,246,,/,BROKEN,
 Orphan,,,,/(local)/gallery-admin,unreferenced,
 Orphan,,,,/admin,unreferenced,

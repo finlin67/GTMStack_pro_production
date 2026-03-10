@@ -1,6 +1,6 @@
 # Internal Link Audit Report
 
-Generated: 2026-03-07T20:35:48.367Z
+Generated: 2026-03-10T13:40:29.332Z
 
 ## 1. Main Navigation Audit
 
@@ -187,7 +187,7 @@ Generated: 2026-03-07T20:35:48.367Z
 | src\templates\projects\ProjectsTemplate.tsx | 120 | / | BROKEN |  |
 | src\templates\Uploaded_AnimationGallery_v1.tsx | 259 | / | BROKEN |  |
 | src\templates\Uploaded_BlogFeed_v1.tsx | 317 | / | BROKEN |  |
-| src\templates\Uploaded_BlogSinglePost_v1.tsx | 212 | / | BROKEN |  |
+| src\templates\Uploaded_BlogSinglePost_v1.tsx | 213 | / | BROKEN |  |
 | src\templates\Uploaded_CaseStudies_v1.tsx | 246 | / | BROKEN |  |
 
 ## 3. Broken Internal Links
@@ -250,7 +250,7 @@ Generated: 2026-03-07T20:35:48.367Z
 | src\templates\projects\ProjectsTemplate.tsx | 120 | / | BROKEN |  |
 | src\templates\Uploaded_AnimationGallery_v1.tsx | 259 | / | BROKEN |  |
 | src\templates\Uploaded_BlogFeed_v1.tsx | 317 | / | BROKEN |  |
-| src\templates\Uploaded_BlogSinglePost_v1.tsx | 212 | / | BROKEN |  |
+| src\templates\Uploaded_BlogSinglePost_v1.tsx | 213 | / | BROKEN |  |
 | src\templates\Uploaded_CaseStudies_v1.tsx | 246 | / | BROKEN |  |
 
 ## 4. Orphaned Pages (never linked)
