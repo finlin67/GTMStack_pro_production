@@ -8,6 +8,8 @@ import { RESUME_CONTENT } from '@/content/resume'
 import { DEMAND_GENERATION_EXPERTISE } from '@/content/expertise/demand-generation'
 import { DEMAND_GROWTH_CONTENT } from '@/content/expertise/demand-growth'
 import { STRATEGY_INSIGHTS_CONTENT } from '@/content/expertise/strategy-insights'
+import { CONTENT_ENGAGEMENT_CONTENT } from '@/content/expertise/content-engagement'
+import { GTM_SYSTEMS_OPERATIONS_CONTENT } from '@/content/expertise/systems-operations'
 import { CONTENT_MARKETING_CONTENT } from '@/content/expertise/content-marketing'
 import { EVENT_MARKETING_CONTENT } from '@/content/expertise/event-marketing'
 import { SOCIAL_MEDIA_MARKETING_CONTENT } from '@/content/expertise/social-media-marketing'
@@ -55,8 +57,10 @@ const contentByKey: Record<string, unknown> = {
   'expertise:marketing-analytics-reporting': MARKETING_ANALYTICS_REPORTING_CONTENT,
   'expertise:marketing-automation': MARKETING_AUTOMATION_CONTENT,
   'expertise:martech-optimization': MARTECH_OPTIMIZATION_CONTENT,
+  'pillar:content-engagement': CONTENT_ENGAGEMENT_CONTENT,
   'pillar:demand-growth': DEMAND_GROWTH_CONTENT,
   'pillar:strategy-insights': STRATEGY_INSIGHTS_CONTENT,
+  'pillar:systems-operations': GTM_SYSTEMS_OPERATIONS_CONTENT,
   'industries:main': INDUSTRIES_MAIN_CONTENT,
   'projects:main': PROJECTS_MAIN_CONTENT,
   'gallery:main': GALLERY_MAIN_CONTENT,
