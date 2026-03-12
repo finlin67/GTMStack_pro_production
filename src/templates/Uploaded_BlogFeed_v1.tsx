@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import Link from 'next/link';
 
 /**
  * TYPES & INTERFACES
@@ -13,6 +14,7 @@ interface NavLink {
 
 interface BlogPost {
   id: string;
+  slug: string;
   category: string;
   categoryColor: string;
   readTime: string;
@@ -122,6 +124,7 @@ const DEFAULT_CONTENT: PageContent = {
     posts: [
       {
         id: "1",
+        slug: "revenue-architecture-2024",
         category: "Strategy",
         categoryColor: "bg-teal-500",
         readTime: "8 min read",
@@ -134,6 +137,7 @@ const DEFAULT_CONTENT: PageContent = {
       },
       {
         id: "2",
+        slug: "post-sale-customer-expansion",
         category: "CX",
         categoryColor: "bg-pink-500",
         readTime: "12 min read",
@@ -146,6 +150,7 @@ const DEFAULT_CONTENT: PageContent = {
       },
       {
         id: "3",
+        slug: "generative-gtm-llms",
         category: "AI",
         categoryColor: "bg-indigo-500",
         readTime: "15 min read",
@@ -158,6 +163,7 @@ const DEFAULT_CONTENT: PageContent = {
       },
       {
         id: "4",
+        slug: "revops-debt-bottlenecks",
         category: "RevOps",
         categoryColor: "bg-yellow-500",
         readTime: "6 min read",
@@ -170,6 +176,7 @@ const DEFAULT_CONTENT: PageContent = {
       },
       {
         id: "5",
+        slug: "tier-1-account-strategies-q4",
         category: "ABM",
         categoryColor: "bg-blue-600",
         readTime: "10 min read",
@@ -182,6 +189,7 @@ const DEFAULT_CONTENT: PageContent = {
       },
       {
         id: "6",
+        slug: "dark-social-demand-loop",
         category: "Demand",
         categoryColor: "bg-orange-500",
         readTime: "7 min read",
@@ -426,46 +434,51 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
           {filteredPosts.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
               {filteredPosts.map((post) => (
-                <article 
+                <Link
                   key={post.id}
-                  className={`group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-100 transition-all hover:shadow-2xl hover:shadow-blue-500/10 ${post.borderColor}`}
+                  href={`/blog/post?slug=${encodeURIComponent(post.slug)}`}
+                  className={`group flex flex-col bg-white rounded-2xl overflow-hidden border border-slate-100 transition-all hover:shadow-2xl hover:shadow-blue-500/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2 focus-visible:ring-offset-white ${post.borderColor}`}
                 >
-                  <div className="h-56 bg-slate-100 relative p-8 flex items-center justify-center overflow-hidden">
-                    {/* Mock Framework Graphic */}
-                    <div className="w-full h-full opacity-20 border-2 border-dashed border-blue-500 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110">
-                      <span className="text-slate-900 text-[10px] font-mono font-bold tracking-widest">{post.graphicLabel}</span>
-                    </div>
-                    <span className={`absolute top-5 left-5 ${post.categoryColor} text-[10px] font-black text-white px-3 py-1.5 rounded-lg tracking-widest uppercase shadow-lg`}>
-                      {post.category}
-                    </span>
-                  </div>
-                  
-                  <div className="p-8 flex-grow flex flex-col">
-                    <div className="flex justify-between items-center mb-5">
-                      <span className="text-orange-500 text-[10px] font-black uppercase tracking-[0.2em]">
-                        {post.readTime}
-                      </span>
-                      <span className="text-slate-400 text-xs font-medium">
-                        {post.date}
+                  <article className="flex flex-col h-full">
+                    <div className="h-56 bg-slate-100 relative p-8 flex items-center justify-center overflow-hidden">
+                      {/* Mock Framework Graphic */}
+                      <div className="w-full h-full opacity-20 border-2 border-dashed border-blue-500 rounded-xl flex items-center justify-center transition-transform group-hover:scale-110">
+                        <span className="text-slate-900 text-[10px] font-mono font-bold tracking-widest">
+                          {post.graphicLabel}
+                        </span>
+                      </div>
+                      <span
+                        className={`absolute top-5 left-5 ${post.categoryColor} text-[10px] font-black text-white px-3 py-1.5 rounded-lg tracking-widest uppercase shadow-lg`}
+                      >
+                        {post.category}
                       </span>
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors cursor-pointer">
-                      {post.title}
-                    </h3>
-                    <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-8">
-                      {post.excerpt}
-                    </p>
-                    <div className="mt-auto flex items-center gap-4 pt-6 border-t border-slate-50">
-                      <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-xs">
-                        {post.author.name.charAt(0)}
+
+                    <div className="p-8 flex-grow flex flex-col">
+                      <div className="flex justify-between items-center mb-5">
+                        <span className="text-orange-500 text-[10px] font-black uppercase tracking-[0.2em]">
+                          {post.readTime}
+                        </span>
+                        <span className="text-slate-400 text-xs font-medium">{post.date}</span>
                       </div>
-                      <div>
-                        <span className="block text-slate-900 text-sm font-bold">{post.author.name}</span>
-                        <span className="block text-slate-400 text-xs">{post.author.role}</span>
+                      <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">
+                        {post.title}
+                      </h3>
+                      <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-8">
+                        {post.excerpt}
+                      </p>
+                      <div className="mt-auto flex items-center gap-4 pt-6 border-t border-slate-50">
+                        <div className="w-10 h-10 rounded-full bg-slate-200 flex items-center justify-center text-slate-500 font-bold text-xs">
+                          {post.author.name.charAt(0)}
+                        </div>
+                        <div>
+                          <span className="block text-slate-900 text-sm font-bold">{post.author.name}</span>
+                          <span className="block text-slate-400 text-xs">{post.author.role}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               ))}
             </div>
           ) : (

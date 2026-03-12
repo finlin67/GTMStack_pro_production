@@ -38,6 +38,7 @@ export interface AdaptedBlogFeedContent {
   blog: {
     posts: Array<{
       id: string
+      slug: string
       category: string
       categoryColor: string
       readTime: string
@@ -132,6 +133,7 @@ export function adaptBlogFeedData(props: BlogFeedAdapterProps): AdaptedBlogFeedC
 
   const adaptedPosts = posts.map((post, idx) => ({
     id: String(post.id),
+    slug: post.slug,
     category: getPrimaryCategory(post),
     categoryColor: CATEGORY_COLORS[idx % CATEGORY_COLORS.length],
     readTime: '5 min read',
