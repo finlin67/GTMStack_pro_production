@@ -81,6 +81,10 @@
   "author": "",
   "license": "ISC",
   "type": "commonjs",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "bugs": {
     "url": "https://github.com/finlin67/z1_GTMStack_pro/issues"
   },
