@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --webpack",
     "build": "next build --webpack",
+    "build:hostinger": "cross-env NODE_OPTIONS=--max-old-space-size=2048 next build --webpack",
     "start": "node -e \"const {spawn}=require('node:child_process'); const nextBin=require.resolve('next/dist/bin/next'); const port=process.env.PORT||'3000'; const child=spawn(process.execPath,[nextBin,'start','-p',port],{stdio:'inherit'}); child.on('exit',code=>process.exit(code??0));\"",
     "build:static": "cross-env STATIC_EXPORT=1 next build --webpack",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
