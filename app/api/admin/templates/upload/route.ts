@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
 import fs from 'node:fs'
 import path from 'node:path'
-import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 import { cookies } from 'next/headers'
 
 const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 function parseCsvRow(line: string): string[] {
   const out: string[] = []
   let cur = ''
@@ -38,7 +38,7 @@ export async function POST(req: Request) {
   }
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value
-  if (!token || !verifyAdminToken(token)) {
+  if (!isAdminAuthorized(token)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

@@ -1,69 +1,69 @@
-export const DEMAND_GENERATION_CONTENT = {
+export const DEMAND_GENERATION_CAMPAIGNS_CONTENT = {
   brand: {
-    tagline: "Precision-Engineered Demand for Unrivaled Growth.",
-    description: "GTMStack.pro empowers B2B enterprises to achieve predictable, scalable revenue through sophisticated demand generation strategies. We transform market potential into tangible pipeline."
+    tagline: "Strategic Solutions for Driving Qualified Leads and Revenue Growth.",
+    description: "We transform demand generation from a volume game into a sophisticated, integrated engine for sustainable revenue, focusing on nurturing qualified leads through the entire sales funnel."
   },
   hero: {
-    headline: "Mastering Demand Generation: Fueling Your Revenue Engine",
-    subheadline: "Unlock consistent, high-quality leads and accelerate your sales cycle with data-driven strategies built for the modern B2B landscape.",
-    description: "In today's competitive market, effective demand generation isn't just about leads—it's about creating a sustainable, predictable pipeline. GTMStack.pro specializes in crafting bespoke demand generation frameworks that integrate seamlessly with your GTM strategy, driving measurable ROI and long-term growth.",
-    primaryCTA: { text: "Build Your Demand Engine", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/demand-generation/approach" },
-    image: { src: "/images/demand-generation-hero.webp", alt: "Strategic overview of demand generation funnel" }
+    headline: "Mastering Demand Generation: Drive Qualified Leads, Accelerate Revenue.",
+    subheadline: "Orchestrate multi-channel experiences that move prospects through the buyer's journey with precision and measurable impact.",
+    description: "Our expertise lies in developing and executing sophisticated demand generation campaigns that consistently deliver high-quality, sales-ready leads. We move beyond mere lead volume, focusing on strategic alignment with sales priorities and maximizing ROI through data-driven optimization.",
+    primaryCTA: { text: "Unlock Your Growth Potential", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/demand-generation-campaigns#capabilities" },
+    image: { src: "/images/demand-generation-hero.jpg", alt: "Strategic demand generation campaign dashboard showing growth metrics" }
   },
   metricsSection: {
-    headline: "Quantifiable Impact: Our Demand Generation Results",
+    headline: "Proven Impact: Tangible Results from Strategic Demand Generation.",
     stats: [
-      { label: "Pipeline Generated", value: "$500M+" },
-      { label: "Lead-to-Opportunity Conversion", value: "25% Avg." },
-      { label: "Marketing ROI Improvement", value: "3.5x" }
+      { label: "Increase in Qualified Leads", value: "35%" },
+      { label: "Increase in Sales Revenue", value: "15%" },
+      { label: "Increase in Lead Volume", value: "20%" }
     ]
   },
   capabilitiesSection: {
-    headline: "Our Core Demand Generation Capabilities",
+    headline: "Our Core Expertise: Precision-Driven Demand Generation.",
     items: [
-      { title: "Strategy & Planning", description: "Developing comprehensive demand generation blueprints aligned with your business objectives, target ICP, and market dynamics." },
-      { title: "Content & Campaign Orchestration", description: "Crafting compelling content and orchestrating multi-channel campaigns across digital, social, and event platforms to attract and engage prospects." },
-      { title: "Lead Nurturing & Scoring", description: "Implementing sophisticated lead nurturing sequences and predictive scoring models to qualify and progress leads efficiently through the funnel." },
-      { title: "ABM & Targeted Outreach", description: "Designing and executing Account-Based Marketing (ABM) programs to penetrate key accounts with personalized, high-impact engagements." },
-      { title: "Performance Analytics & Optimization", description: "Leveraging advanced analytics to track campaign performance, identify bottlenecks, and continuously optimize strategies for maximum ROI." },
-      { title: "Technology Stack Integration", description: "Advising on and integrating best-in-class marketing automation, CRM, and analytics platforms to streamline operations and enhance data visibility." }
+      { title: "Targeted Campaign Development", description: "We develop bespoke campaigns tailored to your specific target audience, industry nuances, and overarching business goals, ensuring maximum relevance and impact." },
+      { title: "Lead Scoring & Nurturing", description: "Implement robust lead scoring systems and sophisticated nurturing workflows to guide prospects seamlessly through the sales funnel, delivering sales-ready leads." },
+      { title: "Account-Based Marketing (ABM) Integration", description: "Leverage advanced ABM tactics to identify, engage, and convert high-potential accounts, focusing resources where they yield the greatest return." },
+      { title: "Data-Driven Optimization", description: "Continuously track, analyze, and optimize campaign performance using comprehensive analytics to refine strategies and maximize lead generation efficiency and ROI." },
+      { title: "Content Marketing Strategy", description: "Design engaging content strategies that resonate with your audience at every stage of their journey, building trust and driving engagement." },
+      { title: "Marketing Automation Configuration", description: "Configure and manage marketing automation platforms to deliver personalized experiences and streamline campaign execution." }
     ]
   },
   philosophySection: {
-    headline: "Our Principles for Sustainable Demand Growth",
+    headline: "Our Strategic Principles: The Foundation of Effective Demand Generation.",
     principles: [
-      { title: "Data-Driven Precision", description: "Every strategy is rooted in rigorous data analysis, ensuring decisions are informed, not assumed, for optimal impact." },
-      { title: "Integrated GTM Alignment", description: "Demand generation is not a siloed function; it's a critical component of a cohesive Go-to-Market strategy, seamlessly aligned with sales and product." },
-      { title: "Continuous Innovation", description: "The B2B landscape evolves rapidly. We commit to continuous learning and adaptation, leveraging emerging technologies and methodologies." },
-      { title: "Customer-Centric Engagement", description: "Building demand means understanding and addressing customer needs at every touchpoint, fostering trust and long-term relationships." },
-      { title: "Measurable ROI Focus", description: "Our ultimate goal is to deliver tangible, measurable returns on your investment, translating activities into pipeline and revenue." }
+      { title: "Lead Quality Over Quantity", description: "We operate on the principle that a smaller number of highly qualified leads is infinitely more valuable than a large volume of unqualified prospects. Our focus is on delivering sales-ready opportunities." },
+      { title: "Integrated Buyer's Journey Mapping", description: "Utilizing the Lead Nurturing Funnel, we meticulously map the customer's journey, designing targeted content and campaigns for each stage to ensure seamless progression." },
+      { title: "Systematic Lead Qualification", description: "Our Lead Scoring System provides a systematic, data-driven approach to ranking leads based on their likelihood to convert, ensuring sales efforts are focused on the most promising prospects." },
+      { title: "Relationship-Centric Engagement", description: "Demand generation extends beyond attraction; it's about building genuine relationships, guiding leads with relevant information and support through their decision-making process." },
+      { title: "Strategic Account Focus", description: "We employ Account-Based Marketing (ABM) as a strategic imperative, targeting and engaging high-potential accounts with personalized precision to maximize conversion." }
     ]
   },
   growthSection: {
-    headline: "Transforming Potential into Predictable Revenue",
-    narrative: "At GTMStack.pro, we don't just generate leads; we engineer a robust, scalable system that consistently feeds your sales pipeline with qualified opportunities. Our strategic approach moves beyond tactical campaigns, focusing on building a sustainable demand engine that adapts to market shifts and fuels your long-term growth ambitions. We empower your team with the insights and infrastructure to achieve predictable revenue acceleration.",
+    headline: "Accelerating Your Revenue Growth Through Strategic Demand Generation.",
+    narrative: "For B2B companies across SaaS, Fintech, and Retail, particularly those with complex sales cycles and high-value target accounts, our demand generation expertise is designed to accelerate revenue growth and improve sales productivity. We move beyond generic approaches, crafting tailored strategies that address specific industry challenges and customer pain points, ensuring every campaign contributes directly to your bottom line.",
     metrics: [
-      { label: "Average Sales Cycle Reduction", value: "18%" },
-      { label: "Qualified Lead Volume Increase", value: "70%" },
-      { label: "Customer Lifetime Value (CLTV) Impact", value: "Significant" }
+      { label: "Qualified Lead Growth", value: "+35%" },
+      { label: "Sales Revenue Increase", value: "+15%" },
+      { label: "Conversion Rate Improvement", value: "+10%" }
     ]
   },
   ctaSection: {
-    title: "Ready to Engineer Your Next Growth Surge?",
-    subtitle: "Partner with GTMStack.pro to build a demand generation strategy that delivers predictable, scalable revenue.",
+    title: "Ready to Transform Your Demand Generation?",
+    subtitle: "Partner with us to build campaigns that consistently deliver qualified leads and drive measurable revenue growth.",
     button: { text: "Schedule a Strategic Consultation", link: "/contact" }
   },
   footer: {
-    description: "GTMStack.pro is your strategic partner for Go-to-Market excellence, specializing in demand generation, sales enablement, and revenue operations to drive sustainable B2B growth.",
+    description: "GTMStack.pro empowers businesses with expert-level go-to-market strategies and execution, driving sustainable growth and market leadership.",
     sections: [
-      { title: "Services", links: ["Demand Generation", "Sales Enablement", "Revenue Operations", "GTM Strategy"] },
-      { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] },
-      { title: "Resources", links: ["Case Studies", "Whitepapers", "Webinars", "Privacy Policy"] }
+      { title: "Services", links: ["Demand Generation Campaigns", "Product-Led Growth", "Market Entry Strategy", "Sales Enablement"] },
+      { title: "Company", links: ["About Us", "Contact", "Careers", "Privacy Policy"] },
+      { title: "Resources", links: ["Blog", "Case Studies", "Whitepapers", "Webinars"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }
-}
+};
 
-// Backward-compatible alias used by existing registry imports.
-export const DEMAND_GENERATION_EXPERTISE = DEMAND_GENERATION_CONTENT
+/** Alias for index/registry (expect DEMAND_GENERATION_CONTENT). */
+export const DEMAND_GENERATION_CONTENT = DEMAND_GENERATION_CAMPAIGNS_CONTENT;

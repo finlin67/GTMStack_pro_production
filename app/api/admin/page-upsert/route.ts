@@ -3,10 +3,10 @@ import { spawnSync } from 'node:child_process'
 import path from 'node:path'
 import fs from 'node:fs'
 import { cookies } from 'next/headers'
-import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
 const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 const REG_PATH = path.join(process.cwd(), 'src', 'templates', 'registry.ts')
 const FALLBACK_TEMPLATE_FILE = 'src/templates/FallbackTemplate.tsx'
 
@@ -28,7 +28,7 @@ export async function POST(request: NextRequest) {
   }
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value
-  if (!token || !verifyAdminToken(token)) {
+  if (!isAdminAuthorized(token)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

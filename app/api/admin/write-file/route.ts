@@ -2,10 +2,10 @@ import { NextRequest, NextResponse } from 'next/server'
 import fs from 'node:fs'
 import path from 'node:path'
 import { cookies } from 'next/headers'
-import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
 const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 const ALLOWED_PREFIXES = ['src/templates/', 'content/', 'src/content/']
 
 function isPathAllowed(filePath: string): boolean {
@@ -24,7 +24,7 @@ export async function POST(request: NextRequest) {
   }
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value
-  if (!token || !verifyAdminToken(token)) {
+  if (!isAdminAuthorized(token)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 

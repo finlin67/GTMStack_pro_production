@@ -1,67 +1,64 @@
-export const EXPERTISE_CONTENT = {
+export const DEMAND_GROWTH_CONTENT = {
   brand: {
-    tagline: "Unlocking GTM Excellence Through Unrivaled Expertise.",
-    description: "GTMStack.pro is the strategic partner for organizations seeking to optimize their Go-To-Market strategies. Our deep domain knowledge and proven methodologies empower businesses to achieve sustainable growth and market leadership."
+    tagline: "Strategic Solutions for Accelerating Revenue Generation.",
+    description: "We transform demand generation from a tactical pursuit into a sophisticated, strategic engine for sustainable revenue growth, focusing on identifying and nurturing high-potential accounts.",
   },
   hero: {
-    headline: "Master Your Market: The Power of GTMStack.pro's Expertise.",
-    subheadline: "Navigate complex market landscapes with confidence, guided by industry-leading strategists and practitioners.",
-    description: "Our team comprises seasoned experts across every facet of Go-To-Market, from intricate market analysis and strategic planning to precision execution in demand generation, sales enablement, and customer success. We bring a wealth of experience and a track record of transforming challenges into opportunities for our clients.",
-    primaryCTA: { text: "Explore Our Expertise", link: "/expertise" },
-    secondaryCTA: { text: "Schedule a Consultation", link: "/contact" },
-    image: { src: "/images/expertise-hero.webp", alt: "Team of experts collaborating on a strategic plan" }
+    headline: "Demand & Growth",
+    subheadline: "High-potential account acquisition and ROI-focused pipeline.",
+    description: "Quality over quantity: we identify, qualify, and nurture accounts that convert.",
+    primaryCTA: { text: "Unlock Your Growth Potential", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Approach", link: "/demand-growth#philosophy" },
+    image: { src: "/images/heroes/placeholder.svg", alt: "Strategic Demand & Growth Dashboard" },
   },
   metricsSection: {
-    headline: "Quantifiable Impact of Deep GTM Knowledge.",
+    headline: "Proven Impact: Driving Tangible Results",
     stats: [
-      { label: "Years of Collective Experience", value: "150+" },
-      { label: "Client Success Rate", value: "95%" },
-      { label: "Strategic Engagements Delivered", value: "300+" }
-    ]
+      { label: "Increase in Qualified Leads", value: "20%" },
+      { label: "Increase in Lead Volume", value: "15%" },
+      { label: "Conversion Rate Improvement", value: "10%" },
+    ],
   },
   capabilitiesSection: {
-    headline: "Our Expertise Spans the Entire GTM Spectrum.",
+    headline: "Core Expertise in Demand & Growth",
     items: [
-      { title: "Market & Competitive Intelligence", description: "Deep-dive analysis to uncover market opportunities, competitive threats, and customer insights that inform robust GTM strategies." },
-      { title: "Strategic GTM Planning", description: "Crafting comprehensive Go-To-Market strategies that align product, sales, and marketing for optimal market penetration and revenue growth." },
-      { title: "Demand Generation & ABM", description: "Designing and executing high-performance demand generation and Account-Based Marketing programs that drive qualified leads and pipeline acceleration." },
-      { title: "Sales Enablement & Operations", description: "Optimizing sales processes, tools, and training to maximize sales team effectiveness and efficiency, from lead to close." },
-      { title: "Product-Led Growth (PLG) Strategy", description: "Developing and implementing PLG models that leverage product value to drive user acquisition, retention, and expansion." },
-      { title: "GTM Technology Stack Optimization", description: "Advising on and implementing the right technology solutions to streamline GTM operations and enhance data-driven decision-making." }
-    ]
+      { title: "Targeted Lead Generation", description: "We identify and qualify accounts that precisely fit your Ideal Customer Profile, ensuring every lead has high potential." },
+      { title: "Optimized Lead Scoring & Qualification", description: "Implement systematic lead scoring to prioritize prospects based on their likelihood to convert, streamlining your sales funnel." },
+      { title: "Account-Based Marketing (ABM)", description: "Leverage sophisticated ABM tactics to strategically engage key decision-makers within your most valuable high-potential accounts." },
+      { title: "Data-Driven Campaign Optimization", description: "Utilize analytics to track campaign performance, continuously optimizing lead generation efforts for maximum ROI and efficiency." },
+      { title: "Sales Enablement & Alignment", description: "Provide your sales team with the essential resources and insights needed to effectively close deals and accelerate revenue." },
+    ],
   },
   philosophySection: {
-    headline: "The Principles Guiding Our Expert Approach.",
+    headline: "Our Differentiated Philosophy: Quality Over Quantity",
     principles: [
-      { title: "Data-Driven Insight", description: "Every recommendation is grounded in rigorous data analysis and empirical evidence, ensuring strategies are both informed and effective." },
-      { title: "Client-Centric Partnership", description: "We embed ourselves as an extension of your team, tailoring our expertise to your unique challenges and objectives for shared success." },
-      { title: "Continuous Innovation", description: "The GTM landscape evolves rapidly. Our experts are committed to continuous learning and adopting cutting-edge methodologies to keep you ahead." },
-      { title: "Actionable Strategy", description: "Our expertise isn't just theoretical; we deliver practical, implementable strategies designed for tangible results and measurable impact." }
-    ]
+      { title: "Strategic Account Prioritization", description: "We believe the biggest mistake is focusing solely on lead volume. Our approach prioritizes identifying and nurturing high-potential accounts that align with your long-term revenue goals." },
+      { title: "Data-Driven Precision", description: "Every decision is rooted in analytics. We track campaign performance rigorously to optimize lead generation efforts and ensure resources are directed towards the most promising opportunities." },
+      { title: "Relationship-Centric Growth", description: "Demand generation extends beyond attracting leads; it's about building meaningful relationships and guiding prospects strategically through the entire sales funnel." },
+      { title: "Integrated Sales & Marketing Alignment", description: "Effective demand generation requires seamless collaboration with sales. We ensure lead generation efforts are aligned with sales priorities and provide robust enablement support." },
+    ],
   },
   growthSection: {
-    headline: "Expertise That Translates Directly to Growth.",
-    narrative: "At GTMStack.pro, our expertise is not merely academic; it's a catalyst for tangible business growth. We leverage our deep understanding of market dynamics, customer behavior, and operational efficiencies to identify bottlenecks, unlock new revenue streams, and accelerate your market trajectory. Our strategic interventions are designed to create sustainable competitive advantages, ensuring your GTM efforts consistently outperform.",
+    headline: "Transforming Demand into Sustainable Growth",
+    narrative: "Our strategic approach to Demand & Growth is the engine driving sustainable revenue. We move beyond the tactical pursuit of sheer lead volume to a sophisticated focus on identifying and nurturing high-potential accounts. By prioritizing quality, leveraging data-driven insights, and aligning closely with sales objectives, we ensure your resources are invested in opportunities most likely to convert into long-term, valuable customers. This disciplined methodology maximizes ROI and builds a robust competitive advantage, transforming your demand generation into a predictable growth machine.",
     metrics: [
-      { label: "Average Revenue Growth for Clients", value: "25%+" }
-    ]
+      { label: "Revenue Growth Acceleration", value: "Significant" },
+      { label: "Sales Cycle Efficiency", value: "Improved" },
+      { label: "Customer Lifetime Value", value: "Enhanced" },
+    ],
   },
   ctaSection: {
-    title: "Ready to Elevate Your GTM Strategy?",
-    subtitle: "Partner with GTMStack.pro and harness unparalleled expertise to achieve your most ambitious business objectives.",
-    button: { text: "Connect with an Expert", link: "/contact" }
+    title: "Ready to Accelerate Your Revenue Growth?",
+    subtitle: "We partner with B2B companies seeking to optimize their sales productivity and navigate complex sales cycles. Let's build a demand strategy that delivers.",
+    button: { text: "Schedule a Strategic Consultation", link: "/contact" },
   },
   footer: {
-    description: "GTMStack.pro empowers businesses with strategic Go-To-Market expertise, driving sustainable growth and market leadership through data-driven insights and actionable strategies.",
+    description: "GTMStack.pro empowers businesses with strategic Demand & Growth solutions, transforming lead generation into a precise, high-impact revenue engine.",
     sections: [
-      { title: "Services", links: ["/services/strategy", "/services/demand-gen", "/services/sales-enablement"] },
-      { title: "Company", links: ["/about", "/careers", "/contact"] },
-      { title: "Resources", links: ["/blog", "/case-studies", "/webinars"] },
-      { title: "Legal", links: ["/privacy-policy", "/terms-of-service"] }
+      { title: "Services", links: ["Demand & Growth", "Go-to-Market Strategy", "Sales Enablement"] },
+      { title: "Company", links: ["About Us", "Contact", "Blog"] },
+      { title: "Legal", links: ["Privacy Policy", "Terms of Service"] }
     ],
-    copyright: "© 2026 GTMStack.pro. All rights reserved."
-  }
-}
-
-// Backward-compatible alias used by existing registry and pillar imports.
-export const DEMAND_GROWTH_CONTENT = EXPERTISE_CONTENT
+    copyright: "© 2026 GTMStack.pro. All rights reserved.",
+  },
+};

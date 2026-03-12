@@ -32,6 +32,7 @@ const baseConfig = {
   ],
   async redirects() {
     return [
+      { source: '/favicon.ico', destination: '/gtmstack-logo.png', permanent: false },
       {
         source: '/expertise/analytics',
         destination: '/expertise/marketing-analytics-reporting',

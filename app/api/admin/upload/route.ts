@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFile } from 'fs/promises';
 import path from 'path';
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 const MAX_UPLOAD_BYTES = 512 * 1024; // 512KB (adjust as needed)
 const UPLOADS_ENABLED =
     process.env.NODE_ENV === 'development' &&

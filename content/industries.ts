@@ -110,7 +110,7 @@ export const industryItems: IndustryItem[] = [
       'marketing-operations',
       'marketing-automation',
       'product-marketing',
-      'seo',
+      'search-engine-optimization',
     ],
     featuredCaseStudies: [],
   },
@@ -336,7 +336,7 @@ export const industryItems: IndustryItem[] = [
     featured: true,
     featuredExpertise: [
       'content-marketing',
-      'seo',
+      'search-engine-optimization',
       'growth-marketing',
       'marketing-automation',
       'lifecycle-marketing',
@@ -382,7 +382,7 @@ export const industryItems: IndustryItem[] = [
     ],
     featuredExpertise: [
       'growth-marketing',
-      'email-marketing',
+      'content-marketing',
       'omnichannel-marketing',
       'marketing-automation',
       'lifecycle-marketing',

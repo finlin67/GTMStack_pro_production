@@ -4,7 +4,7 @@ import path from 'path';
 import { exec } from 'child_process';
 import { promisify } from 'util';
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 const execAsync = promisify(exec);
 
 const TEMPLATES_DIR = path.join(process.cwd(), 'src', 'templates');
@@ -38,28 +38,37 @@ export async function GET() {
     const content = getFilesRecursively(CONTENT_DIR, CONTENT_DIR, '.ts');
 
     return NextResponse.json({ templates, content });
-  } catch (error: any) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+  } catch (error: unknown) {
+    return NextResponse.json({ error: getErrorMessage(error) }, { status: 500 });
   }
 }
 
 export async function POST(req: NextRequest) {
   try {
     const formData = await req.formData();
-    const route = formData.get('route') as string;
-    const templateId = formData.get('templateId') as string;
-    const contentKey = formData.get('contentKey') as string;
-    const pageTitle = formData.get('pageTitle') as string;
-    const fileRef = formData.get('fileRef') as string;
-    const templateFile = formData.get('templateFile') as File | null;
-    const contentFile = formData.get('contentFile') as File | null;
+    const route = formData.get('route');
+    const templateId = formData.get('templateId');
+    const contentKey = formData.get('contentKey');
+    const pageTitle = formData.get('pageTitle');
+    const fileRef = formData.get('fileRef');
+    const templateFile = formData.get('templateFile');
+    const contentFile = formData.get('contentFile');
 
-    if (!route) {
+    if (typeof route !== 'string' || !route) {
       return NextResponse.json({ error: 'Route is required' }, { status: 400 });
+    }
+    if (typeof templateId !== 'string' || typeof contentKey !== 'string') {
+      return NextResponse.json({ error: 'Template and content keys are required' }, { status: 400 });
+    }
+    if (pageTitle != null && typeof pageTitle !== 'string') {
+      return NextResponse.json({ error: 'Invalid page title' }, { status: 400 });
+    }
+    if (fileRef != null && typeof fileRef !== 'string') {
+      return NextResponse.json({ error: 'Invalid file reference' }, { status: 400 });
     }
 
     // Save template file if provided
-    if (templateFile) {
+    if (templateFile instanceof File) {
       const buffer = Buffer.from(await templateFile.arrayBuffer());
       const filePath = path.join(TEMPLATES_DIR, templateFile.name);
       fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -67,7 +76,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Save content file if provided
-    if (contentFile) {
+    if (contentFile instanceof File) {
       const buffer = Buffer.from(await contentFile.arrayBuffer());
       const filePath = path.join(CONTENT_DIR, contentFile.name);
       fs.mkdirSync(path.dirname(filePath), { recursive: true });
@@ -136,7 +145,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Update Template Registry if new template uploaded
-    if (templateFile) {
+    if (templateFile instanceof File) {
         const templateName = templateFile.name.replace('.tsx', '');
         const registryPath = path.join(process.cwd(), 'src', 'templates', 'registry.ts');
         if (fs.existsSync(registryPath)) {
@@ -162,7 +171,7 @@ export async function POST(req: NextRequest) {
     }
 
     // Update Content Registry if new content uploaded
-    if (contentFile) {
+    if (contentFile instanceof File) {
         const contentName = contentFile.name.replace('.ts', '');
         const registryPath = path.join(process.cwd(), 'src', 'content', 'registry.ts');
         if (fs.existsSync(registryPath)) {
@@ -189,14 +198,19 @@ export async function POST(req: NextRequest) {
     // Regenerate registry
     try {
       await execAsync('npm run gen:registry');
-    } catch (execError: any) {
+    } catch (execError: unknown) {
       console.error('Error running gen:registry:', execError);
       // We still return success but log the error
     }
 
     return NextResponse.json({ success: true });
-  } catch (error: any) {
+  } catch (error: unknown) {
     console.error('Admin Manager POST error:', error);
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    return NextResponse.json({ error: getErrorMessage(error) }, { status: 500 });
   }
+}
+
+function getErrorMessage(error: unknown): string {
+  if (error instanceof Error) return error.message;
+  return String(error);
 }

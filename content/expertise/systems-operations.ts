@@ -1,98 +1,68 @@
-export const GTM_SYSTEMS_OPERATIONS_CONTENT = {
+export const SYSTEMS_OPERATIONS_CONTENT = {
   brand: {
-    tagline: "The Backbone of Revenue Growth.",
-    description: "GTMStack.pro specializes in optimizing Go-to-Market (GTM) systems and operations, transforming complex tech stacks into streamlined, high-performance revenue engines. We empower businesses to achieve predictable, scalable growth through strategic system design, meticulous implementation, and continuous optimization."
+    tagline: "Optimized Systems. Sustainable Growth. Unrivaled Advantage.",
+    description: "We design and implement robust systems and operations that transform inefficiencies into strategic assets. Our expertise ensures your organization scales effectively, reduces costs, and achieves sustained competitive advantage through streamlined workflows and intelligent technology integration."
   },
   hero: {
-    headline: "Mastering GTM Systems Operations for Predictable Revenue Growth",
-    subheadline: "Transforming Complexity into Scalable, High-Performance Revenue Engines.",
-    description: "In today's competitive landscape, a robust Go-to-Market (GTM) system is not just an advantage—it's a necessity. GTMStack.pro designs, implements, and optimizes your entire GTM tech stack, ensuring seamless operations, data integrity, and a clear path to accelerated revenue.",
-    primaryCTA: { text: "Explore Our Expertise", link: "/expertise/gtm-systems-operations" },
-    secondaryCTA: { text: "Schedule a Consultation", link: "/contact" },
-    image: { src: "/images/gtm-systems-operations-hero.webp", alt: "GTM Systems Operations Dashboard showing interconnected systems and data flow" }
+    headline: "Systems & Operations",
+    subheadline: "Operational excellence that drives efficiency and scale.",
+    description: "We build adaptive frameworks that eliminate bottlenecks and empower scale.",
+    primaryCTA: { text: "Optimize Your Operations", link: "#contact" },
+    secondaryCTA: { text: "Explore Our Approach", link: "#capabilities" },
+    image: { src: "/images/systems-operations-hero.jpg", alt: "Strategic overview of interconnected business processes and data flow" }
   },
   metricsSection: {
-    headline: "Driving Tangible Results Through Operational Excellence",
+    headline: "Quantifiable Impact: Driving Performance Through Operational Excellence.",
     stats: [
-      { label: "Revenue Growth", value: "25%+" },
-      { label: "Operational Efficiency", value: "30%+" },
-      { label: "Data Accuracy", value: "99%" }
+      { label: "Sales Conversion Rate Increase", value: "20%+" },
+      { label: "Operational Cost Reduction", value: "30%+" },
+      { label: "Marketing Performance Improvement", value: "15%+" }
     ]
   },
   capabilitiesSection: {
-    headline: "Our Core GTM Systems Operations Capabilities",
+    headline: "Our Core Expertise: Building the Foundation for Operational Mastery.",
     items: [
-      {
-        title: "GTM Tech Stack Audit & Strategy",
-        description: "Comprehensive assessment of your current GTM technology landscape, identifying gaps, redundancies, and opportunities for optimization. We develop a strategic roadmap aligned with your business objectives."
-      },
-      {
-        title: "CRM & Marketing Automation Implementation",
-        description: "Expert setup, configuration, and integration of leading CRM (e.g., Salesforce, HubSpot) and marketing automation platforms (e.g., Marketo, Pardot), ensuring seamless lead flow and customer journey management."
-      },
-      {
-        title: "Data Integration & Management",
-        description: "Building robust data pipelines and ensuring data integrity across all GTM systems. We standardize data, automate synchronization, and establish governance frameworks for reliable insights."
-      },
-      {
-        title: "Sales Enablement & Operations",
-        description: "Optimizing sales processes, tools, and workflows to maximize sales team productivity and effectiveness. This includes CPQ, sales engagement platforms, and performance analytics."
-      },
-      {
-        title: "Reporting & Analytics Infrastructure",
-        description: "Designing and implementing advanced reporting dashboards and analytics frameworks to provide actionable insights into GTM performance, ROI, and forecasting."
-      },
-      {
-        title: "Process Automation & Workflow Optimization",
-        description: "Automating repetitive tasks and streamlining complex GTM workflows to reduce manual effort, minimize errors, and accelerate operational speed."
-      }
+      { title: "Process Optimization & Redesign", description: "Identify and eliminate waste, streamline workflows, and redesign core processes for maximum efficiency and value delivery." },
+      { title: "Technology Integration & Implementation", description: "Seamlessly integrate disparate technology systems, ensuring data flow, unlocking full potential, and maximizing ROI from your tech stack." },
+      { title: "Operational Agility & Resilience", description: "Design adaptable systems that respond swiftly to market shifts, competitive threats, and evolving business requirements, ensuring sustained performance." },
+      { title: "Organizational Design & Change Management", description: "Align organizational structures with operational goals, facilitate cross-functional collaboration, and drive successful change initiatives." },
+      { title: "Data-Driven Insights & KPI Development", description: "Leverage robust data analytics to inform strategic decisions, establish key performance indicators, and continuously track progress and impact." }
     ]
   },
   philosophySection: {
-    headline: "Our Philosophy: Precision, Integration, and Scalability",
+    headline: "Our Guiding Principles: The Foundation of Operational Excellence.",
     principles: [
-      {
-        title: "Strategic Alignment",
-        description: "Every system and process we implement is meticulously aligned with your overarching business goals, ensuring technology serves strategy, not the other way around."
-      },
-      {
-        title: "Holistic Integration",
-        description: "We view your GTM tech stack as a single, interconnected ecosystem. Our focus is on seamless integration, eliminating silos and fostering a unified operational environment."
-      },
-      {
-        title: "Data-Driven Decisions",
-        description: "Our solutions are built on a foundation of robust data. We empower you with accurate, real-time insights to make informed decisions and drive continuous improvement."
-      },
-      {
-        title: "Future-Proof Scalability",
-        description: "We design systems that not only meet your current needs but are also built to scale with your growth, adapting to evolving market demands and technological advancements."
-      },
-      {
-        title: "Operational Excellence",
-        description: "We are committed to delivering solutions that enhance efficiency, reduce friction, and optimize every touchpoint in your customer journey, from lead to loyalty."
-      }
+      { title: "Systems Thinking Approach", description: "We view your organization as an interconnected ecosystem, understanding that changes in one area ripple throughout, ensuring holistic and sustainable solutions." },
+      { title: "Holistic Assessment & Root Cause Analysis", description: "Beyond surface-level issues, we delve deep to identify the fundamental causes of operational challenges, ensuring comprehensive and lasting improvements." },
+      { title: "Enablement Over Constraint", description: "Our systems are designed to empower growth and innovation, not restrict it, providing flexible frameworks that support future expansion." },
+      { title: "Continuous Improvement & Automation", description: "We embed a culture of ongoing optimization, leveraging automation to reduce manual effort, enhance accuracy, and drive sustained efficiency." },
+      { title: "End-to-End Value Stream Mapping", description: "We meticulously map your entire value chain to uncover hidden inefficiencies and opportunities, ensuring every process contributes optimally to business goals." }
     ]
   },
   growthSection: {
-    headline: "Empowering Your Journey to Sustainable Growth",
-    narrative: "In an era where GTM complexity can hinder progress, GTMStack.pro stands as your partner in clarity and efficiency. We don't just implement tools; we engineer a cohesive operational framework that drives predictable revenue, enhances customer experiences, and positions your business for long-term success. Our expertise ensures your GTM systems are not merely functional, but truly transformative.",
+    headline: "Fueling Growth: How Strategic Operations Drive Business Expansion.",
+    narrative: "Sustainable growth is not accidental; it's engineered. We believe that robust systems and optimized operations are the silent engines of profitability and market leadership. By eliminating inefficiencies, integrating critical technologies, and fostering operational agility, we empower your organization to scale confidently, adapt rapidly, and consistently outperform the competition. Our approach transforms operational challenges into strategic advantages, ensuring your infrastructure supports, rather than hinders, your ambitious growth trajectory.",
     metrics: [
-      { label: "Client Retention Rate", value: "95%+" },
-      { label: "Average Project ROI", value: "3x" }
+      { label: "Reduced Sales Cycle Time", value: "15%+" },
+      { label: "Improved Regulatory Compliance Accuracy", value: "Significant" },
+      { label: "Reduced Wasted Marketing Spend", value: "10%+" }
     ]
   },
   ctaSection: {
-    title: "Ready to Optimize Your GTM Systems?",
-    subtitle: "Unlock the full potential of your revenue engine with GTMStack.pro's expert systems operations.",
-    button: { text: "Start Your Transformation", link: "/contact" }
+    title: "Ready to Transform Your Operations?",
+    subtitle: "Partner with us to build resilient, efficient, and growth-enabling systems that define your competitive edge.",
+    button: { text: "Schedule a Strategic Consultation", link: "#contact" }
   },
   footer: {
-    description: "GTMStack.pro is dedicated to building the backbone of revenue growth through expert GTM systems and operations. We transform complexity into clarity, driving predictable and scalable success for businesses worldwide.",
+    description: "GTMStack.pro specializes in designing and implementing robust systems and operations that drive sustainable growth and competitive advantage for technology-driven businesses.",
     sections: [
-      { title: "Services", links: ["GTM Strategy", "Systems Operations", "Data & Analytics", "Sales Enablement"] },
-      { title: "Company", links: ["About Us", "Our Team", "Careers", "Contact"] },
-      { title: "Resources", links: ["Blog", "Case Studies", "Webinars", "FAQs"] }
+      { title: "Services", links: ["Process Optimization", "Technology Integration", "Operational Agility", "Organizational Design"] },
+      { title: "Company", links: ["About Us", "Contact", "Blog", "Careers"] },
+      { title: "Resources", links: ["Case Studies", "Whitepapers", "FAQs", "Privacy Policy"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }
 };
+
+/** Alias for registry/index (expect GTM_SYSTEMS_OPERATIONS_CONTENT). */
+export const GTM_SYSTEMS_OPERATIONS_CONTENT = SYSTEMS_OPERATIONS_CONTENT;

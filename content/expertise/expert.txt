@@ -1,0 +1,35 @@
+ Volume in drive C is Windows-SSD
+ Volume Serial Number is 309B-AB23
+
+ Directory of C:\GitProd\GTMStack_prod\GTMStack_pro_production\src\staging-templates\expertise
+
+03/11/2026  09:51 AM    <DIR>          .
+03/11/2026  09:51 AM    <DIR>          ..
+03/06/2026  03:58 PM             6,080 account-based-marketing.ts
+03/06/2026  03:58 PM             5,801 analytics.ts
+03/06/2026  03:58 PM             5,470 competitive-intel.ts
+03/06/2026  03:58 PM             5,816 content-engagement.ts
+03/06/2026  03:58 PM             6,095 content-marketing.ts
+03/06/2026  03:58 PM             5,687 crm-management.ts
+03/06/2026  03:58 PM             5,815 customer-marketing.ts
+03/06/2026  03:58 PM             6,021 demand-generation.ts
+03/06/2026  03:58 PM             5,448 demand-growth.ts
+03/06/2026  03:58 PM             5,255 event-marketing.ts
+03/11/2026  09:51 AM                 0 expert.txt
+03/06/2026  03:58 PM             5,871 expertise.ts
+03/06/2026  03:58 PM             5,367 lead-gen-scoring.ts
+03/06/2026  03:58 PM             6,096 marketing-analytics-reporting.ts
+03/06/2026  03:58 PM             5,702 marketing-automation.ts
+03/06/2026  03:58 PM             6,173 martech-optimization.ts
+03/10/2026  05:36 PM             5,446 paid-advertising-sem.ts
+03/10/2026  05:36 PM             5,898 product-marketing.ts
+03/10/2026  05:36 PM             5,455 roi-analysis.ts
+03/10/2026  05:36 PM             5,546 sales-enablement.ts
+03/10/2026  05:37 PM             5,942 search-engine-optimization.ts
+03/10/2026  05:37 PM             5,451 social-media-marketing.ts
+03/10/2026  05:37 PM             5,408 strategy-insights.ts
+03/10/2026  05:38 PM             5,197 strategy.ts
+03/10/2026  05:38 PM             5,868 systems-operations.ts
+03/10/2026  05:38 PM             5,787 web-design-ui-ux.ts
+              26 File(s)        142,695 bytes
+               2 Dir(s)  534,367,645,696 bytes free

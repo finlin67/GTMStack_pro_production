@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { Linkedin, Twitter, Github, Mail, ArrowUpRight } from 'lucide-react'
 import { PILLARS } from '@/lib/types'
 
@@ -35,25 +34,21 @@ export function Footer() {
           {/* Brand Column */}
           <div className="col-span-2 lg:col-span-2">
             <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative h-9 w-9 md:h-10 md:w-10 shrink-0 rounded-xl bg-slate-900/80 ring-1 ring-brand-500/60 shadow-[0_0_30px_rgba(59,130,246,0.55)] overflow-hidden">
-                <Image
-                  src="/gtmstack-logo.png"
-                  alt="GTMStack.pro logo"
-                  fill
-                  sizes="40px"
-                  className="object-contain"
-                />
-              </div>
-              <div className="flex flex-col leading-tight">
-                <span className="font-display font-semibold text-lg text-white tracking-tight">
-                  GTMStack<span className="text-brand-400">.pro</span>
+              <div className="h-10 w-10 md:h-11 md:w-11 shrink-0 rounded-2xl border border-slate-700/70 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center shadow-[0_10px_30px_rgba(15,23,42,0.6)]">
+                <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.22em] text-slate-200">
+                  GTM
                 </span>
-                <span className="text-[11px] text-slate-400">
+              </div>
+              <div className="flex flex-col leading-none">
+                <span className="font-display font-semibold text-[16px] text-white tracking-[-0.01em]">
+                  GTMStack<span className="text-brand-300">.pro</span>
+                </span>
+                <span className="text-[11px] text-slate-400 tracking-[0.08em] uppercase">
                   Strategic GTM consulting
                 </span>
               </div>
             </Link>
-            <p className="mt-4 text-sm text-slate-400 max-w-xs leading-relaxed">
+            <p className="mt-4 text-[13px] text-slate-400 max-w-xs leading-relaxed">
               Strategic GTM consulting for B2B technology companies. From strategy to execution, we help you grow faster.
             </p>
             <div className="mt-6 flex items-center gap-3">
@@ -63,10 +58,10 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-lg bg-slate-900 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-600 transition-colors"
+                  className="w-10 h-10 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-600 transition-colors shadow-[0_10px_24px_rgba(15,23,42,0.5)]"
                   aria-label={social.label}
                 >
-                  <social.icon className="w-5 h-5" />
+                  <social.icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
@@ -74,13 +69,13 @@ export function Footer() {
 
           {/* Expertise Links */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Expertise</h3>
+            <h3 className="font-semibold text-white text-[13px] mb-4 tracking-[0.14em] uppercase">Expertise</h3>
             <ul className="space-y-3">
               {footerLinks.expertise.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                    className="text-[13px] text-slate-400 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -91,13 +86,13 @@ export function Footer() {
 
           {/* Company Links */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Company</h3>
+            <h3 className="font-semibold text-white text-[13px] mb-4 tracking-[0.14em] uppercase">Company</h3>
             <ul className="space-y-3">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-slate-400 hover:text-white transition-colors"
+                    className="text-[13px] text-slate-400 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -108,7 +103,7 @@ export function Footer() {
 
           {/* Connect Links */}
           <div>
-            <h3 className="font-semibold text-white text-sm mb-4">Connect</h3>
+            <h3 className="font-semibold text-white text-[13px] mb-4 tracking-[0.14em] uppercase">Connect</h3>
             <ul className="space-y-3">
               {footerLinks.connect.map((link) => (
                 <li key={link.href}>
@@ -117,7 +112,7 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-sm text-slate-400 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1 text-[13px] text-slate-400 hover:text-white transition-colors"
                     >
                       {link.label}
                       <ArrowUpRight className="w-3 h-3" />
@@ -125,7 +120,7 @@ export function Footer() {
                   ) : (
                     <Link
                       href={link.href}
-                      className="text-sm text-slate-400 hover:text-white transition-colors"
+                      className="text-[13px] text-slate-400 hover:text-white transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -140,14 +135,14 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-slate-800">
         <div className="container-width py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-slate-500">
+          <p className="text-[13px] text-slate-500">
             © {new Date().getFullYear()} GTMstack.pro. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            <Link href="/privacy" className="text-sm text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">
+            <Link href="/privacy" className="text-[13px] text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">
               Privacy
             </Link>
-            <Link href="/terms" className="text-sm text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">
+            <Link href="/terms" className="text-[13px] text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">
               Terms
             </Link>
           </div>
@@ -156,4 +151,3 @@ export function Footer() {
     </footer>
   )
 }
-

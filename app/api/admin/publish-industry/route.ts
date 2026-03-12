@@ -6,7 +6,7 @@ import { Project, SyntaxKind, ObjectLiteralExpression } from "ts-morph";
 import path from "path";
 import fs from "fs";
 
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 export async function POST(req: NextRequest) {
   try {
     assertLocalOnly();

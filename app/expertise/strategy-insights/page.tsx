@@ -1,40 +1,18 @@
-import type { ComponentType } from 'react'
-import { notFound } from 'next/navigation'
-import { getPageByRoute } from '@/lib/pageRegistry'
-import { getContentByKey } from '@/src/content/registry'
-import { getTemplate } from '@/src/templates/registry'
-import type { ExpertiseItem } from '@/lib/types'
+import type { Metadata } from 'next'
+import ExpertiseDetailPage, { generateMetadata as generateDetailMetadata } from '../[slug]/page'
 
-// Thin wrapper delegating to registry-driven renderer so clean URL uses templates
+const STRATEGY_INSIGHTS_SLUG = 'strategy-insights' as const
 
-type RegistryTemplateProps = {
-  pageTitle?: string
-  theme?: 'dark' | 'light'
-  heroVisualId?: string
-  content?: unknown
-  item?: ExpertiseItem
+export async function generateMetadata(): Promise<Metadata> {
+  return generateDetailMetadata({
+    params: Promise.resolve({ slug: STRATEGY_INSIGHTS_SLUG }),
+  })
 }
 
 export default function StrategyInsightsPage() {
-  const row = getPageByRoute('/expertise/strategy-insights')
-  if (!row) notFound()
-
-  const Template = getTemplate(row.templateId as Parameters<typeof getTemplate>[0]) as ComponentType<RegistryTemplateProps>
-
-  if (!row.contentKey) notFound()
-  const content = getContentByKey(row.contentKey)
-  if (!content) notFound()
-
-  const commonProps = {
-    pageTitle: row.pageTitle,
-    theme: (row.theme as 'dark' | 'light') ?? undefined,
-    heroVisualId: row.heroVisualId ?? undefined,
-  }
-
-  if (row.templateId === 'expertise.topic') {
-    return <Template {...commonProps} item={content as ExpertiseItem} />
-  }
-
-  return <Template {...commonProps} content={content} />
+  return (
+    <ExpertiseDetailPage
+      params={Promise.resolve({ slug: STRATEGY_INSIGHTS_SLUG })}
+    />
+  )
 }
-

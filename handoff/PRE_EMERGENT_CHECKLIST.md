@@ -1,6 +1,8 @@
-# Pre-Emergent Checklist
+# Pre-Cursor Batch Checklist
 
-Use before submitting any batch to Emergent or another AI coding platform.
+> File name retained for compatibility.
+
+Use this before running any scoped Cursor task.
 
 ## Repo and Branch Hygiene
 - [ ] Confirm current branch name and intended target branch.
@@ -22,7 +24,7 @@ Use before submitting any batch to Emergent or another AI coding platform.
 - [ ] Write explicit goal statement.
 - [ ] List in-scope files/modules.
 - [ ] List out-of-scope files/modules.
-- [ ] Record non-negotiable constraints (no route renames, no refactor, no dep churn).
+- [ ] Record non-negotiable constraints (no route renames, no refactor, no dep churn, no manual generated-file edits).
 
 ## Change Plan
 - [ ] List exact files likely affected.
@@ -39,3 +41,10 @@ Use before submitting any batch to Emergent or another AI coding platform.
 - [ ] Attach updated docs/report links.
 - [ ] Include assumptions and unresolved questions.
 - [ ] Include known risks and follow-up actions.
+
+## Cursor Prompt Quality Gate
+- [ ] Prompt has one objective only.
+- [ ] Prompt includes explicit allow-list file paths.
+- [ ] Prompt includes explicit out-of-scope list.
+- [ ] Prompt includes required validation order.
+- [ ] Prompt instructs model to mark ambiguity as `uncertain`.

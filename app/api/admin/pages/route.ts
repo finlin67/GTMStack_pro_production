@@ -1,11 +1,11 @@
 import { NextResponse } from 'next/server'
 import fs from 'node:fs'
 import path from 'node:path'
-import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 import { cookies } from 'next/headers'
 
 const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 function parseCsvRow(line: string): string[] {
   const out: string[] = []
   let cur = ''
@@ -54,13 +54,13 @@ export async function GET() {
 
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value
-  if (!token || !verifyAdminToken(token)) {
+  if (!isAdminAuthorized(token)) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
   }
 
   // 1. Registry Data
   const registryPath = path.join(process.cwd(), 'src', 'data', 'page-registry.csv')
-  let registryRows: any[] = []
+  let registryRows: Array<Record<string, string>> = []
   if (fs.existsSync(registryPath)) {
     const raw = fs.readFileSync(registryPath, 'utf-8')
     const lines = raw.split(/\r?\n/).map((l) => l.trim()).filter(Boolean)
@@ -77,7 +77,7 @@ export async function GET() {
 
   // 2. Sitemap Data
   const sitemapPath = path.join(process.cwd(), 'public', 'sitemap.csv')
-  let sitemapRows: any[] = []
+  let sitemapRows: Array<Record<string, string>> = []
   if (fs.existsSync(sitemapPath)) {
     const raw = fs.readFileSync(sitemapPath, 'utf-8')
     const lines = raw.split(/\r?\n/).map((l) => l.trim()).filter(Boolean)

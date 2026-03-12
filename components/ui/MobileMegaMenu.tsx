@@ -45,24 +45,24 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
           animate={{ opacity: 1, height: 'auto' }}
           exit={{ opacity: 0, height: 0 }}
           transition={{ duration: 0.2 }}
-          className="bg-slate-950/95 backdrop-blur-2xl border-b border-white/10"
+          className="bg-slate-950/96 backdrop-blur-2xl border-b border-white/10 shadow-[0_20px_60px_rgba(15,23,42,0.6)]"
         >
-          <div className="container-width py-4 space-y-1">
+          <div className="container-width py-4 space-y-2">
             {/* Quick links */}
             <div className="flex flex-wrap gap-2 pb-4 mb-4 border-b border-white/10">
-              <Link href="/case-studies" onClick={onClose} className="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10">
+              <Link href="/case-studies" onClick={onClose} className="px-4 py-2 rounded-xl text-[13px] font-semibold text-slate-300 hover:text-white hover:bg-white/10">
                 Case Studies
               </Link>
-              <Link href="/gallery" onClick={onClose} className="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10">
+              <Link href="/gallery" onClick={onClose} className="px-4 py-2 rounded-xl text-[13px] font-semibold text-slate-300 hover:text-white hover:bg-white/10">
                 Gallery
               </Link>
-              <Link href="/industries" onClick={onClose} className="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10">
+              <Link href="/industries" onClick={onClose} className="px-4 py-2 rounded-xl text-[13px] font-semibold text-slate-300 hover:text-white hover:bg-white/10">
                 Industries
               </Link>
-              <Link href="/about" onClick={onClose} className="px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10">
+              <Link href="/about" onClick={onClose} className="px-4 py-2 rounded-xl text-[13px] font-semibold text-slate-300 hover:text-white hover:bg-white/10">
                 About
               </Link>
-              <Link href="/contact" onClick={onClose} className="px-4 py-2 rounded-lg text-sm font-medium bg-brand-500/20 text-brand-300 hover:bg-brand-500/30">
+              <Link href="/contact" onClick={onClose} className="px-4 py-2 rounded-xl text-[13px] font-semibold bg-brand-500/20 text-brand-300 hover:bg-brand-500/30">
                 Contact
               </Link>
             </div>
@@ -76,14 +76,14 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                   {/* Pillar Header */}
                   <button
                     onClick={() => togglePillar(pillar.id)}
-                    className="w-full flex items-center justify-between px-4 py-3 rounded-lg text-sm font-medium text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
+                    className="w-full flex items-center justify-between px-4 py-3 rounded-xl text-[13px] font-semibold text-slate-200 hover:text-white hover:bg-white/10 transition-colors"
                     aria-expanded={isExpanded}
                     aria-controls={`pillar-${pillar.id}`}
                     aria-label={`${isExpanded ? 'Collapse' : 'Expand'} ${pillar.title} menu`}
                   >
                     <div className="flex items-center gap-3">
                       {PillarIcon && (
-                        <div className="w-8 h-8 rounded-lg bg-gradient-to-br from-brand-500/25 via-brand-400/10 to-slate-900/80 border border-brand-500/40 flex items-center justify-center text-brand-300 shrink-0 shadow-[0_0_20px_rgba(59,130,246,0.45)]" aria-hidden="true">
+                        <div className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-brand-200 shrink-0 shadow-[0_0_18px_rgba(59,130,246,0.25)]" aria-hidden="true">
                           <PillarIcon className="w-4 h-4" />
                         </div>
                       )}
@@ -105,8 +105,16 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                         exit={{ opacity: 0, height: 0 }}
                         transition={{ duration: 0.2 }}
                         id={`pillar-${pillar.id}`}
-                        className="ml-12 mt-1 space-y-1"
+                        className="ml-12 mt-2 space-y-1"
                       >
+                        <li className="px-3 pb-1 text-[11px] uppercase tracking-[0.18em] text-slate-500">
+                          Topics
+                        </li>
+                        {pillar.description && (
+                          <li className="px-3 pb-2 text-[12px] text-slate-400 leading-relaxed">
+                            {pillar.description}
+                          </li>
+                        )}
                         {pillar.items.map((item) => {
                           const ItemIcon = getIcon(item.icon)
 
@@ -115,7 +123,7 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                               <Link
                                 href={`/expertise/${item.slug}`}
                                 onClick={onClose}
-                                className="flex items-center gap-2 px-3 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                                className="flex items-center gap-2 px-3 py-2 rounded-lg text-[13px] text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
                                 aria-label={`Navigate to ${item.title}`}
                               >
                                 {ItemIcon && (
@@ -138,7 +146,7 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
               <Link
                 href="/expertise"
                 onClick={onClose}
-                className="flex items-center justify-center gap-2 px-4 py-3 rounded-lg text-sm font-medium text-brand-400 hover:text-brand-300 hover:bg-brand-500/10 transition-colors"
+                className="flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-[13px] font-semibold text-brand-400 hover:text-brand-300 hover:bg-brand-500/10 transition-colors"
                 aria-label="View all Expertise services"
               >
                 View all Expertise
@@ -149,11 +157,11 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
             {/* Industries Section */}
             <div className="pt-6 mt-6 border-t border-white/10">
               <div className="px-4 py-2 mb-2">
-                <h3 className="text-sm font-semibold text-white mb-3">Industries</h3>
+                <h3 className="text-[13px] font-semibold text-white mb-3 tracking-[0.12em] uppercase">Industries</h3>
                 <Link
                   href="/industries"
                   onClick={onClose}
-                  className="block px-4 py-2 rounded-lg text-sm font-medium text-slate-300 hover:text-white hover:bg-white/10 transition-colors mb-2"
+                  className="block px-4 py-2 rounded-xl text-[13px] font-semibold text-slate-300 hover:text-white hover:bg-white/10 transition-colors mb-2"
                 >
                   All Industries
                 </Link>
@@ -165,7 +173,7 @@ export function MobileMegaMenu({ isOpen, onClose }: MobileMegaMenuProps) {
                         <Link
                           href={`/industries/${industry.slug}`}
                           onClick={onClose}
-                          className="block px-4 py-2 rounded-lg text-sm text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
+                          className="block px-4 py-2 rounded-xl text-[13px] text-slate-400 hover:text-white hover:bg-white/10 transition-colors"
                         >
                           {industry.title}
                         </Link>

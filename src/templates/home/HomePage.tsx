@@ -1,365 +1,460 @@
+'use client'
 
-"use client";
-
-import React from "react";
-import HeroVisualByRoute from "@/src/components/hero/HeroVisualByRoute.client";
-import { 
-  ScanSearch, 
-  Layers, 
-  Settings2, 
-  Gauge, 
-  TrendingUp, 
-  Map, 
-  Share2, 
-  Cpu, 
-  Quote, 
-  ExternalLink, 
-  Landmark, 
-  Cloud, 
-  Rocket, 
+import React from 'react'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
+import {
   ArrowRight,
-  CheckCircle2
-} from "lucide-react";
+  CheckCircle2,
+  Cloud,
+  Compass,
+  Cpu,
+  ExternalLink,
+  Landmark,
+  Layers,
+  Map,
+  Quote,
+  Rocket,
+  Search,
+  Settings,
+  Settings2,
+  Share2,
+  TrendingUp,
+} from 'lucide-react'
 
 // --- Types ---
 
 export interface StatItem {
-  label: string;
-  value: string;
+  label: string
+  value: string
 }
 
 export interface MethodologyStep {
-  number: string;
-  title: string;
-  description: string;
-  icon: string;
-  progress: string;
+  number: string
+  title: string
+  description: string
+  icon: string
+  progress: string
 }
 
 export interface ExpertiseItem {
-  title: string;
-  icon: string;
-  tags: string[];
-  description: string;
+  title: string
+  icon: string
+  tags: string[]
+  description: string
 }
 
 export interface CaseStudy {
-  title: string;
-  description: string;
-  outcomeLabel: string;
-  outcomeValue: string;
-  industry?: string;
-  quote?: string;
+  title: string
+  description: string
+  outcomeLabel: string
+  outcomeValue: string
+  industry?: string
+  quote?: string
 }
 
 export interface FounderTimelineItem {
-  icon: string;
-  title: string;
-  description: string;
+  icon: string
+  title: string
+  description: string
 }
 
 export interface PageContent {
   hero: {
-    badge: string;
-    titleStart: string;
-    titleGradient: string;
-    subtitle: string;
-    ctaPrimary: string;
-    ctaSecondary: string;
-  };
-  stats: StatItem[];
+    badge: string
+    titleStart: string
+    titleGradient: string
+    subtitle: string
+    ctaPrimary: string
+    ctaSecondary: string
+  }
+  stats: StatItem[]
   methodology: {
-    title: string;
-    description: string;
-    steps: MethodologyStep[];
-  };
+    title: string
+    description: string
+    steps: MethodologyStep[]
+  }
   expertise: {
-    title: string;
-    items: ExpertiseItem[];
-  };
+    title: string
+    items: ExpertiseItem[]
+  }
   quote: {
-    text: string;
-    highlight: string;
-  };
+    text: string
+    highlight: string
+  }
   caseStudies: {
-    title: string;
-    subtitle: string;
-    items: CaseStudy[];
-    industries: CaseStudy[];
-  };
+    title: string
+    subtitle: string
+    items: CaseStudy[]
+    industries?: CaseStudy[]
+  }
   founder: {
-    name: string;
-    role: string;
-    image: string;
-    bio: string;
-    yearsExperience: string;
-    timeline: FounderTimelineItem[];
-  };
+    name: string
+    role: string
+    image: string
+    bio: string
+    yearsExperience: string
+    timeline: FounderTimelineItem[]
+  }
   ctaBottom: {
-    title: string;
-    subtitle: string;
-    buttonText: string;
-  };
+    title: string
+    subtitle: string
+    buttonText: string
+  }
 }
 
 // --- Icon Helper ---
 
+type IconComponent = React.ComponentType<{ className?: string }>
+
+const ICONS: Record<string, IconComponent> = {
+  Search,
+  DraftingCompass: Compass,
+  Rocket,
+  Settings,
+  TrendingUp,
+  Map,
+  Network: Share2,
+  account_balance: Landmark,
+  cloud_done: Cloud,
+  rocket_launch: Rocket,
+  troubleshoot: Search,
+  layers: Layers,
+  settings_suggest: Settings2,
+  speed: TrendingUp,
+  trending_up: TrendingUp,
+  map: Map,
+  hub: Share2,
+  precision_manufacturing: Cpu,
+  quote: Quote,
+  check: CheckCircle2,
+}
+
 const IconMap = ({ name, className }: { name: string; className?: string }) => {
-  const icons: Record<string, React.ReactNode> = {
-    troubleshoot: <ScanSearch className={className} />,
-    layers: <Layers className={className} />,
-    settings_suggest: <Settings2 className={className} />,
-    speed: <Gauge className={className} />,
-    trending_up: <TrendingUp className={className} />,
-    map: <Map className={className} />,
-    hub: <Share2 className={className} />,
-    precision_manufacturing: <Cpu className={className} />,
-    account_balance: <Landmark className={className} />,
-    cloud_done: <Cloud className={className} />,
-    rocket_launch: <Rocket className={className} />,
-    quote: <Quote className={className} />,
-    check: <CheckCircle2 className={className} />,
-  };
-  return <>{icons[name] || <Cpu className={className} />}</>;
-};
+  const Icon = ICONS[name] ?? Cpu
+  return <Icon className={className} aria-hidden="true" />
+}
 
 // --- Sections ---
 
 const Hero = ({ content, heroVisualId }: { content: PageContent; heroVisualId?: string }) => {
   return (
-    <section className="relative pt-24 pb-32 px-6 overflow-hidden bg-[#0B132B]">
-      <div className="max-w-7xl mx-auto relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        {/* Left Column: Text Content */}
-        <div className="text-center md:text-left">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-500 text-xs font-bold uppercase tracking-widest mb-8">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-500 opacity-75"></span>
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
-            </span>
-            {content.hero.badge}
+    <section className="relative overflow-hidden bg-[#0B132B] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" aria-hidden="true" />
+      <div className="pointer-events-none absolute inset-0 bg-hero-gradient opacity-70" aria-hidden="true" />
+      <div className="container-width section-padding relative z-10">
+        <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
+          <div className="space-y-8">
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+              <span className="relative flex size-2">
+                <span className="absolute inline-flex size-2 animate-ping rounded-full bg-cyan-400 opacity-60" />
+                <span className="relative inline-flex size-2 rounded-full bg-cyan-300" />
+              </span>
+              {content.hero.badge}
+            </div>
+            <div className="space-y-6">
+              <h1 className="text-4xl font-semibold leading-tight md:text-6xl">
+                <span className="text-white">{content.hero.titleStart}</span>
+                <span className="text-gradient">{content.hero.titleGradient}</span>
+              </h1>
+              <p className="max-w-2xl text-lg text-slate-300 md:text-xl">
+                {content.hero.subtitle}
+              </p>
+            </div>
+            <div className="flex flex-wrap items-center gap-4">
+              <button className="btn-cta-primary">
+                {content.hero.ctaPrimary}
+                <ArrowRight className="h-4 w-4" />
+              </button>
+              <button className="btn-hero-outline">{content.hero.ctaSecondary}</button>
+            </div>
           </div>
-          <h1 className="text-5xl md:text-7xl font-black leading-[1.1] tracking-tight mb-8 text-white">
-            {content.hero.titleStart}
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-emerald-500">
-              {content.hero.titleGradient}
-            </span>.
-          </h1>
-          <p className="text-slate-400 text-lg md:text-xl max-w-xl mb-12 leading-relaxed">
-            {content.hero.subtitle}
-          </p>
-          <div className="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-            <button className="w-full sm:w-auto px-8 py-4 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-700 transition-all">
-              {content.hero.ctaPrimary}
-            </button>
-            <button className="w-full sm:w-auto px-8 py-4 border border-white/20 text-white font-bold rounded-lg hover:bg-white/5 transition-all">
-              {content.hero.ctaSecondary}
-            </button>
+          <div className="hidden items-center justify-center lg:flex">
+            <div className="relative w-full max-w-md overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-6 shadow-[0_30px_120px_rgba(15,23,42,0.6)]">
+              <div className="pointer-events-none absolute inset-0 bg-hero-gradient opacity-80" aria-hidden="true" />
+              <div className="relative z-10 h-[420px]">
+                <HeroVisualByRoute heroVisualId={heroVisualId} />
+              </div>
+            </div>
           </div>
-        </div>
-
-        {/* Right Column: heroVisualId from page-registry.csv or route-based fallback */}
-        <div className="hidden lg:flex justify-center items-center h-[600px]">
-          <HeroVisualByRoute heroVisualId={heroVisualId} />
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 const StatsSection = ({ content }: { content: PageContent }) => {
   return (
-    <section className="py-20 px-6 bg-slate-100">
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+    <section className="bg-[#0B132B] text-white">
+      <div className="container-width section-padding">
+        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {content.stats.map((stat, index) => (
-            <div key={index} className="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-              <p className="text-slate-500 text-sm font-bold uppercase tracking-wider mb-2">{stat.label}</p>
-              <h3 className="text-4xl font-black text-amber-500">{stat.value}</h3>
-              <div className="mt-4 h-1 w-12 bg-amber-500/20"></div>
+            <div
+              key={index}
+              className="glass-card-surface-alt p-6 md:p-7"
+            >
+              <p className="text-[10px] font-semibold uppercase tracking-[0.24em] text-slate-400">
+                {stat.label}
+              </p>
+              <p className="mt-4 text-3xl font-semibold text-white">
+                {stat.value}
+              </p>
+              <div className="mt-6 h-px w-10 bg-white/10" />
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 const MethodologySection = ({ content }: { content: PageContent }) => {
   return (
-    <section className="py-24 px-6 bg-[#071024] text-white">
-      <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
-          <div>
-            <h2 className="text-3xl md:text-5xl font-black tracking-tight mb-4">{content.methodology.title}</h2>
-            <p className="text-slate-400 max-w-xl text-lg">{content.methodology.description}</p>
+    <section className="relative overflow-hidden bg-slate-950 text-white">
+      <div className="absolute inset-0 topo-sparse opacity-30" aria-hidden="true" />
+      <div className="container-width section-padding relative z-10">
+        <div className="flex flex-col gap-10 lg:flex-row lg:items-end lg:justify-between">
+          <div className="max-w-2xl">
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-300">Methodology</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-5xl">{content.methodology.title}</h2>
+            <p className="mt-6 text-lg text-slate-300">{content.methodology.description}</p>
           </div>
-          <div className="hidden md:block h-px flex-1 mx-12 bg-white/10 mb-6"></div>
+          <div className="flex flex-wrap gap-3">
+            {content.methodology.steps.map((step) => (
+              <span
+                key={step.number}
+                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-slate-200"
+              >
+                <CheckCircle2 className="h-3.5 w-3.5 text-cyan-300" />
+                {step.title}
+              </span>
+            ))}
+          </div>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-px bg-white/10 border border-white/10 rounded-xl overflow-hidden">
-          {content.methodology.steps.map((step, index) => (
-            <div key={index} className="bg-[#071024] p-10 hover:bg-[#162447] transition-colors group">
-              <div className="text-blue-600 mb-6">
-                <IconMap name={step.icon} className="w-10 h-10" />
+        <div className="mt-14 grid gap-6 md:grid-cols-2">
+          {content.methodology.steps.map((step) => (
+            <div
+              key={step.number}
+              className="border-gradient rounded-2xl bg-white/5 p-8 backdrop-blur"
+            >
+              <div className="flex items-center gap-4">
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white/10 text-cyan-200">
+                  <IconMap name={step.icon} className="h-6 w-6" />
+                </div>
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400">{step.number}</p>
+                  <h3 className="text-xl font-semibold text-white">{step.title}</h3>
+                </div>
               </div>
-              <h3 className="text-xl font-bold mb-3">{step.number} {step.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">{step.description}</p>
-              <div className="h-1 w-full bg-white/5 rounded-full overflow-hidden">
-                <div className={`h-full bg-blue-600 ${step.progress} group-hover:w-full transition-all duration-500`}></div>
+              <p className="mt-6 text-sm text-slate-300">{step.description}</p>
+              <div className="mt-6 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+                <div className="h-full bg-gradient-to-r from-cyan-400 to-blue-500" style={{ width: step.progress }} />
               </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 const ExpertiseSection = ({ content }: { content: PageContent }) => {
   return (
-    <section className="py-24 px-6 bg-slate-100">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-12 text-center md:text-left">{content.expertise.title}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <section className="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
+      <div className="container-width section-padding">
+        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Expertise</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{content.expertise.title}</h2>
+          </div>
+          <div className="text-sm text-slate-500 dark:text-slate-300">
+            Strategy, activation, and optimization working as one system.
+          </div>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {content.expertise.items.map((item, index) => (
-            <div key={index} className="bg-white p-10 rounded-xl shadow-sm border border-slate-200">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 rounded-lg bg-blue-600/10 text-blue-600">
-                  <IconMap name={item.icon} className="w-6 h-6" />
+            <div
+              key={index}
+              className="group rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/5"
+            >
+              <div className="flex items-start justify-between gap-6">
+                <div>
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-cyan-500/10 text-cyan-600 dark:text-cyan-300">
+                    <IconMap name={item.icon} className="h-6 w-6" />
+                  </div>
+                  <h3 className="mt-6 text-xl font-semibold text-slate-900 dark:text-white">{item.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold text-slate-900">{item.title}</h3>
+                <ArrowRight className="h-5 w-5 text-slate-300 opacity-0 transition-all duration-300 group-hover:translate-x-1 group-hover:opacity-100 dark:text-slate-400" />
               </div>
-              <div className="flex flex-wrap gap-2 mb-6">
-                {item.tags.map((tag, i) => (
-                  <span key={i} className="px-3 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded uppercase">{tag}</span>
+              <p className="mt-4 text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
+              <div className="mt-6 flex flex-wrap gap-2">
+                {item.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-slate-200/70 bg-slate-100 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-slate-600 dark:border-white/10 dark:bg-white/10 dark:text-slate-200"
+                  >
+                    {tag}
+                  </span>
                 ))}
-              </div>
-              <p className="text-slate-600 mb-8 leading-relaxed">{item.description}</p>
-              <div className="inline-flex items-center text-blue-600 font-bold hover:gap-2 transition-all cursor-pointer">
-                Learn More <ArrowRight className="ml-1 w-4 h-4" />
               </div>
             </div>
           ))}
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 const QuoteSection = ({ content }: { content: PageContent }) => {
   return (
-    <section className="py-32 px-6 bg-[#0B132B] relative">
-      <div className="max-w-4xl mx-auto text-center relative z-10">
-        <Quote className="text-amber-500 w-16 h-16 mb-8 opacity-50 mx-auto" />
-        <blockquote className="text-3xl md:text-5xl font-black text-white leading-tight italic">
-          &ldquo;{content.quote.text} <span className="bg-clip-text text-transparent bg-gradient-to-r from-amber-400 to-emerald-500">{content.quote.highlight}</span>.&rdquo;
-        </blockquote>
+    <section className="relative overflow-hidden bg-slate-950 text-white">
+      <div className="absolute inset-0 flow-curved opacity-20" aria-hidden="true" />
+      <div className="container-width section-padding relative z-10">
+        <div className="max-w-4xl">
+          <Quote className="h-10 w-10 text-cyan-300" />
+          <blockquote className="mt-6 text-3xl font-semibold leading-tight md:text-5xl">
+            {content.quote.text}
+            <span className="text-gradient">{content.quote.highlight}</span>.
+          </blockquote>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 const CaseStudiesSection = ({ content }: { content: PageContent }) => {
+  const industries = content.caseStudies.industries ?? []
+
   return (
-    <section className="py-24 px-6 bg-slate-50">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4 text-center md:text-left">{content.caseStudies.title}</h2>
-        <p className="text-slate-500 mb-12 text-center md:text-left text-lg">{content.caseStudies.subtitle}</p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+    <section className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
+      <div className="container-width section-padding">
+        <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Case Studies</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{content.caseStudies.title}</h2>
+          </div>
+          <p className="max-w-xl text-base text-slate-500 dark:text-slate-300">
+            {content.caseStudies.subtitle}
+          </p>
+        </div>
+        <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {content.caseStudies.items.map((item, index) => (
-            <div key={index} className="flex flex-col bg-white rounded-xl shadow-sm overflow-hidden border border-slate-200">
-              <div className="h-48 w-full bg-[#162447] p-8 flex items-end">
-                <h4 className="text-white text-xl font-bold">{item.title}</h4>
+            <div
+              key={index}
+              className="group flex h-full flex-col overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:border-white/10 dark:bg-white/5"
+            >
+              <div className="relative h-32 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-700 p-6 text-white">
+                <div className="absolute inset-0 grid-pattern opacity-40" aria-hidden="true" />
+                <div className="relative z-10">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">Outcome</p>
+                  <p className="mt-3 text-2xl font-semibold">{item.outcomeValue}</p>
+                </div>
               </div>
-              <div className="p-8">
-                <p className="text-slate-600 text-sm mb-6">{item.description}</p>
-                <div className="flex items-center justify-between pt-6 border-t border-slate-100">
-                  <div>
-                    <p className="text-xs font-bold text-slate-400 uppercase">{item.outcomeLabel}</p>
-                    <p className="text-lg font-black text-amber-500">{item.outcomeValue}</p>
-                  </div>
-                  <ExternalLink className="text-slate-300 w-5 h-5" />
+              <div className="flex h-full flex-col gap-4 p-6">
+                <div>
+                  <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{item.title}</h3>
+                  <p className="mt-2 text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
+                </div>
+                <div className="mt-auto flex items-center justify-between border-t border-slate-200 pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:border-white/10 dark:text-slate-400">
+                  {item.outcomeLabel}
+                  <ExternalLink className="h-4 w-4" />
                 </div>
               </div>
             </div>
           ))}
         </div>
-        <div className="border-t border-slate-200 pt-16">
-          <h3 className="text-sm font-black text-slate-400 uppercase tracking-widest mb-8 text-center">Industries Served</h3>
-          <div className="flex flex-wrap justify-center gap-4">
-            {content.caseStudies.industries.map((ind, index) => (
-              <div key={index} className="bg-white border border-slate-200 rounded-lg p-6 max-w-sm flex-1">
-                <h4 className="font-bold text-slate-900 mb-1">{ind.title}</h4>
-                <p className="text-slate-500 text-sm italic">{ind.quote}</p>
-              </div>
-            ))}
+        {industries.length > 0 ? (
+          <div className="mt-16 border-t border-slate-200 pt-12 dark:border-white/10">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-400 dark:text-slate-400">Industries Served</p>
+            <div className="mt-6 grid gap-4 md:grid-cols-3">
+              {industries.map((industry, index) => (
+                <div
+                  key={index}
+                  className="rounded-2xl border border-slate-200/70 bg-slate-50 p-6 text-sm text-slate-600 dark:border-white/10 dark:bg-white/5 dark:text-slate-300"
+                >
+                  <p className="text-base font-semibold text-slate-900 dark:text-white">{industry.title}</p>
+                  {industry.quote ? <p className="mt-3 italic">{industry.quote}</p> : null}
+                </div>
+              ))}
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </section>
-  );
-};
+  )
+}
 
 const FounderSection = ({ content }: { content: PageContent }) => {
   return (
-    <section className="py-24 px-6 bg-white overflow-hidden">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div className="relative">
-          <div className="aspect-square bg-slate-200 rounded-2xl overflow-hidden grayscale">
-            <img alt={content.founder.name} className="w-full h-full object-cover" src={content.founder.image} />
+    <section className="bg-slate-50 text-slate-900 dark:bg-slate-950 dark:text-white">
+      <div className="container-width section-padding">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr] items-center">
+          <div className="relative">
+            <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-slate-200 shadow-xl dark:bg-white/10">
+              <img
+                alt={content.founder.name}
+                className="h-full w-full object-cover"
+                src={content.founder.image}
+              />
+            </div>
+            <div className="absolute -bottom-6 left-6 rounded-2xl bg-slate-900 px-6 py-4 text-white shadow-2xl dark:bg-white">
+              <p className="text-3xl font-semibold text-white dark:text-slate-900">{content.founder.yearsExperience}</p>
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-300 dark:text-slate-600">Years Experience</p>
+            </div>
           </div>
-          <div className="absolute -bottom-6 -right-6 bg-blue-600 p-6 rounded-xl text-white shadow-xl">
-            <p className="text-3xl font-black">{content.founder.yearsExperience}</p>
-            <p className="text-xs font-bold uppercase tracking-widest">Years Experience</p>
-          </div>
-        </div>
-        <div>
-          <h2 className="text-3xl md:text-5xl font-black text-slate-900 mb-6">{content.founder.name}</h2>
-          <p className="text-slate-600 text-lg mb-10 leading-relaxed">
-            {content.founder.bio}
-          </p>
-          <div className="space-y-8">
-            {content.founder.timeline.map((item, index) => (
-              <div key={index} className="flex gap-4">
-                <div className="flex flex-col items-center">
-                  <div className="size-10 rounded-full bg-blue-600/10 flex items-center justify-center text-blue-600">
-                    <IconMap name={item.icon} className="w-5 h-5" />
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Founder</p>
+            <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{content.founder.name}</h2>
+            <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">{content.founder.role}</p>
+            <p className="mt-6 text-base text-slate-600 dark:text-slate-300">{content.founder.bio}</p>
+            <div className="mt-10 space-y-6">
+              {content.founder.timeline.map((item, index) => (
+                <div key={index} className="flex gap-4">
+                  <div className="flex flex-col items-center">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-full border border-slate-200 bg-white text-slate-700 dark:border-white/10 dark:bg-white/10 dark:text-slate-200">
+                      <IconMap name={item.icon} className="h-4 w-4" />
+                    </div>
+                    {index !== content.founder.timeline.length - 1 ? (
+                      <div className="mt-2 h-full w-px bg-slate-200 dark:bg-white/20" />
+                    ) : null}
                   </div>
-                  {index !== content.founder.timeline.length - 1 && (
-                    <div className="flex-1 w-px bg-slate-200 my-2"></div>
-                  )}
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900 dark:text-white">{item.title}</p>
+                    <p className="mt-1 text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
+                  </div>
                 </div>
-                <div className={index !== content.founder.timeline.length - 1 ? "pb-4" : ""}>
-                  <h4 className="font-bold text-slate-900">{item.title}</h4>
-                  <p className="text-sm text-slate-500">{item.description}</p>
-                </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 const CTASection = ({ content }: { content: PageContent }) => {
   return (
-    <section className="py-24 px-6 bg-[#0B132B] text-white text-center">
-      <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-6xl font-black mb-8">{content.ctaBottom.title}</h2>
-        <p className="text-slate-400 text-lg md:text-xl mb-12">{content.ctaBottom.subtitle}</p>
-        <button className="px-12 py-5 bg-blue-600 text-white font-black text-lg rounded-xl hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/20">
-          {content.ctaBottom.buttonText}
-        </button>
+    <section className="relative overflow-hidden bg-slate-950 text-white">
+      <div className="absolute inset-0 bg-hero-gradient opacity-80" aria-hidden="true" />
+      <div className="container-width section-padding relative z-10">
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Next Step</p>
+          <h2 className="mt-6 text-3xl font-semibold md:text-5xl">{content.ctaBottom.title}</h2>
+          <p className="mt-6 text-base text-slate-300 md:text-lg">{content.ctaBottom.subtitle}</p>
+          <button className="btn-cta-primary mt-8">
+            {content.ctaBottom.buttonText}
+            <ArrowRight className="h-4 w-4" />
+          </button>
+        </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
 // --- Main Component ---
 
 export default function HomePage({ content, heroVisualId }: { content: PageContent; heroVisualId?: string }) {
   return (
-    <main className="w-full font-sans">
+    <main className="w-full">
       <Hero content={content} heroVisualId={heroVisualId} />
       <StatsSection content={content} />
       <MethodologySection content={content} />
@@ -369,5 +464,5 @@ export default function HomePage({ content, heroVisualId }: { content: PageConte
       <FounderSection content={content} />
       <CTASection content={content} />
     </main>
-  );
+  )
 }

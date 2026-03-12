@@ -1,401 +1,272 @@
-'use client'; // <--- THIS MUST BE THE FIRST LINE
-import React from 'react';
+"use client";
 
-/**
- * TYPES & INTERFACES
- */
-interface Metric {
+import Link from 'next/link';
+import { motion } from 'motion/react';
+import { Target, Search, MousePointerClick, TrendingUp, Calendar, FlaskConical, ArrowRight } from 'lucide-react';
+
+export interface NavLink {
+  label: string;
+  href: string;
+}
+
+export interface Discipline {
+  title: string;
+  body: string;
+  icon: 'Target' | 'Search' | 'MousePointerClick' | 'TrendingUp' | 'Calendar';
+}
+
+export interface FunnelStage {
+  label: string;
+}
+
+export interface KPI {
   value: string;
   label: string;
 }
 
-interface ServiceItem {
+export interface ScaleColumn {
+  value: string;
   title: string;
   description: string;
-  iconType: 'performance' | 'pipeline' | 'seo' | 'growth' | 'outbound';
+  icon: 'Search' | 'MousePointerClick' | 'FlaskConical';
 }
 
-interface TeaserItem {
-  category: string;
-  title: string;
-  image: string;
-}
-
-interface PageContent {
+export interface TemplateContent {
   nav: {
-    brand: string;
-    suffix: string;
-    links: { label: string; href: string }[];
-    cta: string;
+    logoText: string;
+    logoHighlight: string;
+    links: NavLink[];
+    buttonText: string;
+    buttonHref: string;
   };
   hero: {
-    badge: string;
-    titleMain: string;
-    titleHighlight: string;
+    eyebrow: string;
+    titleLine1: string;
+    titleLine2: string;
     description: string;
-    primaryCta: string;
-    secondaryCta: string;
-    stats: {
-      label: string;
-      value: string;
-      multiplier: string;
-      multiplierLabel: string;
-    };
+    primaryButtonText: string;
+    primaryButtonHref: string;
+    secondaryButtonText: string;
+    secondaryButtonHref: string;
+    imageSrc: string;
+    imageAlt: string;
   };
-  metrics: Metric[];
-  services: {
-    title: string;
-    highlight: string;
-    description: string;
-    items: ServiceItem[];
+  subDisciplines: {
+    eyebrow: string;
+    items: Discipline[];
   };
-  philosophy: {
-    quote: string;
-    highlight: string;
-    attribution: string;
+  funnel: {
+    titleLine1: string;
+    titleLine2: string;
+    stages: FunnelStage[];
+    kpis: KPI[];
   };
-  teasers: {
+  scale: {
     title: string;
     description: string;
-    items: TeaserItem[];
+    columns: ScaleColumn[];
   };
-  ctaSection: {
-    title: string;
-    button: string;
-  };
-  footer: {
-    links: { label: string; href: string }[];
-    copyright: string;
+  cta: {
+    titleLine1: string;
+    titleLine2: string;
+    description: string;
+    primaryButtonText: string;
+    primaryButtonHref: string;
+    secondaryLinkText: string;
+    secondaryLinkHref: string;
   };
 }
 
-function isPageContent(value: unknown): value is Partial<PageContent> {
-  if (!value || typeof value !== 'object') return false
-  const candidate = value as Partial<PageContent>
-  // Guard for this uploaded template schema; incompatible schemas should use defaults.
-  return (
-    !!candidate.nav &&
-    typeof candidate.nav.brand === 'string' &&
-    !!candidate.hero &&
-    typeof candidate.hero.titleMain === 'string'
-  )
-}
-
-/**
- * DEFAULT CONTENT DATA
- */
-const DEFAULT_CONTENT: PageContent = {
+const DEFAULT_CONTENT: TemplateContent = {
   nav: {
-    brand: 'STRATOS',
-    suffix: 'GTM',
+    logoText: "GTMStack",
+    logoHighlight: ".pro",
     links: [
-      { label: 'Expertise', href: '#' },
-      { label: 'Methodology', href: '#' },
-      { label: 'Case Studies', href: '#' },
-      { label: 'Insights', href: '#' },
+      { label: "Strategy", href: "#" },
+      { label: "Demand & Growth", href: "#" },
+      { label: "RevOps", href: "#" },
+      { label: "About", href: "#" }
     ],
-    cta: 'Get Audited',
+    buttonText: "Get Started",
+    buttonHref: "#"
   },
   hero: {
-    badge: 'Performance Architecture',
-    titleMain: 'Demand &',
-    titleHighlight: 'Growth',
-    description: 'Predictable pipeline engineering for explosive market capture. We don\'t just find leads; we architect compounding revenue engines.',
-    primaryCta: 'Explore Growth',
-    secondaryCta: 'Request Audit',
-    stats: {
-      label: 'Projected Scale',
-      value: 'Exponential',
-      multiplier: '12.4x',
-      multiplierLabel: 'Efficiency Multiplier',
-    },
+    eyebrow: "Demand & Growth",
+    titleLine1: "Transform Market Attention Into",
+    titleLine2: "Engineered Intent",
+    description: "We build scalable demand generation engines that capture, nurture, and convert high-value accounts with precision.",
+    primaryButtonText: "Build My Pipeline",
+    primaryButtonHref: "#",
+    secondaryButtonText: "View Case Studies",
+    secondaryButtonHref: "#",
+    imageSrc: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    imageAlt: "Isometric Funnel Visualization"
   },
-  metrics: [
-    { value: '+300%', label: 'Average Inbound Lift' },
-    { value: '$50M+', label: 'Pipeline Generated' },
-    { value: '3x', label: 'Target LTV/CAC Ratio' },
-  ],
-  services: {
-    title: 'Execution',
-    highlight: 'Verticals',
-    description: 'Integrated demand generation strategies built on data, not hunches. We operate at the intersection of psychology and analytics.',
+  subDisciplines: {
+    eyebrow: "What We Do",
     items: [
-      {
-        title: 'Performance Marketing',
-        description: 'Multi-channel paid acquisition optimized for high-intent capture and maximum ROAS in competitive enterprise landscapes.',
-        iconType: 'performance',
-      },
-      {
-        title: 'Pipeline Engineering',
-        description: 'Mapping and automating the complete buyer journey to eliminate friction and accelerate deal velocity from MQL to Closed-Won.',
-        iconType: 'pipeline',
-      },
-      {
-        title: 'SEO & Organic Growth',
-        description: 'Dominating the search landscape through semantic authority, technical precision, and high-conversion content clusters.',
-        iconType: 'seo',
-      },
-      {
-        title: 'Growth Hacking',
-        description: 'Rapid experimentation frameworks designed to identify and exploit non-obvious levers for viral expansion and product-led growth.',
-        iconType: 'growth',
-      },
-      {
-        title: 'Outbound Architecture',
-        description: 'Precision-targeted outbound motion combining hyper-personalization with automated scale to penetrate key accounts.',
-        iconType: 'outbound',
-      },
+      { title: "Demand Generation", body: "Full-funnel strategies to capture and convert.", icon: "Target" },
+      { title: "SEO", body: "Technical and content-driven organic growth.", icon: "Search" },
+      { title: "Paid Advertising", body: "High-ROI campaigns across search and social.", icon: "MousePointerClick" },
+      { title: "Growth Marketing", body: "Data-driven experiments for rapid scaling.", icon: "TrendingUp" },
+      { title: "Event Marketing", body: "Strategic field marketing and webinars.", icon: "Calendar" }
+    ]
+  },
+  funnel: {
+    titleLine1: "From ",
+    titleLine2: "Signal to Pipeline",
+    stages: [
+      { label: "Awareness" },
+      { label: "Intent" },
+      { label: "Engagement" },
+      { label: "Pipeline" }
     ],
+    kpis: [
+      { value: "312%", label: "Increase in Qualified Pipeline" },
+      { value: "45%", label: "Reduction in CAC" },
+      { value: "2.4x", label: "Faster Sales Cycle" }
+    ]
   },
-  philosophy: {
-    quote: 'Growth isn\'t an accident &mdash; it\'s a',
-    highlight: 'compounding formula',
-    attribution: 'STRATOS METHODOLOGY',
+  scale: {
+    title: "Growth Experimentation at Scale",
+    description: "We deploy rapid testing frameworks across all channels to identify and scale what works, discarding what doesn't.",
+    columns: [
+      { icon: "Search", value: "10x", title: "SEO Growth", description: "Compounding organic traffic through programmatic and editorial content." },
+      { icon: "MousePointerClick", value: "-40%", title: "Paid / SEM", description: "Optimized bidding and creative testing to drive down acquisition costs." },
+      { icon: "FlaskConical", value: "50+", title: "Growth Experiments", description: "Continuous A/B testing across landing pages, emails, and product flows." }
+    ]
   },
-  teasers: {
-    title: 'Deep Intelligence',
-    description: 'The mechanics of scaling enterprise organizations.',
-    items: [
-      {
-        category: 'Industry Report',
-        title: 'The 2024 B2B SaaS Growth Benchmarks',
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-      },
-      {
-        category: 'Case Study',
-        title: 'Project Atlas: Scaling Series C to $100M ARR',
-        image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800',
-      },
-      {
-        category: 'Workshop',
-        title: 'Frameworks for Global Expansion',
-        image: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&q=80&w=800',
-      },
-    ],
-  },
-  ctaSection: {
-    title: 'Ready to Architect Your Growth?',
-    button: 'Schedule Growth Audit',
-  },
-  footer: {
-    links: [
-      { label: 'Privacy', href: '#' },
-      { label: 'Terms', href: '#' },
-      { label: 'LinkedIn', href: '#' },
-      { label: 'Twitter', href: '#' },
-    ],
-    copyright: '© 2024 STRATOS GTM CONSULTING. ALL RIGHTS RESERVED.',
-  },
-};
-
-/**
- * INLINE SVG ICONS
- */
-const Icons = {
-  performance: () => (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-    </svg>
-  ),
-  pipeline: () => (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-    </svg>
-  ),
-  seo: () => (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-    </svg>
-  ),
-  growth: () => (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-    </svg>
-  ),
-  outbound: () => (
-    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-    </svg>
-  ),
-  arrowRight: () => (
-    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-    </svg>
-  ),
-};
-
-/**
- * MAIN TEMPLATE COMPONENT
- */
-export default function Template(props: { content?: unknown; pageTitle?: string }) {
-  // Safely merge partial payloads from registry content with template defaults.
-  const incoming = isPageContent(props.content)
-    ? (props.content as Partial<PageContent>)
-    : undefined
-
-  const content: PageContent = {
-    ...DEFAULT_CONTENT,
-    ...incoming,
-    nav: {
-      ...DEFAULT_CONTENT.nav,
-      ...(incoming?.nav ?? {}),
-    },
-    hero: {
-      ...DEFAULT_CONTENT.hero,
-      ...(incoming?.hero ?? {}),
-      stats: {
-        ...DEFAULT_CONTENT.hero.stats,
-        ...(incoming?.hero?.stats ?? {}),
-      },
-    },
-    metrics: incoming?.metrics ?? DEFAULT_CONTENT.metrics,
-    services: {
-      ...DEFAULT_CONTENT.services,
-      ...(incoming?.services ?? {}),
-      items: incoming?.services?.items ?? DEFAULT_CONTENT.services.items,
-    },
-    philosophy: {
-      ...DEFAULT_CONTENT.philosophy,
-      ...(incoming?.philosophy ?? {}),
-    },
-    teasers: {
-      ...DEFAULT_CONTENT.teasers,
-      ...(incoming?.teasers ?? {}),
-      items: incoming?.teasers?.items ?? DEFAULT_CONTENT.teasers.items,
-    },
-    ctaSection: {
-      ...DEFAULT_CONTENT.ctaSection,
-      ...(incoming?.ctaSection ?? {}),
-    },
-    footer: {
-      ...DEFAULT_CONTENT.footer,
-      ...(incoming?.footer ?? {}),
-      links: incoming?.footer?.links ?? DEFAULT_CONTENT.footer.links,
-    },
+  cta: {
+    titleLine1: "Turn Attention Into ",
+    titleLine2: "Engineered Intent",
+    description: "Ready to build a scalable demand generation engine? Let's discuss your growth targets and how we can engineer the pipeline to hit them.",
+    primaryButtonText: "Start Building Pipeline",
+    primaryButtonHref: "#",
+    secondaryLinkText: "See Demand Gen Case Studies",
+    secondaryLinkHref: "#"
   }
+};
 
+const IconMap = {
+  Target,
+  Search,
+  MousePointerClick,
+  TrendingUp,
+  Calendar,
+  FlaskConical
+};
+
+function isDemandGrowthTemplateContent(c: unknown): c is TemplateContent {
   return (
-    <div className="min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-100 font-sans antialiased">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-lime-500 rounded-sm rotate-45"></div>
-            <span className="font-bold text-xl tracking-tight text-slate-900 dark:text-white">
-              {content.nav.brand}<span className="text-slate-400 font-light">{content.nav.suffix}</span>
-            </span>
-          </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-semibold text-slate-600 dark:text-slate-300">
-            {content.nav.links.map((link, idx) => (
-              <a key={idx} href={link.href} className="hover:text-lime-600 dark:hover:text-lime-400 transition-colors">
-                {link.label}
-              </a>
-            ))}
-          </div>
-          <div>
-            <a href="#" className="bg-orange-600 hover:bg-orange-700 text-white px-5 py-2.5 rounded-full text-sm font-bold transition-all shadow-lg shadow-orange-600/20">
-              {content.nav.cta}
-            </a>
-          </div>
-        </div>
-      </nav>
+    !!c &&
+    typeof c === 'object' &&
+    'hero' in c &&
+    typeof (c as TemplateContent).hero === 'object' &&
+    'eyebrow' in (c as TemplateContent).hero
+  );
+}
 
+export default function Template({ 
+  content, 
+  pageTitle 
+}: { 
+  content?: unknown; 
+  pageTitle?: string; 
+}) {
+  const data = isDemandGrowthTemplateContent(content) ? content : DEFAULT_CONTENT;
+  return (
+    <div className="min-h-screen bg-[#0A1628] text-white font-sans selection:bg-azure/30">
+      {pageTitle && <title>{pageTitle}</title>}
+      <style
+        // Local gradient for Demand & Growth accents (lighter green → aqua)
+        dangerouslySetInnerHTML={{
+          __html: `
+          .demand-text-gradient {
+            background: linear-gradient(135deg, #A3FF78 0%, #22C55E 40%, #4ADE80 70%, #A5B4FC 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+          }
+        `,
+        }}
+      />
+      
       <main>
-        {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-slate-50 dark:bg-slate-950">
-          <div className="absolute inset-0 opacity-20 pointer-events-none">
-            <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(132,204,22,0.1),transparent_70%)]"></div>
-          </div>
-          
-          <div className="max-w-7xl mx-auto px-6 relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-            <div>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-lime-100 dark:bg-lime-900/30 border border-lime-200 dark:border-lime-800 text-[10px] font-bold tracking-widest uppercase mb-8 text-lime-700 dark:text-lime-400">
-                <span className="w-2 h-2 rounded-full bg-lime-500 animate-pulse"></span>
-                {content.hero.badge}
-              </div>
-              <h1 className="text-6xl md:text-8xl font-bold text-slate-900 dark:text-white leading-[1.05] mb-8 tracking-tighter">
-                {content.hero.titleMain} <br/>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-lime-600 to-emerald-600 dark:from-lime-400 dark:to-emerald-400">
-                  {content.hero.titleHighlight}
-                </span>
-              </h1>
-              <p className="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-10 max-w-xl leading-relaxed font-normal">
-                {content.hero.description}
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a href="#" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-bold transition-all flex items-center justify-center gap-2 shadow-xl shadow-blue-600/20">
-                  {content.hero.primaryCta}
-                  <Icons.arrowRight />
-                </a>
-                <a href="#" className="border border-slate-300 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-900 text-slate-900 dark:text-white px-8 py-4 rounded-xl font-bold transition-all text-center">
-                  {content.hero.secondaryCta}
-                </a>
-              </div>
-            </div>
-
-            {/* Hero Visual */}
-            <div className="relative hidden lg:block">
-              <div className="relative bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 p-10 rounded-3xl shadow-2xl">
-                <div className="flex items-end gap-3 h-64">
-                  <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg h-[15%]"></div>
-                  <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg h-[25%]"></div>
-                  <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg h-[45%]"></div>
-                  <div className="flex-1 bg-slate-100 dark:bg-slate-800 rounded-t-lg h-[60%]"></div>
-                  <div className="flex-1 bg-lime-500 rounded-t-lg h-[85%] shadow-[0_0_20px_rgba(132,204,22,0.3)]"></div>
-                  <div className="flex-1 bg-lime-400 rounded-t-lg h-[100%] shadow-[0_0_30px_rgba(132,204,22,0.4)]"></div>
-                </div>
-                <div className="mt-10 flex justify-between items-end">
-                  <div>
-                    <p className="text-slate-400 dark:text-slate-500 text-[10px] uppercase tracking-widest font-bold mb-1">{content.hero.stats.label}</p>
-                    <p className="text-slate-900 dark:text-white text-3xl font-bold leading-none">{content.hero.stats.value}</p>
+        <section className="relative bg-[#0E1E2C] min-h-[700px] flex items-center overflow-hidden">
+          <div 
+            className="absolute inset-0 opacity-5 pointer-events-none"
+            style={{ backgroundImage: 'repeating-linear-gradient(45deg, #1B4FD8 0, #1B4FD8 1px, transparent 1px, transparent 16px)' }}
+          />
+          <div className="max-w-[1200px] mx-auto px-6 md:px-16 w-full relative z-10 py-20">
+            <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
+              <div className="w-full lg:w-[52%]">
+                <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
+                  <div className="demand-text-gradient font-heading text-[11px] font-semibold uppercase tracking-[0.2em] mb-6 inline-block">
+                    {data.hero.eyebrow}
                   </div>
-                  <div className="text-right">
-                    <p className="text-amber-500 text-5xl font-bold leading-none mb-1">{content.hero.stats.multiplier}</p>
-                    <p className="text-slate-400 dark:text-slate-500 text-[10px] uppercase font-bold tracking-widest">{content.hero.stats.multiplierLabel}</p>
+                  <h1 className="font-heading font-bold text-5xl md:text-[64px] leading-[1.1] mb-6">
+                    <span className="block text-white">{data.hero.titleLine1}</span>
+                    <span className="block demand-text-gradient">{data.hero.titleLine2}</span>
+                  </h1>
+                  <p className="text-white/75 text-lg max-w-[480px] leading-[1.6] mb-10">
+                    {data.hero.description}
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <Link 
+                      href={data.hero.primaryButtonHref}
+                      className="btn-cta-primary"
+                    >
+                      {data.hero.primaryButtonText} <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    <Link 
+                      href={data.hero.secondaryButtonHref}
+                      className="h-12 px-8 border-[1.5px] border-white/40 hover:border-white text-white font-heading font-bold text-[15px] rounded-lg transition-colors flex items-center justify-center gap-2"
+                    >
+                      {data.hero.secondaryButtonText}
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
+              </div>
+              <div className="w-full lg:w-[48%]">
+                <motion.div 
+                  initial={{ opacity: 0, scale: 0.95 }} 
+                  animate={{ opacity: 1, scale: 1 }} 
+                  transition={{ duration: 0.5, delay: 0.2 }}
+                  className="w-full max-w-[580px] aspect-[580/460] bg-[#0D2137] border border-cobalt/25 rounded-2xl relative overflow-hidden flex items-center justify-center mx-auto"
+                >
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(27,79,216,0.08)_0%,transparent_70%)] z-10" />
+                  <img 
+                    src={data.hero.imageSrc} 
+                    alt={data.hero.imageAlt} 
+                    className="w-full h-full object-cover opacity-30 mix-blend-overlay relative z-0"
+                  />
+                </motion.div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Metrics Strip */}
-        <section className="bg-white dark:bg-slate-900 py-20 border-y border-slate-200 dark:border-slate-800">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="grid md:grid-cols-3 gap-12 md:divide-x divide-slate-200 dark:divide-slate-800">
-              {content.metrics.map((metric, idx) => (
-                <div key={idx} className="text-center px-4">
-                  <p className="text-amber-600 dark:text-amber-500 text-6xl font-bold mb-2 tracking-tighter">{metric.value}</p>
-                  <p className="text-slate-500 dark:text-slate-400 font-bold uppercase tracking-widest text-xs">{metric.label}</p>
-                </div>
-              ))}
+        <section className="bg-[#F4F6F8] py-20 min-h-[240px]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+            <div className="text-cobalt font-heading text-[11px] font-semibold uppercase tracking-[0.2em] mb-8">
+              {data.subDisciplines.eyebrow}
             </div>
-          </div>
-        </section>
-
-        {/* Services Section */}
-        <section className="bg-slate-50 dark:bg-slate-950 py-32">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="max-w-3xl mb-20">
-              <h2 className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white mb-8 tracking-tight">
-                {content.services.title} <span className="text-lime-600 dark:text-lime-400">{content.services.highlight}</span>
-              </h2>
-              <p className="text-slate-600 dark:text-slate-400 text-xl leading-relaxed font-light">
-                {content.services.description}
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {content.services.items.map((service, idx) => {
-                const Icon = Icons[service.iconType] || Icons.performance;
+            <div className="flex flex-col lg:flex-row gap-4 overflow-x-auto pb-4 snap-x">
+              {data.subDisciplines.items.map((item, i) => {
+                const IconComponent = IconMap[item.icon];
                 return (
-                  <div key={idx} className="group p-10 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl hover:shadow-2xl hover:shadow-lime-500/10 transition-all duration-300">
-                    <div className="w-14 h-14 bg-lime-500 rounded-xl flex items-center justify-center mb-8 shadow-lg shadow-lime-500/20 text-slate-950">
-                      <Icon />
+                  <div 
+                    key={i}
+                    className="flex-none w-[280px] lg:flex-1 bg-white border-l-4 border-cobalt rounded-xl p-5 pl-6 transition-all duration-300 hover:border-azure hover:-translate-y-1 hover:shadow-[0_4px_16px_rgba(27,79,216,0.12)] snap-start cursor-pointer group"
+                  >
+                    <div className="w-8 h-8 rounded bg-cobalt/10 flex items-center justify-center mb-4 group-hover:bg-azure/10 transition-colors">
+                      <IconComponent className="w-4 h-4 text-cobalt group-hover:text-azure transition-colors" />
                     </div>
-                    <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-4 tracking-tight">{service.title}</h3>
-                    <p className="text-slate-600 dark:text-slate-400 text-sm leading-relaxed font-light">
-                      {service.description}
+                    <h3 className="font-heading font-semibold text-[15px] text-[#0A1628] mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="font-sans text-[13px] text-[#3D4B5C] leading-relaxed">
+                      {item.body}
                     </p>
                   </div>
                 );
@@ -404,92 +275,127 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
           </div>
         </section>
 
-        {/* Philosophy Section */}
-        <section className="bg-white dark:bg-slate-900 py-32 text-center border-y border-slate-200 dark:border-slate-800">
-          <div className="max-w-5xl mx-auto px-6">
-            <div className="w-16 h-1.5 bg-lime-500 mx-auto mb-12 rounded-full"></div>
-            <blockquote className="text-4xl md:text-6xl font-bold text-slate-900 dark:text-white leading-[1.1] tracking-tight italic">
-              &quot;{content.philosophy.quote} <span className="text-lime-600 dark:text-lime-400">{content.philosophy.highlight}</span> where every dollar spent is a node in a self-reinforcing network.&quot;
-            </blockquote>
-            <p className="mt-12 text-slate-400 dark:text-slate-500 font-bold uppercase tracking-[0.3em] text-xs">
-              &mdash; {content.philosophy.attribution}
-            </p>
-          </div>
-        </section>
-
-        {/* Teasers Section */}
-        <section className="bg-slate-50 dark:bg-slate-950 py-32">
-          <div className="max-w-7xl mx-auto px-6">
-            <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-              <div>
-                <h2 className="text-4xl font-bold text-slate-900 dark:text-white mb-3 tracking-tight">{content.teasers.title}</h2>
-                <p className="text-slate-500 dark:text-slate-400 text-lg font-light">{content.teasers.description}</p>
+        <section className="bg-[#0D2137] py-24 min-h-[560px]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+            <h2 className="font-heading font-bold text-4xl md:text-[48px] text-center mb-16">
+              <span className="text-white">{data.funnel.titleLine1}</span>
+              <span className="demand-text-gradient">{data.funnel.titleLine2}</span>
+            </h2>
+            <div className="relative max-w-[600px] mx-auto mb-24 flex flex-col items-center">
+              <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-full pointer-events-none overflow-hidden">
+                <div className="absolute bottom-0 left-[30%] w-px h-[120%] bg-azure/40 origin-bottom -rotate-15" />
+                <div className="absolute bottom-0 left-[50%] w-px h-[150%] bg-azure/40 origin-bottom -rotate-15" />
+                <div className="absolute bottom-0 left-[70%] w-px h-[100%] bg-azure/40 origin-bottom -rotate-15" />
               </div>
-              <a href="#" className="text-lime-600 dark:text-lime-400 font-bold flex items-center gap-2 group">
-                View Library <Icons.arrowRight />
-              </a>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-10">
-              {content.teasers.items.map((teaser, idx) => (
-                <div key={idx} className="group cursor-pointer">
-                  <div className="relative aspect-[16/10] bg-slate-200 dark:bg-slate-800 overflow-hidden rounded-2xl mb-6 border border-slate-200 dark:border-slate-800">
-                    <img 
-                      src={teaser.image} 
-                      alt={teaser.title}
-                      className="object-cover w-full h-full opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-transparent to-transparent"></div>
+              <div className="relative z-10 flex flex-col gap-1 items-center w-full">
+                <div className="relative flex justify-center w-full">
+                  <div className="w-[460px] h-[72px] bg-cobalt/8 border border-cobalt/30" style={{ clipPath: 'polygon(0 0, 100% 0, 85% 100%, 15% 100%)' }} />
+                  <div className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 font-sans font-semibold text-[13px] text-ice-blue translate-x-full">
+                    {data.funnel.stages[0]?.label}
                   </div>
-                  <span className="text-lime-600 dark:text-lime-500 text-[10px] font-bold uppercase tracking-[0.2em]">{teaser.category}</span>
-                  <h4 className="text-slate-900 dark:text-white text-xl font-bold mt-3 group-hover:text-lime-600 dark:group-hover:text-lime-400 transition-colors leading-tight">
-                    {teaser.title}
-                  </h4>
+                </div>
+                <div className="relative flex justify-center w-full">
+                  <div className="w-[340px] h-[72px] bg-cobalt/14 border border-cobalt/50" style={{ clipPath: 'polygon(0 0, 100% 0, 80% 100%, 20% 100%)' }} />
+                  <div className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 font-sans font-semibold text-[13px] text-ice-blue translate-x-full">
+                    {data.funnel.stages[1]?.label}
+                  </div>
+                </div>
+                <div className="relative flex justify-center w-full">
+                  <div className="w-[240px] h-[72px] bg-cobalt/20 border border-cobalt/70" style={{ clipPath: 'polygon(0 0, 100% 0, 70% 100%, 30% 100%)' }} />
+                  <div className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 font-sans font-semibold text-[13px] text-ice-blue translate-x-full">
+                    {data.funnel.stages[2]?.label}
+                  </div>
+                </div>
+                <div className="relative flex justify-center w-full">
+                  <div className="w-[140px] h-[72px] bg-cobalt/28 border border-cobalt" style={{ clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0 100%)' }} />
+                  <div className="absolute right-0 md:-right-8 top-1/2 -translate-y-1/2 font-sans font-semibold text-[13px] text-ice-blue translate-x-full">
+                    {data.funnel.stages[3]?.label}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {data.funnel.kpis.map((kpi, idx) => (
+                <div
+                  key={idx}
+                  className="bg-[#112B3C] border border-white/7 rounded-xl p-7 relative overflow-hidden group hover:-translate-y-1 transition-transform"
+                >
+                  <div className="absolute top-0 left-0 w-full h-[3px] bg-cobalt" />
+                  <div className="font-heading font-bold text-[40px] demand-text-gradient mb-2">{kpi.value}</div>
+                  <div className="font-sans text-[13px] text-white/45">{kpi.label}</div>
                 </div>
               ))}
             </div>
           </div>
         </section>
 
-        {/* CTA Section */}
-        <section className="bg-blue-600 dark:bg-blue-700 py-32 text-center relative overflow-hidden">
-          <div className="absolute inset-0 opacity-10 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')]"></div>
-          <div className="max-w-7xl mx-auto px-6 relative z-10">
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-12 tracking-tighter">
-              {content.ctaSection.title}
+        <section className="bg-white py-24 min-h-[480px]">
+          <div className="max-w-[1200px] mx-auto px-6 md:px-16">
+            <div className="mb-16">
+              <h2 className="font-heading font-bold text-4xl md:text-[40px] text-[#0A1628] mb-4">
+                {data.scale.title}
+              </h2>
+              <p className="font-sans text-base text-[#3D4B5C] max-w-[600px]">
+                {data.scale.description}
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-0 relative">
+              <div className="hidden md:block absolute top-0 bottom-0 left-1/3 w-px bg-[#E2E8F0]" />
+              <div className="hidden md:block absolute top-0 bottom-0 left-2/3 w-px bg-[#E2E8F0]" />
+              
+              {data.scale.columns.map((col, idx) => {
+                const IconComponent = IconMap[col.icon];
+                return (
+                  <div key={idx} className={`md:p${idx === 0 ? 'r' : idx === 1 ? 'x' : 'l'}-10`}>
+                    <div className="w-10 h-10 rounded bg-cobalt/10 flex items-center justify-center mb-8">
+                      <IconComponent className="w-5 h-5 text-cobalt" />
+                    </div>
+                    <div className="flex items-end gap-2 h-24 mb-8">
+                      <div className={`w-8 bg-cobalt ${idx === 0 ? 'h-[30%]' : idx === 1 ? 'h-[40%]' : 'h-[20%]'} rounded-t-sm`} />
+                      <div className={`w-8 bg-cobalt ${idx === 0 ? 'h-[50%]' : idx === 1 ? 'h-[60%]' : 'h-[45%]'} rounded-t-sm`} />
+                      <div className={`w-8 bg-cobalt ${idx === 0 ? 'h-[70%]' : idx === 1 ? 'h-[80%]' : 'h-[75%]'} rounded-t-sm`} />
+                      <div className="w-8 bg-azure h-[100%] rounded-t-sm" />
+                    </div>
+                    <div className="font-heading font-bold text-[32px] demand-text-gradient mb-2">{col.value}</div>
+                    <h3 className="font-heading font-semibold text-base text-[#0A1628] mb-2">{col.title}</h3>
+                    <p className="font-sans text-[14px] text-[#3D4B5C]">{col.description}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        <section className="relative bg-[#112B3C] py-24 min-h-[320px] overflow-hidden flex items-center">
+          <div className="absolute inset-0 pointer-events-none">
+            <div className="absolute top-0 right-[10%] w-px h-[150%] bg-cobalt/6 origin-top rotate-45" />
+            <div className="absolute top-0 right-[20%] w-px h-[150%] bg-cobalt/6 origin-top rotate-45" />
+            <div className="absolute top-0 right-[30%] w-px h-[150%] bg-cobalt/6 origin-top rotate-45" />
+          </div>
+          <div className="max-w-[1200px] mx-auto px-6 md:px-16 relative z-10 text-center flex flex-col items-center w-full">
+            <h2 className="font-heading font-bold text-4xl md:text-[40px] mb-6">
+              <span className="text-white">{data.cta.titleLine1}</span>
+              <span className="demand-text-gradient">{data.cta.titleLine2}</span>
             </h2>
-            <a href="#" className="inline-block bg-white text-blue-700 hover:bg-slate-100 px-12 py-5 rounded-2xl font-bold text-xl transition-all shadow-2xl shadow-black/20">
-              {content.ctaSection.button}
-            </a>
+            <p className="font-sans text-base text-white/60 max-w-[560px] mb-10">
+              {data.cta.description}
+            </p>
+            <Link 
+              href={data.cta.primaryButtonHref}
+              className="h-14 px-8 bg-cobalt hover:bg-azure text-white font-heading font-bold text-[15px] rounded-lg transition-colors flex items-center justify-center gap-2 mb-6"
+            >
+              {data.cta.primaryButtonText} <ArrowRight className="w-4 h-4" />
+            </Link>
+            <Link 
+              href={data.cta.secondaryLinkHref}
+              className="font-sans text-[14px] text-ice-blue hover:text-white transition-colors flex items-center gap-1"
+            >
+              {data.cta.secondaryLinkText} <ArrowRight className="w-4 h-4" />
+            </Link>
           </div>
         </section>
       </main>
-
-      {/* Footer */}
-      <footer className="bg-white dark:bg-slate-950 py-20 border-t border-slate-200 dark:border-slate-800">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 bg-lime-500 rounded-sm rotate-45"></div>
-              <span className="font-bold text-2xl tracking-tight text-slate-900 dark:text-white uppercase">
-                {content.nav.brand}<span className="text-slate-400 font-light">{content.nav.suffix}</span>
-              </span>
-            </div>
-            
-            <div className="flex flex-wrap justify-center gap-10 text-slate-500 dark:text-slate-400 text-sm font-bold uppercase tracking-widest">
-              {content.footer.links.map((link, idx) => (
-                <a key={idx} href={link.href} className="hover:text-lime-600 dark:hover:text-white transition-colors">
-                  {link.label}
-                </a>
-              ))}
-            </div>
-
-            <p className="text-slate-400 dark:text-slate-600 text-[10px] font-bold tracking-widest text-center md:text-right">
-              {content.footer.copyright}
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
+

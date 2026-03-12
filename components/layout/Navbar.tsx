@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { ChevronDown, Menu, X, Cloud, Landmark, Heart, Terminal, ShoppingBag, Shield, Leaf, Cpu } from "lucide-react"
 import MegaMenu from "./MegaMenu"
@@ -175,26 +174,21 @@ export default function Navbar() {
   const safeMobileOpen = hydrated ? mobileOpen : false
 
   return (
-    <header className="sticky top-0 z-50 bg-slate-950/95 backdrop-blur-xl border-b border-slate-800">
+    <header className="sticky top-0 z-50 bg-slate-950/92 backdrop-blur-xl border-b border-slate-800/80">
       <nav className="container-width relative" ref={navRef}>
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-16 md:h-[72px]">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="relative h-9 w-9 md:h-10 md:w-10 shrink-0 rounded-xl bg-slate-900/80 ring-1 ring-brand-500/60 shadow-[0_0_30px_rgba(59,130,246,0.55)] overflow-hidden">
-              <Image
-                src="/gtmstack-logo.png"
-                alt="GTMStack.pro logo"
-                fill
-                sizes="40px"
-                className="object-contain"
-                priority
-              />
-            </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-display font-semibold text-base md:text-lg text-white tracking-tight">
-                GTMStack<span className="text-brand-400">.pro</span>
+            <div className="h-10 w-10 md:h-11 md:w-11 shrink-0 rounded-2xl border border-slate-700/70 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center shadow-[0_10px_30px_rgba(15,23,42,0.6)]">
+              <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.22em] text-slate-200">
+                GTM
               </span>
-              <span className="hidden sm:inline text-[11px] text-slate-400">
+            </div>
+            <div className="flex flex-col leading-none">
+              <span className="font-display font-semibold text-[15px] md:text-[16px] text-white tracking-[-0.01em]">
+                GTMStack<span className="text-brand-300">.pro</span>
+              </span>
+              <span className="hidden sm:inline text-[11px] text-slate-400 tracking-[0.08em] uppercase">
                 Strategic GTM consulting
               </span>
             </div>
@@ -208,7 +202,7 @@ export default function Navbar() {
                 onClick={() => hydrated && setOpen(!open)}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
+                className="inline-flex items-center gap-1 text-[13px] font-semibold tracking-[0.02em] text-slate-200/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-3 py-1.5 relative after:absolute after:left-3 after:-bottom-1 after:h-px after:w-0 after:bg-brand-400 after:transition-all hover:after:w-[calc(100%-1.5rem)]"
                 aria-expanded={safeOpen}
                 aria-haspopup="true"
               >
@@ -217,13 +211,13 @@ export default function Navbar() {
             </div>
             <Link
               href="/case-studies"
-              className="text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
+              className="relative text-[13px] font-semibold tracking-[0.02em] text-slate-200/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-3 py-1.5 after:absolute after:left-3 after:-bottom-1 after:h-px after:w-0 after:bg-brand-400 after:transition-all hover:after:w-[calc(100%-1.5rem)]"
             >
               Case Studies
             </Link>
             <Link
               href="/gallery"
-              className="text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
+              className="relative text-[13px] font-semibold tracking-[0.02em] text-slate-200/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-3 py-1.5 after:absolute after:left-3 after:-bottom-1 after:h-px after:w-0 after:bg-brand-400 after:transition-all hover:after:w-[calc(100%-1.5rem)]"
             >
               Gallery
             </Link>
@@ -233,7 +227,7 @@ export default function Navbar() {
                 onClick={() => hydrated && setIndustriesOpen(!industriesOpen)}
                 onMouseEnter={handleIndustriesMouseEnter}
                 onMouseLeave={handleIndustriesMouseLeave}
-                className="inline-flex items-center gap-1 text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
+                className="inline-flex items-center gap-1 text-[13px] font-semibold tracking-[0.02em] text-slate-200/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-3 py-1.5 relative after:absolute after:left-3 after:-bottom-1 after:h-px after:w-0 after:bg-brand-400 after:transition-all hover:after:w-[calc(100%-1.5rem)]"
                 aria-expanded={safeIndustriesOpen}
                 aria-haspopup="true"
               >
@@ -242,13 +236,13 @@ export default function Navbar() {
             </div>
             <Link
               href="/about"
-              className="text-sm font-medium text-slate-200 hover:text-brand-300 transition-all duration-150 hover:-translate-y-0.5 active:translate-y-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-2 py-1"
+              className="relative text-[13px] font-semibold tracking-[0.02em] text-slate-200/90 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-500 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-full px-3 py-1.5 after:absolute after:left-3 after:-bottom-1 after:h-px after:w-0 after:bg-brand-400 after:transition-all hover:after:w-[calc(100%-1.5rem)]"
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="btn bg-brand-500 text-white hover:bg-brand-400 px-5 py-2.5 text-sm rounded-full shadow-[0_0_30px_rgba(59,130,246,0.7)] hover:shadow-[0_0_40px_rgba(129,140,248,0.9)] focus-visible:ring-brand-500"
+              className="btn bg-gradient-to-r from-brand-500 to-brand-400 text-white hover:from-brand-400 hover:to-brand-300 px-5 py-2.5 text-[13px] font-semibold rounded-full shadow-[0_12px_40px_rgba(59,130,246,0.45)] hover:shadow-[0_14px_50px_rgba(129,140,248,0.6)] focus-visible:ring-brand-500"
             >
               Get in Touch
             </Link>
@@ -257,7 +251,7 @@ export default function Navbar() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => hydrated && setMobileOpen(!mobileOpen)}
-            className="md:hidden p-2 rounded-lg text-slate-200 hover:bg-slate-800 transition-colors"
+            className="md:hidden p-2 rounded-xl text-slate-200 hover:bg-slate-800/80 transition-colors"
             aria-label="Toggle menu"
           >
             {safeMobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -265,12 +259,12 @@ export default function Navbar() {
         </div>
       </nav>
 
-          {/* Mobile Menu */}
+      {/* Mobile Menu */}
       <MobileMegaMenu isOpen={safeMobileOpen} onClose={() => setMobileOpen(false)} />
-      
+
       {/* Desktop MegaMenu - positioned relative to nav container */}
       {safeOpen && (
-        <div 
+        <div
           ref={menuRef}
           className="absolute left-0 right-0 top-full pt-2 hidden md:block"
           onMouseEnter={handleMouseEnter}
@@ -293,9 +287,9 @@ export default function Navbar() {
         >
           <div className="container-width">
             <div className="max-w-sm">
-              <div className="rounded-xl border border-white/10 bg-slate-950 shadow-2xl shadow-black/40 overflow-hidden backdrop-blur-xl">
+              <div className="rounded-2xl border border-white/10 bg-slate-950/95 shadow-[0_30px_80px_rgba(15,23,42,0.8)] overflow-hidden backdrop-blur-2xl">
                 <div className="p-3">
-                  <div className="text-xs uppercase tracking-[0.18em] text-slate-400 mb-2">
+                  <div className="text-[11px] uppercase tracking-[0.24em] text-slate-400 mb-2">
                     Featured industries
                   </div>
                   <div className="divide-y divide-white/5">
@@ -305,14 +299,14 @@ export default function Navbar() {
                         <Link
                           key={industry.slug}
                           href={`/industries/${industry.slug}`}
-                          className="flex items-center gap-3 py-2.5 px-2 hover:bg-white/5 rounded-lg transition-colors"
+                          className="flex items-center gap-3 py-2.5 px-2 rounded-xl hover:bg-white/5 transition-colors"
                         >
-                          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 border border-white/10 text-brand-200">
-                            <Icon className="h-5 w-5" aria-hidden="true" />
+                          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-white/5 border border-white/10 text-brand-200">
+                            <Icon className="h-4 w-4" aria-hidden="true" />
                           </div>
                           <div className="flex-1">
-                            <p className="text-sm font-medium text-white">{industry.title}</p>
-                            <p className="text-xs text-slate-400 line-clamp-1">{industry.description}</p>
+                            <p className="text-[13px] font-semibold text-white">{industry.title}</p>
+                            <p className="text-[11px] text-slate-400 line-clamp-1">{industry.description}</p>
                           </div>
                         </Link>
                       )

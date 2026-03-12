@@ -10,10 +10,14 @@ export interface CaseStudyTemplateProps {
 
 /**
  * Minimal v1 template for caseStudy.base pages.
- * Thin wrapper: no layout/design changes; renders the same content passed as children.
+ * Wraps children to provide consistent layout theming.
  */
 export default function CaseStudyTemplate({
   children = null,
 }: CaseStudyTemplateProps) {
-  return <>{children}</>
+  return (
+    <div className="min-h-screen bg-slate-950 text-white">
+      {children}
+    </div>
+  )
 }

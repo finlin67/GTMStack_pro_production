@@ -9,10 +9,14 @@ import { getCaseStudiesByExpertise } from '@/content/case-studies'
 import { industryItems } from '@/content/industries'
 import { getExpertiseHeroConfig } from '@/content/expertiseHeroConfigs'
 import { getPageBySlug } from '@/lib/pageRegistry'
-import { getExpertiseContentByKey } from '@/src/content/registry'
+import { getContentByKey, getExpertiseContentByKey } from '@/src/content/registry'
 import ExpertiseCategoryTemplate from '@/src/templates/expertise/ExpertiseCategoryTemplate'
 import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemplate'
 import { ExpertiseDetailContent, type PillarId } from './ExpertiseDetailContent'
+import Uploaded_DemandGrowth_v1 from '@/src/templates/Uploaded_DemandGrowth_v1'
+import Uploaded_ContentEngagement_v1 from '@/src/templates/Uploaded_ContentEngagement_v1'
+import Uploaded_StratInsights_v1 from '@/src/templates/Uploaded_StratInsights_v1'
+import Uploaded_SystemOperations_v1 from '@/src/templates/Uploaded_SystemOperations_v1'
 
 const SLUG_TO_PILLAR: Record<string, PillarId> = {
   'analytics': 'systems-operations',
@@ -166,6 +170,28 @@ export default async function ExpertiseDetailPage({ params }: Props) {
     notFound()
   }
 
+  const registryRow = getPageBySlug('expertise', slug)
+
+  const pageTitle = registryRow?.pageTitle ?? item.title
+  const resolvedItem =
+    registryRow?.contentKey ? getExpertiseContentByKey(registryRow.contentKey) : null
+
+  // Option A: Only the four pillar category pages use the new Uploaded_* templates.
+  // Strategy-insights is handled here (no static page); others use static pages with registry.
+  if (slug === 'strategy-insights') {
+    const pillarContent = getContentByKey('pillar:strategy-insights')
+    return <Uploaded_StratInsights_v1 pageTitle={pageTitle} content={pillarContent} />
+  }
+  if (slug === 'content-engagement') {
+    return <Uploaded_ContentEngagement_v1 pageTitle={pageTitle} content={null} />
+  }
+  if (slug === 'demand-growth') {
+    return <Uploaded_DemandGrowth_v1 pageTitle={pageTitle} content={null} />
+  }
+  if (slug === 'systems-operations') {
+    return <Uploaded_SystemOperations_v1 pageTitle={pageTitle} content={null} />
+  }
+
   const pillarId: PillarId =
     (item.pillar as PillarId) ?? SLUG_TO_PILLAR[item.slug] ?? 'strategy-insights'
   const pillarTitle = PILLAR_TITLES[pillarId]
@@ -210,9 +236,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const useSystemsOperationsTheme =
     SYSTEMS_OPERATIONS_SLUGS.includes(slug) || pillarId === 'systems-operations'
 
-  const registryRow = getPageBySlug('expertise', slug)
-  const resolved =
-    registryRow?.contentKey ? getExpertiseContentByKey(registryRow.contentKey) : null
+  const resolved = resolvedItem
   const defaultContent = (
     <ExpertiseDetailContent
       item={item}

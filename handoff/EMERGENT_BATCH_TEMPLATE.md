@@ -1,51 +1,55 @@
-# Emergent Batch Template
+# Cursor Task Template (Batch Prompt)
 
-## Batch Name
-`<short-batch-name>`
+> File name retained for compatibility with older workflows.
 
-## Goal
-- `<what this batch must achieve>`
+Use this template directly in Cursor for each scoped implementation batch.
 
-## In Scope
-- `<file or module>`
-- `<file or module>`
+## Task Name
+`<short-task-name>`
 
-## Out of Scope
+## Goal (Single Objective)
+- `<what must be fixed/implemented>`
+
+## In Scope (Allow-List)
+- `<exact file path>`
+- `<exact file path>`
+
+## Out of Scope (Block-List)
 - Route renames
 - Architecture refactors
+- Registry schema changes
 - Dependency additions/removals (unless explicitly approved)
 - `<other exclusions>`
 
 ## Constraints
-- Preserve runtime behavior unless goal explicitly requires change.
-- Keep registry -> template -> content wiring intact.
-- Preserve design system and route structure.
-- Document assumptions; mark ambiguous areas as `uncertain`.
+- Preserve runtime behavior unless the goal explicitly requires behavior change.
+- Preserve registry -> template -> content wiring.
+- Preserve route slugs and canonical URL shape.
+- Do not edit generated artifacts directly (`*.generated.ts`).
+- Mark ambiguous areas as `uncertain`.
 
 ## Expected Result
 - `<concrete measurable outcome>`
-- `<what should be true after completion>`
+- `<observable acceptance signal>`
 
-## Files Likely Affected
-- `<path>`
-- `<path>`
+## Validation (Run in Order)
+1. `npm run validate:registry`
+2. `npm run registry:audit`
+3. `npm run typecheck`
+4. `npm run lint`
+5. `npm run build`
+6. `npm run build:static`
+7. `npm run link-audit`
+8. Manual route checks for touched pages
 
-## QA Steps
-1. Run `npm run validate:registry`.
-2. Run `npm run registry:audit`.
-3. Run `npm run typecheck`.
-4. Run `npm run lint`.
-5. Run `npm run build`.
-6. Run `npm run build:static`.
-7. Run `npm run link-audit`.
-8. Execute manual route checks for all touched pages.
+## Required Output Format
+1. Summary of what changed
+2. File list changed
+3. Assumptions made
+4. Risks introduced (if any)
+5. Rollback notes
 
-## Rollback Notes
+## Rollback Notes (Template)
 - Revert commit(s): `<hash or range>`
-- Restore prior registry/content/template mappings if changed.
-- Re-run validation gates after rollback.
-
-## Notes for Reviewer
-- Assumptions:
-- Risks:
-- Follow-ups:
+- Restore prior registry/content/template mappings if changed
+- Re-run validation gates after rollback

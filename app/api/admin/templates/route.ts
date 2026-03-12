@@ -3,16 +3,16 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { execSync } from 'node:child_process'
 import { cookies } from 'next/headers'
-import { verifyAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
 const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 const REG_PATH = path.join(process.cwd(), 'src', 'templates', 'registry.ts')
 
 async function requireAuth(): Promise<boolean> {
   const cookieStore = await cookies()
   const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value
-  return Boolean(token && verifyAdminToken(token))
+  return isAdminAuthorized(token)
 }
 
 function normalizeImportPath(p: string): string {

@@ -1,63 +1,64 @@
 export const CONTENT_ENGAGEMENT_CONTENT = {
   brand: {
-    tagline: "Strategic Insights for Driving Customer Relationships.",
-    description: "We orchestrate holistic engagement strategies that actively guide customers through a defined journey, fostering meaningful interactions at every touchpoint to build relationships, drive conversions, and shape behavior."
+    tagline: "Orchestrating Meaningful Customer Journeys Through Strategic Content & Engagement.",
+    description: "In today's crowded digital landscape, effective content and engagement move beyond attracting attention to building relationships, driving conversions, and shaping customer behavior. We specialize in developing holistic engagement strategies that actively guide customers through defined journeys, fostering meaningful interactions at every touchpoint."
   },
   hero: {
-    headline: "Content & Engagement: Strategic Insights for Driving Customer Relationships.",
-    subheadline: "Move beyond broadcasting messages to creating experiences that build loyalty and accelerate growth.",
-    description: "In today’s crowded digital landscape, effective content and engagement are paramount. We develop and execute holistic strategies that foster meaningful interactions, guide customers through their journey, and drive desired outcomes, ensuring your content serves a clear purpose: to move customers closer to conversion and lasting loyalty.",
-    primaryCTA: { text: "Unlock Your Engagement Strategy", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/content-engagement#approach" },
-    image: { src: "/images/content-engagement-hero.webp", alt: "Strategic content planning and customer journey mapping" }
+    headline: "Content & Engagement",
+    subheadline: "Orchestrate journeys that build relationships and drive revenue.",
+    description: "Customer-centric, data-driven content and engagement strategies with integrated automation.",
+    primaryCTA: { text: "Schedule a Strategic Consultation", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/content-engagement#our-approach" },
+    image: { src: "/images/content-engagement-hero.webp", alt: "Strategic Content & Engagement Dashboard" }
   },
   metricsSection: {
-    headline: "Quantifiable Impact: Driving Real-World Results",
+    headline: "Quantifiable Impact: Driving Engagement & Growth",
     stats: [
-      { label: "Lead Generation", value: "Increased" },
-      { label: "Conversion Rates", value: "Higher" },
-      { label: "Platform Adoption", value: "Boosted" }
+      { label: "Lead Generation", value: "Up to 40% Increase" },
+      { label: "Conversion Rates", value: "15-25% Improvement" },
+      { label: "Customer Engagement", value: "Enhanced by 30%+" }
     ]
   },
   capabilitiesSection: {
     headline: "Our Core Expertise in Content & Engagement",
     items: [
-      { title: "Content Strategy Development", description: "Defining key themes, topics, and formats to align content with business objectives and target audience needs." },
-      { title: "Customer Journey Mapping", description: "Visualizing and optimizing every stage of the customer's path to design personalized, impactful experiences." },
-      { title: "Marketing Automation Orchestration", description: "Leveraging platforms to deliver personalized content, nurture leads, and streamline multi-channel campaigns." },
-      { title: "Data-Driven Optimization", description: "Continuously tracking performance, analyzing insights, and refining strategies to maximize ROI and engagement." },
-      { title: "Customer-Centric Content Creation", description: "Crafting content that directly addresses your target audience's specific needs, pain points, and challenges." }
+      { title: "Content Strategy & Development", description: "Crafting purpose-driven content themes and assets aligned with your business objectives and buyer journey, ensuring relevance and impact." },
+      { title: "Customer Journey Mapping", description: "Visualizing and optimizing every stage of the customer's path to design personalized, impactful experiences that guide them towards desired outcomes." },
+      { title: "Marketing Automation & Orchestration", description: "Implementing and configuring platforms to deliver personalized content, nurture leads, and streamline engagement workflows across multiple channels." },
+      { title: "Data-Driven Performance Optimization", description: "Utilizing advanced analytics to track content performance, refine strategies, and continuously maximize ROI across all engagement touchpoints." },
+      { title: "Multi-Channel Campaign Design", description: "Developing integrated campaigns that leverage email, social media, webinars, and other channels to amplify your message and reach target audiences effectively." }
     ]
   },
   philosophySection: {
-    headline: "Our Differentiated Approach to Engagement",
+    headline: "Our Strategic Philosophy: Content as a Catalyst for Action",
     principles: [
-      { title: "Purpose-Driven Content", description: "Content is not just about filling space; it’s about driving action. Every piece must serve a clear purpose and move the customer closer to a desired outcome." },
-      { title: "Conversation, Not Broadcast", description: "Engagement isn’t just about the content itself; it’s about creating a dynamic conversation – actively responding to customer feedback and adapting the strategy accordingly." },
-      { title: "Holistic Journey Design", description: "We focus on orchestrating a holistic engagement strategy that actively guides the customer through a defined journey, fostering meaningful interactions at every touchpoint." },
-      { title: "Strategic Personalization", description: "Tailoring content to specific customer segments and stages of the buyer journey is crucial for resonance and driving engagement." }
+      { title: "Purpose-Driven Content", description: "Content is not just about filling space; it’s about driving action. Every piece must serve a clear purpose to move customers closer to a desired outcome." },
+      { title: "Customer-Centric Personalization", description: "We believe in tailoring content to specific customer segments and stages of the buyer journey, recognizing that relevance is key to resonance and deeper engagement." },
+      { title: "Engagement as Conversation", description: "True engagement transcends broadcasting; it's about creating a dynamic conversation, actively responding to feedback, and adapting strategies in real-time." },
+      { title: "Data-Informed Iteration", description: "Our approach is rooted in continuous analysis and refinement, using performance metrics to optimize strategies and ensure sustained impact and measurable growth." }
     ]
   },
   growthSection: {
-    headline: "Accelerating Growth Through Strategic Engagement",
-    narrative: "Our approach transforms content from a mere asset into a powerful engine for growth. By aligning content with the buyer's journey and delivering personalized experiences, we've consistently helped clients in SaaS, Fintech, and Retail overcome challenges like low lead quality and adoption barriers. We focus on understanding your audience's needs, crafting valuable resources, and leveraging automation to amplify impact, ensuring every interaction builds trust and drives conversion.",
+    headline: "Transforming Challenges into Measurable Success",
+    narrative: "Across SaaS, Fintech, and Retail, we've consistently transformed engagement challenges into growth opportunities. By developing targeted content strategies, implementing robust marketing automation, and meticulously mapping customer journeys, we've enabled companies to significantly increase lead generation, improve lead quality, and accelerate platform adoption. Our focus is always on creating content that truly resonates, drives action, and builds lasting customer relationships.",
     metrics: [
-      { label: "Qualified Leads Generated", value: "+X%" },
-      { label: "Customer Engagement Score", value: "+Y%" },
-      { label: "Conversion Rate Improvement", value: "+Z%" }
+      { label: "Lead Quality Improvement", value: "Significant uplift in qualified lead generation." },
+      { label: "Platform Adoption Rates", value: "Accelerated adoption and user engagement." },
+      { label: "Conversion Rate Optimization", value: "Measurable improvements in customer conversion pathways." }
     ]
   },
   ctaSection: {
-    title: "Ready to Transform Your Customer Engagement?",
-    subtitle: "Let's build a content strategy that truly resonates, drives action, and accelerates your business growth.",
-    button: { text: "Schedule a Strategy Session", link: "/contact" }
+    title: "Ready to Build Deeper Customer Relationships?",
+    subtitle: "Partner with us to develop a holistic content and engagement strategy that drives meaningful interactions and accelerates your revenue growth.",
+    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
   },
   footer: {
-    description: "GTMStack.pro empowers businesses with strategic Content & Engagement expertise, transforming interactions into lasting customer relationships and measurable growth.",
+    description: "GTMStack.pro specializes in orchestrating strategic content and engagement initiatives that build lasting customer relationships and drive measurable business growth.",
     sections: [
-      { title: "Services", links: ["Strategy Consulting", "Implementation Support", "Performance Optimization"] },
-      { title: "Company", links: ["About Us", "Our Expertise", "Contact"] }
+      { title: "Services", links: ["Strategy Consulting", "GTM Execution", "Performance Optimization"] },
+      { title: "Expertise", links: ["Content & Engagement", "Product-Led Growth", "Market Entry"] },
+      { title: "Company", links: ["About Us", "Careers", "Contact"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }
-};
+}

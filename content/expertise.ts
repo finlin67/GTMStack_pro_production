@@ -803,8 +803,6 @@ export const expertiseItems: ExpertiseItem[] = [
     slug: 'demand-generation',
     title: 'Demand Generation Campaigns',
     description: 'Pipeline-focused campaigns that drive qualified leads at scale across paid, organic, and owned channels.',
-    pillar: 'demand-growth',
-    pillarLabel: 'Demand & Growth',
     tags: ['Demand Gen', 'Pipeline', 'Campaigns'],
     icon: 'TrendingUp',
     featured: true,

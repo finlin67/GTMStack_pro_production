@@ -1,68 +1,64 @@
-export const EXPERTISE_CONTENT = {
+export const STRATEGY_INSIGHTS_CONTENT = {
   brand: {
-    tagline: "Mastering Go-to-Market. Engineered for Growth.",
-    description: "GTMStack.pro empowers B2B organizations to achieve predictable, scalable revenue through expertly crafted and executed Go-to-Market strategies."
+    tagline: "Transforming Data into Decisive Strategic Action.",
+    description: "In an information-rich world, competitive advantage hinges on the ability to accurately assess situations, identify key insights, and translate them into effective strategies. We move beyond simply presenting numbers, leveraging integrated quantitative and qualitative data, combined with behavioral economics, to drive tangible business outcomes."
   },
   hero: {
-    headline: "Unlocking Predictable Growth: The GTMStack.pro Expertise Advantage",
-    subheadline: "Navigate market complexities and accelerate revenue with our unparalleled Go-to-Market strategic mastery.",
-    description: "In today's dynamic landscape, a robust Go-to-Market strategy isn't just an advantage—it's a necessity. GTMStack.pro brings deep industry expertise, proprietary frameworks, and a proven track record to transform your GTM approach from reactive to revolutionary.",
-    primaryCTA: { text: "Explore Our Strategic Frameworks", link: "/frameworks" },
-    secondaryCTA: { text: "Schedule an Expert Consultation", link: "/contact" },
-    image: { src: "/images/expertise-hero.jpg", alt: "Strategic business leaders collaborating on a GTM strategy" }
+    headline: "Strategy & Insights",
+    subheadline: "Data-driven strategies for growth and competitive advantage.",
+    description: "We synthesize data, apply behavioral economics, and deliver predictive insights.",
+    primaryCTA: { text: "Unlock Your Strategic Advantage", link: "/contact" },
+    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/strategy-insights#capabilities" },
+    image: { src: "/images/strategy-insights-hero.jpg", alt: "Strategic insights dashboard with data visualizations" }
   },
   metricsSection: {
-    headline: "Quantifiable Impact: Our Expertise Delivers Results",
+    headline: "Quantifiable Impact, Strategic Outcomes",
     stats: [
-      { label: "Average Revenue Growth", value: "+35%" },
-      { label: "GTM Strategy Optimization", value: "92% Success Rate" },
-      { label: "Client Retention Rate", value: "98%" }
+      { label: "Strategic Decision Accuracy", value: "90%+" },
+      { label: "Market Share Growth", value: "Up to 15%+" },
+      { label: "Marketing Campaign Effectiveness", value: "Increased by 20%+" }
     ]
   },
   capabilitiesSection: {
-    headline: "Our Core Expertise: Pillars of Your GTM Success",
+    headline: "Our Core Expertise: Precision, Foresight, Impact",
     items: [
-      { title: "Market & Customer Intelligence", description: "Deep-dive analysis to uncover market opportunities, customer segments, and competitive landscapes, forming the bedrock of your GTM strategy." },
-      { title: "GTM Strategy Development", description: "Crafting comprehensive strategies encompassing product-market fit, pricing, channel selection, and messaging to maximize market penetration." },
-      { title: "Sales & Marketing Alignment", description: "Orchestrating seamless collaboration between sales and marketing teams, optimizing lead-to-revenue processes and enhancing conversion rates." },
-      { title: "Performance Measurement & Optimization", description: "Implementing robust analytics and feedback loops to continuously monitor GTM effectiveness, identify bottlenecks, and drive iterative improvements." },
-      { title: "Organizational Enablement", description: "Empowering your teams with the tools, training, and processes required to execute GTM strategies flawlessly and sustain long-term growth." }
+      { title: "Market & Competitive Intelligence", description: "Rigorous analysis to identify trends, opportunities, and threats, providing a clear view of your landscape." },
+      { title: "Behavioral Economics & Data Analysis", description: "Leveraging deep analytical work and behavioral science to understand motivations and predict outcomes." },
+      { title: "Strategic Planning & Innovation", description: "Developing innovative solutions and detailed roadmaps that align with your business objectives and drive disruptive growth." },
+      { title: "Predictive Insights & Trend Identification", description: "Synthesizing complex data to anticipate future trends and challenges, enabling proactive strategy development." },
+      { title: "Risk Assessment & Mitigation", description: "Applying advanced analytical models and behavioral principles to identify, assess, and mitigate critical business risks." }
     ]
   },
   philosophySection: {
-    headline: "Our Guiding Principles: The Foundation of Strategic Excellence",
+    headline: "Our Strategic Philosophy: Beyond the Obvious",
     principles: [
-      { title: "Data-Driven Decisions", description: "Every recommendation is rooted in rigorous data analysis, ensuring strategies are informed, not assumed." },
-      { title: "Holistic Integration", description: "We view GTM as an interconnected ecosystem, ensuring all components work in harmony for maximum impact." },
-      { title: "Sustainable Growth", description: "Our strategies are designed not just for immediate gains, but for long-term, repeatable, and scalable revenue generation." },
-      { title: "Client-Centric Partnership", description: "We embed ourselves as an extension of your team, fostering collaborative relationships built on trust and shared objectives." }
+      { title: "The 'So What?' Imperative", description: "We delve beyond statistical significance to uncover the underlying 'why,' ensuring every insight is meaningful and actionable." },
+      { title: "Integrated Data Synthesis", description: "Combining quantitative rigor with qualitative depth for a holistic understanding of complex business challenges." },
+      { title: "Anticipatory Intelligence", description: "Utilizing scenario planning and predictive analytics to foresee future trends and position your business for sustained success." },
+      { title: "Behavioral-Driven Understanding", description: "Applying principles of behavioral economics to understand human biases and influence decision-making effectively." }
     ]
   },
   growthSection: {
-    headline: "Transforming Potential into Performance",
-    narrative: "At GTMStack.pro, our expertise translates directly into tangible growth for our clients. We partner with organizations to dissect complex market challenges, architect innovative GTM solutions, and meticulously oversee their implementation. The result is a clear pathway to accelerated revenue, enhanced market share, and a resilient competitive advantage. Our strategic interventions consistently empower businesses to not only meet but exceed their growth targets, establishing new benchmarks for success.",
+    headline: "Catalyzing Growth Through Strategic Foresight",
+    narrative: "In today's dynamic environment, the ability to accurately assess situations, identify key insights, and translate them into effective strategies is paramount for competitive advantage. Our approach moves beyond simply presenting numbers, focusing on driving tangible business outcomes by seeing what others miss and understanding why it matters. We empower organizations to develop disruptive strategies, optimize consumer engagement, and mitigate risks, ensuring sustained growth and market leadership.",
     metrics: [
-      { label: "Market Share Increase", value: "+15%" },
-      { label: "Sales Cycle Reduction", value: "-20%" },
-      { label: "Customer Lifetime Value", value: "+25%" }
+      { label: "Enhanced Decision-Making", value: "Future-proof your strategy with data-driven clarity." },
+      { label: "Optimized Market Positioning", value: "Gain a decisive edge in competitive landscapes." },
+      { label: "Accelerated Innovation Cycles", value: "Rapidly adapt and lead with disruptive solutions." }
     ]
   },
   ctaSection: {
-    title: "Ready to Elevate Your Go-to-Market Strategy?",
-    subtitle: "Connect with GTMStack.pro and unlock the full potential of your business.",
-    button: { text: "Start Your GTM Transformation", link: "/contact" }
+    title: "Ready to Transform Your Strategic Approach?",
+    subtitle: "Partner with us to convert complex data into clear, actionable insights that drive your business forward and secure your competitive edge.",
+    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
   },
   footer: {
-    description: "GTMStack.pro is dedicated to empowering businesses with world-class Go-to-Market strategies and execution, driving sustainable growth and market leadership.",
+    description: "GTMStack.pro delivers unparalleled strategic insights, transforming complex data into actionable recommendations that drive measurable business outcomes and sustainable growth.",
     sections: [
-      { title: "Solutions", links: ["GTM Strategy", "Market Intelligence", "Sales Enablement", "Performance Optimization"] },
-      { title: "Company", links: ["About Us", "Our Expertise", "Case Studies", "Blog", "Careers"] },
-      { title: "Resources", links: ["Frameworks", "Whitepapers", "Webinars", "FAQs"] },
-      { title: "Legal", links: ["Privacy Policy", "Terms of Service"] }
+      { title: "Services", links: ["Strategy & Insights", "Go-to-Market Strategy", "Product-Led Growth", "Market Expansion"] },
+      { title: "Company", links: ["About Us", "Our Approach", "Case Studies", "Contact"] },
+      { title: "Resources", links: ["Blog", "Whitepapers", "Webinars", "FAQs"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }
 }
-
-// Backward-compatible alias used by existing registry imports.
-export const STRATEGY_INSIGHTS_CONTENT = EXPERTISE_CONTENT

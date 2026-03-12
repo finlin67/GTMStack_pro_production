@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import Image from 'next/image'
 import { Search, RefreshCcw, Save, UploadCloud, Play } from 'lucide-react'
 
@@ -34,22 +34,23 @@ export default function GalleryAdminClient() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [toast, setToast] = useState<string | null>(null)
 
-  async function load() {
+  const load = useCallback(async () => {
     setLoading(true)
     try {
       const res = await fetch('/api/local/animations', { cache: 'no-store' })
       const json = (await res.json()) as ApiResp
       setData(json)
-      if (!selectedId && json.items.length) setSelectedId(json.items[0].id)
+      if (json.items.length) {
+        setSelectedId((prev) => prev ?? json.items[0].id)
+      }
     } finally {
       setLoading(false)
     }
-  }
+  }, [])
 
   useEffect(() => {
     void load()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [load])
 
   const items = useMemo(() => data?.items ?? [], [data])
 
@@ -86,8 +87,7 @@ export default function GalleryAdminClient() {
       keywordsCsv: (selected.keywords ?? []).join(', '),
       repoUrl: selected.repoUrl ?? '',
     })
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [selected?.id])
+  }, [selected])
 
   async function saveMeta(id: string) {
     setSaving(id)
@@ -217,7 +217,7 @@ export default function GalleryAdminClient() {
               />
             </div>
             <div className="text-xs text-slate-400 shrink-0">
-              {loading ? 'Loading…' : `${filtered.length}/${items.length}`}
+              {loading ? 'Loading...' : `${filtered.length}/${items.length}`}
             </div>
           </div>
 
@@ -298,7 +298,7 @@ export default function GalleryAdminClient() {
                   )}
                 >
                   <Save className="h-4 w-4" />
-                  {saving === selected.id ? 'Saving…' : 'Save'}
+                  {saving === selected.id ? 'Saving...' : 'Save'}
                 </button>
               </div>
 
@@ -318,7 +318,7 @@ export default function GalleryAdminClient() {
                     <input
                       value={draft.repoUrl}
                       onChange={(e) => setDraft((d) => ({ ...d, repoUrl: e.target.value }))}
-                      placeholder="https://github.com/…"
+                      placeholder="https://github.com/..."
                       className="w-full rounded-lg bg-slate-800/40 border border-white/10 px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500/50"
                     />
                   </div>

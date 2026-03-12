@@ -1,5 +1,7 @@
 # Handoff Summary
 
+> Updated for a Cursor-first workflow (migrating from VSCode + Copilot / Emergent-style batching).
+
 ## Repo Snapshot (Concise)
 - Project: GTMStack.pro
 - Stack: Next.js App Router + React + TypeScript + Tailwind
@@ -11,7 +13,7 @@
 - Gallery system: generated animation catalog + metadata merge + adapter + thumbnail generation/upload flow
 - Blog system: headless WordPress via `lib/wp-client.ts` and `lib/wordpress.ts`
 
-## Current Readiness for AI-Assisted Implementation
+## Current Readiness for Cursor-Assisted Implementation
 Readiness level: **Moderate / needs validation hardening**
 
 Rationale:
@@ -34,9 +36,15 @@ Rationale:
 - false positive from audit logic
 3. Confirm canonical blog route strategy before any route-related implementation.
 4. Decide whether `app/blog/_[slug]/page.tsx` is still needed; if yes, restore/populate `content/blog/posts`.
-5. Keep all upcoming AI tasks scoped to small, file-bounded batches using `EMERGENT_BATCH_TEMPLATE.md`.
+5. Keep all upcoming tasks scoped to small, file-bounded batches using `EMERGENT_BATCH_TEMPLATE.md` (now Cursor task template).
 
-## Files to Attach in a New ChatGPT Thread
+## What Was Optimized for Cursor
+- `EMERGENT_HANDOFF.md` rewritten as a Cursor-first operating guide (while retaining filename for compatibility).
+- `AI_RULES.md` rewritten into concise Cursor system rules + required prompt structure.
+- `EMERGENT_BATCH_TEMPLATE.md` converted into a Cursor-ready task prompt template.
+- `PRE_EMERGENT_CHECKLIST.md` updated with Cursor prompt quality gates.
+
+## Files to Attach in a New Cursor/Chat Thread
 Attach these first (high signal):
 - `handoff/PROJECT_CONTEXT.md`
 - `handoff/REGISTRY_ARCHITECTURE_MAP.md`

@@ -6,6 +6,9 @@ import { Footer } from '@/components/layout/Footer'
 import './globals.css'
 
 export const metadata: Metadata = {
+  icons: {
+    icon: '/gtmstack-logo.png',
+  },
   title: {
     default: 'GTMstack.pro | Strategic GTM Consulting',
     template: '%s | GTMstack.pro',

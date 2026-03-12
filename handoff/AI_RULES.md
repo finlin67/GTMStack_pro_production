@@ -1,41 +1,52 @@
-# AI Rules for GTMStack.pro
+# Cursor AI Rules for GTMStack.pro
 
-## Non-Negotiable Guardrails
+Use these rules as the **system prompt baseline** when working in Cursor.
+
+## 1) Hard Guardrails (Never Break)
 - Do not rename routes.
-- Do not refactor architecture.
-- Do not alter registry-driven routing model.
-- Do not change runtime behavior unless explicitly requested.
-- Do not install/remove dependencies unless required and approved.
+- Do not refactor core architecture.
+- Do not bypass registry-driven routing.
+- Do not change runtime behavior unless requested.
+- Do not install/remove dependencies unless approved.
+- Do not edit `*.generated.ts` files by hand.
 
-## Implementation Style
-- Prefer minimal, targeted fixes.
-- Preserve existing design system and visual language.
-- Keep template/component contracts stable.
-- Avoid broad rewrites when small patches solve the issue.
+## 2) Execution Style in Cursor
+- Prefer minimal, targeted edits over broad rewrites.
+- Keep template and component contracts stable.
+- Preserve existing design language unless task asks for UI redesign.
+- Keep changes file-bounded and objective-bounded.
 
-## Registry Safety
-- Treat `src/data/page-registry.csv` as source of truth.
-- Regenerate artifacts via scripts, do not hand-edit generated files unless explicitly required.
-- Validate `templateId` and `contentKey` mappings before coding against them.
+## 3) Mandatory Prompt Structure
+
+Each Cursor task should include:
+1. **Goal** (single sentence)
+2. **In-scope files** (explicit list)
+3. **Out-of-scope files** (explicit list)
+4. **Constraints** (what must not change)
+5. **Validation commands** (full ordered list)
+
+## 4) Registry Safety
+- Source of truth is `src/data/page-registry.csv`.
+- Generated runtime artifact is `src/data/pageRegistry.generated.ts`.
+- Validate `templateId` and `contentKey` mappings before edits.
 - Preserve `TEMPLATE_BY_ID` and `contentByKey` semantics.
 
-## Content and Routing Safety
+## 5) Routing + Content Safety
 - Preserve route slugs and segment structure.
-- Do not change canonical URLs without migration plan and redirects.
-- If route ownership is ambiguous, mark `uncertain` and ask for confirmation.
+- Do not change canonical URLs without a migration + redirects plan.
+- If ownership/precedence is ambiguous, mark `uncertain` and ask.
 
-## WordPress and Gallery Safety
-- Keep WordPress fetch layers (`lib/wp-client.ts`, `lib/wordpress.ts`) behaviorally consistent.
+## 6) WordPress + Gallery Safety
+- Keep behavior consistent in `lib/wp-client.ts` and `lib/wordpress.ts` unless task explicitly targets fetch semantics.
 - Do not silently change env-var fallback/failure behavior.
-- Preserve gallery metadata and thumbnail resolution flow unless task explicitly targets it.
+- Preserve gallery thumbnail/metadata flow unless task explicitly targets it.
 
-## Documentation and Assumptions
-- Document assumptions in the PR/task output.
-- If data is ambiguous or missing, add a TODO and mark `uncertain` instead of guessing.
-- Reference exact file paths for any architecture claim.
+## 7) Documentation Expectations
+- List assumptions and risks in output.
+- Use exact file paths for architecture claims.
+- If data is missing, mark `uncertain` instead of guessing.
 
-## Validation Expectations
-- Prefer this order when validating changes:
+## 8) Validation Order (Required)
 1. `npm run validate:registry`
 2. `npm run registry:audit`
 3. `npm run typecheck`
@@ -43,3 +54,5 @@
 5. `npm run build`
 6. `npm run build:static`
 7. `npm run link-audit`
+
+If any check fails, stop and resolve before the next batch.

@@ -3,7 +3,7 @@ import { cookies } from 'next/headers'
 import { signAdminToken, ADMIN_COOKIE_NAME } from '@/lib/admin-auth'
 
 const IS_STATIC_EXPORT = process.env.STATIC_EXPORT === '1'
-export const dynamic = 'force-static'
+export const dynamic = 'force-dynamic'
 const TTL_MS = 24 * 60 * 60 * 1000 // 24h
 
 export async function POST(request: NextRequest) {
