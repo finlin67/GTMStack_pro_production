@@ -1,6 +1,7 @@
 // app/api/admin/publish-industry/route.ts
 import { NextRequest, NextResponse } from "next/server";
-import { assertLocalOnly } from "@/src/lib/localOnly";
+import { cookies } from "next/headers";
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from "@/lib/admin-auth";
 import { IndustryItemSchema } from "@/src/lib/content-schemas/IndustryItem";
 import { Project, SyntaxKind, ObjectLiteralExpression } from "ts-morph";
 import path from "path";
@@ -8,10 +9,10 @@ import fs from "fs";
 
 export const dynamic = 'force-dynamic'
 export async function POST(req: NextRequest) {
-  try {
-    assertLocalOnly();
-  } catch (err: any) {
-    return NextResponse.json({ error: err.message }, { status: 403 });
+  const cookieStore = await cookies();
+  const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value;
+  if (!isAdminAuthorized(token)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const body = await req.json();
