@@ -2,7 +2,8 @@
 // Writes validated expertise page content to content/expertise/<slug>.ts (local only).
 
 import { NextRequest, NextResponse } from "next/server";
-import { assertLocalOnly } from "@/src/lib/localOnly";
+import { cookies } from "next/headers";
+import { isAdminAuthorized, ADMIN_COOKIE_NAME } from "@/lib/admin-auth";
 import fs from "node:fs";
 import path from "node:path";
 
@@ -11,11 +12,10 @@ export const dynamic = "force-dynamic";
 const SLUG_REGEX = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
 
 export async function POST(req: NextRequest) {
-  try {
-    assertLocalOnly();
-  } catch (err: unknown) {
-    const message = err instanceof Error ? err.message : "Local-only route disabled";
-    return NextResponse.json({ error: message }, { status: 403 });
+  const cookieStore = await cookies();
+  const token = cookieStore.get(ADMIN_COOKIE_NAME)?.value;
+  if (!isAdminAuthorized(token)) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
   }
 
   const body = await req.json().catch(() => ({}));
