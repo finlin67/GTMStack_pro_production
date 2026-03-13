@@ -1,4 +1,4 @@
-name: Build and Deploy Static Site
+name: Build (no static export)
 
 on:
   push:
@@ -36,25 +36,7 @@ jobs:
             echo "WordPress API HTTP status: $code"
           fi
 
-      - name: Build static export
+      - name: Build app
         env:
           WORDPRESS_API_URL: ${{ secrets.WORDPRESS_API_URL }}
-        run: npm run build:static
-
-      - name: Sanity check static export exists
-        run: |
-          test -d out
-          test -f out/index.html
-          echo "Static export looks good."
-
-      - name: Deploy via SFTP
-        uses: appleboy/scp-action@v0.1.7
-        with:
-          host: ${{ secrets.SFTP_HOST }}
-          username: ${{ secrets.SFTP_USER }}
-          key: ${{ secrets.SFTP_KEY }}
-          port: ${{ secrets.SFTP_PORT }}
-          source: out/*
-          target: ${{ secrets.SFTP_TARGET }}
-          strip_components: 1
-          overwrite: true
+        run: npm run build

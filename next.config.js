@@ -1,5 +1,3 @@
-const { PHASE_DEVELOPMENT_SERVER } = require('next/constants')
-
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -97,24 +95,7 @@ const baseConfig = {
   },
 }
 
-module.exports = (phase) => {
-  const isDev = phase === PHASE_DEVELOPMENT_SERVER
-  const isStaticExport = process.env.STATIC_EXPORT === '1'
-  const distDir = isStaticExport ? 'out' : '.next'
-  const config = {
-    ...baseConfig,
-  }
-
-  if (isStaticExport) {
-    config.output = 'export'
-    config.distDir = 'out'
-    config.trailingSlash = true
-  } else {
-    config.distDir = '.next'
-  }
-  
-  return withMDX(config)
-}
+module.exports = withMDX(baseConfig)
 
 
 
