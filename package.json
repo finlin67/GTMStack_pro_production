@@ -6,7 +6,7 @@
     "dev": "next dev --webpack",
     "build": "next build --webpack",
     "build:hostinger": "cross-env NODE_OPTIONS=--max-old-space-size=2048 next build --webpack",
-    "start": "node -e \"const {spawn}=require('node:child_process'); const nextBin=require.resolve('next/dist/bin/next'); const port=process.env.PORT||'3000'; const child=spawn(process.execPath,[nextBin,'start','-p',port],{stdio:'inherit'}); child.on('exit',code=>process.exit(code??0));\"",
+    "start": "next start",
     "build:static": "cross-env STATIC_EXPORT=1 next build --webpack",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "typecheck": "tsc --noEmit",
@@ -82,8 +82,8 @@
   "license": "ISC",
   "type": "commonjs",
   "engines": {
-    "node": ">=20.9.0 <21",
-    "npm": ">=10.0.0"
+    "node": ">=18.0.0",
+    "npm": ">=9.0.0"
   },
   "bugs": {
     "url": "https://github.com/finlin67/z1_GTMStack_pro/issues"
