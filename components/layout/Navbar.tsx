@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link"
+import Image from "next/image"
 import { useState, useEffect, useRef } from "react"
 import { ChevronDown, Menu, X, Cloud, Landmark, Heart, Terminal, ShoppingBag, Shield, Leaf, Cpu } from "lucide-react"
 import MegaMenu from "./MegaMenu"
@@ -176,19 +177,19 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-slate-950/92 backdrop-blur-xl border-b border-slate-800/80">
       <nav className="container-width relative" ref={navRef}>
-        <div className="flex items-center justify-between h-16 md:h-[72px]">
+        <div className="flex items-center justify-between min-h-[72px] h-[72px] md:min-h-[84px] md:h-[84px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="h-10 w-10 md:h-11 md:w-11 shrink-0 rounded-2xl border border-slate-700/70 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-900 flex items-center justify-center shadow-[0_10px_30px_rgba(15,23,42,0.6)]">
-              <span className="text-[10px] md:text-[11px] font-semibold tracking-[0.22em] text-slate-200">
-                GTM
-              </span>
-            </div>
-            <div className="flex flex-col leading-none">
-              <span className="font-display font-semibold text-[15px] md:text-[16px] text-white tracking-[-0.01em]">
-                GTMStack<span className="text-brand-300">.pro</span>
-              </span>
-              <span className="hidden sm:inline text-[11px] text-slate-400 tracking-[0.08em] uppercase">
+          <Link href="/" className="flex items-center gap-3 md:gap-4 group shrink-0 py-2">
+            <Image
+              src="/gtmstack-logo.png"
+              alt="GTMStack.pro"
+              width={320}
+              height={80}
+              priority
+              className="h-11 w-auto md:h-[52px] max-w-[min(280px,calc(100vw-7rem))] object-contain object-left"
+            />
+            <div className="hidden sm:flex flex-col leading-none border-l border-slate-700/60 pl-3 md:pl-4">
+              <span className="text-[11px] text-slate-400 tracking-[0.08em] uppercase">
                 Strategic GTM consulting
               </span>
             </div>
