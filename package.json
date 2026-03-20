@@ -10,6 +10,8 @@
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "typecheck": "tsc --noEmit",
     "check": "npm run lint && npm run typecheck",
+    "sync:gallery:dry": "node scripts/sync-gallery.js --dry-run --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
+    "sync:gallery": "node scripts/sync-gallery.js --apply --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
     "gen:all": "npm run gen:registry && npm run gen:animations",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
     "gen:registry": "npx tsx scripts/gen-page-registry.ts",

@@ -1,11 +1,12 @@
 /**
  * Gallery Adapter
- * Transforms ANIMATION_REGISTRY data into the format expected by Uploaded_AnimationGallery_v1 template
+ * Transforms ANIMATION_REGISTRY data into the format expected by Uploaded_AnimationGallery_v1 template.
+ * This is the only module that defines the content shape for the gallery presentational shell.
  */
 
 import type { AnimationEntry, MarketingFunction } from '@/src/data/animations'
 
-// Types matching Uploaded_AnimationGallery_v1.tsx requirements
+/** Card shape consumed by Uploaded_AnimationGallery_v1. Only this adapter produces this shape. */
 export interface AdaptedGalleryCard {
   id: string | number
   isFeatured?: boolean
@@ -15,6 +16,9 @@ export interface AdaptedGalleryCard {
   description: string
   tags: string[]
 }
+
+/** Alias for gallery card content; adapter is the single source for this shape. */
+export type GalleryCardContent = AdaptedGalleryCard
 
 export interface AdaptedGalleryContent {
   header: {

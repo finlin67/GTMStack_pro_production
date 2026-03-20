@@ -1,4 +1,4 @@
- site-content-strategy.md
+# Site Content Strategy Reference
 
 Project: GTMStack.pro Website Content Strategy
 

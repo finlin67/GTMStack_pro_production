@@ -3,6 +3,8 @@ title: Navigation & Footer Update Guide
 description: How to safely modify the main navigation bar and footer (logo, mega menu, icons, styling, and fonts) without changing routes or architecture.
 ---
 
+# How to Update Navigation and Footer
+
 ## Overview
 
 The global navigation bar and footer are rendered from shared layout and component files:

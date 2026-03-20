@@ -312,6 +312,6 @@ If you want to create a custom embed shortcode (for team training videos, for ex
 ## Support
 
 For questions or issues:
-- Check the [Blog & WordPress Integration Guide](./BLOG-WORDPRESS-DEVELOPER-GUIDE.md)
+- Check the [Blog & WordPress Integration Guide](../../BLOG-WORDPRESS-DEVELOPER-GUIDE.md)
 - Verify your WordPress instance is running WP 5.0+ with Block Editor
 - Ensure REST API is public and not behind authentication

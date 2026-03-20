@@ -1,59 +1,11 @@
-import { getExpertiseByPillar } from '@/content/expertise'
 import { getCaseStudiesByExpertise } from '@/content/case-studies'
-import { industryItems } from '@/content/industries'
+import { industryItems } from '@/src/data/industries'
 import { getExpertiseHeroConfig } from '@/content/expertiseHeroConfigs'
 import { ExpertiseDetailContent } from '@/app/expertise/[slug]/ExpertiseDetailContent'
 import type { ExpertiseItem } from '@/lib/types'
-import { getPillarTopicComponent, type PillarId } from './pillars/pillarMap'
-
-const SLUG_TO_PILLAR: Record<string, PillarId> = {
-  'content-marketing': 'content-engagement',
-  'content-strategy-systems': 'content-engagement',
-  'email-marketing': 'content-engagement',
-  'event-marketing': 'content-engagement',
-  'omnichannel-marketing': 'content-engagement',
-  'search-engine-optimization': 'content-engagement',
-  'social-media': 'content-engagement',
-  'social-media-marketing': 'content-engagement',
-  'video-marketing': 'content-engagement',
-  'web-design-ui-ux': 'content-engagement',
-  'account-based-marketing': 'demand-growth',
-  'account-based-marketing-abm': 'demand-growth',
-  'channel-partner-marketing': 'demand-growth',
-  'demand-generation': 'demand-growth',
-  'digital-marketing': 'demand-growth',
-  'event-field-marketing': 'demand-growth',
-  'growth-marketing': 'demand-growth',
-  'lead-gen-scoring': 'demand-growth',
-  'paid-advertising': 'demand-growth',
-  'paid-advertising-sem': 'demand-growth',
-  'sales-enablement': 'demand-growth',
-  'customer-experience': 'strategy-insights',
-  'customer-experience-cx': 'strategy-insights',
-  'customer-marketing': 'strategy-insights',
-  'lifecycle-marketing': 'strategy-insights',
-  'product-marketing': 'strategy-insights',
-  'roi-analysis': 'strategy-insights',
-  'competitive-intel': 'strategy-insights',
-  'strategy': 'strategy-insights',
-  'ai-in-marketing': 'systems-operations',
-  'attribution-and-measurement': 'systems-operations',
-  'bi-data-engineering': 'systems-operations',
-  'data-governance': 'systems-operations',
-  'marketing-analytics-reporting': 'systems-operations',
-  'marketing-automation': 'systems-operations',
-  'marketing-operations': 'systems-operations',
-  'martech-optimization': 'systems-operations',
-  'revenue-operations': 'systems-operations',
-  'crm-management': 'systems-operations',
-}
-
-const PILLAR_TITLES: Record<PillarId, string> = {
-  'content-engagement': 'Content & Engagement',
-  'demand-growth': 'Demand & Growth',
-  'strategy-insights': 'Strategy & Insights',
-  'systems-operations': 'Systems & Operations',
-}
+import { getPillarTopicComponent, PILLAR_TITLES, type PillarId } from './pillars/pillarMap'
+import { PILLAR_PALETTES } from '@/src/data/pillars'
+import { getPillarIdForTopic, getTopicsByPillar } from '@/src/data/expertiseTopics'
 
 const STITCH_SLUGS = [
   'content-marketing',
@@ -137,8 +89,7 @@ export interface ExpertiseTopicTemplateProps {
 export default function ExpertiseTopicTemplate({
   item,
 }: ExpertiseTopicTemplateProps) {
-  const pillarId: PillarId =
-    (item.pillar as PillarId) ?? SLUG_TO_PILLAR[item.slug] ?? 'strategy-insights'
+  const pillarId = getPillarIdForTopic(item.slug)
   const pillarTitle = PILLAR_TITLES[pillarId]
 
   const challenges =
@@ -152,11 +103,10 @@ export default function ExpertiseTopicTemplate({
   const parsedResults = parseProofMetrics(item.proof?.metrics)
   const results = parsedResults.length >= 3 ? parsedResults : DEFAULT_RESULTS
 
-  const relatedExpertise = item.pillar
-    ? getExpertiseByPillar(item.pillar)
-        .filter((e) => e.slug !== item.slug)
-        .slice(0, 4)
-    : []
+  const relatedExpertise = getTopicsByPillar(pillarId)
+    .map((t) => t.item)
+    .filter((e) => e.slug !== item.slug)
+    .slice(0, 4)
 
   const relatedCaseStudies = getCaseStudiesByExpertise(item.slug).slice(0, 3)
 
@@ -166,13 +116,7 @@ export default function ExpertiseTopicTemplate({
 
   const heroConfig = getExpertiseHeroConfig(item.slug)
 
-  const pillarTintOverlay =
-    {
-      'content-engagement': '#0E1748',
-      'demand-growth': '#0D1645',
-      'strategy-insights': '#0C1442',
-      'systems-operations': '#0D1650',
-    }[pillarId]
+  const pillarTintOverlay = PILLAR_PALETTES[pillarId].overlay
 
   const useStitchTheme = STITCH_SLUGS.includes(item.slug)
   const usePmmAiTheme = PMM_AI_SLUGS.includes(item.slug)

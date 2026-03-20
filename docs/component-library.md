@@ -1,4 +1,4 @@
-# Component Library Catalog
+# Component Library Reference
 
 This workspace uses a **dark-first visual system** (global `app/globals.css` + Tailwind tokens), with reusable wrappers that opt into light surfaces where needed.
 

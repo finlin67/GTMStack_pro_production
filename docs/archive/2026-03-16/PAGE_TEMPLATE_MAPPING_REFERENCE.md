@@ -317,4 +317,4 @@ Filter route column for `/services/`
 
 ---
 
-**For Detailed Remapping Instructions**: See [CONTENT_MANAGEMENT_GUIDE.md](./CONTENT_MANAGEMENT_GUIDE.md) and [MIGRATION-REGISTRY-ROUTING.md](./MIGRATION-REGISTRY-ROUTING.md)
+**For Detailed Remapping Instructions**: See [CONTENT_MANAGEMENT_GUIDE.md](../../CONTENT_MANAGEMENT_GUIDE.md) and [ROUTING.md](../../ROUTING.md)

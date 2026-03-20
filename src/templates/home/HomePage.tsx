@@ -1,6 +1,7 @@
 'use client'
 
 import React from 'react'
+import Link from 'next/link'
 import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 import {
   ArrowRight,
@@ -161,11 +162,13 @@ const Hero = ({ content, heroVisualId }: { content: PageContent; heroVisualId?: 
               </p>
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              <button className="btn-cta-primary">
+              <Link href="/expertise" className="btn-cta-primary">
                 {content.hero.ctaPrimary}
                 <ArrowRight className="h-4 w-4" />
-              </button>
-              <button className="btn-hero-outline">{content.hero.ctaSecondary}</button>
+              </Link>
+              <Link href="/about" className="btn-hero-outline">
+                {content.hero.ctaSecondary}
+              </Link>
             </div>
           </div>
           <div className="hidden items-center justify-center lg:flex">

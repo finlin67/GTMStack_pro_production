@@ -1,6 +1,6 @@
-# Animation System Guide: Registration, Routing & Rendering
+# Animation System Architecture
 
-**Last Updated:** March 1, 2026
+**Last Updated:** March 16, 2026
 
 This guide explains how `.tsx` animation files are created, registered, routed to pages, and displayed in both the **animation gallery** and the **hero sections** of pages.
 
@@ -15,8 +15,9 @@ This guide explains how `.tsx` animation files are created, registered, routed t
 5. [Routing to Hero Sections](#routing-to-hero-sections)
 6. [Routing to Gallery](#routing-to-gallery)
 7. [Step-by-Step: Adding a New Animation](#step-by-step-adding-a-new-animation)
-8. [Technical Architecture](#technical-architecture)
-9. [Troubleshooting](#troubleshooting)
+8. [Motion System Runtime](#motion-system-runtime)
+9. [Technical Architecture](#technical-architecture)
+10. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -681,6 +682,52 @@ console.log(entry)  // Should show your entry
 
 ---
 
+## Motion System Runtime
+
+### Libraries in Use
+
+| Library | Role | Where Used |
+|---------|------|------------|
+| **Framer Motion** (`framer-motion`) | Primary animation library — transitions, spring physics, layout animation | `src/components/animations/*`, `components/ui/*`, `components/sections/*`, `components/motion/FadeIn.tsx` |
+| **Tailwind CSS keyframes** | Reusable CSS motion presets via `tailwind.config.ts` animation utilities | Global keyframes applied via Tailwind utility classes |
+| **Lottie JSON assets** | Static assets present under `public/lottie/` and referenced in `lib/hero-visual-manifest.ts` | No active Lottie runtime package in `package.json`; not currently rendered at runtime |
+
+Not active: GSAP, React Spring, Anime.js, AOS.
+
+### Global Keyframes (`tailwind.config.ts`)
+
+| Name | Effect |
+|------|--------|
+| `marquee` | Horizontal continuous scroll |
+| `fadeIn` | Opacity 0 → 1 |
+| `fadeUp` | Upward reveal with fade-in |
+| `scaleIn` | Slight zoom-in with fade-in |
+| `slideLeft` | Horizontal reveal from right |
+| `float` | Gentle vertical bob |
+| `drift` | Slow drifting translation/scale |
+| `glowPulse` | Pulsing opacity glow |
+
+Local keyframes: `BlogMainTemplate.tsx` adds `@keyframes spin-slow`; `IndustriesMainTemplate.tsx` adds `@keyframes RA_spin`.
+
+### Shared UI Motion Components
+
+These components are **not** animation files — they are layout/UI primitives with built-in motion.
+
+| Component | File | Trigger | Visual Effect |
+|-----------|------|---------|---------------|
+| `FadeIn` | `components/motion/FadeIn.tsx` | Scroll into view (IntersectionObserver) | Fades/slides content in once visible |
+| `StaggerContainer` / `StaggerItem` | `components/motion/FadeIn.tsx` | Scroll into view | Children reveal in sequence with stagger timing |
+| `HoverScale` | `components/motion/FadeIn.tsx` | Hover / tap | Slight scale-up on hover, subtle press-in on tap |
+| `Reveal` | `components/ui/Reveal.tsx` | Scroll into view | Simple fade-up reveal |
+| `MobileMegaMenu` | `components/ui/MobileMegaMenu.tsx` | Menu open/close + accordion | Animated height/opacity expand-collapse |
+| `HeroVisual` | `components/ui/HeroVisual.tsx` | Hero render, hover, image load | Ambient drift, shimmer sweep, fade-in with skeleton transition |
+| `GalleryModal` | `components/gallery/GalleryModal.tsx` | Modal open/close | Backdrop fade and modal scale/slide spring transition |
+| `StatsSection` | `components/sections/StatsSection.tsx` | Scroll into view | Staggered card reveal, spring-counting values, live jitter |
+| `TimelineTeaser` | `components/sections/TimelineTeaser.tsx` | In-view + hover pause | Auto-scrolling marquee that pauses on hover |
+| `ProblemPromise` | `components/sections/ProblemPromise.tsx` | Scroll into view | SVG draw-on route line and endpoint pulse reveal |
+
+---
+
 ## Technical Architecture
 
 ### Dynamic vs Direct Imports
@@ -910,6 +957,20 @@ const YourAnimation = dynamic(
 
 ---
 
+### CSV and Component QC Rules
+
+Run these checks on every animation file before adding it to either registry.
+
+1. **File exists** — Path: `src/components/animations/<Local File Name>` must be present on disk.
+2. **Default export** — File has exactly one default export that is a React component: `export default function ComponentName() { ... }`.
+3. **`'use client'` directive** — Required at line 1 if the component uses `useState`, `useEffect`, or any other client-only API. Omitting it causes SSR errors.
+4. **Hero-friendly layout** — The outer wrapper must fit a **1:1** tile (e.g. `max-w-[500px] aspect-square` or `w-full h-full` inside an aspect-square container). Avoid `min-h-screen` or hard-coded pixel dimensions (`w-[600px] h-[600px]`) unless intentionally scaled down in the hero shell.
+5. **Tailwind / design tokens** — Every custom class used in the component (e.g. `dark-bg`, `card-bg`) must be defined in `tailwind.config.ts` or `app/globals.css`; otherwise the Tailwind build will drop them and the component will be unstyled.
+
+CSV column header must be exactly `Route,Title,Media Type,Local File Name,Notes` — any extra characters or typos in the header row will break CSV parsing.
+
+---
+
 ## Quick Reference
 
 ### Adding New Animation Checklist
@@ -967,12 +1028,12 @@ getHeroVisualForPath(pathname)  // Get single entry for route
 
 ## Related Documentation
 
-- [Animation Library and Routing](./ANIMATION_LIBRARY_AND_ROUTING.md) - Detailed routing architecture
-- [CSV Update Checklist](./CSV_UPDATE_CHECKLIST.md) - Process for updating the CSV
-- [Gallery Management Guide](./GALLERY_MANAGEMENT_GUIDE.md) - Managing the gallery page
+- [Gallery Management Guide](./GALLERY_MANAGEMENT_GUIDE.md) - Managing the gallery page and ownership
+
+> **Note:** `ANIMATION_LIBRARY_AND_ROUTING.md`, `animation-guide.md`, `CSV_UPDATE_CHECKLIST.md`, and `hero-visual-library-spec.md` have been merged into this document and archived under `docs/archive/2026-03-16/`.
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** March 1, 2026  
+**Document Version:** 1.1  
+**Last Updated:** March 16, 2026  
 **Maintainer:** Development Team

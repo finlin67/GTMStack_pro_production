@@ -1,0 +1,22 @@
+Page / Section,Structural Accent Name,Structural Accent Hex,Gradient Name,Gradient Hex Values,Proof Color,Design Intent
+Content & Engagement,Mustard Gold,#FFDB58,Cobalt ? Ice,#154360 ? #AED6F1,#FFDB58 Gold,Warm creative authority
+Demand & Growth,Vivid Orange,#E8620A,Blue ? Orange,#1B4FD8 ? #E8620A,#E8A040 Orange,Velocity & conversion heat
+Strategy & Insights,Light Blue + Indigo,#AED6F1 / #3A3776,Purple ? Blue,#8E44AD ? #AED6F1,Gradient Purple?Blue,Analytical depth
+Systems & Operations,Electric Cyan,#36C0CF,Navy ? Steel Blue,#0B3D6B ? #A8D8EA,#A8D8EA Ice Blue,Technical precision
+Expertise Hub,Royal Blue,#4A86D8,Cobalt ? Ice,#154360 ? #AED6F1,White,Umbrella authority
+Industries Hub,Azure Blue,#2E7CF6,Azure ? Gold,#2E7CF6 ? #FFDB58,#FFDB58 Gold,Global enterprise premium
+Case Studies Hub,Platinum Silver,#B8C8D8,Charcoal ? Ice,#0C1F33 ? #C8DFF0,Per-pillar accent,Neutral proof container
+Blog / Insights,Royal Blue,#4A86D8,Cobalt ? Ice,#154360 ? #AED6F1,#FFDB58 Gold,Consistent with Expertise
+Single Industry Page,Cobalt Blue,#1B4FD8,Blue ? Orange,#1B4FD8 ? #E8620A,Orange?Gold gradient,Vertical urgency
+Sub-Topic Pages,Inherits parent pillar,—,Inherits parent pillar,—,Inherits parent pillar,Token swap re-themes automatically
+Single Case Study,Inherits pillar accent,—,Inherits pillar gradient,—,Inherits pillar accent,PillarAccent var drives re-theme
+Single Blog Post,Inherits pillar accent,—,Inherits pillar gradient,—,Inherits pillar accent,Same token system as case study
+Resume Page,Azure Blue,#2E7CF6,Cobalt ? Ice (H1),#154360 ? #AED6F1,Orange?Gold gradient,Personal brand above pillar system
+Nav CTA — all pages,Mustard Gold fill,#FFDB58,N/A — solid only,—,#0A1628 text on gold,Single site-wide conversion color
+Proof / KPI — all pages,Gold or Orange?Gold,#FFDB58 / #E8A040,Orange ? Gold,#C2440F ? #E8A040 ? #FFDB58,Three-stop gradient,Site-wide proof signal
+BG Darkest,—,#020617,—,—,—,Footer
+BG Hero/Nav,—,#0A1628,—,—,—,Primary dark bg
+BG Mid Dark,—,#0D2137,—,—,—,Alternating dark sections
+BG Deep Dark,—,#112B3C,—,—,—,CTA blocks & dark cards
+BG Light,—,#F4F6F8,—,—,—,Alternating light sections
+Body Text (light bg),—,#3D4B5C,—,—,—,Paragraphs on white

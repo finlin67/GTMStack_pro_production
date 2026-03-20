@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import ExpertiseTopicBreadcrumb, {
+  type ExpertiseTopicBreadcrumbProps,
+} from '@/src/components/expertise/ExpertiseTopicBreadcrumb';
 import {
   Waypoints,
   Network,
@@ -20,6 +23,8 @@ export interface TemplateContent {
     badge: string;
     headlinePart1: string;
     headlineHighlight: string;
+    /** One-sentence deck under H1/accent (mapped from subheadline when accent exists). */
+    deck?: string;
     description: string;
     primaryButton: string;
     secondaryButton: string;
@@ -77,6 +82,7 @@ const DEFAULT_CONTENT: TemplateContent = {
     badge: "SYSTEMS & OPERATIONS",
     headlinePart1: "The Revenue Engine's",
     headlineHighlight: "Engineered Infrastructure",
+    deck: "",
     description: "High-performance engineered infrastructure for modern revenue teams. We architect, deploy, and scale the systems that power your growth.",
     primaryButton: "Get Started",
     secondaryButton: "Learn More",
@@ -160,7 +166,15 @@ function isSystemOperationsContent(c: unknown): c is TemplateContent {
   );
 }
 
-export default function Template({ content, pageTitle }: { content?: unknown; pageTitle?: string }) {
+export default function Template({
+  content,
+  pageTitle,
+  expertiseBreadcrumb,
+}: {
+  content?: unknown
+  pageTitle?: string
+  expertiseBreadcrumb?: ExpertiseTopicBreadcrumbProps
+}) {
   const data = isSystemOperationsContent(content) ? content : DEFAULT_CONTENT;
 
   const getIcon = (iconName: string, className?: string) => {
@@ -218,14 +232,30 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
           <div className="mx-auto flex flex-col lg:flex-row w-full max-w-[1440px] items-center gap-12 relative z-10 py-20 lg:py-0">
             {/* Left: Content */}
             <div className="w-full lg:w-[52%] space-y-8">
-              <div className="inline-flex items-center rounded-full border border-[#36bfce]/30 bg-[#36bfce]/10 px-4 py-1 text-xs font-bold tracking-widest text-[#36bfce] uppercase">
-                {data.hero.badge}
-              </div>
-              <h1 className="font-display text-5xl md:text-7xl font-black leading-[1.1] text-white">
-                {data.hero.headlinePart1} <br />
-                <span className="gradient-text">{data.hero.headlineHighlight}</span>
+              {expertiseBreadcrumb ? (
+                <ExpertiseTopicBreadcrumb {...expertiseBreadcrumb} />
+              ) : (
+                <div className="inline-flex items-center rounded-full border border-[#36bfce]/30 bg-[#36bfce]/10 px-4 py-1 text-xs font-bold tracking-widest text-[#36bfce] uppercase">
+                  {data.hero.badge}
+                </div>
+              )}
+              <h1 className="font-display text-4xl md:text-5xl lg:text-[2.75rem] font-black leading-[1.12] text-white max-w-3xl">
+                {data.hero.headlinePart1}
+                {data.hero.headlineHighlight ? (
+                  <>
+                    <br />
+                    <span className="gradient-text text-2xl md:text-3xl lg:text-[2rem] font-bold">
+                      {data.hero.headlineHighlight}
+                    </span>
+                  </>
+                ) : null}
               </h1>
-              <p className="max-w-xl text-lg md:text-xl leading-relaxed text-white/75">
+              {data.hero.deck ? (
+                <p className="font-display max-w-xl text-lg md:text-xl font-semibold leading-snug text-white/85">
+                  {data.hero.deck}
+                </p>
+              ) : null}
+              <p className="max-w-xl text-base md:text-[1.05rem] leading-relaxed text-white/70 whitespace-pre-line">
                 {data.hero.description}
               </p>
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
@@ -280,7 +310,7 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
             </h2>
             
             {/* Integration Arc Visualization */}
-            <div className="relative mb-32 flex h-[300px] w-full items-center justify-center hidden md:flex">
+            <div className="relative mb-32 hidden h-[300px] w-full items-center justify-center md:flex">
               {/* Connecting Arc */}
               <div className="absolute h-[600px] w-[1000px] rounded-[100%] border-t-2 border-dashed border-[#36bfce]/30 top-1/2"></div>
               

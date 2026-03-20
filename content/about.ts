@@ -3,135 +3,162 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** About page content for HomeTemplate (PageContent shape). */
 export const ABOUT_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'OUR PHILOSOPHY',
-    titleStart: 'Architecture for ',
-    titleGradient: 'Predictable Growth',
+    badge: 'B2B REVENUE LEADER',
+    titleStart: 'Built Revenue Engines at the ',
+    titleGradient: "World's Top Tables",
     subtitle:
-      'We build the systems and strategies that turn GTM from a guessing game into a precision science. Our mission is to align your people, process, and platform.',
-    ctaPrimary: 'View Expertise',
+      'I architect systems that bridge the gap between complex SaaS products and global market dominance, focused on efficiency and scalable growth.',
+    ctaPrimary: 'Explore Expertise',
     ctaSecondary: 'Our Story',
   },
   stats: [
-    { value: '20+', label: 'Years Experience' },
-    { value: '50+', label: 'Revenue Engines Built' },
-    { value: '15+', label: 'Tech Verticals' },
-    { value: '$500M+', label: 'Pipeline Influenced' },
+    { value: '$1.2M', label: 'Pipeline Built' },
+    { value: '87%', label: 'Growth Rate' },
+    { value: '12+', label: 'Years Exp' },
   ],
   methodology: {
-    title: 'The Architectural Method',
+    title: 'Strategic Evolution',
     description:
-      'A rigid, four-phase engineering framework designed to eliminate leakage and maximize capture across your entire GTM motion.',
+      'Leadership that scales acquisition, modernizes MarTech, and improves GTM execution across multiple growth stages.',
     steps: [
       {
-        number: '01',
-        icon: 'Search',
-        title: 'Audit',
-        description: 'Deep forensic dive into GTM, tech stack, funnel leakage.',
+        number: '2021 — Present',
+        icon: 'TrendingUp',
+        title: 'Director, Demand Gen',
+        description:
+          'PRGX Global Inc.\n• Scaled global digital acquisition by 40% in Year 1.\n• Modernized MarTech stack resulting in 30% cost savings.\n• Oversaw $2M+ in paid media budget across 3 continents.',
         progress: '25%',
       },
       {
-        number: '02',
-        icon: 'DraftingCompass',
-        title: 'Design',
-        description: 'Blueprint for scalable revenue infrastructure.',
+        number: '2019 — 2021',
+        icon: 'Map',
+        title: 'Sr. Revenue Manager',
+        description:
+          'AMCS Group\n• Implemented lead scoring reducing junk leads by 65%.\n• Aligned Sales and Marketing ops globally (LDR/SDR focus).',
         progress: '50%',
       },
       {
-        number: '03',
+        number: '2017 — 2019',
         icon: 'Rocket',
-        title: 'Build',
-        description: 'Execute tech integration + campaigns + enablement.',
+        title: 'Marketing Ops Lead',
+        description:
+          'Red Hat (IBM)\n• Redesigned attribution modeling for enterprise deals.\n• Managed database health for 1M+ active contacts.',
         progress: '75%',
       },
       {
-        number: '04',
+        number: '2014 — 2017',
         icon: 'Settings',
-        title: 'Optimize',
-        description: 'Continuous tuning + A/B testing + scaling.',
+        title: 'Solution Consultant',
+        description:
+          'Salesforce\n• Awarded "Top Technical Closer" for Q3/Q4 2016.\n• Architected custom CRM workflows for Fortune 500 clients.',
         progress: '100%',
       },
     ],
   },
   expertise: {
-    title: 'Core Capabilities',
+    title: 'AI & MACHINE LEARNING',
     items: [
       {
         icon: 'TrendingUp',
-        title: 'Sales Velocity',
-        description: 'Increasing speed and frequency of closed-won deals via pipeline rigor + coaching.',
-        tags: ['Pipeline Rigor', 'Coaching', 'Deal Velocity'],
+        title: 'Predictive Lead Scoring',
+        description:
+          'Integrated custom ML models to prioritize high-intent accounts, resulting in 40% higher MQL-to-SQL conversion.',
+        tags: ['Impact: 40% Conversion Lift'],
       },
       {
         icon: 'Map',
-        title: 'GTM Strategy',
-        description: 'Market entry + positioning blueprint for competitive dominance.',
-        tags: ['Market Entry', 'Positioning', 'Competitive Edge'],
+        title: 'Content Intelligence',
+        description:
+          'Leveraged LLMs for automated multi-channel content personalization at scale, reducing production time by 60%.',
+        tags: ['Impact: 60% Faster Delivery'],
       },
       {
         icon: 'Network',
-        title: 'Demand Gen Systems',
-        description: 'Automated high-intent pipeline engines.',
-        tags: ['High-Intent', 'Automation', 'Pipeline'],
-      },
-      {
-        icon: 'Settings',
-        title: 'Revenue Ops',
-        description: 'Tool, data, and reporting alignment for full GTM visibility.',
-        tags: ['Tech Stack', 'Data Alignment', 'Reporting'],
+        title: 'GTM Workflow Automation',
+        description:
+          'Built AI-driven agents to automate technical attribution and data enrichment across enterprise CRM environments.',
+        tags: ['Impact: 100% Data Accuracy'],
       },
     ],
   },
   quote: {
-    text: "We reject the 'growth at all costs' narrative in favor of ",
-    highlight: 'predictable revenue growth',
+    text: 'I architect systems that bridge the gap between complex SaaS products and global market dominance, focused on',
+    highlight: 'efficiency and scalable growth',
   },
   caseStudies: {
-    title: 'Explore Further',
-    subtitle: 'See how this expertise translates into real-world results.',
+    title: 'Performance Benchmarks',
+    subtitle: 'Impact across GTM strategy, demand execution, and revenue operations.',
     items: [
       {
-        title: 'SaaS Pipeline Expansion',
-        description:
-          'Unified ABM and RevOps for a Series B SaaS company. Clear attribution and routing drove pipeline growth and deal velocity.',
-        outcomeLabel: 'Pipeline growth',
-        outcomeValue: '126%',
+        title: 'Pipeline Generated',
+        description: '',
+        outcomeLabel: 'Benchmark',
+        outcomeValue: '$9M',
       },
       {
-        title: 'Fintech GTM Launch',
-        description:
-          'From ICP definition to first revenue. Demand systems and sales playbooks aligned for a regulated market.',
-        outcomeLabel: 'Time to first deal',
-        outcomeValue: '-40%',
+        title: 'MQL-to-SQL Lift',
+        description: '',
+        outcomeLabel: 'Benchmark',
+        outcomeValue: '180%',
       },
       {
-        title: 'Manufacturing ABM',
-        description:
-          'Account-based motion and intent signals for industrial accounts. Sales focused on in-market opportunities.',
-        outcomeLabel: 'SQLs from intent',
-        outcomeValue: '74',
+        title: 'CAC Reduction',
+        description: '',
+        outcomeLabel: 'Benchmark',
+        outcomeValue: '45%',
       },
-    ],
-    industries: [
-      { title: 'SaaS & Technology', description: '', quote: 'Predictable pipeline from day one.' },
-      { title: 'Fintech', description: '', quote: 'GTM that respects compliance and velocity.' },
-      { title: 'Manufacturing', description: '', quote: 'ABM that reaches the right decision-makers.' },
+      {
+        title: 'Churn Decrease',
+        description: '',
+        outcomeLabel: 'Benchmark',
+        outcomeValue: '22%',
+      },
+      {
+        title: 'Global Partners',
+        description: '',
+        outcomeLabel: 'Benchmark',
+        outcomeValue: '50+',
+      },
+      {
+        title: 'ROI on Ad Spend',
+        description: '',
+        outcomeLabel: 'Benchmark',
+        outcomeValue: '15x',
+      },
     ],
   },
   founder: {
-    name: 'Michael',
-    role: 'Global GTM Strategist & Revenue Architect',
+    name: 'Michael Findling',
+    role: 'Miami, FL • Available for Relocation',
     image: 'https://placehold.co/800x800/png',
-    bio: 'A veteran of enterprise GTM. I build scalable revenue engines that connect strategy to execution.',
-    yearsExperience: '20+',
+    bio: '',
+    yearsExperience: '12+',
     timeline: [
-      { icon: 'account_balance', title: 'Wall Street Origins', description: 'M&A Analyst specializing in tech acquisitions.' },
-      { icon: 'cloud_done', title: 'The Salesforce Era', description: 'Lead Strategist for Enterprise GTM at global scale.' },
-      { icon: 'rocket_launch', title: 'RevenueArchitect Founded', description: 'Engineering predictable growth for B2B tech.' },
+      {
+        icon: 'TrendingUp',
+        title: '2021 — Present (Director, Demand Gen)',
+        description: 'PRGX Global Inc. Scaled acquisition, modernized MarTech, and led paid media across 3 continents.',
+      },
+      {
+        icon: 'Map',
+        title: '2019 — 2021 (Sr. Revenue Manager)',
+        description: 'Lead scoring that reduced junk leads and aligned global sales/marketing operations (LDR/SDR).',
+      },
+      {
+        icon: 'Rocket',
+        title: '2017 — 2019 (Marketing Ops Lead)',
+        description: 'Enterprise attribution redesign and database operations for 1M+ active contacts.',
+      },
+      {
+        icon: 'Settings',
+        title: '2014 — 2017 (Solution Consultant)',
+        description: 'Top technical closer (2016) and CRM workflow architecture for Fortune 500 clients.',
+      },
     ],
   },
   ctaBottom: {
-    title: 'Ready to engineer your growth?',
-    subtitle: 'Stop guessing and start building. Our diagnostic audit uncovers the exact bottlenecks holding your revenue back.',
-    buttonText: 'Schedule Audit',
+    title: 'Ready to Architect Your Next Revenue Engine?',
+    subtitle: 'Currently open to strategic leadership roles in growth-stage B2B SaaS companies.',
+    buttonText: 'Start a Conversation',
   },
 }

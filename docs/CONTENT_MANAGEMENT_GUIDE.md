@@ -1,6 +1,6 @@
-# Content Management Guide
+# How to Manage Content
 
-**Last Updated:** February 28, 2026
+**Last Updated:** March 16, 2026
 
 This guide explains how content is structured and managed across all pages in the GTM Stack Pro website project.
 
@@ -224,6 +224,42 @@ The "slug model" is simple:
 3. The registry pre-maps all valid slugs so they can be statically generated at build time
 
 No dynamic routing, no runtime slug resolution—just deterministic lookups.
+
+### Admin UI Operations (Page Index CMS)
+
+Access at `/admin`. Use this to manage the registry without editing CSV files directly.
+
+#### Page Index Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Page Title & URL** | Name + web address (e.g., `/expertise/demand-generation`) |
+| **Status** | Color-coded health badge (see below) |
+| **Mapping (Template / Content)** | Which template and contentKey are assigned |
+| **Actions** | "Edit Mapping" or "Add to Registry" buttons |
+
+#### Status Indicators
+
+| Status | Meaning | Action |
+|--------|---------|--------|
+| **Registered** (Green) | Correctly mapped and in sitemap | None |
+| **In Sitemap, Missing Registry** (Yellow) | Public page not yet CMS-configured | Click **Add to Registry** |
+| **In Registry, Missing Sitemap** (Blue) | Configured but not public | Check if intent is correct |
+| **Broken Mapping** (Red) | Missing template, contentKey, or invalid ID | Click **Edit Mapping** to fix |
+| **Filesystem Only** (Gray) | Code file exists but not registered | Usually internal/system pages |
+
+#### Adding or Editing a Page Mapping
+
+1. Go to `/admin` and search for the page (by URL slug or title).
+2. Click **Add to Registry** (new) or **Edit Mapping** (existing).
+3. Fill in:
+   - **Page Title** — friendly display name
+   - **Template (Page Layout)** — `templateId` (e.g., `industry.base`)
+   - **Content Key** — `prefix:slug` format (e.g., `industries:healthcare`)
+   - **Content File (Ref)** — source file path (e.g., `content/industries.ts`)
+4. Click **Save Changes**.
+
+After saving: `page-registry.csv` is updated, registry regeneration runs automatically, and the site mapping updates immediately.
 
 ---
 
@@ -514,6 +550,27 @@ Uses the same `HomeTemplateContent` type as home page but with different content
 | `/resume` | Resume page | `content/resume.ts` | Template content | Resume-specific |
 | `/expertise` | Expertise pillars | `content/expertiseHeroConfigs.ts` | Hero configs | Pillar landing pages |
 
+### Theme Assignments
+
+| Theme | Routes |
+|-------|--------|
+| **Dark** | `/about`, `/expertise` (hub + all sub-routes), `/gallery`, `/industries` (hub + fleet-management-logistics, manufacturing, pubsec-government, retail, retail-ecommerce), `/projects`, `/case-studies`, `/services/*`, `/p/test` |
+| **Light** | `/contact`, `/resume`, `/industries/b2b-saas`, `/industries/financial-services`, `/industries/healthcare` |
+| **Default/unspecified** | `/` (home) |
+
+### Content Key Format Reference
+
+| Pattern | Example | Source |
+|---------|---------|--------|
+| `home:main` | Home page | `content/home.ts` → `HOME_CONTENT` |
+| `expertise:<slug>` | `expertise:demand-generation` | `content/expertise.ts` array |
+| `pillar:<slug>` | `pillar:demand-growth` | `content/expertise/<slug>.ts` |
+| `industries:<slug>` | `industries:healthcare` | `content/industries.ts` array |
+| `case-studies:<slug>` | `case-studies:event-to-store-lift-retail` | `content/case-studies.ts` array |
+| `about:main`, `contact:main`, `gallery:main`, etc. | Static pages | Respective `content/*.ts` files |
+
+**Note:** Some routes intentionally alias to the same contentKey (e.g., `/industries/retail` and `/industries/retail-ecommerce` both use `industries:retail`).
+
 ---
 
 ## How to Add New Content
@@ -682,6 +739,229 @@ export const PILLARS: Pillar[] = [
 
 ---
 
+## TemplateID Naming Standards
+
+Use these rules for all new template registrations.
+
+### Canonical Format
+
+`<domain>.<variant>` — lowercase, dot-separated, no spaces/underscores/camelCase.
+
+```
+^[a-z0-9]+(?:-[a-z0-9]+)*\.[a-z0-9]+(?:-[a-z0-9]+)*$
+```
+
+### Standard Patterns by Page Type
+
+| Page Type | Pattern | Example |
+|-----------|---------|---------|
+| Hub/main pages | `<section>.main` | `home.main`, `expertise.main`, `gallery.main` |
+| Shared detail templates | `<section>.base` | `industry.base`, `caseStudy.base` |
+| Expertise pillars/topics | `expertise.<slug>` | `expertise.demand-growth` |
+| Fallback | `base.fallback` | (FallbackTemplate.tsx) |
+
+### Do / Don't Rules
+
+- **Do** use `expertise.<slug>` for all expertise category/pillar pages.
+- **Do not** introduce new `expertise.<slug>pillar` IDs (wizard inconsistency — use simple form).
+- **Do** reuse `industry.base` / `caseStudy.base` when the layout is intentionally shared.
+- **Do not** create `Uploaded_*` or PascalCase IDs for long-term canonical mappings.
+- **Do not** embed ticket numbers, dates, or temp labels in IDs.
+
+### Legacy → Canonical Migration Map
+
+| Legacy / Non-Canonical ID | Canonical ID | Status |
+|---------------------------|--------------|--------|
+| `home.base` | `home.main` | ✅ Use canonical |
+| `expertise.<slug>pillar` | `expertise.<slug>` | ⚠️ Avoid — wizard inconsistency |
+| `Uploaded_*` / PascalCase | `<section>.<slug>` | ⚠️ Temporary only — register canonical ID |
+| `ContentEngagement` | `expertise.content-engagement` | ⚠️ Migrate |
+| `expertise_demandgrowth_v1` | `expertise.demand-growth` | ⚠️ Migrate |
+| `caseStudy.base` | `case-study.base` | ⚠️ Grandfather — acceptable for now |
+| `industry.base`, `gallery.main`, `expertise.main` | Same | ✅ Canonical |
+| `expertise.topic` / `expertise.category` | `expertise.<slug>` | ⚠️ Too generic |
+
+### Quick Decision Guide
+
+- New expertise pillar/topic → `expertise.<slug>`
+- New industry page → reuse `industry.base`
+- New case study page → `caseStudy.base` (or `case-study.base` in future migrations)
+- New hub/main → `<section>.main`
+- After uploading a template → immediately register a canonical ID via Templates panel
+
+### TemplateID Pre-Merge Checklist
+
+- [ ] ID matches canonical `<domain>.<variant>` pattern
+- [ ] ID is present in `src/templates/registry.ts` `TEMPLATE_BY_ID`
+- [ ] Mapped component import path resolves and file exists
+- [ ] Page rows in `src/data/page-registry.csv` point to the intended ID
+- [ ] `npm run gen:registry` completes successfully
+- [ ] Target route renders without `Unknown templateId` errors
+
+---
+
+## Operator Runbook
+
+### Safety Rules (Always Follow)
+
+- **Do not rename `contentKey`s casually** — other content may reference them.
+- **Slugs are IDs** — changing a slug requires updating all references.
+- **Validate content before saving** — schema violations throw errors in dev.
+- **Keep templates data-driven** — render from `props.content`, no hardcoded copy.
+- **Make small, reversible changes** — verify between steps.
+
+### Updating Content (text, bullets, stats)
+
+1. Go to `/admin` → find the page → note `templateId`, `contentKey`, `fileRef`.
+2. Open `src/content/registry.ts` to confirm which file handles that `contentKey`.
+3. Edit only the data in that file (headlines, paragraphs, bullets, stats, tags).
+4. Validate at **Admin → Content Validator** (must show **Valid ✅**).
+5. Check cross-links: `featuredCaseStudies`, `featuredExpertise`, `industry` slug references must all point to real slugs.
+6. Verify in the browser (dark + light themes if applicable).
+
+### Updating Templates (UI/look)
+
+1. Identify `templateId` from `/admin` or `src/data/page-registry.csv`.
+2. **Option A (recommended):** Upload new `.tsx` template via `/admin` → Edit Mapping → "Upload Custom Template (.tsx)".
+3. **Option B:** Edit `src/templates/<templateId>.tsx` directly.
+4. After any upload, **restart the dev server** (Next.js won't hot-reload newly created files).
+5. Run template verification checklist: hover/focus styles, links work, `next/image` has `alt`, dark/light modes render correctly.
+
+### Wiring a New Page (route → templateId + contentKey)
+
+Preferred path (no-code):
+1. `/admin` → find or add the route.
+2. Fill: **Page Title**, **Template ID**, **Content Key** (`prefix:slug`), **Content File (Ref)**.
+3. Save Changes — registry CSV updates and `gen:registry` runs automatically.
+
+### Pre-Import Checklists
+
+**For templates (`.tsx`):**
+- [ ] No hardcoded copy — all text from `props.content`
+- [ ] No `"use client"` unless truly needed
+- [ ] `next/link` for links, `next/image` for images (with `alt` + dimensions)
+- [ ] Dark mode via `dark:` classes
+- [ ] Single `h1`, heading order maintained
+
+**For content (`.ts`):**
+- [ ] Validates in **Admin → Content Validator**
+- [ ] Slugs are lowercase-with-hyphens
+- [ ] Cross-links are real slugs (industry/expertise/case-studies references)
+
+### AI Studio Prompts
+
+Use these when generating new templates or content objects.
+
+#### Prompt A — Generate `.tsx` Template (UI only)
+
+```text
+ROLE: Expert Next.js 14 + Tailwind developer.
+
+CONTEXT:
+- This repo renders pages via: route -> templateId -> template component.
+- Templates must accept props with `content` and render from that object (no hardcoded copy).
+
+TASK:
+Convert the provided PROTOTYPE HTML (Tailwind) into a production-ready Next.js 14 `.tsx` template component.
+
+OUTPUT: EXACTLY ONE code block containing ONLY the `.tsx` file content.
+
+RULES:
+- No "use client" unless you truly need React hooks or event handlers.
+- Use `next/link` for links and `next/image` for images.
+- Every `Image` must have `alt` and either (width + height) OR `fill` + `sizes` with a sized `relative` parent.
+- Must support dark mode using Tailwind `dark:` classes.
+- All text must be rendered from `props.content` — no hardcoded copy.
+- Semantic HTML: one `h1`, correct heading order.
+- Props: `type Props = { content: any; pageTitle?: string }`
+
+PROTOTYPE HTML:
+<PASTE HTML HERE>
+```
+
+#### Prompt B1 — Industry content object
+
+```text
+ROLE: TypeScript content author for a schema-validated CMS.
+
+TASK: Write ONE Industry item matching:
+slug, title, description, longDescription, tags (string[]), icon, stats ([{label, value}])
+Optional: positioning, gtmRealities (string[]), proof, playbook, featuredExpertise, featuredCaseStudies
+
+OUTPUT: EXACTLY ONE code block: `export const <NAME> = { ... };`
+- JSON-serializable. Slug = lowercase-with-hyphens. Cross-refs as slugs only.
+
+INPUTS: slug: | title: | draft notes:
+```
+
+#### Prompt B2 — Case Study content object
+
+```text
+ROLE: TypeScript content author for a schema-validated CMS.
+
+TASK: Write ONE Case Study matching:
+slug, title, client, description, challenge, solution, results (string[]), tags (string[]),
+industry (slug), expertise (string[] slugs), metrics ([{label, value, change?}]), year
+
+OUTPUT: EXACTLY ONE code block: `export const <NAME> = { ... };`
+
+INPUTS: slug: | industry slug: | expertise slugs: | title/client/year: | notes:
+```
+
+#### Prompt B3 — Expertise item
+
+```text
+ROLE: TypeScript content author for a schema-validated CMS.
+
+TASK: Write ONE Expertise item matching:
+slug, title; optional: description, pillar, pillarLabel, tags, icon, featured, order,
+positioning, challenges (string[]), modern_plays (string[]), proof, relevant_*_slugs
+
+OUTPUT: EXACTLY ONE code block: `export const <NAME> = { ... };`
+
+INPUTS: slug: | title: | pillar (content-engagement|demand-growth|strategy-insights|systems-operations): | notes:
+```
+
+#### Prompt B4 — Pillar page full content object
+
+```text
+ROLE: TypeScript content author. Output must match ExpertisePageContent shape exactly.
+
+Required top-level keys:
+brand {tagline, description}
+hero {headline, subheadline, description, primaryCTA {text, link}, secondaryCTA?, image?}
+metricsSection {headline, stats [{label, value}]}
+capabilitiesSection {headline, items [{title, description}]}
+philosophySection {headline, principles [{title, description}]}
+growthSection {headline, narrative, metrics [{label, value}]}
+ctaSection {title, subtitle, button {text, link}}
+footer {description, sections [{title, links: string[]}], copyright}
+
+OUTPUT: EXACTLY ONE code block: `export const <NAME> = { ... };`
+
+INPUTS: pillar slug: | positioning notes: | metrics:
+```
+
+### Quick Checklist (copy/paste)
+
+- [ ] Find the page in `/admin` — note `route`, `templateId`, `contentKey`, `fileRef`
+- [ ] Update template (`.tsx`) OR content (`.ts`) as needed
+- [ ] Validate content in Admin → Content Validator (must show "Valid ✅")
+- [ ] Check cross-links (industry/case-study/expertise slug references)
+- [ ] Refresh locally — verify correct render in light + dark mode
+
+### Troubleshooting
+
+| Symptom | Likely Cause | Fix |
+|---------|-------------|-----|
+| Page shows 404 | Route not in `page-registry.csv` | Add to registry via `/admin` |
+| Runtime error "invalid content" | Content schema mismatch | Re-run Content Validator, fix fields |
+| Blank sections render | Missing array items or wrong key names | Check schema and array values |
+| Images break build | Invalid `next/image` usage | Add `alt`, correct `width`/`height` or `fill`+`sizes` |
+| Template upload appears missing | Some envs disable uploads | Ask supervisor; use built-in template edit instead |
+
+---
+
 ## Questions or Issues?
 
 If you need to:
@@ -692,6 +972,8 @@ If you need to:
 
 ---
 
-**Document Version:** 1.0  
-**Last Updated:** February 28, 2026  
+**Document Version:** 1.1
+**Last Updated:** March 16, 2026
 **Maintainer:** Development Team
+
+> **Note:** `INTERN_TEMPLATE_AND_CONTENT_UPDATE_RUNBOOK.md`, `ADMIN_GUIDE.md`, `ADMIN_TEMPLATEID_DETERMINATION_MAPPING_AND_USAGE.md`, `PAGE_TEMPLATE_MAPPING_REFERENCE.md`, and `CONTENT-TEMPLATE-SKELETONS.md` have been merged into this document and archived under `docs/archive/2026-03-16/`.

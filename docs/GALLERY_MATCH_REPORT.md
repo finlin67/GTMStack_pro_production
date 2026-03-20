@@ -1,0 +1,158 @@
+# GALLERY_MATCH_REPORT
+
+- timestamp: 2026-03-20T01:18:08.281Z
+- manifest items: 129
+- registry items: 43
+- matched count: 15
+- unmatched count: 114
+
+## Explicit map entries added
+
+- `marketing-analytics-carousel-v3` -> `marketing-analytics-carousel`
+- `edu-marketers-dashboard-v2` -> `edu-marketers-dashboard`
+- `executive-logistics-dashboard-v3` -> `executive-logistics-dashboard`
+- `executive-logistics-dashboard-v2` -> `executive-logistics-dashboard`
+- `marketing-automation-live-feed-v2` -> `marketing-automation-live-feed`
+- `abm-radar-analysis-v2` -> `abm-radar-analysis`
+- `abm-network-dashboard-v2` -> `abm-network-dashboard`
+- `experience-dashboard-v2` -> `demand-gen-flow`
+- `live-email-automation-ecosystem-v3` -> `live-email-automation`
+- `live-email-automation-ecosystem-v2` -> `live-email-automation`
+- `video-marketing-analytics-dashboard-v2` -> `video-marketing-analytics`
+- `nexus-ai-stakeholder-portal-v2` -> `nexus-stakeholder-portal`
+- `content-engagement-marketing-dashboard-v2` -> `content-engagement-marketing`
+- `abm-pipeline-strategy-dashboard-v2` -> `abm-pipeline-strategy`
+- `abm-pipeline-strategy-dashboard` -> `abm-pipeline-strategy`
+
+## Unresolved manifest ids
+
+- `systems-operations-hero-component-v2`
+- `revops-neural-dashboard-v2`
+- `revops-mesh-dashboard-v2`
+- `revops-data-sync-mesh-tile-v2`
+- `revenue-systems-data-flow-v2`
+- `pipeline-command-center-v2`
+- `martech-ai-dashboard-engine-v2`
+- `marketingai-neural-dashboard-v2`
+- `marketingai-intelligence-dashboard-v2`
+- `marketing-revenue-analytics-v2`
+- `marketing-operations-workflow-tile-v2`
+- `lifecycle-engine-dashboard-v2`
+- `enterprise-sales-motion-dashboard-v2`
+- `wellv3-landing-page-health-journey-tile-v2`
+- `waste-management-ai-hero-component-v2`
+- `utilities-command-center-tile-v2`
+- `telco-ai-infrastructure-tile-v2`
+- `student-lifecycle-analytics-dashboard-v2`
+- `scalability-telemetry-radar-v2`
+- `saas-premium-analytics-component-v2`
+- `retail-pulse-analytics-tile-v2`
+- `powergrid-digital-modernization-dashboard-v2`
+- `oil-gas-performance-tile-component-v2`
+- `nonprofithero-impact-visualization-v2`
+- `nexus-industrial-dashboard-v2`
+- `manufacturinghero-dashboard-tile-v2`
+- `manufacturing-hero-dashboard-tile-v2`
+- `manufacturing-agency-dashboard-v2`
+- `industrial-roi-dashboard-v2`
+- `grid-master-cyber-infrastructure-dashboard-v2`
+- `fleetoptima-driver-performance-tile-v2`
+- `fleet-roi-calculator-v2`
+- `fintech-growth-studio-animated-sales-tile-v2`
+- `fintech-growth-animated-sales-tile-v3`
+- `finservtile-interactive-financial-data-visualization-v2`
+- `financial-technology-growth-tile-v2`
+- `industries-enterprise-sales-motion-dashboard-v2`
+- `engineering-excellence-workflow-system-v2`
+- `energyflow-minimal-dashboard-v2`
+- `education-journey-k-12-ecosystem-v2`
+- `edu-hero-analytics-dashboard-v2`
+- `edtech-compact-roi-funnel-v3`
+- `edtech-compact-roi-funnel-v2`
+- `dynamic-wealth-dashboard-tile-v2`
+- `devmarketers-bottom-up-adoption-loop-v2`
+- `devconsole-content-workflow-v2`
+- `cyberagency-lifecycle-engine-v2`
+- `clinical-validation-surface-dash-v2`
+- `clinical-holographic-control-surface-v2`
+- `b2b-consulting-portfolio-gtmstack-pro`
+- `automotivehero-growth-dashboard-tile-v2`
+- `automotivehero-dashboard-component-v2`
+- `automotive-hero-dashboard-component-v2`
+- `aerospace-auto-engineering-workflow-v2`
+- `social-media-marketing-hero-tile-v2`
+- `eventpulse-enterprise-dashboard-v2`
+- `event-roi-analytics-dashboard-v2`
+- `event-pulse-enterprise-dashboard-v2`
+- `eoc-logistics-dashboard-v2`
+- `agency-performance-console-v2`
+- `agency-impact-dashboard-v2`
+- `video-marketing-ai-distribution-hub-v2`
+- `vibrant-impact-dashboard-v2`
+- `strategyinsights-tile-component-v2`
+- `strategist-os-dashboard-v2`
+- `sequenceflow-animated-tile-v2`
+- `sequence-ladder-analytics-tile-v2`
+- `sales-enablement-hero-animated-tile-v2`
+- `product-growth-hero-v2`
+- `omnichannel-live-analytics-tile-v2`
+- `neonvideo-marketing-landing-page-v2`
+- `martech-ai-landing-page-component-v2`
+- `kpi-spotlight-mosaic-v2`
+- `infracore-deepdive-dashboard-v2`
+- `gtmstack-pro-hero-tile`
+- `gtm-product-strategy-audience-tile-v2`
+- `gtm-engine-visualization-hero-animation-v2`
+- `growththeme-ai-landing-v2`
+- `growthsem-landing-page-v2`
+- `growthflow-seo-engine-v2`
+- `growthcore-component-extraction-v2`
+- `growth-ai-harmonic-quad-tone`
+- `growth-ai-animation`
+- `esg-analytics-hub-v2`
+- `email-marketing-json-lottie-v2`
+- `driftguard-v2`
+- `driftguard-ai-monitor-v2`
+- `demandgrowthhero-component-v2`
+- `demandgen-pipeline-hero-v2`
+- `demand-gen-hero-v2`
+- `content-marketing-with-ai-v2`
+- `content-marketing-kpi-dashboard-v2`
+- `content-engagement-hero-v2`
+- `workflow-visualization-v2`
+- `quantum-data-field-analytics-v2`
+- `marketingflow-ai-workflow-v2`
+- `dashboard-tiles-marketingai-neural-dashboard-v2`
+- `dashboard-tiles-marketingai-intelligence-dashboard-v2`
+- `marketing-automation-workflow-v2`
+- `dashboard-tiles-lifecycle-engine-dashboard-v2`
+- `insightagency-strategy-dashboard-v2`
+- `dashboard-tiles-infracore-deepdive-dashboard-v2`
+- `dashboard-tiles-industrial-roi-dashboard-v2`
+- `gtmstack-route-planner-v2`
+- `gtmstack-industry-template-v2`
+- `gtmstack-hero-tile-v2`
+- `gtm-strategy-audience-tile-v2`
+- `gtm-stack-data-sync-mesh-v2`
+- `expertisehero-gtm-engine-visualization-v2`
+- `apex-real-time-dashboard-v2`
+- `advocacy-loop-dashboard-v2`
+- `abm-success-visualizer-v2`
+- `abm-flow-premium-tile-v2`
+- `abm-campaign-radar-analysis-v2`
+
+## Notes
+
+- Resolver order: explicit map -> animationId exact -> id exact -> case-insensitive exact -> normalized fallback -> null.
+- No registry IDs were renamed or removed.
+- Low-confidence fuzzy mappings were intentionally not auto-wired.
+
+## TODO (manual review, lower confidence)
+
+- industrial-roi-dashboard-v2 -> industrial-dashboard
+- dashboard-tiles-industrial-roi-dashboard-v2 -> industrial-dashboard
+- marketing-operations-workflow-tile-v2 -> marketing-operations-tile
+- gtm-product-strategy-audience-tile-v2 -> gtm-audience-tile-hero
+- gtm-strategy-audience-tile-v2 -> gtm-audience-tile-hero
+- lifecycle-engine-dashboard-v2 -> automation-engine-dashboard
+- dashboard-tiles-lifecycle-engine-dashboard-v2 -> automation-engine-dashboard

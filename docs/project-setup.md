@@ -1,4 +1,4 @@
-# GTMStack.pro Project Setup
+# How to Set Up GTMStack.pro
 
 ## 1) Prerequisites
 

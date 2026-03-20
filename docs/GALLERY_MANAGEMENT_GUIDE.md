@@ -1,8 +1,8 @@
-# Managing Your Animation Gallery 📚
+# How to Manage the Animation Gallery
 
-Your gallery page is live at **`/gallery`**. Here's how to maintain and enhance it.
+Your gallery page is live at **`/gallery`**. This guide explains how to maintain and evolve it as a canonical operating reference.
 
-## 🎯 What Was Built
+## What Was Built
 
 1. **Gallery page** (`app/gallery/page.tsx`) – Motion Array–style layout with:
    - Dark hero section
@@ -17,7 +17,7 @@ Your gallery page is live at **`/gallery`**. Here's how to maintain and enhance 
 
 4. **GitHub URLs** – Add mappings in `lib/galleryGithubMap.ts` when you have repo links
 
-## 📋 After Cursor Finishes
+## Post-Generation Checklist
 
 ### Step 1: Review the Component List
 
@@ -109,7 +109,7 @@ npm run dev
 ✓ No console errors
 ```
 
-## 🔄 Adding New Animations
+## Adding New Animations
 
 When you create a new animation:
 
@@ -130,7 +130,7 @@ When you create a new animation:
 3. **Generate thumbnail** (screenshot or script)
 4. **Done!** It appears in the gallery automatically
 
-## 🎨 Customizing Descriptions
+## Customizing Descriptions
 
 Tell Cursor to improve descriptions:
 
@@ -151,7 +151,7 @@ heatmaps for maximizing subscriber conversion."
 Rewrite all descriptions.
 ```
 
-## 🏷️ Category Management
+## Category Management
 
 ### Current Categories
 Cursor will suggest categories based on what it finds.
@@ -177,7 +177,7 @@ Move all animations with 'email' in the title or tags
 to the 'Email Marketing' category
 ```
 
-## 🏷️ Tag Management
+## Tag Management
 
 ### Generating Better Tags
 
@@ -201,7 +201,7 @@ Review all tags across animations and:
 4. Order by relevance
 ```
 
-## 📊 Analytics & Insights
+## Analytics & Insights
 
 Add tracking to see what's popular:
 
@@ -215,7 +215,7 @@ Add view tracking to the gallery:
 Show "Popular" or "Trending" badges on top animations.
 ```
 
-## 🎯 Advanced Features
+## Advanced Features
 
 ### Feature 1: Related Animations
 ```
@@ -257,7 +257,7 @@ Make each animation card shareable:
 - Good for sharing specific animations
 ```
 
-## 🐛 Troubleshooting
+## Troubleshooting
 
 ### Animation Won't Load in Modal
 ```
@@ -288,7 +288,7 @@ Check:
 4. React state is updating
 ```
 
-## 📱 Sharing Your Gallery
+## Sharing Your Gallery
 
 ### Add to Main Nav
 ```
@@ -312,7 +312,7 @@ Generate Open Graph meta tags for sharing:
 - Proper og:type, og:url tags
 ```
 
-## 🚀 Deployment
+## Deployment
 
 ### Before Deploying
 ```bash
@@ -338,7 +338,7 @@ npm run preview
 # Monitor for errors (Sentry, etc.)
 ```
 
-## 📈 Metrics to Track
+## Metrics to Track
 
 Good to know:
 - **Most viewed animations** - showcase these more
@@ -347,7 +347,7 @@ Good to know:
 - **Drop-off points** - where users leave
 - **Mobile vs desktop usage** - optimize accordingly
 
-## 🎓 Learning & Iteration
+## Learning & Iteration
 
 ### Week 1
 - Deploy basic gallery
@@ -369,7 +369,7 @@ Good to know:
 - Update descriptions based on feedback
 - Track which ones get attention from recruiters
 
-## 💡 Pro Tips
+## Pro Tips
 
 1. **Thumbnails matter most** - invest time in good screenshots
 2. **Descriptions sell** - write them like you're pitching the project
@@ -378,7 +378,18 @@ Good to know:
 5. **Test on mobile** - many people will view on phones
 6. **Share liberally** - this is your portfolio!
 
-## 🎯 Success Criteria
+---
+
+## Legacy Prompt Consolidation
+
+The previous standalone prompt docs are now consolidated here as historical references:
+
+- `CURSOR_PROMPT_EXISTING_SITE.md`
+- `CURSOR_QUICK_PROMPT.md`
+
+Current recommendation: use this guide as the canonical source for gallery build, iteration, and operations prompts.
+
+## Success Criteria
 
 You'll know it's working when:
 - ✅ Hiring managers mention specific animations from your gallery
@@ -389,4 +400,6 @@ You'll know it's working when:
 
 ---
 
-**Remember:** This gallery is your portfolio's highlight reel. Keep it fresh, keep it polished, and keep promoting it! 🌟
+This gallery is your portfolio highlight reel. Keep it current, polished, and easy to navigate.
+
+> **Note:** `CURSOR_PROMPT_EXISTING_SITE.md` and `CURSOR_QUICK_PROMPT.md` have been consolidated into this canonical document and archived under `docs/archive/2026-03-16/`.

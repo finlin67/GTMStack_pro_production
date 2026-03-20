@@ -1,0 +1,75 @@
+### Animation
+FILE=ANIMATION_SYSTEM_GUIDE.md|LINES=778|MTIME=2026-03-06|REF_FILES=0|HEADING=# Animation System Guide: Registration, Routing & Rendering|STAMP=**Last Updated:** March 1, 2026
+FILE=ANIMATION_LIBRARY_AND_ROUTING.md|LINES=83|MTIME=2026-03-06|REF_FILES=2|HEADING=# Animation Library: From CSV to Runtime|STAMP=
+FILE=animation-guide.md|LINES=119|MTIME=2026-03-06|REF_FILES=0|HEADING=# Animation Guide|STAMP=| ABMTileAnimation | `src/components/animations/ABMTileAnimation.tsx` | Shuffle on `/expertise/account-based-marketing-abm` | ABM tile/network card interactions and status movement. |
+FILE=CSV_UPDATE_CHECKLIST.md|LINES=62|MTIME=2026-03-06|REF_FILES=3|HEADING=# CSV Update Checklist|STAMP=
+FILE=hero-visual-library-spec.md|LINES=41|MTIME=2026-03-06|REF_FILES=3|HEADING=# Hero Visual Library – CSV format & QC|STAMP=
+FILE=GALLERY_MANAGEMENT_GUIDE.md|LINES=313|MTIME=2026-03-06|REF_FILES=2|HEADING=# Managing Your Animation Gallery 📚|STAMP=
+
+### WordPress
+FILE=BLOG-WORDPRESS-DEVELOPER-GUIDE.md|LINES=173|MTIME=2026-03-11|REF_FILES=4|HEADING=# Blog & WordPress Integration — Developer Guide|STAMP=2. Verify post is `publish` status (not draft/private/future).
+FILE=WORDPRESS-PDF-VIDEO-EMBED-GUIDE.md|LINES=232|MTIME=2026-03-11|REF_FILES=0|HEADING=# WordPress: Embedding PDFs and Videos in Blog Posts|STAMP=   [pdf-embedder url="https://gtmstack.pro/wp-content/uploads/2024/my-document.pdf" title="Document Title"]
+
+### Refactor
+FILE=REFACTOR_PLAN.md|LINES=313|MTIME=2026-03-06|REF_FILES=1|HEADING=# Homepage Refactor Plan: Dark SaaS Core with Light Enterprise Breaks|STAMP=
+FILE=REFACTOR_SUMMARY.md|LINES=50|MTIME=2026-03-06|REF_FILES=1|HEADING=# Homepage Refactor: Quick Reference|STAMP=
+FILE=ABOUT_PAGE_REFACTOR_PLAN.md|LINES=182|MTIME=2026-03-06|REF_FILES=1|HEADING=# About Page Refactor Plan: Dark SaaS Core with Light Enterprise Breaks|STAMP=
+FILE=ABOUT_PAGE_SECTIONS.md|LINES=49|MTIME=2026-03-06|REF_FILES=1|HEADING=# About Page: Current Sections & Refactor Plan|STAMP=
+
+### Hierarchy
+FILE=SITE-PAGES-AND-HIERARCHY.md|LINES=121|MTIME=2026-03-15|REF_FILES=0|HEADING=# GTMStack.pro — Site Pages & Hierarchy|STAMP=
+FILE=CURRENT_SITEMAP.md|LINES=4|MTIME=2026-03-06|REF_FILES=0|HEADING=(no heading)|STAMP=
+FILE=gtmstackpro-page-review.md|LINES=139|MTIME=2026-03-06|REF_FILES=2|HEADING=(no heading)|STAMP=
+FILE=PAGE LISTG.txt|LINES=75|MTIME=2026-03-06|REF_FILES=0|HEADING=(no heading)|STAMP=
+
+### SetupDeploy
+FILE=project-setup.md|LINES=68|MTIME=2026-03-06|REF_FILES=0|HEADING=# GTMStack.pro Project Setup|STAMP=- `npm run validate:registry` — validate generated page registry
+FILE=HOSTINGER_NODE_DEPLOY.md|LINES=28|MTIME=2026-03-12|REF_FILES=0|HEADING=# Hostinger Node.js Web App Deployment|STAMP=
+FILE=README.md|LINES=142|MTIME=2026-03-06|REF_FILES=1|HEADING=# GTMstack.pro - Marketing/Portfolio Site|STAMP=
+
+### Overview
+FILE=WEBSITE_SUMMARY.md|LINES=98|MTIME=2026-03-06|REF_FILES=2|HEADING=# GTMstack.pro - Website Summary|STAMP=
+FILE=README.md|LINES=142|MTIME=2026-03-06|REF_FILES=1|HEADING=# GTMstack.pro - Marketing/Portfolio Site|STAMP=
+FILE=PROJECT_BRIEF.md|LINES=87|MTIME=2026-03-15|REF_FILES=0|HEADING=# PROJECT BRIEF|STAMP=
+FILE=WEBSITE_USER_GUIDE.md|LINES=315|MTIME=2026-03-11|REF_FILES=0|HEADING=# GTMstack.pro User Guide|STAMP=
+FILE=replit.md|LINES=56|MTIME=2026-03-06|REF_FILES=0|HEADING=# GTMstack.pro|STAMP=
+
+### Changes
+FILE=CHANGELOG.md|LINES=57|MTIME=2026-03-11|REF_FILES=1|HEADING=## [2026-03-10] - Add content engagement and systems operations content to registry|STAMP=## [2026-03-10] - Add content engagement and systems operations content to registry
+FILE=CHANGE_DOCUMENT_SINCE_2026-03-01.md|LINES=165|MTIME=2026-03-15|REF_FILES=0|HEADING=# GTMStack.pro Change Document (Since 2026-03-01)|STAMP=# GTMStack.pro Change Document (Since 2026-03-01)
+FILE=WEBSITE_UPDATE_FEB2026.md|LINES=452|MTIME=2026-03-06|REF_FILES=1|HEADING=# GTMStack Pro — Comprehensive Project Documentation|STAMP=npm run validate:registry
+
+### ContentOps
+FILE=CONTENT_MANAGEMENT_GUIDE.md|LINES=572|MTIME=2026-03-06|REF_FILES=3|HEADING=# Content Management Guide|STAMP=**Last Updated:** February 28, 2026
+FILE=CONTENT-TEMPLATE-SKELETONS.md|LINES=197|MTIME=2026-03-16|REF_FILES=0|HEADING=## GTMStack.pro — Content Template Skeletons|STAMP=
+FILE=INTERN_TEMPLATE_AND_CONTENT_UPDATE_RUNBOOK.md|LINES=380|MTIME=2026-03-11|REF_FILES=0|HEADING=# Intern Runbook: Updating Templates (UI) + Content (Data)|STAMP=4. Fill in / update:
+FILE=PAGE_TEMPLATE_MAPPING_REFERENCE.md|LINES=241|MTIME=2026-03-06|REF_FILES=0|HEADING=# Complete Page & Template Mapping Reference|STAMP=**Last Updated**: March 1, 2026
+FILE=ADMIN_GUIDE.md|LINES=55|MTIME=2026-03-06|REF_FILES=2|HEADING=### Admin UI & Page Index CMS: User Guide|STAMP=- **Status:** A color-coded badge indicating the health of the page mapping (see Statuses below).
+FILE=ADMIN_TEMPLATEID_DETERMINATION_MAPPING_AND_USAGE.md|LINES=209|MTIME=2026-03-06|REF_FILES=0|HEADING=# Admin TemplateID Determination, Mapping, and Usage|STAMP=_Last reviewed: 2026-02-27_
+
+### Design
+FILE=DESIGN-STYLE-PALETTE-GUIDE.md|LINES=244|MTIME=2026-03-15|REF_FILES=1|HEADING=# GTMStack.pro Design, Style & Palette Guide|STAMP=
+FILE=branding-guidelines.md|LINES=39|MTIME=2026-03-06|REF_FILES=1|HEADING=# Branding Guidelines|STAMP=
+FILE=component-library.md|LINES=121|MTIME=2026-03-06|REF_FILES=1|HEADING=# Component Library Catalog|STAMP=
+FILE=CONSOLIDATION_SUMMARY.md|LINES=59|MTIME=2026-03-06|REF_FILES=1|HEADING=# Component Consolidation Summary|STAMP=
+
+### Routing
+FILE=ROUTING.md|LINES=643|MTIME=2026-03-11|REF_FILES=4|HEADING=# Routing Architecture & Endpoints Documentation|STAMP=     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
+FILE=MIGRATION-REGISTRY-ROUTING.md|LINES=63|MTIME=2026-03-06|REF_FILES=1|HEADING=# Migration: Registry-Based Routing (Catch-All)|STAMP=
+FILE=MIGRATION_PLAN.md|LINES=403|MTIME=2026-03-06|REF_FILES=1|HEADING=# Migration Plan: Moving Unmapped Routes to Registry|STAMP=**Status**: Planning Document  
+FILE=FILESYSTEM_ROUTE_HANDLERS_ANALYSIS.md|LINES=271|MTIME=2026-03-06|REF_FILES=0|HEADING=# Legacy Filesystem Route Handlers Analysis|STAMP=**Status**: Unmapped routes currently using legacy filesystem routing  
+FILE=developer-routing-and-hero-visuals.md|LINES=176|MTIME=2026-03-06|REF_FILES=2|HEADING=## GTMstack.pro – Developer Routing & Hero Visuals Guide|STAMP=
+
+### GalleryPrompts
+FILE=GALLERY_MANAGEMENT_GUIDE.md|LINES=313|MTIME=2026-03-06|REF_FILES=2|HEADING=# Managing Your Animation Gallery 📚|STAMP=
+FILE=CURSOR_PROMPT_EXISTING_SITE.md|LINES=228|MTIME=2026-03-06|REF_FILES=1|HEADING=# Cursor Prompt: Add Animation Gallery to Existing Website 🎨|STAMP=
+FILE=CURSOR_QUICK_PROMPT.md|LINES=76|MTIME=2026-03-06|REF_FILES=1|HEADING=# Quick Cursor Prompt: Add Gallery to Existing Site 🚀|STAMP=
+
+### ArchitectureMaster
+FILE=WEBSITE_UPDATE_FEB2026.md|LINES=452|MTIME=2026-03-06|REF_FILES=1|HEADING=# GTMStack Pro — Comprehensive Project Documentation|STAMP=npm run validate:registry
+FILE=SITE-DEVELOPER-GUIDE.md|LINES=289|MTIME=2026-03-06|REF_FILES=1|HEADING=## GTMstack.pro – Developer Guide|STAMP=
+FILE=PROJECT_STRUCTURE.md|LINES=508|MTIME=2026-03-11|REF_FILES=0|HEADING=# Project Structure & Architecture Overview|STAMP=npm run validate:registry      # Validate registry consistency
+FILE=system-architecture.md|LINES=102|MTIME=2026-03-06|REF_FILES=0|HEADING=# System Architecture|STAMP=- Uses Next fetch with ISR-style revalidation in this layer (`next: { revalidate: 60 }` in `lib/wordpress.ts`)
+FILE=notebook-summary.md|LINES=64|MTIME=2026-03-06|REF_FILES=0|HEADING=(no heading)|STAMP=
+FILE=replit.md|LINES=56|MTIME=2026-03-06|REF_FILES=0|HEADING=# GTMstack.pro|STAMP=
+

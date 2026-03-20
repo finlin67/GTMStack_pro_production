@@ -1,6 +1,6 @@
 import { Metadata } from 'next'
 import { notFound } from 'next/navigation'
-import { caseStudyItems, getCaseStudyBySlug } from '@/content/case-studies'
+import { caseStudyItems, getCaseStudyBySlug } from '@/src/data/caseStudies'
 import { getPageBySlug } from '@/lib/pageRegistry'
 import CaseStudyTemplate from '@/src/templates/caseStudies/CaseStudyTemplate'
 import RenderCaseStudy from '@/lib/renderCaseStudy'

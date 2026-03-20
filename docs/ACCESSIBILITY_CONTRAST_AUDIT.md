@@ -1,4 +1,4 @@
-# Accessibility & Contrast Audit
+# Accessibility Contrast Troubleshooting
 
 **Goal:** Ensure AA contrast and interaction clarity without changing layout or design intent.
 

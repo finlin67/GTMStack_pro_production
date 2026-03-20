@@ -1,0 +1,1149 @@
+=== ANIMATION_SYSTEM_GUIDE.md ===
+L1: # Animation System Guide: Registration, Routing & Rendering
+L9: ## Table of Contents
+L23: ## System Overview
+L30: ### Key Components
+L40: ## The Two Registration Systems
+L44: ### 1. ANIMATION_REGISTRY (`src/data/animations.ts`)
+L97: ### 2. HERO_VISUAL_REGISTRY (`lib/heroVisualRegistry.ts`)
+L134: ### When to Use Which Registry?
+L148: ## Source of Truth: The CSV
+L154: ### CSV Columns
+L165: ### Example CSV Rows
+L181: ## Complete Animation Flow
+L243: ## Routing to Hero Sections
+L245: ### Expertise Pages
+L316: ### Industry Pages
+L369: ### Pillar & Landing Pages
+L401: ## Routing to Gallery
+L407: ### Gallery Features
+L436: ### Code Flow
+L489: ### Gallery Functions
+L507: ## Step-by-Step: Adding a New Animation
+L509: ### Complete Workflow
+L511: #### 1. Create the Animation Component
+L542: #### 2. Add Row to CSV
+L561: #### 3A. Register in ANIMATION_REGISTRY (Multiple Variants)
+L609: #### 3B. Register in HERO_VISUAL_REGISTRY (Single Hero)
+L632: #### 4. Test the Animation
+L637: # Visit the route (e.g., /expertise/content-marketing)
+L638: # Animation should appear in hero section
+L643: # Visit with query param
+L644: # http://localhost:3000/expertise/content-marketing?anim=your-animation
+L645: # Should show your specific animation
+L647: # Click "Shuffle" button
+L648: # Should rotate through variants
+L653: # Visit /gallery
+L654: # Search for your animation title
+L655: # Click card ? Modal should open with live animation
+L660: #### 5. Verify Registration
+L684: ## Technical Architecture
+L686: ### Dynamic vs Direct Imports
+L715: ### Animation Resolution Priority
+L748: ### Data Flow Diagram
+L794: ## Troubleshooting
+L796: ### Animation Not Appearing in Hero
+L824: ### Animation Not Appearing in Gallery
+L841: ### Shuffle Button Not Appearing
+L853: ### Animation Shows Wrong on Route
+L869: ### Component Import Error
+L890: ### Animation Not Loading (Dynamic Import)
+L913: ## Quick Reference
+L915: ### Adding New Animation Checklist
+L933: ### Key Functions Reference
+L953: ### File Locations Quick Map
+L968: ## Related Documentation
+
+=== ANIMATION_LIBRARY_AND_ROUTING.md ===
+L1: # Animation Library: From CSV to Runtime
+L7: ## 1. Source of truth: the CSV
+L27: ## 2. Two library destinations
+L31: ### 2.1 `src/data/animations.ts` — revolving animations (multiple per route)
+L42: ### 2.2 `lib/heroVisualRegistry.ts` — one hero per route (pillar, home, industries)
+L53: ## 3. How routing works at runtime
+L71: ## 4. Adding a new animation (step-by-step)
+L101: ## 5. Quick reference
+L117: ## 6. Related docs
+
+=== animation-guide.md ===
+L1: # Animation Guide
+L5: ## 1) Animation libraries and motion systems in use
+L17: ## 2) Keyframe definitions found
+L19: ### Global keyframes (`tailwind.config.ts`)
+L30: ### Local keyframes in templates
+L37: ## 3) Shared interactive motion components (UI-level)
+L54: ## 4) Route-wired animation catalog (hero/visual components)
+L125: ## 5) Source files used for this catalog
+
+=== CSV_UPDATE_CHECKLIST.md ===
+L1: # CSV Update Checklist
+L5: ## ? Pre-Add Checklist
+L11: ## ? Post-Add Checklist
+L13: ### Step 1: Determine if Single or Revolving
+L19: ### Step 2A: Single Animation (1 row for this route)
+L38: ### Step 2B: Revolving Animations (2+ rows for same route)
+L69: ## ? Final Verification
+L75: ## ?? Notes
+
+=== hero-visual-library-spec.md ===
+L1: # Hero Visual Library – CSV format & QC
+L5: ## CSV format
+L22: ## Quality control checklist (animations)
+L43: ## QC result summary (from your initial CSV)
+L55: ## Where the registry lives
+
+=== GALLERY_MANAGEMENT_GUIDE.md ===
+L1: # Managing Your Animation Gallery ??
+L5: ## ?? What Was Built
+L20: ## ?? After Cursor Finishes
+L22: ### Step 1: Review the Component List
+L49: ### Step 2: Add GitHub URLs
+L66: ### Step 3: Generate Thumbnails
+L70: #### Option A: Use Component Screenshots
+L80: #### Option B: Manual Screenshots
+L82: # For each animation:
+L89: #### Option C: Placeholder Images (temporary)
+L92: ### Step 4: Test the Gallery
+L95: # Start your dev server
+L98: # Visit the gallery page
+L99: # http://localhost:3000/gallery (or your port)
+L101: # Test:
+L112: ## ?? Adding New Animations
+L133: ## ?? Customizing Descriptions
+L154: ## ??? Category Management
+L156: ### Current Categories
+L159: ### Adding New Categories
+L174: ### Bulk Recategorize
+L180: ## ??? Tag Management
+L182: ### Generating Better Tags
+L195: ### Tag Consistency
+L204: ## ?? Analytics & Insights
+L218: ## ?? Advanced Features
+L220: ### Feature 1: Related Animations
+L230: ### Feature 2: "New" Badges
+L236: ### Feature 3: Search Enhancement
+L246: ### Feature 4: Collections
+L252: ### Feature 5: Direct Links
+L260: ## ?? Troubleshooting
+L262: ### Animation Won't Load in Modal
+L272: ### Thumbnails Not Showing
+L282: ### Filter Not Working
+L291: ## ?? Sharing Your Gallery
+L293: ### Add to Main Nav
+L299: ### Create Landing Page CTA
+L307: ### Social Media
+L315: ## ?? Deployment
+L317: ### Before Deploying
+L319: # Build the site
+L322: # Test production build locally
+L325: # Check:
+L333: ### After Deploying
+L335: # Visit live site
+L336: # Test all features
+L337: # Share with friends for feedback
+L338: # Monitor for errors (Sentry, etc.)
+L341: ## ?? Metrics to Track
+L350: ## ?? Learning & Iteration
+L352: ### Week 1
+L357: ### Week 2
+L362: ### Week 3
+L367: ### Month 2+
+L372: ## ?? Pro Tips
+L381: ## ?? Success Criteria
+
+=== ROUTING.md ===
+L1: # Routing Architecture & Endpoints Documentation
+L3: ## How Routing Works (End-to-End Explanation)
+L5: ### The Big Picture
+L11: ### Request Flow: Step by Step
+L15: #### 1. **Browser Request Arrives**
+L20: #### 2. **Middleware & Route Matching** (Next.js App Router)
+L25: #### 3. **Route Reconstruction**
+L28: #### 4. **Reserved Path Check**
+L39: #### 5. **Registry Lookup** (The Key Step)
+L53: #### 6. **Template Resolution**
+L64: #### 7. **Content Resolution**
+L73: #### 8. **Rendering**
+L81: #### 9. **Response**
+L86: ### How Routes Are Organized & Registered
+L88: #### The Source of Truth: `src/data/page-registry.csv`
+L106: #### From CSV to TypeScript
+L132: #### Template Organization
+L162: #### Content Organization
+L193: ### Authentication & Authorization
+L195: #### Who Can Access What?
+L220: #### How Authentication Works
+L244: #### Protected File Operations
+L263: ### Notable Routing Patterns
+L265: #### 1. **Registry-Driven Over File-Based**
+L283: #### 2. **RESTful API Structure**
+L302: #### 3. **Content Schema Validation**
+L322: #### 4. **Environment-Based Behavior**
+L332: #### 5. **No Middleware Chain**
+L343: ### Static Generation & Prerendering
+L371: ## Overview
+L377: ## Core Concepts
+L379: ### Route Resolution Flow
+L388: ### Key Files
+L398: ## Page Routes (Content Pages)
+L400: ### Dynamic Page Routes
+L419: ### Static Generation
+L425: ## API Endpoints
+L427: ### Authentication
+L429: #### `POST /api/admin/login`
+L449: ### Content Management
+L451: #### `POST /api/admin/publish-expertise`
+L477: #### `POST /api/admin/publish-industry`
+L495: #### `POST /api/admin/publish-case-study`
+L513: #### `POST /api/admin/write-file`
+L537: ### Registry & Generation
+L539: #### `POST /api/admin/run-gen-registry`
+L561: #### `GET /api/admin/find-page?route={route}`
+L581: #### `GET /api/admin/pages`
+L600: #### `GET /api/admin/slugs`
+L619: ### Template Management
+L621: #### `GET /api/admin/templates`
+L635: #### `POST /api/admin/templates`
+L655: ### Animation Management
+L657: #### `GET /api/animations/meta`
+L676: #### `POST /api/animations/meta`
+L695: #### `GET /api/animations/thumbnail/[id]`
+L709: ### Audit & Diagnostic
+L711: #### `GET /api/admin/registry-audit`
+L730: ## Reserved Routes
+L748: ## Security & Constraints
+L750: ### Authentication
+L756: ### Authorization
+L762: ### Environment Variables
+L772: ## Data Structures
+L774: ### PageRegistryRow
+L787: ### ExpertiseItem
+L792: ### IndustryItem
+L797: ### CaseStudyItem
+L804: ## Common Tasks
+L806: ### Add a New Page via Registry
+L813: ### Publish New Content Item
+L828: ### Update Page Metadata
+L837: ## Related Documentation
+
+=== MIGRATION-REGISTRY-ROUTING.md ===
+L1: # Migration: Registry-Based Routing (Catch-All)
+L5: ## What Changed
+L7: ### New files
+L12: ### Removed files (registry-managed routes)
+L34: ## How the catch-all works
+L45: ## Example: delegator (if you ever need a thin wrapper)
+L63: ## Testing
+L80: ## Adding new registry pages
+
+=== MIGRATION_PLAN.md ===
+L1: # Migration Plan: Moving Unmapped Routes to Registry
+L10: ## Overview
+L14: ### What This Achieves
+L25: ## Current State vs. Future State
+L27: ### Current (Dual System)
+L50: ### Future (Single Registry)
+L67: ## Migration Strategy: Phase-Based Approach
+L69: ### Phase 1: Expertise Routes
+L75: #### Step 1.1: Analyze Current Expertise Structure
+L83: #### Step 1.2: Determine Template for Each Slug
+L127: #### Step 1.3: Generate CSV Rows
+L136: #### Step 1.4: Update SLUG_TO_PILLAR Mapping
+L139: #### Step 1.5: Test & Verify
+L147: ### Phase 2: Industries Routes
+L153: #### Step 2.1: Analyze Current Industries Structure
+L161: #### Step 2.2: Generate CSV Rows
+L170: #### Step 2.3: Verify Content Keys
+L173: #### Step 2.4: Test & Verify
+L180: ### Phase 3: Case Studies Routes
+L186: #### Step 3.1: Analyze Current Case Studies Structure
+L194: #### Step 3.2: Generate CSV Rows
+L203: #### Step 3.3: Test & Verify
+L209: ### Phase 4: Cleanup & Optimization
+L215: #### Step 4.1: Remove Hardcoded Mappings
+L225: #### Step 4.2: Simplify Route Handlers (Optional)
+L271: #### Step 4.3: Remove Old Functions/Exports
+L285: #### Step 4.4: Update Navigation/Linking
+L291: ## Detailed CSV Template for Phase Migrations
+L293: ### Expertise CSV Template
+L304: ### Industries CSV Template
+L315: ### Case Studies CSV Template
+L327: ## Complete CSV Lines for All Migrations
+L329: ### Phase 1: Expertise (Add 33 lines after existing `/expertise/` routes)
+L364: ### Phase 2: Industries (Add 17 lines after existing `/industries/` routes)
+L382: ### Phase 3: Case Studies (Add 18 lines)
+L407: ## Implementation Checklist
+L409: ### Pre-Migration
+L415: ### Phase 1: Expertise
+L425: ### Phase 2: Industries
+L435: ### Phase 3: Case Studies
+L444: ### Phase 4: Cleanup
+L451: ### Post-Migration
+L459: ## Rollback Plan
+L481: ## Notes
+
+=== FILESYSTEM_ROUTE_HANDLERS_ANALYSIS.md ===
+L1: # Legacy Filesystem Route Handlers Analysis
+L8: ## Current Filesystem Route Architecture
+L12: ### 1. Expertise Routes
+L63: ### 2. Industries Routes
+L110: ### 3. Case Studies Routes
+L163: ### 4. Blog Routes
+L173: ## Complete Unmapped Routing Summary
+L188: ## Hardcoded Slug-to-Pillar Mappings
+L244: ## Issues with Current Filesystem Approach
+L246: ### 1. **No Centralized Management**
+L250: ### 2. **No Content Key Mapping**
+L254: ### 3. **Limited Template Flexibility**
+L259: ### 4. **No Unified Audit Trail**
+L264: ### 5. **Scattered Route Definitions**
+L269: ### 6. **Pillar Mapping Duplication**
+L276: ## How the Dual System Currently Works
+L303: ## File Locations Reference
+L319: ## Next Steps
+
+=== developer-routing-and-hero-visuals.md ===
+L1: ## GTMstack.pro – Developer Routing & Hero Visuals Guide
+L7: ## 1. High-level architecture
+L24: ## 2. Routing model & where pages live
+L26: ### 2.1 Top-level routes (navigation items)
+L47: ### 2.2 Dynamic detail pages
+L75: ## 3. How hero headers & animations are wired
+L77: ### 3.1 Expertise detail page flow
+L139: ### 3.2 Hero visual registry & CSV
+L176: ### 3.3 Where the actual animations live
+L209: ## 4. Quick onboarding summary for a new developer
+
+=== PROJECT_STRUCTURE.md ===
+L1: # Project Structure & Architecture Overview
+L9: ## Table of Contents
+L19: ## Folder Structure
+L21: ### Root Level Directories
+L42: ## App Structure (app/ directory)
+L46: ### Core Layout
+L57: ### API Routes
+L87: ### Feature Routes
+L135: ## src/ Directory Structure
+L137: ### Core Organization
+L204: ## lib/ Directory (Root Level)
+L242: ## components/ Directory Structure
+L297: ## content/ Directory (Root Level)
+L334: ## scripts/ Directory
+L356: ## Configuration Files
+L358: ### Build & Framework Configuration
+L367: ### Styling
+L376: ### Code Quality
+L384: ### Version Control & Automation
+L393: ### Environment Files
+L400: ### IDE & DX
+L410: ## Technology Stack
+L412: ### Frontend Framework
+L418: ### Styling & UI
+L425: ### Content & Markdown
+L432: ### Animation & Motion
+L436: ### Data Visualization
+L441: ### Data Validation & Schemas
+L444: ### Icons & Graphics
+L448: ### External Integrations
+L452: ### Developer Tools
+L463: ### Not Used
+L470: ## Environment Variables
+L472: ### Configuration Variables
+L489: ## Build & Deployment Scripts
+L491: ### Development
+L499: ### Code Generation (Prebuild)
+L508: ### Build & Export
+L516: ### Utilities & Auditing
+L529: ## Key Data Structures
+L531: ### PAGE_REGISTRY (pageRegistry.generated.ts)
+L545: ### Content Item Schemas (Zod validated)
+L567: ## Request Flow Summary
+L578: ## Important Notes
+L589: ## Related Documentation
+
+=== WEBSITE_UPDATE_FEB2026.md ===
+L1: # GTMStack Pro — Comprehensive Project Documentation
+L3: ## Section 1 — Developer Guide
+L5: ### 1.1 Architecture Overview
+L15: #### Core top-level folders and responsibilities
+L54: #### Rendering model in practice
+L66: ### 1.2 Tech Stack (languages, frameworks, libraries, versions)
+L68: #### Languages and runtime
+L74: #### Frameworks and UI
+L83: #### Content and markdown ecosystem
+L91: #### Data visualization and misc
+L99: #### Tooling
+L105: ### 1.3 Install, Configure, and Run Locally
+L107: ### Prerequisites
+L112: ### Install
+L118: ### Run development server
+L126: ### Production build and local serve
+L133: ### Useful build-time generators and validators
+L145: ### Static export behavior
+L155: ### 1.4 Code Organization (components, pages, APIs, utilities)
+L157: #### Pages / routes
+L169: #### Components
+L180: #### Data and content flow
+L188: #### API/data access
+L195: ### 1.5 Environment Variables, Config Files, and Dependency Considerations
+L197: #### Environment variables
+L209: #### Key configuration files
+L224: #### Dependency notes
+L229: ### 1.6 How to Add Features / Extend Existing Functionality
+L231: #### Add a new marketing page (direct route style)
+L238: #### Add a registry-driven page
+L252: #### Add or update expertise content
+L257: #### Add animation/gallery assets
+L263: #### Blog-related enhancements
+L271: ## Section 2 — User Guide
+L273: ### 2.1 What this website does and who it is for
+L284: ### 2.2 Getting around the site (no account required)
+L300: ### 2.3 Step-by-step walkthrough of key features
+L302: #### Feature: Browse services by expertise
+L309: #### Feature: Explore industry-specific pages
+L316: #### Feature: Read case studies and projects
+L323: #### Feature: Use the blog
+L330: #### Feature: Explore visual gallery
+L336: #### Feature: Contact and outreach
+L345: ### 2.4 Major pages explained in non-technical language
+L358: ### 2.5 Setup steps a user might need
+L370: ## Section 3 — Webmaster Guide
+L372: ### 3.1 Deployment and hosting
+L383: #### Required deployment secrets
+L392: #### Hosting implications
+L396: ### 3.2 Content and asset updates
+L398: #### Update written content
+L405: #### Update page mappings and templates
+L415: #### Update animation/gallery content
+L426: #### Update nav/footer links
+L431: ### 3.3 Maintenance tasks
+L433: #### Routine checks
+L459: #### Backups and content resilience
+L465: #### Logging and monitoring recommendations
+L471: ### 3.4 Common troubleshooting scenarios
+L473: #### Build fails on registry/template errors
+L487: #### Blog posts not loading
+L505: #### Missing hero visuals/animations
+L517: #### Broken internal links after slug changes
+L526: ## Section 4 — Design Reference
+L528: ### 4.1 Color palette
+L532: #### Core dark surfaces
+L537: #### Accent and brand colors
+L545: #### Tailwind ramps used repeatedly
+L552: #### Common gradients/patterns
+L558: ### 4.2 Typography
+L560: #### Font families
+L568: #### Font size scale
+L587: ### 4.3 Spacing and layout system
+L589: #### Spacing
+L597: #### Containers
+L602: ### 4.4 UI component patterns
+L604: #### Buttons
+L616: #### Cards
+L624: #### Forms
+L628: #### Navigation
+L634: ### 4.5 Responsive design approach
+L645: ### 4.6 Design system / style guide sources
+
+=== SITE-DEVELOPER-GUIDE.md ===
+L1: ## GTMstack.pro – Developer Guide
+L9: ## 1. High-level architecture
+L49: ## 2. Routing & layout
+L51: ### 2.1 App Router structure
+L62: ### 2.2 Navigation
+L71: ### 2.3 Page registry (templates & content)
+L82: ## 3. Animations & hero tiles (top-right header)
+L91: ### 3.1 Hero visual registry (per-route hero in header)
+L131: ### 3.2 Animation registry (gallery + route variants)
+L180: ### 3.3 How animations are placed in headers
+L208: ## 4. Styling system: fonts, colors, CSS utilities
+L210: ### 4.1 Tailwind config
+L238: ### 4.2 Global CSS layers
+L274: ## 5. Performance & motion tuning
+L276: ### 5.1 Dynamic imports for animations
+L297: ### 5.2 Motion optimization
+L316: ### 5.3 Layout / CLS
+L328: ## 6. How to tweak look & feel
+L330: ### 6.1 Change hero animation for a page
+L337: ### 6.2 Adjust colors / gradients
+L347: ### 6.3 Typography
+L357: ## 7. How to improve speed further
+L373: ## 8. Quick checklist for changes
+
+=== system-architecture.md ===
+L1: # System Architecture
+L3: ## High-level setup
+L14: ## Routing architecture
+L16: ### 1) File-system routing (App Router)
+L28: ### 2) Registry-driven page composition
+L48: ## Data sources
+L50: ## A) Local content source (non-blog pages)
+L62: ## B) External CMS source (blog = WordPress)
+L79: ## Where API calls are made
+L81: ## 1) Blog index page (`/blog`)
+L97: ## 2) Blog post page (`/blog/post?slug=...`)
+L111: ## 3) Reusable latest-posts block
+L120: ## End-to-end rendering/data flows
+L122: ## Flow A: Non-blog route (example: `/expertise`)
+L132: ## Flow B: Blog listing (`/blog`)
+L140: ## Flow C: Single blog post (`/blog/post?slug=...`)
+L150: ## Notes on CMS integration design
+
+=== DESIGN-STYLE-PALETTE-GUIDE.md ===
+L1: # GTMStack.pro Design, Style & Palette Guide
+L9: ## 1. Brand identity
+L18: ## 2. Color palette (locked — do not deviate)
+L22: ### 2.1 Global backgrounds and body text
+L33: ### 2.2 Site-wide UI (all pages)
+L41: ### 2.3 Page/section palettes (structural accent + gradient + proof)
+L58: ### 2.4 Inheritance rules
+L64: ### 2.5 Borders and overlays (implementation)
+L72: ### 2.6 Light sections (reading-heavy)
+L80: ## 3. Typography
+L82: ### 3.1 Font families
+L90: ### 3.2 Scale and usage
+L111: ## 4. Layout and wireframe
+L113: ### 4.1 Containers
+L119: ### 4.2 Section padding
+L128: ### 4.3 Grid
+L134: ### 4.4 Section rhythm (dark vs light)
+L140: ### 4.5 Expected content order (templates)
+L156: ## 5. Component patterns
+L158: ### 5.1 Buttons
+L166: ### 5.2 Cards
+L172: ### 5.3 Section headers
+L178: ### 5.4 Badges / tags
+L183: ### 5.5 Text gradient (hero / highlights)
+L192: ## 6. Backgrounds and motifs
+L194: ### 6.1 Dark sections
+L200: ### 6.2 Light sections
+L205: ### 6.3 Utility patterns (reference)
+L214: ## 7. Motion and animation
+L225: ## 8. Tool-specific checklist
+L227: ### Stitch (Google)
+L236: ### AI Studio (Gemini / design prompts)
+L243: ### Figma
+L253: ## 9. Don’ts
+L265: ## 10. Quick reference (from gtm-palette.csv)
+L286: ## 11. Suggested prompts (copy-paste)
+L290: ### 11.1 Google Stitch
+L318: ### 11.2 Figma
+
+=== branding-guidelines.md ===
+L1: # Branding Guidelines
+L3: ## Typography
+L9: ## Color Palette
+L11: ### Core brand and surface colors
+L22: ### Supporting brand families used in UI
+L30: ### Brighter widget palettes (important)
+L42: ## Theme Rules (Light vs Dark)
+L51: ## Overall Vibe
+
+=== component-library.md ===
+L1: # Component Library Catalog
+L5: ## Layout & Navigation
+L7: ### `components/layout/Section.tsx` (`Section`, `SectionHeader`)
+L12: ### `components/layout/SectionLight.tsx`
+L17: ### `components/layout/SectionDark.tsx`
+L22: ### `components/layout/Navbar.tsx`
+L27: ### `components/layout/MegaMenu.tsx`
+L32: ### `components/ui/MobileMegaMenu.tsx`
+L37: ### `components/layout/Footer.tsx`
+L42: ## Hero System
+L44: ### `components/ui/Hero.tsx` + `PageHero`
+L49: ### `components/ui/HeroDark.tsx`
+L54: ### `components/ui/HeroBackground.tsx`
+L59: ## Core UI Primitives
+L61: ### `components/ui/Button.tsx`
+L66: ### `components/ui/Card.tsx` (`Card`, `MetricCard`, `CaseStudyCard`)
+L71: ### `components/ui/CardGrid.tsx` (`CardGrid`, `CardGridItem`)
+L76: ### `components/ui/CTABand.tsx`
+L81: ### `components/ui/BackButton.tsx`
+L86: ## Data Display & Filtering
+L88: ### `components/ui/StatRow.tsx` (`StatRow`, `StatHighlight`)
+L93: ### `components/ui/AnimatedStatCard.tsx`
+L98: ### `components/sections/StatsSection.tsx`
+L103: ### `components/ui/FilterChips.tsx` (`FilterChips`, `PillarFilter`)
+L108: ### `components/ui/LatestPosts.tsx`
+L113: ### `components/ui/RelatedItems.tsx`
+L118: ## Problem/Promise Patterns
+L120: ### `components/ui/ProblemPromise.tsx`
+L125: ### `components/sections/ProblemPromise.tsx`
+L130: ### `components/sections/TimelineTeaser.tsx`
+L135: ## Motion & Visual Utility Components
+L137: ### `components/motion/FadeIn.tsx` (`FadeIn`, `StaggerContainer`, `StaggerItem`, `HoverScale`)
+L142: ### `components/ui/Reveal.tsx`
+L147: ### `components/ui/DriftingSignalField.tsx`
+L152: ## Theme System Notes (Cross-Cutting)
+
+=== CONSOLIDATION_SUMMARY.md ===
+L1: # Component Consolidation Summary
+L7: ## 1. Card / glass styles
+L9: ### Added (in `app/globals.css`)
+L13: ### Consolidated usage
+L23: ### Unchanged
+L31: ## 2. CTA styles
+L33: ### Added (in `app/globals.css`)
+L39: ### Replaced (now use shared classes)
+L51: ### Unchanged
+L60: ## 3. Dead / duplicate utilities removed
+L66: ## 4. Summary table
+L81: ## 5. Visual appearance
+
+=== WEBSITE_USER_GUIDE.md ===
+L1: # GTMstack.pro User Guide
+L3: ## 1) What This Website Is
+L15: ## 2) Who This Website Is For
+L17: ### Primary audience
+L23: ### Company types that get the most value
+L28: ### Typical pain points this audience has
+L37: ## 3) What a Visitor Can Learn From the Site
+L65: ## 4) Core Website Features (What to Explore)
+L67: ### A) Home experience
+L73: ### B) Expertise library
+L112: ### C) Case studies (portfolio proof)
+L161: ### D) Industry pages
+L206: ### E) About / founder story
+L210: ### F) Contact and conversion pathways
+L214: ### G) Visual and interaction design
+L220: ## 5) What Is Most Interesting to See
+L235: ### Path A: "Can you solve our ABM/account-based GTM challenge?" (20 minutes)
+L243: ### Path B: "Do you understand our industry and GTM realities?" (20 minutes)
+L251: ### Path C: "What's your data/operations/analytics capability?" (15 minutes)
+L259: ### Path D: "Looking for content and SEO strategy" (15 minutes)
+L267: ### Path E: "We need an operating model overhaul" (25 minutes)
+L275: ## 6) The Key Message Visitors Should Walk Away With
+L296: ## 7) Suggested Use Cases for Different Visitors
+L298: ### For founders/CEOs
+L304: ### For CMOs and VP Marketing
+L314: ### For RevOps teams
+L321: ### For Marketing Ops teams
+L327: ### For product and customer success leaders
+L333: ### For internal buying committees evaluating an engagement
+L340: ### For partnership/channel leaders
+L348: ## 8) Quick Evaluation Checklist for New Visitors
+L352: ### Industry Fit
+L357: ### Capability Fit
+L362: ### Outcome Alignment
+L367: ### Philosophy/Approach Fit
+L372: ### Engagement Readiness
+L385: ## 9) Content Architecture Quick Reference
+L389: ### From an Expertise Page
+L394: ### From an Industry Page
+L399: ### From a Case Study
+L404: ### Navigation Examples
+L417: ## 10) One-Sentence Summary
+
+=== WEBSITE_SUMMARY.md ===
+L1: # GTMstack.pro - Website Summary
+L3: ## What Is This Website?
+L11: ## Who Is This Website For?
+L13: ### Primary Audience
+L32: ### Industries Served
+L45: ## Why Would Someone Want to Engage?
+L47: ### The Core Problem Solved
+L56: ### Proven Track Record
+L65: ### Four Interconnected Service Pillars
+L83: ### What Makes GTMstack Different
+L92: ### The Operating System Approach
+L103: ## Key Website Features
+L105: ### Content & Resources
+L112: ### Technical Implementation
+L119: ### Design Philosophy
+L128: ## Call to Action
+L138: ## Summary
+
+=== README.md ===
+L1: # GTMstack.pro - Marketing/Portfolio Site
+L5: ## Features
+L16: ## Tech Stack
+L25: ## Getting Started
+L27: ### Prerequisites
+L32: ### Installation
+L35: # Install dependencies
+L38: # Run development server
+L41: # Build for production
+L44: # Start production server
+L50: ## Project Structure
+L98: ## Design System
+L100: ### Colors
+L107: ### Typography
+L113: ### Spacing & Layout
+L119: ### Components
+L126: ## Blog (WordPress)
+L135: ## Content Management
+L139: ### Expertise (20 items)
+L147: ### Industries (8 items)
+L151: ### Case Studies (10 items)
+L155: ## Customization
+L157: ### Adding Content
+L163: ### Styling
+L169: ### Pages
+L175: ## Deployment
+L183: # Build for production
+L186: # The output is in .next/
+L189: ## License
+
+=== PROJECT_BRIEF.md ===
+L1: # PROJECT BRIEF
+L3: ## 1) North Star Objective
+L9: ## 2) Target Personas
+L22: ## 3) Core Value Proposition (Hero Pitch)
+L29: ## 4) Key Performance Indicators (KPIs)
+L42: ## 5) Information Architecture (Current High-Level)
+L64: ## 6) Voice & Tone
+L75: ## 7) Visual Identity Summary
+L88: ## 8) The Golden Path (Ideal User Journey)
+L100: ## 9) Competitive Moat
+L111: ## 10) Phase 2 Roadmap (Non-Technical)
+L124: ## 11) Anti-Goals (Scope Protection)
+
+=== CONTENT_MANAGEMENT_GUIDE.md ===
+L1: # Content Management Guide
+L9: ## Table of Contents
+L21: ## Overview
+L25: ### Key Principles
+L34: ## Content Architecture Pattern
+L36: ### Current Structure
+L59: ### Pattern: Single File per Content Type
+L69: ## How Content is Populated on Pages
+L73: ### Architecture Overview
+L93: ### The Registry System
+L95: #### 1. **Page Registry** (`src/data/pageRegistry.generated.ts`)
+L145: #### 2. **Template Registry** (`src/templates/registry.ts`)
+L160: #### 3. **Content Registry** (`src/content/registry.ts`)
+L188: ### Data Flow: Route ? Template ? Content
+L206: ### Why NOT MDX?
+L219: ### It's Really Just "Slug Model"
+L230: ## Content Type Schemas
+L234: ### 1. Industries (`IndustryItem`)
+L305: ### 2. Expertise (`ExpertiseItem`)
+L379: ### 3. Case Studies (`CaseStudyItem`)
+L442: ### 4. Template-Specific Content
+L444: #### Home Page (`HomeTemplateContent`)
+L495: #### About Page
+L504: ## Full Project Content Map
+L519: ## How to Add New Content
+L521: ### Adding a New Industry
+L547: ### Adding a New Expertise Item
+L554: ### Adding a New Case Study
+L563: ## Scaling Recommendations
+L565: ### For Adding 20–100+ Industries (or any content type)
+L567: #### ? Recommended: Keep Centralized File (Current Approach)
+L597: #### ?? Alternative: Modular Approach (for 200+ items)
+L618: ### Using a Generator Script
+L643: ### Merge Conflict Prevention
+L654: ## Type Definitions Reference
+L662: ### Key Type Exports
+L670: ### Pillar Constants
+L685: ## Questions or Issues?
+
+=== CONTENT-TEMPLATE-SKELETONS.md ===
+L1: ## GTMStack.pro — Content Template Skeletons
+L9: ## 1. Home
+L48: ## 2. About
+L80: ## 3. Expertise — Hub (How We Help)
+L112: ## 4. Expertise — Pillar Page (e.g. Content & Engagement)
+L142: ## 5. Expertise — Individual Topic Page
+L173: ## 6. Industries — Hub (Who We Help)
+L195: ## 7. Industries — Individual Industry Page
+L223: ## 8. Case Studies — Hub
+L242: ## 9. Case Study — Detail Page
+L277: ## 10. How to Use This Document
+
+=== INTERN_TEMPLATE_AND_CONTENT_UPDATE_RUNBOOK.md ===
+L1: # Intern Runbook: Updating Templates (UI) + Content (Data)
+L21: ## Safety rules (follow every time)
+L31: ## What you need open (minimal technical steps)
+L46: ## Step 0: Start the site locally (do this first)
+L53: ### If Admin asks for a password
+L62: ## How to update **Content** (text, bullets, stats, case studies, industries)
+L64: ### Step 1: Find the page’s mapping (preferred: no-code)
+L76: ### Step 2: Identify the page’s `contentKey` (fallback: open the CSV)
+L89: ### Step 3: Find where the content lives
+L100: ### Step 4: Edit the content file (change only the data)
+L110: ### Step 5: Validate content (required, always)
+L121: ### Step 6: Cross-link sanity check (required)
+L137: ### Step 7: Verify in the browser (required)
+L151: ## How to update **Templates** (UI/look/design)
+L155: ### Step 1: Identify the page’s `templateId`
+L167: ### Step 2: Decide if it’s a built-in template or an uploaded one
+L172: ### Step 3: Update the template
+L176: #### Option A (recommended): Use Admin template upload
+L200: #### Option B: Edit a built-in template file directly
+L206: ### Template rules (do not break these)
+L215: ### Template verification checklist (required)
+L230: ### If upload fails (common fixes)
+L245: ## AI Studio prompts (HTML ? `.tsx` template + `.ts` content)
+L249: ### Prompt A: Generate the `.tsx` template (UI only)
+L283: ### Prompt B: Generate the `.ts` content object (Data only, schema-matched)
+L287: #### B1) Industry (`industries:<slug>`) content prompt
+L317: #### B2) Case Study (`case-studies:<slug>`) content prompt
+L347: #### B3) Expertise item (`expertise:<slug>`) content prompt
+L371: #### B4) Pillar page (`pillar:<slug>`) full page content prompt
+L401: ## Pre-import checks & cleanup (do this before uploading/importing)
+L403: ### For templates (`.tsx`)
+L414: ### For content (`.ts`)
+L423: ## Wiring a new or updated page (route ? templateId + contentKey)
+L427: ### Preferred (no-code): Use the Page Index CMS
+L440: ### Fallback (with code): Update the CSV directly
+L450: ### Helper: Use the Translator (advanced)
+L456: ## Common “don’t get stuck” troubleshooting
+L471: ## Suggested improvements (optional but recommended)
+L475: ### Admin tool improvements
+L490: ### Content generator (AI) workflow improvements
+L505: ## Quick checklist (copy/paste)
+
+=== PAGE_TEMPLATE_MAPPING_REFERENCE.md ===
+L1: # Complete Page & Template Mapping Reference
+L11: ## Quick Summary
+L19: ## All Pages Mapped by Section
+L21: ### ?? Home & Core Pages
+L32: ### ?? Expertise Section
+L34: #### Main & Pillars
+L43: #### Detail Topics
+L54: ### ?? Industries Section
+L56: #### Main
+L61: #### Industry Details
+L75: ### ??? Services Section
+L88: ### ?? Other Sections
+L100: ## Template Definitions
+L102: ### Standard Templates
+L116: ### Custom Templates (Uploaded)
+L126: ## Data Source Files
+L128: ### Content Files Used
+L146: ## Theme Assignments
+L148: ### Dark Theme (19 pages)
+L160: ### Light Theme (4 pages)
+L166: ### Default/Unspecified (1 page)
+L173: ## Content Key Mapping
+L175: ### How Content Keys Work
+L185: ### Unique Content Keys in Use
+L203: ## Routing Architecture Overview
+L231: ## Remapping Guidelines
+L233: ### To Change a Page's Template
+L247: ### To Change a Page's Content Key
+L261: ### To Add a New Page
+L274: ## Validation Checklist
+L290: ## Quick Access for Specific Sections
+L292: ### Just Expertise Pages
+L298: ### Just Industry Pages
+L303: ### Just Service Pages
+L310: ## Notes
+
+=== ADMIN_GUIDE.md ===
+L1: ### Admin UI & Page Index CMS: User Guide
+L7: ### 1. Understanding the Page Index Table
+L14: #### Columns:
+L22: ### 2. Status Indicators
+L34: ### 3. How to Find and Filter Pages
+L44: ### 4. How to Add a New Page to the Registry
+L60: ### 5. How to Edit an Existing Mapping
+L69: ### 6. What Happens After You Save?
+
+=== ADMIN_TEMPLATEID_DETERMINATION_MAPPING_AND_USAGE.md ===
+L1: # Admin TemplateID Determination, Mapping, and Usage
+L5: ## Scope
+L17: ## Canonical Data & Runtime Resolution
+L19: ## 1) Source-of-truth records
+L27: ## 2) Runtime template lookup order
+L41: ## Admin Sections That Set TemplateID
+L43: ## A) Legacy Admin screen (currently mounted)
+L49: ### How TemplateID is determined (legacy)
+L56: ### Mapping behavior (legacy)
+L62: ## B) Wizard/modern components (present in codebase)
+L78: ### How TemplateID is determined (wizard stack)
+L80: #### 1) `PageForm` suggestion rules
+L94: #### 2) `AddTemplateWizard` computed rules
+L105: #### 3) `QuickPageUpdateWizard` route-based suggestion rules
+L118: #### 4) `EditPageWizard`
+L125: ## Mapping/Persistence Mechanics
+L127: ## 1) `/api/admin/templates` (registry map editor)
+L136: ## 2) `/api/admin/page-upsert`
+L144: ## 3) `scripts/page-upsert.mjs`
+L157: ## 4) `scripts/gen-page-registry.ts`
+L165: ## Current Behavioral Nuances / Risks
+L185: ## Recommended TemplateID Naming Rules (Canonical Standard)
+L189: ## 1) Core format
+L200: ## 2) Standard patterns by page type
+L217: ## 3) Explicit do/don’t rules
+L225: ## 4) Legacy compatibility policy
+L231: ## 5) Migration map: legacy ? canonical
+L250: ### Quick decision guide
+L259: ## 6) Pre-merge checklist for new TemplateIDs
+L270: ## Practical End-to-End Flow (recommended with current code)
+L281: ## Quick Reference: Key Files
+
+=== SITE-PAGES-AND-HIERARCHY.md ===
+L1: # GTMStack.pro — Site Pages & Hierarchy
+L7: ## Main menu (top level)
+L23: ## Expertise (how we help)
+L31: ### 1. Content & Engagement
+L39: ### 2. Demand & Growth
+L47: ### 3. Strategy & Insights
+L55: ### 4. Systems & Operations
+L65: ## Industries (who we help)
+L89: ## Case Studies
+L101: ## Animation Gallery
+L113: ## Blog / Insights
+L122: ## Other pages
+L131: ## Simple hierarchy diagram
+
+=== CURRENT_SITEMAP.md ===
+L1: (no markdown headings found)
+
+=== gtmstackpro-page-review.md ===
+L1: (no markdown headings found)
+
+=== PAGE LISTG.txt ===
+L1: (no markdown headings found)
+
+=== REFACTOR_PLAN.md ===
+L1: # Homepage Refactor Plan: Dark SaaS Core with Light Enterprise Breaks
+L3: ## Current State Analysis
+L5: ### Current Section Order (8 sections):
+L15: ### Missing Section:
+L20: ## Target 7-Section Structure
+L22: ### (a) Section-by-Section Dark/Light Assignment
+L38: ## (b) New Shared Components Needed
+L40: ### 1. `ProblemPromise` Component
+L61: ### 2. `ProofGrid` Component (Enhanced)
+L84: ### 3. `ServicePillarCard` Component (Enhanced)
+L94: ### 4. `DifferentiatorList` Component
+L114: ### 5. `CTADark` Component
+L125: ## (c) Motif/Imagery Layers to Add
+L127: ### Section 1: Hero
+L132: ### Section 2: Problem ? Promise (NEW)
+L137: ### Section 3: Services Snapshot
+L142: ### Section 4: Proof & Credibility
+L147: ### Section 5: Featured Case Studies
+L152: ### Section 6: Why Work With Us
+L157: ### Section 7: Final CTA
+L164: ## (d) Motion Upgrades
+L166: ### Existing (Keep):
+L171: ### New Additions:
+L200: ## (e) Tailwind Theme/Token Edits
+L202: ### Color System (Already Updated ?)
+L223: ### New Shadow Tokens Needed:
+L235: ### New Animation Tokens Needed:
+L256: ### New Utility Classes Needed:
+L284: ## Implementation Priority
+L286: ### Phase 1: Core Structure (High Priority)
+L292: ### Phase 2: Component Enhancements (Medium Priority)
+L298: ### Phase 3: Motion & Polish (Medium Priority)
+L304: ### Phase 4: Motifs & Visuals (Low Priority)
+L312: ## Section Content Mapping
+L314: ### Section 1: Hero (DARK)
+L320: ### Section 2: Problem ? Promise (DARK) - **NEW**
+L328: ### Section 3: Services Snapshot (LIGHT)
+L334: ### Section 4: Proof & Credibility (DARK)
+L341: ### Section 5: Featured Case Studies (DARK)
+L347: ### Section 6: Why Work With Us (LIGHT)
+L353: ### Section 7: Final CTA (DARK)
+L361: ## Files to Create/Modify
+L363: ### New Components:
+L369: ### Modify:
+L374: ### Existing (Keep):
+L382: ## Success Metrics
+
+=== REFACTOR_SUMMARY.md ===
+L1: # Homepage Refactor: Quick Reference
+L3: ## Current ? Target Mapping
+L18: ## Dark/Light Assignment
+L30: ## Motif Assignment
+L42: ## New Components Checklist
+L49: ## Motion Enhancements
+L57: ## Tailwind Updates
+
+=== ABOUT_PAGE_REFACTOR_PLAN.md ===
+L1: # About Page Refactor Plan: Dark SaaS Core with Light Enterprise Breaks
+L3: ## Current Section Structure
+L5: ### Current Sections (in order):
+L15: ## Proposed Refactor: Section-by-Section Plan
+L17: ### Section 1: Hero (DARK)
+L38: ### Section 2: Stats (DARK)
+L59: ### Section 3: Story + Timeline (LIGHT)
+L80: ### Section 4: Expertise Grid (LIGHT)
+L101: ### Section 5: Values (DARK)
+L122: ### Section 6: CTA (DARK)
+L143: ## Dark/Light Ratio
+L159: ## Motif Assignment
+L172: ## Anchor Visuals (Abstract Only)
+L185: ## Motion Strategy
+L187: ### Performance Optimized:
+L193: ### Motion Types:
+L201: ## Component Updates Needed
+L211: ## Content Adjustments
+L221: ## Implementation Priority
+L230: ## Success Criteria
+
+=== ABOUT_PAGE_SECTIONS.md ===
+L1: # About Page: Current Sections & Refactor Plan
+L3: ## Current Sections (6 total)
+L14: ## Refactor Plan: Dark SaaS Core with Light Enterprise Breaks
+L16: ### Section 1: Hero ? **DARK**
+L22: ### Section 2: Stats ? **DARK**
+L28: ### Section 3: Story + Timeline ? **LIGHT**
+L34: ### Section 4: Expertise Grid ? **LIGHT**
+L40: ### Section 5: Values ? **DARK**
+L46: ### Section 6: CTA ? **DARK**
+L54: ## Ratio: 4 Dark / 2 Light = 67% / 33% ?
+L56: ## Key Changes:
+
+=== CHANGELOG.md ===
+L1: ## [2026-03-10] - Add content engagement and systems operations content to registry
+L5: ## [2026-03-10] - Enhance Navbar, Footer, and MegaMenu components with updated styling and logo integration
+L9: ## [2026-03-10] - Refactor admin components and enhance API routes
+L13: ## [2026-03-09] - Add Admin CMS, handoff docs, and cleanup
+L17: ## [2026-03-09] - blog wp refresh UX and typecheck scope
+L21: ## [2026-03-07] - deploy static
+L25: ## [2026-03-06] - Add admin UI, API routes, assets, and SEOHero
+L29: ## [2026-03-06] - chore: finalize recovery changes after crash
+L33: ## [2026-03-04] - fix: resolve post-crash TypeScript, template routing, and prerender blockers
+L37: ## [2026-02-27] - admin fixes
+L41: ## [2026-02-25] - change that row’s templateId to a valid template id. Based on the rest of your expertise pillar/category pages, it should be expertise.category
+L45: ## [2026-02-22] - Create qodana.yaml
+L49: ## [2026-02-22] - Add animation admin UI and local-only APIs
+L53: ## [2026-02-20] - Update page registry keys and add sitemap
+L57: ## [2026-02-20] - Extract blog UI to templates; add animation script
+L61: ## [2026-02-18] - Add registry-driven Projects page & template
+L65: ## [2026-02-18] - Revamp Industries content and template
+L69: ## [2026-02-18] - Add route-based hero visual component
+L73: ## [2026-02-18] - Add Expertise main content, template & styles
+
+=== CHANGE_DOCUMENT_SINCE_2026-03-01.md ===
+L1: # GTMStack.pro Change Document (Since 2026-03-01)
+L3: ## Scope
+L21: ## A) Change Summary Since March 1, 2026
+L23: ## Commit timeline (high-level)
+L57: ## Functional change themes
+L81: ## B) Current Next.js `/app` Architecture
+L85: ## 1) Root and shared app files
+L92: ## 2) Explicit top-level route sections
+L106: ## 3) Catch-all registry routing
+L123: ## 4) API architecture
+L133: ## C) Tailwind Design Tokens: PillarAccent / PillarGradient
+L135: ## Important current-state note
+L145: ## 1) Base Tailwind tokens currently available
+L153: ## 2) Pillar palette equivalents (practical PillarAccent/PillarGradient source)
+L167: ## 3) Design-spec layer
+L173: ## D) Current Page-Content Schema Model
+L177: ## 1) Key families
+L188: ## 2) Registry + template coupling
+L200: ## 3) Validated schema types (Zod)
+L221: ## 4) Practical schema interpretation
+L231: ## E) Recommendations (Optional Next Step)
+
+=== BLOG-WORDPRESS-DEVELOPER-GUIDE.md ===
+L1: # Blog & WordPress Integration — Developer Guide
+L7: ## Architecture Overview
+L32: ## Operating Model (For On-Call Engineers)
+L44: ## Key Files
+L59: ## Environment Variables
+L82: ## Publish-To-Live Workflow
+L93: ## API Endpoints Used
+L107: ## Data Shape: `WPPost`
+L132: ## Managing Content in WordPress
+L141: ## Category/Filter Logic (Frontend)
+L147: ## Deployment & CI
+L165: ## Maintenance Checklist
+L182: ## Extending the Blog
+L184: ### Add WordPress categories
+L190: ### Server-side rendering (SSR) or static generation (SSG)
+L195: ### Increase post count
+L200: ### Add custom fields
+L207: ## Troubleshooting
+L219: ## Fast Triage Commands
+L221: ### 1. Verify latest posts from source
+L227: ### 2. Verify CORS for production origin
+L234: ### 3. Verify deploy source branch
+L241: ## WordPress Setup Checklist
+
+=== WORDPRESS-PDF-VIDEO-EMBED-GUIDE.md ===
+L1: # WordPress: Embedding PDFs and Videos in Blog Posts
+L7: ## Overview
+L19: ## WordPress Setup
+L21: ### 1. Enable Rich Editing in WordPress
+L27: ### 2. Embed Videos
+L29: #### Option A: YouTube/Vimeo (Recommended)
+L43: #### Option B: Self-Hosted Video (MP4/WebM)
+L54: #### Option C: Manual Embed Code
+L77: ## Embed PDFs
+L79: ### Option A: PDF Embed Block (Recommended)
+L89: ### Option B: Embed Plugin
+L103: ### Option C: Manual Embed Code
+L128: ### Option D: Direct Media Upload
+L136: ## Best Practices
+L138: ### 1. File Size & Performance
+L142: ### 2. Responsive Sizing
+L152: ### 3. Fallback Content
+L162: ### 4. SEO & Metadata
+L169: ## Testing
+L201: ## Troubleshooting
+L215: ## Allowed HTML Tags (Security)
+L229: ## Examples
+L231: ### Example 1: YouTube Video with Responsive Container
+L245: ### Example 2: Embedded PDF with Viewer
+L256: ### Example 3: Vimeo with Aspect Ratio
+L269: ### Example 4: Mixed Content (Text + Video)
+L281: ## Advanced: Custom Embed Shortcodes
+L312: ## Support
+
+=== CURSOR_PROMPT_EXISTING_SITE.md ===
+L1: # Cursor Prompt: Add Animation Gallery to Existing Website ??
+L7: ## CONTEXT
+L13: ## GOAL
+L22: ## INSTRUCTIONS
+L24: ### Step 1: Analyze Existing Site
+L32: ### Step 2: Create Gallery Data Structure
+L79: ### Step 3: Create Gallery Page Component
+L83: #### Layout:
+L91: #### Card Design (match gtmstack.pro aesthetic):
+L99: #### Modal Design:
+L107: ### Step 4: Dynamic Component Loading
+L135: ### Step 5: Integration with Existing Site
+L145: ### Step 6: Thumbnail Generation
+L162: ### Step 7: Features to Include
+L174: ### Step 8: SEO & Metadata
+L185: ## SPECIFIC REQUIREMENTS
+L187: ### Design System
+L194: ### Routing
+L200: ### Animation Component Imports
+L205: ### Error Handling
+L210: ## WHAT TO DELIVER
+L239: ## CONSTRAINTS
+L247: ## EXAMPLE WORKFLOW
+L259: ## NEXT STEPS AFTER CREATION
+L268: ## QUESTIONS TO ANSWER FIRST
+L279: ## TL;DR - Build This:
+
+=== CURSOR_QUICK_PROMPT.md ===
+L1: # Quick Cursor Prompt: Add Gallery to Existing Site ??
+L11: ## What I Need:
+L13: ### 1. Analyze My Existing Code
+L21: ### 2. Create Gallery Data File
+L39: ### 3. Build Gallery Page at `/gallery`
+L47: ### 4. Modal with Live Animation
+L55: ### 5. Key Requirements
+L64: ## Example:
+L77: ## Deliverables:
+
+=== project-setup.md ===
+L1: # GTMStack.pro Project Setup
+L3: ## 1) Prerequisites
+L14: ## 2) Install dependencies
+L26: ## 3) Configure environment variables
+L30: ### Required/recommended variables
+L37: ### Notes
+L50: ## 4) Start local development server
+L70: ## 5) Build and run production locally
+L88: ## 6) Useful project scripts
+L101: ## 7) First-time onboarding command sequence
+
+=== HOSTINGER_NODE_DEPLOY.md ===
+L1: # Hostinger Node.js Web App Deployment
+L5: ## Hostinger panel checklist
+L25: ## package.json requirements (already set)
+L32: ## Environment variables (optional)
+L39: ## After deployment
+

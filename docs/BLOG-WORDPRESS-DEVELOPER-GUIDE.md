@@ -1,4 +1,4 @@
-# Blog & WordPress Integration — Developer Guide
+# Blog and WordPress Architecture
 
 This guide explains how the GTMStack blog is built and how it integrates with WordPress as a headless CMS.
 
@@ -247,3 +247,76 @@ For a new WordPress instance as the blog backend:
 3. Set `NEXT_PUBLIC_WORDPRESS_API_URL` and `WORDPRESS_API_URL` to `https://yoursite.com/wp-json/wp/v2`.
 4. Configure CORS if the Next.js app is on a different domain.
 5. Add `WORDPRESS_API_URL` to GitHub secrets for deployment.
+
+---
+
+## Embedding PDFs and Videos in Posts
+
+The blog renders sanitized WordPress HTML from `content.rendered`, so rich embeds can be authored directly in WordPress posts.
+
+### Supported Media Types
+
+- Videos: YouTube, Vimeo, Wistia, self-hosted MP4/WebM
+- PDFs: embedded viewers or download links
+- Other rich embeds that render to supported HTML tags
+
+### Recommended Authoring Methods
+
+1. **Block editor embeds (preferred)**
+  - Use WordPress Embed, Video, or File blocks.
+  - Publish and verify the resulting iframe/video markup appears in API output.
+
+2. **Manual HTML embed**
+  - Switch to code editor and paste iframe/video/object markup.
+  - Example video iframe:
+
+```html
+<iframe
+  src="https://www.youtube.com/embed/VIDEO_ID"
+  width="100%"
+  height="600"
+  frameborder="0"
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+  allowfullscreen>
+</iframe>
+```
+
+  - Example PDF iframe:
+
+```html
+<iframe
+  src="https://docs.google.com/gview?url=https://gtmstack.pro/wp-content/uploads/2024/whitepaper.pdf&embedded=true"
+  width="100%"
+  height="900"
+  frameborder="0">
+</iframe>
+```
+
+3. **Plugin-based PDF embeds**
+  - Use a plugin such as PDF Embedder when editor workflow requires shortcode/block-based insertion.
+  - If plugin output does not appear in REST API, fallback to manual iframe embed.
+
+### Embed Validation Flow
+
+1. Confirm post status is `Published` in WordPress.
+2. Verify embed HTML exists in API response:
+  - `GET /posts?search={title}&_embed=1` and inspect `content.rendered`.
+3. Verify live page render on `/blog/{slug}`.
+4. If stale in production, confirm latest deploy came from `main`.
+
+### Responsive and Performance Rules
+
+- Use `width="100%"` with explicit height or aspect-ratio wrapper.
+- Keep PDFs lightweight when possible (target under 5 MB).
+- Prefer third-party streaming providers for large videos.
+- Always include meaningful titles/alt text and proper categories/tags.
+
+### Sanitization Allowlist (Embeds)
+
+Allowed tags include: `iframe`, `embed`, `object`, `param`, `video`, `source`, `img`.
+
+Allowed attributes include: `src`, `width`, `height`, `frameborder`, `allow`, `allowfullscreen`, `type`, `data`, `name`, `value`, `alt`, `title`, `style`, `class`, `id`.
+
+Blocked: scripts, event handlers (for example `onclick`), and unsafe external behaviors.
+
+> **Note:** `WORDPRESS-PDF-VIDEO-EMBED-GUIDE.md` has been merged into this document and archived under `docs/archive/2026-03-16/`.

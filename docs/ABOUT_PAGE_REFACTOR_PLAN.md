@@ -1,4 +1,4 @@
-# About Page Refactor Plan: Dark SaaS Core with Light Enterprise Breaks
+# How to Refactor the About Page
 
 ## Current Section Structure
 
@@ -235,5 +235,19 @@
 - ✅ Light sections feel airy and enterprise-clear
 - ✅ Motion is tasteful and performant
 - ✅ Visual hierarchy supports reading-heavy content
+
+---
+
+## Quick Execution Checklist
+
+- [ ] Convert Hero to dark variant with topo motif
+- [ ] Convert Stats to dark cinematic treatment with counter animation
+- [ ] Keep Story + Timeline as primary light reading section
+- [ ] Keep Expertise Grid as light section with subtle motif and updated icons
+- [ ] Convert Values + CTA to distinct dark treatments
+- [ ] Validate 4 dark / 2 light ratio and section order
+- [ ] Verify abstract-only visuals and performance-safe motion
+
+> **Note:** `ABOUT_PAGE_SECTIONS.md` has been merged into this canonical plan and archived under `docs/archive/2026-03-16/`.
 
 

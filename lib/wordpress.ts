@@ -5,6 +5,37 @@
  */
 
 import type { WPPost, WPTerm, FetchPostsParams } from './wp-client'
+import type { BlogPostSummary, BlogPost } from './blog-types'
+
+function stripHtml(html: string): string {
+  return html.replace(/<[^>]*>/g, '').trim()
+}
+
+/** Map WP post to normalized BlogPostSummary for list/feed. */
+export function mapWpPostToBlogPostSummary(wp: WPPost): BlogPostSummary {
+  const terms = wp._embedded?.['wp:term']
+  const categories = terms?.[0] ?? []
+  const tags = terms?.[1] ?? []
+  const media = wp._embedded?.['wp:featuredmedia']?.[0]
+  return {
+    id: wp.id,
+    slug: wp.slug,
+    title: wp.title?.rendered ? stripHtml(wp.title.rendered) : '',
+    excerpt: wp.excerpt?.rendered ? stripHtml(wp.excerpt.rendered) : '',
+    date: wp.date ?? '',
+    author: 'Staff',
+    categoryNames: categories.map((c: { name?: string }) => c.name ?? '').filter(Boolean),
+    tagNames: tags.map((t: { name?: string }) => t.name ?? '').filter(Boolean),
+    heroImageUrl: media?.source_url ?? null,
+  }
+}
+
+/** Map WP post to normalized BlogPost for detail. */
+export function mapWpPostToBlogPost(wp: WPPost): BlogPost {
+  const summary = mapWpPostToBlogPostSummary(wp)
+  const content = wp.content?.rendered ?? ''
+  return { ...summary, content }
+}
 
 async function parseJsonResponse<T>(res: Response, context: string): Promise<T> {
   const raw = await res.text()
@@ -48,7 +79,7 @@ function getBaseUrl(): string {
   return base
 }
 
-export type { WPPost, WPTerm, FetchPostsParams }
+export type { WPPost, WPTerm, FetchPostsParams, BlogPostSummary, BlogPost }
 
 export async function fetchPostsWithTotal(
   params: FetchPostsParams = {}
@@ -114,13 +145,27 @@ export async function fetchTags(): Promise<WPTerm[]> {
 
 export async function getPostBySlug(slug: string): Promise<WPPost | null> {
   const url = `${getBaseUrl()}/posts?slug=${encodeURIComponent(slug)}&_embed=1&context=view`
-  const res = await fetch(url, { cache: 'no-store' })
+  const res = await fetch(url, { next: { revalidate: 60 } })
   if (!res.ok) {
     const text = await res.text().catch(() => '')
     throw new Error(`Failed to fetch post: ${res.status} ${text.slice(0, 200)}`)
   }
   const posts = await parseJsonResponse<WPPost[]>(res, 'Failed to parse post response')
   return posts[0] ?? null
+}
+
+/** Fetch posts and return normalized BlogPostSummary[] with totalPages (ISR). */
+export async function fetchBlogPostsWithTotal(
+  params: FetchPostsParams = {}
+): Promise<{ posts: BlogPostSummary[]; totalPages: number }> {
+  const { posts, totalPages } = await fetchPostsWithTotal(params)
+  return { posts: posts.map(mapWpPostToBlogPostSummary), totalPages }
+}
+
+/** Fetch single post by slug as normalized BlogPost (ISR). */
+export async function getBlogPostBySlug(slug: string): Promise<BlogPost | null> {
+  const wp = await getPostBySlug(slug)
+  return wp ? mapWpPostToBlogPost(wp) : null
 }
 
 export async function getPosts(params: FetchPostsParams = {}): Promise<WPPost[]> {

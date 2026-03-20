@@ -1,11 +1,11 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import { ANIMATION_REGISTRY } from '@/src/data/animations'
-import { getGithubUrl } from '@/lib/galleryGithubMap'
 import { GalleryModal } from '@/components/gallery/GalleryModal'
-import Uploaded_AnimationGallery_v1 from '@/src/templates/Uploaded_AnimationGallery_v1'
-import { adaptGalleryData } from '@/lib/gallery-adapter'
+import type { GalleryItem } from '@/src/lib/galleryManifest'
+import { StitchGalleryShell } from '@/components/gallery/StitchGalleryShell.client'
+import { resolveRegistryIdForManifestItem } from '@/src/lib/galleryAnimationMap'
 
 export interface GalleryMainContent {
   hero: {
@@ -17,55 +17,105 @@ export interface GalleryMainContent {
   intro?: string
 }
 
+// Lightweight client-side copy of the server GalleryItem shape
+export type GalleryItemClient = Pick<
+  GalleryItem,
+  | 'id'
+  | 'slug'
+  | 'animationId'
+  | 'title'
+  | 'summary'
+  | 'category'
+  | 'tags'
+  | 'thumbnailUrl'
+  | 'githubUrl'
+  | 'githubReadmeUrl'
+  | 'updatedAt'
+>
+
 export interface GalleryMainTemplateProps {
-  content : GalleryMainContent | null
+  content: GalleryMainContent | null
   pageTitle?: string
   theme?: string
   heroVisualId?: string
+  /** Items derived from gallery-manifest.json, injected by the server wrapper. */
+  initialItems?: GalleryItemClient[]
 }
 
 export default function GalleryMainTemplate({
   content,
+  initialItems,
 }: GalleryMainTemplateProps) {
-  const hero = content?.hero ?? {
-    title: 'Animation Gallery',
-    subtitle:
-      'Explore 50+ marketing dashboard animations. Built with React, Framer Motion, and Tailwind.',
-    ctaLabel: 'Request custom animations',
-    ctaHref: '/contact',
-  }
+  const hero = useMemo(
+    () =>
+      content?.hero ?? {
+        title: 'Animation Gallery',
+        subtitle:
+          'Explore 50+ marketing dashboard animations. Built with React, Framer Motion, and Tailwind.',
+        ctaLabel: 'Request custom animations',
+        ctaHref: '/contact',
+      },
+    [content]
+  )
+
+  const items = useMemo(() => initialItems ?? [], [initialItems])
 
   // Modal state management
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
+  const selectedRegistryId = useMemo(() => {
+    if (!selectedId) return null
+    const item = items.find((i) => i.id === selectedId)
+    if (!item) return null
+    return resolveRegistryIdForManifestItem(item)
+  }, [items, selectedId])
+
   const selectedAnimation = useMemo(
-    () => ANIMATION_REGISTRY.find((a) => a.id === selectedId) ?? null,
-    [selectedId]
+    () => ANIMATION_REGISTRY.find((a) => a.id === selectedRegistryId) ?? null,
+    [selectedRegistryId]
   )
 
-  // Adapt data for uploaded template
-  const galleryContent = adaptGalleryData(ANIMATION_REGISTRY, hero)
+  const selectedItem = useMemo(
+    () => items.find((item) => item.id === selectedId) ?? null,
+    [items, selectedId]
+  )
 
-  // Handle card click to open modal
-  const handleCardClick = (cardId: string | number) => {
-    setSelectedId(String(cardId))
-  }
+  const handleSelect = (id: string) => setSelectedId(id)
 
   return (
     <>
-      {/* Render uploaded template */}
-      <Uploaded_AnimationGallery_v1 
-        content={galleryContent} 
-        pageTitle="Animation Gallery"
-        onCardClick={handleCardClick}
-      />
+      {items.length > 0 ? (
+        <StitchGalleryShell
+          items={items.map((i) => ({
+            id: i.id,
+            title: i.title,
+            summary: i.summary ?? null,
+            category: i.category,
+            tags: i.tags,
+            thumbnailUrl: i.thumbnailUrl,
+          }))}
+          onSelect={handleSelect}
+          showThumbnails={true}
+        />
+      ) : (
+        <div className="min-h-[60vh] flex items-center justify-center text-slate-400">
+          No animations available yet.
+        </div>
+      )}
 
-      {/* Modal (managed separately) */}
       <GalleryModal
         animation={selectedAnimation}
         onClose={() => setSelectedId(null)}
-        githubUrl={selectedId ? getGithubUrl(selectedId) : undefined}
+        manifest={
+          selectedItem
+            ? {
+                ...selectedItem,
+                thumbnailUrl: selectedItem.thumbnailUrl,
+              }
+            : undefined
+        }
       />
     </>
   )
 }
+

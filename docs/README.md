@@ -1,4 +1,4 @@
-# GTMstack.pro - Marketing/Portfolio Site
+# GTMStack.pro Reference
 
 A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
 

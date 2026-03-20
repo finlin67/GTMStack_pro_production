@@ -1,4 +1,4 @@
-# Routing Architecture & Endpoints Documentation
+# Routing Architecture
 
 ## How Routing Works (End-to-End Explanation)
 
@@ -834,9 +834,52 @@ curl -X POST http://localhost:3000/api/admin/publish-expertise \
 
 ---
 
+## Migration History
+
+### Registry-Based Routing Migration (completed)
+
+All non-blog, non-admin pages were migrated from per-route `page.tsx` files to the single **optional catch-all** at `app/[[...slug]]/page.tsx` backed by the page registry.
+
+**New files created during migration:**
+- `app/[[...slug]]/page.tsx` — builds `route` from `params.slug`, delegates to `<RegistryRenderer>`.
+- `components/registry/RegistryRenderer.tsx` — resolves template + content from registry row and renders.
+
+**Files removed (now handled by catch-all):**
+- `app/page.tsx` (`/`), `app/expertise/page.tsx`, `app/expertise/[slug]/page.tsx`
+- `app/industries/page.tsx`, `app/industries/[slug]/page.tsx`
+- `app/gallery/page.tsx`, `app/case-studies/page.tsx`, `app/case-studies/[slug]/page.tsx`
+- `app/projects/page.tsx`, `app/projects/[slug]/page.tsx`
+
+**Unchanged (filesystem-based):** `app/blog/*`, `app/admin/*`, `app/about/page.tsx`, `app/contact/page.tsx`, `app/services/*`.
+
+### Why Legacy Filesystem Routing Was Replaced
+
+Before migration the project had two parallel systems: a registry covering ~34 routes and filesystem handlers for ~70 more. Problems:
+- Page metadata (title, theme, SEO) hardcoded in route files — required code edit + deploy for any copy change.
+- No `contentKey` concept on legacy routes — content could not be swapped without slug change.
+- Hardcoded `SLUG_TO_PILLAR` in `app/expertise/[slug]/page.tsx` duplicated logic already in `content/expertise.ts`.
+- 70 routes hidden across 4 files with no unified audit trail.
+
+---
+
+## Rollback Plan
+
+If registry-driven routing causes a production incident:
+
+1. **Immediate** — Revert `src/data/page-registry.csv` to the last known-good version and run `npm run gen:registry` to regenerate the TypeScript file, then redeploy.
+2. **Verify** — Confirm all routes return 200, no 404 spikes in logs, and templates render correctly.
+3. **Debug checklist**
+   - Content keys exist in their respective content files.
+   - `templateId` values in the CSV match registered templates.
+   - `theme` column values are `dark` / `light` (no typo).
+   - Review browser console and server logs for import or resolution errors.
+
+---
+
 ## Related Documentation
 
-- [Architecture Overview](./ARCHITECTURE.md)
 - [Content Management Guide](./CONTENT_MANAGEMENT_GUIDE.md)
-- [Admin Guide](./ADMIN_GUIDE.md)
-- [Component Library](./component-library.md)
+- [Animation System Guide](./ANIMATION_SYSTEM_GUIDE.md)
+- [Project Structure](./PROJECT_STRUCTURE.md)
+
+> **Note:** `MIGRATION-REGISTRY-ROUTING.md`, `MIGRATION_PLAN.md`, and `FILESYSTEM_ROUTE_HANDLERS_ANALYSIS.md` have been merged into this document and archived under `docs/archive/2026-03-16/`.

@@ -1,4 +1,7 @@
 import Link from 'next/link';
+import ExpertiseTopicBreadcrumb, {
+  type ExpertiseTopicBreadcrumbProps,
+} from '@/src/components/expertise/ExpertiseTopicBreadcrumb';
 import { 
   Compass, PenTool, AtSign, Users, Video, Infinity as InfinityIcon, 
   Mail, PlayCircle, FileText, Calendar, Share2, Activity, Zap 
@@ -154,7 +157,15 @@ function isContentEngagementTemplateContent(c: unknown): c is TemplateContent {
   );
 }
 
-export default function Template({ content, pageTitle }: { content?: unknown; pageTitle?: string }) {
+export default function Template({
+  content,
+  pageTitle,
+  expertiseBreadcrumb,
+}: {
+  content?: unknown
+  pageTitle?: string
+  expertiseBreadcrumb?: ExpertiseTopicBreadcrumbProps
+}) {
   const data = isContentEngagementTemplateContent(content) ? content : DEFAULT_CONTENT;
 
   const getIcon = (iconName: string, className: string = "w-6 h-6") => {
@@ -180,11 +191,18 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
         <div className="container-width relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="space-y-8 max-w-2xl">
-              <h1 className="text-5xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight">
-                {data.heroTitle1} <br/>
-                <span className="text-[#60A5FA]">{data.heroTitle2}</span>
+              {expertiseBreadcrumb ? (
+                <ExpertiseTopicBreadcrumb {...expertiseBreadcrumb} />
+              ) : null}
+              <h1 className="font-['Outfit',_sans-serif] text-4xl md:text-5xl lg:text-6xl font-extrabold leading-[1.12] tracking-tight text-white max-w-3xl">
+                {data.heroTitle1}
               </h1>
-              <p className="text-slate-300 text-lg lg:text-xl font-light leading-relaxed max-w-lg">
+              {data.heroTitle2 ? (
+                <p className="font-['Outfit',_sans-serif] text-lg md:text-xl font-semibold leading-snug text-sky-300/95 max-w-2xl">
+                  {data.heroTitle2}
+                </p>
+              ) : null}
+              <p className="text-slate-300 text-base md:text-lg font-normal leading-relaxed max-w-lg">
                 {data.heroDescription}
               </p>
               <div className="flex flex-wrap gap-4 pt-4">

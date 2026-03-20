@@ -1,4 +1,4 @@
-# Hostinger Node.js Web App Deployment
+# How to Deploy the Node.js App to Hostinger
 
 This app must be deployed as a **Node.js Web App** (not a static site). Follow these settings so the site routes correctly to the Node app.
 

@@ -69,6 +69,8 @@ const contentByKey: Record<string, unknown> = {
   'contact:main': CONTACT_CONTENT,
   'resume:main': RESUME_CONTENT,
   'expertise:main': EXPERTISE_MAIN_CONTENT,
+  // Use null to trigger Uploaded_Expertise_v1 built-in defaults for stitch parity.
+  'expertise:stitch-main': null,
   'case-studies:main': caseStudyItems,
   // Expertise page content should override the expertiseItems index entries.
   ...expertiseByKey,

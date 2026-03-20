@@ -197,6 +197,8 @@ export type MarketingFunction =
   | 'developer-tools'
   | 'education'
 
+export type AnimationDifficulty = 'beginner' | 'intermediate' | 'advanced'
+
 export interface AnimationEntry {
   id: string
   title: string
@@ -216,6 +218,12 @@ export interface AnimationEntry {
   route?: string
   /** Order/priority for display */
   order?: number
+  /** Optional difficulty for gallery filtering */
+  difficulty?: AnimationDifficulty
+  /** Optional link to source code (e.g. GitHub) */
+  codeUrl?: string
+  /** Optional link to live preview */
+  previewUrl?: string
 }
 
 /**

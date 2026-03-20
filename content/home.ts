@@ -8,8 +8,8 @@ export const HOME_CONTENT: HomeTemplateContent = {
     titleGradient: 'B2B Tech',
     subtitle:
       'Engineering predictable revenue growth for enterprise tech through strategic precision. We bridge the gap between product innovation and market dominance.',
-    ctaPrimary: 'Start Your Build',
-    ctaSecondary: 'View Methodology',
+    ctaPrimary: 'Explore My Expertise',
+    ctaSecondary: 'GTMStack Defined',
   },
   stats: [
     { value: '140%', label: 'Pipeline Growth' },

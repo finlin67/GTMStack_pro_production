@@ -1,4 +1,4 @@
-# Project Structure & Architecture Overview
+# Project Architecture
 
 **Project**: GTMStack Pro  
 **Description**: A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.  
@@ -575,6 +575,101 @@ interface PageRegistryRow {
 
 ---
 
+## End-to-End Data Flows
+
+### Flow A — Non-blog route (e.g. `/expertise`)
+
+1. Next.js resolves route via `app/[[...slug]]/page.tsx` catch-all.
+2. Page reads registry row via `getPageByRoute(route)`.
+3. Template component is selected by `templateId`.
+4. Content payload is loaded by `contentKey` from `src/content/registry.ts`.
+5. Template renders HTML/React output. **No external API involved.**
+
+### Flow B — Blog listing (`/blog`)
+
+1. Server component `app/blog/page.tsx` runs.
+2. Server calls WordPress REST API via `lib/wordpress.ts`; initial posts/categories are server-rendered via `BlogIndexClient`.
+3. In the browser, URL-driven interactions (search, category, pagination) trigger client fetches via `lib/wp-client.ts`.
+4. UI re-renders with fetched posts and pagination state.
+
+### Flow C — Single blog post (`/blog/post?slug=...`)
+
+1. Client component reads slug from URL.
+2. Browser requests post from WordPress via `fetchPostBySlug`; related posts via `fetchPosts`.
+3. HTML content is sanitized server-side.
+4. `BlogPostTemplate` renders hero/article/sidebar from that payload.
+
+**CMS integration notes:**
+- WordPress integration is direct-to-REST API (`/wp-json/wp/v2`), not through a custom internal API route.
+- `_embed=1` returns featured media and taxonomy terms with each post.
+- `lib/wp-media.ts` extracts featured images safely from embedded data.
+- Blog uses a hybrid fetch model: server-side initial render, client-side for interactive updates. All other pages are local-content/static.
+
+---
+
+## Performance and Motion Tuning
+
+### Dynamic imports for animations
+
+All animation components are imported via `next/dynamic` with `ssr: false`, keeping server HTML lean and deferring payload until needed. See `ANIMATION_SYSTEM_GUIDE.md` for the full registration guide.
+
+### Motion optimization guidelines
+
+Framer Motion is concentrated in `app/page.tsx` (hero flows, stat jitter), `ExpertiseDetailContent.tsx` (route maps, results), and `src/components/animations/*`.
+
+- Hover scale normalized to `1.02–1.04` max for cards.
+- Glow/sparkle effects kept minimal to avoid heavy paint.
+- `useReducedMotion()` respected in `HeroFlowBackground` and scroll animations.
+- Use `viewport={{ once: true }}` for in-view animations to avoid replay on every scroll.
+- Avoid animating large background SVGs on every frame; prefer subtle CSS transitions.
+- Replace continuous motion with entrance-only animations where possible.
+
+### Layout / CLS rules
+
+- Hero animation wrappers use explicit heights (`h-[320px]`, `lg:h-[420px]`) to prevent layout shift.
+- Grids use fixed column definitions (`lg:grid-cols-[1.15fr_1fr]`) to keep hero text + animation stable.
+- Keep a fixed `min-height` on hero animation containers when adjusting layout.
+- Migrate bare `<img>` tags to `next/image` for explicit dimensions and lazy loading.
+
+---
+
+## Extension Playbooks
+
+### Add a new direct-route page
+
+1. Create `app/<new-route>/page.tsx`.
+2. Reuse primitives: `Hero`, `Section`, `Card`, `CTABand`.
+3. Add nav/footer link in `components/layout/Navbar.tsx` and `components/layout/Footer.tsx` if needed.
+4. Add structured content in `content/*.ts` if applicable.
+
+### Add a registry-driven page
+
+1. Add a row to `src/data/page-registry.csv` (`route`, `templateId`, `contentKey`, `theme`).
+2. Ensure the content key resolves in `src/content/registry.ts`.
+3. Ensure the template is registered in `src/templates/registry.ts`.
+4. Run `npm run gen:registry` then `npm run validate:registry`.
+5. Confirm the route renders correctly at `localhost:3000`.
+
+### Add or update expertise content
+
+- Update TS collection files under `content/expertise*.ts` and/or MDX in `content/expertise/**`.
+- Keep slugs consistent with registry rows, related item arrays, and any hard-coded links.
+
+### Add an animation/gallery asset
+
+1. Create the component under `src/components/animations/`.
+2. Run `npm run gen:animations` to refresh catalog output.
+3. Register in `ANIMATION_REGISTRY` (`src/data/animations.ts`) or `HERO_VISUAL_REGISTRY` (`lib/heroVisualRegistry.ts`).
+4. See `ANIMATION_SYSTEM_GUIDE.md` for the full step-by-step.
+
+### Blog enhancements
+
+- **UI**: modify `app/blog/*` components.
+- **Taxonomy/filter behavior**: edit `lib/wp-client.ts` helpers (`getPostCategories`, `fetchCategories`).
+- **Server-rendered WP fetch**: use/extend `lib/wordpress.ts`.
+
+---
+
 ## Important Notes
 
 - **Content-First**: All page content defined in TypeScript/CSV, enabling programmatic updates
@@ -588,6 +683,9 @@ interface PageRegistryRow {
 
 ## Related Documentation
 
-- [ROUTING.md](./ROUTING.md) - Complete API endpoint reference
+- [ROUTING.md](./ROUTING.md) - Routing architecture and registry migration history
 - [CONTENT_MANAGEMENT_GUIDE.md](./CONTENT_MANAGEMENT_GUIDE.md) - Content editing guide
-- [ADMIN_GUIDE.md](./ADMIN_GUIDE.md) - Admin dashboard reference
+- [ANIMATION_SYSTEM_GUIDE.md](./ANIMATION_SYSTEM_GUIDE.md) - Animation registration, routing, and gallery
+- [DESIGN-STYLE-PALETTE-GUIDE.md](./DESIGN-STYLE-PALETTE-GUIDE.md) - Visual design system
+
+> **Note:** `WEBSITE_UPDATE_FEB2026.md`, `SITE-DEVELOPER-GUIDE.md`, `system-architecture.md`, `notebook-summary.md`, and `replit.md` have been consolidated into this canonical document and archived under `docs/archive/2026-03-16/`.

@@ -17,6 +17,7 @@ import Uploaded_DemandGrowth_v1 from '@/src/templates/Uploaded_DemandGrowth_v1'
 import Uploaded_ContentEngagement_v1 from '@/src/templates/Uploaded_ContentEngagement_v1'
 import Uploaded_StratInsights_v1 from '@/src/templates/Uploaded_StratInsights_v1'
 import Uploaded_SystemOperations_v1 from '@/src/templates/Uploaded_SystemOperations_v1'
+import type { ExpertiseTopicBreadcrumbProps } from '@/src/components/expertise/ExpertiseTopicBreadcrumb'
 
 const SLUG_TO_PILLAR: Record<string, PillarId> = {
   'analytics': 'systems-operations',
@@ -68,6 +69,13 @@ const PILLAR_TITLES: Record<PillarId, string> = {
   'strategy-insights': 'Strategy & Insights',
   'systems-operations': 'Systems & Operations',
 }
+
+const PILLAR_SLUGS: PillarId[] = [
+  'content-engagement',
+  'demand-growth',
+  'strategy-insights',
+  'systems-operations',
+]
 
 /** Stitch reference styling: only these 5 detail pages + content-engagement pillar */
 const STITCH_SLUGS = [
@@ -176,25 +184,74 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const resolvedItem =
     registryRow?.contentKey ? getExpertiseContentByKey(registryRow.contentKey) : null
 
-  // Option A: Only the four pillar category pages use the new Uploaded_* templates.
-  // Strategy-insights is handled here (no static page); others use static pages with registry.
-  if (slug === 'strategy-insights') {
-    const pillarContent = getContentByKey('pillar:strategy-insights')
-    return <Uploaded_StratInsights_v1 pageTitle={pageTitle} content={pillarContent} />
-  }
-  if (slug === 'content-engagement') {
-    return <Uploaded_ContentEngagement_v1 pageTitle={pageTitle} content={null} />
-  }
-  if (slug === 'demand-growth') {
-    return <Uploaded_DemandGrowth_v1 pageTitle={pageTitle} content={null} />
-  }
-  if (slug === 'systems-operations') {
-    return <Uploaded_SystemOperations_v1 pageTitle={pageTitle} content={null} />
-  }
-
   const pillarId: PillarId =
     (item.pillar as PillarId) ?? SLUG_TO_PILLAR[item.slug] ?? 'strategy-insights'
   const pillarTitle = PILLAR_TITLES[pillarId]
+
+  const renderPillarTemplate = (
+    id: PillarId,
+    templateContent: unknown,
+    expertiseBreadcrumb?: ExpertiseTopicBreadcrumbProps,
+  ) => {
+    if (id === 'content-engagement') {
+      return (
+        <Uploaded_ContentEngagement_v1
+          pageTitle={pageTitle}
+          content={templateContent}
+          expertiseBreadcrumb={expertiseBreadcrumb}
+        />
+      )
+    }
+    if (id === 'demand-growth') {
+      return (
+        <Uploaded_DemandGrowth_v1
+          pageTitle={pageTitle}
+          content={templateContent}
+          expertiseBreadcrumb={expertiseBreadcrumb}
+        />
+      )
+    }
+    if (id === 'systems-operations') {
+      return (
+        <Uploaded_SystemOperations_v1
+          pageTitle={pageTitle}
+          content={templateContent}
+          expertiseBreadcrumb={expertiseBreadcrumb}
+        />
+      )
+    }
+    return (
+      <Uploaded_StratInsights_v1
+        pageTitle={pageTitle}
+        content={templateContent}
+        expertiseBreadcrumb={expertiseBreadcrumb}
+      />
+    )
+  }
+
+  // Pillar landing routes render the associated pillar template.
+  if (PILLAR_SLUGS.includes(slug as PillarId)) {
+    const pillarContent = getContentByKey(`pillar:${slug}`)
+    return renderPillarTemplate(slug as PillarId, pillarContent)
+  }
+
+  // Any non-pillar topic route inherits the parent pillar visual system/template,
+  // even if the slug is not explicitly listed in page-registry.csv.
+  if (!PILLAR_SLUGS.includes(slug as PillarId)) {
+    const topicTitle =
+      (resolvedItem &&
+      typeof resolvedItem === 'object' &&
+      'title' in resolvedItem &&
+      typeof (resolvedItem as { title?: unknown }).title === 'string'
+        ? (resolvedItem as { title: string }).title
+        : item.title) ?? slug
+    const expertiseBreadcrumb: ExpertiseTopicBreadcrumbProps = {
+      pillarId: pillarId as ExpertiseTopicBreadcrumbProps['pillarId'],
+      pillarLabel: pillarTitle.toUpperCase(),
+      topicLabel: topicTitle.toUpperCase(),
+    }
+    return renderPillarTemplate(pillarId, resolvedItem, expertiseBreadcrumb)
+  }
 
   const challenges =
     item.challenges && item.challenges.length > 0

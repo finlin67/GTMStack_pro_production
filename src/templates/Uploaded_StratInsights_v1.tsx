@@ -20,6 +20,9 @@ import {
   Mail,
   Network
 } from "lucide-react";
+import ExpertiseTopicBreadcrumb, {
+  type ExpertiseTopicBreadcrumbProps,
+} from "@/src/components/expertise/ExpertiseTopicBreadcrumb";
 
 const displayFont = Space_Grotesk({
   subsets: ["latin"],
@@ -69,6 +72,8 @@ export interface TemplateContent {
     headlineLine1: string;
     headlineGradient: string;
     headlineLine2: string;
+    /** Subhead / deck line below H1 (from mapped narrative hero). */
+    leadLine?: string;
     description: string;
     primaryCta: string;
     secondaryCta: string;
@@ -112,6 +117,7 @@ const DEFAULT_CONTENT: TemplateContent = {
     headlineLine1: "Data That Drives",
     headlineGradient: "Engineered Relevance",
     headlineLine2: "at Every Stage",
+    leadLine: "",
     description:
       "High-trust consultancy for enterprise-grade B2B GTM strategy. We turn architectural complexity into revenue performance through account intelligence.",
     primaryCta: "Get Started",
@@ -244,7 +250,15 @@ function isStrategyInsightsContent(c: unknown): c is TemplateContent {
   );
 }
 
-export default function Template({ content, pageTitle }: { content?: unknown; pageTitle?: string }) {
+export default function Template({
+  content,
+  pageTitle,
+  expertiseBreadcrumb,
+}: {
+  content?: unknown
+  pageTitle?: string
+  expertiseBreadcrumb?: ExpertiseTopicBreadcrumbProps
+}) {
   const data = isStrategyInsightsContent(content) ? content : DEFAULT_CONTENT;
 
   return (
@@ -263,26 +277,53 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
             }}
             className="flex flex-col gap-6"
           >
-            <motion.span
-              variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
-              className="text-sky-400 font-bold tracking-[0.2em] text-sm uppercase"
-            >
-              {data.hero.tagline}
-            </motion.span>
+            {expertiseBreadcrumb ? (
+              <motion.div
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
+              >
+                <ExpertiseTopicBreadcrumb {...expertiseBreadcrumb} />
+              </motion.div>
+            ) : (
+              <motion.span
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
+                className="text-sky-400 font-bold tracking-[0.2em] text-sm uppercase"
+              >
+                {data.hero.tagline}
+              </motion.span>
+            )}
             <motion.h1
               variants={{ hidden: { opacity: 0, y: 40 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-              className={`${displayFont.className} text-5xl md:text-6xl font-extrabold leading-[1.1] tracking-tight text-white`}
+              className={`${displayFont.className} text-4xl md:text-5xl lg:text-[3.25rem] font-extrabold leading-[1.12] tracking-tight text-white max-w-3xl`}
             >
-              {data.hero.headlineLine1} <br />
-              <span className="text-gradient">
-                {data.hero.headlineGradient}
-              </span>{" "}
-              <br />
-              {data.hero.headlineLine2}
+              {data.hero.headlineLine1}
+              {data.hero.headlineGradient ? (
+                <>
+                  <br />
+                  <span className="text-gradient text-[1.65rem] md:text-3xl lg:text-4xl">
+                    {data.hero.headlineGradient}
+                  </span>
+                </>
+              ) : null}
+              {!data.hero.leadLine && data.hero.headlineLine2 ? (
+                <>
+                  <br />
+                  <span className="text-[1.65rem] md:text-3xl lg:text-4xl text-white/95">
+                    {data.hero.headlineLine2}
+                  </span>
+                </>
+              ) : null}
             </motion.h1>
+            {data.hero.leadLine ? (
+              <motion.p
+                variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
+                className={`${displayFont.className} text-lg md:text-xl text-slate-300 max-w-2xl leading-snug font-medium`}
+              >
+                {data.hero.leadLine}
+              </motion.p>
+            ) : null}
             <motion.p
               variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } } }}
-              className="text-slate-400 text-lg max-w-lg leading-relaxed"
+              className="text-slate-400 text-base md:text-lg max-w-lg leading-relaxed"
             >
               {data.hero.description}
             </motion.p>

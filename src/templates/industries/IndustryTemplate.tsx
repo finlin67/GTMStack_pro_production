@@ -11,6 +11,8 @@ export interface IndustryTemplateProps {
   theme?: 'dark' | 'light'
   heroVisualId?: string
   contentKey?: string
+  /** Defaults to stitch (sandbox industry.html aesthetic). */
+  heroVariant?: 'default' | 'stitch'
 }
 
 /**
@@ -22,6 +24,7 @@ export default function IndustryTemplate({
   featuredExpertise,
   featuredCaseStudies,
   whyNow,
+  heroVariant = 'stitch',
 }: IndustryTemplateProps) {
   return (
     <IndustryPageContent
@@ -29,6 +32,7 @@ export default function IndustryTemplate({
       featuredExpertise={featuredExpertise}
       featuredCaseStudies={featuredCaseStudies}
       whyNow={whyNow}
+      heroVariant={heroVariant}
     />
   )
 }

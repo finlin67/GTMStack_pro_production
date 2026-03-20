@@ -1,4 +1,4 @@
-## GTMstack.pro – Developer Routing & Hero Visuals Guide
+# How to Work with Routing and Hero Visuals
 
 This doc is meant as a **handoff for developers**: how pages are structured, how routing works, and how hero animations are wired into the expertise pages.
 

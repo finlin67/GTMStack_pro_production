@@ -28,12 +28,12 @@ export interface PageRegistryRow {
 }
 
 export const PAGE_REGISTRY: PageRegistryRow[] = [
-  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.main', contentKey: "home:main", theme: undefined, heroVisualId: "" },
-  { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'home.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
+  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:main", theme: undefined, heroVisualId: "" },
+  { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
   { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "" },
   { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "case-studies:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   { route: "/contact", fileRef: "content/contact.ts", pageTitle: "Contact Us", templateId: 'home.main', contentKey: "contact:main", theme: 'light', heroVisualId: "" },
-  { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
+  { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'Uploaded_Expertise_v1', contentKey: "expertise:stitch-main", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/account-based-marketing", fileRef: "content/expertise/account-based-marketing.ts", pageTitle: "Account-Based Marketing (ABM)", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:account-based-marketing", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/competitive-intel", fileRef: "content/expertise/competitive-intel.ts", pageTitle: "Competitive Intelligence & Positioning", templateId: 'Uploaded_StratInsights_v1', contentKey: "expertise:competitive-intel", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/content-engagement", fileRef: "content/expertise/content-engagement.ts", pageTitle: "Content & Engagement", templateId: 'Uploaded_ContentEngagement_v1', contentKey: "pillar:content-engagement", theme: 'dark', heroVisualId: "" },
@@ -59,7 +59,7 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
   { route: "/expertise/martech-optimization", fileRef: "content/expertise/martech-optimization.ts", pageTitle: "Tech Stack Optimization & Enablement", templateId: 'Uploaded_SystemOperations_v1', contentKey: "expertise:martech-optimization", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/sales-enablement", fileRef: "content/expertise/sales-enablement.ts", pageTitle: "Upsell/Cross-Sell Strategies", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:sales-enablement", theme: 'dark', heroVisualId: "" },
   { route: "/gallery", fileRef: "content/gallery/main.ts", pageTitle: "Animation Gallery", templateId: 'gallery.main', contentKey: "gallery:main", theme: 'dark', heroVisualId: "" },
-  { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Architecting Growth by Industry", templateId: 'Uploaded_Industries_v1', contentKey: "industries:main", theme: 'dark', heroVisualId: "" },
+  { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Architecting Growth by Industry", templateId: 'industries.stitch.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" },
   { route: "/industries/cybersecurity", fileRef: "content/industries.ts", pageTitle: "Cybersecurity", templateId: 'Uploaded_B2BTechIndustry_v1', contentKey: "industries:cybersecurity", theme: 'dark', heroVisualId: "" },
   { route: "/industries/developer-tools", fileRef: "content/industries.ts", pageTitle: "Developer Tools & DevOps", templateId: 'Uploaded_B2BTechIndustry_v1', contentKey: "industries:developer-tools", theme: 'dark', heroVisualId: "" },
   { route: "/industries/energy-utilities", fileRef: "content/industries.ts", pageTitle: "Energy & Utilities", templateId: 'Uploaded_IndustrialIndustry_v1', contentKey: "industries:energy-utilities", theme: 'dark', heroVisualId: "" },
@@ -74,16 +74,16 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
   { route: "/industries/technology-saas", fileRef: "content/industries.ts", pageTitle: "Technology & SaaS", templateId: 'Uploaded_B2BTechIndustry_v1', contentKey: "industries:technology-saas", theme: 'light', heroVisualId: "" },
   { route: "/p/test", fileRef: "content/home.ts", pageTitle: "Test CMS Page", templateId: 'home.main', contentKey: "home:main", theme: 'dark', heroVisualId: "" },
   { route: "/projects", fileRef: "content/projects/main.ts", pageTitle: "Projects", templateId: 'projects.main', contentKey: "projects:main", theme: 'dark', heroVisualId: "" },
-  { route: "/resume", fileRef: "content/resume.ts", pageTitle: "Resume", templateId: 'home.main', contentKey: "resume:main", theme: 'light', heroVisualId: "" }
+  { route: "/resume", fileRef: "content/resume.ts", pageTitle: "Resume", templateId: 'profile.main', contentKey: "resume:main", theme: 'light', heroVisualId: "" }
 ]
 
 export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
-  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.main', contentKey: "home:main", theme: undefined, heroVisualId: "" },
-  "/about": { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'home.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
+  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:main", theme: undefined, heroVisualId: "" },
+  "/about": { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
   "/case-studies": { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "" },
   "/case-studies/event-to-store-lift-retail": { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "case-studies:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   "/contact": { route: "/contact", fileRef: "content/contact.ts", pageTitle: "Contact Us", templateId: 'home.main', contentKey: "contact:main", theme: 'light', heroVisualId: "" },
-  "/expertise": { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'expertise.main', contentKey: "expertise:main", theme: 'dark', heroVisualId: "" },
+  "/expertise": { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'Uploaded_Expertise_v1', contentKey: "expertise:stitch-main", theme: 'dark', heroVisualId: "" },
   "/expertise/account-based-marketing": { route: "/expertise/account-based-marketing", fileRef: "content/expertise/account-based-marketing.ts", pageTitle: "Account-Based Marketing (ABM)", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:account-based-marketing", theme: 'dark', heroVisualId: "" },
   "/expertise/competitive-intel": { route: "/expertise/competitive-intel", fileRef: "content/expertise/competitive-intel.ts", pageTitle: "Competitive Intelligence & Positioning", templateId: 'Uploaded_StratInsights_v1', contentKey: "expertise:competitive-intel", theme: 'dark', heroVisualId: "" },
   "/expertise/content-engagement": { route: "/expertise/content-engagement", fileRef: "content/expertise/content-engagement.ts", pageTitle: "Content & Engagement", templateId: 'Uploaded_ContentEngagement_v1', contentKey: "pillar:content-engagement", theme: 'dark', heroVisualId: "" },
@@ -109,7 +109,7 @@ export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
   "/expertise/martech-optimization": { route: "/expertise/martech-optimization", fileRef: "content/expertise/martech-optimization.ts", pageTitle: "Tech Stack Optimization & Enablement", templateId: 'Uploaded_SystemOperations_v1', contentKey: "expertise:martech-optimization", theme: 'dark', heroVisualId: "" },
   "/expertise/sales-enablement": { route: "/expertise/sales-enablement", fileRef: "content/expertise/sales-enablement.ts", pageTitle: "Upsell/Cross-Sell Strategies", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:sales-enablement", theme: 'dark', heroVisualId: "" },
   "/gallery": { route: "/gallery", fileRef: "content/gallery/main.ts", pageTitle: "Animation Gallery", templateId: 'gallery.main', contentKey: "gallery:main", theme: 'dark', heroVisualId: "" },
-  "/industries": { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Architecting Growth by Industry", templateId: 'Uploaded_Industries_v1', contentKey: "industries:main", theme: 'dark', heroVisualId: "" },
+  "/industries": { route: "/industries", fileRef: "content/industries/main.ts", pageTitle: "Architecting Growth by Industry", templateId: 'industries.stitch.main', contentKey: "industries:main", theme: 'dark', heroVisualId: "" },
   "/industries/cybersecurity": { route: "/industries/cybersecurity", fileRef: "content/industries.ts", pageTitle: "Cybersecurity", templateId: 'Uploaded_B2BTechIndustry_v1', contentKey: "industries:cybersecurity", theme: 'dark', heroVisualId: "" },
   "/industries/developer-tools": { route: "/industries/developer-tools", fileRef: "content/industries.ts", pageTitle: "Developer Tools & DevOps", templateId: 'Uploaded_B2BTechIndustry_v1', contentKey: "industries:developer-tools", theme: 'dark', heroVisualId: "" },
   "/industries/energy-utilities": { route: "/industries/energy-utilities", fileRef: "content/industries.ts", pageTitle: "Energy & Utilities", templateId: 'Uploaded_IndustrialIndustry_v1', contentKey: "industries:energy-utilities", theme: 'dark', heroVisualId: "" },
@@ -124,5 +124,5 @@ export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
   "/industries/technology-saas": { route: "/industries/technology-saas", fileRef: "content/industries.ts", pageTitle: "Technology & SaaS", templateId: 'Uploaded_B2BTechIndustry_v1', contentKey: "industries:technology-saas", theme: 'light', heroVisualId: "" },
   "/p/test": { route: "/p/test", fileRef: "content/home.ts", pageTitle: "Test CMS Page", templateId: 'home.main', contentKey: "home:main", theme: 'dark', heroVisualId: "" },
   "/projects": { route: "/projects", fileRef: "content/projects/main.ts", pageTitle: "Projects", templateId: 'projects.main', contentKey: "projects:main", theme: 'dark', heroVisualId: "" },
-  "/resume": { route: "/resume", fileRef: "content/resume.ts", pageTitle: "Resume", templateId: 'home.main', contentKey: "resume:main", theme: 'light', heroVisualId: "" }
+  "/resume": { route: "/resume", fileRef: "content/resume.ts", pageTitle: "Resume", templateId: 'profile.main', contentKey: "resume:main", theme: 'light', heroVisualId: "" }
 }

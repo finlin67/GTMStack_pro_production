@@ -1,4 +1,4 @@
-# Thumbnail Factory Issue Summary (for developer handoff)
+# Thumbnail Factory Troubleshooting
 
 ## What is happening
 

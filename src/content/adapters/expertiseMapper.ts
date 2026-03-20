@@ -91,6 +91,56 @@ function splitHeadline(text: string): { line1: string; line2: string } {
   return { line1: text, line2: '' }
 }
 
+/** Keeps hero H1 scannable; pushes long copy into lead + body (investor-friendly). */
+export function normalizeExpertiseHero(
+  headline: string,
+  subheadline: string,
+  opts?: { maxH1Words?: number; maxH1Chars?: number; maxAccentWords?: number; maxAccentChars?: number }
+): { h1Primary: string; h1Accent: string; lead: string } {
+  const maxH1Words = opts?.maxH1Words ?? 9
+  const maxH1Chars = opts?.maxH1Chars ?? 70
+  const maxAccentWords = opts?.maxAccentWords ?? 8
+  const maxAccentChars = opts?.maxAccentChars ?? 58
+  const h = headline.trim()
+  const s = subheadline.trim()
+
+  const delimiters = [':', ' - ', ' | '] as const
+  for (const d of delimiters) {
+    const idx = h.indexOf(d)
+    if (idx <= 0) continue
+    const first = h.slice(0, idx).trim()
+    const second = h.slice(idx + d.length).trim()
+    const firstWords = first.split(/\s+/).filter(Boolean).length
+    if (first.length === 0) continue
+    if (first.length <= maxH1Chars && firstWords <= maxH1Words + 2) {
+      const secWords = second ? second.split(/\s+/).filter(Boolean).length : 0
+      const accentFits =
+        second &&
+        second.length <= maxAccentChars &&
+        secWords <= maxAccentWords
+      if (accentFits) {
+        return { h1Primary: first, h1Accent: second, lead: s }
+      }
+      const lead = [second, s].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim()
+      return { h1Primary: first, h1Accent: '', lead }
+    }
+  }
+
+  const words = h.split(/\s+/).filter(Boolean)
+  if (words.length === 0) {
+    return { h1Primary: 'Expertise', h1Accent: '', lead: s }
+  }
+  let take = Math.min(maxH1Words, words.length)
+  let primary = words.slice(0, take).join(' ')
+  while (primary.length > maxH1Chars && take > 4) {
+    take -= 1
+    primary = words.slice(0, take).join(' ')
+  }
+  const rest = words.slice(take).join(' ').trim()
+  const lead = [rest, s].filter(Boolean).join(' ').replace(/\s+/g, ' ').trim()
+  return { h1Primary: primary, h1Accent: '', lead }
+}
+
 function shortLabel(text: string, fallback: string): string {
   if (!text) return fallback
   const words = text.replace(/[:\-|]+/g, ' ').trim().split(/\s+/)
@@ -129,9 +179,11 @@ export function mapExpertiseContentToDemandGrowthTemplate(
   const cta = content.ctaSection ?? {}
 
   const headline = toText(hero.headline, 'Strategic Demand & Growth')
-  const split = splitHeadline(headline)
-  const heroTitleLine1 = split.line1
-  const heroTitleLine2 = toText(split.line2, toText(hero.subheadline, ''))
+  const sub = toText(hero.subheadline, '')
+  const heroNorm = normalizeExpertiseHero(headline, sub)
+  const heroTitleLine1 = heroNorm.h1Primary
+  const heroTitleLine2 = heroNorm.h1Accent
+  const heroLead = heroNorm.lead
 
   const metricsHeadline = toText(metricsSection.headline, 'From Signal to Pipeline')
   const metricsSplit = splitHeadline(metricsHeadline)
@@ -155,7 +207,9 @@ export function mapExpertiseContentToDemandGrowthTemplate(
       eyebrow: toText(brand.tagline, 'Expertise'),
       titleLine1: heroTitleLine1,
       titleLine2: heroTitleLine2,
-      description: toText(hero.description, toText(brand.description, '')),
+      description: [heroLead, toText(hero.description, toText(brand.description, ''))]
+        .filter((p) => p && String(p).trim().length > 0)
+        .join('\n\n'),
       primaryButtonText: toText(hero.primaryCTA?.text, 'Get Started'),
       primaryButtonHref: toText(hero.primaryCTA?.link, '/contact'),
       secondaryButtonText: toText(hero.secondaryCTA?.text, 'Learn More'),
@@ -236,11 +290,13 @@ export function mapExpertiseContentToContentEngagementTemplate(
   const cta = content.ctaSection ?? {}
 
   const headline = toText(hero.headline, 'Content & Engagement')
-  const split = splitHeadline(headline)
+  const sub = toText(hero.subheadline, '')
+  const heroNorm = normalizeExpertiseHero(headline, sub)
+  const leadBlock = [heroNorm.h1Accent, heroNorm.lead].filter(Boolean).join(' ').trim()
 
   return {
-    heroTitle1: split.line1,
-    heroTitle2: toText(split.line2, toText(hero.subheadline, '')),
+    heroTitle1: heroNorm.h1Primary,
+    heroTitle2: leadBlock,
     heroDescription: toText(hero.description, toText(brand.description, '')),
     heroCta1: toText(hero.primaryCTA?.text, 'Get Started'),
     heroCta2: toText(hero.secondaryCTA?.text, 'View Framework'),
@@ -327,14 +383,16 @@ export function mapExpertiseContentToStrategyInsightsTemplate(
   const cta = content.ctaSection ?? {}
 
   const headline = toText(hero.headline, 'Strategy & Insights')
-  const split = splitHeadline(headline)
+  const sub = toText(hero.subheadline, '')
+  const heroNorm = normalizeExpertiseHero(headline, sub)
 
   return {
     hero: {
       tagline: toText(brand.tagline, 'Strategy & Insights'),
-      headlineLine1: split.line1,
-      headlineGradient: toText(split.line2, ''),
-      headlineLine2: toText(hero.subheadline, ''),
+      headlineLine1: heroNorm.h1Primary,
+      headlineGradient: heroNorm.h1Accent,
+      headlineLine2: '',
+      leadLine: heroNorm.lead,
       description: toText(hero.description, toText(brand.description, '')),
       primaryCta: toText(hero.primaryCTA?.text, 'Get Started'),
       secondaryCta: toText(hero.secondaryCTA?.text, 'View Case Studies'),
@@ -440,14 +498,23 @@ export function mapExpertiseContentToSystemOperationsTemplate(
   const cta = content.ctaSection ?? {}
 
   const headline = toText(hero.headline, 'Systems & Operations')
-  const split = splitHeadline(headline)
+  const sub = toText(hero.subheadline, '')
+  const heroNorm = normalizeExpertiseHero(headline, sub)
+  const hasAccent = heroNorm.h1Accent.trim().length > 0
+  const bodyDesc = toText(hero.description, toText(brand.description, ''))
+  // With Title: Accent split, subheadline becomes a deck line — not a second stacked paragraph in `description`.
+  const deck = hasAccent && heroNorm.lead.trim().length > 0 ? heroNorm.lead.trim() : undefined
+  const description = hasAccent
+    ? bodyDesc
+    : [heroNorm.lead, bodyDesc].filter((p) => p && String(p).trim().length > 0).join('\n\n')
 
   return {
     hero: {
       badge: toText(brand.tagline, 'SYSTEMS & OPERATIONS').toUpperCase(),
-      headlinePart1: split.line1,
-      headlineHighlight: toText(split.line2, ''),
-      description: toText(hero.description, toText(brand.description, '')),
+      headlinePart1: heroNorm.h1Primary,
+      headlineHighlight: heroNorm.h1Accent,
+      ...(deck ? { deck } : {}),
+      description,
       primaryButton: toText(hero.primaryCTA?.text, 'Get Started'),
       secondaryButton: toText(hero.secondaryCTA?.text, 'Learn More'),
       videoBgSrc:

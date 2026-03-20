@@ -14,7 +14,7 @@ import { CardGrid, CardGridItem } from '@/components/ui/CardGrid'
 import { FilterChips } from '@/components/ui/FilterChips'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion/FadeIn'
 import { Reveal } from '@/components/ui/Reveal'
-import { caseStudyItems, getAllCaseStudyTags } from '@/content/case-studies'
+import { caseStudyItems, getAllCaseStudyTags } from '@/src/data/caseStudies'
 import { SignalField, PathwayOverlay } from '@/components/motifs'
 
 export default function CaseStudiesPage() {

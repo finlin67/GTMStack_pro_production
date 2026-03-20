@@ -1,8 +1,8 @@
-# GTMstack.pro User Guide
+# How to Use GTMStack.pro
 
 ## 1) What This Website Is
 
-GTMstack.pro is a hybrid **portfolio + consulting agency website** for a founder-led B2B Go-To-Market (GTM) practice.
+GTMStack.pro is a hybrid **portfolio + consulting agency website** for a founder-led B2B Go-To-Market (GTM) practice.
 
 It is designed to do two things at once:
 - Show proof of expertise and real outcomes (portfolio function)
@@ -417,3 +417,33 @@ The site is designed so **expertise, industries, and case studies interconnect**
 ## 10) One-Sentence Summary
 
 GTMstack.pro is for B2B tech leaders who need a proven partner to turn GTM strategy into an executable, measurable system that drives predictable revenue growth.
+
+---
+
+## 11) Strategic Brief (Canonical Snapshot)
+
+### North-Star Objective
+
+Position GTMstack.pro as a premium, trust-first growth platform that converts qualified B2B buyers from awareness to consultation using interconnected expertise, proof, and execution playbooks.
+
+### Primary Engagement KPIs
+
+- Qualified contact conversions (volume + rate)
+- Proof engagement rate (case-study traffic and depth)
+- Pillar-to-conversion progression (Expertise/Industry to Contact pathway)
+
+### Golden Path (Ideal Journey)
+
+1. Land on Home and understand positioning.
+2. Navigate to matching Expertise or Industry page.
+3. Validate outcomes through case studies.
+4. Explore service/topic depth.
+5. Convert through Contact CTA.
+
+### Scope Guards (Anti-Goals)
+
+- Not a self-serve SaaS product.
+- Not a broad marketing marketplace.
+- Not a high-volume content farm.
+
+> **Note:** `WEBSITE_SUMMARY.md` and `PROJECT_BRIEF.md` have been merged into this document and archived under `docs/archive/2026-03-16/`.

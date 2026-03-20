@@ -1,4 +1,52 @@
-﻿## [2026-03-10] - Add content engagement and systems operations content to registry
+﻿## [2026-03-16] - Docs canonical consistency pass
+- What changed: Normalized canonical wording for metadata, archive-note phrasing, and branding consistency across key docs (`ANIMATION_SYSTEM_GUIDE.md`, `CONTENT_MANAGEMENT_GUIDE.md`, `PROJECT_STRUCTURE.md`, `SITE-PAGES-AND-HIERARCHY.md`, `WEBSITE_USER_GUIDE.md`, `GALLERY_MANAGEMENT_GUIDE.md`).
+- Why it matters: Reduces editorial drift after consolidation and keeps canonical docs aligned in tone and maintenance signals.
+
+## [2026-03-16] - Docs consolidation: Animation cluster
+- What changed: Merged unique content from `ANIMATION_LIBRARY_AND_ROUTING.md`, `animation-guide.md`, `CSV_UPDATE_CHECKLIST.md`, `hero-visual-library-spec.md` into `ANIMATION_SYSTEM_GUIDE.md` (v1.1). All four source files archived to `docs/archive/2026-03-16/`.
+- Why it matters: Single source of truth for the animation system; eliminates fragmented references.
+
+## [2026-03-16] - Docs consolidation: Routing cluster
+- What changed: Merged unique content from `MIGRATION-REGISTRY-ROUTING.md`, `MIGRATION_PLAN.md`, `FILESYSTEM_ROUTE_HANDLERS_ANALYSIS.md` into `ROUTING.md`. All three source files archived to `docs/archive/2026-03-16/`.
+- Why it matters: One doc covers routing architecture, migration history, and rollback plan.
+
+## [2026-03-16] - Docs consolidation: Developer Architecture cluster
+- What changed: Merged unique content from `WEBSITE_UPDATE_FEB2026.md`, `SITE-DEVELOPER-GUIDE.md`, `system-architecture.md`, `notebook-summary.md`, `replit.md` into `PROJECT_STRUCTURE.md`. All five source files archived to `docs/archive/2026-03-16/`.
+- Why it matters: Centralises end-to-end data flows, performance tuning, and extension playbooks in the canonical architecture doc.
+
+## [2026-03-16] - Docs consolidation: Design/Branding cluster
+- What changed: Merged widget palettes, utility CSS class standards, and theme system notes from `branding-guidelines.md`, `CONSOLIDATION_SUMMARY.md`, and `component-library.md` into `DESIGN-STYLE-PALETTE-GUIDE.md` (new §2.7, §5.6, §12). `branding-guidelines.md` and `CONSOLIDATION_SUMMARY.md` archived to `docs/archive/2026-03-16/`; `component-library.md` retained (distinct component catalog role).
+- Why it matters: All palette, utility class, and theming decisions are now in the design canonical.
+
+## [2026-03-16] - Docs consolidation: Content Operations cluster
+- What changed: Merged runbook, admin UI operations, template ID standards, mapping guidance, and editorial skeleton references from `INTERN_TEMPLATE_AND_CONTENT_UPDATE_RUNBOOK.md`, `ADMIN_GUIDE.md`, `ADMIN_TEMPLATEID_DETERMINATION_MAPPING_AND_USAGE.md`, `PAGE_TEMPLATE_MAPPING_REFERENCE.md`, and `CONTENT-TEMPLATE-SKELETONS.md` into `CONTENT_MANAGEMENT_GUIDE.md` (v1.1).
+- Why it matters: Consolidates all content/template operating procedures into one canonical workflow guide.
+
+## [2026-03-16] - Docs consolidation: Hierarchy and sitemap cluster
+- What changed: Kept `SITE-PAGES-AND-HIERARCHY.md` as canonical and archived `gtmstackpro-page-review.md`, `CURRENT_SITEMAP.md`, and `PAGE LISTG.txt` after validation against current structure.
+- Why it matters: Removes stale route snapshots and keeps one plain-language hierarchy source.
+
+## [2026-03-16] - Docs consolidation: Refactor planning cluster
+- What changed: Merged quick-reference execution checklists from `REFACTOR_SUMMARY.md` and `ABOUT_PAGE_SECTIONS.md` into `REFACTOR_PLAN.md` and `ABOUT_PAGE_REFACTOR_PLAN.md`; archived both source files.
+- Why it matters: Keeps all homepage/about refactor planning in two canonical implementation plans.
+
+## [2026-03-16] - Docs consolidation: WordPress/blog cluster
+- What changed: Merged PDF/video embedding operations from `WORDPRESS-PDF-VIDEO-EMBED-GUIDE.md` into `BLOG-WORDPRESS-DEVELOPER-GUIDE.md` under a new embedding section, then archived the source file.
+- Why it matters: Keeps WordPress publishing, API, and embed troubleshooting in one canonical blog integration guide.
+
+## [2026-03-16] - Docs consolidation: Change tracking cluster
+- What changed: Consolidated `CHANGE_DOCUMENT_SINCE_2026-03-01.md` into the canonical documentation set (`CHANGELOG.md`, `PROJECT_STRUCTURE.md`, `DESIGN-STYLE-PALETTE-GUIDE.md`, `CONTENT_MANAGEMENT_GUIDE.md`) and archived the source file.
+- Why it matters: Keeps change history in one authoritative changelog while architecture/token/schema details live in their canonical docs.
+
+## [2026-03-16] - Docs consolidation: Gallery prompts cluster
+- What changed: Consolidated `CURSOR_PROMPT_EXISTING_SITE.md` and `CURSOR_QUICK_PROMPT.md` into `GALLERY_MANAGEMENT_GUIDE.md` and archived both prompt-only source files.
+- Why it matters: Keeps gallery build/iteration instructions and prompt patterns in one operational guide.
+
+## [2026-03-16] - Docs consolidation: Site overview cluster
+- What changed: Merged strategic summary and project brief essentials from `WEBSITE_SUMMARY.md` and `PROJECT_BRIEF.md` into `WEBSITE_USER_GUIDE.md` (new strategic brief section), then archived both source files.
+- Why it matters: Maintains one canonical business-facing overview for positioning, journey, and KPI context.
+
+## [2026-03-10] - Add content engagement and systems operations content to registry
 - What changed: Added content registry entries for the Content Engagement and Systems Operations pillars so they can be resolved by key.
 - Why it matters: Enables those pillar routes/pages to load the correct content via the registry-driven pipeline.
 

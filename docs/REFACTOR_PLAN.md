@@ -1,4 +1,4 @@
-# Homepage Refactor Plan: Dark SaaS Core with Light Enterprise Breaks
+# How to Refactor the Homepage
 
 ## Current State Analysis
 
@@ -389,4 +389,18 @@ keyframes: {
 - ✅ SaaS energy in dark sections
 - ✅ No stock people/office imagery
 - ✅ Abstract visuals only
+
+---
+
+## Quick Execution Checklist
+
+- [ ] Remove homepage sections not in the 7-section target (`Industries`, `Featured Expertise`)
+- [ ] Add new `ProblemPromise` section after Hero
+- [ ] Confirm final dark/light order and ratio (5 dark, 2 light)
+- [ ] Add/verify motif layer per section (topo/pathway/signal)
+- [ ] Implement required component upgrades (`ProblemPromise`, `ProofGrid`, `DifferentiatorList`, `CTADark`)
+- [ ] Add required Tailwind tokens and utility classes
+- [ ] Validate motion performance and reduced-motion behavior
+
+> **Note:** `REFACTOR_SUMMARY.md` has been merged into this canonical plan and archived under `docs/archive/2026-03-16/`.
 

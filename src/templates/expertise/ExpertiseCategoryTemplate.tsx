@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react'
-import {
-  getPillarCategoryComponent,
-  type PillarId,
-} from './pillars/pillarMap'
+import type { PillarId } from './pillars/pillarMap'
+import PillarTemplate from './PillarTemplate'
 
 export interface ExpertiseCategoryTemplateProps {
   /** Optional override from page registry */
@@ -23,11 +21,21 @@ export interface ExpertiseCategoryTemplateProps {
 export default function ExpertiseCategoryTemplate({
   pillarId,
   children,
+  pageTitle,
+  theme,
+  heroVisualId,
+  contentKey,
 }: ExpertiseCategoryTemplateProps) {
-  const PillarComponent = getPillarCategoryComponent(pillarId)
   return (
-    <PillarComponent pillarId={pillarId}>
+    <PillarTemplate
+      pillarId={pillarId}
+      pageTitle={pageTitle}
+      theme={theme}
+      heroVisualId={heroVisualId}
+      contentKey={contentKey}
+    >
       {children}
-    </PillarComponent>
+    </PillarTemplate>
   )
 }
+

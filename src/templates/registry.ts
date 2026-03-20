@@ -5,11 +5,15 @@ import ExpertiseTopicTemplate from '@/src/templates/expertise/ExpertiseTopicTemp
 import ExpertiseMainTemplate from '@/src/templates/expertise/ExpertiseMainTemplate'
 import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
 import IndustriesMainTemplate from '@/src/templates/industries/IndustriesMainTemplate'
+import IndustriesStitchTemplate from '@/src/templates/industries/IndustriesStitchTemplate'
 import ProjectsTemplate from '@/src/templates/projects/ProjectsTemplate'
 import CaseStudyTemplate from '@/src/templates/caseStudies/CaseStudyTemplate'
 import HomeTemplate from '@/src/templates/home/HomeTemplate'
-import GalleryMainTemplate from '@/src/templates/gallery/GalleryMainTemplate.client'
-
+import GalleryMainTemplate from '@/src/templates/gallery/GalleryMainTemplate'
+import ProfileTemplate from '@/src/templates/profile/ProfileTemplate'
+import AboutResumeTemplate from '@/src/templates/about/AboutResumeTemplate'
+import HomeStitchTemplate from '@/src/templates/home/HomeStitchTemplate'
+import Uploaded_Expertise_v1 from '@/src/templates/Uploaded_Expertise_v1'
 
 export type TemplateComponent =
   | typeof ExpertiseCategoryTemplate
@@ -19,7 +23,11 @@ export type TemplateComponent =
   | typeof ProjectsTemplate
   | typeof CaseStudyTemplate
   | typeof HomeTemplate
+  | typeof ProfileTemplate
   | typeof ExpertiseMainTemplate
+  | typeof AboutResumeTemplate
+  | typeof HomeStitchTemplate
+  | typeof Uploaded_Expertise_v1
   | typeof GalleryMainTemplate
 
 /** TemplateId from page registry. */
@@ -40,10 +48,15 @@ export const TEMPLATE_BY_ID: Record<string, TemplateComponent> = {
   'Uploaded_Healthcare_v1': IndustryTemplate,
   'Uploaded_EDUtech_v1': IndustryTemplate,
   'industries.main': IndustriesMainTemplate,
+  'industries.stitch.main': IndustriesStitchTemplate,
   'projects.main': ProjectsTemplate,
   'caseStudy.base': CaseStudyTemplate,
   'home.base': HomeTemplate,
   'home.main': HomeTemplate,
+  'profile.main': ProfileTemplate,
+  'about.main': AboutResumeTemplate,
+  'home.stitch.main': HomeStitchTemplate,
+  'Uploaded_Expertise_v1': Uploaded_Expertise_v1,
   'gallery.main': GalleryMainTemplate,
 }
 

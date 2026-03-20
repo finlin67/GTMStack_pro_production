@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState, type ReactNode } from 'react'
+import React, { useEffect, useState, type ReactNode } from 'react'
+import dynamic from 'next/dynamic'
 import { CheckCircle2 } from 'lucide-react'
 import { HeroDark } from '@/components/ui/HeroDark'
 import { SectionDark } from '@/components/layout/SectionDark'
@@ -13,7 +14,7 @@ import { FadeIn } from '@/components/motion/FadeIn'
 import { IndustryItem, ExpertiseItem, CaseStudyItem } from '@/lib/types'
 import { TopoBackdrop, SignalField } from '@/components/motifs'
 import { RelatedCaseStudies } from '@/components/ui/RelatedItems'
-import { HERO_VISUALS, type HeroVisual } from '@/lib/heroVisuals'
+import { HERO_VISUALS, type HeroVisual as HeroVisualModel } from '@/lib/heroVisuals'
 import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
 import { getHeroVisualForPath } from '@/lib/heroVisualRegistry'
 import {
@@ -21,20 +22,33 @@ import {
   getRotatedAnimationByRoute,
   type AnimationEntry,
 } from '@/src/data/animations'
+import IndustrySingleStitchLayout from '@/components/industries/IndustrySingleStitchLayout'
 
 const ROTATION_STORAGE_KEY = 'lastAnim_industries_'
+
+const HeroVisualDyn = dynamic(
+  () => import('@/components/ui/HeroVisual').then((m) => m.HeroVisual),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="h-[min(500px,60vh)] w-full max-w-[520px] rounded-2xl bg-white/5 animate-pulse" />
+    ),
+  }
+)
 
 interface IndustryPageContentProps {
   industry: IndustryItem
   featuredExpertise: ExpertiseItem[]
   featuredCaseStudies?: CaseStudyItem[]
   whyNow?: string
+  /** `stitch` = sandbox/stitch-html/industries/industry-single.html (GTM cobalt + lime). */
+  heroVariant?: 'default' | 'stitch'
 }
 
 function renderAnimationTile(entry: AnimationEntry) {
   const Component = entry.component
   return (
-    <div className="relative hidden lg:block">
+    <div className="relative w-full max-w-[600px]">
       <div className="absolute -left-10 -top-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl animate-drift-slow" />
       <div className="relative mx-auto w-full max-w-[600px] h-[600px] overflow-hidden rounded-2xl border border-white/20 bg-white/5">
         <Component />
@@ -43,7 +57,42 @@ function renderAnimationTile(entry: AnimationEntry) {
   )
 }
 
-export default function IndustryPageContent({ industry, featuredExpertise, featuredCaseStudies, whyNow }: IndustryPageContentProps) {
+function resolveStitchHeroRight(
+  heroVisual: ReactNode | HeroVisualModel,
+  fallback: HeroVisualModel
+): ReactNode {
+  if (React.isValidElement(heroVisual) || typeof heroVisual === 'string' || typeof heroVisual === 'number') {
+    return heroVisual
+  }
+  const v = heroVisual as HeroVisualModel
+  if (v?.useAbstract) {
+    return (
+      <HeroVisualDyn
+        image={fallback.image}
+        pathwaySvg={fallback.pathwaySvg}
+        className="max-w-[520px]"
+      />
+    )
+  }
+  if (v?.variant) {
+    return <HeroVisualDyn variant={v.variant} className="max-w-[520px]" />
+  }
+  return (
+    <HeroVisualDyn
+      image={v?.image ?? fallback.image}
+      pathwaySvg={v?.pathwaySvg ?? fallback.pathwaySvg}
+      className="max-w-[520px]"
+    />
+  )
+}
+
+export default function IndustryPageContent({
+  industry,
+  featuredExpertise,
+  featuredCaseStudies,
+  whyNow,
+  heroVariant = 'stitch',
+}: IndustryPageContentProps) {
   const whyNowText = whyNow || `${industry.title} companies face unique GTM challenges. Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
 
   const route = `/industries/${industry.slug}`
@@ -71,18 +120,42 @@ export default function IndustryPageContent({ industry, featuredExpertise, featu
       'industries'
     ) ?? HERO_VISUALS.defaults.detail
 
-  let heroVisual: ReactNode | HeroVisual = fallbackHeroVisual
+  let heroVisual: ReactNode | HeroVisualModel = fallbackHeroVisual
   if (routeAnimations.length > 0 && rotatedEntry) {
     heroVisual = renderAnimationTile(rotatedEntry)
   } else if (routeAnimations.length === 0 && registryEntry?.mediaType === 'animation' && registryEntry.component) {
     const Component = registryEntry.component
     heroVisual = (
-      <div className="relative hidden lg:block">
+      <div className="relative w-full max-w-[600px]">
         <div className="absolute -left-10 -top-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl animate-drift-slow" />
         <div className="relative mx-auto w-full max-w-[600px] h-[600px] overflow-hidden rounded-2xl border border-white/20 bg-white/5">
           <Component />
         </div>
       </div>
+    )
+  }
+
+  const isAnimationHero =
+    (routeAnimations.length > 0 && rotatedEntry != null) ||
+    Boolean(
+      routeAnimations.length === 0 &&
+        registryEntry?.mediaType === 'animation' &&
+        registryEntry.component
+    )
+
+  const stitchRight = isAnimationHero
+    ? resolveStitchHeroRight(heroVisual, fallbackHeroVisual as HeroVisualModel)
+    : null
+
+  if (heroVariant === 'stitch') {
+    return (
+      <IndustrySingleStitchLayout
+        industry={industry}
+        whyNowText={whyNowText}
+        heroRight={stitchRight}
+        heroRightIsVisual={isAnimationHero}
+        featuredCaseStudies={featuredCaseStudies}
+      />
     )
   }
 
@@ -96,13 +169,17 @@ export default function IndustryPageContent({ industry, featuredExpertise, featu
         description={industry.positioning || industry.description}
         primaryCta={{ label: 'Start a conversation', href: '/contact' }}
         secondaryCta={{ label: 'View case studies', href: '/case-studies' }}
-        rightVisual={heroVisual}
+        rightVisual={
+          React.isValidElement(heroVisual) || typeof heroVisual === 'string' || typeof heroVisual === 'number' ? (
+            <div className="relative hidden lg:block">{heroVisual}</div>
+          ) : (
+            heroVisual
+          )
+        }
         slug={industry.slug}
         kind="industries"
       >
-        <p className="text-lg text-slate-200 max-w-2xl mt-4">
-          {whyNowText}
-        </p>
+        <p className="text-lg text-slate-200 max-w-2xl mt-4">{whyNowText}</p>
       </HeroDark>
 
       {/* GTM realities section */}

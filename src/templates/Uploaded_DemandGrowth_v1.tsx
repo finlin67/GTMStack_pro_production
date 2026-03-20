@@ -3,6 +3,9 @@
 import Link from 'next/link';
 import { motion } from 'motion/react';
 import { Target, Search, MousePointerClick, TrendingUp, Calendar, FlaskConical, ArrowRight } from 'lucide-react';
+import ExpertiseTopicBreadcrumb, {
+  type ExpertiseTopicBreadcrumbProps,
+} from '@/src/components/expertise/ExpertiseTopicBreadcrumb';
 
 export interface NavLink {
   label: string;
@@ -168,10 +171,12 @@ function isDemandGrowthTemplateContent(c: unknown): c is TemplateContent {
 
 export default function Template({ 
   content, 
-  pageTitle 
+  pageTitle,
+  expertiseBreadcrumb,
 }: { 
   content?: unknown; 
   pageTitle?: string; 
+  expertiseBreadcrumb?: ExpertiseTopicBreadcrumbProps;
 }) {
   const data = isDemandGrowthTemplateContent(content) ? content : DEFAULT_CONTENT;
   return (
@@ -201,14 +206,22 @@ export default function Template({
             <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-8">
               <div className="w-full lg:w-[52%]">
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-                  <div className="demand-text-gradient font-heading text-[11px] font-semibold uppercase tracking-[0.2em] mb-6 inline-block">
-                    {data.hero.eyebrow}
-                  </div>
-                  <h1 className="font-heading font-bold text-5xl md:text-[64px] leading-[1.1] mb-6">
+                  {expertiseBreadcrumb ? (
+                    <ExpertiseTopicBreadcrumb {...expertiseBreadcrumb} className="mb-6" />
+                  ) : (
+                    <div className="demand-text-gradient font-heading text-[11px] font-semibold uppercase tracking-[0.2em] mb-6 inline-block">
+                      {data.hero.eyebrow}
+                    </div>
+                  )}
+                  <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] mb-3 max-w-3xl">
                     <span className="block text-white">{data.hero.titleLine1}</span>
-                    <span className="block demand-text-gradient">{data.hero.titleLine2}</span>
+                    {data.hero.titleLine2 ? (
+                      <span className="mt-2 block text-2xl md:text-3xl lg:text-4xl demand-text-gradient">
+                        {data.hero.titleLine2}
+                      </span>
+                    ) : null}
                   </h1>
-                  <p className="text-white/75 text-lg max-w-[480px] leading-[1.6] mb-10">
+                  <p className="text-white/75 text-base md:text-lg max-w-[520px] leading-relaxed mb-10 whitespace-pre-line">
                     {data.hero.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
