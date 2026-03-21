@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GTM Core Tile</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    
+    <!-- Babel Standalone for JSX compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    
+    <!-- Global Styles -->
+    <style>
+        body {
+            background-color: #020410;
+            color: white;
+            font-family: 'Inter', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #040715; }
+        ::-webkit-scrollbar-thumb { background: #1E2745; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00F0FF; }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- React Application Code -->
+    <script type="text/babel" data-type="module">
+        import React from 'react';
+        import ReactDOM from 'react-dom/client';
+        import { motion } from 'framer-motion';
+        import { 
+          TrendingUp, 
+          Zap, 
+          MessageSquare, 
+          Lightbulb, 
+          Settings, 
+          ArrowUpRight,
+          Layers
+        } from 'lucide-react';
+
+        // Component: GtmCoreTile
+        function GtmCoreTile() {
+          return (
+            <div className="relative w-[600px] h-[600px] bg-[#040715] overflow-hidden flex flex-col font-sans select-none rounded-3xl border border-[#1E2745] shadow-2xl shadow-blue-900/20">
+              {/* BACKGROUND DECORATION */}
+              <div 
+                className="absolute inset-0 opacity-20 pointer-events-none"
+                style={{
+                  backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(56, 189, 248, 0.15) 1px, transparent 0)',
+                  backgroundSize: '32px 32px'
+                }}
+              />
+              <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-[#00F0FF]/5 to-transparent pointer-events-none opacity-40" />
+              
+              {/* HEADER */}
+              <header className="relative z-30 h-[80px] w-full flex items-center justify-between px-6 border-b border-[#1E2745] bg-[#040715]/90 backdrop-blur-md">
+                <div className="flex items-center gap-3">
+                  <div className="p-2 rounded-lg bg-[#00F0FF]/10 border border-[#00F0FF]/20 shadow-[0_0_15px_rgba(0,240,255,0.15)]">
+                    <Layers className="w-5 h-5 text-[#00F0FF]" />
+                  </div>
+                  <div>
+                    <h3 className="text-white font-bold text-sm tracking-wide">GTM STACK</h3>
+                    <p className="text-[#64748B] text-[10px] font-medium uppercase tracking-wider">System Architecture</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                   <span className="flex items-center gap-2 px-3 py-1 bg-[#00F0FF]/10 border border-[#00F0FF]/30 rounded-full">
+                      <span className="relative flex h-2 w-2">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00F0FF] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00F0FF]"></span>
+                      </span>
+                      <span className="text-[#00F0FF] text-xs font-bold tracking-wide">LIVE</span>
+                   </span>
+                   <Settings className="text-[#64748B] w-5 h-5 cursor-pointer hover:text-white transition-colors" />
+                </div>
+              </header>
+
+              {/* SECONDARY DATA CARDS */}
+              <div className="relative z-20 w-full px-6 py-4 grid grid-cols-3 gap-3">
+                <motion.div 
+                  className="bg-[#0F1528] border border-[#1E2745] rounded-xl p-3 flex flex-col justify-between hover:border-[#FFD700]/50 transition-colors group"
+                  initial={{ opacity: 0, y: -20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: 0.2, duration: 0.6, ease: "easeOut" }}
+                >
+                  <span className="text-[#64748B] text-[10px] uppercase font-bold tracking-wider mb-1 group-hover:text-[#FFD700] transition-colors">Avg ROI</span>
+                  <div className="flex items-end justify-between">
+                    <span className="text-[#FFD700] font-black text-xl tracking-tight">150%</span>
+                    <TrendingUp className="w-4 h-4 text-[#FFD700] mb-1" />
+                  </div>
+                </motion.div>
+                <motion.div 
+                  className="bg-[#0F1528] border border-[#1E2745] rounded-xl p-3 flex flex-col justify-between hover:border-[#FF5E00]/50 transition-colors group"
+                  initial={{ opacity: 0, y: -20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: 0.3, duration: 0.6, ease: "easeOut" }}
+                >
+                  <span className="text-[#64748B] text-[10px] uppercase font-bold tracking-wider mb-1 group-hover:text-[#FF5E00] transition-colors">Efficiency</span>
+                  <div className="flex items-end justify-between">
+                    <span className="text-[#FF5E00] font-black text-xl tracking-tight">40%</span>
+                    <Zap className="w-4 h-4 text-[#FF5E00] mb-1" />
+                  </div>
+                </motion.div>
+                <motion.div 
+                  className="bg-[#0F1528] border border-[#1E2745] rounded-xl p-3 flex flex-col justify-between hover:border-[#00F0FF]/50 transition-colors group"
+                  initial={{ opacity: 0, y: -20 }} 
+                  animate={{ opacity: 1, y: 0 }} 
+                  transition={{ delay: 0.4, duration: 0.6, ease: "easeOut" }}
+                >
+                  <span className="text-[#64748B] text-[10px] uppercase font-bold tracking-wider mb-1 group-hover:text-[#00F0FF] transition-colors">Growth</span>
+                  <div className="flex items-end justify-between">
+                    <span className="text-[#00F0FF] font-black text-xl tracking-tight">3.5x</span>
+                    <div className="flex -space-x-1 mb-1">
+                       <ArrowUpRight className="w-4 h-4 text-[#00F0FF]" />
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+
+              {/* CENTRAL VISUALIZATION */}
+              <div className="relative flex-1 w-full flex items-center justify-center overflow-visible z-10 my-2">
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                   <svg className="w-[300px] h-[300px] opacity-30">
+                      <motion.line x1="50%" y1="50%" x2="15%" y2="15%" stroke="#00F0FF" strokeWidth="1" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }} />
+                      <motion.line x1="50%" y1="50%" x2="85%" y2="15%" stroke="#FF5E00" strokeWidth="1" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }} />
+                      <motion.line x1="50%" y1="50%" x2="15%" y2="85%" stroke="#FFD700" strokeWidth="1" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }} />
+                      <motion.line x1="50%" y1="50%" x2="85%" y2="85%" stroke="#00F0FF" strokeWidth="1" strokeDasharray="4 4" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 1.5, ease: "easeInOut", delay: 0.5 }} />
+                   </svg>
+                </div>
+                <motion.div
+                  className="relative z-20 w-44 h-44 rounded-full flex flex-col items-center justify-center text-center border-4 backdrop-blur-md"
+                  style={{ backgroundColor: 'rgba(15, 21, 40, 0.85)', borderColor: 'rgba(0, 240, 255, 0.3)', boxShadow: '0 0 60px rgba(0, 240, 255, 0.15)' }}
+                  initial={{ scale: 0.5, opacity: 0 }}
+                  animate={{ scale: 1, opacity: 1 }}
+                  transition={{ delay: 0.5, type: "spring", stiffness: 200, damping: 25 }}
+                >
+                   <motion.div className="absolute -inset-2 rounded-full border border-[#00F0FF]/30" animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0, 0.3] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }} />
+                   <p className="text-[#00F0FF] text-[10px] font-black uppercase tracking-widest mb-1">REVENUE OPS</p>
+                   <motion.div className="flex flex-col items-center" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8, duration: 0.5 }} >
+                     <span className="text-white text-4xl font-black tracking-tighter">SCALE</span>
+                     <span className="text-[#FF5E00] text-sm font-bold tracking-widest uppercase">Ready</span>
+                   </motion.div>
+                </motion.div>
+                <SatelliteNode position="top-left" icon={<MessageSquare className="w-5 h-5 text-[#00F0FF]" />} color="#00F0FF" label="Design" xOffset={-138} yOffset={-77} delay={0.8} />
+                <SatelliteNode position="top-right" icon={<Settings className="w-5 h-5 text-[#FF5E00]" />} color="#FF5E00" label="Audit" xOffset={138} yOffset={-77} delay={0.9} />
+                <SatelliteNode position="bottom-left" icon={<Lightbulb className="w-5 h-5 text-[#FFD700]" />} color="#FFD700" label="Enablement" xOffset={-138} yOffset={77} delay={1.0} />
+                <SatelliteNode position="bottom-right" icon={<TrendingUp className="w-5 h-5 text-[#00F0FF]" />} color="#00F0FF" label="Growth" xOffset={138} yOffset={77} delay={1.1} />
+              </div>
+
+              {/* FOOTER */}
+              <div className="relative z-20 h-[140px] border-t border-[#1E2745] bg-[#020410]/50 backdrop-blur-sm p-5 flex flex-col justify-end">
+                <div className="flex justify-between items-center mb-2">
+                    <span className="text-[#64748B] text-[10px] font-bold tracking-widest uppercase flex items-center gap-2">
+                        Transformation Journey
+                    </span>
+                    <div className="flex gap-2">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#00F0FF]"></span>
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#FF5E00]"></span>
+                    </div>
+                </div>
+                <div className="relative w-full h-[60px]">
+                    <svg className="w-full h-full overflow-visible" preserveAspectRatio="none" viewBox="0 0 100 60">
+                        <defs>
+                            <linearGradient id="footerGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor="#00F0FF" stopOpacity="0.2"/>
+                                <stop offset="100%" stopColor="#FF5E00" stopOpacity="0.2"/>
+                            </linearGradient>
+                            <linearGradient id="strokeGrad" x1="0" y1="0" x2="1" y2="0">
+                                <stop offset="0%" stopColor="#00F0FF" />
+                                <stop offset="100%" stopColor="#FF5E00" />
+                            </linearGradient>
+                        </defs>
+                        <motion.path d="M0,55 Q50,55 100,55" fill="none" stroke="#1E2745" strokeWidth="1" strokeDasharray="4 2" initial={{ pathLength: 0, opacity: 0 }} animate={{ pathLength: 1, opacity: 1 }} transition={{ duration: 1, delay: 0.2 }} />
+                        <motion.path d="M0,55 C30,55 40,40 60,30 S80,10 100,5" fill="none" stroke="url(#strokeGrad)" strokeWidth="3" strokeLinecap="round" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2.5, delay: 0.8, ease: "easeInOut" }} />
+                        <motion.path d="M0,55 C30,55 40,40 60,30 S80,10 100,5 V60 H0 Z" fill="url(#footerGrad)" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 1.5, delay: 1.5 }} />
+                    </svg>
+                </div>
+                <div className="flex justify-between mt-2 px-1">
+                    <span className="text-[#64748B]/50 text-[9px] font-bold">START</span>
+                    <span className="text-[#64748B]/50 text-[9px] font-bold">AUDIT</span>
+                    <span className="text-[#64748B]/50 text-[9px] font-bold">BUILD</span>
+                    <span className="text-[#FF5E00] text-[9px] font-bold">SCALE</span>
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        // Sub-component: SatelliteNode
+        function SatelliteNode({ position, icon, color, label, xOffset, yOffset, delay }) {
+          const randomSeed = Math.abs(xOffset + yOffset); 
+          const floatDuration = 4 + (randomSeed % 3); 
+          
+          return (
+            <motion.div 
+              className="absolute flex flex-col items-center group cursor-pointer z-30"
+              style={{ x: xOffset, y: yOffset }}
+              initial={{ opacity: 0, scale: 0 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay, type: "spring", stiffness: 100, damping: 20 }}
+            >
+              <motion.div 
+                className="w-11 h-11 rounded-xl bg-[#0F1528] border border-[#1E2745] flex items-center justify-center transition-all shadow-lg relative"
+                style={{  boxShadow: `0 0 0 1px ${color}20` }}
+                whileHover={{ scale: 1.15, backgroundColor: '#141c36', borderColor: color }}
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: floatDuration, repeat: Infinity, ease: "easeInOut", delay: (randomSeed % 2) }}
+              >
+                <div className="absolute inset-0 opacity-20 blur-md rounded-xl" style={{ backgroundColor: color }}></div>
+                <div className="relative z-10">{icon}</div>
+              </motion.div>
+              <motion.span 
+                className="mt-2 text-[10px] font-bold text-white bg-[#020410] px-2 py-1 rounded border border-[#1E2745]"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: delay + 0.3 }}
+              >
+                {label}
+              </motion.span>
+            </motion.div>
+          );
+        }
+        
+        // Component: App
+        function App() {
+          return (
+            <div className="bg-[#020410] min-h-screen flex items-center justify-center relative overflow-hidden">
+              <div 
+                className="absolute inset-0 pointer-events-none opacity-40"
+                style={{
+                  backgroundImage: 'radial-gradient(circle at 20% 20%, rgba(0, 240, 255, 0.08) 0%, transparent 50%), radial-gradient(circle at 80% 80%, rgba(255, 94, 0, 0.08) 0%, transparent 50%)',
+                }}
+              />
+              <div 
+                  className="absolute inset-0 pointer-events-none opacity-[0.03]"
+                  style={{
+                      backgroundImage: 'linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)',
+                      backgroundSize: '40px 40px'
+                  }}
+              ></div>
+              <div className="relative z-10 p-10">
+                <div className="relative group">
+                    <div className="absolute -inset-1 bg-gradient-to-br from-[#00F0FF]/20 to-[#FF5E00]/20 rounded-[40px] blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-1000"></div>
+                    <GtmCoreTile />
+                </div>
+                <div className="mt-12 text-center flex flex-col gap-2">
+                    <h1 className="text-white text-2xl font-black tracking-tight">GTM<span className="text-[#00F0FF]">Stack</span></h1>
+                    <p className="text-[#64748B] text-xs font-medium tracking-widest uppercase">Revenue Operations Architecture</p>
+                </div>
+              </div>
+            </div>
+          );
+        }
+
+        // Render the App
+        const container = document.getElementById('root');
+        const root = ReactDOM.createRoot(container);
+        root.render(<App />);
+
+    </script>
+</body>
+</html>

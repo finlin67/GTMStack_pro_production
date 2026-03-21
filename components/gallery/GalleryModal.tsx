@@ -5,6 +5,8 @@ import { useCallback, useEffect, useState } from 'react'
 import Image from 'next/image'
 import { X, Github, BookOpenText, Clipboard } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
+import type { PreviewDecision } from '@/src/lib/galleryPreviewPolicy'
+import { resolvePreviewDecision } from '@/src/lib/galleryPreviewPolicy'
 
 /** Minimal shape the modal needs – parent passes selected animation from registry */
 interface GalleryModalAnimation {
@@ -18,6 +20,7 @@ interface GalleryModalAnimation {
 interface GalleryModalProps {
   animation: GalleryModalAnimation | null
   onClose: () => void
+  previewDecision?: PreviewDecision | null
   manifest?: {
     id: string
     title: string
@@ -28,10 +31,16 @@ interface GalleryModalProps {
     githubReadmeUrl?: string
     updatedAt?: string | null
     thumbnailUrl?: string
+    entryHtml?: string
   }
 }
 
-export function GalleryModal({ animation, onClose, manifest }: GalleryModalProps) {
+export function GalleryModal({
+  animation,
+  onClose,
+  previewDecision,
+  manifest,
+}: GalleryModalProps) {
   const [copied, setCopied] = useState(false)
 
   const handleEscape = useCallback(
@@ -64,6 +73,17 @@ export function GalleryModal({ animation, onClose, manifest }: GalleryModalProps
     manifest?.summary || animation?.description || 'Preview and metadata for this animation.'
   const categoryLabel =
     manifest?.category || animation?.marketingFunction.replace(/-/g, ' ') || 'Uncategorized'
+
+  const entryHtmlSrc = manifest?.entryHtml
+    ? `/${String(manifest.entryHtml).replace(/^\/+/, '')}`
+    : null
+  const resolvedPreviewDecision =
+    previewDecision ??
+    resolvePreviewDecision({
+      hasMappedComponent: !!Component,
+      entryHtml: entryHtmlSrc,
+      thumbnailUrl: manifest?.thumbnailUrl,
+    })
   const displayTags = (
     manifest?.tags && manifest.tags.length ? manifest.tags : animation?.tags || []
   ).slice(0, 6)
@@ -151,34 +171,47 @@ export function GalleryModal({ animation, onClose, manifest }: GalleryModalProps
           {/* Live animation preview or fallback */}
           <div className="flex-1 min-h-0 overflow-auto p-8 flex items-center justify-center bg-slate-950/50">
             <div className="w-full max-w-[700px] aspect-square max-h-[600px] rounded-2xl border border-white/10 bg-slate-900/80 overflow-hidden shadow-2xl flex items-center justify-center relative">
-              {/* Always show thumbnail when available, so the modal doesn't render empty
-                  when the live component is selected but currently blank. */}
-              {manifest?.thumbnailUrl ? (
-                <div className="absolute inset-0 z-20 pointer-events-none">
+              {/* Deterministic fallback strategy:
+                  live component > iframe > thumbnail > explicit fallback message */}
+              {resolvedPreviewDecision.mode === 'live-component' && Component ? (
+                <div className="w-full h-full flex items-center justify-center">
+                  <Component />
+                </div>
+              ) : resolvedPreviewDecision.mode === 'iframe-entry-html' && entryHtmlSrc ? (
+                <iframe
+                  src={entryHtmlSrc}
+                  title={displayTitle}
+                  className="w-full h-full relative z-10"
+                  style={{ border: 'none' }}
+                  sandbox="allow-scripts allow-same-origin allow-popups"
+                />
+              ) : resolvedPreviewDecision.mode === 'thumbnail-fallback' && manifest?.thumbnailUrl ? (
+                <div className="w-full h-full flex flex-col items-center justify-center">
                   <Image
                     src={manifest.thumbnailUrl}
                     alt={manifest.title}
-                    width={1000}
-                    height={1000}
-                    className="w-full h-full object-contain bg-slate-900 opacity-70"
+                    width={700}
+                    height={700}
+                    className="w-full h-full object-contain relative z-10"
                     priority
                   />
-                </div>
-              ) : null}
-
-              <div className="relative z-10 w-full h-full flex items-center justify-center">
-                {Component ? (
-                  <Component />
-                ) : manifest?.thumbnailUrl ? null : (
-                  <div className="flex flex-col items-center justify-center text-center px-8">
-                    <p className="text-sm text-slate-300 mb-2">Preview coming soon</p>
-                    <p className="text-xs text-slate-500 max-w-sm">
-                      The live React animation for this entry isn&apos;t wired up yet, but you can
-                      view the files and README on GitHub using the buttons above.
-                    </p>
+                  <div className="absolute z-20 bottom-8 left-8 right-8 text-center pointer-events-none">
+                    <div className="inline-block px-4 py-2.5 rounded-xl bg-slate-900/90 backdrop-blur-md border border-white/10 shadow-xl">
+                      <p className="text-xs text-slate-300">
+                        Interactive preview not available. View source on GitHub for full implementation.
+                      </p>
+                    </div>
                   </div>
-                )}
-              </div>
+                </div>
+              ) : (
+                <div className="flex flex-col items-center justify-center text-center px-8">
+                  <p className="text-sm text-slate-300 mb-2">Preview coming soon</p>
+                  <p className="text-xs text-slate-500 max-w-sm">
+                    The live animation preview for this entry isn&apos;t available yet, but you can
+                    view the source files and README on GitHub using the buttons above.
+                  </p>
+                </div>
+              )}
             </div>
           </div>
 
@@ -194,6 +227,9 @@ export function GalleryModal({ animation, onClose, manifest }: GalleryModalProps
                 </span>
               </div>
               <div className="hidden sm:block w-px h-6 bg-white/10" />
+              <span className="px-2.5 py-1 rounded-md border border-white/10 bg-white/5 text-[10px] font-semibold uppercase tracking-wider text-slate-300">
+                {resolvedPreviewDecision.mode}
+              </span>
               <div className="flex flex-wrap gap-2 flex-1">
                 {displayTags.map((tag) => (
                   <span

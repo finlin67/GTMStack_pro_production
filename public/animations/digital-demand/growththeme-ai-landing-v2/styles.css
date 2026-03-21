@@ -1,0 +1,46 @@
+/* Import Font */
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+/* Tailwind Directives - Required for local build environments (Vite, Next.js, etc.) */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Core Backgrounds */
+    --background-dark: #020617;
+    --panel-bg: #0f172a;
+
+    /* Primary Accents */
+    --primary-blue: #2563eb;
+    --cyan-accent: #06b6d4;
+
+    /* Status Colors */
+    --success-green: #10b981;
+    --emerald-400: #34d399;
+    --purple-500: #a855f7;
+    --purple-400: #c084fc;
+  }
+
+  body {
+    background-color: var(--background-dark);
+    color: white;
+    font-family: "Space Grotesk", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* 
+  Utility class reference for custom gradients 
+  (These are handled by Tailwind classes in the TSX, 
+  but defined here for reference)
+*/
+.gradient-primary {
+  background: linear-gradient(135deg, var(--primary-blue), var(--cyan-accent));
+}
+
+.gradient-success {
+  background: linear-gradient(135deg, var(--emerald-400), #5eead4);
+}

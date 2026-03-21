@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Growth.AI - Harmonic Quad-Tone (Standalone)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+        body {
+            font-family: 'Space Grotesk', sans-serif;
+            background-color: #0f172a;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+</head>
+<body>
+    <div id="root" class="w-[600px] h-[600px] flex items-center justify-center"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { motion, AnimatePresence } from 'framer-motion';
+        import { 
+            Activity, 
+            TrendingUp, 
+            Zap, 
+            Target, 
+            Cpu, 
+            Layers, 
+            MousePointer2, 
+            BarChart3,
+            ShieldCheck,
+            Globe
+        } from 'lucide-react';
+
+        function AIGrowth() {
+            const [stats, setStats] = useState({
+                precision: 98.4,
+                latency: 12,
+                growth: 42,
+                sentiment: 88,
+                uptime: 99.99
+            });
+
+            const [activeNode, setActiveNode] = useState(null);
+
+            // Simulation logic for organic data jitter
+            useEffect(() => {
+                let timeoutId;
+
+                const updateStats = () => {
+                    setStats(prev => ({
+                        precision: +(prev.precision + (Math.random() * 0.2 - 0.1)).toFixed(1),
+                        latency: Math.max(8, Math.min(24, +(prev.latency + (Math.random() * 2 - 1)).toFixed(0))),
+                        growth: prev.growth, 
+                        sentiment: Math.max(80, Math.min(95, +(prev.sentiment + (Math.random() * 0.4 - 0.2)).toFixed(1))),
+                        uptime: prev.uptime
+                    }));
+                    timeoutId = setTimeout(updateStats, 1500 + Math.random() * 1000);
+                };
+
+                timeoutId = setTimeout(updateStats, 1000);
+                return () => clearTimeout(timeoutId);
+            }, []);
+
+            const metrics = [
+                { id: '1', label: 'INTELLIGENCE', value: `${stats.precision}%`, trend: '+0.4%', color: 'blue', icon: Cpu },
+                { id: '2', label: 'VELOCITY', value: `${stats.latency}ms`, trend: '-2ms', color: 'purple', icon: Zap },
+                { id: '3', label: 'SENTIMENT', value: `${stats.sentiment}%`, trend: '+1.2%', color: 'green', icon: Activity },
+                { id: '4', label: 'SECURITY', value: '100%', trend: 'LOCKED', color: 'red', icon: ShieldCheck },
+            ];
+
+            const getColorClasses = (color) => {
+                switch (color) {
+                    case 'blue': return { text: 'text-blue-400', bg: 'bg-blue-500/20', border: 'border-blue-500/30' };
+                    case 'purple': return { text: 'text-purple-400', bg: 'bg-purple-500/20', border: 'border-purple-500/30' };
+                    case 'green': return { text: 'text-green-400', bg: 'bg-green-500/20', border: 'border-green-500/30' };
+                    case 'red': return { text: 'text-red-400', bg: 'bg-red-500/20', border: 'border-red-500/30' };
+                    default: return { text: 'text-slate-400', bg: 'bg-slate-500/20', border: 'border-slate-500/30' };
+                }
+            };
+
+            return (
+                <div className="w-full h-full max-w-[600px] max-h-[600px] aspect-square flex items-center justify-center p-2 relative overflow-hidden group bg-[#0f172a] rounded-3xl border border-slate-800 shadow-2xl">
+                    {/* Background Decorative Grid */}
+                    <motion.div 
+                        animate={{ 
+                            backgroundPosition: ["0px 0px", "24px 24px"] 
+                        }}
+                        transition={{ 
+                            duration: 20, 
+                            ease: "linear", 
+                            repeat: Infinity 
+                        }}
+                        className="absolute inset-0 opacity-5 bg-[radial-gradient(#1e293b_1px,transparent_1px)] [background-size:24px_24px]" 
+                    />
+                    
+                    {/* Animated Gradient Orbs */}
+                    <motion.div 
+                        animate={{ 
+                            x: [0, 40, -40, 0], 
+                            y: [0, -20, 20, 0],
+                            scale: [1, 1.15, 1]
+                        }}
+                        transition={{ duration: 12, repeat: Infinity, repeatType: "mirror" }}
+                        className="absolute -top-32 -left-32 w-80 h-80 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" 
+                    />
+                    <motion.div 
+                        animate={{ 
+                            x: [0, -30, 30, 0], 
+                            y: [0, 30, -30, 0],
+                            scale: [1, 1.1, 1]
+                        }}
+                        transition={{ duration: 18, repeat: Infinity, repeatType: "mirror" }}
+                        className="absolute -bottom-32 -right-32 w-96 h-96 bg-purple-600/10 rounded-full blur-[120px] pointer-events-none" 
+                    />
+
+                    {/* Main Content Interface */}
+                    <div className="relative w-full h-full p-6 flex flex-col gap-4 z-10 justify-between">
+                        
+                        {/* Header Section */}
+                        <div className="flex justify-between items-start shrink-0">
+                            <div className="flex flex-col">
+                                <div className="flex items-center gap-2 mb-1">
+                                    <div className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+                                    <span className="text-[9px] tracking-[0.4em] font-bold text-slate-500 uppercase">System Status: Active</span>
+                                </div>
+                                <h3 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
+                                    <Globe className="w-5 h-5 text-blue-400" />
+                                    Growth Engine
+                                </h3>
+                            </div>
+                            <div className="bg-slate-900/60 backdrop-blur-xl px-3 py-1.5 rounded-xl border border-slate-700/50 flex items-center gap-2 shadow-lg">
+                                <Target className="w-3.5 h-3.5 text-purple-400" />
+                                <span className="text-[9px] font-black tracking-[0.2em] text-slate-200 uppercase">Ops: Live</span>
+                            </div>
+                        </div>
+
+                        {/* Central Visualization Area */}
+                        <div className="flex-grow relative flex items-center justify-center min-h-0">
+                            <div className="relative flex items-center justify-center">
+                                {/* Outer Rotating Path Visual Guide */}
+                                <div className="absolute w-[260px] h-[260px] rounded-full border border-slate-800/40" />
+                                
+                                {/* Orbiting Interaction Nodes */}
+                                {[0, 90, 180, 270].map((angle, idx) => (
+                                    <motion.div
+                                        key={angle}
+                                        animate={{ rotate: [angle, angle + 360] }}
+                                        transition={{ duration: 32, repeat: Infinity }}
+                                        className="absolute w-[260px] h-[260px] pointer-events-none"
+                                    >
+                                        <div className="h-full w-full relative">
+                                            <motion.div 
+                                                className="absolute -top-5 left-1/2 -translate-x-1/2 w-10 h-10 rounded-xl bg-slate-900 border border-slate-700/80 flex items-center justify-center shadow-2xl pointer-events-auto cursor-crosshair z-30"
+                                                whileHover={{ scale: [1, 1.1], borderColor: '#3b82f6', backgroundColor: '#1e293b' }}
+                                                onMouseEnter={() => setActiveNode(idx)}
+                                                onMouseLeave={() => setActiveNode(null)}
+                                            >
+                                                {/* Counter-rotation to keep icons upright and readable */}
+                                                <motion.div
+                                                    animate={{ rotate: [(-angle), (-angle - 360)] }}
+                                                    transition={{ duration: 32, repeat: Infinity }}
+                                                >
+                                                    <div className="flex items-center justify-center">
+                                                        {idx === 0 && <MousePointer2 className="w-4 h-4 text-blue-400" />}
+                                                        {idx === 1 && <TrendingUp className="w-4 h-4 text-purple-400" />}
+                                                        {idx === 2 && <Layers className="w-4 h-4 text-green-400" />}
+                                                        {idx === 3 && <BarChart3 className="w-4 h-4 text-red-400" />}
+                                                    </div>
+                                                </motion.div>
+                                            </motion.div>
+                                        </div>
+                                    </motion.div>
+                                ))}
+
+                                {/* Core Visualization Ring (Counter-Rotating) */}
+                                <motion.div 
+                                    animate={{ rotate: [0, -360] }}
+                                    transition={{ duration: 40, repeat: Infinity }}
+                                    className="w-48 h-48 rounded-full border border-slate-800/50 p-2 flex items-center justify-center bg-slate-950/20 backdrop-blur-sm relative z-10"
+                                >
+                                    <div className="w-full h-full rounded-full border border-slate-800/30 border-dashed opacity-20" />
+                                </motion.div>
+
+                                {/* Central Metric - Stationary and High Contrast */}
+                                <div className="absolute inset-0 flex flex-col items-center justify-center pointer-events-none z-20">
+                                    <div className="bg-[#0f172a]/80 backdrop-blur-xl rounded-full p-8 flex flex-col items-center justify-center shadow-[0_0_40px_rgba(15,23,42,0.8)] border border-slate-800/50">
+                                        <motion.span 
+                                            animate={{ scale: [1, 1.04, 1] }}
+                                            transition={{ duration: 4, repeat: Infinity, repeatType: "mirror" }}
+                                            className="text-6xl font-bold bg-gradient-to-br from-amber-200 via-amber-400 to-amber-600 bg-clip-text text-transparent leading-none drop-shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                                        >
+                                            +{stats.growth}%
+                                        </motion.span>
+                                        <span className="text-[10px] tracking-[0.6em] font-black text-slate-100 mt-4 uppercase text-center drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)]">
+                                            Growth YTD
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Quad-Tone Metric Grid */}
+                        <div className="grid grid-cols-2 gap-3 shrink-0">
+                            <AnimatePresence mode="popLayout">
+                                {metrics.map((metric) => {
+                                    const styles = getColorClasses(metric.color);
+                                    return (
+                                        <motion.div
+                                            key={metric.id}
+                                            layout
+                                            whileHover={{ y: -2, backgroundColor: 'rgba(15, 23, 42, 0.9)' }}
+                                            className="p-4 rounded-[20px] bg-slate-900/50 border border-slate-800/50 backdrop-blur-xl transition-all shadow-xl"
+                                        >
+                                            <div className="flex justify-between items-start mb-2">
+                                                <div className={`p-2 rounded-xl ${styles.bg}`}>
+                                                    <metric.icon className={`w-3.5 h-3.5 ${styles.text}`} />
+                                                </div>
+                                                <span className={`text-[9px] font-black px-2 py-0.5 rounded-full ${styles.bg} ${styles.text} uppercase tracking-tight shadow-sm`}>
+                                                    {metric.trend}
+                                                </span>
+                                            </div>
+                                            <div className="flex flex-col h-12 justify-end">
+                                                <span className="text-[9px] tracking-[0.25em] text-slate-500 font-bold uppercase mb-1">{metric.label}</span>
+                                                <div className="relative h-8 w-full">
+                                                    <AnimatePresence mode="popLayout" initial={false}>
+                                                        <motion.span
+                                                            key={metric.value}
+                                                            initial={{ opacity: 0, y: 10, filter: 'blur(4px)' }}
+                                                            animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                                            exit={{ opacity: 0, y: -10, filter: 'blur(4px)' }}
+                                                            transition={{ type: "spring", stiffness: 300, damping: 24, mass: 0.8 }}
+                                                            className="text-2xl font-bold text-white tracking-tight block absolute top-0 left-0"
+                                                        >
+                                                            {metric.value}
+                                                        </motion.span>
+                                                    </AnimatePresence>
+                                                </div>
+                                            </div>
+                                        </motion.div>
+                                    );
+                                })}
+                            </AnimatePresence>
+                        </div>
+
+                        {/* Bottom Status Bar */}
+                        <div className="flex items-center justify-between border-t border-slate-800/80 pt-4 shrink-0">
+                            <div className="flex gap-6">
+                                <div className="flex flex-col">
+                                    <span className="text-[9px] text-slate-500 tracking-widest uppercase font-bold mb-0.5">Latency</span>
+                                    <div className="h-5 relative w-16">
+                                        <AnimatePresence mode="popLayout" initial={false}>
+                                            <motion.span
+                                                key={stats.latency}
+                                                initial={{ opacity: 0, y: 5, filter: 'blur(2px)' }}
+                                                animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
+                                                exit={{ opacity: 0, y: -5, filter: 'blur(2px)' }}
+                                                transition={{ duration: 0.2 }}
+                                                className="text-xs font-mono font-bold text-blue-400 block absolute top-0 left-0"
+                                            >
+                                                {stats.latency}ms
+                                            </motion.span>
+                                        </AnimatePresence>
+                                    </div>
+                                </div>
+                                <div className="flex flex-col border-l border-slate-800 pl-6">
+                                    <span className="text-[9px] text-slate-500 tracking-widest uppercase font-bold mb-0.5">Uptime</span>
+                                    <span className="text-xs font-mono font-bold text-green-400">{stats.uptime}%</span>
+                                </div>
+                            </div>
+                            <motion.button
+                                whileTap={{ scale: [1, 0.96] }}
+                                className="px-5 py-2.5 bg-gradient-to-r from-blue-600 to-purple-600 rounded-xl text-[10px] font-black text-white tracking-[0.25em] shadow-lg shadow-blue-900/20 uppercase hover:brightness-110 transition-all border border-blue-400/20"
+                            >
+                                Deploy
+                            </motion.button>
+                        </div>
+
+                    </div>
+                </div>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<AIGrowth />);
+    </script>
+</body>
+</html>

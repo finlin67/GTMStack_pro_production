@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ABM Radar Analysis</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+  </script>
+</head>
+<body class="fixed inset-0 flex items-center justify-center bg-[#0f172a] text-slate-400 font-sans selection:bg-sky-500/30 overflow-hidden">
+  <div id="root"></div>
+  <script type="text/babel" data-type="module">
+    'use client';
+
+    import React, { useState, useEffect, useMemo } from 'react';
+    import { createRoot } from 'react-dom/client';
+    import { motion, AnimatePresence } from 'framer-motion';
+    import { 
+      Target, 
+      TrendingUp, 
+      Users, 
+      Zap, 
+      Activity, 
+      ChevronRight, 
+      Search, 
+      Bell, 
+      Filter, 
+      MoreVertical,
+      Globe,
+      Signal,
+      ArrowUpRight,
+      Cpu,
+      MousePointer2,
+      Sparkles,
+      Hexagon
+    } from 'lucide-react';
+
+    const GlassSurface = ({ children, className = "", elevation = "mid" }) => {
+      const intensities = {
+        low: "bg-white/[0.02] border-white/5",
+        mid: "bg-white/[0.04] border-white/10 shadow-xl",
+        high: "bg-white/[0.08] border-white/20 shadow-2xl backdrop-blur-xl",
+      };
+      return (
+        <div className={`rounded-2xl border transition-all duration-300 ${intensities[elevation]} ${className}`}>
+          {children}
+        </div>
+      );
+    };
+
+    const KPIBadge = ({ icon: Icon, value, label, trend, accent = "blue" }) => {
+      const accents = {
+        blue: "text-sky-400 bg-sky-500/10 border-sky-500/20",
+        orange: "text-orange-400 bg-orange-500/10 border-orange-500/20",
+        gold: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+      };
+
+      return (
+        <GlassSurface elevation="mid" className="p-4 flex flex-col gap-1.5 hover:bg-white/[0.06] group cursor-default">
+          <div className="flex items-center justify-between mb-1">
+            <div className={`p-2 rounded-lg border ${accents[accent]}`}>
+              <Icon className="w-3.5 h-3.5" />
+            </div>
+            {trend && (
+              <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-400 bg-emerald-500/5 px-2 py-0.5 rounded-full border border-emerald-500/10">
+                {trend} <TrendingUp className="w-2.5 h-2.5" />
+              </div>
+            )}
+          </div>
+          <div>
+            <span className="text-xl font-bold text-slate-100 tracking-tight leading-none">{value}</span>
+            <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-slate-500 mt-1">{label}</p>
+          </div>
+        </GlassSurface>
+      );
+    };
+
+    const RadarNode = ({ account, onSelect }) => {
+      const x = Math.cos((account.angle * Math.PI) / 180) * account.distance;
+      const y = Math.sin((account.angle * Math.PI) / 180) * account.distance;
+
+      return (
+        <motion.div
+          initial={{ scale: 0, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          whileHover={{ scale: 1.15, zIndex: 50 }}
+          onClick={() => onSelect(account)}
+          className="absolute cursor-pointer group"
+          style={{ left: `calc(50% + ${x}%)`, top: `calc(50% + ${y}%)` }}
+        >
+          <div className="relative">
+            <div className="absolute w-[100px] h-[1px] bg-gradient-to-r from-white/10 to-transparent origin-left rotate-180 left-0 top-1/2 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+            <div className={`w-3.5 h-3.5 rounded-full relative z-10 border-2 border-[#1e293b] ${account.tier === 1 ? 'bg-sky-500 shadow-[0_0_15px_rgba(14,165,233,0.5)]' : 'bg-slate-500'}`} />
+            <motion.div 
+              animate={{ scale: [1, 2, 1], opacity: [0.3, 0, 0.3] }}
+              transition={{ repeat: Infinity, duration: 3, delay: Math.random() }}
+              className={`absolute -inset-2 rounded-full blur-md ${account.tier === 1 ? 'bg-sky-400' : 'bg-slate-400'}`}
+            />
+            <div className="absolute bottom-full mb-3 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-all scale-95 group-hover:scale-100 pointer-events-none z-50">
+              <GlassSurface elevation="high" className="px-3 py-2 border-sky-500/30 min-w-[120px]">
+                <div className="flex flex-col">
+                  <span className="text-[10px] font-bold text-white leading-none mb-1">{account.name}</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[8px] font-bold text-slate-500 uppercase tracking-widest">Intent</span>
+                    <span className="text-[9px] font-mono font-bold text-sky-400">{account.intent}%</span>
+                  </div>
+                </div>
+              </GlassSurface>
+            </div>
+          </div>
+        </motion.div>
+      );
+    };
+
+    export default function ABMRadarAnalysis() {
+      const [activeTab, setActiveTab] = useState<'radar' | 'list'>('radar');
+      const [mounted, setMounted] = useState(false);
+      const [currentTime, setCurrentTime] = useState(new Date().toLocaleTimeString());
+
+      useEffect(() => {
+        setMounted(true);
+        const interval = setInterval(() => setCurrentTime(new Date().toLocaleTimeString()), 1000);
+        return () => clearInterval(interval);
+      }, []);
+
+      if (!mounted) return null;
+
+      return (
+        <div class="fixed inset-0 flex items-center justify-center bg-[#0f172a] text-slate-400 font-sans selection:bg-sky-500/30 overflow-hidden">
+          <motion.div key="radar" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="h-full">
+            <div class="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden">
+              {[0.25, 0.5, 0.75, 1.0].map((scale, i) => (
+                <div key={i} class="absolute border border-white/5 rounded-full" style={{ width: `${scale * 100}%`, height: `${scale * 100}%` }} />
+              ))}
+              <div class="absolute w-full h-[1px] bg-white/5" />
+              <div class="absolute h-full w-[1px] bg-white/5" />
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
+                class="absolute w-1/2 h-1/2 origin-bottom-left top-0 left-1/2 bg-gradient-to-tr from-sky-500/10 via-transparent to-transparent"
+                style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}
+              />
+            </div>
+            
+            {ACCOUNTS.map((acc) => (
+              <RadarNode key={acc.id} account={acc} onSelect={() => {}} />
+            ))}
+            
+            <div class="absolute top-6 left-6 flex flex-col gap-1">
+              <div class="flex items-center gap-2 text-[10px] font-black text-sky-400 uppercase tracking-[0.2em]">
+                <Globe class="w-3.5 h-3.5" /> North America
+              </div>
+              <span class="text-[8px] font-mono text-slate-600 uppercase">Sector: Enterprise SaaS</span>
+            </div>
+
+            <div class="absolute bottom-6 right-6 p-4 bg-slate-900/60 backdrop-blur-md rounded-2xl border border-white/5 flex gap-5 pointer-events-none">
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-sky-500" />
+                <span class="text-[8px] font-bold uppercase text-slate-500 tracking-widest">Global T1</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <div class="w-2 h-2 rounded-full bg-slate-500" />
+                <span class="text-[8px] font-bold uppercase text-slate-500 tracking-widest">Emerging</span>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      );
+    }
+
+    const container = document.getElementById('root');
+    if (container) {
+      const root = createRoot(container);
+      root.render(<ABMRadarAnalysis />);
+    }
+  </script>
+</body>
+</html>

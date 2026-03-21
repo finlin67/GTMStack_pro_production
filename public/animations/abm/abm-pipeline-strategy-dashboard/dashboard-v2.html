@@ -1,0 +1,38 @@
+<!-- Dashboard.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard.html</title>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "framer-motion": "https://esm.sh/framer-motion?external=react",
+    "lucide-react": "https://esm.sh/lucide-react?external=react"
+  }
+}
+  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    html, body, #root { width: 100%; height: 100%; margin: 0; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
+  <script type="text/babel" data-type="module" data-presets="typescript,react">
+import { createRoot } from 'react-dom/client';
+import React from 'react';
+// This file is deprecated. All logic has been moved to ABM-Pipeline-Strategy.tsx for the single-file component architecture.
+function Dashboard() {
+  return null;
+}
+
+const root = createRoot(document.getElementById('root'));
+root.render(<Dashboard />);
+  </script>
+</body>
+</html>

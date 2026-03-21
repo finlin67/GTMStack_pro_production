@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Growth Marketing Tile</title>
+    <meta name="description" content="Growth Marketing Performance Dashboard Tile" />
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <!-- Babel Standalone for JSX compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      body { font-family: 'Inter', sans-serif; }
+      ::-webkit-scrollbar { width: 8px; }
+      ::-webkit-scrollbar-track { background: #020617; }
+      ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+      ::-webkit-scrollbar-thumb:hover { background: #334155; }
+    </style>
+    <!-- Import Map for ES Modules -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+</head>
+<body class="bg-slate-950 text-slate-100 antialiased min-h-screen">
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+      import React, { useState, useEffect } from 'react';
+      import ReactDOM from 'react-dom/client';
+      import { motion } from 'framer-motion';
+      import { 
+        Target,
+        Eye,
+        MousePointer2,
+        ArrowRight,
+        BarChart3,
+        DollarSign
+      } from 'lucide-react';
+
+      const MetricCard = ({ label, value, icon: Icon, delay }) => (
+        <motion.div
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: delay }}
+          className="bg-white/5 border border-white/10 rounded-lg p-3"
+        >
+          <div className="flex items-center gap-2 text-xs text-blue-200/70 font-medium">
+            <Icon className="w-3 h-3" />
+            <span>{label}</span>
+          </div>
+          <p className="text-xl font-bold text-white tracking-tight mt-1">{value}</p>
+        </motion.div>
+      );
+
+      const FunnelBar = ({ label, value, icon: Icon, color, width, delay }) => (
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5, delay: delay }}
+          className="flex items-center gap-4"
+        >
+          <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center">
+            <Icon className={`w-5 h-5 ${color}`} />
+          </div>
+          <div className="w-full">
+            <div className="flex justify-between items-center mb-1">
+              <span className="text-sm font-medium text-slate-300">{label}</span>
+              <span className="text-sm font-bold text-white">{value}</span>
+            </div>
+            <div className="w-full bg-slate-800/50 rounded-full h-2.5 overflow-hidden border border-white/10">
+              <motion.div
+                className={`h-full rounded-full ${color === 'text-purple-400' ? 'bg-purple-500' : color === 'text-blue-400' ? 'bg-blue-500' : 'bg-pink-500'}`}
+                initial={{ width: '0%' }}
+                animate={{ width: width }}
+                transition={{ duration: 1.2, delay: delay + 0.5, ease: 'easeOut' }}
+              />
+            </div>
+          </div>
+        </motion.div>
+      );
+
+      function GrowthMarketingTile() {
+        // Mock data to simulate changing stats
+        const [stats, setStats] = useState({
+            impressions: 842192,
+            clicks: 12452,
+            conversions: 891,
+            ctr: '1.48%',
+            cpc: '$1.82',
+            cpa: '$25.30',
+            spend: '$22,548'
+        });
+
+        return (
+          <div className="w-full max-w-[600px] aspect-square mx-auto rounded-3xl bg-slate-900 border border-white/10 relative overflow-hidden flex flex-col shadow-2xl group select-none p-8 font-sans">
+            {/* Background Effects */}
+            <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-950 to-slate-950" />
+            <div className="absolute top-0 right-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_100%_0%,rgba(168,85,247,0.15)_0%,rgba(168,85,247,0)_50%)] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-1/2 h-1/2 bg-[radial-gradient(circle_at_0%_100%,rgba(59,130,246,0.1)_0%,rgba(59,130,246,0)_50%)] pointer-events-none" />
+
+            {/* Header */}
+            <motion.header
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="flex justify-between items-center z-10"
+            >
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-xl bg-slate-800 border border-white/10 flex items-center justify-center">
+                  <BarChart3 className="w-5 h-5 text-purple-400" />
+                </div>
+                <div>
+                  <h2 className="text-lg font-bold text-white">Campaign Performance</h2>
+                  <p className="text-xs text-slate-400">Q3 Enterprise Lead Gen</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-bold text-emerald-400">
+                <div className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                Live
+              </div>
+            </motion.header>
+
+            {/* Main Content */}
+            <div className="flex-1 grid grid-cols-3 gap-8 mt-8 z-10">
+              {/* Left Funnel Section */}
+              <div className="col-span-2 flex flex-col justify-center gap-6">
+                <FunnelBar
+                  label="Impressions"
+                  value={stats.impressions.toLocaleString()}
+                  icon={Eye}
+                  color="text-purple-400"
+                  width="100%"
+                  delay={0.2}
+                />
+                <FunnelBar
+                  label="Clicks"
+                  value={stats.clicks.toLocaleString()}
+                  icon={MousePointer2}
+                  color="text-blue-400"
+                  width="75%"
+                  delay={0.4}
+                />
+                <FunnelBar
+                  label="Conversions"
+                  value={stats.conversions.toLocaleString()}
+                  icon={Target}
+                  color="text-pink-400"
+                  width="50%"
+                  delay={0.6}
+                />
+              </div>
+
+              {/* Right Metrics Section */}
+              <div className="col-span-1 flex flex-col justify-center gap-4">
+                <MetricCard label="Click-Through Rate" value={stats.ctr} icon={MousePointer2} delay={0.8} />
+                <MetricCard label="Cost Per Click" value={stats.cpc} icon={DollarSign} delay={1.0} />
+                <MetricCard label="Cost Per Acquisition" value={g={stats.cpa} icon={Target} delay={1.2} />
+              </div>
+            </div>
+
+            {/* Footer */}
+            <motion.footer
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 1.4 }}
+              className="mt-auto pt-6 border-t border-white/10 flex justify-between items-end z-10"
+            >
+              <div>
+                <p className="text-xs text-slate-400">Total Ad Spend</p>
+                <p className="text-3xl font-black text-white tracking-tighter">{stats.spend}</p>
+              </div>
+              <button className="flex items-center gap-2 text-sm font-bold px-4 py-2 bg-white/5 border border-white/10 rounded-lg hover:bg-white/10 transition-colors">
+                View Report <ArrowRight className="w-4 h-4" />
+              </button>
+            </motion.footer>
+          </div>
+        );
+      }
+
+      function App() {
+          return (
+              <div className="min-h-screen w-full flex items-center justify-center p-4 bg-slate-950">
+                  <GrowthMarketingTile />
+              </div>
+          );
+      }
+      
+      const rootElement = document.getElementById('root');
+      if (!rootElement) {
+        throw new Error("Could not find root element to mount to");
+      }
+      const root = ReactDOM.createRoot(rootElement);
+      root.render(<App />);
+
+    </script>
+</body>
+</html>

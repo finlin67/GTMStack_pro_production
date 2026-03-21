@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Apex Real-Time Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#20bfdf",
+              "accent": "#9333ea",
+              "charcoal": "#0f171a",
+              "surface": "rgba(26, 38, 41, 0.75)",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet" />
+    <style>
+      body {
+        background-color: #0f171a;
+        margin: 0;
+        overflow: hidden;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(8px);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .data-gradient {
+        background: linear-gradient(135deg, #20bfdf 0%, #06b6d4 50%, #9333ea 100%);
+      }
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #0f171a; 
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #334155; 
+        border-radius: 4px;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { motion } from 'framer-motion';
+        import { 
+            BarChart3, 
+            Users, 
+            Target, 
+            Zap, 
+            Trophy, 
+            ShieldCheck, 
+            Activity,
+            ArrowUpRight,
+            Wifi,
+            RefreshCw,
+            Search
+        } from 'lucide-react';
+
+        const SparklineBar = ({ height, colorClass, delay }) => (
+            <motion.div
+                initial={{ height: "0%" }}
+                animate={{ height: ["0%", height] }}
+                transition={{ duration: 0.5, delay }}
+                className={`w-1 rounded-t-sm ${colorClass || 'bg-primary/40'}`}
+            />
+        );
+
+        const Gauge = ({ percentage }) => {
+            const dashOffset = 100 - percentage;
+            return (
+                <div className="relative w-10 h-10">
+                    <svg className="w-full h-full -rotate-90" viewBox="0 0 36 36">
+                        <circle className="stroke-white/5" cx="18" cy="18" fill="none" r="16" strokeWidth="3"></circle>
+                        <motion.circle 
+                            className="stroke-accent" 
+                            cx="18" 
+                            cy="18" 
+                            fill="none" 
+                            r="16" 
+                            strokeLinecap="round" 
+                            strokeWidth="3"
+                            strokeDasharray="100"
+                            initial={{ strokeDashoffset: 100 }}
+                            animate={{ strokeDashoffset: [100, dashOffset] }}
+                            transition={{ duration: 1 }}
+                        />
+                    </svg>
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-[8px] font-bold">{percentage}%</span>
+                    </div>
+                </div>
+            );
+        };
+
+        function DemandGenMarketing() {
+            const [metrics, setMetrics] = useState({
+                growthRoi: 300.2,
+                totalLeads: 50284,
+                conversionLift: 24.8,
+                cplReduction: 42.0,
+                confidence: 99.2,
+                deviation: 0.4
+            });
+
+            const [socketStatus, setSocketStatus] = useState('connecting');
+            const [lastPing, setLastPing] = useState(0);
+
+            useEffect(() => {
+                const connectTimer = setTimeout(() => {
+                    setSocketStatus('connected');
+                }, 2000); 
+                return () => clearTimeout(connectTimer);
+            }, []);
+
+            useEffect(() => {
+                if (socketStatus !== 'connected') return;
+                let timeoutId;
+                const updateMetrics = () => {
+                    const isLagSpike = Math.random() > 0.95;
+                    if (isLagSpike) {
+                        setSocketStatus('reconnecting');
+                        setTimeout(() => setSocketStatus('connected'), 800);
+                        timeoutId = setTimeout(updateMetrics, 1000);
+                        return;
+                    }
+                    setMetrics(prev => ({
+                        growthRoi: +(prev.growthRoi + (Math.random() - 0.4) * 0.8).toFixed(1),
+                        totalLeads: Math.floor(prev.totalLeads + (Math.random() * 12)),
+                        conversionLift: +(prev.conversionLift + (Math.random() - 0.5) * 0.3).toFixed(1),
+                        cplReduction: +(prev.cplReduction + (Math.random() - 0.5) * 0.15).toFixed(1),
+                        confidence: +(Math.min(99.9, Math.max(98.0, prev.confidence + (Math.random() - 0.5) * 0.1))).toFixed(1),
+                        deviation: 0.4 
+                    }));
+                    setLastPing(Math.floor(Math.random() * 40) + 12);
+                    const nextUpdate = Math.random() > 0.7 ? 200 : Math.random() * 1500 + 500;
+                    timeoutId = setTimeout(updateMetrics, nextUpdate);
+                };
+                timeoutId = setTimeout(updateMetrics, 500);
+                return () => clearTimeout(timeoutId);
+            }, [socketStatus]);
+
+            const getStatusColor = () => {
+                switch (socketStatus) {
+                    case 'connected': return 'text-[#0bda54]';
+                    case 'reconnecting': return 'text-amber-400';
+                    default: return 'text-gray-400';
+                }
+            };
+
+            const getStatusText = () => {
+                 switch (socketStatus) {
+                    case 'connected': return 'LIVE SCALING';
+                    case 'reconnecting': return 'RECONNECTING...';
+                    default: return 'INITIALIZING SOCKET';
+                }
+            };
+
+            return (
+                <div className="flex h-screen w-full items-center justify-center bg-[#0f171a] p-4 font-display text-white">
+                    <motion.div 
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: [0, 1], scale: [0.95, 1] }}
+                        transition={{ duration: 0.6 }}
+                        className="w-full aspect-square max-w-[600px] bg-charcoal border border-white/10 rounded-2xl overflow-hidden shadow-2xl flex flex-col relative"
+                    >
+                        <header className="p-4 border-b border-white/5 bg-white/5 flex items-center justify-between shrink-0">
+                            <div className="flex items-center gap-2">
+                                <div className="w-7 h-7 rounded bg-gradient-to-br from-primary to-accent flex items-center justify-center">
+                                    <Activity className="text-black w-4 h-4" strokeWidth={3} />
+                                </div>
+                                <div>
+                                    <h1 className="text-sm font-black tracking-tight uppercase">
+                                        Experiment Engine <span className="text-primary">v2.0</span>
+                                    </h1>
+                                    <p className="text-[9px] text-gray-500 font-bold -mt-0.5 tracking-wider">
+                                        PROJECT APEX REAL-TIME
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <div className="flex flex-col items-end">
+                                    <span className="text-[8px] font-bold text-gray-500 uppercase tracking-tighter">
+                                        Engine Status
+                                    </span>
+                                    <div className={`text-[10px] font-bold ${getStatusColor()} flex items-center gap-1 transition-colors duration-300`}>
+                                        <motion.span 
+                                            animate={{ opacity: socketStatus === 'connected' ? [1, 0.4] : [1, 1] }}
+                                            transition={{ 
+                                                duration: socketStatus === 'connected' ? 1 : 0, 
+                                                repeat: Infinity,
+                                                repeatType: "mirror"
+                                            }}
+                                            className={`h-1.5 w-1.5 rounded-full ${socketStatus === 'connected' ? 'bg-[#0bda54]' : socketStatus === 'reconnecting' ? 'bg-amber-400' : 'bg-gray-400'}`} 
+                                        />
+                                        {getStatusText()}
+                                    </div>
+                                </div>
+                            </div>
+                        </header>
+
+                        <div className="flex-1 p-4 grid grid-cols-2 grid-rows-[1fr_1fr_0.8fr] gap-3 min-h-0">
+                            <div className="glass-card rounded-xl p-3 flex flex-col justify-between group hover:border-white/20 transition-colors duration-300 relative z-10">
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-0.5">Growth ROI</p>
+                                        <motion.h2 
+                                            key={metrics.growthRoi}
+                                            initial={{ opacity: 0.8 }}
+                                            animate={{ opacity: [0.8, 1] }}
+                                            className="text-2xl font-black text-white"
+                                        >
+                                            {metrics.growthRoi}%
+                                        </motion.h2>
+                                    </div>
+                                    <BarChart3 className="text-primary w-5 h-5" />
+                                </div>
+                                
+                                <div className="relative mt-2 group/spark">
+                                    <div className="absolute -top-6 left-1/2 -translate-x-1/2 -translate-y-2 opacity-0 group-hover/spark:opacity-100 group-hover/spark:translate-y-0 transition-all duration-300 z-20 pointer-events-none">
+                                        <div className="bg-charcoal/90 border border-primary/20 backdrop-blur-md px-2 py-1 rounded-md shadow-2xl flex items-center gap-1">
+                                            <Search className="w-2 h-2 text-primary" />
+                                            <span className="text-[8px] font-bold text-primary whitespace-nowrap">Peak: 14.2%</span>
+                                        </div>
+                                    </div>
+
+                                    <motion.div 
+                                        className="h-10 flex items-end gap-1 origin-bottom cursor-crosshair"
+                                        whileHover={{ scaleY: [1, 1.3], scaleX: [1, 1.05] }}
+                                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                                    >
+                                        <div><SparklineBar height="40%" delay={0.1} /></div>
+                                        <div><SparklineBar height="60%" delay={0.15} /></div>
+                                        <div><SparklineBar height="35%" delay={0.2} /></div>
+                                        <div><SparklineBar height="80%" delay={0.25} /></div>
+                                        <div><SparklineBar height="100%" colorClass="bg-primary" delay={0.3} /></div>
+                                        <div><SparklineBar height="70%" delay={0.35} /></div>
+                                        <div><SparklineBar height="90%" colorClass="bg-accent" delay={0.4} /></div>
+                                        <div><SparklineBar height="100%" colorClass="bg-primary" delay={0.45} /></div>
+                                    </motion.div>
+                                </div>
+                                
+                                <p className="text-[9px] font-bold text-primary mt-1">+14.2% Week over Week</p>
+                            </div>
+
+                            <div className="glass-card rounded-xl p-3 flex flex-col justify-between group hover:border-white/20 transition-colors duration-300">
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-0.5">Total Leads</p>
+                                        <motion.h2 key={metrics.totalLeads} initial={{ opacity: 0.8 }} animate={{ opacity: [0.8, 1] }} className="text-2xl font-black text-white">
+                                            {metrics.totalLeads.toLocaleString()}
+                                        </motion.h2>
+                                    </div>
+                                    <Users className="text-accent w-5 h-5" />
+                                </div>
+                                <div className="mt-2">
+                                    <div className="flex justify-between text-[9px] font-bold text-gray-400 mb-1 uppercase">
+                                        <span>Target: 60k</span>
+                                        <span>84%</span>
+                                    </div>
+                                    <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden">
+                                        <motion.div initial={{ width: 0 }} animate={{ width: ["0%", "84%"] }} transition={{ duration: 1 }} className="h-full data-gradient rounded-full" />
+                                    </div>
+                                </div>
+                                <p className="text-[9px] font-bold text-accent mt-1">Velocity: High Impact</p>
+                            </div>
+
+                            <div className="glass-card rounded-xl p-3 flex flex-col justify-between group hover:border-white/20 transition-colors duration-300">
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-0.5">Conversion Lift</p>
+                                        <motion.h2 key={metrics.conversionLift} initial={{ opacity: 0.8 }} animate={{ opacity: [0.8, 1] }} className="text-2xl font-black text-white">
+                                            +{metrics.conversionLift}%
+                                        </motion.h2>
+                                    </div>
+                                    <Target className="text-primary w-5 h-5" />
+                                </div>
+                                <div className="mt-2 grid grid-cols-2 gap-2 border-t border-white/5 pt-2">
+                                    <div>
+                                        <span className="text-[8px] text-gray-500 uppercase block">Confidence</span>
+                                        <span className="text-[11px] font-bold text-primary">{metrics.confidence}%</span>
+                                    </div>
+                                    <div>
+                                        <span className="text-[8px] text-gray-500 uppercase block text-right">Deviation</span>
+                                        <span className="text-[11px] font-bold text-gray-300 text-right block">±{metrics.deviation}%</span>
+                                    </div>
+                                </div>
+                                <div className="text-[9px] bg-primary/10 text-primary py-0.5 px-2 rounded w-fit font-bold uppercase">Significant</div>
+                            </div>
+
+                            <div className="glass-card rounded-xl p-3 flex flex-col justify-between group hover:border-white/20 transition-colors duration-300">
+                                <div className="flex justify-between items-start">
+                                    <div>
+                                        <p className="text-[10px] font-black text-gray-500 uppercase tracking-widest mb-0.5">CPL Reduction</p>
+                                        <motion.h2 key={metrics.cplReduction} initial={{ opacity: 0.8 }} animate={{ opacity: [0.8, 1] }} className="text-2xl font-black text-white">
+                                            -{metrics.cplReduction}%
+                                        </motion.h2>
+                                    </div>
+                                    <Zap className="text-accent w-5 h-5" fill="currentColor" />
+                                </div>
+                                <div className="flex items-center gap-3">
+                                    <Gauge percentage={70} />
+                                    <div>
+                                        <p className="text-[10px] font-bold text-white">Optimization</p>
+                                        <p className="text-[9px] text-gray-500">Tier 1 Efficiency</p>
+                                    </div>
+                                </div>
+                                <p className="text-[9px] font-bold text-gray-400">Lowering overhead</p>
+                            </div>
+
+                            <div className="col-span-2 glass-card rounded-xl p-3 flex flex-col gap-2 border-l-2 border-l-primary relative overflow-hidden group">
+                                <div className="absolute -right-4 -top-4 opacity-5 pointer-events-none group-hover:opacity-10 transition-opacity duration-500">
+                                    <Trophy className="w-24 h-24" />
+                                </div>
+                                <div className="flex items-center justify-between z-10">
+                                    <div className="flex items-center gap-2">
+                                        <ShieldCheck className="text-primary w-4 h-4" />
+                                        <h3 className="text-xs font-black uppercase tracking-tight">Winning Strategy: <span className="italic text-primary">B-102</span></h3>
+                                    </div>
+                                    <span className="text-[9px] font-bold bg-white/5 px-2 py-0.5 rounded text-gray-400 border border-white/5 uppercase">Active</span>
+                                </div>
+                                <div className="grid grid-cols-2 gap-y-1.5 gap-x-4 z-10">
+                                    {[
+                                        { label: "Hyper-personalized headlines", color: "bg-primary" },
+                                        { label: "Predictive CTA triggers", color: "bg-primary" },
+                                        { label: "Zero-latency API layer", color: "bg-accent" },
+                                        { label: "Multi-channel attribution", color: "bg-accent" }
+                                    ].map((item, idx) => (
+                                        <div key={idx} className="flex items-center gap-2">
+                                            <span className={`w-1 h-1 rounded-full ${item.color}`}></span>
+                                            <span className="text-[10px] text-gray-300">{item.label}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+
+                        <footer className="p-3 bg-white/5 border-t border-white/10 flex items-center justify-between shrink-0">
+                            <div className="flex items-center gap-2">
+                                <div className="flex -space-x-1.5">
+                                    <div className="w-5 h-5 rounded-full border border-charcoal bg-gray-600"></div>
+                                    <div className="w-5 h-5 rounded-full border border-charcoal bg-primary/20 flex items-center justify-center text-primary text-[6px] font-black">JD</div>
+                                    <div className="w-5 h-5 rounded-full border border-charcoal bg-accent/20 flex items-center justify-center text-accent text-[6px] font-black">+4</div>
+                                </div>
+                                <div className="flex items-center gap-1.5">
+                                    {socketStatus === 'connected' ? <Wifi className="w-3 h-3 text-primary animate-pulse" /> : <RefreshCw className="w-3 h-3 text-gray-500 animate-spin" />}
+                                    <span className="text-[9px] text-gray-500 italic">{socketStatus === 'connected' ? `Live (${lastPing}ms)` : 'Connecting...'}</span>
+                                </div>
+                            </div>
+                            <div className="flex gap-2">
+                                <button className="text-[10px] font-black px-3 py-1.5 rounded-lg bg-white/5 border border-white/5 uppercase">Export</button>
+                                <button className="text-[10px] font-black px-3 py-1.5 rounded-lg bg-gradient-to-r from-primary to-accent text-black uppercase flex items-center gap-1">Report <ArrowUpRight className="w-2.5 h-2.5" /></button>
+                            </div>
+                        </footer>
+                    </motion.div>
+                </div>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<DemandGenMarketing />);
+    </script>
+</body>
+</html>

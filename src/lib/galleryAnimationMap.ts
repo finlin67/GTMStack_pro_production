@@ -91,11 +91,12 @@ export function resolveRegistryIdForManifestItem(
 ): string | null {
   return (
     fromExplicitMap(item) ??
-    // Only resolve to a live component when the manifest explicitly provides
-    // an `animationId` that we can match conservatively.
     byExactRegistryId(item.animationId) ??
+    byExactRegistryId(item.id) ??
     byCaseInsensitiveRegistryId(item.animationId) ??
+    byCaseInsensitiveRegistryId(item.id) ??
     byNormalizedFallback(item.animationId) ??
+    byNormalizedFallback(item.id) ??
     null
   )
 }

@@ -17,6 +17,8 @@ export default function GalleryMainTemplate(props: GalleryMainTemplateProps) {
     category: item.displayCategory,
     tags: item.displayTags,
     thumbnailUrl: item.thumbnailUrl,
+    entryHtml: item.entryHtml,
+    placeholderPreview: item.placeholderPreview ?? false,
     githubUrl: item.githubUrl,
     githubReadmeUrl: item.githubReadmeUrl,
     updatedAt: item.updatedAt ?? null,

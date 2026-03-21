@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Growth.AI - Standalone Platform</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap');
+        :root { --font-display: 'Space Grotesk', sans-serif; }
+        body {
+            font-family: var(--font-display);
+            background-color: #0f172a;
+            -webkit-font-smoothing: antialiased;
+            color: white;
+            margin: 0;
+            overflow-x: hidden;
+        }
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 10px; }
+        .bg-grid {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect, useMemo } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { motion, AnimatePresence } from 'framer-motion';
+        import { 
+            LineChart, Zap, ChevronRight, Layout, Shield, 
+            Activity, Globe, Users, Lock, BarChart3, Cpu,
+            TrendingUp, Brain, Sparkles, MessageSquare, Target
+        } from 'lucide-react';
+
+        /**
+         * AIGrowth Component
+         * Adheres to Framer Motion v12 standards: no ease, array keyframes, cast repeatType.
+         */
+        const AIGrowth = () => {
+            const [activePulse, setActivePulse] = useState(0);
+
+            useEffect(() => {
+                let timeoutId;
+                const cycle = () => {
+                    setActivePulse((prev) => (prev + 1) % 4);
+                    timeoutId = setTimeout(cycle, 1500 + Math.random() * 1000);
+                };
+                cycle();
+                return () => clearTimeout(timeoutId);
+            }, []);
+
+            return (
+                <div className="w-full aspect-square max-w-[600px] flex items-center justify-center select-none bg-slate-950 relative overflow-hidden rounded-3xl border border-white/10 shadow-[0_0_80px_-20px_rgba(59,130,246,0.2)]">
+                    {/* Background Ambience */}
+                    <div className="absolute inset-0 pointer-events-none">
+                        <motion.div
+                            animate={{ opacity: [0.1, 0.3, 0.1], scale: [1, 1.2, 1] }}
+                            transition={{ duration: 10, repeat: Infinity, repeatType: "mirror" }}
+                            className="absolute inset-[-20%] bg-gradient-to-tr from-blue-600/10 via-transparent to-purple-600/10 blur-[80px]"
+                        />
+                        <div className="absolute inset-0 opacity-[0.05] bg-grid" />
+                    </div>
+
+                    {/* Central Core */}
+                    <div className="relative z-20">
+                        <motion.div
+                            animate={{ y: [0, -10, 0] }}
+                            transition={{ duration: 6, repeat: Infinity, repeatType: "mirror" }}
+                            className="relative flex flex-col items-center justify-center p-12 bg-slate-900/60 backdrop-blur-2xl border border-white/10 rounded-[40px] shadow-2xl w-[280px] h-[280px] md:w-[320px] md:h-[320px]"
+                        >
+                            <div className="flex items-center gap-2 mb-4">
+                                <Cpu className="w-3 h-3 text-blue-400" />
+                                <span className="text-[10px] font-bold text-white/30 uppercase tracking-[0.4em]">Engine Latency</span>
+                            </div>
+
+                            <div className="relative flex flex-col items-center">
+                                <motion.h2 
+                                    animate={{ scale: [1, 1.02, 1], opacity: [0.9, 1, 0.9] }}
+                                    transition={{ duration: 3, repeat: Infinity }}
+                                    className="text-7xl md:text-8xl font-black bg-gradient-to-br from-white via-slate-200 to-slate-500 bg-clip-text text-transparent leading-none tracking-tighter"
+                                >
+                                    +54<span className="text-4xl text-blue-500">%</span>
+                                </motion.h2>
+                                <div className="absolute -bottom-1 w-full h-1 bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+                            </div>
+
+                            <p className="mt-4 text-xs font-bold text-white/60 uppercase tracking-widest">Efficiency Delta</p>
+
+                            <div className="mt-8 flex gap-2">
+                                {[0, 1, 2, 3].map((idx) => (
+                                    <motion.div
+                                        key={idx}
+                                        animate={{
+                                            backgroundColor: activePulse === idx ? ["#3b82f6", "#a855f7", "#3b82f6"] : "#1e293b",
+                                            height: activePulse === idx ? [8, 12, 8] : 8,
+                                        }}
+                                        className="w-8 rounded-full transition-colors duration-500"
+                                    />
+                                ))}
+                            </div>
+                        </motion.div>
+                    </div>
+
+                    {/* Floating Tactical Panels */}
+                    <motion.div
+                        animate={{ x: [-5, 5, -5], y: [-5, 5, -5] }}
+                        transition={{ duration: 8, repeat: Infinity, repeatType: "mirror" }}
+                        className="absolute top-[10%] left-[10%] z-30 flex items-center gap-3 bg-slate-900/80 border border-white/10 p-3 rounded-2xl backdrop-blur-md"
+                    >
+                        <div className="size-8 rounded-xl bg-blue-500/20 flex items-center justify-center">
+                            <Target className="w-4 h-4 text-blue-400" />
+                        </div>
+                        <div>
+                            <p className="text-[9px] font-bold text-white/40 uppercase tracking-widest">Targeting</p>
+                            <p className="text-xs font-bold text-white">Active Node</p>
+                        </div>
+                    </motion.div>
+
+                    <motion.div
+                        animate={{ x: [5, -5, 5], y: [5, -5, 5] }}
+                        transition={{ duration: 7, repeat: Infinity, repeatType: "mirror", delay: 1 }}
+                        className="absolute bottom-[12%] right-[10%] z-30 w-48 bg-slate-900/80 border border-white/10 p-4 rounded-2xl backdrop-blur-md"
+                    >
+                        <div className="flex items-center justify-between mb-3">
+                            <TrendingUp className="w-4 h-4 text-emerald-400" />
+                            <span className="text-[10px] font-bold text-emerald-400">OPTIMIZED</span>
+                        </div>
+                        <div className="space-y-2">
+                            <div className="flex justify-between text-[10px] font-bold text-white/40 uppercase">
+                                <span>Precision</span>
+                                <span>99.2%</span>
+                            </div>
+                            <div className="h-1.5 w-full bg-white/5 rounded-full overflow-hidden">
+                                <motion.div 
+                                    animate={{ width: ["10%", "99%", "90%"] }}
+                                    transition={{ duration: 4, repeat: Infinity }}
+                                    className="h-full bg-emerald-500 shadow-[0_0_10px_rgba(16,185,129,0.5)]" 
+                                />
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    {/* Pulse Rings */}
+                    <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                        {[0, 1, 2].map((i) => (
+                            <motion.div
+                                key={i}
+                                animate={{ scale: [0.8, 1.5], opacity: [0.4, 0] }}
+                                transition={{ duration: 4, repeat: Infinity, delay: i * 1.5 }}
+                                className="absolute size-[350px] border border-blue-500/30 rounded-full"
+                            />
+                        ))}
+                    </div>
+                </div>
+            );
+        };
+
+        /**
+         * Main Application Component
+         */
+        export default function App() {
+            const kpiData = [
+                { icon: Cpu, label: 'Core Utilization', val: '94.2%', sub: 'Engine V3.2 Active', color: 'text-blue-400', bg: 'bg-blue-500/10', border: 'border-blue-500/20' },
+                { icon: Globe, label: 'Edge Distribution', val: '42 Nodes', sub: 'Global Low Latency', color: 'text-purple-400', bg: 'bg-purple-500/10', border: 'border-purple-500/20' },
+                { icon: Users, label: 'Scale Throughput', val: '1.2M/s', sub: 'Real-time Requests', color: 'text-emerald-400', bg: 'bg-emerald-500/10', border: 'border-emerald-500/20' },
+                { icon: Lock, label: 'Entropy Shield', val: '100%', sub: 'Zero Trust Protocol', color: 'text-amber-400', bg: 'bg-amber-500/10', border: 'border-amber-500/20' }
+            ];
+
+            return (
+                <div className="relative min-h-screen w-full flex flex-col bg-[#0f172a]">
+                    {/* Background Decorative Glows */}
+                    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+                        <div className="absolute top-[-10%] right-[-10%] w-[40%] h-[40%] bg-blue-600/10 blur-[120px] rounded-full" />
+                        <div className="absolute bottom-[-10%] left-[-10%] w-[40%] h-[40%] bg-purple-600/10 blur-[120px] rounded-full" />
+                    </div>
+
+                    {/* Nav */}
+                    <nav className="relative z-50 flex items-center justify-between px-6 py-5 md:px-12 lg:px-24 border-b border-white/5 backdrop-blur-md bg-slate-950/20">
+                        <div className="flex items-center gap-2.5">
+                            <div className="bg-gradient-to-br from-blue-500 to-purple-600 p-1.5 rounded-lg shadow-lg">
+                                <Zap className="w-5 h-5 text-white fill-white/20" />
+                            </div>
+                            <span className="text-xl font-black tracking-tighter uppercase italic">Growth.AI</span>
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <button className="bg-white text-slate-950 px-5 py-2 rounded-full text-sm font-bold hover:bg-blue-50 transition-all active:scale-95 shadow-xl shadow-white/5">
+                                Get Started
+                            </button>
+                        </div>
+                    </nav>
+
+                    {/* Hero */}
+                    <main className="relative z-10 w-full max-w-7xl mx-auto px-6 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                        <motion.div 
+                            initial={{ opacity: 0, x: -20 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            className="flex flex-col gap-8 text-center lg:text-left items-center lg:items-start"
+                        >
+                            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold uppercase tracking-widest">
+                                <span className="flex h-2 w-2 rounded-full bg-blue-500 animate-pulse" />
+                                V3.2 Model Live
+                            </div>
+
+                            <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight leading-[1.1]">
+                                Predict. Scale. <br />
+                                <span className="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-500 bg-clip-text text-transparent italic">Automate.</span>
+                            </h1>
+
+                            <p className="text-lg text-slate-400 max-w-xl leading-relaxed">
+                                Harness the world's most advanced growth intelligence engine. Transition your data into actionable revenue pipelines with 99.8% precision.
+                            </p>
+
+                            <div className="flex flex-wrap gap-4 justify-center lg:justify-start w-full">
+                                <button className="group flex items-center gap-2 bg-gradient-to-r from-blue-600 to-indigo-600 px-8 py-4 rounded-xl text-white font-bold text-lg shadow-2xl shadow-blue-500/20 hover:brightness-110 transition-all active:scale-95">
+                                    Launch Dashboard
+                                    <ChevronRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                                <button className="px-8 py-4 rounded-xl bg-slate-800 border border-white/5 font-bold text-lg hover:bg-slate-700 transition-all active:scale-95">
+                                    View Roadmap
+                                </button>
+                            </div>
+                        </motion.div>
+
+                        <div className="flex justify-center">
+                            <AIGrowth />
+                        </div>
+                    </main>
+
+                    {/* KPI Section */}
+                    <section className="relative z-10 w-full px-6 py-20 lg:py-32 bg-slate-950/40 border-y border-white/5 backdrop-blur-xl">
+                        <div className="max-w-7xl mx-auto">
+                            <div className="mb-16 text-center lg:text-left flex flex-col lg:flex-row lg:items-end justify-between gap-6">
+                                <div className="max-w-2xl">
+                                    <h2 className="text-3xl md:text-5xl font-black mb-4 tracking-tighter uppercase italic">
+                                        Performance <span className="text-blue-500">KPI</span> Metrics
+                                    </h2>
+                                    <p className="text-slate-400 text-lg">Monitoring core throughput in real-time.</p>
+                                </div>
+                                <div className="flex items-center gap-3 px-4 py-2 bg-white/5 rounded-full border border-white/10 w-fit self-center lg:self-auto">
+                                    <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+                                    <span className="text-[10px] font-bold text-emerald-400 uppercase tracking-widest uppercase">Nominal</span>
+                                </div>
+                            </div>
+
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                                {kpiData.map((kpi, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        viewport={{ once: true }}
+                                        transition={{ delay: i * 0.1 }}
+                                        className={`relative group p-8 rounded-3xl bg-slate-900/50 border ${kpi.border} hover:bg-slate-800/80 transition-all duration-500 overflow-hidden shadow-2xl`}
+                                    >
+                                        <kpi.icon className={`absolute -right-4 -bottom-4 w-32 h-32 opacity-[0.03] ${kpi.color} group-hover:scale-110 transition-transform duration-700`} />
+                                        <div className="relative z-10">
+                                            <div className={`size-12 rounded-2xl ${kpi.bg} flex items-center justify-center mb-6 border border-white/5`}>
+                                                <kpi.icon className={`w-6 h-6 ${kpi.color}`} />
+                                            </div>
+                                            <p className="text-[10px] font-black text-slate-500 uppercase tracking-[0.3em] mb-2">{kpi.label}</p>
+                                            <h3 className="text-4xl font-black tracking-tighter">{kpi.val}</h3>
+                                            <p className="mt-3 text-xs font-medium text-slate-400 opacity-60 group-hover:opacity-100 transition-opacity">{kpi.sub}</p>
+                                        </div>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        </div>
+                    </section>
+
+                    {/* Footer */}
+                    <footer className="w-full max-w-7xl mx-auto px-6 py-12 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 mt-auto">
+                        <div className="flex items-center gap-2 opacity-40">
+                            <LineChart className="w-4 h-4 text-blue-400" />
+                            <span className="text-xs font-medium uppercase tracking-tighter">© 2024 GROWTH.AI INFRASTRUCTURE</span>
+                        </div>
+                    </footer>
+                </div>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

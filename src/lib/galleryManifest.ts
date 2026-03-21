@@ -21,13 +21,19 @@ export type GalleryManifestItem = {
   updatedAt?: string | null
 }
 
-export type GalleryItem = GalleryManifestItem & {
+export type GalleryItem = Omit<GalleryManifestItem, 'entryHtml'> & {
+  /** Best available HTML preview path for gallery modal rendering. */
+  entryHtml?: string
   /** Human-friendly category for display (e.g. "digital-demand" → "Digital Demand"). */
   displayCategory: string
   /** Human-friendly tags for display. */
   displayTags: string[]
   /** Public URL this app can serve for the thumbnail, if available. */
   thumbnailUrl?: string
+  /** Best available HTML preview path detected during manifest load. */
+  preferredEntryHtml?: string
+  /** True when the synced preview HTML is a static placeholder card rather than a real animation. */
+  placeholderPreview?: boolean
 }
 
 let cachedItems: GalleryItem[] | null = null
@@ -42,8 +48,71 @@ function toTitleCaseSlug(value: string | undefined | null): string {
     .join(' ')
 }
 
+function normalizeWebPath(value: string | undefined | null): string {
+  if (!value) return ''
+  return String(value).replace(/\\/g, '/').replace(/^\/+/, '')
+}
+
+function scoreHtmlCandidate(fileName: string): number {
+  const lower = fileName.toLowerCase()
+  let score = 0
+
+  if (lower.includes('app-v2')) score += 50
+  if (lower === 'app.html') score += 34
+  if (lower.includes('index')) score += 24
+  if (lower.includes('demo')) score += 20
+  if (lower.includes('main')) score += 16
+  if (lower.includes('tile')) score += 10
+  if (lower.includes('preview')) score -= 40
+
+  return score
+}
+
+function resolvePreferredEntryHtml(entryHtml: string | undefined | null): string {
+  const normalized = normalizeWebPath(entryHtml)
+  if (!normalized) return ''
+
+  const publicDir = path.join(process.cwd(), 'public', path.dirname(normalized))
+  if (!fs.existsSync(publicDir)) return normalized
+
+  const candidates = fs
+    .readdirSync(publicDir)
+    .filter((name) => name.toLowerCase().endsWith('.html'))
+    .sort((a, b) => scoreHtmlCandidate(b) - scoreHtmlCandidate(a) || a.localeCompare(b))
+
+  if (!candidates.length) return normalized
+
+  return normalizeWebPath(path.join(path.dirname(normalized), candidates[0]))
+}
+
+function readPublicTextFile(relativePath: string | undefined | null): string {
+  const normalized = normalizeWebPath(relativePath)
+  if (!normalized) return ''
+
+  const absolutePath = path.join(process.cwd(), 'public', normalized)
+  if (!fs.existsSync(absolutePath)) return ''
+
+  try {
+    return fs.readFileSync(absolutePath, 'utf8')
+  } catch {
+    return ''
+  }
+}
+
+function isPlaceholderPreviewHtml(entryHtml: string | undefined | null): boolean {
+  const source = readPublicTextFile(entryHtml)
+  if (!source) return false
+
+  return (
+    source.includes('Gallery thumbnail placeholder (Option B)') ||
+    source.includes('Run and deploy your AI Studio app') ||
+    source.includes('This contains everything you need to run your app locally.')
+  )
+}
+
 function loadManifest(): GalleryItem[] {
-  if (cachedItems) return cachedItems
+  // In dev, skip cache so manifest edits are picked up without full restart.
+  if (process.env.NODE_ENV !== 'development' && cachedItems) return cachedItems
 
   try {
     const manifestPath = path.join(process.cwd(), 'src', 'data', 'gallery-manifest.json')
@@ -54,25 +123,36 @@ function loadManifest(): GalleryItem[] {
     }
 
     const raw = fs.readFileSync(manifestPath, 'utf8')
+    if (!raw.trim()) {
+      console.warn('[galleryManifest] gallery-manifest.json is empty; skipping parse')
+      cachedItems = []
+      return cachedItems
+    }
     const parsed = JSON.parse(raw) as GalleryManifestItem[]
 
     cachedItems = parsed.map((item) => {
       const displayCategory = toTitleCaseSlug(item.category)
       const displayTags = (item.tags || []).map((tag) => toTitleCaseSlug(tag))
-      const thumbnailUrl = item.thumbnailPath
+      const preferredEntryHtml = resolvePreferredEntryHtml(item.entryHtml)
+      const placeholderPreview = isPlaceholderPreviewHtml(preferredEntryHtml || item.entryHtml)
+      const thumbnailUrl = !placeholderPreview && item.thumbnailPath
         ? `/images/${item.thumbnailPath.replace(/^\/+/, '')}`
         : undefined
+      const resolvedEntryHtml = placeholderPreview ? undefined : preferredEntryHtml || item.entryHtml
 
       return {
         ...item,
+        entryHtml: resolvedEntryHtml,
         summary: item.summary ?? null,
         displayCategory,
         displayTags,
         thumbnailUrl,
+        preferredEntryHtml,
+        placeholderPreview,
       }
     })
 
-    return cachedItems
+    return cachedItems ?? []
   } catch (error) {
     console.warn('[galleryManifest] Failed to load or parse gallery-manifest.json', error)
     cachedItems = []

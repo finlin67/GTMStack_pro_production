@@ -18,6 +18,7 @@ export function readOverrides(): Record<string, AnimationMetaOverride> {
   if (!fs.existsSync(OVERRIDES_JSON)) return {}
   try {
     const raw = fs.readFileSync(OVERRIDES_JSON, 'utf8')
+    if (!raw.trim()) return {}
     return JSON.parse(raw) as Record<string, AnimationMetaOverride>
   } catch {
     return {}

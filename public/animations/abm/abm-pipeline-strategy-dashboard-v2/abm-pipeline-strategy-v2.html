@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>ABMPipelineStrategy</title>
+  <link href="https://cdn.tailwindcss.com" rel="stylesheet">
+  <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+  </script>
+</head>
+<body class="w-full h-full flex items-center justify-center p-2 bg-slate-950/20">
+  <div id="root"></div>
+  <script type="text/babel" data-type="module">
+    import React, { useState, useEffect } from 'react';
+    import ReactDOMClient from 'react-dom/client';
+    import { motion, AnimatePresence } from 'framer-motion';
+    import { 
+      Network, 
+      Settings, 
+      Target, 
+      Zap, 
+      Workflow, 
+      AlertTriangle, 
+      Download, 
+      Share2, 
+      Rocket,
+      ArrowUp,
+      Search,
+      Eye,
+      Mail,
+      MousePointer2,
+      BarChart3
+    } from 'lucide-react';
+
+    const StatState = {
+      targeting: 450,
+      engagement: 120,
+      opportunity: 80,
+      pipelineValue: 1.2,
+      engageRate: 26.6,
+      roi: 4.5,
+      targets: 450
+    };
+
+    const FunnelCardProps = {
+      icon: React.ReactNode,
+      title: string,
+      value: number,
+      change: number,
+      color: string,
+      borderColor: string,
+      shadowColor: string,
+      children: React.ReactNode,
+      isNeutral?: boolean;
+    };
+
+    const TargetItemProps = {
+      initials: string,
+      name: string,
+      tier: string,
+      value: string,
+      status: string,
+      statusColor: string,
+      iconColor: string,
+      iconBg: string,
+      iconBorder: string,
+      progress: number;
+    };
+
+    function ABMPipelineStrategy() {
+      const [activeTab, setActiveTab] = useState<'monthly' | 'quarterly'>('monthly');
+      
+      const [stats, setStats] = useState<StatState>(StatState);
+
+      useEffect(() => {
+        let timeoutId;
+
+        const updateStats = () => {
+          setStats(prev => ({
+            ...prev,
+            targeting: prev.targeting + Math.floor(Math.random() * 5) - 2,
+            engagement: prev.engagement + Math.floor(Math.random() * 3) - 1,
+            engageRate: parseFloat((prev.engageRate + (Math.random() * 0.4 - 0.2)).toFixed(1))
+          }));
+          timeoutId = setTimeout(updateStats, 2000 + Math.random() * 1500);
+        };
+
+        updateStats();
+        return () => clearTimeout(timeoutId);
+      }, []);
+
+      return (
+        <div className="w-full h-full flex items-center justify-center p-2 bg-slate-950/20">
+          <div className="w-full h-full max-w-[600px] max-h-[600px] overflow-hidden relative bg-[#0a192f] text-slate-300 font-sans flex flex-col shadow-2xl rounded-xl border border-slate-800 selection:bg-[#00d2ff]/30">
+            
+            <header className="flex-none h-14 flex items-center justify-between px-4 border-b border-[#233554] bg-[#0a192f]/95 backdrop-blur-md z-20">
+              <div className="flex items-center gap-3">
+                <div className="p-1.5 bg-[#00d2ff]/10 rounded border border-[#00d2ff]/20">
+                  <Network className="text-[#00d2ff]" size={18} />
+                </div>
+                <div>
+                  <h2 className="text-sm font-extrabold text-white tracking-tight uppercase italic flex items-center gap-2">
+                    ABM Pipeline
+                  </h2>
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                    <p className="text-[9px] text-[#00d2ff] font-bold uppercase tracking-[0.1em]">Live Intelligence</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-3">
+                <div className="bg-[#112240] p-0.5 rounded flex relative border border-[#233554] h-6 w-24">
+                  <motion.div 
+                    className="absolute top-0.5 bottom-0.5 w-[calc(50%-2px)] bg-[#00d2ff] rounded-[2px] shadow-[0_0_8px_rgba(0,210,255,0.3)] z-0"
+                    initial={false}
+                    animate={{ x: activeTab === 'monthly' ? 2 : '100%' }}
+                    transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                  />
+                  <button onClick={() => setActiveTab('monthly')} className={`relative z-10 flex-1 text-[8px] font-extrabold uppercase tracking-wide transition-colors ${activeTab === 'monthly' ? 'text-[#0a192f]' : 'text-slate-400'}`}>Month</button>
+                  <button onClick={() => setActiveTab('quarterly')} className={`relative z-10 flex-1 text-[8px] font-extrabold uppercase tracking-wide transition-colors ${activeTab === 'quarterly' ? 'text-[#0a192f]' : 'text-slate-400'}`}>Qtr</button>
+                </div>
+                <button className="text-slate-400 hover:text-[#00d2ff] transition-colors"><Settings size={16} /></button>
+                <div className="w-7 h-7 rounded-full border border-[#00d2ff]/30 overflow-hidden">
+                   <img src="https://picsum.photos/100/100?random=88" alt="Profile" className="w-full h-full object-cover" />
+                </div>
+              </div>
+            </header>
+
+            <main className="flex-1 p-4 grid grid-cols-12 gap-4 overflow-hidden z-10">
+              
+              <section className="col-span-5 flex flex-col h-full gap-3">
+                 <div className="flex items-center justify-between px-1">
+                    <h3 className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Funnel Stages</h3>
+                    <span className="text-[9px] font-bold text-[#00d2ff]">+12%</span>
+                 </div>
+
+                 <div className="flex flex-col gap-2">
+                   <FunnelCard 
+                      icon={<Target size={16} />} title="Targeting" value={stats.targeting} change={12.5} 
+                      color="text-[#00d2ff]" borderColor="border-[#00d2ff]" shadowColor="rgba(0,210,255,0.1)"
+                    >
+                       <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 20">
+                          <motion.path d="M0 15 Q 50 2, 100 12" fill="none" stroke="#00d2ff" strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2 }} />
+                       </svg>
+                    </FunnelCard>
+
+                    <FunnelCard 
+                      icon={<Zap size={16} />} title="Engagement" value={stats.engagement} change={8.2} 
+                      color="text-[#00d2ff]" borderColor="border-[#00d2ff]" shadowColor="rgba(0,210,255,0.1)"
+                    >
+                       <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 20">
+                          <motion.path d="M0 10 Q 50 18, 100 5" fill="none" stroke="#00d2ff" strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, delay: 0.2 }} />
+                       </svg>
+                    </FunnelCard>
+
+                    <FunnelCard 
+                      icon={<Workflow size={16} />} title="Opportunity" value={stats.opportunity} change={-3.4} 
+                      color="text-slate-400" borderColor="border-[#233554]" shadowColor="rgba(0,0,0,0)" isNeutral
+                    >
+                       <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 100 20">
+                          <motion.path d="M0 12 Q 50 5, 100 15" fill="none" stroke="#00d2ff" strokeWidth="2" initial={{ pathLength: 0 }} animate={{ pathLength: 1 }} transition={{ duration: 2, delay: 0.4 }} />
+                       </svg>
+                    </FunnelCard>
+                 </div>
+
+                 <div className="grid grid-cols-2 gap-2 mt-1">
+                    <CompactStat label="ROI" value={`${stats.roi}x`} trend="+0.5" isUp />
+                    <CompactStat label="Targets" value={stats.targets.toString()} trend="Flat" isUp={false} isFlat />
+                    <CompactStat label="Pipeline" value={`$${stats.pipelineValue}M`} trend="+12%" isUp />
+                    <CompactStat label="Engage" value={`${stats.engageRate}%`} trend="+3%" isUp />
+                 </div>
+
+                 <div className="flex gap-2 mt-auto">
+                   <div className="flex flex-col gap-2">
+                     <button className="p-2 h-full rounded bg-[#112240] border border-[#233554]/60 text-slate-500 hover:text-white transition-colors">
+                       Download
+                     </button>
+                     <button className="p-2 h-full rounded bg-[#112240] border border-[#233554]/60 text-slate-500 hover:text-white transition-colors">
+                       Share
+                     </button>
+                   </div>
+                   <motion.div 
+                     whileHover={{ scale: 1.02 }}
+                     className="bg-[#0a192f]/40 border border-[#233554]/60 rounded p-2.5 flex items-center justify-between group cursor-pointer relative overflow-hidden h-14"
+                   >
+                      <div className="flex items-center gap-3 relative z-10">
+                         <div className={`w-8 h-8 rounded bg-[#0a192f] border flex items-center justify-center text-[#00d2ff]`}>
+                            <Rocket />
+                         </div>
+                         <div>
+                            <p className="text-[9px] font-bold text-slate-500 uppercase tracking-tight">Action</p>
+                            <p className="text-sm font-black tabular-nums leading-none mt-0.5">Take Action</p>
+                         </div>
+                      </div>
+                   </motion.div>
+                 </div>
+              </section>
+
+              <section className="col-span-7 flex flex-col overflow-hidden min-h-0">
+                 <div className="flex items-center justify-between mb-2">
+                   <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Priority Targets</h3>
+                   <Search size={12} className="text-slate-500" />
+                 </div>
+                 
+                 <div className="flex-1 overflow-y-auto pr-1 flex flex-col gap-2">
+                    <TargetItem 
+                      initials="AC" name="Acme Corp" tier="Tier 1" value="$120k" 
+                      status="Engaged" statusColor="text-emerald-400" 
+                      iconColor="text-[#00d2ff]" iconBg="bg-[#00d2ff]/10" iconBorder="border-[#00d2ff]/20" 
+                      progress={78}
+                    />
+                    <TargetItem 
+                      initials="ST" name="Stark Ind" tier="Tier 1" value="$450k" 
+                      status="Qualified" statusColor="text-[#00d2ff]" 
+                      iconColor="text-[#f59f0a]" iconBg="bg-[#f59f0a]/10" iconBorder="border-[#f59f0a]/20" 
+                      progress={45}
+                    />
+                    <TargetItem 
+                      initials="WE" name="Wayne Ent" tier="Tier 2" value="$850k" 
+                      status="Nurture" statusColor="text-[#f59f0a]" 
+                      iconColor="text-rose-400" iconBg="bg-rose-400/10" iconBorder="border-rose-400/20" 
+                      progress={62}
+                    />
+                    <TargetItem 
+                      initials="CY" name="Cyberdyne" tier="Tier 3" value="$95k" 
+                      status="New" statusColor="text-slate-400" 
+                      iconColor="text-indigo-400" iconBg="bg-indigo-400/10" iconBorder="border-indigo-400/20" 
+                      progress={10}
+                    />
+                 </div>
+              </section>
+            </main>
+
+          </div>
+        </div>
+      );
+    }
+
+    function FunnelCard({ icon, title, value, change, color, borderColor, shadowColor, children, isNeutral = false }: FunnelCardProps) {
+      return (
+        <motion.div 
+          whileHover={{ scale: 1.02 }}
+          className="bg-[#0a192f]/40 border border-[#233554]/60 rounded p-2.5 flex items-center justify-between group cursor-pointer relative overflow-hidden h-14"
+        >
+           <div className="flex items-center gap-3 relative z-10">
+              <div className={`w-8 h-8 rounded bg-[#0a192f] border flex items-center justify-center ${color} ${borderColor}`} style={{ boxShadow: `0 0 10px ${shadowColor}` }}>
+                 {icon}
+              </div>
+              <div>
+                 <p className="text-[9px] font-bold text-slate-500 uppercase tracking-tight">{title}</p>
+                 <p className={`text-sm font-black tabular-nums leading-none mt-0.5 ${isNeutral ? 'text-slate-300' : 'text-white'}`}>{value}</p>
+              </div>
+           </div>
+           <div className="w-12 h-6 opacity-50 relative z-0">
+              {children}
+           </div>
+        </motion.div>
+      );
+    }
+
+    function TargetItem({ initials, name, tier, value, status, statusColor, iconColor, iconBg, iconBorder, progress }: TargetItemProps) {
+      const barColor = statusColor.includes('emerald') ? '#34d399' : (statusColor.includes('#f59f0a') ? '#f59f0a' : (statusColor.includes('slate') ? '#94a3b8' : '#00d2ff'));
+      
+      return (
+        <div className="flex items-center justify-between p-2.5 rounded bg-[#0a192f] border border-[#233554] hover:border-[#00d2ff]/30 transition-colors cursor-pointer group">
+          <div className="flex items-center gap-3">
+            <div className={`w-8 h-8 rounded ${iconBg} border ${iconBorder} flex items-center justify-center font-black text-[10px] ${iconColor}`}>
+              {initials}
+            </div>
+            <div>
+              <p className="text-[11px] font-bold text-white group-hover:text-[#00d2ff] transition-colors leading-none">{name}</p>
+              <p className="text-[9px] text-slate-500 uppercase leading-none mt-0.5">{tier}</p>
+            </div>
+          </div>
+          <div className="text-right flex flex-col items-end">
+            <p className="text-[11px] font-bold text-white tabular-nums leading-none mb-1">{value}</p>
+            <div className="w-12 h-1 bg-[#112240] rounded-full overflow-hidden border border-[#233554]/50">
+                 <motion.div 
+                   className="h-full rounded-full"
+                   style={{ backgroundColor: barColor, boxShadow: `0 0 4px ${barColor}` }}
+                   initial={{ width: 0 }}
+                   animate={{ width: `${progress}%` }}
+                   transition={{ duration: 1, delay: 0.2 }}
+                 />
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    function CompactStat({ label, value, trend, isUp, isFlat }: { label: string, value: string, trend: string, isUp: boolean, isFlat?: boolean }) {
+      return (
+        <div className="bg-[#0a192f] p-2 rounded border border-[#233554] relative overflow-hidden group hover:border-[#00d2ff]/20 transition-colors">
+          <p className="text-[8

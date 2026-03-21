@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SequenceFlow Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+    </style>
+</head>
+<body class="bg-[#0f172a] text-slate-100 selection:bg-orange-500/30">
+    <div id="root"></div>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect, useRef } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { motion, AnimatePresence } from 'framer-motion';
+        import { 
+            Mail, Eye, MousePointerClick, DollarSign,
+            LayoutDashboard, Search, Plus, Settings, 
+            Share, TrendingUp, Clock, ShieldCheck, ArrowRight 
+        } from 'lucide-react';
+
+        const Counter = ({ value, duration = 2 }) => {
+            const [count, setCount] = useState(0);
+            const numericValue = typeof value === 'string' ? parseInt(value.replace(/,/g, ''), 10) : value;
+
+            useEffect(() => {
+                let currentFrame = 0;
+                const totalFrames = Math.round(duration * 60);
+                let timeoutId;
+
+                const tick = () => {
+                    currentFrame++;
+                    const progress = currentFrame / totalFrames;
+                    const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                    const currentCount = Math.round(0 + (numericValue - 0) * easeOutQuart);
+                    setCount(currentCount);
+
+                    if (currentFrame < totalFrames) {
+                        const jitter = Math.random() * 2;
+                        timeoutId = setTimeout(tick, (1000 / 60) + jitter);
+                    }
+                };
+
+                tick();
+                return () => clearTimeout(timeoutId);
+            }, [numericValue, duration]);
+
+            return <span>{count.toLocaleString()}</span>;
+        };
+
+        const StepCard = ({ step, title, value, subValue, subColor, icon, gradient, shadowColor, delay = 0, suffix }) => {
+            return (
+                <motion.div
+                    animate={{ opacity: [0, 1], y: [20, 0] }}
+                    transition={{ duration: 0.5, delay }}
+                    className="relative z-10 flex flex-col items-center w-full max-w-[280px] bg-white/5 border border-white/10 py-3 px-4 rounded-xl backdrop-blur-md shadow-xl hover:bg-white/10 transition-colors group"
+                >
+                    <div className="flex items-center gap-3 w-full mb-2">
+                        <div className={`size-10 rounded-full bg-gradient-to-br ${gradient} flex items-center justify-center text-white shadow-lg ${shadowColor}`}>
+                            {icon}
+                        </div>
+                        <div className="flex flex-col">
+                            <span className="text-white/40 text-[9px] font-bold uppercase tracking-[0.15em]">{step}</span>
+                            <h3 className="text-white text-sm font-bold leading-none">{title}</h3>
+                        </div>
+                    </div>
+                    
+                    <div className="w-full flex items-end justify-between border-t border-white/5 pt-2">
+                        <div className="text-white text-2xl font-black tracking-tight flex items-baseline gap-0.5">
+                            <Counter value={value} />
+                            {suffix && <span className="text-sm opacity-60 font-bold ml-1">{suffix}</span>}
+                        </div>
+                        <div className={`px-2 py-0.5 rounded-md text-[9px] font-bold border overflow-hidden ${subColor} min-w-[50px] text-center`}>
+                            <AnimatePresence mode="wait">
+                                <motion.div
+                                    key={subValue}
+                                    animate={{ y: [10, 0], opacity: [0, 1] }}
+                                    exit={{ y: [-10], opacity: [0] }}
+                                    transition={{ duration: 0.3, delay: delay + 0.3 }}
+                                >
+                                    {subValue}
+                                </motion.div>
+                            </AnimatePresence>
+                        </div>
+                    </div>
+                </motion.div>
+            );
+        };
+
+        const Connector = ({ gradient, delay }) => {
+            return (
+                <div className="h-5 w-1 flex flex-col items-center relative z-0 my-0.5">
+                    <motion.div 
+                        animate={{ height: ["0%", "100%"] }}
+                        transition={{ duration: 0.4, delay }}
+                        className={`w-0.5 bg-gradient-to-b ${gradient} shadow-[0_0_10px_rgba(249,116,21,0.4)] rounded-full`}
+                    />
+                </div>
+            );
+        };
+
+        const EmailSeqTile = () => {
+            return (
+                <div className="w-full aspect-square max-w-[600px] bg-[#0f172a] rounded-2xl border border-white/10 overflow-hidden relative flex flex-col items-center justify-center p-6 shadow-2xl">
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(249,116,21,0.1),transparent_70%)] pointer-events-none" />
+                    <div className="absolute top-10 right-10 size-48 bg-[#f97415]/10 blur-[80px] rounded-full pointer-events-none" />
+                    <div className="absolute bottom-10 left-10 size-48 bg-blue-500/10 blur-[80px] rounded-full pointer-events-none" />
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 size-56 bg-fuchsia-500/5 blur-[90px] rounded-full pointer-events-none" />
+
+                    <div className="relative z-10 flex flex-col items-center w-full">
+                        <StepCard
+                            step="Step 01"
+                            title="Total Sent"
+                            value={12450}
+                            subValue="+14.2%"
+                            subColor="bg-green-500/10 text-green-400 border-green-500/20"
+                            icon={<Mail size={18} />}
+                            gradient="from-[#f97415] to-orange-600"
+                            shadowColor="shadow-orange-500/30"
+                            delay={0.1}
+                        />
+                        <Connector gradient="from-[#f97415] to-blue-500" delay={0.4} />
+                        <StepCard
+                            step="Step 02"
+                            title="Opened"
+                            value={8210}
+                            subValue="65.9% Open"
+                            subColor="bg-green-500/10 text-green-400 border-green-500/20"
+                            icon={<Eye size={18} />}
+                            gradient="from-blue-500 to-indigo-600"
+                            shadowColor="shadow-blue-500/30"
+                            delay={0.6}
+                        />
+                        <Connector gradient="from-blue-500 to-emerald-500" delay={0.8} />
+                        <StepCard
+                            step="Step 03"
+                            title="Total Clicks"
+                            value={1142}
+                            subValue="13.9% CTR"
+                            subColor="bg-[#f97415]/10 text-[#f97415] border-[#f97415]/20"
+                            icon={<MousePointerClick size={18} />}
+                            gradient="from-emerald-500 to-teal-600"
+                            shadowColor="shadow-emerald-500/30"
+                            delay={1.0}
+                        />
+                        <Connector gradient="from-teal-600 to-fuchsia-600" delay={1.2} />
+                        <StepCard
+                            step="Step 04"
+                            title="Est. ROAS"
+                            value={420}
+                            suffix="%"
+                            subValue="4.2x ROI"
+                            subColor="bg-fuchsia-500/10 text-fuchsia-300 border-fuchsia-500/20"
+                            icon={<DollarSign size={18} />}
+                            gradient="from-fuchsia-600 to-purple-600"
+                            shadowColor="shadow-fuchsia-500/30"
+                            delay={1.4}
+                        />
+                    </div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            return (
+                <div className="w-full min-h-screen flex flex-col bg-[#0f172a]">
+                    <div className="fixed inset-0 pointer-events-none z-0">
+                        <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_0%_0%,rgba(249,116,21,0.15)_0%,transparent_50%)]" />
+                        <div className="absolute bottom-0 right-0 w-full h-full bg-[radial-gradient(circle_at_100%_100%,rgba(59,130,246,0.15)_0%,transparent_50%)]" />
+                    </div>
+
+                    <div className="relative flex flex-col min-h-screen w-full z-10">
+                        <header className="flex items-center justify-between whitespace-nowrap border-b border-white/10 px-6 py-4 md:px-10 bg-[#231810]/40 backdrop-blur-xl sticky top-0 z-50 shadow-sm">
+                            <div className="flex items-center gap-8">
+                                <div className="flex items-center gap-3">
+                                    <div className="size-8 bg-[#f97415] rounded-lg flex items-center justify-center text-white shadow-lg shadow-orange-500/20">
+                                        <LayoutDashboard size={20} />
+                                    </div>
+                                    <h2 className="text-white text-xl font-bold leading-tight tracking-tight">SequenceFlow</h2>
+                                </div>
+                                <nav className="hidden md:flex items-center gap-9">
+                                    <a className="text-white/70 hover:text-white text-sm font-medium transition-colors" href="#">Campaigns</a>
+                                    <a className="text-white text-sm font-medium border-b-2 border-[#f97415] pb-1" href="#">Automations</a>
+                                    <a className="text-white/70 hover:text-white text-sm font-medium transition-colors" href="#">Analytics</a>
+                                </nav>
+                            </div>
+                            
+                            <div className="flex flex-1 justify-end gap-6 items-center">
+                                <label className="hidden lg:flex flex-col min-w-40 h-10 max-w-64 relative group">
+                                    <div className="flex w-full flex-1 items-center rounded-full h-full bg-white/5 border border-white/10 px-4 focus-within:bg-white/10 focus-within:border-white/20 transition-all">
+                                        <div className="text-white/40 flex items-center justify-center mr-2">
+                                            <Search size={18} />
+                                        </div>
+                                        <input className="w-full min-w-0 bg-transparent border-none outline-none text-white placeholder:text-white/30 text-sm focus:ring-0" placeholder="Search campaign..." />
+                                    </div>
+                                </label>
+                                <button className="flex items-center justify-center gap-2 rounded-full h-10 px-5 bg-[#f97415] text-white text-sm font-bold hover:bg-[#f97415]/90 transition-all shadow-lg shadow-orange-500/20 active:scale-95">
+                                    <Plus size={16} strokeWidth={3} />
+                                    <span>New Sequence</span>
+                                </button>
+                                <div className="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10 border border-white/20 shadow-lg cursor-pointer hover:border-white/40 transition-colors" style={{ backgroundImage: 'url("https://lh3.googleusercontent.com/aida-public/AB6AXuD8ToQFeTpRr8s76iP3bJn_NajCywpBa2y7yx-jEdJ-0PMvGozHcfE7p1RA2qACUX02s9LATlWEH6oFw4zAimBGEsmvdsU-7XzEF47yqRfMdIpAAK6XBbj3U8dfiugi8l_S16eM8Mwls-8hXhzadTmN9fEPAXDg_IQWd5UM2l4-IEtTy6hwggxC6rZxMOzqmOXv5fRycEHXxl4i63STEdF3t3twnKrVZhN692_T0jp7Ldh2DGzSriPx4dTjSUvJdeOA3TsJGyA-smEr")' }} />
+                            </div>
+                        </header>
+
+                        <main className="flex-1 flex flex-col items-center py-10 px-4">
+                            <div className="max-w-[1000px] w-full flex flex-col gap-8">
+                                <div className="flex flex-wrap justify-between items-end gap-4 bg-[#231810]/40 backdrop-blur-2xl border border-white/10 p-8 rounded-2xl shadow-xl">
+                                    <div className="flex flex-col gap-2">
+                                        <p className="text-white text-4xl font-black leading-tight tracking-tight">Sequence Ladder</p>
+                                        <div className="flex items-center gap-2">
+                                            <span className="relative flex h-3 w-3">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                                            </span>
+                                            <p className="text-white/60 text-base font-medium">Live Tracking: Autumn Outreach v2.4</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex gap-3">
+                                        <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-white/5 text-white text-sm font-bold border border-white/10 hover:bg-white/10 transition-all">
+                                            <Settings size={16} /> Settings
+                                        </button>
+                                        <button className="flex items-center gap-2 px-6 py-3 rounded-full bg-[#f97415] text-white text-sm font-bold shadow-lg shadow-[#f97415]/20 hover:scale-105 transition-all">
+                                            <Share size={16} /> Export Report
+                                        </button>
+                                    </div>
+                                </div>
+
+                                <div className="bg-[#231810]/40 backdrop-blur-3xl border border-white/10 p-4 md:p-10 rounded-[2rem] relative overflow-hidden shadow-2xl flex justify-center items-center">
+                                    <div className="absolute -top-20 -right-20 size-64 bg-[#f97415]/20 blur-[100px] rounded-full pointer-events-none" />
+                                    <EmailSeqTile />
+                                </div>
+
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                                    <div className="bg-[#231810]/40 backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-2 border-l-4 border-l-[#f97415] shadow-lg hover:translate-y-[-2px] transition-transform duration-300">
+                                        <p className="text-white/60 text-sm font-medium">Daily Engagement</p>
+                                        <p className="text-white text-3xl font-bold tracking-tight">4,290</p>
+                                        <p className="text-green-400 text-xs font-bold flex items-center gap-1">
+                                            <TrendingUp size={14} /> 12% vs yesterday
+                                        </p>
+                                    </div>
+                                    <div className="bg-[#231810]/40 backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-2 border-l-4 border-l-blue-500 shadow-lg hover:translate-y-[-2px] transition-transform duration-300">
+                                        <p className="text-white/60 text-sm font-medium">Avg. Time to Open</p>
+                                        <p className="text-white text-3xl font-bold tracking-tight">2.4 hrs</p>
+                                        <p className="text-white/40 text-xs font-bold flex items-center gap-1">
+                                            <Clock size={14} /> Industry Avg: 3.1h
+                                        </p>
+                                    </div>
+                                    <div className="bg-[#231810]/40 backdrop-blur-xl border border-white/10 p-6 rounded-2xl flex flex-col gap-2 border-l-4 border-l-emerald-500 shadow-lg hover:translate-y-[-2px] transition-transform duration-300">
+                                        <p className="text-white/60 text-sm font-medium">Bounce Rate</p>
+                                        <p className="text-white text-3xl font-bold tracking-tight">0.8%</p>
+                                        <p className="text-green-400 text-xs font-bold flex items-center gap-1">
+                                            <ShieldCheck size={14} /> Exceptional
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </main>
+                        <footer className="py-10"></footer>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

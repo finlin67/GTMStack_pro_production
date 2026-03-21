@@ -177,19 +177,20 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-slate-950/92 backdrop-blur-xl border-b border-slate-800/80">
       <nav className="container-width relative" ref={navRef}>
-        <div className="flex items-center justify-between min-h-[72px] h-[72px] md:min-h-[84px] md:h-[84px]">
+        <div className="flex items-center justify-between min-h-[84px] h-[84px] md:min-h-[100px] md:h-[100px] lg:min-h-[112px] lg:h-[112px]">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 md:gap-4 group shrink-0 py-2">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 md:gap-4 group shrink-0 min-w-0">
             <Image
               src="/gtmstack-logo.png"
               alt="GTMStack.pro"
-              width={320}
-              height={80}
+              width={480}
+              height={96}
               priority
-              className="h-11 w-auto md:h-[52px] max-w-[min(280px,calc(100vw-7rem))] object-contain object-left"
+              sizes="(max-width: 768px) 70vw, 440px"
+              className="h-12 w-auto sm:h-14 md:h-16 lg:h-[4.5rem] max-w-[min(100%,calc(100vw-6.5rem))] sm:max-w-[min(480px,calc(100vw-8rem))] object-contain object-left"
             />
-            <div className="hidden sm:flex flex-col leading-none border-l border-slate-700/60 pl-3 md:pl-4">
-              <span className="text-[11px] text-slate-400 tracking-[0.08em] uppercase">
+            <div className="hidden sm:flex flex-col justify-center leading-tight border-l border-slate-700/60 pl-2.5 md:pl-4 min-h-[2.5rem] md:min-h-[3rem]">
+              <span className="text-[10px] md:text-[11px] text-slate-400 tracking-[0.08em] uppercase">
                 Strategic GTM consulting
               </span>
             </div>

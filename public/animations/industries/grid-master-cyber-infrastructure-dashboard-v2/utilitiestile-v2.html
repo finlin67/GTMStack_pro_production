@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Utilities Tile // Cyber Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <style>
+        body {
+            background-color: #020408;
+            color: white;
+            margin: 0;
+            font-family: 'Space Mono', monospace;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #020408; }
+        ::-webkit-scrollbar-thumb { background: #264653; }
+        ::-webkit-scrollbar-thumb:hover { background: #E9C46A; }
+        
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-marquee {
+            animation: marquee 30s linear infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useEffect, useState } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { motion, AnimatePresence } from 'framer-motion';
+        import { 
+            Cpu, 
+            ShieldCheck, 
+            DollarSign, 
+            Activity, 
+            ChevronUp,
+            CheckCircle2,
+            ArrowRight
+        } from 'lucide-react';
+
+        const COLORS = {
+            primary: "#7139fb",
+            bgDark: "#020408",
+            teal: "#264653",
+            yellow: "#E9C46A",
+            green: "#2A9D8F",
+        };
+
+        const UtilitiesTile = ({ className = '' }) => {
+            return (
+                <div className={`relative w-[600px] h-[600px] bg-[#020408] flex items-center justify-center overflow-hidden font-mono select-none ${className}`}>
+                    <div className="absolute inset-0 opacity-40 pointer-events-none z-0" style={{ backgroundImage: `radial-gradient(circle at center, rgba(38, 70, 83, 0.2) 0%, transparent 70%)` }} />
+                    <div className="absolute inset-0 opacity-20 pointer-events-none z-0">
+                        <svg height="100%" width="100%" viewBox="0 0 600 600">
+                            <line stroke={COLORS.teal} strokeWidth="1" x1="0" x2="600" y1="300" y2="300" />
+                            <line stroke={COLORS.teal} strokeWidth="1" x1="300" x2="300" y1="0" y2="600" />
+                            <circle cx="300" cy="300" r="140" fill="none" stroke={COLORS.teal} strokeDasharray="10 10" strokeWidth="1" />
+                            <circle cx="300" cy="300" r="210" fill="none" stroke={COLORS.teal} strokeWidth="0.5" />
+                            <line stroke={COLORS.teal} strokeWidth="0.5" x1="100" x2="200" y1="100" y2="100" />
+                            <line stroke={COLORS.teal} strokeWidth="0.5" x1="100" x2="100" y1="100" y2="200" />
+                            <line stroke={COLORS.teal} strokeWidth="0.5" x1="400" x2="500" y1="500" y2="500" />
+                            <line stroke={COLORS.teal} strokeWidth="0.5" x1="500" x2="500" y1="400" y2="500" />
+                        </svg>
+                    </div>
+
+                    <div className="relative z-30 group cursor-crosshair">
+                        <motion.div className="absolute inset-[-60px] border-2 border-[#E9C46A]/20 rounded-full" animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }} />
+                        <motion.div className="absolute inset-[-40px] border border-[#E9C46A]/40 rounded-full border-dashed" animate={{ rotate: -360 }} transition={{ duration: 15, repeat: Infinity, ease: "linear" }} />
+                        <motion.div className="absolute inset-[-20px] border-[3px] border-t-[#E9C46A] border-r-transparent border-b-[#E9C46A] border-l-transparent rounded-full" animate={{ rotate: 360 }} transition={{ duration: 3, repeat: Infinity, ease: "linear" }} />
+                        <div className="w-48 h-48 bg-[#020408] border-2 border-[#E9C46A] flex flex-col items-center justify-center relative shadow-[0_0_15px_rgba(233,196,106,0.4)]">
+                            <div className="absolute inset-1 border border-[#E9C46A]/30"></div>
+                            <Cpu className="w-16 h-16 text-[#E9C46A] mb-2 stroke-[1.5]" />
+                            <div className="font-mono text-[#E9C46A] text-[10px] font-bold tracking-[0.4em] uppercase">Core Engine</div>
+                            <div className="font-mono text-white/40 text-[8px] mt-1">S_ID: GM_8812</div>
+                        </div>
+                    </div>
+
+                    <motion.div initial={{ x: -20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.2 }} className="absolute top-8 left-8 bg-[#264653]/20 border border-[#264653]/40 p-4 w-44 shadow-2xl backdrop-blur-sm" style={{ clipPath: 'polygon(0% 0%, 100% 0%, 100% 90%, 90% 100%, 0% 100%)' }}>
+                        <div className="flex items-center justify-between mb-2">
+                            <span className="text-[9px] font-mono text-[#E9C46A]/80 uppercase font-bold tracking-widest">Reliability</span>
+                            <ShieldCheck className="w-4 h-4 text-[#E9C46A]" />
+                        </div>
+                        <div className="text-2xl font-bold tracking-tighter text-white">+29.4%</div>
+                        <div className="w-full h-1 bg-[#264653]/50 mt-2">
+                            <motion.div className="h-full bg-[#E9C46A]" initial={{ width: 0 }} animate={{ width: "85%" }} transition={{ duration: 1.5, delay: 0.5 }} />
+                        </div>
+                    </motion.div>
+
+                    <motion.div initial={{ x: 20, opacity: 0 }} animate={{ x: 0, opacity: 1 }} transition={{ delay: 0.3 }} className="absolute top-8 right-8 bg-[#020408]/80 border border-[#264653]/30 p-4 w-48 backdrop-blur-sm" style={{ clipPath: 'polygon(10% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 15%)' }}>
+                        <div className="flex items-center gap-2 mb-2">
+                            <DollarSign className="w-4 h-4 text-[#2A9D8F] drop-shadow-[0_0_5px_rgba(42,157,143,0.5)]" />
+                            <span className="text-[9px] font-mono text-white/50 uppercase font-bold tracking-widest">Cost Redux</span>
+                        </div>
+                        <div className="text-2xl font-bold tracking-tighter text-[#2A9D8F]">22.8<span className="text-sm ml-1 text-white/70">%</span></div>
+                        <div className="mt-2 flex gap-1">
+                            {[1,2,3,4].map((i) => <div key={i} className={`h-1 w-full ${i <= 2 ? 'bg-[#2A9D8F]' : 'bg-[#2A9D8F]/30'}`} />)}
+                        </div>
+                    </motion.div>
+
+                    <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.4 }} className="absolute bottom-8 left-8 bg-[#264653]/20 border border-[#264653]/40 w-56 p-4 backdrop-blur-sm">
+                        <div className="flex items-center justify-between mb-4 border-b border-[#264653]/30 pb-2">
+                            <span className="text-[9px] font-mono text-white uppercase font-bold">Grid Efficiency</span>
+                            <span className="text-[9px] font-mono text-[#E9C46A] animate-pulse">LIVE_09</span>
+                        </div>
+                        <div className="h-16 flex items-end gap-1 px-1 mb-2">
+                            <motion.div animate={{ height: ["25%", "40%", "30%", "25%"] }} transition={{duration: 2, repeat: Infinity, ease: "linear"}} className="bg-[#264653]/40 w-full" />
+                            <motion.div animate={{ height: ["40%", "60%", "45%", "40%"] }} transition={{duration: 3, repeat: Infinity, ease: "linear"}} className="bg-[#264653]/40 w-full" />
+                            <motion.div animate={{ height: ["100%", "90%", "95%", "100%"] }} transition={{duration: 1, repeat: Infinity, ease: "linear"}} className="bg-[#E9C46A] w-full" />
+                        </div>
+                        <div className="flex justify-between font-mono text-[8px] text-white/40">
+                            <span>00:00</span>
+                            <span>12:00</span>
+                            <span>24:00</span>
+                        </div>
+                    </motion.div>
+
+                    <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.5 }} className="absolute bottom-8 right-8 bg-[#020408]/80 border border-[#264653]/30 p-4 w-44 border-r-4 border-r-[#2A9D8F] backdrop-blur-sm" style={{ clipPath: 'polygon(5% 0%, 100% 0%, 100% 100%, 0% 100%, 0% 15%)' }}>
+                        <div className="text-[9px] font-mono text-white/40 uppercase mb-1">Adoption Rate</div>
+                        <div className="text-3xl font-black text-white">+41.2%</div>
+                        <div className="flex items-center gap-2 mt-2">
+                            <ChevronUp className="w-4 h-4 text-[#2A9D8F]" />
+                            <span className="text-[10px] font-mono text-[#2A9D8F]">OPTIMAL PATH</span>
+                        </div>
+                    </motion.div>
+                </div>
+            );
+        };
+
+        const App = () => {
+            return (
+                <div className="relative flex min-h-screen w-full flex-col font-mono bg-[#020408] text-white overflow-x-hidden">
+                    <div className="absolute inset-0 z-0 pointer-events-none" style={{ backgroundColor: '#020408', backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='69.28' viewBox='0 0 40 69.28' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 0l20 11.54v23.09L20 46.17 0 34.63V11.54L20 0zM20 46.17l20 11.54v11.57H0V57.71l20-11.54z' fill='%23264653' fill-opacity='0.08' fill-rule='evenodd'/%3E%3C/svg%3E")`, backgroundSize: '80px 138.56px' }} />
+                    
+                    <header className="w-full border-b border-[#264653]/30 bg-[#020408]/80 backdrop-blur-md px-6 py-4 flex flex-col md:flex-row justify-between items-center z-50 sticky top-0">
+                        <div className="flex items-center gap-4 mb-4 md:mb-0">
+                            <div className="w-2 h-8 bg-[#E9C46A] shadow-[0_0_15px_rgba(233,196,106,0.6)]"></div>
+                            <div>
+                                <h1 className="text-xl font-bold tracking-tighter uppercase text-white">Grid Master <span className="text-[#264653] font-light">//</span> v2.0.4</h1>
+                                <div className="flex items-center gap-2">
+                                    <div className="w-2 h-2 bg-[#2A9D8F] rounded-full"></div>
+                                    <span className="text-[10px] font-mono text-[#2A9D8F] tracking-widest uppercase">System Operational</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="flex gap-8 font-mono text-[11px] text-white/50">
+                            <div className="flex flex-col">
+                                <span className="text-[#264653] font-bold uppercase">Uplink</span>
+                                <span className="text-white">ENCRYPTED_SSL</span>
+                            </div>
+                            <div className="flex flex-col">
+                                <span className="text-[#264653] font-bold uppercase">Latency</span>
+                                <span className="text-white">12.4ms</span>
+                            </div>
+                        </div>
+                    </header>
+
+                    <main className="flex-grow flex flex-col items-center justify-center p-6 relative z-10 pb-24">
+                        <div className="w-full max-w-[900px] flex justify-center mb-16">
+                            <UtilitiesTile className="border border-[#264653]/20 shadow-2xl scale-[0.8] md:scale-100" />
+                        </div>
+
+                        <div className="w-full max-w-[900px]">
+                            <div className="grid grid-cols-1 md:grid-cols-3 gap-0 border border-[#264653]/30 bg-[#264653]/5 backdrop-blur-sm">
+                                <div className="p-8 border-r border-[#264653]/30">
+                                    <h2 className="text-2xl font-black text-white tracking-tighter uppercase mb-2">Active Infrastructure</h2>
+                                    <p className="text-white/40 text-[10px] leading-relaxed">System-wide synchronization of energy distribution via duplex uplink.</p>
+                                </div>
+                                <div className="p-8 border-r border-[#264653]/30">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="w-2 h-2 bg-[#2A9D8F]"></div>
+                                        <span className="text-[10px] font-bold text-white/60 uppercase">Health</span>
+                                    </div>
+                                    <div className="text-4xl font-black text-white uppercase tracking-tighter">99.9%</div>
+                                    <div className="text-[#2A9D8F] font-mono text-[10px] font-bold mt-1">STABLE_UPTIME</div>
+                                </div>
+                                <div className="p-8">
+                                    <div className="flex items-center gap-3 mb-6">
+                                        <div className="w-2 h-2 bg-[#E9C46A]"></div>
+                                        <span className="text-[10px] font-bold text-white/60 uppercase">Nodes</span>
+                                    </div>
+                                    <div className="text-4xl font-black text-white tracking-tighter">1,284</div>
+                                    <div className="text-[#E9C46A] font-mono text-[10px] font-bold mt-1">+12 ONLINE</div>
+                                </div>
+                            </div>
+
+                            <div className="mt-6 flex flex-col md:flex-row justify-between items-center bg-[#020408] border border-[#264653]/30 p-2 pl-6 gap-4">
+                                <div className="flex gap-4 font-mono text-[10px] text-white/30 uppercase">
+                                    <span>/ Diagnostics</span>
+                                    <span>/ Node Map</span>
+                                    <span>/ Security</span>
+                                </div>
+                                <button className="w-full md:w-auto bg-[#7139fb] text-white px-10 py-4 font-black transition-all flex items-center justify-center gap-4 hover:brightness-110 active:scale-95 group">
+                                    <span className="text-[12px] uppercase tracking-widest">Control Center</span>
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </button>
+                            </div>
+                        </div>
+                    </main>
+
+                    <footer className="fixed bottom-0 left-0 right-0 h-10 border-t border-[#264653]/30 bg-[#020408]/95 backdrop-blur-md z-50 flex items-center px-6 overflow-hidden">
+                        <div className="flex items-center gap-3 shrink-0 mr-12 border-r border-[#264653]/30 pr-6 h-full">
+                            <div className="w-2 h-2 bg-[#2A9D8F] rounded-full"></div>
+                            <span className="text-[10px] font-black text-[#2A9D8F] uppercase tracking-[0.1em]">Stream Active</span>
+                        </div>
+                        <div className="flex gap-12 font-mono text-[10px] text-white/40 whitespace-nowrap animate-marquee">
+                            <span>NODE_ALPHA: 102.4MW [STABLE]</span>
+                            <span>NODE_BRAVO: 88.1MW [STABLE]</span>
+                            <span>NODE_CHARLIE: 145.2MW [PEAK]</span>
+                            <span>NODE_DELTA: 92.0MW [STABLE]</span>
+                            <span>NODE_ECHO: 11.4MW [IDLE]</span>
+                            <span>NODE_FOXTROT: 201.9MW [HEAVY]</span>
+                            <span>GRID_TOTAL: 641.0MW [NORMAL]</span>
+                            {/* Dupe for seamless loop */}
+                            <span>NODE_ALPHA: 102.4MW [STABLE]</span>
+                            <span>NODE_BRAVO: 88.1MW [STABLE]</span>
+                            <span>NODE_CHARLIE: 145.2MW [PEAK]</span>
+                            <span>NODE_DELTA: 92.0MW [STABLE]</span>
+                            <span>NODE_ECHO: 11.4MW [IDLE]</span>
+                            <span>NODE_FOXTROT: 201.9MW [HEAVY]</span>
+                            <span>GRID_TOTAL: 641.0MW [NORMAL]</span>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

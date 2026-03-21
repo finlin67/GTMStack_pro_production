@@ -1,6 +1,7 @@
 'use client'
 
-import { useMemo, useState } from 'react'
+import Image from 'next/image'
+import { useEffect, useMemo, useState } from 'react'
 
 export type StitchGalleryItem = {
   id: string
@@ -9,6 +10,8 @@ export type StitchGalleryItem = {
   category: string
   tags: string[]
   thumbnailUrl?: string
+  previewMode?: 'live-component' | 'iframe-entry-html' | 'thumbnail-fallback' | 'explicit-fallback-message'
+  placeholderPreview?: boolean
 }
 
 function normalizeCategory(value: string): string {
@@ -24,6 +27,15 @@ function titleCase(value: string): string {
     .join(' ')
 }
 
+function initials(value: string): string {
+  return value
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((part) => part.charAt(0).toUpperCase())
+    .join('')
+}
+
 export function StitchGalleryShell({
   items,
   onSelect,
@@ -37,6 +49,11 @@ export function StitchGalleryShell({
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState<'ALL' | string>('ALL')
   const [activeTags, setActiveTags] = useState<string[]>([])
+  const [section, setSection] = useState<
+    'ALL' | 'LIVE_COMPONENTS' | 'INTERACTIVE_HTML' | 'THUMBNAIL_FALLBACK' | 'NO_PREVIEW'
+  >('ALL')
+  const [page, setPage] = useState(1)
+  const [pageSize, setPageSize] = useState(36)
 
   const categories = useMemo(() => {
     const set = new Set<string>()
@@ -58,6 +75,11 @@ export function StitchGalleryShell({
     const tags = activeTags.map((t) => t.toLowerCase())
 
     return items.filter((item) => {
+      if (section === 'LIVE_COMPONENTS' && item.previewMode !== 'live-component') return false
+      if (section === 'INTERACTIVE_HTML' && item.previewMode !== 'iframe-entry-html') return false
+      if (section === 'THUMBNAIL_FALLBACK' && item.previewMode !== 'thumbnail-fallback') return false
+      if (section === 'NO_PREVIEW' && item.previewMode !== 'explicit-fallback-message') return false
+
       if (cat && normalizeCategory(item.category) !== cat) return false
       if (tags.length) {
         const itemTags = (item.tags || []).map((t) => t.toLowerCase())
@@ -74,7 +96,39 @@ export function StitchGalleryShell({
         .toLowerCase()
       return hay.includes(q)
     })
-  }, [activeTags, category, items, query])
+  }, [activeTags, category, items, query, section])
+
+  useEffect(() => {
+    setPage(1)
+  }, [activeTags, category, query, section, pageSize])
+
+  const totalPages = Math.max(1, Math.ceil(filtered.length / pageSize))
+  const pageSafe = Math.min(page, totalPages)
+  const pageStart = (pageSafe - 1) * pageSize
+  const pageEnd = pageStart + pageSize
+  const paged = filtered.slice(pageStart, pageEnd)
+  const pageWindowStart = Math.max(1, pageSafe - 2)
+  const pageWindowEnd = Math.min(totalPages, pageWindowStart + 4)
+  const pageNumbers = Array.from(
+    { length: Math.max(0, pageWindowEnd - pageWindowStart + 1) },
+    (_, idx) => pageWindowStart + idx
+  )
+
+  const sectionCounts = useMemo(() => {
+    let live = 0
+    let html = 0
+    let thumb = 0
+    let none = 0
+
+    for (const item of items) {
+      if (item.previewMode === 'live-component') live += 1
+      else if (item.previewMode === 'iframe-entry-html') html += 1
+      else if (item.previewMode === 'thumbnail-fallback') thumb += 1
+      else none += 1
+    }
+
+    return { live, html, thumb, none }
+  }, [items])
 
   const toggleTag = (tag: string) => {
     setActiveTags((prev) =>
@@ -401,6 +455,79 @@ export function StitchGalleryShell({
           padding-bottom: 26px;
         }
 
+        .sg-section-row {
+          display: flex;
+          gap: 8px;
+          flex-wrap: wrap;
+          margin-bottom: 12px;
+        }
+
+        .sg-section-chip {
+          border-radius: 999px;
+          border: 1px solid rgba(255, 255, 255, 0.12);
+          background: transparent;
+          color: rgba(255, 255, 255, 0.65);
+          padding: 6px 10px;
+          font-size: 10px;
+          cursor: pointer;
+        }
+
+        .sg-section-chip.active {
+          border-color: rgba(74, 134, 216, 0.6);
+          background: rgba(74, 134, 216, 0.16);
+          color: #e8f1ff;
+        }
+
+        .sg-pager {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 10px;
+          margin-bottom: 20px;
+          flex-wrap: wrap;
+        }
+
+        .sg-pager-meta {
+          font-size: 11px;
+          color: rgba(255, 255, 255, 0.55);
+        }
+
+        .sg-pager-controls {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          flex-wrap: wrap;
+        }
+
+        .sg-pager-btn {
+          border: 1px solid rgba(255, 255, 255, 0.18);
+          border-radius: 8px;
+          background: rgba(255, 255, 255, 0.04);
+          color: rgba(255, 255, 255, 0.9);
+          padding: 6px 9px;
+          font-size: 11px;
+          cursor: pointer;
+        }
+
+        .sg-pager-btn:disabled {
+          opacity: 0.45;
+          cursor: default;
+        }
+
+        .sg-pager-btn.active {
+          border-color: rgba(74, 134, 216, 0.85);
+          background: rgba(74, 134, 216, 0.22);
+        }
+
+        .sg-page-size {
+          border-radius: 8px;
+          border: 1px solid rgba(255, 255, 255, 0.14);
+          background: rgba(255, 255, 255, 0.04);
+          color: rgba(255, 255, 255, 0.9);
+          padding: 6px 8px;
+          font-size: 11px;
+        }
+
         .sg-card {
           background: var(--bg-deep);
           border-radius: 12px;
@@ -416,20 +543,67 @@ export function StitchGalleryShell({
           border-color: rgba(74, 134, 216, 0.35);
         }
         .sg-preview {
-          height: 112px;
+          position: relative;
+          height: 176px;
           background: rgba(255, 255, 255, 0.03);
           display: flex;
           align-items: center;
           justify-content: center;
           overflow: hidden;
         }
-        .sg-orb {
-          width: 44px;
-          height: 44px;
+        .sg-preview-badge {
+          position: absolute;
+          top: 10px;
+          left: 10px;
+          z-index: 3;
           border-radius: 999px;
+          border: 1px solid rgba(251, 191, 36, 0.45);
+          background: rgba(120, 53, 15, 0.8);
+          color: rgba(254, 240, 138, 0.96);
+          padding: 3px 8px;
+          font-size: 9px;
+          font-weight: 700;
+          letter-spacing: 0.06em;
+          text-transform: uppercase;
+        }
+        .sg-preview-image {
+          object-fit: contain;
+          object-position: center;
+          padding: 10px;
+          background: radial-gradient(circle at 50% 35%, rgba(74, 134, 216, 0.12), transparent 60%);
+        }
+        .sg-preview-fallback {
+          width: 100%;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
+          background:
+            radial-gradient(circle at 20% 25%, rgba(74, 134, 216, 0.18), transparent 55%),
+            radial-gradient(circle at 80% 70%, rgba(174, 214, 241, 0.14), transparent 60%),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.06));
+        }
+        .sg-preview-initials {
+          width: 46px;
+          height: 46px;
+          border-radius: 12px;
+          border: 1px solid rgba(255, 255, 255, 0.16);
           background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.14);
-          box-shadow: 0 0 30px rgba(74, 134, 216, 0.08);
+          color: rgba(255, 255, 255, 0.8);
+          font-size: 15px;
+          font-weight: 800;
+          letter-spacing: 0.04em;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sg-preview-meta {
+          font-size: 10px;
+          color: rgba(255, 255, 255, 0.6);
+          text-transform: uppercase;
+          letter-spacing: 0.1em;
         }
         .sg-info {
           padding: 10px 12px;
@@ -579,11 +753,51 @@ export function StitchGalleryShell({
         <div className="sg-content">
           <div className="sg-grid-header">
             <div className="sg-grid-title">Browse</div>
-            <div className="sg-grid-count">{filtered.length} results</div>
+            <div className="sg-grid-count">
+              {filtered.length} results · page {pageSafe} of {totalPages}
+            </div>
+          </div>
+
+          <div className="sg-section-row" role="tablist" aria-label="Preview sections">
+            <button
+              type="button"
+              className={`sg-section-chip ${section === 'ALL' ? 'active' : ''}`}
+              onClick={() => setSection('ALL')}
+            >
+              All ({items.length})
+            </button>
+            <button
+              type="button"
+              className={`sg-section-chip ${section === 'LIVE_COMPONENTS' ? 'active' : ''}`}
+              onClick={() => setSection('LIVE_COMPONENTS')}
+            >
+              Live Components ({sectionCounts.live})
+            </button>
+            <button
+              type="button"
+              className={`sg-section-chip ${section === 'INTERACTIVE_HTML' ? 'active' : ''}`}
+              onClick={() => setSection('INTERACTIVE_HTML')}
+            >
+              Interactive HTML ({sectionCounts.html})
+            </button>
+            <button
+              type="button"
+              className={`sg-section-chip ${section === 'THUMBNAIL_FALLBACK' ? 'active' : ''}`}
+              onClick={() => setSection('THUMBNAIL_FALLBACK')}
+            >
+              Thumbnail Fallback ({sectionCounts.thumb})
+            </button>
+            <button
+              type="button"
+              className={`sg-section-chip ${section === 'NO_PREVIEW' ? 'active' : ''}`}
+              onClick={() => setSection('NO_PREVIEW')}
+            >
+              No Preview ({sectionCounts.none})
+            </button>
           </div>
 
           <div className="sg-grid">
-            {filtered.map((item) => (
+            {paged.map((item) => (
               <div
                 key={item.id}
                 className="sg-card"
@@ -595,21 +809,22 @@ export function StitchGalleryShell({
                 }}
               >
                 <div className="sg-preview">
+                  {item.placeholderPreview ? (
+                    <div className="sg-preview-badge">No Live Preview Yet</div>
+                  ) : null}
                   {showThumbnails && item.thumbnailUrl ? (
-                    <img
+                    <Image
                       src={item.thumbnailUrl}
                       alt={item.title}
-                      loading="lazy"
-                      decoding="async"
-                      style={{
-                        width: '100%',
-                        height: '100%',
-                        objectFit: 'contain',
-                        display: 'block',
-                      }}
+                      fill
+                      sizes="(max-width: 768px) 50vw, 240px"
+                      className="sg-preview-image"
                     />
                   ) : (
-                    <div className="sg-orb" aria-hidden="true" />
+                    <div className="sg-preview-fallback" aria-hidden="true">
+                      <div className="sg-preview-initials">{initials(item.title)}</div>
+                      <div className="sg-preview-meta">{titleCase(item.category)}</div>
+                    </div>
                   )}
                 </div>
                 <div className="sg-info">
@@ -626,6 +841,56 @@ export function StitchGalleryShell({
               </div>
             ))}
           </div>
+
+          {filtered.length > 0 ? (
+            <div className="sg-pager">
+              <div className="sg-pager-meta">
+                Showing {pageStart + 1}-{Math.min(pageEnd, filtered.length)} of {filtered.length}
+              </div>
+              <div className="sg-pager-controls">
+                <label htmlFor="page-size" className="sg-pager-meta">
+                  Per page
+                </label>
+                <select
+                  id="page-size"
+                  className="sg-page-size"
+                  value={pageSize}
+                  onChange={(e) => setPageSize(Number(e.target.value))}
+                >
+                  <option value={24}>24</option>
+                  <option value={36}>36</option>
+                  <option value={48}>48</option>
+                  <option value={72}>72</option>
+                </select>
+                <button
+                  type="button"
+                  className="sg-pager-btn"
+                  disabled={pageSafe <= 1}
+                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                >
+                  Prev
+                </button>
+                {pageNumbers.map((pageNumber) => (
+                  <button
+                    key={pageNumber}
+                    type="button"
+                    className={`sg-pager-btn ${pageNumber === pageSafe ? 'active' : ''}`}
+                    onClick={() => setPage(pageNumber)}
+                  >
+                    {pageNumber}
+                  </button>
+                ))}
+                <button
+                  type="button"
+                  className="sg-pager-btn"
+                  disabled={pageSafe >= totalPages}
+                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                >
+                  Next
+                </button>
+              </div>
+            </div>
+          ) : null}
 
           {items.length > 0 && filtered.length === 0 ? (
             <div style={{ padding: 24, color: 'rgba(255,255,255,0.5)' }}>

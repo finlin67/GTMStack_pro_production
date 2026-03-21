@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Revenue Systems Data Flow</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "slate-panel": "#0f172a",
+              "slate-bg": "#020617",
+              "purple-glow": "#c084fc",
+              "emerald-deep": "#064e3b",
+              "sapphire-deep": "#1e3a8a",
+              "sapphire-light": "#3b82f6",
+              "emerald-light": "#10b981",
+            },
+            fontFamily: {
+              "display": ["Inter", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+    <style>
+      :root {
+        --bento-border: rgba(255, 255, 255, 0.06);
+        --bento-bg: rgba(15, 23, 42, 0.4);
+      }
+      body {
+        background-color: #020617;
+        background-image: 
+            radial-gradient(at 0% 0%, rgba(192, 132, 252, 0.08) 0px, transparent 50%),
+            radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.08) 0px, transparent 50%);
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+      }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="font-display text-slate-100">
+    <div id="root" class="w-full flex justify-center items-center"></div>
+    <script type="text/babel" data-type="module">
+        import React, { useState, useEffect, useRef } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { 
+          BarChart3, 
+          Users, 
+          Activity, 
+          ArrowUpRight, 
+          ShieldCheck,
+          Cpu
+        } from 'lucide-react';
+        import { motion, AnimatePresence } from 'framer-motion';
+
+        export default function DataFlowAnimation() {
+          const [stats, setStats] = useState([
+            { 
+              id: '1', 
+              label: 'Revenue', 
+              value: 45231, 
+              trend: 12, 
+              icon: BarChart3, 
+              color: 'text-purple-400',
+              strokeColor: '#c084fc',
+              history: [40, 35, 55, 45, 70, 65, 85, 80, 95]
+            },
+            { 
+              id: '2', 
+              label: 'Users', 
+              value: 1240, 
+              trend: 8, 
+              icon: Users, 
+              color: 'text-blue-400',
+              strokeColor: '#60a5fa',
+              history: [30, 40, 35, 50, 45, 60, 55, 75, 70]
+            },
+            { 
+              id: '3', 
+              label: 'Load', 
+              value: 42, 
+              trend: -2, 
+              icon: Activity, 
+              color: 'text-emerald-400',
+              strokeColor: '#34d399',
+              history: [60, 55, 65, 50, 55, 45, 50, 40, 42]
+            },
+            { 
+              id: '4', 
+              label: 'Shield', 
+              value: 99, 
+              trend: 0.1, 
+              icon: ShieldCheck, 
+              color: 'text-amber-400',
+              strokeColor: '#fbbf24',
+              history: [95, 96, 95, 97, 98, 97, 99, 98, 99]
+            }
+          ]);
+
+          const [activePulse, setActivePulse] = useState(0);
+
+          useEffect(() => {
+            const interval = setInterval(() => {
+              setStats(prev => prev.map(stat => {
+                const newValue = stat.id === '3' 
+                  ? Math.max(20, Math.min(80, stat.value + (Math.random() - 0.5) * 5))
+                  : stat.value + Math.floor(Math.random() * 50 - 10);
+                
+                const normalizedValue = stat.id === '3' ? newValue : (newValue % 100);
+                const newHistory = [...stat.history.slice(1), normalizedValue];
+
+                return {
+                  ...stat,
+                  value: newValue,
+                  history: newHistory
+                };
+              }));
+              setActivePulse(p => (p + 1) % 4);
+            }, 2000);
+            return () => clearInterval(interval);
+          }, []);
+
+          const getPathData = (history) => {
+            const width = 100;
+            const height = 40;
+            const padding = 5;
+            const points = history.map((val, i) => {
+              const x = (i / (history.length - 1)) * width;
+              const y = height - ((val / 100) * (height - padding * 2) + padding);
+              return `${x},${y}`;
+            });
+            return `M ${points.join(' L ')}`;
+          };
+
+          return (
+            <div className="w-full aspect-square max-w-[600px] flex items-center justify-center bg-slate-950 overflow-hidden font-sans p-6 rounded-3xl relative border border-slate-800 shadow-2xl">
+              <div className="absolute inset-0 overflow-hidden pointer-events-none">
+                <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(192,132,252,0.05),transparent_70%)]" />
+                <div className="absolute -bottom-1/4 -right-1/4 w-full h-full bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_70%)]" />
+              </div>
+
+              <div className="relative w-full h-full grid grid-cols-2 grid-rows-2 gap-4 z-10">
+                <AnimatePresence mode="popLayout">
+                  {stats.map((stat, idx) => (
+                    <motion.div
+                      key={stat.id}
+                      initial={{ opacity: 0, scale: 0.9 }}
+                      animate={{ 
+                        opacity: 1, 
+                        scale: activePulse === idx ? 1.02 : 1,
+                        borderColor: activePulse === idx ? 'rgba(192,132,252,0.4)' : 'rgba(148,163,184,0.1)'
+                      }}
+                      transition={{ duration: 1.5 }}
+                      className="bg-slate-900/40 backdrop-blur-xl border border-slate-800 rounded-3xl p-5 flex flex-col justify-between group relative overflow-hidden"
+                    >
+                      <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent pointer-events-none" />
+                      
+                      <div className="flex justify-between items-start">
+                        <div className={`p-2.5 rounded-xl bg-slate-800/50 border border-slate-700/50 ${stat.color}`}>
+                          <stat.icon size={20} />
+                        </div>
+                        <div className="flex items-center gap-1 text-[10px] font-bold text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-full border border-emerald-500/20">
+                          <ArrowUpRight size={10} />
+                          {stat.trend}%
+                        </div>
+                      </div>
+
+                      <div className="space-y-1 mt-4">
+                        <p className="text-slate-500 text-xs font-medium uppercase tracking-wider">{stat.label}</p>
+                        <div className="flex items-baseline gap-2">
+                          <motion.span 
+                            key={stat.value}
+                            initial={{ opacity: 0, y: 5 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-2xl font-bold text-white tabular-nums tracking-tight"
+                          >
+                            {stat.id === '1' ? `$${Math.floor(stat.value).toLocaleString()}` : Math.floor(stat.value).toLocaleString()}
+                            {stat.id === '3' || stat.id === '4' ? '%' : ''}
+                          </motion.span>
+                        </div>
+                      </div>
+
+                      <div className="h-12 w-full mt-4 opacity-60 group-hover:opacity-100 transition-opacity">
+                        <svg viewBox="0 0 100 40" className="w-full h-full overflow-visible">
+                          <defs>
+                            <linearGradient id={`gradient-${stat.id}`} x1="0%" y1="0%" x2="0%" y2="100%">
+                              <stop offset="0%" stopColor={stat.strokeColor} stopOpacity="0.2" />
+                              <stop offset="100%" stopColor={stat.strokeColor} stopOpacity="0" />
+                            </linearGradient>
+                          </defs>
+                          
+                          <motion.path
+                            key={`area-${stat.id}-${stat.history.join('')}`}
+                            d={`${getPathData(stat.history)} L 100,40 L 0,40 Z`}
+                            fill={`url(#gradient-${stat.id})`}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            transition={{ duration: 0.5 }}
+                          />
+
+                          <motion.path
+                            key={`stroke-${stat.id}-${stat.history.join('')}`}
+                            d={getPathData(stat.history)}
+                            fill="none"
+                            stroke={stat.strokeColor}
+                            strokeWidth="2.5"
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            initial={{ pathLength: 0, opacity: 0 }}
+                            animate={{ pathLength: 1, opacity: 1 }}
+                            transition={{ duration: 0.8 }}
+                          />
+                          
+                          <motion.circle
+                            cx="100"
+                            cy={40 - ((stat.history[stat.history.length - 1] / 100) * 30 + 5)}
+                            r="3"
+                            fill={stat.strokeColor}
+                            animate={{ scale: [1, 1.5, 1] }}
+                            transition={{ 
+                              duration: 2, 
+                              repeat: Infinity,
+                              repeatType: "mirror"
+                            }}
+                          />
+                        </svg>
+                      </div>
+                    </motion.div>
+                  ))}
+                </AnimatePresence>
+              </div>
+
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-20">
+                <motion.div 
+                  animate={{ rotate: [0, 360] }}
+                  transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                  className="relative w-48 h-48 flex items-center justify-center"
+                >
+                  <div className="absolute inset-0 border border-slate-700/30 rounded-full scale-100" />
+                  <div className="absolute inset-2 border-2 border-dashed border-purple-500/10 rounded-full scale-105" />
+                  <motion.div 
+                    animate={{ scale: [1, 1.1, 1], opacity: [0.1, 0.3, 0.1] }}
+                    transition={{ duration: 3, repeat: Infinity }}
+                    className="absolute inset-0 bg-purple-500/5 rounded-full blur-2xl"
+                  />
+                </motion.div>
+                
+                <div className="absolute bg-slate-900 border border-slate-700 p-4 rounded-2xl shadow-[0_0_50px_rgba(192,132,252,0.15)] flex items-center justify-center text-purple-400">
+                  <motion.div
+                    animate={{ scale: [1, 1.1, 1] }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <Cpu size={28} />
+                  </motion.div>
+                </div>
+              </div>
+
+              {[...Array(6)].map((_, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ 
+                    x: Math.random() * 400 - 200, 
+                    y: Math.random() * 400 - 200, 
+                    opacity: 0 
+                  }}
+                  animate={{ 
+                    x: [0, Math.random() * 400 - 200],
+                    y: [0, Math.random() * 400 - 200],
+                    opacity: [0, 0.5, 0]
+                  }}
+                  transition={{ 
+                    duration: 5 + Math.random() * 5, 
+                    repeat: Infinity,
+                    repeatType: "mirror"
+                  }}
+                  className="absolute w-1 h-1 bg-purple-400 rounded-full blur-[1px] pointer-events-none"
+                />
+              ))}
+
+              <div className="absolute bottom-6 right-8 flex items-center gap-2 z-30 pointer-events-none">
+                <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                <span className="text-[10px] font-bold text-slate-500 uppercase tracking-widest leading-none">
+                  SYSTEM_STABLE &quot;2.4ms&quot;
+                </span>
+              </div>
+            </div>
+          );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<DataFlowAnimation />);
+    </script>
+</body>
+</html>

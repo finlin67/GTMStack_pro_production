@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GTMStack Pro - Strategic Roadmap</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { margin: 0; font-family: 'Inter', sans-serif; background-color: #0f172a; color: white; }
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #0f172a; }
+    ::-webkit-scrollbar-thumb { background: #334155; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #475569; }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.2.0",
+      "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+      "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+      "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" data-type="module">
+    import React, { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+    import { createRoot } from 'react-dom/client';
+    import { motion, AnimatePresence } from 'framer-motion';
+    import { Activity, Target, TrendingUp, Compass } from 'lucide-react';
+
+    // --- Configuration ---
+
+    const WAYPOINTS = [
+      { x: 60, y: 262, name: 'Discover', chip: 'Phase 1', color: 'rgba(56,189,248,0.95)' },
+      { x: 128, y: 202, name: 'Align', chip: 'Phase 2', color: 'rgba(99,102,241,0.95)' },
+      { x: 176, y: 180, name: 'Build', chip: 'Phase 3', color: 'rgba(168,85,247,0.92)' },
+      { x: 242, y: 136, name: 'Launch', chip: 'Phase 4', color: 'rgba(244,114,182,0.92)' },
+      { x: 298, y: 142, name: 'Scale', chip: 'Phase 5', color: 'rgba(34,197,94,0.92)' },
+      { x: 366, y: 224, name: 'Optimize', chip: 'Phase 6', color: 'rgba(245,158,11,0.90)' },
+    ];
+
+    const DOT_X = [...WAYPOINTS.map(w => w.x), WAYPOINTS[WAYPOINTS.length - 1].x];
+    const DOT_Y = [...WAYPOINTS.map(w => w.y), WAYPOINTS[WAYPOINTS.length - 1].y];
+    const DOT_SCALE = [0.35, 1, 1, 1, 1, 1, 0.7];
+    const DOT_OPACITY = [0, 1, 1, 1, 1, 1, 0];
+    const DOT_TIMES = [0, 0.2, 0.4, 0.6, 0.8, 0.9, 1];
+
+    // --- Components ---
+
+    const WaypointTooltip = React.memo(function WaypointTooltip({ w, status }) {
+      return (
+        <motion.div
+          initial={{ opacity: [0], y: [8], scale: [0.95] }}
+          animate={{ opacity: [1], y: [0], scale: [1] }}
+          exit={{ opacity: [0], y: [4], scale: [0.95] }}
+          transition={{ duration: 0.2 }}
+          className="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 w-[140px] z-50 pointer-events-none"
+        >
+          <div className="relative overflow-hidden rounded-xl border border-white/10 bg-slate-900/95 p-3 shadow-2xl backdrop-blur-md">
+            <div className="relative z-10">
+              <div className="flex items-center justify-between mb-1">
+                <span className={`text-[9px] font-bold uppercase tracking-wider ${
+                  status === 'Completed' ? 'text-emerald-400' : status === 'Active' ? 'text-sky-400' : 'text-slate-500'
+                }`}>
+                  {status}
+                </span>
+                <div className={`w-1.5 h-1.5 rounded-full ${
+                  status === 'Completed' ? 'bg-emerald-400' : status === 'Active' ? 'bg-sky-400 animate-pulse' : 'bg-slate-600'
+                }`} />
+              </div>
+              <div className="text-xs font-bold text-white mb-2">{w.name}</div>
+              <div className="flex items-center justify-between border-t border-white/10 pt-2">
+                <span className="text-[9px] font-medium text-slate-400">Status</span>
+                <span className="text-[9px] font-mono font-semibold text-indigo-300">{w.chip}</span>
+              </div>
+            </div>
+          </div>
+          <div className="absolute top-full left-1/2 -mt-px -translate-x-1/2 border-l-[6px] border-r-[6px] border-t-[6px] border-l-transparent border-r-transparent border-t-slate-900/95" />
+        </motion.div>
+      );
+    });
+
+    const MovingDot = React.memo(function MovingDot({ duration }) {
+      return (
+        <motion.div
+          className="absolute w-[9px] h-[9px] rounded-full pointer-events-none z-30"
+          initial={{ x: WAYPOINTS[0].x, y: WAYPOINTS[0].y, scale: 0.35, opacity: 0, backgroundColor: 'rgba(56,189,248,0.95)' }}
+          animate={{ x: DOT_X, y: DOT_Y, scale: DOT_SCALE, opacity: DOT_OPACITY }}
+          transition={{ duration: duration / 1000, times: DOT_TIMES }}
+        />
+      );
+    });
+
+    const PulseEffect = React.memo(function PulseEffect({ id, x, y, color, onRemove }) {
+      return (
+        <motion.div
+          className="absolute w-[16px] h-[16px] rounded-full pointer-events-none z-20"
+          style={{ left: x, top: y, backgroundColor: color }}
+          initial={{ x: '-50%', y: '-50%', scale: [0.4], opacity: [0] }}
+          animate={{ scale: [0.4, 1.2, 2.8], opacity: [0, 0.4, 0] }}
+          transition={{ duration: 0.8 }}
+          onAnimationComplete={() => onRemove(id)}
+        />
+      );
+    });
+
+    export default function GTMStack() {
+      const [metrics, setMetrics] = useState({ momentum: 0, pipeline: 52000, engagements: 0, wins: 0 });
+      const [routeState, setRouteState] = useState({ activeIdx: 0, doneIdx: 0 });
+      const [pulses, setPulses] = useState([]);
+      const [tripId, setTripId] = useState(0);
+      const [tripDuration, setTripDuration] = useState(0);
+      const [hoveredWaypoint, setHoveredWaypoint] = useState(null);
+      const pulseIdCounter = useRef(0);
+
+      const addPulse = useCallback((x, y, color) => {
+        const id = pulseIdCounter.current++;
+        setPulses(prev => [...prev, { id, x, y, color }]);
+      }, []);
+
+      const removePulse = useCallback((id) => {
+        setPulses(prev => prev.filter(p => p.id !== id));
+      }, []);
+
+      useEffect(() => {
+        let timeouts = [];
+        const runSimulation = () => {
+          setMetrics(prev => ({ ...prev, engagements: prev.engagements + 1 }));
+          const dur = 4000 + Math.random() * 2000;
+          setTripDuration(dur);
+          setTripId(prev => prev + 1);
+          setRouteState({ activeIdx: 0, doneIdx: 0 });
+
+          const step = dur / (WAYPOINTS.length + 1);
+          WAYPOINTS.forEach((w, i) => {
+            timeouts.push(setTimeout(() => {
+              setRouteState(prev => ({ activeIdx: i, doneIdx: Math.max(prev.doneIdx, i) }));
+              addPulse(w.x, w.y, w.color);
+              setMetrics(prev => ({
+                ...prev,
+                momentum: prev.momentum + Math.round(1 + Math.random() * 4),
+                pipeline: prev.pipeline + Math.round(500 + Math.random() * 2000)
+              }));
+            }, Math.floor(step * (i + 0.8))));
+          });
+
+          timeouts.push(setTimeout(() => {
+            const isWin = Math.random() < 0.65;
+            if (isWin) setMetrics(prev => ({ ...prev, wins: prev.wins + 1 }));
+            const lastW = WAYPOINTS[WAYPOINTS.length - 1];
+            addPulse(lastW.x, lastW.y, isWin ? '#10b981' : '#64748b');
+            setRouteState({ activeIdx: WAYPOINTS.length - 1, doneIdx: WAYPOINTS.length });
+          }, dur - 100));
+
+          timeouts.push(setTimeout(runSimulation, dur + 3000));
+        };
+
+        runSimulation();
+        return () => timeouts.forEach(clearTimeout);
+      }, [addPulse]);
+
+      const headerInfo = useMemo(() => {
+        if (hoveredWaypoint !== null) {
+          return { label: 'Previewing Stage', title: WAYPOINTS[hoveredWaypoint].name, chip: WAYPOINTS[hoveredWaypoint].chip, color: 'text-sky-300' };
+        }
+        return { label: 'System Status', title: 'Live Route Monitor', chip: 'Live', color: 'text-emerald-400' };
+      }, [hoveredWaypoint]);
+
+      const targetIdx = hoveredWaypoint !== null ? hoveredWaypoint : routeState.activeIdx;
+      const targetW = WAYPOINTS[targetIdx];
+      const needleAngle = (Math.atan2(targetW.y - 202, targetW.x - 210) * 180) / Math.PI + 90;
+
+      return (
+        <div className="w-full aspect-square max-w-[600px] flex items-center justify-center bg-slate-900/40 p-4">
+          <div className="relative w-full max-w-[420px] aspect-[420/560] rounded-[40px] overflow-hidden border border-white/10 bg-[#0a0f1e] shadow-2xl flex flex-col p-6">
+            
+            <motion.div
+              className="absolute top-1/2 left-1/2 w-[240%] h-[240%] opacity-20 pointer-events-none"
+              style={{ background: 'radial-gradient(circle at center, rgba(56,189,248,0.2) 0%, rgba(99,102,241,0.1) 40%, transparent 70%)', x: '-50%', y: '-50%' }}
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 180, repeat: Infinity, repeatType: 'loop' as const }}
+            />
+
+            <div className="relative z-10 flex items-start justify-between">
+              <div>
+                <h1 className="text-white font-bold text-lg tracking-tight">GTMStack.pro</h1>
+                <p className="text-slate-500 text-[9px] font-bold uppercase tracking-[0.3em] mt-1">Route Engine 4.0</p>
+              </div>
+              <div className="px-3 py-1.5 rounded-full bg-emerald-500/5 border border-emerald-500/10 flex items-center gap-2">
+                <Activity className="w-3 h-3 text-emerald-400 animate-pulse" />
+                <span className="text-emerald-400 text-[9px] font-bold uppercase tracking-widest">Tracking</span>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-6 flex-1 rounded-[32px] overflow-hidden p-1 border border-white/5 bg-white/5 backdrop-blur-2xl shadow-inner">
+              <div className="relative w-full h-full rounded-[28px] bg-[#050814] overflow-hidden">
+                <div className="absolute inset-0 opacity-[0.04] bg-[linear-gradient(rgba(255,255,255,0.1)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.1)_1px,transparent_1px)] bg-[size:16px_16px]" />
+
+                <svg className="absolute inset-0 w-full h-full opacity-30" viewBox="0 0 420 360">
+                  <path d="M 62 270 C 110 210, 128 150, 168 170 C 212 192, 240 120, 286 132 C 330 144, 342 206, 366 236" fill="none" stroke="rgba(255,255,255,0.2)" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+
+                <motion.div
+                  className="absolute left-1/2 top-[55%] w-[200px] h-[200px] rounded-full border border-dashed border-white/5"
+                  animate={{ rotate: [0, -360] }}
+                  transition={{ duration: 90, repeat: Infinity, repeatType: 'loop' as const }}
+                  style={{ x: '-50%', y: '-50%' }}
+                />
+
+                <motion.div
+                  className="absolute left-1/2 top-[55%] w-0.5 h-[90px] rounded-full bg-gradient-to-b from-sky-400 to-transparent"
+                  style={{ originX: 0.5, originY: 1, x: '-50%', y: '-100%' }}
+                  animate={{ rotate: [needleAngle] }}
+                  transition={{ type: 'spring', stiffness: 25, damping: 20 }}
+                />
+
+                {WAYPOINTS.map((w, i) => {
+                  const isOn = i === routeState.activeIdx;
+                  const isDone = i < routeState.doneIdx;
+                  return (
+                    <div
+                      key={i}
+                      className="absolute w-2 h-2 cursor-pointer z-20"
+                      style={{ left: w.x - 4, top: w.y - 4 }}
+                      onMouseEnter={() => setHoveredWaypoint(i)}
+                      onMouseLeave={() => setHoveredWaypoint(null)}
+                    >
+                      <motion.div
+                        className="w-full h-full rounded-full border border-white/10"
+                        animate={{ 
+                          backgroundColor: [isOn ? w.color : isDone ? '#10b981' : '#1e293b'],
+                          scale: [isOn ? 1.4 : 1],
+                          boxShadow: isOn ? [`0 0 15px ${w.color}`] : ['none']
+                        }}
+                      />
+                      <AnimatePresence>
+                        {hoveredWaypoint === i && <WaypointTooltip w={w} status={isOn ? 'Active' : isDone ? 'Completed' : 'Pending'} />}
+                      </AnimatePresence>
+                    </div>
+                  );
+                })}
+
+                <div className="absolute left-3 right-3 top-3 rounded-2xl border border-white/5 bg-slate-900/60 backdrop-blur-md p-3">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <div className="text-[8px] font-black uppercase tracking-[0.2em] text-slate-500">{headerInfo.label}</div>
+                      <AnimatePresence mode="wait">
+                        <motion.div
+                          key={headerInfo.title}
+                          initial={{ opacity: [0], y: [4] }}
+                          animate={{ opacity: [1], y: [0] }}
+                          exit={{ opacity: [0], y: [-4] }}
+                          className="text-xs font-bold text-white mt-0.5"
+                        >
+                          {headerInfo.title}
+                        </motion.div>
+                      </AnimatePresence>
+                    </div>
+                    <div className={`text-[9px] font-bold px-2 py-0.5 rounded bg-white/5 border border-white/10 ${headerInfo.color}`}>
+                      {headerInfo.chip}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="absolute inset-x-3 bottom-3 flex gap-2">
+                  <div className="flex-1 rounded-xl bg-white/5 border border-white/5 p-2.5 backdrop-blur-sm">
+                    <div className="flex items-center gap-1 opacity-50 mb-1">
+                      <TrendingUp className="w-2 h-2" />
+                      <span className="text-[7px] font-bold uppercase tracking-wider">Momentum</span>
+                    </div>
+                    <div className="text-xs font-bold tabular-nums tracking-tight">{metrics.momentum.toLocaleString()}</div>
+                  </div>
+                  <div className="flex-1 rounded-xl bg-white/5 border border-white/5 p-2.5 backdrop-blur-sm">
+                    <div className="flex items-center gap-1 opacity-50 mb-1">
+                      <Target className="w-2 h-2" />
+                      <span className="text-[7px] font-bold uppercase tracking-wider">Pipeline</span>
+                    </div>
+                    <div className="text-xs font-bold tabular-nums tracking-tight text-sky-400">${metrics.pipeline.toLocaleString()}</div>
+                  </div>
+                </div>
+
+                <AnimatePresence>
+                  {tripDuration > 0 && <MovingDot key={tripId} duration={tripDuration} />}
+                  {pulses.map(p => <PulseEffect key={p.id} id={p.id} x={p.x} y={p.y} color={p.color} onRemove={removePulse} />)}
+                </AnimatePresence>
+              </div>
+            </div>
+
+            <div className="relative z-10 mt-6 pt-5 border-t border-white/5 grid grid-cols-3 gap-4">
+              <div className="space-y-0.5 text-center">
+                <div className="text-[7px] font-bold uppercase tracking-[0.2em] text-slate-600">Engagements</div>
+                <div className="text-lg font-bold tabular-nums text-white/90">{metrics.engagements}</div>
+              </div>
+              <div className="space-y-0.5 text-center border-x border-white/5">
+                <div className="text-[7px] font-bold uppercase tracking-[0.2em] text-slate-600">Wins</div>
+                <div className="text-lg font-bold tabular-nums text-indigo-300">{metrics.wins}</div>
+              </div>
+              <div className="space-y-0.5 text-center">
+                <div className="text-[7px] font-bold uppercase tracking-[0.2em] text-slate-600">Conversion</div>
+                <div className="text-lg font-bold tabular-nums text-emerald-400">
+                  {metrics.engagements > 0 ? Math.round((metrics.wins / metrics.engagements) * 100) : 0}%
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    const container = document.getElementById('root');
+    const root = createRoot(container);
+    root.render(<GTMStack />);
+  </script>
+</body>
+</html>

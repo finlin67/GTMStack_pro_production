@@ -1,3 +1,5 @@
+const path = require('path')
+
 const withMDX = require('@next/mdx')({
   extension: /\.mdx?$/,
   options: {
@@ -9,6 +11,13 @@ const withMDX = require('@next/mdx')({
 /** @type {import('next').NextConfig} */
 const baseConfig = {
   distDir: '.next',
+  /** When a parent directory has another lockfile, Next can infer the wrong root; pin this app folder. */
+  outputFileTracingRoot: path.join(__dirname),
+  /**
+   * Next.js 16 defaults to Turbopack in dev; @next/mdx still injects a `webpack` hook.
+   * Declaring `turbopack` avoids the "webpack config and no turbopack config" hard error.
+   */
+  turbopack: {},
   pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
   images: {
     dangerouslyAllowSVG: true,

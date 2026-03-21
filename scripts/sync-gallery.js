@@ -18,6 +18,7 @@ function parseArgs(argv) {
     manifestIn: 'exports/gallery-manifest.json',
     manifestOut: 'src/data/gallery-manifest.json',
     imagesOutRoot: 'public/images',
+    copyEntryHtml: false,
   }
 
   for (const raw of argv) {
@@ -45,6 +46,10 @@ function parseArgs(argv) {
     }
     if (raw.startsWith('--images-out-root=')) {
       args.imagesOutRoot = raw.split('=', 2)[1].replace(/^"|"$/g, '')
+      continue
+    }
+    if (raw === '--copy-entry-html') {
+      args.copyEntryHtml = true
       continue
     }
     if (raw === '--help' || raw === '-h') {
@@ -141,6 +146,7 @@ Flags:
   --manifest-in=exports/gallery-manifest.json
   --manifest-out=src/data/gallery-manifest.json
   --images-out-root=public/images
+  --copy-entry-html  (copy entryHtml + local assets into public/ for iframe fallback)
 `)
     process.exit(0)
   }
@@ -152,6 +158,7 @@ Flags:
   const manifestDest = path.resolve(websiteRepoRoot, args.manifestOut)
 
   const imagesOutRoot = path.resolve(websiteRepoRoot, args.imagesOutRoot)
+  const publicOutRoot = path.resolve(websiteRepoRoot, 'public')
 
   console.log('GTMStack Gallery Sync')
   console.log('---------------------')
@@ -253,6 +260,144 @@ Flags:
     if (missingSources.length > 50) {
       console.log(`... and ${missingSources.length - 50} more`)
     }
+  }
+
+  // Optional: copy entryHtml + local assets for iframe-based modal fallback.
+  if (args.copyEntryHtml) {
+    console.log('')
+    console.log('Entry HTML (iframe fallback)')
+    console.log('------------------------------')
+
+    const entryItems = validItems.filter((i) => typeof i.entryHtml === 'string' && i.entryHtml.length > 0)
+    const entryCounters = {
+      referenced: entryItems.length,
+      copied: 0,
+      overwrites: 0,
+      missing: 0,
+    }
+    const missingEntrySources = []
+
+    const allowedExt = new Set([
+      '.html',
+      '.js',
+      '.mjs',
+      '.cjs',
+      '.css',
+      '.png',
+      '.jpg',
+      '.jpeg',
+      '.webp',
+      '.gif',
+      '.svg',
+      '.map',
+      '.json',
+      '.woff',
+      '.woff2',
+      '.ttf',
+      '.eot',
+      '.txt',
+    ])
+    const skipDirNames = new Set(['node_modules', '.next', 'dist', 'build', 'out', '.git'])
+
+    function shouldCopyFile(fileName) {
+      const ext = path.extname(fileName).toLowerCase()
+      return allowedExt.has(ext)
+    }
+
+    function copyDirAssets({ srcDirAbs, destDirAbs, dryRun, depth, maxDepth }) {
+      if (depth > maxDepth) return
+
+      let entries = []
+      try {
+        entries = fs.readdirSync(srcDirAbs, { withFileTypes: true })
+      } catch {
+        return
+      }
+
+      for (const ent of entries) {
+        const srcPath = path.join(srcDirAbs, ent.name)
+        const destPath = path.join(destDirAbs, ent.name)
+
+        if (ent.isDirectory()) {
+          if (skipDirNames.has(ent.name)) continue
+          copyDirAssets({
+            srcDirAbs: srcPath,
+            destDirAbs: destPath,
+            dryRun,
+            depth: depth + 1,
+            maxDepth,
+          })
+          continue
+        }
+
+        if (!ent.isFile()) continue
+        if (!shouldCopyFile(ent.name)) continue
+
+        const perFileCounters = { copied: 0, overwrites: 0 }
+        copyFileWithLogs({
+          src: srcPath,
+          dest: destPath,
+          dryRun,
+          label: `asset (${ent.name})`,
+          counters: perFileCounters,
+        })
+        entryCounters.copied += perFileCounters.copied
+        entryCounters.overwrites += perFileCounters.overwrites
+      }
+    }
+
+    for (const item of entryItems) {
+      const entryRel = item.entryHtml.replace(/\\/g, '/')
+      const srcEntry = path.resolve(animationsRepoRoot, entryRel)
+      const destEntry = path.resolve(publicOutRoot, entryRel)
+
+      if (!fs.existsSync(srcEntry)) {
+        entryCounters.missing += 1
+        missingEntrySources.push({ id: item.id, srcEntry })
+        continue
+      }
+
+      const perFileCounters = { copied: 0, overwrites: 0 }
+      copyFileWithLogs({
+        src: srcEntry,
+        dest: destEntry,
+        dryRun: !args.apply,
+        label: `entryHtml (${item.id})`,
+        counters: perFileCounters,
+      })
+      entryCounters.copied += perFileCounters.copied
+      entryCounters.overwrites += perFileCounters.overwrites
+
+      const entryDirAbs = path.dirname(srcEntry)
+      const destDirAbs = path.dirname(destEntry)
+      copyDirAssets({
+        srcDirAbs: entryDirAbs,
+        destDirAbs: destDirAbs,
+        dryRun: !args.apply,
+        depth: 0,
+        maxDepth: 2,
+      })
+    }
+
+    if (missingEntrySources.length) {
+      console.log('')
+      console.log('Missing entryHtml (source not found)')
+      console.log('-------------------------------------')
+      for (const miss of missingEntrySources.slice(0, 50)) {
+        console.log(`- ${miss.id}: ${miss.srcEntry}`)
+      }
+      if (missingEntrySources.length > 50) {
+        console.log(`... and ${missingEntrySources.length - 50} more`)
+      }
+    }
+
+    console.log('')
+    console.log('Entry HTML Summary')
+    console.log('------------------')
+    console.log(`- Entry HTML referenced: ${entryCounters.referenced}`)
+    console.log(`- Entry HTML assets copied: ${entryCounters.copied}`)
+    console.log(`- Entry HTML missing at source: ${entryCounters.missing}`)
+    console.log(`- Overwrites: ${entryCounters.overwrites}`)
   }
 
   console.log('')

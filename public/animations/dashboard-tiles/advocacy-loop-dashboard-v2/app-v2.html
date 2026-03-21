@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Advocacy Loop Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet"/>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <script>
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary": "#13a4ec",
+            "background-light": "#f6f7f8",
+            "background-dark": "#101c22",
+          },
+          fontFamily: {
+            "display": ["Inter", "sans-serif"]
+          },
+        },
+      },
+    }
+  </script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background-color: #101c22;
+      color: white;
+      overflow-x: hidden;
+    }
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 6px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background: #325567;
+      border-radius: 10px;
+    }
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+      background: #13a4ec;
+    }
+  </style>
+  <script type="importmap">
+  {
+    "imports": {
+      "react": "https://esm.sh/react@18.2.0",
+      "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+      "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+      "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+    }
+  }
+  </script>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script type="text/babel" data-type="module">
+    import React, { useState, useEffect } from 'react';
+    import ReactDOM from 'react-dom/client';
+    import { motion, AnimatePresence } from 'framer-motion';
+    import { 
+      Smile, 
+      Share2, 
+      UserPlus, 
+      RefreshCw, 
+      Zap,
+      Award, 
+      ChevronRight, 
+      X, 
+      Download, 
+      Quote, 
+      Globe,
+      ArrowRight
+    } from 'lucide-react';
+
+    /**
+     * CaseSeqTile Component
+     */
+    const loopSteps = [
+      {
+        id: 1,
+        title: "Happy Customer",
+        desc: "Peak satisfaction trigger",
+        icon: Smile,
+        color: "#13a4ec",
+        position: "top"
+      },
+      {
+        id: 2,
+        title: "Share Referral",
+        desc: "Incentivized sharing",
+        icon: Share2,
+        color: "#a855f7",
+        position: "right"
+      },
+      {
+        id: 3,
+        title: "New Lead Gen",
+        desc: "High-trust organic growth",
+        icon: UserPlus,
+        color: "#d946ef",
+        position: "bottom"
+      },
+      {
+        id: 4,
+        title: "Awareness Loop",
+        desc: "Higher conversion intent",
+        icon: RefreshCw,
+        color: "#22d3ee",
+        position: "left"
+      }
+    ];
+
+    function CaseSeqTile() {
+      const [activeStep, setActiveStep] = useState(0);
+
+      useEffect(() => {
+        const timer = setInterval(() => {
+          setActiveStep((prev) => (prev + 1) % loopSteps.length);
+        }, 3000);
+        return () => clearInterval(timer);
+      }, []);
+
+      return (
+        <div className="w-full aspect-square max-w-[600px] flex items-center justify-center p-4 relative bg-[#111c22] border border-[#325567] rounded-xl overflow-hidden shadow-2xl isolate">
+          
+          {/* Background Gradients/Glows */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-[#13a4ec]/10 via-transparent to-transparent opacity-[0.5]" />
+          <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 blur-[100px] rounded-full" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#13a4ec]/10 blur-[100px] rounded-full" />
+
+          {/* Central Hub (Engine) */}
+          <div className="absolute z-10 flex flex-col items-center justify-center">
+            <div className="relative flex items-center justify-center">
+              <motion.div 
+                animate={{ rotate: [0, 360] }}
+                transition={{ duration: 20, repeat: Infinity }}
+                className="absolute inset-[-12px] rounded-full border border-dashed border-[#325567]/50 w-32 h-32"
+              />
+              <motion.div 
+                animate={{ rotate: [0, -360] }}
+                transition={{ duration: 15, repeat: Infinity }}
+                className="absolute inset-[-4px] rounded-full border border-dotted border-[#13a4ec]/30 w-28 h-28"
+              />
+              
+              <div className="relative w-24 h-24 bg-[#1a2c38] rounded-full border border-[#325567] flex items-center justify-center shadow-[0_0_30px_rgba(19,164,236,0.15)] overflow-hidden">
+                <motion.div
+                  animate={{ scale: [1, 1.15, 1], opacity: [0.1, 0.2, 0.1] }}
+                  transition={{ duration: 2, repeat: Infinity, repeatType: "mirror" }}
+                  className="absolute inset-0 bg-[#13a4ec] rounded-full"
+                />
+                <Zap className="w-8 h-8 text-[#13a4ec] fill-[#13a4ec]/20 z-10" />
+              </div>
+            </div>
+            <div className="mt-4 text-center">
+              <p className="text-white font-bold text-sm tracking-widest uppercase">Growth</p>
+              <p className="text-[#92b7c9] text-[10px] font-medium opacity-80 uppercase tracking-tighter">Engine Active</p>
+            </div>
+          </div>
+
+          {/* Loop Visualizer */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none z-0 overflow-visible" viewBox="0 0 600 600">
+            <defs>
+              <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#13a4ec" stopOpacity="0.2" />
+                <stop offset="50%" stopColor="#a855f7" stopOpacity="0.2" />
+                <stop offset="100%" stopColor="#13a4ec" stopOpacity="0.2" />
+              </linearGradient>
+            </defs>
+            <motion.circle 
+              cx="300" cy="300" r="210"
+              fill="none"
+              stroke="url(#lineGradient)"
+              strokeWidth="1.5"
+              strokeDasharray="12 12"
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 60, repeat: Infinity }}
+              style={{ transformOrigin: "300px 300px" }}
+            />
+            <motion.g 
+              animate={{ rotate: [0, 360] }}
+              transition={{ duration: 12, repeat: Infinity }}
+              style={{ transformOrigin: "300px 300px" }}
+            >
+              <circle cx="300" cy="90" r="4" fill="#13a4ec" className="shadow-[0_0_15px_#13a4ec]" />
+              <motion.circle 
+                cx="300" cy="90" r="8" 
+                stroke="#13a4ec" 
+                strokeWidth="1" 
+                fill="none" 
+                animate={{ scale: [1, 2], opacity: [0.5, 0] }}
+                transition={{ duration: 1.5, repeat: Infinity }}
+              />
+            </motion.g>
+            <motion.g 
+              animate={{ rotate: [180, 540] }}
+              transition={{ duration: 16, repeat: Infinity }}
+              style={{ transformOrigin: "300px 300px" }}
+            >
+              <circle cx="300" cy="90" r="3" fill="#a855f7" className="shadow-[0_0_10px_#a855f7]" />
+            </motion.g>
+          </svg>
+
+          {loopSteps.map((step, index) => {
+            const isActive = activeStep === index;
+            let positionClasses = "";
+            if (step.position === 'top') positionClasses = "top-[10%] left-1/2 -translate-x-1/2";
+            if (step.position === 'bottom') positionClasses = "bottom-[10%] left-1/2 -translate-x-1/2";
+            if (step.position === 'left') positionClasses = "left-[10%] top-1/2 -translate-y-1/2";
+            if (step.position === 'right') positionClasses = "right-[10%] top-1/2 -translate-y-1/2";
+
+            const Icon = step.icon;
+
+            return (
+              <motion.div
+                key={step.id}
+                className={`absolute ${positionClasses} flex flex-col items-center gap-2 z-20 w-32`}
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="relative group cursor-pointer">
+                  <AnimatePresence>
+                    {isActive && (
+                      <motion.span 
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        animate={{ opacity: [0, 0.5, 0], scale: [1, 1.4] }}
+                        exit={{ opacity: 0 }}
+                        transition={{ duration: 2, repeat: Infinity }}
+                        className="absolute inset-0 rounded-2xl" 
+                        style={{ backgroundColor: step.color }}
+                      />
+                    )}
+                  </AnimatePresence>
+                  
+                  <motion.div 
+                    className={`relative flex items-center justify-center w-14 h-14 rounded-2xl border bg-[#111c22] overflow-hidden`}
+                    animate={{ 
+                      borderColor: isActive ? step.color : '#325567',
+                      boxShadow: isActive ? [`0 0 0px ${step.color}00`, `0 0 15px ${step.color}44`, `0 0 0px ${step.color}00`] : 'none'
+                    }}
+                    transition={{ duration: 2, repeat: Infinity }}
+                  >
+                    <motion.div
+                      className="z-10 flex items-center justify-center"
+                      animate={isActive ? { 
+                        scale: [1, 1.2, 1],
+                        filter: [
+                          `drop-shadow(0 0 0px ${step.color}00)`,
+                          `drop-shadow(0 0 8px ${step.color}88)`,
+                          `drop-shadow(0 0 0px ${step.color}00)`
+                        ]
+                      } : { scale: 1, filter: "none" }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    >
+                      <Icon size={24} color={isActive ? step.color : "#92b7c9"} />
+                    </motion.div>
+                    
+                    {isActive && (
+                      <motion.div 
+                        initial={{ height: 0 }}
+                        animate={{ height: "100%" }}
+                        transition={{ duration: 3 }}
+                        className="absolute bottom-0 left-0 w-1 opacity-60"
+                        style={{ backgroundColor: step.color }}
+                      />
+                    )}
+                  </motion.div>
+                </div>
+
+                <div className="text-center">
+                  <motion.h3 
+                    animate={{ color: isActive ? "#ffffff" : "#92b7c9" }}
+                    className="text-[11px] font-bold uppercase tracking-wider mb-0.5"
+                  >
+                    {step.title}
+                  </motion.h3>
+                  <AnimatePresence mode="wait">
+                    {isActive && (
+                      <motion.p 
+                        initial={{ opacity: 0, y: 5 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -5 }}
+                        className="text-[#92b7c9] text-[9px] font-medium leading-tight max-w-[100px] mx-auto"
+                      >
+                        {step.desc}
+                      </motion.p>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+
+          <motion.div 
+              className="absolute top-[22%] right-[22%] bg-[#1a2c38]/90 backdrop-blur-md border border-[#0bda57]/30 px-2.5 py-1 rounded-full pointer-events-none z-30"
+              animate={{ y: [0, -4, 0], opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 4, repeat: Infinity }}
+          >
+              <p className="text-[#0bda57] text-[10px] font-black tracking-tight">+35% Leads</p>
+          </motion.div>
+
+          <motion.div 
+              className="absolute bottom-[22%] left-[22%] bg-[#1a2c38]/90 backdrop-blur-md border border-[#a855f7]/30 px-2.5 py-1 rounded-full pointer-events-none z-30"
+              animate={{ y: [0, 4, 0], opacity: [0.8, 1, 0.8] }}
+              transition={{ duration: 5, repeat: Infinity }}
+          >
+              <p className="text-[#a855f7] text-[10px] font-black tracking-tight">-18% CAC</p>
+          </motion.div>
+        </div>
+      );
+    }
+
+    /**
+     * Main App Component
+     */
+    function App() {
+      return (
+        <div className="min-h-screen bg-[#101c22] font-display antialiased flex items-center justify-center p-4 md:p-8 relative overflow-hidden">
+          
+          {/* Background Ambience */}
+          <div className="fixed inset-0 z-0 opacity-[0.15] blur-3xl pointer-events-none">
+            <div className="absolute top-0 left-0 w-[800px] h-[800px] bg-[#13a4ec] rounded-full -translate-x-1/2 -translate-y-1/2"></div>
+            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#a855f7] rounded-full translate-x-1/4 translate-y-1/4"></div>
+          </div>
+
+          {/* Main Dashboard Surface */}
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="relative z-10 w-full max-w-6xl bg-[#111c22]/80 backdrop-blur-2xl border border-[#325567]/30 rounded-2xl overflow-hidden shadow-[0_32px_128px_-16px_rgba(0,0,0,0.8)] flex flex-col max-h-[92vh]"
+          >
+            
+            {/* Header */}
+            <header className="flex items-center justify-between border-b border-[#325567]/20 px-8 py-5 shrink-0 bg-[#111c22]/40">
+              <div className="flex items-center gap-4">
+                <div className="bg-[#13a4ec]/10 p-2.5 rounded-xl border border-[#13a4ec]/20 shadow-[0_0_20px_rgba(19,164,236,0.1)]">
+                  <Award className="w-6 h-6 text-[#13a4ec]" />
+                </div>
+                <div>
+                  <h2 className="text-white text-lg font-extrabold leading-tight tracking-tight">Case Optimization</h2>
+                  <div className="flex items-center gap-2 text-[10px] font-bold text-[#92b7c9] uppercase tracking-widest opacity-70">
+                    <span>Lifecycle</span>
+                    <ChevronRight className="w-3 h-3" />
+                    <span>Advocacy Loop</span>
+                  </div>
+                </div>
+              </div>
+              <button className="p-2 rounded-full hover:bg-white/5 text-[#92b7c9] hover:text-white transition-all">
+                <X className="w-6 h-6" />
+              </button>
+            </header>
+
+            {/* Content Wrapper */}
+            <div className="flex-1 overflow-y-auto p-8 md:p-12 custom-scrollbar">
+              
+              {/* Headline Section */}
+              <div className="flex flex-col lg:flex-row justify-between items-start gap-8 mb-16">
+                <div className="max-w-3xl">
+                  <motion.span 
+                    initial={{ opacity: 0, x: -10 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    className="inline-block px-3 py-1 rounded-full bg-[#13a4ec]/10 text-[#13a4ec] text-[10px] font-black uppercase tracking-[0.2em] mb-4 border border-[#13a4ec]/20"
+                  >
+                    Growth Marketing Case Study
+                  </motion.span>
+                  <h1 className="text-white text-4xl md:text-6xl font-black leading-[1.05] tracking-tight mb-6">
+                    Turning Passive Users into <br/>
+                    <span className="bg-gradient-to-r from-[#13a4ec] via-[#a855f7] to-[#d946ef] bg-clip-text text-transparent">Brand Champions</span>
+                  </h1>
+                  <p className="text-[#92b7c9] text-xl leading-relaxed max-w-2xl font-medium">
+                    We engineered a high-velocity referral engine that incentivized every touchpoint, reducing customer acquisition costs by nearly 20%.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 w-full lg:w-auto shrink-0">
+                  <button className="group flex items-center justify-center gap-3 rounded-2xl h-14 px-8 bg-white text-[#101c22] text-sm font-black hover:scale-[1.02] active:scale-[0.98] transition-all shadow-[0_8px_32px_rgba(255,255,255,0.1)]">
+                    <Download className="w-4 h-4 group-hover:translate-y-0.5 transition-transform" />
+                    <span>Full Strategy PDF</span>
+                  </button>
+                  <button className="flex items-center justify-center gap-3 rounded-2xl h-14 px-8 bg-[#233c48] text-white text-sm font-bold border border-[#325567]/50 hover:bg-[#325567]/80 transition-all">
+                    <span>View Raw Data</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Core Metrics Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+                {[
+                  { label: "Viral Growth", value: "+35%", desc: "MoM Referral Leads", color: "#13a4ec" },
+                  { label: "CAC Reduction", value: "-18%", desc: "Cost per Activation", color: "#fa5f38" },
+                  { label: "Avg. NPS", value: "78.2", desc: "User Satisfaction Score", color: "#0bda57" }
+                ].map((stat, i) => (
+                  <motion.div 
+                    key={i}
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1 }}
+                    className="group relative flex flex-col gap-2 rounded-2xl p-8 border border-[#325567]/30 bg-[#111c22]/50 hover:border-[#13a4ec]/30 transition-all"
+                  >
+                    <div className="absolute top-4 right-6 text-[10px] font-black uppercase opacity-20 group-hover:opacity-100 transition-opacity" style={{ color: stat.color }}>
+                      Verified
+                    </div>
+                    <p className="text-[#92b7c9] text-xs font-bold uppercase tracking-widest">{stat.label}</p>
+                    <p className="text-white tracking-tighter text-5xl font-black">{stat.value}</p>
+                    <p className="text-[#92b7c9] text-sm font-medium mt-1">{stat.desc}</p>
+                  </motion.div>
+                ))}
+              </div>
+
+              {/* Interactive Visualization Section */}
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-stretch">
+                <div className="lg:col-span-7 flex flex-col gap-8">
+                  <div className="flex items-center justify-between">
+                    <h3 className="text-white text-2xl font-black tracking-tight flex items-center gap-3">
+                      <div className="w-2 h-8 bg-[#13a4ec] rounded-full" />
+                      Referral Cycle Strategy
+                    </h3>
+                  </div>
+                  <div className="flex-1 w-full flex items-center justify-center bg-[#101c22]/80 rounded-3xl border border-[#325567]/30 shadow-inner group overflow-hidden">
+                    <CaseSeqTile />
+                  </div>
+                </div>
+
+                <div className="lg:col-span-5 flex flex-col gap-8">
+                  <h3 className="text-white text-2xl font-black tracking-tight flex items-center gap-3">
+                    <div className="w-2 h-8 bg-[#a855f7] rounded-full" />
+                    Strategic Impact
+                  </h3>
+                  <div className="flex-1 bg-gradient-to-br from-[#1a2c38] to-[#111c22] border border-[#325567]/40 rounded-3xl p-10 flex flex-col gap-10 relative overflow-hidden">
+                    <div className="absolute -right-8 -top-8 opacity-[0.03]">
+                      <Quote className="w-64 h-64 text-white transform rotate-12" />
+                    </div>
+                    <p className="text-white text-2xl font-medium italic leading-relaxed relative z-10">
+                      &quot;This loop didn&apos;t just grow our leads; it transformed how we view our customers. They are now our most effective marketing department.&quot;
+                    </p>
+                    <div className="flex items-center gap-5 pt-8 border-t border-[#325567]/30 mt-auto">
+                      <div className="relative">
+                        <img 
+                          alt="CMO" 
+                          className="w-16 h-16 rounded-2xl object-cover border-2 border-[#13a4ec]/30 shadow-xl" 
+                          src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200"
+                        />
+                        <div className="absolute -bottom-1 -right-1 w-5 h-5 bg-[#0bda57] rounded-full border-2 border-[#111c22]" />
+                      </div>
+                      <div>
+                        <p className="text-white font-black text-lg">Sarah Jenkins</p>
+                        <p className="text-[#92b7c9] text-sm font-bold uppercase tracking-wider opacity-80">CMO @ SaaSify Global</p>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Call to Action */}
+                  <div className="bg-[#13a4ec] rounded-3xl p-10 text-[#101c22] flex flex-col gap-6 shadow-[0_20px_40px_rgba(19,164,236,0.3)] group cursor-pointer hover:scale-[1.01] transition-transform">
+                    <div className="flex items-center justify-between">
+                      <h4 className="text-2xl font-black tracking-tight">Scale Your Growth?</h4>
+                      <div className="bg-white/20 p-3 rounded-2xl">
+                        <ArrowRight className="w-6 h-6 group-hover:translate-x-1 transition-transform" />
+                      </div>
+                    </div>
+                    <p className="font-bold opacity-80 leading-snug">
+                      Our advocacy strategies are custom-built for high-ticket SaaS products. Book your strategy session today.
+                    </p>
+                    <div className="flex -space-x-3 mt-2">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="w-10 h-10 rounded-full border-2 border-[#13a4ec] bg-[#1a2c38] overflow-hidden">
+                          <img src={`https://i.pravatar.cc/150?u=${i}`} alt="user" />
+                        </div>
+                      ))}
+                      <div className="w-10 h-10 rounded-full border-2 border-[#13a4ec] bg-white flex items-center justify-center text-[10px] font-black">
+                        +12k
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Footer */}
+            <footer className="bg-[#111c22]/80 backdrop-blur-xl border-t border-[#325567]/20 px-12 py-6 flex flex-col md:flex-row justify-between items-center shrink-0 gap-4">
+              <div className="flex items-center gap-6">
+                <p className="text-[#92b7c9] text-[10px] font-bold uppercase tracking-[0.2em]">Lifecycle Agency © 2024</p>
+                <div className="h-4 w-px bg-[#325567]/40 hidden md:block" />
+                <div className="flex gap-4">
+                   <Globe className="w-4 h-4 text-[#92b7c9]" />
+                   <span className="text-[#92b7c9] text-[10px] font-bold uppercase tracking-widest hover:text-white transition-colors cursor-pointer">Global Operations</span>
+                </div>
+              </div>
+              <div className="flex gap-8">
+                <span className="text-[#92b7c9] text-[10px] font-black uppercase tracking-widest hover:text-[#13a4ec] cursor-pointer transition-colors">Privacy</span>
+                <span className="text-[#92b7c9] text-[10px] font-black uppercase tracking-widest hover:text-[#13a4ec] cursor-pointer transition-colors">Compliance</span>
+                <span className="text-[#92b7c9] text-[10px] font-black uppercase tracking-widest hover:text-[#13a4ec] cursor-pointer transition-colors">Support</span>
+              </div>
+            </footer>
+          </motion.div>
+        </div>
+      );
+    }
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

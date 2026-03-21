@@ -1,9 +1,24 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
+import { Montserrat, Rubik } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import './globals.css'
+
+/** Industry stitch template (IndustrySingleStitchLayout) — loaded once, self-hosted via next/font */
+const stitchMontserrat = Montserrat({
+  subsets: ['latin'],
+  weight: ['600', '700', '800'],
+  variable: '--font-stitch-montserrat',
+  display: 'swap',
+})
+const stitchRubik = Rubik({
+  subsets: ['latin'],
+  weight: ['400', '500', '600'],
+  variable: '--font-stitch-rubik',
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   icons: {
@@ -51,7 +66,10 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={`${GeistSans.variable} ${GeistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${GeistSans.variable} ${GeistMono.variable} ${stitchMontserrat.variable} ${stitchRubik.variable}`}
+    >
       <body className="min-h-screen flex flex-col antialiased">
         <Navbar />
         <main className="flex-grow">{children}</main>

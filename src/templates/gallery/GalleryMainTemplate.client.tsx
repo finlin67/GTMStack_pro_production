@@ -6,6 +6,11 @@ import { GalleryModal } from '@/components/gallery/GalleryModal'
 import type { GalleryItem } from '@/src/lib/galleryManifest'
 import { StitchGalleryShell } from '@/components/gallery/StitchGalleryShell.client'
 import { resolveRegistryIdForManifestItem } from '@/src/lib/galleryAnimationMap'
+import {
+  applyCanonicalVisibility,
+  normalizeSummary,
+  resolvePreviewDecision,
+} from '@/src/lib/galleryPreviewPolicy'
 
 export interface GalleryMainContent {
   hero: {
@@ -28,6 +33,8 @@ export type GalleryItemClient = Pick<
   | 'category'
   | 'tags'
   | 'thumbnailUrl'
+  | 'entryHtml'
+  | 'placeholderPreview'
   | 'githubUrl'
   | 'githubReadmeUrl'
   | 'updatedAt'
@@ -58,17 +65,52 @@ export default function GalleryMainTemplate({
     [content]
   )
 
-  const items = useMemo(() => initialItems ?? [], [initialItems])
+  const items = useMemo(
+    () =>
+      (initialItems ?? []).map((item) => ({
+        ...item,
+        summary: normalizeSummary(item.summary),
+      })),
+    [initialItems]
+  )
+
+  const { visibleItems } = useMemo(
+    () =>
+      applyCanonicalVisibility(items, {
+        includeSecondary: false,
+        includeDeprecated: false,
+      }),
+    [items]
+  )
+
+  const displayItems = useMemo(
+    () =>
+      visibleItems.map((item) => {
+        const registryId = resolveRegistryIdForManifestItem(item)
+        const hasMappedComponent = !!ANIMATION_REGISTRY.find((a) => a.id === registryId)
+        const decision = resolvePreviewDecision({
+          hasMappedComponent,
+          entryHtml: item.entryHtml,
+          thumbnailUrl: item.thumbnailUrl,
+        })
+
+        return {
+          ...item,
+          previewMode: decision.mode,
+        }
+      }),
+    [visibleItems]
+  )
 
   // Modal state management
   const [selectedId, setSelectedId] = useState<string | null>(null)
 
   const selectedRegistryId = useMemo(() => {
     if (!selectedId) return null
-    const item = items.find((i) => i.id === selectedId)
+    const item = displayItems.find((i) => i.id === selectedId)
     if (!item) return null
     return resolveRegistryIdForManifestItem(item)
-  }, [items, selectedId])
+  }, [displayItems, selectedId])
 
   const selectedAnimation = useMemo(
     () => ANIMATION_REGISTRY.find((a) => a.id === selectedRegistryId) ?? null,
@@ -76,23 +118,34 @@ export default function GalleryMainTemplate({
   )
 
   const selectedItem = useMemo(
-    () => items.find((item) => item.id === selectedId) ?? null,
-    [items, selectedId]
+    () => displayItems.find((item) => item.id === selectedId) ?? null,
+    [displayItems, selectedId]
   )
+
+  const selectedPreviewDecision = useMemo(() => {
+    if (!selectedItem) return null
+    return resolvePreviewDecision({
+      hasMappedComponent: !!selectedAnimation,
+      entryHtml: selectedItem.entryHtml,
+      thumbnailUrl: selectedItem.thumbnailUrl,
+    })
+  }, [selectedAnimation, selectedItem])
 
   const handleSelect = (id: string) => setSelectedId(id)
 
   return (
     <>
-      {items.length > 0 ? (
+      {displayItems.length > 0 ? (
         <StitchGalleryShell
-          items={items.map((i) => ({
+          items={displayItems.map((i) => ({
             id: i.id,
             title: i.title,
             summary: i.summary ?? null,
             category: i.category,
             tags: i.tags,
             thumbnailUrl: i.thumbnailUrl,
+            previewMode: i.previewMode,
+            placeholderPreview: i.placeholderPreview ?? false,
           }))}
           onSelect={handleSelect}
           showThumbnails={true}
@@ -106,6 +159,7 @@ export default function GalleryMainTemplate({
       <GalleryModal
         animation={selectedAnimation}
         onClose={() => setSelectedId(null)}
+        previewDecision={selectedPreviewDecision}
         manifest={
           selectedItem
             ? {

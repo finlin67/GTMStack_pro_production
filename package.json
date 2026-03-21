@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --webpack",
+    "dev": "node scripts/ensure-next-dev-manifest.js && next dev --webpack",
     "build": "next build --webpack",
     "build:hostinger": "cross-env NODE_OPTIONS=--max-old-space-size=2048 next build --webpack",
     "start": "next start",
@@ -12,6 +12,9 @@
     "check": "npm run lint && npm run typecheck",
     "sync:gallery:dry": "node scripts/sync-gallery.js --dry-run --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
     "sync:gallery": "node scripts/sync-gallery.js --apply --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
+    "sync:gallery:entry-html:dry": "node scripts/sync-gallery.js --dry-run --copy-entry-html --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
+    "sync:gallery:entry-html": "node scripts/sync-gallery.js --apply --copy-entry-html --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
+    "audit:gallery:phase2": "npx tsx scripts/audit-gallery-phase2.ts",
     "gen:all": "npm run gen:registry && npm run gen:animations",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
     "gen:registry": "npx tsx scripts/gen-page-registry.ts",
@@ -23,6 +26,9 @@
     "page:upsert": "node scripts/page-upsert.mjs",
     "registry:audit": "node scripts/registry-audit.mjs",
     "gen:thumbnails": "node scripts/generate-thumbnails.js",
+    "regen:gallery-thumbs:dry": "npx tsx scripts/regenerate-gallery-thumbnails.ts --dry-run",
+    "regen:gallery-thumbs": "npx tsx scripts/regenerate-gallery-thumbnails.ts --apply",
+    "report:gallery:placeholders": "npx tsx scripts/report-gallery-placeholder-items.ts",
     "cleanup:thumbnail-factory": "node scripts/cleanup-thumbnail-factory.js",
     "gen:thumbnails:once": "npm run gen:thumbnails && npm run cleanup:thumbnail-factory",
     "diag:easing": "node scripts/find-invalid-easing.js"

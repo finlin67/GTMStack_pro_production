@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Design System: Color Palette */
+  /* Updated to a rich Navy Blue (Slate 900) instead of Deep Space (Slate 950) */
+  --color-deep-space: #0f172a; 
+  --color-slate-900: #0f172a;
+  --color-primary-teal: #0b8aad;
+  --color-emerald: #10b981;
+  --color-soft-blue: #60a5fa;
+}
+
+@layer base {
+  body {
+    /* Apply the new Navy background */
+    @apply bg-[#0f172a] text-slate-100 antialiased;
+  }
+  
+  /* Custom Selection Color */
+  ::selection {
+    background-color: rgba(11, 138, 173, 0.3); /* Growth Teal / 30% */
+  }
+}
+
+@layer utilities {
+  /* 
+   * Background Grid Pattern 
+   * Replaces the inline style in App.tsx
+   */
+  .bg-grid-pattern {
+    background-image: radial-gradient(circle at 2px 2px, rgba(255,255,255,0.05) 1px, transparent 0);
+    background-size: 32px 32px;
+  }
+
+  /* 
+   * Glassmorphism Card Utility 
+   * Updated to bg-slate-800/60 to contrast against the new bg-slate-900 background
+   */
+  .glass-card {
+    @apply bg-slate-800/60 backdrop-blur-xl border border-slate-700/50 shadow-2xl;
+  }
+  
+  /* 
+   * Text Gradients
+   */
+  .text-gradient-primary {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-[#10b981] to-[#60a5fa];
+  }
+}

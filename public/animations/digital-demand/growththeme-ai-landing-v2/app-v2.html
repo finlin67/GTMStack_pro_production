@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GROWTH.AI - High-Performance Landing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        display: ['"Space Grotesk"', "sans-serif"],
+                    },
+                    colors: {
+                        "background-dark": "#020617",
+                        "panel-bg": "#0f172a",
+                        "primary-blue": "#2563eb",
+                        "cyan-accent": "#06b6d4",
+                        "success-green": "#10b981",
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #020617;
+            font-family: "Space Grotesk", sans-serif;
+            color: white;
+            overflow-x: hidden;
+        }
+        .selection-cyan::selection {
+            background-color: rgba(6, 182, 212, 0.3);
+        }
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #334155;
+        }
+    </style>
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="selection-cyan antialiased">
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React, { useState, useCallback, useMemo } from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { motion, AnimatePresence } from 'framer-motion';
+        import { 
+            TrendingUp, 
+            Brain, 
+            LineChart, 
+            Sparkles, 
+            Zap, 
+            Activity 
+        } from 'lucide-react';
+
+        const PATHS = [
+            {
+                id: "market-intel",
+                d: "M150 120 Q 200 150, 250 250",
+                color: "#2563eb",
+                label: "Market Intel Stream",
+                value: "84ms Latency",
+            },
+            {
+                id: "sentiment",
+                d: "M160 500 Q 220 450, 260 350",
+                color: "#10b981",
+                label: "Sentiment Feedback",
+                value: "Positive (0.82)",
+            },
+            {
+                id: "conversion",
+                d: "M350 250 Q 400 180, 480 140",
+                color: "#2563eb",
+                label: "Conversion Flow",
+                value: "+12.4% Lift",
+            },
+            {
+                id: "growth-assets",
+                d: "M350 350 Q 420 420, 480 500",
+                color: "#8b5cf6",
+                label: "Asset Optimization",
+                value: "Ready for Scale",
+            },
+        ];
+
+        const FloatingPanel = ({ position, isActive, variant, icon, title, activeBorder, children, width = "w-[160px] md:w-[200px]" }) => {
+            return (
+                <motion.div
+                    variants={variant}
+                    animate="animate"
+                    className={`absolute ${position} z-30 ${width} border transition-all duration-300 bg-slate-900/90 backdrop-blur-md p-4 rounded-lg ${isActive ? activeBorder : 'border-blue-800/50'}`}
+                >
+                    <div className="mb-2.5 flex items-center gap-2.5">
+                        {icon}
+                        <span className="text-xs font-bold text-white uppercase tracking-tight">{title}</span>
+                    </div>
+                    {children}
+                </motion.div>
+            );
+        };
+
+        const StatItem = ({ label, value, trend, color }) => {
+            return (
+                <div className="flex flex-col gap-1.5 border-l border-blue-900/50 pl-6 transition-all hover:border-blue-500/50 group">
+                    <p className="text-xs font-bold uppercase tracking-[0.1em] text-slate-500 group-hover:text-slate-400">{label}</p>
+                    <p className="text-3xl font-black tracking-tight text-white">{value}</p>
+                    <p className={`text-[10px] font-black uppercase tracking-wider ${color}`}>{trend}</p>
+                </div>
+            );
+        };
+
+        function ProductPhaseTile() {
+            const [hoveredPath, setHoveredPath] = useState(null);
+            const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+
+            const handleMouseMove = useCallback((e) => {
+                const rect = e.currentTarget.getBoundingClientRect();
+                setMousePos({
+                    x: e.clientX - rect.left,
+                    y: e.clientY - rect.top,
+                });
+            }, []);
+
+            const floatVariant = (delay) => ({
+                animate: {
+                    y: [0, -10, 0],
+                    transition: {
+                        duration: 6,
+                        repeat: Infinity,
+                        repeatType: "mirror",
+                        delay: delay,
+                    },
+                },
+            });
+
+            return (
+                <div className="w-full aspect-square max-w-[600px] relative flex items-center justify-center select-none overflow-hidden bg-slate-950/20 rounded-xl border border-blue-900/20 shadow-2xl">
+                    <div className="absolute inset-0 pointer-events-none opacity-40">
+                        <motion.div variants={floatVariant(0)} animate="animate" className="absolute top-1/4 left-1/4 h-1.5 w-1.5 rounded-full bg-blue-500" />
+                        <motion.div variants={floatVariant(1)} animate="animate" className="absolute top-1/2 right-1/4 h-1.5 w-1.5 rounded-full bg-purple-500" />
+                        <motion.div variants={floatVariant(2)} animate="animate" className="absolute top-3/4 left-1/3 h-2 w-2 rounded-full bg-emerald-500" />
+                        <motion.div variants={floatVariant(3)} animate="animate" className="absolute bottom-1/4 right-1/3 h-2.5 w-2.5 rounded-full bg-cyan-600" />
+                    </div>
+
+                    <svg
+                        className="absolute inset-0 h-full w-full z-10"
+                        viewBox="0 0 600 600"
+                        onMouseMove={handleMouseMove}
+                    >
+                        {PATHS.map((path, idx) => {
+                            const isHovered = hoveredPath?.id === path.id;
+                            return (
+                                <g key={path.id}>
+                                    <path
+                                        d={path.d}
+                                        fill="none"
+                                        stroke="transparent"
+                                        strokeWidth="24"
+                                        className="cursor-crosshair pointer-events-auto"
+                                        onMouseEnter={() => setHoveredPath(path)}
+                                        onMouseLeave={() => setHoveredPath(null)}
+                                    />
+                                    <motion.path
+                                        d={path.d}
+                                        fill="none"
+                                        stroke={path.color}
+                                        strokeWidth={isHovered ? 3 : 1.5}
+                                        opacity={isHovered ? 1 : 0.5}
+                                        initial={{ pathLength: 0, opacity: 0 }}
+                                        animate={{ 
+                                            pathLength: [0, 1], 
+                                            opacity: isHovered ? [0.8] : [0.5],
+                                            strokeWidth: isHovered ? [1.5, 4, 3] : [1.5]
+                                        }}
+                                        transition={{ 
+                                            pathLength: { duration: 1.5, delay: idx * 0.2 },
+                                            opacity: { duration: 0.3 },
+                                            strokeWidth: { duration: 0.2 }
+                                        }}
+                                    />
+                                </g>
+                            );
+                        })}
+                    </svg>
+
+                    <AnimatePresence>
+                        {hoveredPath && (
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9, y: 10 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 0.9, y: 10 }}
+                                transition={{ duration: 0.15 }}
+                                className="pointer-events-none absolute z-50 rounded-lg border border-slate-700 bg-slate-900/95 p-3 shadow-2xl backdrop-blur-md"
+                                style={{
+                                    left: mousePos.x + 15,
+                                    top: mousePos.y + 15,
+                                }}
+                            >
+                                <div className="flex flex-col gap-0.5 min-w-[140px]">
+                                    <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                                        Data Node
+                                    </span>
+                                    <span className="text-sm font-bold text-white">
+                                        {hoveredPath.label}
+                                    </span>
+                                    <div className="mt-1 flex items-center gap-2">
+                                        <div className="h-1.5 w-1.5 rounded-full" style={{ backgroundColor: hoveredPath.color }} />
+                                        <span className="text-xs font-medium text-emerald-400">
+                                            {hoveredPath.value}
+                                        </span>
+                                    </div>
+                                </div>
+                            </motion.div>
+                        )}
+                    </AnimatePresence>
+
+                    <motion.div
+                        animate={{ scale: [0.8, 1], opacity: [0, 1] }}
+                        transition={{ duration: 0.8 }}
+                        className="relative z-20 flex h-[280px] w-[280px] flex-col items-center justify-center border-2 border-blue-600 bg-slate-950/90 p-8 backdrop-blur-sm md:h-[340px] md:w-[340px] rounded-xl shadow-blue-900/20 shadow-2xl"
+                    >
+                        <div className="flex flex-col items-center text-center">
+                            <p className="mb-2 text-xs font-bold uppercase tracking-widest text-slate-400">
+                                Revenue Growth
+                            </p>
+                            <motion.h2 
+                                animate={{ scale: hoveredPath ? [1, 1.05, 1] : [1] }}
+                                className="bg-gradient-to-br from-emerald-400 to-teal-300 bg-clip-text text-6xl font-bold leading-none tracking-tighter text-transparent md:text-7xl"
+                            >
+                                +42%
+                            </motion.h2>
+                            <p className="mt-1 text-sm font-bold uppercase tracking-tighter text-emerald-500">
+                                Conversion Lift
+                            </p>
+                            <div className="mt-6 flex flex-col items-center">
+                                <span className="text-[10px] font-medium uppercase tracking-[0.2em] text-slate-500">
+                                    Growth Engine v2.0
+                                </span>
+                                <div className="mt-2 h-1 w-16 bg-gradient-to-r from-blue-600 to-cyan-500" />
+                            </div>
+                        </div>
+                    </motion.div>
+
+                    <FloatingPanel 
+                        position="left-[5%] top-[10%]" 
+                        isActive={hoveredPath?.id === 'market-intel'}
+                        variant={floatVariant(0)}
+                        icon={<TrendingUp className="h-4 w-4 text-cyan-400" />}
+                        title="Market Intel"
+                        activeBorder="border-cyan-500 shadow-cyan-500/20 shadow-lg"
+                    >
+                        <div className="h-1.5 w-full bg-slate-800 overflow-hidden rounded-full">
+                            <motion.div
+                                animate={{ width: ["0%", "75%"] }}
+                                transition={{ duration: 1.5, delay: 0.5 }}
+                                className="h-full bg-gradient-to-r from-blue-600 to-cyan-500"
+                            />
+                        </div>
+                        <p className="text-[10px] text-slate-500 mt-1.5 uppercase font-bold tracking-wider">Analyzing 24 streams</p>
+                    </FloatingPanel>
+
+                    <FloatingPanel 
+                        position="bottom-[15%] left-[5%]" 
+                        isActive={hoveredPath?.id === 'sentiment'}
+                        variant={floatVariant(1.5)}
+                        icon={<Brain className="h-4 w-4 text-emerald-400" />}
+                        title="Sentiment Feedback"
+                        activeBorder="border-emerald-500 shadow-emerald-500/20 shadow-lg"
+                    >
+                        <div className="flex h-8 items-end gap-1.5">
+                            {[0.5, 0.75, 1, 0.66, 0.33].map((h, i) => (
+                                <motion.div
+                                    key={i}
+                                    className="w-2 rounded-t-sm bg-emerald-500"
+                                    style={{ opacity: 0.4 + i * 0.1 }}
+                                    animate={{ height: [`${h * 100}%`, `${h * 60}%`, `${h * 100}%`] }}
+                                    transition={{ duration: 2 + i * 0.2, repeat: Infinity, repeatType: "mirror" }}
+                                />
+                            ))}
+                        </div>
+                    </FloatingPanel>
+
+                    <FloatingPanel 
+                        position="right-[5%] top-[15%]" 
+                        isActive={hoveredPath?.id === 'conversion'}
+                        variant={floatVariant(0.8)}
+                        icon={<Sparkles className="h-4 w-4 text-cyan-400" />}
+                        title="Messaging Node"
+                        activeBorder="border-blue-500 shadow-blue-500/20 shadow-lg"
+                        width="w-[180px] md:w-[220px]"
+                    >
+                        <p className="text-[11px] italic leading-relaxed text-slate-300">
+                            &quot;Unlock unprecedented scale with AI-driven market intelligence...&quot;
+                        </p>
+                    </FloatingPanel>
+
+                    <FloatingPanel 
+                        position="bottom-[10%] right-[5%]" 
+                        isActive={hoveredPath?.id === 'growth-assets'}
+                        variant={floatVariant(2.2)}
+                        icon={<LineChart className="h-4 w-4 text-purple-400" />}
+                        title="Growth Assets"
+                        activeBorder="border-purple-500 shadow-purple-500/20 shadow-lg"
+                    >
+                        <div className="flex flex-col gap-1.5">
+                            <div className="h-2 w-full bg-slate-800 rounded-full" />
+                            <motion.div
+                                className="h-2 bg-gradient-to-r from-blue-600 to-cyan-500 rounded-full"
+                                animate={{ width: ["0%", "85%"] }}
+                                transition={{ duration: 1, delay: 1 }}
+                            />
+                            <p className="text-[9px] text-slate-500 uppercase font-bold">Vectorized Index: 0.94</p>
+                        </div>
+                    </FloatingPanel>
+                </div>
+            );
+        }
+
+        function App() {
+            return (
+                <div className="relative flex min-h-screen w-full flex-col bg-[#020617] text-white font-display">
+                    <div className="fixed inset-0 pointer-events-none overflow-hidden">
+                        <div className="absolute top-[-10%] left-[-10%] h-[40%] w-[40%] bg-blue-600/10 rounded-full blur-[120px]" />
+                        <div className="absolute bottom-[-5%] right-[-5%] h-[30%] w-[30%] bg-emerald-600/10 rounded-full blur-[100px]" />
+                    </div>
+
+                    <div className="flex h-full grow flex-col relative z-10">
+                        <header className="flex items-center justify-between border-b border-blue-900/30 bg-slate-950/50 px-6 py-5 backdrop-blur-xl md:px-20 lg:px-40 sticky top-0 z-50">
+                            <div className="flex items-center gap-3">
+                                <Zap className="h-7 w-7 text-[#06b6d4]" />
+                                <h2 className="text-2xl font-black leading-tight tracking-tighter">GROWTH.AI</h2>
+                            </div>
+                            <nav className="hidden lg:flex items-center gap-10">
+                                <div className="flex items-center gap-10">
+                                    <a href="#" className="text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-[#06b6d4] transition-colors">Growth Engine</a>
+                                    <a href="#" className="text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-[#06b6d4] transition-colors">Optimization</a>
+                                    <a href="#" className="text-sm font-bold uppercase tracking-widest text-slate-400 hover:text-[#06b6d4] transition-colors">Pricing</a>
+                                </div>
+                                <div className="flex gap-4">
+                                    <button className="h-11 min-w-[140px] bg-gradient-to-br from-blue-600 to-cyan-500 px-6 text-sm font-black uppercase tracking-widest shadow-xl shadow-blue-900/30 transition-transform hover:scale-[1.02] active:scale-95">Get Started</button>
+                                    <button className="h-11 min-w-[110px] border border-slate-700 bg-slate-900 px-6 text-sm font-black uppercase tracking-widest hover:bg-slate-800 transition-colors">Login</button>
+                                </div>
+                            </nav>
+                        </header>
+
+                        <main className="flex flex-1 flex-col items-center justify-center px-4 py-16 md:py-24 lg:px-20">
+                            <div className="grid w-full max-w-[1200px] grid-cols-1 items-center gap-20 lg:grid-cols-2">
+                                <div className="flex flex-col gap-10 text-left">
+                                    <div className="flex">
+                                        <div className="inline-flex items-center gap-2.5 border border-blue-600/50 bg-blue-950/30 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.15em] text-[#06b6d4] rounded-full">
+                                            <span className="relative flex h-2 w-2">
+                                                <span className="relative inline-flex h-2 w-2 rounded-full bg-[#06b6d4]"></span>
+                                                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#06b6d4] opacity-75"></span>
+                                            </span>
+                                            Model Precision: Active
+                                        </div>
+                                    </div>
+                                    <h1 className="text-5xl md:text-7xl font-black leading-[1.05] tracking-tighter text-white">
+                                        Accelerate Scale with <br/>
+                                        <span className="bg-gradient-to-br from-blue-400 to-cyan-300 bg-clip-text text-transparent italic">Predictive Intelligence.</span>
+                                    </h1>
+                                    <p className="max-w-[580px] text-lg md:text-xl font-medium leading-relaxed text-slate-400">
+                                        The Growth Engine translates market signals into actionable revenue. 
+                                        Leverage continuous learning nodes to transform complex data into gold-standard conversion flows.
+                                    </p>
+                                    <div className="flex flex-wrap gap-5">
+                                        <button className="h-16 min-w-[200px] bg-gradient-to-br from-blue-600 to-cyan-500 px-10 text-base font-black uppercase tracking-widest shadow-2xl shadow-blue-600/20 hover:brightness-110 hover:scale-[1.02] transition-all active:scale-95">Boost Conversion</button>
+                                        <button className="h-16 min-w-[200px] border-2 border-blue-900 bg-transparent px-10 text-base font-black uppercase tracking-widest hover:bg-blue-900/20 transition-all">View Roadmap</button>
+                                    </div>
+                                    <div className="flex items-center gap-8 pt-6">
+                                        <div className="flex -space-x-4">
+                                            {[1,2,3,4].map(i => (
+                                                <div key={i} className="h-12 w-12 rounded-full border-2 border-[#020617] bg-slate-800 flex items-center justify-center text-[10px] font-black text-slate-400 overflow-hidden">
+                                                    <img src={`https://i.pravatar.cc/100?img=${i+10}`} alt="user" className="h-full w-full object-cover opacity-80" />
+                                                </div>
+                                            ))}
+                                        </div>
+                                        <div>
+                                            <p className="text-sm font-bold text-slate-400">Powering 400+ marketing teams</p>
+                                            <p className="text-[10px] font-black uppercase tracking-widest text-emerald-500">Growth Score: 98.4%</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="flex items-center justify-center w-full">
+                                    <ProductPhaseTile />
+                                </div>
+                            </div>
+                        </main>
+
+                        <div className="border-y border-blue-900/30 bg-slate-950/80 backdrop-blur-md px-6 py-14 md:px-20 lg:px-40">
+                            <div className="grid grid-cols-2 gap-12 md:grid-cols-4 max-w-[1200px] mx-auto">
+                                <StatItem label="Engine Latency" value="1.8ms" trend="Turbo Mode Active" color="text-[#06b6d4]" />
+                                <StatItem label="Growth Capital" value="$2.4M" trend="Optimized Weekly" color="text-emerald-400" />
+                                <StatItem label="LTV Increase" value="+84%" trend="Model Confidence" color="text-purple-400" />
+                                <StatItem label="Avg CAC Drop" value="-32%" trend="Q4 Performance" color="text-cyan-400" />
+                            </div>
+                        </div>
+
+                        <footer className="flex flex-col items-center justify-between gap-8 border-t border-slate-900 px-6 py-16 md:flex-row md:px-20 lg:px-40 bg-[#020617]">
+                            <div className="flex flex-col gap-4">
+                                <div className="flex items-center gap-3">
+                                    <Zap className="h-5 w-5 text-slate-600" />
+                                    <span className="text-base font-black uppercase tracking-widest text-slate-600">GROWTH.AI</span>
+                                </div>
+                                <p className="text-xs font-bold text-slate-700 tracking-wider">
+                                    &copy; 2024 High-Performance Growth - Product Marketing AI.
+                                </p>
+                            </div>
+                            <div className="flex flex-wrap gap-10 text-xs font-black uppercase tracking-[0.2em] text-slate-700">
+                                <a href="#" className="hover:text-cyan-500 transition-colors">Documentation</a>
+                                <a href="#" className="hover:text-cyan-500 transition-colors">Security</a>
+                                <a href="#" className="hover:text-cyan-500 transition-colors">Privacy</a>
+                                <a href="#" className="hover:text-cyan-500 transition-colors">Status</a>
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>

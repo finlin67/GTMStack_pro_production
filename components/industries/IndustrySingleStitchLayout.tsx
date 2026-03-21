@@ -37,6 +37,15 @@ const LAYOUT_STYLES = `
       linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
     background-size: 40px 40px;
   }
+  .ind-stitch-root {
+    font-family: var(--font-stitch-rubik), ui-sans-serif, system-ui, sans-serif;
+  }
+  .ind-stitch-root h1,
+  .ind-stitch-root h2,
+  .ind-stitch-root h3,
+  .ind-stitch-root h4 {
+    font-family: var(--font-stitch-montserrat), ui-sans-serif, sans-serif;
+  }
 `
 
 const PILLAR_ACCENTS = [
@@ -130,18 +139,9 @@ export default function IndustrySingleStitchLayout({
 
   return (
     <>
-      <link rel="preconnect" href="https://fonts.googleapis.com" />
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Rubik:wght@400;500;600&display=swap"
-        rel="stylesheet"
-      />
       <style dangerouslySetInnerHTML={{ __html: LAYOUT_STYLES }} />
 
-      <div
-        className="font-sans text-slate-900 antialiased [&_h1]:font-['Montserrat',sans-serif] [&_h2]:font-['Montserrat',sans-serif] [&_h3]:font-['Montserrat',sans-serif] [&_h4]:font-['Montserrat',sans-serif]"
-        style={{ fontFamily: "'Rubik', ui-sans-serif, system-ui, sans-serif" }}
-      >
+      <div className="ind-stitch-root font-sans text-slate-900 antialiased">
         {/* Breadcrumbs bar — gtmDeepBlue */}
         <section className="border-b border-white/5 bg-[#0D2137]" aria-label="Breadcrumb">
           <div className="container-width section-padding py-4">

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EmailLadderTile - Standalone Preview</title>
+    
+    <!-- 1. Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- 2. Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+
+    <!-- 3. CRITICAL: Shim 'process' for React/Libraries -->
+    <script>
+        window.process = { env: { NODE_ENV: 'production' } };
+    </script>
+
+    <!-- 4. Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "react": "https://esm.sh/react@18.2.0",
+        "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+        "lucide-react": "https://esm.sh/lucide-react?deps=react@18.2.0",
+        "framer-motion": "https://esm.sh/framer-motion?deps=react@18.2.0"
+      }
+    }
+    </script>
+
+    <!-- 5. Babel for in-browser JSX compilation -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body class="bg-slate-950 flex items-center justify-center min-h-screen p-8 selection:bg-indigo-500/30">
+    
+    <div id="root"></div>
+
+    <script type="text/babel" data-type="module">
+        import React from 'react';
+        import { createRoot } from 'react-dom/client';
+        import { Send, TrendingUp, MailCheck, Banknote, RefreshCw } from 'lucide-react';
+        import { motion } from 'framer-motion';
+
+        function EmailLadderTile() {
+            const COLORS = {
+                blueZodiac: '#0D1846',
+                navyDeep: '#05091d',
+                anakiwa: '#A6D1FF',
+                anakiwaDim: 'rgba(166, 209, 255, 0.2)',
+            };
+
+            return (
+                <div 
+                  className="relative w-full aspect-square max-w-[600px] rounded-[2rem] overflow-hidden shrink-0 shadow-[0_35px_60px_-15px_rgba(0,0,0,0.6)] group/tile ring-1 ring-[#A6D1FF]/10 font-sans selection:bg-[#A6D1FF]/30"
+                  style={{
+                    background: `radial-gradient(circle at center, ${COLORS.blueZodiac} 0%, ${COLORS.navyDeep} 100%)`
+                  }}
+                >
+                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(166,209,255,0.05)_0%,transparent_70%)] pointer-events-none"></div>
+                  <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[500px] h-[500px] bg-[#A6D1FF] rounded-full blur-[160px] opacity-[0.05] pointer-events-none"></div>
+
+                  <div className="relative z-10 h-full flex flex-col p-10">
+                    <div className="flex justify-between items-start mb-10">
+                      <div>
+                        <h2 className="text-white text-3xl font-bold tracking-tight mb-1">Sequence Ladder</h2>
+                        <p className="text-[#A6D1FF]/70 text-base font-medium">Conversion Flow Optimization</p>
+                      </div>
+                      
+                      <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#A6D1FF]/10 border border-[#A6D1FF]/30 backdrop-blur-sm shadow-[0_0_15px_rgba(166,209,255,0.1)]">
+                        <div className="w-2 h-2 rounded-full bg-[#A6D1FF] shadow-[0_0_25px_rgba(166,209,255,0.4)] animate-pulse"></div>
+                        <span className="text-[#A6D1FF] text-xs font-bold uppercase tracking-wider">Active</span>
+                      </div>
+                    </div>
+
+                    <div className="flex-1 flex flex-col justify-center gap-0">
+                      <div className="flex items-stretch gap-6 h-32">
+                        <div className="flex flex-col items-center w-14 shrink-0">
+                          <div className="w-14 h-14 rounded-full bg-[#0D1846] border border-[#A6D1FF]/40 flex items-center justify-center shadow-lg relative z-20 transition-all duration-300 group-hover/tile:border-[#A6D1FF]/60">
+                            <Send className="text-[#A6D1FF]/80 w-[28px] h-[28px]" strokeWidth={1.5} />
+                          </div>
+                          <div className="w-[2px] flex-1 bg-gradient-to-b from-[#A6D1FF]/10 to-[#A6D1FF]/50 my-[-2px] relative z-0"></div>
+                        </div>
+                        
+                        <div className="flex-1 pb-6">
+                          <div className="h-full rounded-full flex items-center justify-between px-8 pr-4 hover:bg-[#A6D1FF]/[0.08] transition-colors cursor-default border border-[#A6D1FF]/20 bg-gradient-to-br from-[#A6D1FF]/[0.08] to-[#0D1846]/20 backdrop-blur-md">
+                            <div className="flex flex-col">
+                              <span className="text-[#A6D1FF]/60 text-xs font-semibold uppercase tracking-widest mb-0.5">Automated Outreach</span>
+                              <span className="text-white text-3xl font-bold tracking-tight">12,842</span>
+                            </div>
+                            <div className="w-10 h-10 rounded-full bg-[#A6D1FF]/15 flex items-center justify-center border border-[#A6D1FF]/30">
+                              <TrendingUp className="text-[#A6D1FF]/80 w-5 h-5" />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-stretch gap-6 h-32">
+                        <div className="flex flex-col items-center w-14 shrink-0">
+                          <div className="w-[2px] h-2 bg-[#A6D1FF]/50 absolute"></div>
+                          <div className="w-14 h-14 rounded-full bg-[#0D1846] border border-[#A6D1FF] flex items-center justify-center shadow-[0_0_15px_rgba(166,209,255,0.2)] relative z-20">
+                            <MailCheck 
+                              className="text-[#A6D1FF] w-[28px] h-[28px]" 
+                              strokeWidth={1.5}
+                              style={{ filter: 'drop-shadow(0 0 8px rgba(166,209,255,0.5))' }}
+                            />
+                          </div>
+                          <div className="w-[2px] flex-1 bg-gradient-to-b from-[#A6D1FF] to-[#A6D1FF]/80 my-[-2px] relative z-0 shadow-[0_0_15px_rgba(166,209,255,0.3)]"></div>
+                        </div>
+
+                        <div className="flex-1 pb-6">
+                          <div className="h-full rounded-full flex items-center justify-between px-8 pr-4 hover:bg-[#A6D1FF]/[0.08] transition-colors cursor-default border-l-4 border-l-[#A6D1FF]/60 border-y border-y-[#A6D1FF]/25 border-r border-r-[#A6D1FF]/25 bg-gradient-to-br from-[#A6D1FF]/[0.08] to-[#0D1846]/20 backdrop-blur-md">
+                            <div className="flex flex-col">
+                              <span className="text-[#A6D1FF]/60 text-xs font-semibold uppercase tracking-widest mb-0.5">Positive Engagement</span>
+                              <span 
+                                className="text-[#A6D1FF] text-3xl font-bold tracking-tight"
+                                style={{ textShadow: '0 0 12px rgba(166, 209, 255, 0.8)' }}
+                              >
+                                4,102
+                              </span>
+                            </div>
+                            <div className="flex items-center gap-1 bg-[#A6D1FF]/20 px-3 py-1.5 rounded-full border border-[#A6D1FF]/40">
+                              <span className="text-[#A6D1FF] font-bold text-sm">32%</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div className="flex items-stretch gap-6 h-24">
+                        <div className="flex flex-col items-center w-14 shrink-0">
+                          <div className="w-[2px] h-2 bg-[#A6D1FF]/80 absolute"></div>
+                          <div className="w-14 h-14 rounded-full bg-[#A6D1FF] flex items-center justify-center shadow-[0_0_35px_rgba(166,209,255,0.6)] relative z-20 border-4 border-[#0D1846]">
+                            <Banknote className="text-[#0D1846] w-[28px] h-[28px]" strokeWidth={2} />
+                          </div>
+                        </div>
+
+                        <div className="flex-1">
+                          <div className="relative h-full rounded-full flex items-center justify-between px-8 pr-4 bg-gradient-to-r from-[#A6D1FF]/30 to-[#A6D1FF]/10 border border-[#A6D1FF]/40 backdrop-blur-md overflow-hidden group/active-card">
+                            <div className="absolute inset-0 bg-[radial-gradient(circle_at_left,rgba(166,209,255,0.15),transparent_70%)] pointer-events-none"></div>
+                            <div className="flex flex-col relative z-10">
+                              <span className="text-white text-xs font-bold uppercase tracking-widest mb-0.5 opacity-90">Converted Leads</span>
+                              <span 
+                                className="text-white text-4xl font-extrabold tracking-tight"
+                                style={{ textShadow: '0 0 12px rgba(166, 209, 255, 0.8)' }}
+                              >
+                                892
+                              </span>
+                            </div>
+                            <div className="flex flex-col items-end relative z-10">
+                              <div className="flex items-center gap-1 bg-[#A6D1FF] text-[#0D1846] px-4 py-2 rounded-full shadow-[0_4px_20px_rgba(166,209,255,0.4)]">
+                                <span className="font-black text-xl leading-none">21.7%</span>
+                              </div>
+                              <span className="text-[#A6D1FF] text-[10px] mt-1 font-bold tracking-widest drop-shadow-sm">FINAL RATE</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 flex justify-center border-t border-[#A6D1FF]/10 pt-6">
+                      <p className="text-xs text-[#A6D1FF]/60 font-medium flex items-center gap-2">
+                        <motion.div
+                          animate={{ rotate: [0, 360] }}
+                          transition={{ duration: 8, repeat: Infinity, repeatType: "loop" as const }}
+                        >
+                          <RefreshCw className="w-3.5 h-3.5" />
+                        </motion.div>
+                        Syncing live analytics from SaaS engine
+                      </p>
+                    </div>
+                  </div>
+                </div>
+            );
+        }
+
+        const root = createRoot(document.getElementById('root'));
+        root.render(<EmailLadderTile />);
+    </script>
+</body>
+</html>
