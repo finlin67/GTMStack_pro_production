@@ -48,9 +48,12 @@ Use this sequence whenever an editor says, "I published in WordPress but don't s
 | `lib/wp-client.ts` | WordPress API client used by the blog. Exposes `fetchPosts`, `fetchPostBySlug`, `fetchLatestPosts`, and `WPPost` type. |
 | `lib/wordpress.ts` | Server-side WordPress client used by static blog page build and category fetches. |
 | `app/blog/page.tsx` | Static blog page shell; fetches initial posts/categories at build/render time. |
-| `app/blog/BlogIndexClient.tsx` | Client refresh layer; re-fetches posts from WP on first load and query changes. |
+| `app/blog/BlogIndexClient.tsx` | Client refresh layer; re-fetches posts from WP on first load and query changes; renders `BlogStitchFeedTemplate`. |
+| `src/templates/blog/BlogStitchFeedTemplate.tsx` | Stitch-style blog index (featured row, category pills, grid, sidebar). Props from `adaptStitchBlogFeedData()`. |
+| `src/templates/blog/BlogStitchPostTemplate.tsx` | Stitch-style single post. Props from `adaptBlogSinglePostData()`. |
+| `lib/blog-adapter.ts` | Maps `WPPost` + categories to UI props (feed + single post). |
 | `app/blog/post/page.tsx` | Wrapper for the post detail view. |
-| `app/blog/post/BlogPostClient.tsx` | Post detail page — fetches single post by slug, renders content, TOC, related posts. |
+| `app/blog/post/BlogPostClient.tsx` | Post detail page — fetches single post by slug; renders `BlogStitchPostTemplate`. |
 | `components/ui/LatestPosts.tsx` | Reusable "Latest Posts" block with direct browser fetch from WP. |
 | `.github/workflows/deploy.yml` | Production static deploy pipeline; runs automatically on `main` pushes. |
 

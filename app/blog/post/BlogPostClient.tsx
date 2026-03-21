@@ -6,7 +6,7 @@ import { useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
 import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
 import { sanitizeHtml } from '@/lib/sanitize-html'
-import Uploaded_BlogSinglePost_v1 from '@/src/templates/Uploaded_BlogSinglePost_v1'
+import BlogStitchPostTemplate from '@/src/templates/blog/BlogStitchPostTemplate'
 import { adaptBlogSinglePostData } from '@/lib/blog-adapter'
 
 function stripHtml(html: string) {
@@ -101,7 +101,5 @@ export default function BlogPostClient() {
 
   if (!adaptedContent) return null
 
-  return (
-    <Uploaded_BlogSinglePost_v1 content={adaptedContent} />
-  )
+  return <BlogStitchPostTemplate content={adaptedContent} />
 }

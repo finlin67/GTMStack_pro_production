@@ -1,13 +1,24 @@
 /**
  * Blog Data Adapter
- * 
+ *
  * Transforms WordPress REST API responses (WPPost, WPTerm arrays) into
- * the data contracts expected by the new Uploaded_BlogFeed_v1 and Uploaded_BlogSinglePost_v1 templates.
- * 
- * Keeps all WordPress fetch logic unchanged; only adapts the render layer.
+ * template props. Fetches must use `_embed=1` so `_embedded` includes:
+ * - `wp:featuredmedia` — featured image `source_url`, `alt_text`
+ * - `wp:term` — `[categories[], tags[]]` (categories first, then post_tag)
+ * - `author` — post author `name`, `description`, `avatar_urls` (WordPress embed)
+ *
+ * @see docs/BLOG_WORDPRESS.md
  */
 
 import type { WPPost, WPTerm } from '@/lib/wp-client'
+import {
+  getEmbeddedAuthor,
+  getAuthorAvatarUrl,
+  estimateReadTimeMinutesFromHtml,
+  getPostCategories,
+  getPostTags,
+} from '@/lib/wp-client'
+import { getFeaturedImageUrl } from '@/lib/wp-media'
 
 // ----- Index/Feed Template Adapter -----
 
@@ -109,11 +120,14 @@ function stripHtml(html: string): string {
 }
 
 function getPrimaryCategory(post: WPPost): string {
-  const cats = post._embedded?.['wp:term']?.[0]
-  if (Array.isArray(cats) && cats.length > 0) {
-    return cats[0]?.name || 'General'
-  }
-  return 'General'
+  const cats = getPostCategories(post)
+  return cats[0]?.name?.trim() || 'General'
+}
+
+function getPrimaryCategorySlug(post: WPPost): string | undefined {
+  const cats = getPostCategories(post)
+  const s = cats[0]?.slug
+  return typeof s === 'string' && s.length > 0 ? s : undefined
 }
 
 function formatDate(dateStr: string): string {
@@ -262,6 +276,123 @@ export function adaptBlogFeedData(props: BlogFeedAdapterProps): AdaptedBlogFeedC
   }
 }
 
+// ----- Stitch blog index (sandbox/stitch-html/blog.html) -----
+
+export interface StitchPostCard {
+  id: string
+  slug: string
+  title: string
+  excerpt: string
+  date: string
+  readTimeLabel: string
+  categoryName: string
+  categorySlug?: string
+  tagNames: string[]
+  /** From `_embedded.wp:featuredmedia[0]` when `_embed=1` */
+  imageUrl: string | null
+  imageAlt: string
+  href: string
+  categoryBadgeClass: string
+}
+
+export interface StitchBlogFeedContent {
+  hero: {
+    kicker: string
+    titleGradient: string
+    subtitle: string
+  }
+  featured: StitchPostCard[]
+  grid: StitchPostCard[]
+  categoryPills: Array<{ label: string; slug: string }>
+  sidebar: {
+    authorName: string
+    authorRole: string
+    authorBio: string
+    authorImage?: string
+    linkedInHref: string
+    trending: Array<{ rank: string; title: string; href: string; accentClass: string }>
+  }
+}
+
+const STITCH_BADGE = [
+  'bg-[#2563eb] text-white',
+  'bg-[#007f36] text-white',
+  'bg-[#e4ae00] text-[#3f2e00]',
+  'bg-[#62df7d] text-[#003914]',
+  'bg-[#6FAFE0] text-[#0a122a]',
+]
+
+function stitchCardFromPost(post: WPPost, idx: number): StitchPostCard {
+  const cats = getPostCategories(post)
+  const tags = getPostTags(post)
+  const primaryCat = cats[0]
+  const img = getFeaturedImageUrl(post)
+  const media = post._embedded?.['wp:featuredmedia']?.[0]
+  const readM = estimateReadTimeMinutesFromHtml(
+    `${post.content?.rendered || ''} ${post.excerpt?.rendered || ''}`
+  )
+  const excerptRaw = stripHtml(post.excerpt?.rendered || '')
+  const excerpt =
+    excerptRaw.length > 180 ? `${excerptRaw.slice(0, 177).trim()}…` : excerptRaw
+
+  return {
+    id: String(post.id),
+    slug: post.slug,
+    title: stripHtml(post.title?.rendered || post.slug),
+    excerpt: excerpt || '…',
+    date: formatDate(post.date),
+    readTimeLabel: `${readM} min read`,
+    categoryName: primaryCat?.name || 'Insights',
+    categorySlug: primaryCat?.slug,
+    tagNames: tags.map((t) => t.name).filter(Boolean),
+    imageUrl: img,
+    imageAlt: media?.alt_text || stripHtml(post.title?.rendered || 'Post'),
+    href: `/blog/post?slug=${encodeURIComponent(post.slug)}`,
+    categoryBadgeClass: STITCH_BADGE[idx % STITCH_BADGE.length],
+  }
+}
+
+export function adaptStitchBlogFeedData(props: BlogFeedAdapterProps): StitchBlogFeedContent {
+  const { posts, categories } = props
+  const cards = posts.map((p, i) => stitchCardFromPost(p, i))
+  const featured = cards.slice(0, 3)
+  const grid = cards.slice(3)
+
+  const firstAuthor = posts[0] ? getEmbeddedAuthor(posts[0]) : null
+  const avatar = getAuthorAvatarUrl(firstAuthor)
+  const authorBio = firstAuthor?.description
+    ? stripHtml(firstAuthor.description).slice(0, 220)
+    : 'Helping B2B companies scale GTM operations through data, systems, and architectural thinking.'
+
+  const trendingAccents = ['text-[#2563eb]', 'text-[#6FAFE0]', 'text-[#16a34a]']
+  const trending = posts.slice(0, 3).map((p, i) => ({
+    rank: String(i + 1).padStart(2, '0'),
+    title: stripHtml(p.title?.rendered || p.slug),
+    href: `/blog/post?slug=${encodeURIComponent(p.slug)}`,
+    accentClass: trendingAccents[i % trendingAccents.length],
+  }))
+
+  return {
+    hero: {
+      kicker: 'GTM Insights & Revenue Operations',
+      titleGradient: 'GTM Insights',
+      subtitle:
+        'Deconstructing complex GTM architectures, scaling RevOps frameworks, and sharing what actually drives growth in B2B SaaS.',
+    },
+    featured,
+    grid,
+    categoryPills: [{ label: 'All', slug: '' }, ...categories.map((c) => ({ label: c.name, slug: c.slug }))],
+    sidebar: {
+      authorName: firstAuthor?.name?.trim() || 'GTMStack',
+      authorRole: 'Architect of Revenue',
+      authorBio,
+      authorImage: avatar,
+      linkedInHref: 'https://linkedin.com',
+      trending,
+    },
+  }
+}
+
 // ----- Single Post Template Adapter -----
 
 export interface BlogSinglePostAdapterProps {
@@ -324,36 +455,49 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
   const { post, relatedPosts } = props
 
   const primaryCategory = getPrimaryCategory(post)
-  const tags = post._embedded?.['wp:term']?.[1]?.map((t) => t.name) || []
+  const catSlug = getPrimaryCategorySlug(post)
+  const tagTerms = getPostTags(post)
+  const tags = tagTerms.map((t) => t.name).filter(Boolean)
 
-  // Get featured image
   const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0]
-  const featuredImageUrl = featuredMedia?.source_url || 'https://via.placeholder.com/800x450'
-  const featuredImageAlt = featuredMedia?.alt_text || post.title?.rendered || 'Featured image'
+  const featuredFromHelper = getFeaturedImageUrl(post)
+  const featuredImageUrl =
+    featuredFromHelper || featuredMedia?.source_url || 'https://via.placeholder.com/800x450'
+  const featuredImageAlt = featuredMedia?.alt_text || stripHtml(post.title?.rendered || 'Featured image')
 
-  // Parse content into sections (very basic parsing)
-  const contentSections: AdaptedBlogSinglePostContent['article']['sections'] = [
-    {
-      type: 'paragraph',
-      content: stripHtml(post.excerpt?.rendered || ''),
-    },
-  ]
+  const embedded = getEmbeddedAuthor(post)
+  const avatarUrl = getAuthorAvatarUrl(embedded)
+  const authorName = embedded?.name?.trim() || 'Editorial'
+  const authorBio = embedded?.description
+    ? stripHtml(embedded.description).slice(0, 280)
+    : 'GTM and revenue operations insights from the GTMStack team.'
 
-  // If full HTML content exists, add it as a single section with HTML
-  if (post.content?.rendered) {
+  const readM = estimateReadTimeMinutesFromHtml(post.content?.rendered || post.excerpt?.rendered || '')
+  const readLabel = `${readM} min read`
+
+  const contentSections: AdaptedBlogSinglePostContent['article']['sections'] = []
+  if (post.content?.rendered?.trim()) {
     contentSections.push({
       type: 'paragraph',
-      content: post.content.rendered, // Will be sanitized in template via sanitizeHtml()
+      content: post.content.rendered,
+    })
+  } else if (post.excerpt?.rendered?.trim()) {
+    contentSections.push({
+      type: 'paragraph',
+      content: `<p>${stripHtml(post.excerpt.rendered)}</p>`,
     })
   }
 
+  const categoryCrumbHref = catSlug ? `/blog?category=${encodeURIComponent(catSlug)}` : '/blog'
+
   const relatedInsights = relatedPosts.slice(0, 3).map((p) => {
     const relatedMedia = p._embedded?.['wp:featuredmedia']?.[0]
+    const relImg = getFeaturedImageUrl(p) || relatedMedia?.source_url
     return {
       title: stripHtml(p.title?.rendered || p.slug),
       date: formatDate(p.date),
-      image: relatedMedia?.source_url || 'https://via.placeholder.com/150x150',
-      href: `/blog/post?slug=${p.slug}`,
+      image: relImg || 'https://via.placeholder.com/150x150',
+      href: `/blog/post?slug=${encodeURIComponent(p.slug)}`,
       alt: relatedMedia?.alt_text || 'Related post image',
     }
   })
@@ -372,25 +516,28 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
     hero: {
       breadcrumbs: [
         { label: 'Insights', href: '/blog' },
-        { label: primaryCategory, href: '/blog' },
+        { label: primaryCategory, href: categoryCrumbHref },
       ],
       title: stripHtml(post.title?.rendered || post.slug),
       author: {
-        name: 'GTMStack Team',
-        role: 'GTM Consultant',
-        image: 'https://via.placeholder.com/64x64',
-        bio: 'Our team of GTM experts brings years of experience in revenue engineering and go-to-market strategy.',
+        name: authorName,
+        role: 'Author',
+        image: avatarUrl || 'https://via.placeholder.com/64x64',
+        bio: authorBio,
         profileLink: '/about',
       },
       publishedDate: formatDate(post.date),
-      readingTime: '8 min read',
+      readingTime: readLabel,
     },
     article: {
       featuredImage: {
         src: featuredImageUrl,
         alt: featuredImageAlt,
       },
-      intro: stripHtml(post.excerpt?.rendered || ''),
+      /** Lead paragraph; omitted when body HTML is present (avoids duplicate excerpt + content). */
+      intro: post.content?.rendered?.trim()
+        ? ''
+        : stripHtml(post.excerpt?.rendered || ''),
       sections: contentSections,
       tags: tags,
     },

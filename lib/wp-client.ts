@@ -12,6 +12,15 @@ export type WPTerm = {
   count?: number
 }
 
+/** WordPress REST user object when posts are fetched with `_embed=1` */
+export type WPEmbeddedAuthor = {
+  id?: number
+  name?: string
+  slug?: string
+  description?: string
+  avatar_urls?: Record<string, string | undefined>
+}
+
 export type WPPost = {
   id: number
   slug: string
@@ -21,10 +30,14 @@ export type WPPost = {
   date: string
   categories?: number[]
   tags?: number[]
+  author?: number
   _embedded?: {
+    /** Embedded post authors (usually one) — requires `_embed=1` */
+    author?: WPEmbeddedAuthor[]
     'wp:featuredmedia'?: Array<{
       source_url?: string
       alt_text?: string
+      media_details?: { width?: number; height?: number }
     }>
     /** [categories[], tags[]] — order per WP: first categories, then post_tag */
     'wp:term'?: [WPTerm[], WPTerm[]]
@@ -164,4 +177,25 @@ export function getPostTags(post: WPPost): WPTerm[] {
   if (!terms || !Array.isArray(terms) || terms.length < 2) return []
   const second = terms[1]
   return Array.isArray(second) ? second : []
+}
+
+/** Author from `_embedded.author[0]` (requires `_embed=1` on post requests). */
+export function getEmbeddedAuthor(post: WPPost): WPEmbeddedAuthor | null {
+  const authors = post._embedded?.author
+  if (!Array.isArray(authors) || authors.length === 0) return null
+  return authors[0] ?? null
+}
+
+/** Prefer 96px Gravatar; fallback to largest available. */
+export function getAuthorAvatarUrl(author: WPEmbeddedAuthor | null): string | undefined {
+  if (!author?.avatar_urls) return undefined
+  const u = author.avatar_urls
+  return u['96'] ?? u['48'] ?? u['24'] ?? Object.values(u).find(Boolean)
+}
+
+/** Rough read time from HTML/plain text (~200 wpm). */
+export function estimateReadTimeMinutesFromHtml(html: string): number {
+  const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
+  const words = text.split(/\s+/).filter(Boolean).length
+  return Math.max(1, Math.ceil(words / 200))
 }
