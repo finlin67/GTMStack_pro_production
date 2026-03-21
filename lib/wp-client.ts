@@ -39,8 +39,12 @@ export type WPPost = {
       alt_text?: string
       media_details?: { width?: number; height?: number }
     }>
-    /** [categories[], tags[]] — order per WP: first categories, then post_tag */
-    'wp:term'?: [WPTerm[], WPTerm[]]
+    /**
+     * Per-taxonomy term arrays, one sub-array per registered taxonomy.
+     * WP default order: [categories[], post_tags[], ...custom_taxs[]].
+     * Do NOT rely on positional index — use taxonomy field lookup.
+     */
+    'wp:term'?: WPTerm[][]
   }
 }
 
@@ -163,18 +167,31 @@ export async function fetchTags(): Promise<WPTerm[]> {
   return data.map((t) => ({ id: t.id, name: t.name, slug: t.slug, taxonomy: 'post_tag', count: t.count }))
 }
 
-/** Get category terms for a post from _embedded['wp:term'] */
+/** Get category terms for a post from _embedded['wp:term'].
+ *  Matches by taxonomy === 'category' first; positional [0] as fallback.
+ */
 export function getPostCategories(post: WPPost): WPTerm[] {
   const terms = post._embedded?.['wp:term']
-  if (!terms || !Array.isArray(terms)) return []
+  if (!Array.isArray(terms)) return []
+  // Prefer taxonomy-field match (robust against custom taxonomy ordering)
+  const byField = terms.flat().filter((t) => t?.taxonomy === 'category')
+  if (byField.length > 0) return byField
+  // Positional fallback: WP default has categories at index 0
   const first = terms[0]
   return Array.isArray(first) ? first : []
 }
 
-/** Get tag terms for a post from _embedded['wp:term'] */
+/** Get tag terms for a post from _embedded['wp:term'].
+ *  Matches by taxonomy === 'post_tag' first; positional [1] as fallback.
+ */
 export function getPostTags(post: WPPost): WPTerm[] {
   const terms = post._embedded?.['wp:term']
-  if (!terms || !Array.isArray(terms) || terms.length < 2) return []
+  if (!Array.isArray(terms)) return []
+  // Prefer taxonomy-field match (robust against custom taxonomy ordering)
+  const byField = terms.flat().filter((t) => t?.taxonomy === 'post_tag')
+  if (byField.length > 0) return byField
+  // Positional fallback: WP default has post_tag at index 1
+  if (terms.length < 2) return []
   const second = terms[1]
   return Array.isArray(second) ? second : []
 }

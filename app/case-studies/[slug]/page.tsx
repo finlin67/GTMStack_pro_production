@@ -36,7 +36,9 @@ export default async function CaseStudyDetailPage({ params }: Props) {
 
   const registryRow =
     getPageBySlug('case-studies', slug) ?? getPageBySlug('projects', slug)
-  const defaultContent = <RenderCaseStudy caseStudy={caseStudy} routeKind="case-studies" />
+  const defaultContent = (
+    <RenderCaseStudy caseStudy={caseStudy} routeKind="case-studies" variant="stitch" />
+  )
 
   if (registryRow) {
     return (

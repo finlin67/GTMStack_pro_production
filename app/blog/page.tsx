@@ -7,6 +7,7 @@ import BlogIndexClient from './BlogIndexClient'
 import {
   fetchPostsWithTotal,
   fetchCategories,
+  fetchTags,
 } from '@/lib/wordpress'
 
 const POSTS_PER_PAGE = 9
@@ -24,6 +25,7 @@ export default async function BlogPage() {
   let posts: Awaited<ReturnType<typeof fetchPostsWithTotal>>['posts'] = []
   let totalPages = 1
   let categories: Awaited<ReturnType<typeof fetchCategories>> = []
+  let tags: Awaited<ReturnType<typeof fetchTags>> = []
   let categoriesError: string | undefined
   let postsError: string | undefined
 
@@ -35,6 +37,14 @@ export default async function BlogPage() {
     categories = []
     categoriesError =
       e instanceof Error ? e.message : 'Failed to load blog categories'
+  }
+
+  // Fetch tags (best-effort; filter UI degrades gracefully if missing).
+  try {
+    tags = await fetchTags()
+  } catch (e) {
+    console.error('Blog tags fetch error:', e)
+    tags = []
   }
 
   // Fetch posts with optional category filter.
@@ -76,6 +86,7 @@ export default async function BlogPage() {
         initialPosts={posts}
         totalPages={totalPages}
         categories={categories}
+        tags={tags}
         initialQuery={{ q, category: categorySlug, page: pageParam }}
         error={errorMessage}
       />

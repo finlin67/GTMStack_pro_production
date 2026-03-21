@@ -62,6 +62,9 @@ export interface CaseStudyItem {
   year: string
 }
 
+/** Route context for shared project / case study detail rendering */
+export type CaseStudyRouteKind = 'projects' | 'case-studies'
+
 export interface NavItem {
   label: string
   href: string

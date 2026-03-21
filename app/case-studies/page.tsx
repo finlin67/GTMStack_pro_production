@@ -1,266 +1,389 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useMemo, useState } from 'react'
 import Link from 'next/link'
-import { ArrowRight, Compass, Layers, Sparkles } from 'lucide-react'
-import { SectionHeader } from '@/components/layout/Section'
+import {
+  ArrowRight,
+  ChevronRight,
+  Layers,
+  Sparkles,
+  TrendingUp,
+} from 'lucide-react'
 import { SectionDark } from '@/components/layout/SectionDark'
 import { SectionLight } from '@/components/layout/SectionLight'
-import { HeroDark } from '@/components/ui/HeroDark'
-import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
-import { HERO_VISUALS } from '@/lib/heroVisuals'
 import { CaseStudyCard } from '@/components/ui/Card'
 import { CardGrid, CardGridItem } from '@/components/ui/CardGrid'
-import { FilterChips } from '@/components/ui/FilterChips'
-import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion/FadeIn'
+import { FadeIn } from '@/components/motion/FadeIn'
 import { Reveal } from '@/components/ui/Reveal'
 import { caseStudyItems, getAllCaseStudyTags } from '@/src/data/caseStudies'
-import { SignalField, PathwayOverlay } from '@/components/motifs'
+import { industryItems } from '@/src/data/industries'
+import { SignalField } from '@/components/motifs'
+
+const dataLinePattern =
+  'bg-[radial-gradient(circle_at_2px_2px,rgba(255,255,255,0.05)_1px,transparent_0)] bg-[length:24px_24px]'
+
+const heroMiniStats = [
+  { icon: TrendingUp, value: '240%', label: 'Pipeline growth', className: 'text-brand-400' },
+  { icon: Layers, value: '12.4x', label: 'ROAS scaled', className: 'text-emerald-400' },
+  { icon: Sparkles, value: '-45%', label: 'CAC reduction', className: 'text-sky-400' },
+  { icon: TrendingUp, value: '3.2M', label: 'Revenue attributed', className: 'text-violet-400' },
+]
+
+const proofBandStats = [
+  { value: '$250M+', label: 'Revenue influenced' },
+  { value: '4.2x', label: 'Average ROI' },
+  { value: '85+', label: 'Active deployments' },
+  { value: '32%', label: 'Efficiency lift' },
+]
+
+const marqueeLabels = [
+  'Fintech leaders',
+  'Enterprise SaaS',
+  'Global manufacturing',
+  'Healthcare technology',
+  'Cybersecurity',
+]
 
 export default function CaseStudiesPage() {
-  const [selectedTags, setSelectedTags] = useState<string[]>([])
+  const [selectedIndustry, setSelectedIndustry] = useState<string | null>(null)
+  const [selectedTag, setSelectedTag] = useState<string | null>(null)
   const allTags = getAllCaseStudyTags()
 
+  const industriesWithCases = useMemo(() => {
+    const slugs = new Set(caseStudyItems.map((c) => c.industry))
+    return industryItems.filter((ind) => slugs.has(ind.slug)).sort((a, b) => a.title.localeCompare(b.title))
+  }, [])
+
   const filteredItems = useMemo(() => {
-    if (selectedTags.length === 0) return caseStudyItems
-    return caseStudyItems.filter((item) =>
-      selectedTags.some((tag) => item.tags.includes(tag))
-    )
-  }, [selectedTags])
+    return caseStudyItems.filter((item) => {
+      if (selectedIndustry && item.industry !== selectedIndustry) return false
+      if (selectedTag && !item.tags.includes(selectedTag)) return false
+      return true
+    })
+  }, [selectedIndustry, selectedTag])
 
-  const handleTagToggle = (tag: string) => {
-    setSelectedTags((prev) =>
-      prev.includes(tag) ? prev.filter((t) => t !== tag) : [...prev, tag]
-    )
-  }
-
-  const handleClearAll = () => {
-    setSelectedTags([])
-  }
-
-  // Featured case studies
   const featuredStudies = caseStudyItems.filter((item) => item.featured)
-  const topOutcomes = [
-    { value: '$500M+', label: 'Pipeline influenced', detail: 'across B2B GTM motions' },
-    { value: '3-5x', label: 'Pipeline efficiency', detail: 'from signal-led routing' },
-    { value: '40%', label: 'Win-rate lift', detail: 'with defensible positioning' },
-  ]
+  const flagshipPair = featuredStudies.slice(0, 2)
 
-  const framework = [
-    { title: 'Align on outcomes', description: 'Define the outcome-first brief, success criteria, and proof signals.' },
-    { title: 'Design the motion', description: 'Select channels, offers, and routes with measurable checkpoints.' },
-    { title: 'Instrument & launch', description: 'Wire data, routing, automation, and dashboards for observability.' },
-    { title: 'Optimize to proof', description: 'Run sprints, tune levers, and lock proof before scaling spend.' },
-  ]
+  const clearFilters = () => {
+    setSelectedIndustry(null)
+    setSelectedTag(null)
+  }
 
   return (
     <>
-      {/* Hero (Dark) */}
       <Reveal>
-        <HeroDark
-          align="left"
-          motif={HERO_VISUALS.caseStudies.default.motif || 'signal'}
-          title="Outcome-first GTM case studies"
-          titleHighlight="proven signals"
-          description="B2B outcomes delivered with accountable motions—positioning, data, automation, and plays working together."
-          primaryCta={{ label: 'View featured results', href: '#featured' }}
-          secondaryCta={{ label: 'See all', href: '#all-studies' }}
-          rightVisual={ensureHeroVisualWithImage(HERO_VISUALS.caseStudies.default, 'caseStudies')}
-        />
-      </Reveal>
-
-      {/* Featured Case Studies (Light Filters + Grid) */}
-      <Reveal delay={0.05}>
-        <SectionLight variant="white" className="overflow-hidden" id="featured">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          <SectionHeader
-            label="Featured"
-            title="Standout results"
-            description="Outcome-led projects across GTM strategy, demand, and revenue ops."
-          />
-          <div className="flex items-center gap-4">
-            <Link
-              href="/case-studies/ai-visualizations"
-              className="inline-flex items-center gap-2 text-brand-700 font-semibold hover:text-brand-500 transition-colors"
-            >
-              View AI Visualizations
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-            <a
-              href="#all-studies"
-              className="inline-flex items-center gap-2 text-brand-700 font-semibold hover:text-brand-500 transition-colors"
-            >
-              Browse all
-              <ArrowRight className="w-4 h-4" />
-            </a>
+        <section className={`relative bg-[#020617] overflow-hidden py-12 md:py-16 ${dataLinePattern}`}>
+          <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
+            <SignalField intensity="subtle" pattern="constellation" density="sparse" />
           </div>
-        </div>
-        <CardGrid columns={2}>
-          {featuredStudies.slice(0, 4).map((study) => (
-            <CardGridItem key={study.slug}>
-              <CaseStudyCard
-                title={study.title}
-                client={study.client}
-                description={study.description}
-                href={`/case-studies/${study.slug}`}
-                tags={study.tags}
-                metrics={study.metrics}
-                featured
-              />
-            </CardGridItem>
-          ))}
-        </CardGrid>
-      </SectionLight>
-      </Reveal>
-
-      {/* All Case Studies with Filters (Light) */}
-      <Reveal delay={0.05}>
-        <SectionLight variant="slate" className="overflow-hidden" id="all-studies">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
-          <SectionHeader
-            label="Explore"
-            title="Browse all case studies"
-            description="Filter by tag or scan outcomes by topic."
-          />
-        </div>
-
-        <FadeIn>
-          <FilterChips
-            tags={allTags.slice(0, 12)}
-            selectedTags={selectedTags}
-            onTagToggle={handleTagToggle}
-            onClearAll={handleClearAll}
-            className="mb-8"
-          />
-        </FadeIn>
-
-        <CardGrid columns={2}>
-          {filteredItems.map((study) => (
-            <CardGridItem key={study.slug}>
-              <CaseStudyCard
-                title={study.title}
-                client={study.client}
-                description={study.description}
-                href={`/case-studies/${study.slug}`}
-                tags={study.tags}
-                metrics={study.metrics}
-                featured={study.featured}
-              />
-            </CardGridItem>
-          ))}
-        </CardGrid>
-
-        {filteredItems.length === 0 && (
-          <FadeIn>
-            <div className="text-center py-12">
-              <p className="text-slate-500">No case studies found for this filter.</p>
-              <button
-                onClick={handleClearAll}
-                className="mt-2 text-brand-600 hover:text-brand-700"
-              >
-                Clear filters
-              </button>
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
+            <div className="flex flex-col gap-4">
+              <span className="text-[11px] font-semibold tracking-[0.2em] text-slate-400 uppercase">
+                Case studies
+              </span>
+              <h1 className="font-display text-4xl md:text-5xl font-extrabold leading-tight text-white">
+                Proof,{' '}
+                <span className="bg-gradient-to-r from-slate-200 via-cyan-100 to-slate-300 bg-clip-text text-transparent">
+                  Not Promises.
+                </span>{' '}
+                Real Outcomes. Measured Results.
+              </h1>
+              <p className="text-base text-slate-400 max-w-lg leading-relaxed">
+                Explore how we help category leaders re-engineer go-to-market engines for sustainable,
+                predictable growth.
+              </p>
+              <div className="flex flex-wrap gap-3 mt-2">
+                <Link
+                  href="/contact"
+                  className="bg-slate-300 text-[#020617] px-6 py-3 rounded-lg font-bold hover:bg-white transition-colors text-sm"
+                >
+                  Start a conversation
+                </Link>
+                <a
+                  href="#browse"
+                  className="border border-slate-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors text-sm"
+                >
+                  View all results
+                </a>
+              </div>
             </div>
-          </FadeIn>
-        )}
-      </SectionLight>
-      </Reveal>
-
-      {/* Top Outcomes (Dark Proof) */}
-      <Reveal delay={0.08}>
-        <SectionDark variant="stats" motif="signal" padding="md" className="overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-[0.08]">
-          <SignalField intensity="subtle" pattern="constellation" density="sparse" />
-        </div>
-        <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h3 className="text-xl md:text-2xl font-semibold text-white">
-            Top outcomes across GTM programs
-          </h3>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {topOutcomes.map((stat) => (
-              <div
-                key={stat.label}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm hover:-translate-y-1 transition-all duration-300"
-              >
-                <div className="text-2xl font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-slate-200 mt-1">{stat.label}</div>
-                <div className="text-xs text-cyan-100 mt-2">{stat.detail}</div>
-                <div className="mt-3 h-1 w-full bg-gradient-to-r from-brand-400 via-cool-400 to-cyan-400 rounded-full opacity-70" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </SectionDark>
-      </Reveal>
-
-      {/* How we drive results (Light) */}
-      <Reveal delay={0.08}>
-        <SectionLight variant="white" className="overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-15">
-          <PathwayOverlay intensity="subtle" paths="simple" />
-        </div>
-        <SectionHeader
-          label="How we drive results"
-          title="Outcome-first GTM, shipped like a product"
-          description="Every project follows a productized route: outcome brief, motion design, instrumentation, proof."
-          align="center"
-          className="mb-10"
-        />
-        <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-          {framework.map((step, idx) => (
-            <StaggerItem key={step.title}>
-              <div className="h-full rounded-2xl border border-slate-200 bg-white p-5 shadow-soft hover:shadow-strong transition-all duration-300 hover:-translate-y-1 flex flex-col gap-3">
-                <div className="flex items-center justify-between">
-                  <span className="text-xs font-semibold text-brand-700 uppercase tracking-[0.15em]">
-                    Step {idx + 1}
-                  </span>
-                  <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-brand-50 to-cyan-50 border border-slate-200 flex items-center justify-center text-brand-700">
-                    {idx % 2 === 0 ? <Compass className="w-4 h-4" /> : <Layers className="w-4 h-4" />}
+            <div className="relative">
+              <div className="grid grid-cols-2 gap-3 md:gap-4">
+                {heroMiniStats.map((s, i) => (
+                  <div
+                    key={s.label}
+                    className={`bg-[#0D2137] p-4 md:p-5 rounded-xl border border-slate-700 shadow-2xl flex flex-col gap-1 ${
+                      i % 2 === 1 ? 'translate-y-4 md:translate-y-6' : ''
+                    }`}
+                  >
+                    <s.icon className={`w-5 h-5 ${s.className}`} aria-hidden />
+                    <div className="text-2xl font-bold text-white">{s.value}</div>
+                    <div className="text-[10px] text-slate-400 uppercase tracking-wider">{s.label}</div>
                   </div>
-                </div>
-                <h3 className="text-base font-semibold text-slate-900">{step.title}</h3>
-                <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
+                ))}
               </div>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </SectionLight>
+            </div>
+          </div>
+        </section>
       </Reveal>
 
-      {/* CTA (Dark) */}
-      <Reveal delay={0.1}>
-        <SectionDark variant="cta" motif="signal" padding="lg" accentOrb className="overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none opacity-10">
-          <SignalField intensity="subtle" pattern="mesh" density="sparse" />
-        </div>
-        <div className="absolute inset-0 pointer-events-none opacity-[0.12]">
-          <PathwayOverlay intensity="subtle" paths="simple" accent />
-        </div>
-        <div className="max-w-3xl text-center mx-auto space-y-6">
-          <h2 className="font-display text-3xl md:text-4xl font-bold text-white text-balance">
-            Want outcomes like these?
-          </h2>
-          <p className="text-lg text-slate-200 leading-relaxed">
-            Let&apos;s map the route, instrument the signals, and launch the motion that delivers your next proof point.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a
-              href="/contact"
-              className="btn bg-white text-brand-900 hover:bg-white/90 px-6 py-3 text-base rounded-xl shadow-glow transition-all duration-300 hover:shadow-glow-violet"
-            >
-              Start a project
-            </a>
-            <a
-              href="/expertise"
-              className="btn bg-white/10 text-white border border-white/20 hover:bg-white/20 px-6 py-3 text-base rounded-xl backdrop-blur-sm transition-all duration-300"
-            >
-              Explore expertise
-            </a>
+      <Reveal delay={0.05}>
+        <SectionLight variant="white" className="overflow-hidden py-12 md:py-16" id="browse">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+              Filter by what matters to you
+            </h2>
+            <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+              <aside className="w-full lg:w-64 shrink-0">
+                <div className="lg:sticky lg:top-24 space-y-8">
+                  <div>
+                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">
+                      Industry
+                    </h3>
+                    <div className="flex flex-col gap-1.5">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedIndustry(null)}
+                        className={`flex items-center justify-between px-4 py-2 rounded-lg text-sm font-semibold text-left transition-colors ${
+                          selectedIndustry === null
+                            ? 'bg-brand-600 text-white'
+                            : 'bg-transparent text-slate-600 hover:bg-slate-100'
+                        }`}
+                      >
+                        All industries
+                        <ChevronRight className="w-4 h-4 shrink-0 opacity-70" />
+                      </button>
+                      {industriesWithCases.map((ind) => (
+                        <button
+                          key={ind.slug}
+                          type="button"
+                          onClick={() => setSelectedIndustry(ind.slug)}
+                          className={`px-4 py-2 rounded-lg text-sm font-semibold text-left transition-colors ${
+                            selectedIndustry === ind.slug
+                              ? 'bg-brand-600 text-white'
+                              : 'bg-transparent text-slate-600 hover:bg-slate-100'
+                          }`}
+                        >
+                          {ind.title}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">
+                      Topic
+                    </h3>
+                    <div className="flex flex-col gap-1.5 max-h-[280px] overflow-y-auto pr-1">
+                      <button
+                        type="button"
+                        onClick={() => setSelectedTag(null)}
+                        className={`flex items-center justify-between px-4 py-2 rounded-lg text-sm font-semibold text-left transition-colors ${
+                          selectedTag === null
+                            ? 'bg-brand-600 text-white'
+                            : 'bg-transparent text-slate-600 hover:bg-slate-100'
+                        }`}
+                      >
+                        All topics
+                        <ChevronRight className="w-4 h-4 shrink-0 opacity-70" />
+                      </button>
+                      {allTags.slice(0, 12).map((tag) => (
+                        <button
+                          key={tag}
+                          type="button"
+                          onClick={() => setSelectedTag(tag)}
+                          className={`px-4 py-2 rounded-lg text-sm font-semibold text-left transition-colors ${
+                            selectedTag === tag
+                              ? 'bg-brand-600 text-white'
+                              : 'bg-transparent text-slate-600 hover:bg-slate-100'
+                          }`}
+                        >
+                          {tag}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  {(selectedIndustry !== null || selectedTag !== null) && (
+                    <button
+                      type="button"
+                      onClick={clearFilters}
+                      className="text-sm font-semibold text-brand-600 hover:text-brand-700"
+                    >
+                      Clear filters
+                    </button>
+                  )}
+                </div>
+              </aside>
+
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                  <p className="text-sm text-slate-600">
+                    Showing{' '}
+                    <span className="font-semibold text-slate-900">{filteredItems.length}</span> case
+                    studies
+                  </p>
+                  <Link
+                    href="/case-studies/ai-visualizations"
+                    className="inline-flex items-center gap-2 text-brand-700 font-semibold hover:text-brand-500 transition-colors text-sm"
+                  >
+                    AI visualizations
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+                <CardGrid columns={2}>
+                  {filteredItems.map((study) => (
+                    <CardGridItem key={study.slug}>
+                      <CaseStudyCard
+                        variant="hub"
+                        slug={study.slug}
+                        title={study.title}
+                        client={study.client}
+                        description={study.description}
+                        href={`/case-studies/${study.slug}`}
+                        tags={study.tags}
+                        metrics={study.metrics}
+                        featured={study.featured}
+                      />
+                    </CardGridItem>
+                  ))}
+                </CardGrid>
+
+                {filteredItems.length === 0 && (
+                  <FadeIn>
+                    <div className="text-center py-12 rounded-xl border border-dashed border-slate-200 bg-slate-50">
+                      <p className="text-slate-500">No case studies match these filters.</p>
+                      <button
+                        type="button"
+                        onClick={clearFilters}
+                        className="mt-3 text-brand-600 font-semibold hover:text-brand-700"
+                      >
+                        Clear filters
+                      </button>
+                    </div>
+                  </FadeIn>
+                )}
+              </div>
+            </div>
           </div>
-        </div>
-      </SectionDark>
+        </SectionLight>
+      </Reveal>
+
+      <Reveal delay={0.06}>
+        <section className="bg-[#020617] py-14 md:py-16 border-y border-slate-800">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+              {proofBandStats.map((s) => (
+                <div key={s.label} className="flex flex-col gap-1">
+                  <span className="text-2xl md:text-3xl font-extrabold text-white font-display">{s.value}</span>
+                  <span className="text-[10px] font-semibold text-slate-500 uppercase tracking-widest">
+                    {s.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className="mt-10 border-t border-slate-800/50 py-6 overflow-hidden">
+            <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-center">
+              {marqueeLabels.map((label) => (
+                <span
+                  key={label}
+                  className="text-sm md:text-base font-display font-bold text-slate-500 italic uppercase tracking-widest"
+                >
+                  {label}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {flagshipPair.length > 0 && (
+        <Reveal delay={0.07}>
+          <SectionLight variant="white" className="py-14 md:py-16">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 flex flex-col gap-10">
+              <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900">
+                Featured flagship results
+              </h2>
+              {flagshipPair.map((study, idx) => {
+                const m = study.metrics[0]
+                const m2 = study.metrics[1]
+                const reverse = idx % 2 === 1
+                return (
+                  <div
+                    key={study.slug}
+                    className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} rounded-xl overflow-hidden border border-slate-200 shadow-lg`}
+                  >
+                    <div className="w-full md:w-[40%] bg-[#0D2137] p-8 md:p-10 text-white flex flex-col justify-center">
+                      <span className="text-[10px] font-bold tracking-[0.2em] text-brand-400 uppercase mb-3">
+                        {study.tags[0] ?? 'Spotlight'}
+                      </span>
+                      <h3 className="text-xl md:text-2xl font-bold mb-3 font-display">{study.title}</h3>
+                      <p className="text-slate-400 text-sm leading-relaxed">{study.description}</p>
+                    </div>
+                    <div className="w-full md:w-[60%] bg-white p-8 md:p-10 flex flex-col justify-center">
+                      <div className="grid grid-cols-2 gap-8 mb-6">
+                        {m && (
+                          <div>
+                            <div className="text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
+                              {m.value}
+                            </div>
+                            <div className="text-xs text-slate-500 uppercase font-bold mt-1">{m.label}</div>
+                          </div>
+                        )}
+                        {m2 && (
+                          <div>
+                            <div className="text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
+                              {m2.value}
+                            </div>
+                            <div className="text-xs text-slate-500 uppercase font-bold mt-1">{m2.label}</div>
+                          </div>
+                        )}
+                      </div>
+                      <Link
+                        href={`/case-studies/${study.slug}`}
+                        className="bg-brand-600 text-white font-bold py-2.5 px-6 rounded-lg self-start text-sm hover:opacity-90 transition-opacity inline-flex items-center gap-2"
+                      >
+                        Read case study
+                        <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    </div>
+                  </div>
+                )
+              })}
+            </div>
+          </SectionLight>
+        </Reveal>
+      )}
+
+      <Reveal delay={0.08}>
+        <SectionDark
+          variant="cta"
+          motif="signal"
+          padding="lg"
+          accentOrb
+          className="relative overflow-hidden bg-[#020617] border-t border-slate-800"
+        >
+          <div className="absolute inset-0 pointer-events-none opacity-15">
+            <SignalField intensity="subtle" pattern="mesh" density="sparse" />
+          </div>
+          <div className="absolute inset-0 pointer-events-none bg-brand-600/10 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 max-w-[600px] mx-auto" />
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 relative z-10 text-center flex flex-col items-center gap-6">
+            <h2 className="font-display text-2xl md:text-4xl font-extrabold text-white max-w-2xl text-balance">
+              Ready to turn your GTM into a measurable revenue engine?
+            </h2>
+            <p className="text-slate-400 text-base max-w-xl">
+              We work with a focused set of partners each quarter to ensure maximum outcome delivery.
+            </p>
+            <Link
+              href="/contact"
+              className="bg-[#E8A040] text-[#020617] px-8 py-4 rounded-lg font-bold text-base hover:bg-white transition-all inline-flex items-center gap-2 shadow-[0_0_40px_rgba(232,160,64,0.3)]"
+            >
+              Start a conversation
+              <ArrowRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </SectionDark>
       </Reveal>
     </>
   )
 }
-

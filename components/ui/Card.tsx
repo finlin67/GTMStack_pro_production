@@ -146,6 +146,14 @@ export function MetricCard({ label, value, change, icon, className }: MetricCard
   )
 }
 
+const HUB_STRIP_PALETTE = ['#FFDB58', '#E8A040', '#AED6F1', '#36C0CF'] as const
+
+function hubStripColor(slug: string): string {
+  let h = 0
+  for (let i = 0; i < slug.length; i++) h = (h + slug.charCodeAt(i) * (i + 1)) % 997
+  return HUB_STRIP_PALETTE[h % HUB_STRIP_PALETTE.length]
+}
+
 interface CaseStudyCardProps {
   title: string
   client: string
@@ -154,6 +162,9 @@ interface CaseStudyCardProps {
   tags: string[]
   metrics: { label: string; value: string }[]
   featured?: boolean
+  /** Stitch hub layout: colored top strip, single headline metric, compact tags */
+  variant?: 'default' | 'hub'
+  slug?: string
   className?: string
 }
 
@@ -165,8 +176,61 @@ export function CaseStudyCard({
   tags,
   metrics,
   featured,
+  variant = 'default',
+  slug = '',
   className,
 }: CaseStudyCardProps) {
+  const strip = slug ? hubStripColor(slug) : HUB_STRIP_PALETTE[0]
+  const primary = metrics[0]
+
+  if (variant === 'hub') {
+    return (
+      <HoverScale>
+        <Link href={href} className="block h-full">
+          <div
+            className={cn(
+              'group bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow h-full',
+              featured && 'ring-1 ring-brand-200/60',
+              className
+            )}
+          >
+            <div className="h-1.5 w-full shrink-0" style={{ backgroundColor: strip }} />
+            <div className="p-6 md:p-8 flex flex-col flex-1">
+              <div className="flex gap-2 mb-4 flex-wrap">
+                {tags.slice(0, 2).map((tag) => (
+                  <span
+                    key={tag}
+                    className="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-slate-500 uppercase tracking-wide"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <h3 className="font-display text-xl font-bold mb-3 text-slate-900 dark:text-white leading-tight group-hover:text-brand-600 transition-colors">
+                {title}
+              </h3>
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 flex-1 leading-relaxed">
+                {description}
+              </p>
+              {primary && (
+                <div
+                  className="text-3xl font-extrabold mb-6"
+                  style={{ color: strip }}
+                >
+                  {primary.value}
+                </div>
+              )}
+              <span className="inline-flex items-center gap-2 text-brand-600 font-bold text-sm group-hover:gap-3 transition-all mt-auto">
+                Read case study
+                <ArrowRight className="w-4 h-4" />
+              </span>
+            </div>
+          </div>
+        </Link>
+      </HoverScale>
+    )
+  }
+
   return (
     <HoverScale>
       <Link href={href} className="block h-full">

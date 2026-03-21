@@ -18,13 +18,14 @@ import {
   getPostCategories,
   getPostTags,
 } from '@/lib/wp-client'
-import { getFeaturedImageUrl } from '@/lib/wp-media'
+import { getFeaturedImageUrl, BLOG_FALLBACK_IMAGE } from '@/lib/wp-media'
 
 // ----- Index/Feed Template Adapter -----
 
 export interface BlogFeedAdapterProps {
   posts: WPPost[]
   categories: WPTerm[]
+  tags?: WPTerm[]
   selectedCategory?: string
   searchQuery?: string
 }
@@ -283,44 +284,112 @@ export interface StitchPostCard {
   slug: string
   title: string
   excerpt: string
+  /** Longer blurb for featured large cards (sandbox/stitch-html/blog.html). */
+  excerptLong: string
   date: string
   readTimeLabel: string
   categoryName: string
   categorySlug?: string
   tagNames: string[]
+  authorName: string
   /** From `_embedded.wp:featuredmedia[0]` when `_embed=1` */
   imageUrl: string | null
   imageAlt: string
   href: string
   categoryBadgeClass: string
+  /** Bottom accent on grid cards — matches stitch.html nebula cards */
+  borderBottomClass: string
+}
+
+/** Two-up “Featured Analysis” row — stitch.html section after the main grid */
+export interface StitchFeaturedLargeCard extends StitchPostCard {
+  ribbonLabel: string
+  ribbonClass: string
+  bottomBorderClass: string
+  editionMeta: string
+  secondaryMeta: string
+  authorSubtitle: string
 }
 
 export interface StitchBlogFeedContent {
   hero: {
-    kicker: string
     titleGradient: string
     subtitle: string
   }
-  featured: StitchPostCard[]
+  /** First four posts — 2×2 grid (stitch.html main column). */
   grid: StitchPostCard[]
+  /** Posts 5–6 — large dual cards below the grid. */
+  featuredLarge: StitchFeaturedLargeCard[]
   categoryPills: Array<{ label: string; slug: string }>
+  tagPills: Array<{ label: string; slug: string }>
   sidebar: {
     authorName: string
     authorRole: string
     authorBio: string
     authorImage?: string
     linkedInHref: string
-    trending: Array<{ rank: string; title: string; href: string; accentClass: string }>
+    trendingTags: Array<{ label: string; slug: string }>
   }
 }
 
+/** Rounded category pills — align with sandbox/stitch-html/blog.html */
 const STITCH_BADGE = [
-  'bg-[#2563eb] text-white',
-  'bg-[#007f36] text-white',
-  'bg-[#e4ae00] text-[#3f2e00]',
-  'bg-[#62df7d] text-[#003914]',
-  'bg-[#6FAFE0] text-[#0a122a]',
+  'bg-[#6FAFE0] text-white',
+  'bg-[#112B46] text-white',
+  'bg-[#6FAFE0] text-white',
+  'bg-[#F9C74F] text-[#0D2137]',
 ]
+
+const GRID_BORDER_BOTTOM = [
+  'border-b-[3px] border-[#F9C74F]',
+  'border-b-[3px] border-[#6FAFE0]',
+  'border-b-[3px] border-[#6FAFE0]/50',
+  'border-b-[3px] border-[#F9C74F]',
+]
+
+function formatMonthYearEdition(dateStr: string): string {
+  try {
+    const d = new Date(dateStr)
+    return `${d.toLocaleDateString('en-US', { month: 'long', year: 'numeric' })} Edition`
+  } catch {
+    return 'Edition'
+  }
+}
+
+function buildTrendingTags(posts: WPPost[], categories: WPTerm[]): Array<{ label: string; slug: string }> {
+  const seen = new Set<string>()
+  const out: Array<{ label: string; slug: string }> = []
+  for (const p of posts) {
+    for (const t of getPostTags(p)) {
+      const name = t.name?.trim()
+      const slug = t.slug?.trim()
+      if (!name || !slug) continue
+      const key = slug.toLowerCase()
+      if (seen.has(key)) continue
+      seen.add(key)
+      out.push({ label: name.startsWith('#') ? name : `#${name}`, slug })
+      if (out.length >= 6) return out
+    }
+  }
+  for (const c of categories) {
+    if (out.length >= 6) break
+    const key = c.slug?.toLowerCase() ?? ''
+    if (!key || seen.has(key)) continue
+    seen.add(key)
+    out.push({ label: `#${c.name}`, slug: c.slug })
+  }
+  const fallbacks = [
+    { label: '#RevOps', slug: 'revops' },
+    { label: '#AI', slug: 'ai' },
+    { label: '#HubSpot', slug: 'hubspot' },
+  ]
+  while (out.length < 3) {
+    const fb = fallbacks[out.length]
+    if (fb) out.push(fb)
+    else break
+  }
+  return out.slice(0, 6)
+}
 
 function stitchCardFromPost(post: WPPost, idx: number): StitchPostCard {
   const cats = getPostCategories(post)
@@ -328,67 +397,80 @@ function stitchCardFromPost(post: WPPost, idx: number): StitchPostCard {
   const primaryCat = cats[0]
   const img = getFeaturedImageUrl(post)
   const media = post._embedded?.['wp:featuredmedia']?.[0]
+  const embeddedAuthor = getEmbeddedAuthor(post)
   const readM = estimateReadTimeMinutesFromHtml(
     `${post.content?.rendered || ''} ${post.excerpt?.rendered || ''}`
   )
   const excerptRaw = stripHtml(post.excerpt?.rendered || '')
   const excerpt =
     excerptRaw.length > 180 ? `${excerptRaw.slice(0, 177).trim()}…` : excerptRaw
+  const excerptLong =
+    excerptRaw.length > 320 ? `${excerptRaw.slice(0, 317).trim()}…` : excerptRaw || excerpt
 
   return {
     id: String(post.id),
     slug: post.slug,
     title: stripHtml(post.title?.rendered || post.slug),
     excerpt: excerpt || '…',
+    excerptLong: excerptLong || excerpt,
     date: formatDate(post.date),
     readTimeLabel: `${readM} min read`,
     categoryName: primaryCat?.name || 'Insights',
     categorySlug: primaryCat?.slug,
     tagNames: tags.map((t) => t.name).filter(Boolean),
+    authorName: embeddedAuthor?.name?.trim() || 'Editorial',
     imageUrl: img,
     imageAlt: media?.alt_text || stripHtml(post.title?.rendered || 'Post'),
     href: `/blog/post?slug=${encodeURIComponent(post.slug)}`,
     categoryBadgeClass: STITCH_BADGE[idx % STITCH_BADGE.length],
+    borderBottomClass: GRID_BORDER_BOTTOM[idx % GRID_BORDER_BOTTOM.length],
+  }
+}
+
+function stitchFeaturedLargeFromPost(post: WPPost, idx: number): StitchFeaturedLargeCard {
+  const base = stitchCardFromPost(post, idx + 4)
+  const even = idx % 2 === 0
+  return {
+    ...base,
+    ribbonLabel: even ? 'Featured Analysis' : 'Executive Brief',
+    ribbonClass: even ? 'bg-[#6FAFE0] text-white' : 'bg-[#F9C74F] text-[#0D2137]',
+    bottomBorderClass: even ? 'border-b-[4px] border-[#6FAFE0]' : 'border-b-[4px] border-[#F9C74F]',
+    editionMeta: formatMonthYearEdition(post.date),
+    secondaryMeta: even ? 'Long Read' : 'Key Insights',
+    authorSubtitle: even ? 'Lead Architect' : 'Strategy Director',
   }
 }
 
 export function adaptStitchBlogFeedData(props: BlogFeedAdapterProps): StitchBlogFeedContent {
-  const { posts, categories } = props
-  const cards = posts.map((p, i) => stitchCardFromPost(p, i))
-  const featured = cards.slice(0, 3)
-  const grid = cards.slice(3)
+  const { posts, categories, tags = [] } = props
+  const grid = posts.slice(0, 4).map((p, i) => stitchCardFromPost(p, i))
+  const featuredLarge = posts.slice(4, 6).map((p, i) => stitchFeaturedLargeFromPost(p, i))
 
   const firstAuthor = posts[0] ? getEmbeddedAuthor(posts[0]) : null
   const avatar = getAuthorAvatarUrl(firstAuthor)
   const authorBio = firstAuthor?.description
     ? stripHtml(firstAuthor.description).slice(0, 220)
-    : 'Helping B2B companies scale GTM operations through data, systems, and architectural thinking.'
-
-  const trendingAccents = ['text-[#2563eb]', 'text-[#6FAFE0]', 'text-[#16a34a]']
-  const trending = posts.slice(0, 3).map((p, i) => ({
-    rank: String(i + 1).padStart(2, '0'),
-    title: stripHtml(p.title?.rendered || p.slug),
-    href: `/blog/post?slug=${encodeURIComponent(p.slug)}`,
-    accentClass: trendingAccents[i % trendingAccents.length],
-  }))
+    : 'Architecting complex Go-To-Market ecosystems for over a decade. Dedicated to removing friction from the revenue engine.'
 
   return {
     hero: {
-      kicker: 'GTM Insights & Revenue Operations',
       titleGradient: 'GTM Insights',
       subtitle:
-        'Deconstructing complex GTM architectures, scaling RevOps frameworks, and sharing what actually drives growth in B2B SaaS.',
+        'Deconstructing complex GTM architectures and operational workflows for high-growth revenue teams.',
     },
-    featured,
     grid,
+    featuredLarge,
     categoryPills: [{ label: 'All', slug: '' }, ...categories.map((c) => ({ label: c.name, slug: c.slug }))],
+    tagPills: tags.length > 0
+      ? [{ label: 'All Tags', slug: '' }, ...tags.slice(0, 20).map((t) => ({ label: t.name, slug: t.slug }))]
+      : [],
     sidebar: {
-      authorName: firstAuthor?.name?.trim() || 'GTMStack',
-      authorRole: 'Architect of Revenue',
+      authorName: firstAuthor?.name?.trim() || 'Mark Fischer',
+      authorRole: 'Founder, GTMStack.pro',
       authorBio,
       authorImage: avatar,
       linkedInHref: 'https://linkedin.com',
-      trending,
+      trendingTags: buildTrendingTags(posts, categories),
     },
   }
 }
@@ -462,7 +544,7 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
   const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0]
   const featuredFromHelper = getFeaturedImageUrl(post)
   const featuredImageUrl =
-    featuredFromHelper || featuredMedia?.source_url || 'https://via.placeholder.com/800x450'
+    featuredFromHelper || featuredMedia?.source_url || BLOG_FALLBACK_IMAGE
   const featuredImageAlt = featuredMedia?.alt_text || stripHtml(post.title?.rendered || 'Featured image')
 
   const embedded = getEmbeddedAuthor(post)
@@ -496,7 +578,7 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
     return {
       title: stripHtml(p.title?.rendered || p.slug),
       date: formatDate(p.date),
-      image: relImg || 'https://via.placeholder.com/150x150',
+      image: relImg || BLOG_FALLBACK_IMAGE,
       href: `/blog/post?slug=${encodeURIComponent(p.slug)}`,
       alt: relatedMedia?.alt_text || 'Related post image',
     }

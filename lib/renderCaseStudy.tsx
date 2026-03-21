@@ -16,9 +16,10 @@ import { expertiseItems } from '@/content/expertise'
 import { industryItems } from '@/src/data/industries'
 import { HERO_VISUALS } from '@/lib/heroVisuals'
 import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
-import type { CaseStudyItem } from '@/lib/types'
+import type { CaseStudyItem, CaseStudyRouteKind } from '@/lib/types'
+import RenderCaseStudyStitch from '@/lib/renderCaseStudyStitch'
 
-export type CaseStudyRouteKind = 'projects' | 'case-studies'
+export type { CaseStudyRouteKind }
 
 const ROUTE_CONFIG: Record<
   CaseStudyRouteKind,
@@ -32,12 +33,24 @@ const ROUTE_CONFIG: Record<
   },
 }
 
+export type RenderCaseStudyVariant = 'classic' | 'stitch'
+
 export interface RenderCaseStudyProps {
   caseStudy: CaseStudyItem
   routeKind: CaseStudyRouteKind
+  /** Stitch HTML layout for case study hub detail pages */
+  variant?: RenderCaseStudyVariant
 }
 
-export default function RenderCaseStudy({ caseStudy, routeKind }: RenderCaseStudyProps) {
+export default function RenderCaseStudy({
+  caseStudy,
+  routeKind,
+  variant = 'classic',
+}: RenderCaseStudyProps) {
+  if (variant === 'stitch') {
+    return <RenderCaseStudyStitch caseStudy={caseStudy} routeKind={routeKind} />
+  }
+
   const config = ROUTE_CONFIG[routeKind]
   const industry = industryItems.find((i) => i.slug === caseStudy.industry)
   const relatedExpertise = expertiseItems

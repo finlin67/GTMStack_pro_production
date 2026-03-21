@@ -8,7 +8,7 @@
     "entryHtml": "animations/operations/systems-operations-hero-component-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/operations/systems-operations-hero-component-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "operations",
       "systems",
@@ -42,20 +42,17 @@
   {
     "id": "revops-mesh-dashboard-v2",
     "slug": "revops-mesh-dashboard-v2",
-    "title": "Run and deploy your AI Studio app",
+    "title": "RevOps Mesh Dashboard",
     "category": "operations",
     "projectPath": "animations/operations/revops-mesh-dashboard-v2",
     "entryHtml": "animations/operations/revops-mesh-dashboard-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/operations/revops-mesh-dashboard-v2/README.md",
-    "summary": "This contains everything you need to run your app locally.",
+    "summary": null,
     "tags": [
       "operations",
-      "run",
-      "deploy",
-      "your",
-      "studio",
-      "app"
+      "revops",
+      "dashboard"
     ],
     "thumbnailPath": "animations/operations/revops-mesh-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/revops-mesh-dashboard-v2",
@@ -88,7 +85,7 @@
     "id": "revenue-systems-data-flow-v2",
     "slug": "revenue-systems-data-flow-v2",
     "animationId": "revenue-systems-data-flow-v2",
-    "title": "🧠 Revenue Systems Data Flow",
+    "title": "Revenue Systems Data Flow",
     "category": "operations",
     "projectPath": "animations/operations/revenue-systems-data-flow-v2",
     "entryHtml": "animations/operations/revenue-systems-data-flow-v2/app-v2.html",
@@ -192,20 +189,18 @@
   {
     "id": "marketing-revenue-analytics-v2",
     "slug": "marketing-revenue-analytics-v2",
-    "title": "Run and deploy your AI Studio app",
+    "title": "Marketing Revenue Analytics",
     "category": "operations",
     "projectPath": "animations/operations/marketing-revenue-analytics-v2",
     "entryHtml": "animations/operations/marketing-revenue-analytics-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/operations/marketing-revenue-analytics-v2/README.md",
-    "summary": "This contains everything you need to run your app locally.",
+    "summary": null,
     "tags": [
       "operations",
-      "run",
-      "deploy",
-      "your",
-      "studio",
-      "app"
+      "marketing",
+      "revenue",
+      "analytics"
     ],
     "thumbnailPath": "animations/operations/marketing-revenue-analytics-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketing-revenue-analytics-v2",
@@ -221,7 +216,7 @@
     "entryHtml": "animations/operations/marketing-operations-workflow-tile-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/operations/marketing-operations-workflow-tile-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "operations",
       "opsflow",
@@ -1014,7 +1009,7 @@
     "entryHtml": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "industries",
       "devmarketers",
@@ -1202,7 +1197,7 @@
     "entryHtml": "animations/industries/aerospace-auto-engineering-workflow-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/industries/aerospace-auto-engineering-workflow-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "industries",
       "aeroauto",
@@ -1520,7 +1515,7 @@
   {
     "id": "sequence-ladder-analytics-tile-v2",
     "slug": "sequence-ladder-analytics-tile-v2",
-    "title": "📊 Sequence Ladder Analytics Tile",
+    "title": "Sequence Ladder Analytics Tile",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/sequence-ladder-analytics-tile-v2",
     "entryHtml": "animations/digital-demand/sequence-ladder-analytics-tile-v2/emailladdertile-v2.html",
@@ -1547,7 +1542,7 @@
     "entryHtml": "animations/digital-demand/sales-enablement-hero-animated-tile-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/sales-enablement-hero-animated-tile-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "digital-demand",
       "sales",
@@ -1611,7 +1606,7 @@
     "entryHtml": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "digital-demand",
       "nexus",
@@ -1654,7 +1649,7 @@
     "entryHtml": "animations/digital-demand/martech-ai-landing-page-component-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/martech-ai-landing-page-component-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "digital-demand",
       "martech",
@@ -1921,20 +1916,18 @@
   {
     "id": "email-marketing-json-lottie-v2",
     "slug": "email-marketing-json-lottie-v2",
-    "title": "Run and deploy your AI Studio app",
+    "title": "Email Marketing Animation",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/email-marketing-json-lottie-v2",
     "entryHtml": "animations/digital-demand/email-marketing-json-lottie-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/email-marketing-json-lottie-v2/README.md",
-    "summary": "This contains everything you need to run your app locally.",
+    "summary": null,
     "tags": [
       "digital-demand",
-      "run",
-      "deploy",
-      "your",
-      "studio",
-      "app"
+      "email",
+      "marketing",
+      "lottie"
     ],
     "thumbnailPath": "animations/digital-demand/email-marketing-json-lottie-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/email-marketing-json-lottie-v2",
@@ -1950,7 +1943,7 @@
     "entryHtml": "animations/digital-demand/driftguard-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/driftguard-v2/README.md",
-    "summary": "Description",
+    "summary": null,
     "tags": [
       "digital-demand",
       "driftguard",
@@ -2129,20 +2122,17 @@
   {
     "id": "workflow-visualization-v2",
     "slug": "workflow-visualization-v2",
-    "title": "Run and deploy your AI Studio app",
+    "title": "Workflow Visualization",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/workflow-visualization-v2",
     "entryHtml": "animations/dashboard-tiles/workflow-visualization-v2/preview.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/workflow-visualization-v2/README.md",
-    "summary": "This contains everything you need to run your app locally.",
+    "summary": null,
     "tags": [
       "dashboard-tiles",
-      "run",
-      "deploy",
-      "your",
-      "studio",
-      "app"
+      "workflow",
+      "visualization"
     ],
     "thumbnailPath": "animations/dashboard-tiles/workflow-visualization-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/workflow-visualization-v2",
@@ -2233,7 +2223,7 @@
   {
     "id": "marketing-automation-workflow-v2",
     "slug": "marketing-automation-workflow-v2",
-    "title": "⚡ Marketing Automation Workflow",
+    "title": "Marketing Automation Workflow",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/marketing-automation-workflow-v2",
     "entryHtml": "animations/dashboard-tiles/marketing-automation-workflow-v2/marketingautomation-v2.html",
@@ -2438,7 +2428,7 @@
   {
     "id": "gtm-stack-data-sync-mesh-v2",
     "slug": "gtm-stack-data-sync-mesh-v2",
-    "title": "🔗 GTM Stack Data Sync Mesh",
+    "title": "GTM Stack Data Sync Mesh",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2",
     "entryHtml": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2/revopsdashboard-v2.html",

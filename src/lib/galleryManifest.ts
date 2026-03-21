@@ -1,5 +1,10 @@
 // Server-side helpers for the animation gallery manifest.
 // Reads src/data/gallery-manifest.json produced by finlin67/GTMStack-Animations.
+//
+// Normalization contract (applied at load time, never mutates the JSON file):
+//   - Title:   strip leading emoji; if title matches a known AI Studio placeholder, derive from slug
+//   - Summary: clear known AI Studio placeholder strings; derive from category+slug when null
+//   - Tags:    strip tags that are clearly spill-over words from placeholder titles
 
 import fs from 'fs'
 import path from 'path'
@@ -47,6 +52,63 @@ function toTitleCaseSlug(value: string | undefined | null): string {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
     .join(' ')
 }
+
+// ---------------------------------------------------------------------------
+// Normalisation helpers — applied at read-time; JSON file is never mutated.
+// ---------------------------------------------------------------------------
+
+/** Known verbatim placeholder strings injected by Google AI Studio templates. */
+const PLACEHOLDER_TITLE_PATTERN =
+  /^Run and deploy your AI Studio app\s*$/i
+
+/** Placeholder values that should be treated as "no summary". */
+const PLACEHOLDER_SUMMARY_PATTERN =
+  /Run and deploy your AI Studio app|This contains everything you need to run your app locally|Gallery thumbnail placeholder \(Option B\)|^\s*Description\s*$/i
+
+/** Tag words that are clearly spill-over from a placeholder title (not real keywords). */
+const PLACEHOLDER_TAG_WORDS = new Set(['run', 'deploy', 'your', 'studio'])
+
+/** Strip leading Unicode emoji characters (and trailing whitespace) from a string. */
+function stripLeadingEmoji(value: string): string {
+  // Matches emoji in common Unicode blocks: Misc Symbols, Dingbats, Supplemental
+  return value.replace(/^[\u{1F300}-\u{1FFFF}\u{2600}-\u{27BF}]+\s*/u, '').trim()
+}
+
+/** Normalise a raw title: strip emoji and replace AI Studio placeholders with slug-derived title. */
+function normalizeTitle(title: string, slug: string): string {
+  const stripped = stripLeadingEmoji(title)
+  if (PLACEHOLDER_TITLE_PATTERN.test(stripped) || !stripped) {
+    return toTitleCaseSlug(slug.replace(/-v\d+$/, ''))
+  }
+  return stripped
+}
+
+/** Normalise a summary: remove placeholder text; return null when no real content remains. */
+function normalizeSummary(summary: string | null | undefined): string | null {
+  if (!summary) return null
+  const cleaned = summary
+    .replace(PLACEHOLDER_SUMMARY_PATTERN, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return cleaned || null
+}
+
+/** Remove placeholder-derived tag words and keep only meaningful keywords. */
+function normalizeTags(tags: string[]): string[] {
+  return (tags || []).filter((t) => !PLACEHOLDER_TAG_WORDS.has(t.toLowerCase()))
+}
+
+/** Generate a minimal fallback summary when none is present. */
+function deriveSummary(slug: string, category: string): string {
+  const intent = toTitleCaseSlug(slug.replace(/-v\d+$/, ''))
+  const cat = toTitleCaseSlug(category)
+  return `${intent} — interactive ${cat} animation tile.`
+}
+
+// ---------------------------------------------------------------------------
 
 function normalizeWebPath(value: string | undefined | null): string {
   if (!value) return ''
@@ -131,8 +193,13 @@ function loadManifest(): GalleryItem[] {
     const parsed = JSON.parse(raw) as GalleryManifestItem[]
 
     cachedItems = parsed.map((item) => {
+      const title = normalizeTitle(item.title, item.slug || item.id)
+      const cleanTags = normalizeTags(item.tags)
+      const rawSummary = normalizeSummary(item.summary)
+      const summary = rawSummary ?? deriveSummary(item.slug || item.id, item.category)
+
       const displayCategory = toTitleCaseSlug(item.category)
-      const displayTags = (item.tags || []).map((tag) => toTitleCaseSlug(tag))
+      const displayTags = cleanTags.map((tag) => toTitleCaseSlug(tag))
       const preferredEntryHtml = resolvePreferredEntryHtml(item.entryHtml)
       const placeholderPreview = isPlaceholderPreviewHtml(preferredEntryHtml || item.entryHtml)
       const thumbnailUrl = !placeholderPreview && item.thumbnailPath
@@ -142,8 +209,10 @@ function loadManifest(): GalleryItem[] {
 
       return {
         ...item,
+        title,
+        tags: cleanTags,
         entryHtml: resolvedEntryHtml,
-        summary: item.summary ?? null,
+        summary,
         displayCategory,
         displayTags,
         thumbnailUrl,

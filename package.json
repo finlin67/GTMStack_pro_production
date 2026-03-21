@@ -28,6 +28,7 @@
     "gen:thumbnails": "node scripts/generate-thumbnails.js",
     "regen:gallery-thumbs:dry": "npx tsx scripts/regenerate-gallery-thumbnails.ts --dry-run",
     "regen:gallery-thumbs": "npx tsx scripts/regenerate-gallery-thumbnails.ts --apply",
+    "validate:gallery": "npx tsx scripts/validate-gallery.ts",
     "report:gallery:placeholders": "npx tsx scripts/report-gallery-placeholder-items.ts",
     "cleanup:thumbnail-factory": "node scripts/cleanup-thumbnail-factory.js",
     "gen:thumbnails:once": "npm run gen:thumbnails && npm run cleanup:thumbnail-factory",

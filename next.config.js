@@ -27,6 +27,16 @@ const baseConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      // WordPress media host — required if next/image optimization is ever re-enabled
+      {
+        protocol: 'https',
+        hostname: 'm.gtmstack.pro',
+      },
+      // Wildcard for any *.gtmstack.pro subdomain used as WP media CDN
+      {
+        protocol: 'https',
+        hostname: '*.gtmstack.pro',
+      },
     ],
     unoptimized: true,
   },

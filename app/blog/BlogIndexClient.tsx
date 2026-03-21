@@ -14,6 +14,7 @@ export type BlogIndexClientProps = {
   initialPosts: WPPost[]
   totalPages: number
   categories: WPTerm[]
+  tags: WPTerm[]
   initialQuery: { q?: string; category?: string; tag?: string; page?: string }
   error?: string
 }
@@ -22,6 +23,7 @@ export default function BlogIndexClient({
   initialPosts,
   totalPages,
   categories,
+  tags,
   initialQuery,
   error: postsOrCategoriesError,
 }: BlogIndexClientProps) {
@@ -30,6 +32,7 @@ export default function BlogIndexClient({
   const [searchInput, setSearchInput] = useState(initialQuery.q ?? '')
   const q = searchParams?.get('q') ?? ''
   const category = searchParams?.get('category') ?? ''
+  const tag = searchParams?.get('tag') ?? ''
   const pageParam = searchParams?.get('page') ?? '1'
   const currentPage = Math.max(1, parseInt(pageParam, 10) || 1)
 
@@ -43,9 +46,11 @@ export default function BlogIndexClient({
     let cancelled = false
     setIsRefreshingFromWp(true)
     const categoryId = category ? categories.find((c) => c.slug === category)?.id : undefined
+    const tagId = tag ? tags.find((t) => t.slug === tag)?.id : undefined
     fetchPostsWithTotal({
       search: q || undefined,
       categoryIds: categoryId != null ? [categoryId] : undefined,
+      tagIds: tagId != null ? [tagId] : undefined,
       page: currentPage,
       per_page: POSTS_PER_PAGE,
     })
@@ -67,7 +72,7 @@ export default function BlogIndexClient({
     return () => {
       cancelled = true
     }
-  }, [q, category, currentPage, categories])
+  }, [q, category, tag, currentPage, categories, tags])
 
   const displayedPosts = urlDrivenData?.posts ?? initialPosts
   const displayedTotalPages = urlDrivenData?.totalPages ?? totalPages
@@ -113,10 +118,11 @@ export default function BlogIndexClient({
     return adaptStitchBlogFeedData({
       posts: displayedPosts,
       categories,
+      tags,
       selectedCategory: category,
       searchQuery: searchInput,
     })
-  }, [displayedPosts, categories, category, searchInput])
+  }, [displayedPosts, categories, tags, category, searchInput])
 
   const wpSyncLabel = useMemo(() => {
     if (!lastWpSyncAt) return null
@@ -133,7 +139,9 @@ export default function BlogIndexClient({
       <BlogStitchFeedTemplate
         data={stitchFeed}
         selectedCategorySlug={category}
-        onCategorySelect={(slug) => updateUrl({ category: slug || undefined, page: '1' })}
+        onCategorySelect={(slug) => updateUrl({ category: slug || undefined, tag: undefined, page: '1' })}
+        selectedTagSlug={tag}
+        onTagSelect={(slug) => updateUrl({ tag: slug || undefined, page: '1' })}
         searchValue={searchInput}
         onSearchChange={setSearchInput}
         error={postsOrCategoriesError}
