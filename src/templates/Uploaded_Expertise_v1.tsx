@@ -57,12 +57,13 @@ const DEFAULT_CONTENT: TemplateContent = {
       { label: 'Methodology', href: '#' },
       { label: 'Case Studies', href: '#' },
     ],
-    cta: 'Start a Conversation',
+    cta: 'Connect on methodology',
   },
   hero: {
     title: 'Four Pillars. One Revenue Architecture',
-    subtitle: 'Master your revenue engine with our comprehensive strategic framework designed for high-growth SaaS. We align your tech, data, and teams.',
-    cta1: 'Get Started',
+    subtitle:
+      'Master your revenue engine with a published operating model: tech, data, and teams aligned to one measurement story.',
+    cta1: 'Explore the framework',
     cta2: 'View Framework',
   },
   pillars: {
@@ -92,8 +93,8 @@ const DEFAULT_CONTENT: TemplateContent = {
   },
   cta: {
     title: 'Ready to Build Your Revenue Architecture?',
-    subtitle: 'Stop guessing and start scaling. Join 50+ high-growth SaaS companies using GTMStack.pro.',
-    button: 'Get Started Now',
+    subtitle: 'Trace how strategy becomes systems and proof—then apply the same lens to your stack.',
+    button: 'Explore the framework',
   },
   footer: {
     copyright: '© 2024 GTMStack.pro - All Rights Reserved.',

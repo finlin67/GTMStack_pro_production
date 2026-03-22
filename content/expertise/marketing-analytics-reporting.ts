@@ -5,14 +5,14 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
   },
   hero: {
     headline: "Master Your Marketing ROI with Strategic Reporting & Attribution.",
-    subheadline: "Unlock the true impact of your campaigns. We build robust dashboards and attribution models that translate raw data into actionable insights, empowering confident, data-driven decisions.",
+    subheadline: "See the true impact of your campaigns. We build robust dashboards and attribution models that translate raw data into actionable insights, empowering confident, data-driven decisions.",
     description: "In today's complex marketing landscape, simply collecting data isn't enough. Our expertise lies in interpreting that data, building sophisticated attribution models, and designing intuitive dashboards that reveal the customer journey and optimize every marketing dollar. Justify spend, refine strategy, and accelerate growth.",
-    primaryCTA: { text: "Schedule a Data Strategy Session", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/reporting-dashboards-attribution#approach" },
+    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/expertise/reporting-dashboards-attribution#approach" },
     image: { src: "/images/reporting-dashboards-hero.webp", alt: "Strategic Reporting Dashboards and Attribution Models" }
   },
   metricsSection: {
-    headline: "Quantifiable Impact of Strategic Reporting & Attribution",
+    headline: "Quantifiable Impact of Strategic Reporting & Attribution.",
     stats: [
       { label: "Improved Marketing ROI", value: "25%+" },
       { label: "Enhanced Campaign Optimization", value: "30%+" },
@@ -51,7 +51,7 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Marketing Data into Strategic Advantage?",
     subtitle: "Let's build a reporting and attribution framework that truly moves the needle for your business. Stop guessing and start growing with data-driven confidence.",
-    button: { text: "Get Started with a Consultation", link: "/contact" }
+    button: { text: "See the measurement framework", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in transforming complex marketing data into clear, actionable insights through expert reporting dashboards and advanced attribution modeling. Empowering businesses to optimize spend and drive measurable growth.",

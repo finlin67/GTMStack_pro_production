@@ -8,7 +8,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
     subheadline: "Orchestrate High-Value Account Relationships with Strategic Imperfection and Invisible AI.",
     description: "Modern ABM is about cultivating durable trust. By embracing the 'Pratfall Effect' and moving from transactional friction to 'helpful restraint,' we build authentic connections. Our AI-native digital core empowers precision targeting, intelligent orchestration, and measurable yield, ensuring your brand stands out in an era of information overwhelm.",
     primaryCTA: { text: "Discover Our Approach", link: "/expertise/abm-ai-strategy" },
-    secondaryCTA: { text: "Request a Consultation", link: "/contact" }
+    secondaryCTA: { text: "View the methodology", link: "/contact" }
   },
   metricsSection: {
     headline: "Driving Measurable Impact in the B2B Landscape",
@@ -26,7 +26,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
     items: [
       {
         title: "Precision Targeting & First-Party Intelligence",
-        description: "Pivot from traditional SEO to Answer Engine Optimization (AEO), focusing on AI citations and direct credible answers. Leverage Zero-Party and First-Party data to transform loyalty into a personalization engine, mitigating third-party cookie phase-outs."
+        description: "Pivot from traditional SEO to Answer Engine Optimization (AEO), focusing on AI citations and direct credible answers. Use Zero-Party and First-Party data to transform loyalty into a personalization engine, mitigating third-party cookie phase-outs."
       },
       {
         title: "AI-Native GTM Stack Orchestration",
@@ -51,7 +51,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
       },
       {
         title: "Embracing the Pratfall Effect",
-        description: "We leverage the psychological 'Pratfall Effect,' where highly competent brands gain trust and relatability by exhibiting 'strategic imperfections.' This signals real humans steer automation, acting as a defense against 'AI-slop' and building durable trust through 'helpful restraint.'"
+        description: "We use the psychological 'Pratfall Effect,' where highly competent brands gain trust and relatability by exhibiting 'strategic imperfections.' This signals real humans steer automation, acting as a defense against 'AI-slop' and building durable trust through 'helpful restraint.'"
       },
       {
         title: "From Transactional to Relational",
@@ -74,8 +74,8 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Evolve Your ABM Strategy?",
-    subtitle: "Unlock high-value relationships and measurable growth with our AI-native, human-centric approach.",
-    button: { text: "Start Your Transformation", link: "/contact" }
+    subtitle: "Improve high-value relationships and measurable growth with our AI-native, human-centric approach.",
+    button: { text: "Start a focused diagnostic", link: "/contact" }
   },
   footer: {
     description: "Empowering B2B enterprises to thrive in the Age of AI by building durable trust and orchestrating high-value account relationships with strategic precision and human ingenuity.",

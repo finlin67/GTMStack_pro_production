@@ -51,7 +51,7 @@ const DEFAULT_NAV = {
     { label: 'Systems & Operations', href: '/expertise/systems-operations' },
     { label: 'About', href: '/about' },
   ],
-  buttonText: 'Get Started',
+  buttonText: 'Explore the framework',
   buttonHref: '/contact',
 }
 
@@ -210,7 +210,7 @@ export function mapExpertiseContentToDemandGrowthTemplate(
       description: [heroLead, toText(hero.description, toText(brand.description, ''))]
         .filter((p) => p && String(p).trim().length > 0)
         .join('\n\n'),
-      primaryButtonText: toText(hero.primaryCTA?.text, 'Get Started'),
+      primaryButtonText: toText(hero.primaryCTA?.text, 'Explore the framework'),
       primaryButtonHref: toText(hero.primaryCTA?.link, '/contact'),
       secondaryButtonText: toText(hero.secondaryCTA?.text, 'Learn More'),
       secondaryButtonHref: toText(hero.secondaryCTA?.link, '/contact'),
@@ -248,7 +248,7 @@ export function mapExpertiseContentToDemandGrowthTemplate(
       titleLine1: splitHeadline(toText(cta.title, 'Ready to Grow?')).line1,
       titleLine2: splitHeadline(toText(cta.title, '')).line2,
       description: toText(cta.subtitle, ''),
-      primaryButtonText: toText(cta.button?.text, 'Schedule a Consultation'),
+      primaryButtonText: toText(cta.button?.text, 'Explore the framework'),
       primaryButtonHref: toText(cta.button?.link, '/contact'),
       secondaryLinkText: toText(hero.secondaryCTA?.text, 'Explore Our Approach'),
       secondaryLinkHref: toText(hero.secondaryCTA?.link, '/contact'),
@@ -298,7 +298,7 @@ export function mapExpertiseContentToContentEngagementTemplate(
     heroTitle1: heroNorm.h1Primary,
     heroTitle2: leadBlock,
     heroDescription: toText(hero.description, toText(brand.description, '')),
-    heroCta1: toText(hero.primaryCTA?.text, 'Get Started'),
+    heroCta1: toText(hero.primaryCTA?.text, 'Explore the framework'),
     heroCta2: toText(hero.secondaryCTA?.text, 'View Framework'),
     heroGraphicCenter: DEFAULT_CONTENT_ENGAGEMENT_GRAPHIC.heroGraphicCenter,
     heroGraphicTopLeft: DEFAULT_CONTENT_ENGAGEMENT_GRAPHIC.heroGraphicTopLeft,
@@ -342,7 +342,7 @@ export function mapExpertiseContentToContentEngagementTemplate(
     ctaTitle: toText(cta.title, 'Ready to Build?'),
     ctaDescription: toText(cta.subtitle, ''),
     ctaButton1: toText(cta.button?.text, 'Start Your Journey'),
-    ctaButton2: toText(hero.secondaryCTA?.text, 'Book a Demo'),
+    ctaButton2: toText(hero.secondaryCTA?.text, 'View examples'),
     footerLogo: toText(brand.tagline, 'GTMStack.pro'),
     footerCopyright: '(c) 2026 GTMStack.pro. All rights reserved.',
     footerLinks: ['Privacy Policy', 'Terms of Service', 'LinkedIn'],
@@ -394,7 +394,7 @@ export function mapExpertiseContentToStrategyInsightsTemplate(
       headlineLine2: '',
       leadLine: heroNorm.lead,
       description: toText(hero.description, toText(brand.description, '')),
-      primaryCta: toText(hero.primaryCTA?.text, 'Get Started'),
+      primaryCta: toText(hero.primaryCTA?.text, 'Explore the framework'),
       secondaryCta: toText(hero.secondaryCTA?.text, 'View Case Studies'),
       activeLabel: 'ACTIVE',
     },
@@ -515,7 +515,7 @@ export function mapExpertiseContentToSystemOperationsTemplate(
       headlineHighlight: heroNorm.h1Accent,
       ...(deck ? { deck } : {}),
       description,
-      primaryButton: toText(hero.primaryCTA?.text, 'Get Started'),
+      primaryButton: toText(hero.primaryCTA?.text, 'Explore the framework'),
       secondaryButton: toText(hero.secondaryCTA?.text, 'Learn More'),
       videoBgSrc:
         'https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-elements-and-circuits-4416-large.mp4',

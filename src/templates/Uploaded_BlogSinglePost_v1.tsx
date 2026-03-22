@@ -242,7 +242,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
             />
           </div>
           <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-2.5 rounded-lg text-sm font-bold transition-all shadow-lg shadow-blue-600/20">
-            Get Started
+            Explore the framework
           </button>
         </div>
       </header>

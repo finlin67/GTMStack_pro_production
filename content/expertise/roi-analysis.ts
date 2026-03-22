@@ -4,11 +4,11 @@ export const ROI_AND_BREAK_EVEN_ANALYSIS_CONTENT = {
     description: "We move beyond simple cost-benefit calculations to deliver rigorous, data-driven ROI and Break-Even Analysis. Our expertise ensures your marketing investments are strategically aligned, justified, and contribute directly to your bottom line."
   },
   hero: {
-    headline: "Unlock the True ROI of Your Marketing Investments",
-    subheadline: "Gain Strategic Clarity, Justify Budgets, and Drive Profitable Growth with Data-Driven Analysis.",
+    headline: "Clarify the True ROI of Your Marketing Investments.",
+    subheadline: "Gain strategic clarity, justify budgets, and drive profitable growth through data-driven analysis.",
     description: "In today's complex marketing landscape, understanding the true value of your spend is paramount. We provide sophisticated ROI and Break-Even Analysis that goes beyond surface-level metrics, revealing the total impact of your campaigns and technologies on overall business outcomes. Make informed decisions, optimize performance, and secure future funding with confidence.",
     primaryCTA: { text: "Get Your ROI Analysis", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Methodology", link: "/methodology" },
+    secondaryCTA: { text: "View the methodology", link: "/methodology" },
     image: { src: "/images/roi-analysis-hero.jpg", alt: "Data visualization showing financial growth and ROI" }
   },
   metricsSection: {
@@ -51,12 +51,12 @@ export const ROI_AND_BREAK_EVEN_ANALYSIS_CONTENT = {
   ctaSection: {
     title: "Ready to See the True Value of Your Marketing?",
     subtitle: "Let's build a robust ROI framework that empowers data-driven decisions and fuels your profitable growth.",
-    button: { text: "Schedule Your ROI Strategy Session", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro delivers expert ROI & Break-Even Analysis, transforming your marketing data into strategic insights for profitable growth.",
     sections: [
-      { title: "Services", links: ["ROI Analysis", "Break-Even Modeling", "Attribution Consulting", "Marketing Strategy"] },
+      { title: "Services", links: ["ROI Analysis", "Break-Even Modeling", "Attribution models", "Marketing Strategy"] },
       { title: "Company", links: ["About Us", "Our Approach", "Case Studies", "Contact"] },
       { title: "Resources", links: ["Blog", "Whitepapers", "FAQs"] }
     ],

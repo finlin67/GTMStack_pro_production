@@ -8,7 +8,7 @@ export const CYBERSECURITY_CONTENT = {
     subheadline: "Navigate the complex threat landscape with confidence. GTMStack.pro provides proactive, integrated security solutions designed to safeguard your assets and accelerate your business objectives.",
     description: "In an era where digital threats are constant and sophisticated, a reactive security posture is no longer sufficient. We partner with organizations to architect robust, adaptive cybersecurity frameworks that not only defend against current vulnerabilities but also anticipate future challenges, ensuring your operations remain secure, compliant, and resilient.",
     primaryCTA: { text: "Secure Your Future Now", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/cybersecurity/approach" },
+    secondaryCTA: { text: "View the methodology", link: "/cybersecurity/approach" },
     image: { src: "/images/cybersecurity-hero.webp", alt: "Abstract digital shield protecting a network, symbolizing advanced cybersecurity" }
   },
   metricsSection: {
@@ -51,7 +51,7 @@ export const CYBERSECURITY_CONTENT = {
   ctaSection: {
     title: "Elevate Your Security Posture. Secure Your Future.",
     subtitle: "Partner with GTMStack.pro to transform your cybersecurity challenges into strategic advantages. Let's build a resilient, secure foundation for your business.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your trusted partner in navigating the complexities of the digital world. We deliver strategic expertise and innovative solutions to drive your business forward securely.",

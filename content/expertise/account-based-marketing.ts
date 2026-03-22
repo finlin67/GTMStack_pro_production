@@ -1,10 +1,10 @@
 export const ACCOUNT_BASED_MARKETING_CONTENT = {
   brand: {
     tagline: "Transforming Marketing from Volume to Value with Strategic Account-Based Engagement.",
-    description: "We empower B2B organizations to unlock the full potential of Account-Based Marketing, moving beyond generic campaigns to build deep, revenue-driving relationships with high-value accounts. Our approach integrates sales and marketing, focusing on understanding, engaging, and converting your most strategic prospects."
+    description: "We empower B2B organizations to improve the full potential of Account-Based Marketing, moving beyond generic campaigns to build deep, revenue-driving relationships with high-value accounts. Our approach integrates sales and marketing, focusing on understanding, engaging, and converting your most strategic prospects."
   },
   hero: {
-    headline: "Unlock Exponential Growth: Master Account-Based Marketing for High-Value Accounts.",
+    headline: "Drive Exponential Growth with Account-Based Marketing for High-Value Accounts.",
     subheadline: "Shift from broad outreach to precision engagement, fostering deeper relationships and accelerating revenue with a truly integrated ABM strategy.",
     description: "In today's competitive landscape, success hinges on strategic focus. We guide you in building a holistic Account-Based Marketing program that transcends mere targeting, deeply understanding your most valuable accounts to deliver personalized experiences and measurable ROI.",
     primaryCTA: { text: "Build Your ABM Strategy", link: "/contact" },
@@ -22,7 +22,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
   capabilitiesSection: {
     headline: "Our Core ABM Expertise: Driving Precision and Performance.",
     items: [
-      { title: "Strategic Account Identification & Scoring", description: "Leverage advanced analytics to pinpoint and prioritize high-value accounts that align with your ideal customer profile." },
+      { title: "Strategic Account Identification & Scoring", description: "Use advanced analytics to pinpoint and prioritize high-value accounts that align with your ideal customer profile." },
       { title: "Personalized Content & Narrative Development", description: "Craft compelling, account-specific content and narratives that resonate deeply with key decision-makers and their unique challenges." },
       { title: "Multi-Channel Campaign Orchestration", description: "Design and execute integrated campaigns across digital, sales, and event channels for seamless, personalized account engagement." },
       { title: "Sales & Marketing Alignment", description: "Facilitate deep collaboration between sales and marketing teams, ensuring shared goals, unified messaging, and effective handoffs." },
@@ -52,12 +52,12 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Approach to High-Value Accounts?",
     subtitle: "Partner with us to design and implement an Account-Based Marketing strategy that delivers measurable results and builds enduring client relationships.",
-    button: { text: "Start Your ABM Transformation", link: "/contact" }
+    button: { text: "Start an ABM diagnostic", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro empowers businesses to optimize their go-to-market strategies, driving growth and building lasting customer relationships through expert guidance and innovative solutions.",
     sections: [
-      { title: "Services", links: ["Strategy Consulting", "ABM Implementation", "Sales Enablement", "Marketing Operations"] },
+      { title: "Services", links: ["GTM strategy & systems", "ABM Implementation", "Sales Enablement", "Marketing Operations"] },
       { title: "Company", links: ["About Us", "Our Approach", "Contact"] },
       { title: "Resources", links: ["Blog", "Case Studies", "Webinars"] }
     ],

@@ -135,7 +135,7 @@ export function ExpertiseHero({
                 className={`btn bg-white/10 text-white px-6 py-3 text-base rounded-xl backdrop-blur-sm transition-all duration-300 ${theme.secondary}`}
                 style={{ borderWidth: 1 }}
               >
-                Book a call
+                Connect on methodology
               </a>
             </div>
           </StaggerItem>

@@ -8,7 +8,7 @@ export const MARKETING_AUTOMATION_CONTENT = {
     subheadline: "Transform your marketing operations with data-driven workflows that nurture leads, accelerate sales, and create exceptional customer experiences.",
     description: "In today's dynamic market, effective marketing automation is the engine for scalable, efficient operations. We design robust, interconnected systems that move beyond manual processes, leveraging data and automation to build truly personalized customer journeys. It's about achieving both efficiency and effectiveness, ensuring every interaction drives value.",
     primaryCTA: { text: "Optimize Your Workflows", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Expertise", link: "/expertise/marketing-automation#capabilities" },
+    secondaryCTA: { text: "Explore expertise", link: "/expertise/marketing-automation#capabilities" },
     image: { src: "/images/marketing-automation-hero.webp", alt: "Intelligent marketing automation dashboard with interconnected workflows" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const MARKETING_AUTOMATION_CONTENT = {
   ctaSection: {
     title: "Ready to Build Intelligent Marketing Workflows?",
     subtitle: "Partner with us to transform your marketing operations, drive revenue, and create exceptional customer experiences.",
-    button: { text: "Schedule a Strategy Session", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro helps businesses design and implement intelligent marketing automation and workflow solutions that streamline operations, enhance customer journeys, and accelerate revenue growth.",

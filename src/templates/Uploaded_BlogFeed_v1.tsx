@@ -107,7 +107,7 @@ const DEFAULT_CONTENT: PageContent = {
       { label: "Insights", href: "#", isActive: true },
       { label: "About", href: "#" },
     ],
-    cta: "Get Started",
+    cta: "Explore the framework",
   },
   hero: {
     title: "GTM",
@@ -156,7 +156,7 @@ const DEFAULT_CONTENT: PageContent = {
         readTime: "15 min read",
         date: "Oct 12, 2023",
         title: "Generative GTM: Deploying LLMs in the Modern Sales Motion",
-        excerpt: "How top-tier consulting firms are utilizing AI to scale personalization without losing the human touch.",
+        excerpt: "How enterprise GTM orgs deploy AI to scale personalization without losing the human touch.",
         author: { name: "Marcus Thorne", role: "CTO" },
         graphicLabel: "AI_LLM_IMPLEMENTATION",
         borderColor: "hover:border-indigo-500/50",
@@ -223,10 +223,10 @@ const DEFAULT_CONTENT: PageContent = {
   ctaBand: {
     title: "Ready to Apply These Insights?",
     subtitle: "Transform your GTM motion with data-backed engineering strategies.",
-    buttonText: "Schedule Consultation",
+    buttonText: "Connect on methodology",
   },
   footer: {
-    description: "Enterprise GTM consulting focused on engineering high-performance revenue systems for B2B leaders.",
+    description: "Enterprise GTM operating model: how high-performance revenue systems are engineered for B2B leaders.",
     sections: [
       {
         title: "Platform",
@@ -253,7 +253,7 @@ const DEFAULT_CONTENT: PageContent = {
         ],
       },
     ],
-    copyright: "&copy; 2023 GTMCORE Consulting. All rights reserved.",
+    copyright: "&copy; 2023 GTMStack.pro — operator-led reference. All rights reserved.",
     legalLinks: [
       { label: "Privacy Policy", href: "#" },
       { label: "Terms of Service", href: "#" },

@@ -90,7 +90,7 @@ const B2B_CONTENT: B2BContentProps = {
       { label: 'Framework', href: '#' },
       { label: 'Insights', href: '#' },
     ],
-    cta: { label: 'Get Audited', href: '#' },
+    cta: { label: 'Get in Touch', href: '/contact' },
   },
   hero: {
     title: {
@@ -177,7 +177,7 @@ const B2B_CONTENT: B2BContentProps = {
   },
   ctaSection: {
     title: 'Ready to Architect Your B2B Growth?',
-    button: { label: 'Schedule Audit', href: '#' },
+    button: { label: 'Get in Touch', href: '/contact' },
     footerNote: 'Limited availability for Q3/Q4 consultation sessions.',
   },
   footer: {

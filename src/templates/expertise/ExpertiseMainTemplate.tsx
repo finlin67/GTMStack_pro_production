@@ -40,6 +40,13 @@ type TemplateContent = {
   footer?: { columns?: Array<{ title?: string; links?: Array<{ label: string; href: string }> }>; copyright?: string; tagline?: string }
 }
 
+function normalizeExternalProfile(url?: string): string | null {
+  if (!url) return null
+  const trimmed = url.trim()
+  if (!trimmed) return null
+  return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`
+}
+
 export default function ExpertiseMainTemplate({
   content: rawContent,
   theme = 'dark',
@@ -56,6 +63,14 @@ export default function ExpertiseMainTemplate({
   const insights = content.insights ?? {}
   const ctaBand = content.ctaBand ?? {}
   const footer = content.footer ?? {}
+  const linkedinUrl = normalizeExternalProfile(process.env.NEXT_PUBLIC_LINKEDIN_URL)
+  const twitterUrl = normalizeExternalProfile(process.env.NEXT_PUBLIC_TWITTER_URL)
+  const pillarFallbackRoutes = [
+    '/expertise/content-engagement',
+    '/expertise/demand-growth',
+    '/expertise/strategy-insights',
+    '/expertise/systems-operations',
+  ]
 
   return (
     <div
@@ -97,7 +112,7 @@ export default function ExpertiseMainTemplate({
 
           <div className="flex items-center gap-3">
             <button className="hidden items-center justify-center rounded-xl bg-cyan-300 px-5 py-2.5 text-sm font-semibold text-slate-950 transition-all hover:bg-cyan-200 sm:flex">
-              {hero.ctaPrimary ?? 'Get Started'}
+              {hero.ctaPrimary ?? 'Explore the framework'}
             </button>
             <button className="p-2 text-slate-300 hover:text-white md:hidden">
               <span className="material-symbols-outlined">menu</span>
@@ -158,7 +173,7 @@ export default function ExpertiseMainTemplate({
               {(pillars.items ?? []).map((pillar, idx) => (
                 <Link
                   key={idx}
-                  href="#"
+                  href={pillarFallbackRoutes[idx] ?? '/expertise'}
                   className={`group relative rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/5 ${pillar.ringColor ?? ''}`}
                 >
                   <div className={`absolute right-6 top-6 h-20 w-20 rounded-full blur-3xl opacity-0 transition-opacity group-hover:opacity-100 ${pillar.glowColor ?? ''}`} />
@@ -210,7 +225,7 @@ export default function ExpertiseMainTemplate({
                 <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{insights.title}</h2>
                 <p className="mt-2 text-base text-slate-600 dark:text-slate-300">{insights.subtitle}</p>
               </div>
-              <Link className="hidden items-center text-sm font-semibold text-cyan-600 hover:underline md:inline-flex" href="#">
+              <Link className="hidden items-center text-sm font-semibold text-cyan-600 hover:underline md:inline-flex" href="/blog">
                 {insights.cta}
                 <span className="material-symbols-outlined ml-1 text-sm">arrow_forward</span>
               </Link>
@@ -273,14 +288,32 @@ export default function ExpertiseMainTemplate({
               {footer.tagline ? (
                 <p className="mt-4 text-sm text-slate-400">{footer.tagline}</p>
               ) : null}
-              <div className="mt-6 flex gap-4">
-                <Link className="text-slate-400 hover:text-white" href="#" aria-label="LinkedIn">
-                  <Linkedin className="h-5 w-5" />
-                </Link>
-                <Link className="text-slate-400 hover:text-white" href="#" aria-label="Twitter">
-                  <Twitter className="h-5 w-5" />
-                </Link>
-              </div>
+              {linkedinUrl || twitterUrl ? (
+                <div className="mt-6 flex gap-4">
+                  {linkedinUrl ? (
+                    <a
+                      className="text-slate-400 hover:text-white"
+                      href={linkedinUrl}
+                      aria-label="LinkedIn"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                  ) : null}
+                  {twitterUrl ? (
+                    <a
+                      className="text-slate-400 hover:text-white"
+                      href={twitterUrl}
+                      aria-label="Twitter"
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                  ) : null}
+                </div>
+              ) : null}
             </div>
 
             {(footer.columns ?? []).map((col, idx) => (

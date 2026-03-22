@@ -180,7 +180,7 @@ export default function OmnichannelAnalytics() {
               <p className="text-[8px] text-white/40 font-bold uppercase">System Status</p>
               <p className="text-[10px] font-bold text-green-400">OPTIMIZED</p>
             </div>
-            <div className="size-8 rounded-full border border-white/10 bg-[url('https://picsum.photos/seed/dash/40/40')] bg-cover" />
+            <div className="size-8 rounded-full border border-white/10 bg-[url('/images/placeholder-avatar.svg')] bg-cover" />
           </div>
         </header>
 

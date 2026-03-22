@@ -4,15 +4,15 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
     description: "Moving beyond broad segmentation to a deeply nuanced understanding of individual customer journeys, GTMStack.pro empowers businesses to deliver highly relevant, personalized experiences that drive engagement, loyalty, and ultimately, revenue."
   },
   hero: {
-    headline: "Mastering Customer Marketing & Journey Mapping",
-    subheadline: "Unlock Deeper Customer Understanding to Drive Engagement, Loyalty, and Revenue.",
+    headline: "Mastering Customer Marketing & Journey Mapping.",
+    subheadline: "Gain deeper customer understanding to drive engagement, loyalty, and revenue.",
     description: "Our expertise transforms generic marketing into personalized, impactful customer experiences. We specialize in mapping unique customer journeys, identifying critical touchpoints, and developing targeted strategies that resonate with individual needs and motivations across diverse industries like SaaS, Fintech, and Retail.",
     primaryCTA: { text: "Discover Your Customer's Journey", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/services/customer-marketing" },
+    secondaryCTA: { text: "View the methodology", link: "/services/customer-marketing" },
     image: { src: "/images/customer-journey-hero.jpg", alt: "Visual representation of a complex customer journey map with various touchpoints" }
   },
   metricsSection: {
-    headline: "Tangible Results from Strategic Customer Journeys",
+    headline: "Tangible Results from Strategic Customer Journeys.",
     stats: [
       { label: "Increase in MQLs (SaaS)", value: "25%" },
       { label: "Reduction in Merchant Drop-off (Fintech)", value: "15%" },
@@ -49,8 +49,8 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Transform Your Customer Experience?",
-    subtitle: "Partner with GTMStack.pro to unlock deeper customer understanding and drive unparalleled engagement and loyalty.",
-    button: { text: "Start Your Journey Transformation", link: "/contact" }
+    subtitle: "Partner with GTMStack.pro to improve deeper customer understanding and drive unparalleled engagement and loyalty.",
+    button: { text: "Start a journey diagnostic", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in Customer Marketing & Journey Mapping, helping businesses deliver personalized experiences that drive engagement, loyalty, and revenue.",

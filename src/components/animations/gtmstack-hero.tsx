@@ -132,7 +132,7 @@ const GTMStackHero = () => {
           {/* Tagline */}
           <p className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto"
              style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
-            Operator-first GTM consulting for B2B technology companies
+            Operator-first GTM: one operating model—strategy, signals, systems, and proof—for B2B technology companies
           </p>
 
           {/* Subtitle */}
@@ -173,7 +173,7 @@ const GTMStackHero = () => {
                style={{ animation: 'fadeInUp 1s ease-out 0.8s both' }}>
             <button className="group relative px-8 py-4 bg-gradient-to-r from-cyan-500 to-blue-600 rounded-lg font-semibold text-white shadow-lg shadow-cyan-500/50 hover:shadow-cyan-500/70 transition-all duration-300 hover:scale-105">
               <span className="relative z-10 flex items-center gap-2">
-                Start a Conversation
+                Explore the framework
                 <Zap className="w-4 h-4" />
               </span>
             </button>

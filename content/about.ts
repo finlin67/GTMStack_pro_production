@@ -3,13 +3,13 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** About page content for HomeTemplate (PageContent shape). */
 export const ABOUT_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'B2B REVENUE LEADER',
-    titleStart: 'Built Revenue Engines at the ',
-    titleGradient: "World's Top Tables",
+    badge: 'OPERATOR-LED GTM ARCHITECTURE',
+    titleStart: 'Building Revenue Systems for ',
+    titleGradient: 'Complex B2B Markets',
     subtitle:
-      'I architect systems that bridge the gap between complex SaaS products and global market dominance, focused on efficiency and scalable growth.',
+      'GTMStack.pro applies enterprise GTM operating discipline to complex SaaS and services motions where pipeline quality matters more than activity volume.',
     ctaPrimary: 'Explore Expertise',
-    ctaSecondary: 'Our Story',
+    ctaSecondary: 'See the track record',
   },
   stats: [
     { value: '$1.2M', label: 'Pipeline Built' },
@@ -17,16 +17,16 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     { value: '12+', label: 'Years Exp' },
   ],
   methodology: {
-    title: 'Strategic Evolution',
+    title: 'Operating Track Record',
     description:
-      'Leadership that scales acquisition, modernizes MarTech, and improves GTM execution across multiple growth stages.',
+      'A progression of enterprise roles focused on acquisition scale, RevOps modernization, and measurable GTM performance.',
     steps: [
       {
         number: '2021 — Present',
         icon: 'TrendingUp',
         title: 'Director, Demand Gen',
         description:
-          'PRGX Global Inc.\n• Scaled global digital acquisition by 40% in Year 1.\n• Modernized MarTech stack resulting in 30% cost savings.\n• Oversaw $2M+ in paid media budget across 3 continents.',
+          'PRGX Global Inc.\n• Scaled global digital acquisition by 40% in Year 1.\n• Modernized the MarTech stack to reduce waste and improve reporting.\n• Oversaw $2M+ in paid media budget across 3 continents.',
         progress: '25%',
       },
       {
@@ -34,7 +34,7 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
         icon: 'Map',
         title: 'Sr. Revenue Manager',
         description:
-          'AMCS Group\n• Implemented lead scoring reducing junk leads by 65%.\n• Aligned Sales and Marketing ops globally (LDR/SDR focus).',
+          'AMCS Group\n• Implemented lead scoring that reduced junk leads by 65%.\n• Aligned global sales and marketing operations around LDR/SDR workflows.',
         progress: '50%',
       },
       {
@@ -42,7 +42,7 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
         icon: 'Rocket',
         title: 'Marketing Ops Lead',
         description:
-          'Red Hat (IBM)\n• Redesigned attribution modeling for enterprise deals.\n• Managed database health for 1M+ active contacts.',
+          'Red Hat (IBM)\n• Redesigned attribution modeling for enterprise deals.\n• Managed database health for 1M+ active contacts and cleaner lifecycle routing.',
         progress: '75%',
       },
       {
@@ -50,7 +50,7 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
         icon: 'Settings',
         title: 'Solution Consultant',
         description:
-          'Salesforce\n• Awarded "Top Technical Closer" for Q3/Q4 2016.\n• Architected custom CRM workflows for Fortune 500 clients.',
+          'Salesforce\n• Awarded "Top Technical Closer" for Q3/Q4 2016.\n• Architected CRM workflows for Fortune 500 clients with complex buying cycles.',
         progress: '100%',
       },
     ],
@@ -69,7 +69,7 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
         icon: 'Map',
         title: 'Content Intelligence',
         description:
-          'Leveraged LLMs for automated multi-channel content personalization at scale, reducing production time by 60%.',
+          'Used LLM workflows for multi-channel content personalization at scale, reducing production time by 60%.',
         tags: ['Impact: 60% Faster Delivery'],
       },
       {
@@ -82,7 +82,7 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     ],
   },
   quote: {
-    text: 'I architect systems that bridge the gap between complex SaaS products and global market dominance, focused on',
+    text: 'We design GTM operating systems that connect strategic intent to day-to-day execution with',
     highlight: 'efficiency and scalable growth',
   },
   caseStudies: {
@@ -129,8 +129,8 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
   },
   founder: {
     name: 'Michael Findling',
-    role: 'Miami, FL • Available for Relocation',
-    image: 'https://placehold.co/800x800/png',
+    role: 'Founder, GTMStack.pro',
+    image: '/images/heroes/homepage-hero.jpg',
     bio: '',
     yearsExperience: '12+',
     timeline: [
@@ -157,8 +157,8 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     ],
   },
   ctaBottom: {
-    title: 'Ready to Architect Your Next Revenue Engine?',
-    subtitle: 'Currently open to strategic leadership roles in growth-stage B2B SaaS companies.',
+    title: 'Ready to improve pipeline quality?',
+    subtitle: 'Share your current motion, stack constraints, and where outcomes are lagging. We will map the highest-leverage starting point.',
     buttonText: 'Start a Conversation',
   },
 }

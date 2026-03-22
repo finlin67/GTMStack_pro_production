@@ -2,6 +2,36 @@ import Link from 'next/link'
 import { Linkedin, Twitter, Github, Mail, ArrowUpRight } from 'lucide-react'
 import { PILLARS } from '@/lib/types'
 
+function normalizeExternalProfile(url?: string): string | null {
+  if (!url) return null
+
+  const trimmed = url.trim()
+  if (!trimmed) return null
+
+  try {
+    const parsed = new URL(trimmed)
+    const host = parsed.hostname.toLowerCase()
+    const placeholderHosts = new Set([
+      'linkedin.com',
+      'www.linkedin.com',
+      'twitter.com',
+      'www.twitter.com',
+      'x.com',
+      'www.x.com',
+      'github.com',
+      'www.github.com',
+    ])
+    if (placeholderHosts.has(host)) return null
+    return parsed.toString()
+  } catch {
+    return null
+  }
+}
+
+const linkedinUrl = normalizeExternalProfile(process.env.NEXT_PUBLIC_LINKEDIN_URL)
+const twitterUrl = normalizeExternalProfile(process.env.NEXT_PUBLIC_TWITTER_URL)
+const githubUrl = normalizeExternalProfile(process.env.NEXT_PUBLIC_GITHUB_URL)
+
 const footerLinks = {
   expertise: PILLARS.map(p => ({ label: p.title, href: p.href })),
   company: [
@@ -9,19 +39,19 @@ const footerLinks = {
     { label: 'Case Studies', href: '/case-studies' },
     { label: 'Gallery', href: '/gallery' },
     { label: 'Industries', href: '/industries' },
-    { label: 'Resume', href: '/resume' },
+    { label: 'Background', href: '/resume' },
   ],
   connect: [
-    { label: 'Contact', href: '/contact' },
-    { label: 'LinkedIn', href: 'https://linkedin.com', external: true },
-    { label: 'Twitter', href: 'https://twitter.com', external: true },
+    { label: 'Get in Touch', href: '/contact' },
+    ...(linkedinUrl ? [{ label: 'LinkedIn', href: linkedinUrl, external: true as const }] : []),
+    ...(twitterUrl ? [{ label: 'Twitter', href: twitterUrl, external: true as const }] : []),
   ],
 }
 
 const socialLinks = [
-  { icon: Linkedin, href: 'https://linkedin.com', label: 'LinkedIn' },
-  { icon: Twitter, href: 'https://twitter.com', label: 'Twitter' },
-  { icon: Github, href: 'https://github.com', label: 'GitHub' },
+  ...(linkedinUrl ? [{ icon: Linkedin, href: linkedinUrl, label: 'LinkedIn' }] : []),
+  ...(twitterUrl ? [{ icon: Twitter, href: twitterUrl, label: 'Twitter' }] : []),
+  ...(githubUrl ? [{ icon: Github, href: githubUrl, label: 'GitHub' }] : []),
   { icon: Mail, href: 'mailto:hello@gtmstack.pro', label: 'Email' },
 ]
 
@@ -44,12 +74,12 @@ export function Footer() {
                   GTMStack<span className="text-brand-300">.pro</span>
                 </span>
                 <span className="text-[11px] text-slate-400 tracking-[0.08em] uppercase">
-                  Strategic GTM consulting
+                  B2B GTM operating model
                 </span>
               </div>
             </Link>
             <p className="mt-4 text-[13px] text-slate-400 max-w-xs leading-relaxed">
-              Strategic GTM consulting for B2B technology companies. From strategy to execution, we help you grow faster.
+              One operator’s public GTM reference: clear layers, honest measurement, and work you can trace—not a capabilities brochure.
             </p>
             <div className="mt-6 flex items-center gap-3">
               {socialLinks.map((social) => (
@@ -136,7 +166,7 @@ export function Footer() {
       <div className="border-t border-slate-800">
         <div className="container-width py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-[13px] text-slate-500">
-            © {new Date().getFullYear()} GTMstack.pro. All rights reserved.
+            © {new Date().getFullYear()} GTMStack.pro. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-[13px] text-slate-500 hover:text-slate-300 hover:underline focus-visible:underline transition-colors">

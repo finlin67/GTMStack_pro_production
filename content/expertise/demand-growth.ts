@@ -7,8 +7,8 @@ export const DEMAND_GROWTH_CONTENT = {
     headline: "Demand & Growth",
     subheadline: "High-potential account acquisition and ROI-focused pipeline.",
     description: "Quality over quantity: we identify, qualify, and nurture accounts that convert.",
-    primaryCTA: { text: "Unlock Your Growth Potential", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/demand-growth#philosophy" },
+    primaryCTA: { text: "Improve Your Growth Model", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/demand-growth#philosophy" },
     image: { src: "/images/heroes/placeholder.svg", alt: "Strategic Demand & Growth Dashboard" },
   },
   metricsSection: {
@@ -24,7 +24,7 @@ export const DEMAND_GROWTH_CONTENT = {
     items: [
       { title: "Targeted Lead Generation", description: "We identify and qualify accounts that precisely fit your Ideal Customer Profile, ensuring every lead has high potential." },
       { title: "Optimized Lead Scoring & Qualification", description: "Implement systematic lead scoring to prioritize prospects based on their likelihood to convert, streamlining your sales funnel." },
-      { title: "Account-Based Marketing (ABM)", description: "Leverage sophisticated ABM tactics to strategically engage key decision-makers within your most valuable high-potential accounts." },
+      { title: "Account-Based Marketing (ABM)", description: "Use sophisticated ABM tactics to strategically engage key decision-makers within your most valuable high-potential accounts." },
       { title: "Data-Driven Campaign Optimization", description: "Utilize analytics to track campaign performance, continuously optimizing lead generation efforts for maximum ROI and efficiency." },
       { title: "Sales Enablement & Alignment", description: "Provide your sales team with the essential resources and insights needed to effectively close deals and accelerate revenue." },
     ],
@@ -50,7 +50,7 @@ export const DEMAND_GROWTH_CONTENT = {
   ctaSection: {
     title: "Ready to Accelerate Your Revenue Growth?",
     subtitle: "We partner with B2B companies seeking to optimize their sales productivity and navigate complex sales cycles. Let's build a demand strategy that delivers.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" },
+    button: { text: "Start a conversation", link: "/contact" },
   },
   footer: {
     description: "GTMStack.pro empowers businesses with strategic Demand & Growth solutions, transforming lead generation into a precise, high-impact revenue engine.",

@@ -7,8 +7,8 @@ export const PRODUCT_MARKETING_CONTENT = {
     headline: "Strategic Product Marketing for Unrivaled Market Impact",
     subheadline: "Aligning Product Strategy with Market Needs to Drive Adoption and Revenue.",
     description: "Our expertise in Product Marketing spans positioning, messaging, content strategy, launch planning, and channel execution. We empower B2B and B2C companies to define their target audience, articulate their value proposition, and execute strategic go-to-market plans that resonate and convert.",
-    primaryCTA: { text: "Schedule a Strategy Session", link: "#contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "#capabilities" },
+    primaryCTA: { text: "Start a conversation", link: "#contact" },
+    secondaryCTA: { text: "View the methodology", link: "#capabilities" },
     image: { src: "/images/product-marketing-hero.webp", alt: "Strategic Product Marketing Dashboard" }
   },
   metricsSection: {
@@ -37,7 +37,11 @@ export const PRODUCT_MARKETING_CONTENT = {
       { title: "Deep Customer Understanding", description: "We believe effective product marketing starts with a relentless focus on the customer – understanding their 'Jobs-to-be-Done' and mapping their entire journey." },
       { title: "Beyond Features: Building Community", description: "Product Marketing isn't just about promoting a product; it's about building a community around a solution, fostering loyalty and advocacy." },
       { title: "Narrative-Driven Engagement", description: "We craft compelling narratives that resonate on an emotional level, transforming product benefits into stories that drive action and connection." },
-      { title: "Strategic Alignment & Execution", description: "Our approach blends strategic consulting – defining the 'what' and 'why' – with tactical execution – managing campaigns and creating materials – for holistic success." }
+      {
+        title: "Strategic Alignment & Execution",
+        description:
+          "One operating model: define the 'what' and 'why' at the leadership layer, then ship campaigns and assets that sales and CS can run—without losing the thread to revenue.",
+      }
     ]
   },
   growthSection: {
@@ -52,7 +56,7 @@ export const PRODUCT_MARKETING_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Product's Market Impact?",
     subtitle: "Partner with us to define compelling narratives, drive adoption, and achieve sustainable revenue growth for your products.",
-    button: { text: "Get Started Today", link: "#contact" }
+    button: { text: "View the framework", link: "#contact" }
   },
   footer: {
     description: "GTMStack.pro provides expert Product Marketing services, helping companies craft compelling narratives, drive adoption, and fuel revenue growth through strategic market alignment and execution.",

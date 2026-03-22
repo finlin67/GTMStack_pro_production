@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Montserrat, Rubik } from 'next/font/google'
+import { Inter, Montserrat, Outfit, Rubik } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import './globals.css'
@@ -20,39 +20,53 @@ const stitchRubik = Rubik({
   display: 'swap',
 })
 
+/** Site UI/body + navigation */
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+/** Headings and display lines (e.g. nav tagline, section labels) */
+const outfit = Outfit({
+  subsets: ['latin'],
+  variable: '--font-outfit',
+  display: 'swap',
+})
+
 export const metadata: Metadata = {
   icons: {
     icon: '/gtmstack-logo.png',
   },
   title: {
-    default: 'GTMstack.pro | Strategic GTM Consulting',
-    template: '%s | GTMstack.pro',
+    default: 'GTMStack.pro | B2B GTM operating model',
+    template: '%s | GTMStack.pro',
   },
   description:
-    'Strategic go-to-market consulting for B2B technology companies. From GTM strategy to revenue analytics, marketing automation, and growth optimization.',
+    'A public B2B go-to-market reference: how narrative, demand, insight, and ops fit together—built and documented by one operator.',
   keywords: [
-    'GTM consulting',
-    'go-to-market strategy',
-    'B2B marketing',
+    'B2B marketing operations',
+    'go-to-market systems',
+    'demand generation',
     'revenue operations',
-    'marketing automation',
-    'growth strategy',
+    'marketing stack',
+    'GTM design',
   ],
-  authors: [{ name: 'GTMstack.pro' }],
+  authors: [{ name: 'GTMStack.pro' }],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     url: 'https://gtmstack.pro',
-    siteName: 'GTMstack.pro',
-    title: 'GTMstack.pro | Strategic GTM Consulting',
+    siteName: 'GTMStack.pro',
+    title: 'GTMStack.pro | B2B GTM operating model',
     description:
-      'Strategic go-to-market consulting for B2B technology companies.',
+      'A live GTM operating model you can read end to end—systems, measurement, and execution in one place.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTMstack.pro | Strategic GTM Consulting',
+    title: 'GTMStack.pro | B2B GTM operating model',
     description:
-      'Strategic go-to-market consulting for B2B technology companies.',
+      'A live GTM operating model you can read end to end—systems, measurement, and execution in one place.',
   },
   robots: {
     index: true,
@@ -68,11 +82,20 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${stitchMontserrat.variable} ${stitchRubik.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${outfit.variable} ${stitchMontserrat.variable} ${stitchRubik.variable}`}
     >
-      <body className="min-h-screen flex flex-col antialiased">
+      <body className="min-h-screen flex flex-col font-sans antialiased">
+        <a href="#main-content" className="skip-link">
+          Skip to main content
+        </a>
         <Navbar />
-        <main className="flex-grow">{children}</main>
+        <main
+          id="main-content"
+          tabIndex={-1}
+          className="flex-grow outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/50 focus-visible:ring-offset-4 focus-visible:ring-offset-[var(--color-background)]"
+        >
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

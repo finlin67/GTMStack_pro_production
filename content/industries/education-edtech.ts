@@ -51,7 +51,7 @@ export const EDUCATION_EDTECH_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Educational Impact?",
     subtitle: "Partner with us to navigate the complexities of the modern education landscape, effectively engage your stakeholders, and demonstrate measurable, sustainable success.",
-    button: { label: "Schedule a Strategic Consultation", href: "#contact" }
+    button: { label: "Review the operating model", href: "#contact" }
   },
   footer: {
     description: "Empowering education institutions and EdTech companies to achieve strategic growth and measurable impact through innovative marketing and learning solutions.",

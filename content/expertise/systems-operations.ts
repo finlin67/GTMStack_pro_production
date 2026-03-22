@@ -8,7 +8,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
     subheadline: "Operational excellence that drives efficiency and scale.",
     description: "We build adaptive frameworks that eliminate bottlenecks and empower scale.",
     primaryCTA: { text: "Optimize Your Operations", link: "#contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "#capabilities" },
+    secondaryCTA: { text: "View the methodology", link: "#capabilities" },
     image: { src: "/images/systems-operations-hero.jpg", alt: "Strategic overview of interconnected business processes and data flow" }
   },
   metricsSection: {
@@ -23,10 +23,10 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
     headline: "Our Core Expertise: Building the Foundation for Operational Mastery.",
     items: [
       { title: "Process Optimization & Redesign", description: "Identify and eliminate waste, streamline workflows, and redesign core processes for maximum efficiency and value delivery." },
-      { title: "Technology Integration & Implementation", description: "Seamlessly integrate disparate technology systems, ensuring data flow, unlocking full potential, and maximizing ROI from your tech stack." },
+      { title: "Technology Integration & Implementation", description: "Seamlessly integrate disparate technology systems, ensuring data flow, improving full potential, and maximizing ROI from your tech stack." },
       { title: "Operational Agility & Resilience", description: "Design adaptable systems that respond swiftly to market shifts, competitive threats, and evolving business requirements, ensuring sustained performance." },
       { title: "Organizational Design & Change Management", description: "Align organizational structures with operational goals, facilitate cross-functional collaboration, and drive successful change initiatives." },
-      { title: "Data-Driven Insights & KPI Development", description: "Leverage robust data analytics to inform strategic decisions, establish key performance indicators, and continuously track progress and impact." }
+      { title: "Data-Driven Insights & KPI Development", description: "Use robust data analytics to inform strategic decisions, establish key performance indicators, and continuously track progress and impact." }
     ]
   },
   philosophySection: {
@@ -51,7 +51,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Operations?",
     subtitle: "Partner with us to build resilient, efficient, and growth-enabling systems that define your competitive edge.",
-    button: { text: "Schedule a Strategic Consultation", link: "#contact" }
+    button: { text: "Start a conversation", link: "#contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in designing and implementing robust systems and operations that drive sustainable growth and competitive advantage for technology-driven businesses.",

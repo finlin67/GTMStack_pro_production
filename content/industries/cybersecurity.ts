@@ -7,7 +7,7 @@ export const CYBERSECURITY_CONTENT = {
     headline: "Cybersecurity is a Business Imperative, Not Just an IT Problem.",
     subheadline: "Navigate the complex threat landscape with a strategic, risk-based approach that aligns security with your core business objectives.",
     description: "In an era of escalating cyber threats and stringent regulatory demands, a robust cybersecurity posture is critical for survival and growth. We partner with organizations across industries to build resilient defenses, manage risk effectively, and foster a security-aware culture that protects your most valuable assets.",
-    primaryCTA: { label: "Schedule a Strategic Consultation", href: "/contact" },
+    primaryCTA: { label: "Review the operating model", href: "/contact" },
     secondaryCTA: { label: "Explore Our Capabilities", href: "/services" },
     image: { src: "/images/cybersecurity-hero.jpg", alt: "Abstract digital security network protecting data" }
   },
@@ -50,7 +50,7 @@ export const CYBERSECURITY_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Cybersecurity Posture?",
     subtitle: "Partner with us to build a resilient, business-aligned defense against evolving threats and secure your future.",
-    button: { label: "Get Started Today", href: "/contact" }
+    button: { label: "Explore the framework", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro empowers organizations to achieve strategic cybersecurity resilience, translating complex threats into actionable business solutions.",

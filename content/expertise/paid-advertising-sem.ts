@@ -5,10 +5,10 @@ export const PAID_ADVERTISING_SEM_CONTENT = {
   },
   hero: {
     headline: "Paid Media & Funnel Optimization: Architecting Your Revenue Engine",
-    subheadline: "Go beyond ad management. We build integrated funnel ecosystems that leverage paid media to drive measurable results and sustainable growth.",
+    subheadline: "Go beyond ad management. We build integrated funnel ecosystems that use paid media to drive measurable results and sustainable growth.",
     description: "We go beyond simply managing ad accounts, architecting entire funnel ecosystems that connect paid media directly to marketing automation and sales processes. Our focus is on driving qualified leads ready to convert, ensuring every dollar spent contributes to long-term customer acquisition and retention.",
     primaryCTA: { text: "Optimize Your Funnel", link: "#contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "#capabilities" },
+    secondaryCTA: { text: "View the methodology", link: "#capabilities" },
     image: { src: "/images/paid-media-funnel-optimization-hero.webp", alt: "Integrated paid media and marketing funnel optimization dashboard" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const PAID_ADVERTISING_SEM_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Paid Media Performance?",
     subtitle: "Let's architect an integrated funnel ecosystem that drives qualified leads and accelerates your revenue growth.",
-    button: { text: "Schedule a Strategy Session", link: "#contact" }
+    button: { text: "Start a conversation", link: "#contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in architecting integrated Go-To-Market strategies, leveraging expertise in Paid Media & Funnel Optimization to drive measurable growth and sustainable revenue.",

@@ -51,7 +51,7 @@ export const RESPONSIVE_WEB_DESIGN_UI_UX_CONTENT = {
   ctaSection: {
     title: "Transform Your Digital Landscape with AI Orchestration",
     subtitle: "Ready to build responsive enterprise intelligence? Connect with our experts.",
-    button: { text: "Schedule a Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "As AI builds the invisible infrastructure, human judgment and durable skills steer the enterprise towards ethical, empathetic, and authentically responsive digital experiences.",

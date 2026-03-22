@@ -1,13 +1,13 @@
 export const GTMSTACK_PRO_EXPERTISE_CONTENT = {
   brand: {
-    tagline: "Unlocking Predictable Revenue Through Strategic GTM Execution.",
+    tagline: "Building Predictable Revenue Through Strategic GTM Execution.",
     description: "GTMStack.pro is the premier partner for businesses seeking to optimize their Go-To-Market strategies, accelerate growth, and achieve sustainable revenue predictability."
   },
   hero: {
     headline: "Mastering Go-To-Market: Precision Strategies for Unrivaled Growth.",
-    subheadline: "Leverage GTMStack.pro's deep expertise to transform your market approach into a powerful engine for predictable, scalable revenue.",
+    subheadline: "Use GTMStack.pro's deep expertise to transform your market approach into a powerful engine for predictable, scalable revenue.",
     description: "In today's dynamic market, a robust Go-To-Market strategy isn't just an advantage—it's a necessity. GTMStack.pro provides the strategic foresight, data-driven methodologies, and hands-on execution required to navigate complex markets, capture new opportunities, and outperform competitors.",
-    primaryCTA: { text: "Schedule an Expert Consultation", link: "/contact" },
+    primaryCTA: { text: "Start a conversation", link: "/contact" },
     secondaryCTA: { text: "Explore Our Methodologies", link: "/methodologies" },
     image: { src: "/images/hero-expertise.webp", alt: "GTMStack.pro team collaborating on a strategic Go-To-Market plan" }
   },
@@ -49,9 +49,9 @@ export const GTMSTACK_PRO_EXPERTISE_CONTENT = {
     ]
   },
   ctaSection: {
-    title: "Unlock Your Full Market Potential.",
+    title: "Reach Your Full Market Potential.",
     subtitle: "Connect with GTMStack.pro's experts to craft a Go-To-Market strategy that delivers unparalleled results.",
-    button: { text: "Start Your GTM Transformation", link: "/contact" }
+    button: { text: "Start a GTM diagnostic", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering businesses with world-class Go-To-Market strategies and execution, driving predictable revenue and sustainable growth.",

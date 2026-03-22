@@ -8,7 +8,7 @@ export const ENERGY_UTILITIES_CONTENT = {
     subheadline: "Transform critical infrastructure with intelligent solutions designed for unparalleled efficiency and resilience.",
     description: "The Energy & Utilities landscape is undergoing unprecedented transformation. From grid modernization and renewable integration to stringent regulatory compliance and cybersecurity threats, the demands are immense. GTMStack.pro provides the strategic technology and deep industry expertise to not just meet these challenges, but to turn them into opportunities for sustainable growth and operational excellence.",
     primaryCTA: { label: "Explore Our Solutions", href: "/solutions/energy-utilities" },
-    secondaryCTA: { label: "Request a Consultation", href: "/contact" },
+    secondaryCTA: { label: "View the methodology", href: "/contact" },
     image: { src: "/images/energy-utilities-hero.jpg", alt: "Modern energy grid with renewable sources and digital overlay" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const ENERGY_UTILITIES_CONTENT = {
   ctaSection: {
     title: "Ready to Power Your Future?",
     subtitle: "Partner with GTMStack.pro to navigate the complexities of the Energy & Utilities landscape and build a more resilient, efficient, and sustainable operation.",
-    button: { label: "Schedule a Strategic Briefing", href: "/contact" }
+    button: { label: "See the measurement model", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is a leading provider of specialized digital transformation solutions for critical industries. We empower enterprises to achieve operational excellence, enhance security, and drive sustainable growth.",

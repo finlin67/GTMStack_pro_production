@@ -6,7 +6,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
   hero: {
     headline: "Invisible AI Orchestration: The Future of Systems & Operations",
     subheadline: "Transforming Enterprise from Operational Friction to Strategic Imperative",
-    description: "Just as the internet became transparent infrastructure, Systems & Operations must evolve from manual cost centers to an Invisible AI Infrastructure by 2026. This mandate shifts focus from legacy bottlenecks like VPNs and CSVs to API-first integrations and zero-human-touch operations, unlocking unprecedented efficiency and innovation.",
+    description: "Just as the internet became transparent infrastructure, Systems & Operations must evolve from manual cost centers to an Invisible AI Infrastructure by 2026. This mandate shifts focus from legacy bottlenecks like VPNs and CSVs to API-first integrations and zero-human-touch operations, improving unprecedented efficiency and innovation.",
     primaryCTA: { text: "Transform Your Operations", link: "/contact" },
     secondaryCTA: { text: "Download the Strategic Report", link: "/report" }
   },
@@ -40,7 +40,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
     principles: [
       {
         title: "Strategic Imperative over Operational Friction",
-        description: "Prioritizing long-term strategic goals and innovation by aggressively eliminating manual bottlenecks and technical debt to unlock agility."
+        description: "Prioritizing long-term strategic goals and innovation by aggressively eliminating manual bottlenecks and technical debt to improve agility."
       },
       {
         title: "Invisible AI Orchestration",
@@ -62,7 +62,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
   },
   growthSection: {
     headline: "Accelerating Enterprise Value and Human Potential",
-    narrative: "By transitioning from legacy, friction-heavy processes to AI-driven orchestration, organizations can aggressively manage technical debt, achieve a 'one-minute cycle time' for incident resolution, and unlock real-time, AI-driven precision targeting. This shift to a 'Continuous Reinvention' model stabilizes recurring revenue and elevates enterprise value by 3x to 4x, freeing human capital to focus on strategic, 'Durable Skills' rather than technical 'slop'.",
+    narrative: "By transitioning from legacy, friction-heavy processes to AI-driven orchestration, organizations can aggressively manage technical debt, achieve a 'one-minute cycle time' for incident resolution, and improve real-time, AI-driven precision targeting. This shift to a 'Continuous Reinvention' model stabilizes recurring revenue and elevates enterprise value by 3x to 4x, freeing human capital to focus on strategic, 'Durable Skills' rather than technical 'slop'.",
     metrics: [
       { label: "Target IT Budget for Debt Remediation", value: "15%" },
       { label: "Successful Build Lift (with AI Refactoring)", value: "84%" },
@@ -72,7 +72,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Operations into an Invisible Infrastructure?",
     subtitle: "Embrace AI-driven orchestration to eliminate friction, boost strategic imperative, and secure your competitive future.",
-    button: { text: "Start Your Transformation", link: "/contact" }
+    button: { text: "Start a focused diagnostic", link: "/contact" }
   },
   footer: {
     description: "Embrace the future of Systems & Operations: Reinvest 15% of operational savings into human-centric Durable Skills to manage the Invisible AI steering wheel, creating a significant 'Competitive Moat'.",

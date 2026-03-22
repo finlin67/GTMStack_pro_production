@@ -66,7 +66,7 @@ const DEFAULT_CONTENT: TemplateContent = {
   heroTitle1: "Where Content Becomes",
   heroTitle2: "Engineered Authority",
   heroDescription: "We don't create content — we architect buyer conviction. Omnichannel journeys that move audiences from awareness to action.",
-  heroCta1: "Get Started",
+  heroCta1: "Explore the framework",
   heroCta2: "View Framework",
   heroGraphicCenter: "Core_Engine",
   heroGraphicTopLeft: "Input_01",
@@ -142,7 +142,7 @@ const DEFAULT_CONTENT: TemplateContent = {
   ctaTitle: "Ready to Build Engineered Authority?",
   ctaDescription: "Join high-growth teams using GTMStack to architect journeys that convert. Your content is more than just assets—it's your ultimate sales machine.",
   ctaButton1: "Start Your Journey",
-  ctaButton2: "Book a Demo",
+  ctaButton2: "View examples",
   footerLogo: "GTMStack.pro",
   footerCopyright: "© 2024 GTMStack. All rights reserved.",
   footerLinks: ["Privacy Policy", "Terms of Service", "LinkedIn"]

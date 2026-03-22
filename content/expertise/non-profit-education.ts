@@ -1,6 +1,6 @@
 export const EXPERTISE_CONTENT = {
   brand: {
-    tagline: "Unlocking Potential Through Unrivaled Strategic Insight.",
+    tagline: "Building Potential Through Unrivaled Strategic Insight.",
     description: "At GTMStack.pro, our expertise is the bedrock of transformative growth. We combine deep industry knowledge with innovative methodologies to navigate complex challenges and deliver measurable, sustainable success for our clients."
   },
   hero: {
@@ -46,15 +46,15 @@ export const EXPERTISE_CONTENT = {
     ]
   },
   ctaSection: {
-    title: "Elevate Your Strategy. Unlock Your Potential.",
+    title: "Elevate Your Strategy. Reach Your Potential.",
     subtitle: "Connect with our experts today and transform your challenges into opportunities for unparalleled growth.",
-    button: { text: "Consult Our Experts", link: "/contact" }
+    button: { text: "Explore the methodology", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering businesses with strategic insights and unparalleled expertise, driving innovation and sustainable growth in a dynamic global market.",
     sections: [
-      { title: "Services", links: ["Strategic Consulting", "Digital Transformation", "Performance Optimization", "Change Management"] },
-      { title: "Company", links: ["About Us", "Our Team", "Careers", "Contact Us"] },
+      { title: "Services", links: ["GTM strategy & transformation", "Digital Transformation", "Performance Optimization", "Change Management"] },
+      { title: "Company", links: ["About Us", "Our Team", "Careers", "Contact"] },
       { title: "Resources", links: ["Case Studies", "Insights & Blog", "Whitepapers", "FAQs"] },
       { title: "Legal", links: ["Privacy Policy", "Terms of Service"] }
     ],

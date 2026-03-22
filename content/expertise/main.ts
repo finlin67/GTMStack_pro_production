@@ -5,7 +5,7 @@
 export const EXPERTISE_MAIN_CONTENT = {
   logo: {
     icon: 'architecture',
-    label: 'REVENUEARCHITECT',
+    label: 'GTMSTACK.PRO',
     subLabel: 'Architecture',
   },
   navLinks: [
@@ -17,10 +17,10 @@ export const EXPERTISE_MAIN_CONTENT = {
   ],
   hero: {
     badge: 'GTM Expertise',
-    title: 'Engineering Revenue Systems That Scale',
-    subtitle: 'Four interconnected pillars of B2B mastery — Content & Engagement, Demand & Growth, Strategy & Insights, Systems & Operations.',
-    ctaPrimary: 'Start Your Audit',
-    ctaSecondary: 'View Methodology',
+    title: 'Build a Revenue System You Can Operate',
+    subtitle: 'Four connected pillars that align message, demand, decisions, and operations into one measurable GTM model.',
+    ctaPrimary: 'Start the diagnostic',
+    ctaSecondary: 'View the methodology',
   },
   pillars: {
     title: 'Four Pillars of GTM Mastery',
@@ -101,8 +101,8 @@ export const EXPERTISE_MAIN_CONTENT = {
   },
   ctaBand: {
     title: 'Ready to engineer your revenue systems?',
-    subtitle: 'Our diagnostic audit uncovers the exact bottlenecks holding your pipeline back.',
-    ctaPrimary: 'Schedule Audit',
+    subtitle: 'Review how the four pillars connect to your funnel, then prioritize the work that removes the most leakage first.',
+    ctaPrimary: 'Start a conversation',
     ctaSecondary: 'View Case Studies',
   },
   footer: {
@@ -125,7 +125,7 @@ export const EXPERTISE_MAIN_CONTENT = {
         ],
       },
     ],
-    copyright: '© RevenueArchitect. All rights reserved.',
+    copyright: '© GTMStack.pro. All rights reserved.',
     tagline: 'Engineered GTM systems for the modern enterprise.',
   },
 }

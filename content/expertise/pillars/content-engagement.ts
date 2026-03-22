@@ -128,10 +128,11 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
   ctaSection: {
     title: 'Ready for Content & Engagement results?',
     subtitle: 'Stop publishing noise. Start engineering growth.',
-    buttonLabel: 'Get In Touch',
+    buttonLabel: 'Connect on methodology',
   },
   footer: {
-    description: 'Strategic GTM consulting for B2B technology companies. We engineer the systems, narratives, and operations that drive predictable pipeline.',
+    description:
+      'Operator-led GTM for B2B technology: systems, narratives, and operations wired to predictable pipeline—not generic thought leadership.',
     services: [
       'Content Strategy',
       'Demand Generation',

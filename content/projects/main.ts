@@ -27,7 +27,7 @@ export const PROJECTS_MAIN_CONTENT = {
         'Complete end-to-end RevOps unification across 14 territories, standardizing data architecture and lifecycle stages.',
       icon: 'Settings2',
       badge: 'TrendingUp',
-      achievement: '$XXM pipeline lift achieved',
+      achievement: 'Multi-$M pipeline lift (program-level)',
     },
     {
       id: 2,

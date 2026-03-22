@@ -7,8 +7,8 @@ export const FINANCIAL_SERVICES_CONTENT = {
     headline: "Transforming Financial Services: Strategic GTM for a Dynamic Market.",
     subheadline: "Navigate complexity and seize opportunities with bespoke go-to-market strategies designed for the unique demands of the financial sector.",
     description: "In an era of rapid regulatory change, technological disruption, and evolving customer expectations, financial institutions require more than just marketing. They need a strategic partner capable of crafting and executing integrated go-to-market plans that deliver measurable impact and future-proof their operations.",
-    primaryCTA: { text: "Unlock Your Growth Potential", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Expertise", link: "/expertise/financial-services" },
+    primaryCTA: { text: "Improve Your Growth Model", link: "/contact" },
+    secondaryCTA: { text: "Explore expertise", link: "/expertise/financial-services" },
     image: { src: "/images/financial-services-hero.jpg", alt: "Financial data visualization and strategic planning" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const FINANCIAL_SERVICES_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Financial Market Strategy?",
     subtitle: "Connect with our experts to craft a go-to-market plan that delivers unparalleled results.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your strategic partner for navigating the complexities of the financial services market, delivering innovative go-to-market solutions that drive measurable success.",

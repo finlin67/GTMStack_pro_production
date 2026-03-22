@@ -5,10 +5,10 @@ export const CRM_MANAGEMENT_CONTENT = {
   },
   hero: {
     headline: "CRM Management & Integration: Transform Data into Actionable Revenue.",
-    subheadline: "Leverage your CRM as the strategic core of your business, unifying sales, marketing, and service to unlock unparalleled efficiency and customer insight.",
+    subheadline: "Use your CRM as the strategic core of your business, unifying sales, marketing, and service to drive operational efficiency and customer insight.",
     description: "In today's competitive landscape, a well-managed and integrated CRM is the foundation for a customer-centric organization. We specialize in optimizing your CRM ecosystem, ensuring seamless data flow, automated workflows, and empowered teams to drive measurable business outcomes.",
-    primaryCTA: { text: "Schedule a Strategic Consultation", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/crm-management#approach" },
+    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/expertise/crm-management#approach" },
     image: { src: "/images/crm-hero.webp", alt: "Strategic CRM integration dashboard showing interconnected systems and data flow" }
   },
   metricsSection: {
@@ -49,8 +49,8 @@ export const CRM_MANAGEMENT_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Transform Your CRM into a Strategic Growth Engine?",
-    subtitle: "Partner with GTMStack.pro to unlock the full potential of your CRM, drive revenue, and build lasting customer relationships.",
-    button: { text: "Schedule Your Strategic Consultation", link: "/contact" }
+    subtitle: "Partner with GTMStack.pro to improve the full potential of your CRM, drive revenue, and build lasting customer relationships.",
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro empowers businesses to achieve strategic growth through expert Go-To-Market and operational excellence. We build the foundations for your success.",

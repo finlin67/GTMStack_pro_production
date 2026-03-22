@@ -53,7 +53,7 @@ export const NON_PROFIT_NGO_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Non-Profit's Impact?",
     subtitle: "Partner with us to transform your fundraising, strengthen your brand, and clearly demonstrate your vital work.",
-    button: { label: "Schedule a Consultation", href: "/contact" }
+    button: { label: "Explore the framework", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro empowers Non-Profit Organizations with strategic communications, fundraising, and brand building expertise to maximize their impact and secure a sustainable future.",

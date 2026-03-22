@@ -6,8 +6,8 @@ export const CONTENT_CREATION_PERSONALIZATION_CONTENT = {
   hero: {
     headline: "The Evolution of Content: Autonomous AI & Strategic Imperfection",
     subheadline: "Building Your Digital Core for Relational Engagement in the AI-Native Era",
-    description: "Moving beyond transactional outputs, we empower enterprises to leverage AI as a transparent layer of business intelligence. Discover how to create high-authority, AI-citable content and orchestrate truly personalized experiences that resonate with modern audiences, balancing autonomous speed with valuable human friction.",
-    primaryCTA: { text: "Explore Our Methodology", link: "/contact" },
+    description: "Moving beyond transactional outputs, we empower enterprises to use AI as a transparent layer of business intelligence. Discover how to create high-authority, AI-citable content and orchestrate truly personalized experiences that resonate with modern audiences, balancing autonomous speed with valuable human friction.",
+    primaryCTA: { text: "View the methodology", link: "/contact" },
     secondaryCTA: { text: "Download Report Summary", link: "/resources/report-summary" }
   },
   metricsSection: {
@@ -43,7 +43,7 @@ export const CONTENT_CREATION_PERSONALIZATION_CONTENT = {
   },
   growthSection: {
     headline: "Future-Proofing Your Growth Engine",
-    narrative: "In an era where transactional outputs are obsolete, sustainable growth is driven by the quality of attention and relational depth. We leverage a powerful synthesis of modern content and data strategies to build enduring customer relationships and drive incremental revenue.",
+    narrative: "In an era where transactional outputs are obsolete, sustainable growth is driven by the quality of attention and relational depth. We use a powerful synthesis of modern content and data strategies to build enduring customer relationships and drive incremental revenue.",
     metrics: [
       { label: "Growth Formula", value: "Video + AI + 1P Data + Community = Sustainable Growth" },
       { label: "Revenue Engine", value: "Video + Live Commerce + Social Selling = Conversion" },
@@ -54,7 +54,7 @@ export const CONTENT_CREATION_PERSONALIZATION_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Content Strategy?",
     subtitle: "Transform your enterprise with an AI-native, human-governed approach to content creation and personalization that drives real growth.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "Empowering enterprises to master the convergence of authenticity and autonomous intelligence, building durable brand equity and sustainable growth in the AI-native era.",

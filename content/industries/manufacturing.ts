@@ -49,7 +49,7 @@ export const MANUFACTURING_CONTENT = {
   ctaSection: {
     title: "Ready to Engineer Your Future?",
     subtitle: "Connect with experts who speak the language of manufacturing and deliver strategies that work within your operational constraints.",
-    button: { label: "Schedule a Consultation", href: "/contact" }
+    button: { label: "Explore the framework", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro provides specialized marketing and digital transformation expertise for the manufacturing industry, driving operational excellence and sustainable growth.",

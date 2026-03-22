@@ -5,10 +5,10 @@ export const EXPERTISE_CONTENT = {
   },
   hero: {
     headline: "Elevate Your Go-To-Market Strategy. Accelerate Your Growth.",
-    subheadline: "Unlock predictable revenue and sustainable market leadership with GTMStack.pro's unparalleled expertise in B2B SaaS GTM.",
+    subheadline: "Build predictable revenue and sustainable market leadership with GTMStack.pro's unparalleled expertise in B2B SaaS GTM.",
     description: "In today's dynamic market, a robust Go-To-Market strategy is not merely an advantage—it's a necessity. GTMStack.pro provides the strategic foresight and operational excellence required to navigate complexities, optimize performance, and drive significant, measurable results.",
-    primaryCTA: { text: "Explore Our Expertise", link: "/expertise#capabilities" },
-    secondaryCTA: { text: "Schedule a Consultation", link: "/contact" },
+    primaryCTA: { text: "Explore expertise", link: "/expertise#capabilities" },
+    secondaryCTA: { text: "Start a conversation", link: "/contact" },
     image: { src: "/images/hero-expertise.webp", alt: "Strategic business professionals collaborating on a GTM plan" }
   },
   metricsSection: {
@@ -25,7 +25,7 @@ export const EXPERTISE_CONTENT = {
       { title: "GTM Strategy & Planning", description: "Develop comprehensive market entry, expansion, and product launch strategies tailored to your unique business objectives and market landscape." },
       { title: "Sales & Marketing Alignment", description: "Bridge the gap between sales and marketing teams, fostering seamless collaboration and optimizing the entire customer journey for maximum conversion." },
       { title: "Revenue Operations (RevOps)", description: "Implement and optimize RevOps frameworks to streamline processes, enhance data visibility, and drive operational efficiency across your GTM functions." },
-      { title: "Market Intelligence & Positioning", description: "Leverage deep market insights to refine your value proposition, differentiate your offering, and establish a dominant market position." },
+      { title: "Market Intelligence & Positioning", description: "Use deep market insights to refine your value proposition, differentiate your offering, and establish a dominant market position." },
       { title: "Performance Optimization & Analytics", description: "Utilize advanced analytics to continuously monitor GTM performance, identify bottlenecks, and implement data-driven optimizations for sustained growth." }
     ]
   },
@@ -49,14 +49,14 @@ export const EXPERTISE_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Go-To-Market Success?",
     subtitle: "Partner with GTMStack.pro and transform your strategic vision into market dominance.",
-    button: { text: "Unlock Your GTM Potential", link: "/contact" }
+    button: { text: "Strengthen Your GTM System", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is the premier partner for B2B SaaS companies seeking to master their Go-To-Market strategy, accelerate revenue, and achieve sustainable market leadership.",
     sections: [
       { title: "Solutions", links: ["GTM Strategy", "RevOps Consulting", "Sales Enablement", "Market Intelligence"] },
       { title: "Company", links: ["About Us", "Our Expertise", "Case Studies", "Careers"] },
-      { title: "Resources", links: ["Blog", "Whitepapers", "Webinars", "Contact Us"] }
+      { title: "Resources", links: ["Blog", "Whitepapers", "Webinars", "Contact"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }

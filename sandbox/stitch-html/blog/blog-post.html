@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Death of Demographic-Only Scoring: A Kinetic 2025 Matrix | GTMStack.pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;family=Manrope:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-tint": "#e6c443",
+              "on-surface-variant": "#cfc6af",
+              "surface-container-highest": "#2a3548",
+              "on-secondary": "#002e6b",
+              "error-container": "#93000a",
+              "inverse-primary": "#715c00",
+              "secondary": "#aec6ff",
+              "surface-container": "#142032",
+              "error": "#ffb4ab",
+              "surface-variant": "#2a3548",
+              "on-secondary-container": "#f2f4ff",
+              "surface": "#071325",
+              "surface-dim": "#071325",
+              "on-error-container": "#ffdad6",
+              "surface-container-high": "#1f2a3d",
+              "surface-bright": "#2e394d",
+              "primary-fixed-dim": "#e6c443",
+              "on-background": "#d7e3fc",
+              "secondary-fixed-dim": "#aec6ff",
+              "secondary-fixed": "#d8e2ff",
+              "on-primary-fixed": "#231b00",
+              "tertiary-container": "#71efff",
+              "tertiary": "#edfdff",
+              "surface-container-lowest": "#030e20",
+              "primary-fixed": "#ffe179",
+              "inverse-surface": "#d7e3fc",
+              "inverse-on-surface": "#253144",
+              "on-primary-container": "#755f00",
+              "tertiary-fixed-dim": "#56d8e7",
+              "on-tertiary-fixed": "#001f23",
+              "on-tertiary-container": "#006c75",
+              "tertiary-fixed": "#8df2ff",
+              "on-tertiary-fixed-variant": "#004f56",
+              "outline-variant": "#4c4635",
+              "background": "#071325",
+              "primary-container": "#ffdb58",
+              "on-surface": "#d7e3fc",
+              "on-primary": "#3b2f00",
+              "secondary-container": "#066ae4",
+              "on-secondary-fixed": "#001a42",
+              "on-error": "#690005",
+              "surface-container-low": "#101c2e",
+              "on-tertiary": "#00363c",
+              "on-secondary-fixed-variant": "#004396",
+              "primary": "#fff9f3",
+              "outline": "#98907b",
+              "on-primary-fixed-variant": "#554500"
+            },
+            fontFamily: {
+              "headline": ["Manrope", "Outfit", "sans-serif"],
+              "body": ["Inter", "sans-serif"],
+              "label": ["Inter", "sans-serif"],
+              "outfit": ["Outfit", "sans-serif"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      }
+      .glass-card {
+        background: rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(12px);
+      }
+      .circuit-bg {
+        background-image: radial-gradient(circle at 2px 2px, rgba(46, 124, 246, 0.05) 1px, transparent 0);
+        background-size: 24px 24px;
+      }
+      .orb {
+        filter: blur(80px);
+        z-index: 0;
+      }
+      .module-card {
+        @apply bg-white border border-slate-100 shadow-sm rounded-3xl p-10 md:p-14 mb-20;
+      }
+      .hide-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .hide-scrollbar {
+        -ms-overflow-style: none;
+        scrollbar-width: none;
+      }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<nav class="fixed top-0 w-full h-[64px] z-50 bg-[#071325]/80 backdrop-blur-xl border-b border-white/10 shadow-2xl shadow-black/20 flex justify-between items-center px-6 md:px-12 w-full mx-auto">
+<div class="flex items-center gap-8">
+<a class="text-xl font-bold tracking-tighter text-white font-outfit" href="/">
+<span class="text-[#4A86D8]">GTM</span>Stack<span class="opacity-40">.pro</span>
+</a>
+<div class="hidden md:flex items-center gap-6">
+<a class="text-slate-300 hover:text-white transition-colors duration-300 font-medium font-inter text-sm tracking-wide" href="#">Expertise</a>
+<a class="text-slate-300 hover:text-white transition-colors duration-300 font-medium font-inter text-sm tracking-wide" href="#">About</a>
+<a class="text-slate-300 hover:text-white transition-colors duration-300 font-medium font-inter text-sm tracking-wide" href="#">Resume</a>
+<a class="text-[#2E7CF6] font-semibold font-inter text-sm tracking-wide" href="#">Blog</a>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="hidden lg:flex items-center gap-2 text-slate-300 hover:text-white transition-colors duration-300 font-medium font-inter text-sm tracking-wide">
+                Download PDF <span class="material-symbols-outlined text-[18px]">download</span>
+</button>
+<button class="bg-primary-container text-on-primary-fixed px-5 py-2 rounded-full font-bold text-sm hover:scale-95 transition-transform duration-150">
+                Subscribe <span class="ml-1">→</span>
+</button>
+</div>
+</nav>
+<header class="relative pt-[64px] min-h-[500px] flex items-center overflow-hidden" style="background: radial-gradient(circle at top left, #0a1628 0%, #050b18 100%);">
+<div class="orb absolute top-[-100px] left-[-50px] w-[350px] h-[350px] bg-[#4A86D8]/20 rounded-full"></div>
+<div class="orb absolute bottom-[-50px] right-[10%] w-[450px] h-[450px] bg-[#FFDB58]/10 rounded-full"></div>
+<div class="orb absolute top-[20%] right-[-100px] w-[250px] h-[250px] bg-[#2E7CF6]/5 rounded-full"></div>
+<div class="circuit-bg absolute inset-0 opacity-40"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-6 md:px-12 py-16 text-center md:text-left">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-[#36C0CF]/15 border border-[#36C0CF]/40 text-[#36C0CF] text-xs font-bold tracking-widest uppercase mb-6">
+                REVOPS STRATEGY
+            </div>
+<h1 class="text-3xl md:text-5xl font-extrabold font-outfit text-white leading-tight max-w-3xl mb-8">
+                The Death of Demographic-Only Scoring: A Kinetic 2025 Matrix
+            </h1>
+<div class="flex flex-wrap items-center gap-6 text-sm text-slate-400 font-medium">
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">calendar_today</span>
+                    May 15, 2024
+                </span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">schedule</span>
+                    8 min read
+                </span>
+<span class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+                    4.2k views
+                </span>
+<div class="flex items-center gap-3 ml-0 md:ml-4 border-l border-white/10 pl-6">
+<div class="w-10 h-10 rounded-full bg-surface-container-highest overflow-hidden">
+<img alt="Mark Fischer professional headshot" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCmL8LcGxrJVZtdWFu9TmBiZyLutyPBTrZ5XF_5R5C1_GY9K0xdkjg3OxLv6fNzu1r8Jky1vr8WuNkS0QXsi1yt38XdZQAgaY2KZd-pSz16vTtd6srhetWTpFy6h--OJYNh0hNIszUR0w8o2fudhpmwVzBclrAKgImJn0R17ofm90iKz-bZCU3KWXmkbOPRgto4xoRsH0SKw-xitQk8IglXRt-tEqLfni2PSMCb12HPzkmxiQlDF6ArErZm3En9h_Dn5HK4odefnD2Q"/>
+</div>
+<div>
+<p class="text-white font-semibold leading-none">Mark Fischer</p>
+<p class="text-[11px] opacity-60 uppercase tracking-tighter">Revenue Architect</p>
+</div>
+</div>
+</div>
+</div>
+</header>
+<main class="relative z-10 py-24 px-6 md:px-12 bg-[#FBFDFF]">
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-20">
+<div class="space-y-12">
+<section class="module-card border-none !bg-transparent !p-0 !mb-16">
+<p class="text-xl md:text-3xl text-slate-800 leading-snug font-medium tracking-tight">
+                        The traditional MQL is dead. Not because lead generation has failed, but because our interpretation of "intent" has been stuck in 2018. Demographic data—company size, job title, and industry—is no longer a predictor of success; it's merely a baseline for entry. 
+                    </p>
+</section>
+<section class="module-card">
+<div class="border-b border-slate-50 pb-8 mb-10">
+<span class="text-[#2E7CF6] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">Module 01</span>
+<h2 class="text-3xl md:text-4xl font-extrabold font-outfit text-slate-900">Why the Old Approach Falls Short</h2>
+</div>
+<div class="prose prose-slate max-w-none">
+<p class="text-slate-600 text-lg leading-relaxed mb-10">
+                            Static scoring models treat a lead who visited your pricing page six months ago the same as a lead who visited it this morning. In a hyper-competitive GTM environment, this latency is fatal. Most CRM-based scoring relies on additive math that never accounts for the entropy of interest.
+                        </p>
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 my-10">
+<div class="bg-slate-50/50 p-8 rounded-2xl border border-slate-100">
+<p class="text-[#FFDB58] text-4xl font-black font-outfit mb-2">64%</p>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Accuracy Drop</p>
+</div>
+<div class="bg-slate-50/50 p-8 rounded-2xl border border-slate-100">
+<p class="text-[#2E7CF6] text-4xl font-black font-outfit mb-2">12.4x</p>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">Velocity Gain</p>
+</div>
+<div class="bg-slate-50/50 p-8 rounded-2xl border border-slate-100">
+<p class="text-[#36C0CF] text-4xl font-black font-outfit mb-2">89%</p>
+<p class="text-[10px] text-slate-400 uppercase tracking-widest font-bold">SDR Efficiency</p>
+</div>
+</div>
+</div>
+</section>
+<section class="module-card">
+<div class="border-b border-slate-50 pb-8 mb-10">
+<span class="text-[#2E7CF6] font-bold text-xs uppercase tracking-[0.2em] mb-3 block">Module 02</span>
+<h2 class="text-3xl md:text-4xl font-extrabold font-outfit text-slate-900">Implementing the Stack Logic</h2>
+</div>
+<div class="prose prose-slate max-w-none">
+<p class="text-slate-600 text-lg leading-relaxed mb-10">
+                            To transition to kinetic scoring, you must decouple your data ingestion from your CRM's native calculation engine. We recommend a headless RevOps approach using a transformation layer (like dbt) to compute "Kinetic Scores" before pushing them back to Salesforce or HubSpot.
+                        </p>
+<blockquote class="my-12 pl-8 border-l-2 border-[#36C0CF] italic text-2xl text-slate-800 font-medium bg-slate-50/50 py-12 pr-12 rounded-r-3xl">
+                            "Data without velocity is just inventory. Kinetic scoring turns your database into a high-frequency trading floor for sales opportunities."
+                        </blockquote>
+<div class="bg-[#030e20] rounded-2xl overflow-hidden my-14 shadow-2xl border border-white/5">
+<div class="flex items-center justify-between px-5 py-4 bg-white/5 border-b border-white/5">
+<span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold">kinetic_score.sql</span>
+<div class="flex gap-2">
+<div class="w-2.5 h-2.5 rounded-full bg-red-500/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-yellow-500/40"></div>
+<div class="w-2.5 h-2.5 rounded-full bg-green-500/40"></div>
+</div>
+</div>
+<pre class="p-10 text-sm font-mono overflow-x-auto text-[#aec6ff] leading-relaxed"><span class="text-[#FFDB58]">WITH</span> signals <span class="text-[#FFDB58]">AS</span> (
+  <span class="text-[#2E7CF6]">SELECT</span>
+    user_id,
+    SUM(weight * <span class="text-[#36C0CF]">EXP</span>(-0.1 * <span class="text-[#36C0CF]">DATEDIFF</span>(day, occurred_at, <span class="text-[#36C0CF]">CURRENT_DATE</span>))) <span class="text-[#FFDB58]">as</span> decay_score
+  <span class="text-[#2E7CF6]">FROM</span> raw_events
+  <span class="text-[#2E7CF6]">GROUP BY</span> 1
+)
+<span class="text-[#2E7CF6]">UPDATE</span> crm_leads
+<span class="text-[#2E7CF6]">SET</span> kinetic_intent_score = signals.decay_score
+<span class="text-[#2E7CF6]">FROM</span> signals
+<span class="text-[#2E7CF6]">WHERE</span> crm_leads.id = signals.user_id;</pre>
+</div>
+<p class="text-slate-600 text-lg leading-relaxed">
+                            The above logic ensures that older signals naturally diminish in value. A whitepaper download from 3 months ago is worth 0.04 points, while a pricing page view from 2 hours ago is worth a full 10.0 points.
+                        </p>
+</div>
+</section>
+</div>
+<aside class="hidden lg:block">
+<div class="sticky top-24 flex flex-col gap-10">
+<div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
+<div class="flex items-center justify-between mb-8">
+<h3 class="text-slate-900 font-extrabold font-outfit text-sm uppercase tracking-widest">Continue Reading</h3>
+<div class="h-px flex-grow ml-4 bg-slate-100"></div>
+</div>
+<div class="space-y-10">
+<a class="group block" href="#">
+<p class="text-[#2E7CF6] text-[10px] font-bold uppercase tracking-widest mb-2">RevOps Data</p>
+<h4 class="text-slate-900 font-bold font-outfit text-lg group-hover:text-[#2E7CF6] transition-colors leading-snug">The 2025 Multi-Touch Attribution Myth</h4>
+<p class="text-slate-500 text-sm mt-2 font-medium leading-relaxed italic">Why touchpoints are lying to your marketing budget.</p>
+</a>
+<a class="group block" href="#">
+<p class="text-[#36C0CF] text-[10px] font-bold uppercase tracking-widest mb-2">Strategy</p>
+<h4 class="text-slate-900 font-bold font-outfit text-lg group-hover:text-[#2E7CF6] transition-colors leading-snug">Building a Lead Scoring Transformation Layer</h4>
+<p class="text-slate-500 text-sm mt-2 font-medium leading-relaxed italic">The blueprint for a headless GTM data stack.</p>
+</a>
+<a class="group block" href="#">
+<p class="text-[#FFDB58] text-[10px] font-bold uppercase tracking-widest mb-2">Engineering</p>
+<h4 class="text-slate-900 font-bold font-outfit text-lg group-hover:text-[#2E7CF6] transition-colors leading-snug">SQL for Revenue Architects</h4>
+<p class="text-slate-500 text-sm mt-2 font-medium leading-relaxed italic">Ten queries every Ops leader needs to master.</p>
+</a>
+</div>
+</div>
+<div class="bg-white border border-slate-100 rounded-2xl p-8 shadow-sm">
+<img alt="Mark Fischer" class="w-20 h-20 rounded-2xl object-cover mb-6 border-4 border-slate-50 shadow-sm" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAgQn1n9pxsyAFfdjz-7GRezjn1z0cbdmOymobRM9knsmzXDPSEL9r0ERIcRZpwA_8E9O8Xdv46JRGr6V_ozXZVrdZj8pBD0TCpk3c632NL1gwjsSxiBQwWcdBbEmOX7chsmAXqdjFsdKQCJaUaP7zQYvtB23kiA-c91yUH8u5UdMXVayI-KBlpvhuK-QVBFbOUgF1kHeZY_6GYtPEj3KvEoNViqoITAb5z30AcPwf-w-WhnhFvhPNGwFR7qGp82sHK-lC00mZYGjwR"/>
+<h4 class="text-slate-900 font-bold font-outfit text-xl">Mark Fischer</h4>
+<p class="text-sm text-slate-500 mt-3 mb-8 leading-relaxed font-medium">Revenue Architect &amp; GTM Consultant helping Series B+ startups scale through technical RevOps infrastructure.</p>
+<a class="flex items-center gap-2 text-[#2E7CF6] font-bold text-[10px] uppercase tracking-[0.2em] hover:opacity-70 transition-opacity" href="#">
+                            Connect on LinkedIn <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+</a>
+</div>
+<div class="bg-[#2E7CF6] rounded-2xl p-8 text-white shadow-2xl shadow-blue-500/20">
+<h4 class="font-bold text-lg mb-2 font-outfit">Join the Playbook</h4>
+<p class="text-sm text-blue-100 mb-6 font-medium">Hard technical GTM strategies delivered every Tuesday.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-white/10 border border-white/20 rounded-xl px-5 py-4 text-sm placeholder:text-blue-100 text-white focus:outline-none focus:bg-white/20" placeholder="email@work.com" type="email"/>
+<button class="bg-white text-[#2E7CF6] py-4 rounded-xl font-bold text-sm hover:scale-[1.02] transition-all shadow-lg">Subscribe</button>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</main>
+<section class="bg-[#030e20] py-24 px-6 md:px-12 relative overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="mb-14 flex flex-col md:flex-row md:items-end justify-between gap-8">
+<div>
+<span class="text-[#FFDB58] text-xs font-bold tracking-[0.3em] uppercase mb-5 block">SIDE PROJECTS &amp; EXPERIMENTS</span>
+<h2 class="text-4xl md:text-5xl font-extrabold font-outfit text-white">Built for Fun. Shipped for Real.</h2>
+</div>
+<div class="flex gap-4">
+<button class="p-3 rounded-full border border-white/10 text-white/40 hover:text-white hover:border-white/30 transition-all">
+<span class="material-symbols-outlined">arrow_back</span>
+</button>
+<button class="p-3 rounded-full border border-white/10 text-white/40 hover:text-white hover:border-white/30 transition-all">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="flex gap-8 overflow-x-auto pb-12 hide-scrollbar snap-x">
+<div class="min-w-[320px] md:min-w-[500px] snap-start group relative glass-card p-1 rounded-3xl transition-all duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-[#2E7CF6]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
+<div class="relative bg-[#071325] rounded-[calc(1.5rem-4px)] p-12 h-full flex flex-col justify-between border border-white/5">
+<div>
+<div class="w-16 h-16 rounded-2xl bg-[#2E7CF6]/10 flex items-center justify-center text-[#2E7CF6] mb-10">
+<span class="material-symbols-outlined text-4xl">flight_takeoff</span>
+</div>
+<h3 class="text-2xl font-bold font-outfit text-white mb-5">Flight Assessment Tool</h3>
+<p class="text-slate-400 leading-relaxed mb-10 text-lg">A technical benchmarking engine that audits GTM stacks across 42 distinct data points to predict pipeline leakage.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-slate-400 font-bold uppercase border border-white/10">React</span>
+<span class="px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-slate-400 font-bold uppercase border border-white/10">Node.js</span>
+<span class="px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-slate-400 font-bold uppercase border border-white/10">PostgreSQL</span>
+</div>
+</div>
+</div>
+<div class="min-w-[320px] md:min-w-[500px] snap-start group relative glass-card p-1 rounded-3xl transition-all duration-300">
+<div class="absolute inset-0 bg-gradient-to-br from-[#FFDB58]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity rounded-3xl"></div>
+<div class="relative bg-[#071325] rounded-[calc(1.5rem-4px)] p-12 h-full flex flex-col justify-between border border-white/5">
+<div>
+<div class="w-16 h-16 rounded-2xl bg-[#FFDB58]/10 flex items-center justify-center text-[#FFDB58] mb-10">
+<span class="material-symbols-outlined text-4xl">description</span>
+</div>
+<h3 class="text-2xl font-bold font-outfit text-white mb-5">Resume CV Theme Park</h3>
+<p class="text-slate-400 leading-relaxed mb-10 text-lg">An open-source library of high-impact CV layouts designed for revenue leaders, prioritizing ROI metrics over job duties.</p>
+</div>
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-slate-400 font-bold uppercase border border-white/10">Tailwind</span>
+<span class="px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-slate-400 font-bold uppercase border border-white/10">Next.js</span>
+<span class="px-4 py-1.5 bg-white/5 rounded-full text-[10px] text-slate-400 font-bold uppercase border border-white/10">Motion</span>
+</div>
+</div>
+</div>
+<div class="min-w-[320px] md:min-w-[500px] snap-start group relative glass-card p-1 rounded-3xl opacity-40">
+<div class="relative bg-[#071325] rounded-[calc(1.5rem-4px)] p-12 h-full flex flex-col border border-white/5">
+<div class="w-16 h-16 rounded-2xl bg-white/5 mb-10"></div>
+<div class="h-8 w-3/4 bg-white/5 rounded mb-5"></div>
+<div class="h-24 w-full bg-white/5 rounded"></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-40 px-6 md:px-12 border-t border-slate-50 overflow-hidden">
+<div class="max-w-5xl mx-auto text-center relative">
+<div class="orb absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[700px] bg-blue-50 rounded-full opacity-40"></div>
+<div class="relative z-10">
+<h2 class="text-4xl md:text-6xl font-extrabold font-outfit text-slate-900 mb-10 tracking-tight">Ready to Optimize Your Revenue Engine?</h2>
+<p class="text-xl text-slate-600 max-w-2xl mx-auto mb-16 font-medium">Audit your GTM stack and build a kinetic RevOps system that turns every signal into revenue.</p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+<button class="w-full sm:w-auto px-12 py-6 bg-[#2E7CF6] text-white rounded-full font-bold text-lg hover:scale-105 transition-all shadow-2xl shadow-blue-500/20">
+                        Schedule a GTM Audit
+                    </button>
+<button class="w-full sm:w-auto px-12 py-6 text-slate-900 border-2 border-slate-100 rounded-full font-bold text-lg hover:bg-slate-50 transition-all">
+                        View Resume
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-[#030e20] py-20 px-6 md:px-12 border-t border-white/5 w-full">
+<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start gap-16 w-full">
+<div class="flex flex-col items-start gap-8">
+<a class="text-2xl font-bold tracking-tighter text-white font-outfit" href="/">
+<span class="text-[#4A86D8]">GTM</span>Stack<span class="opacity-40">.pro</span>
+</a>
+<p class="font-inter text-sm text-slate-500 max-w-xs leading-relaxed">Building high-velocity revenue machines for the next generation of B2B startups.</p>
+<p class="font-inter text-xs text-slate-600">© 2024 GTMStack.pro. All rights reserved.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-3 gap-16">
+<div class="flex flex-col gap-5">
+<span class="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Resources</span>
+<a class="text-slate-500 hover:text-white transition-all text-sm font-medium" href="#">Expertise</a>
+<a class="text-slate-500 hover:text-white transition-all text-sm font-medium" href="#">Blog</a>
+<a class="text-slate-500 hover:text-white transition-all text-sm font-medium" href="#">Download PDF</a>
+</div>
+<div class="flex flex-col gap-5">
+<span class="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Company</span>
+<a class="text-slate-500 hover:text-white transition-all text-sm font-medium" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-white transition-all text-sm font-medium" href="#">Terms</a>
+<a class="text-slate-500 hover:text-white transition-all text-sm font-medium" href="#">Contact</a>
+</div>
+<div class="flex flex-col gap-5">
+<span class="text-[10px] font-bold text-white uppercase tracking-[0.2em]">Social</span>
+<a class="text-[#2E7CF6] hover:text-[#2E7CF6]/80 transition-all font-bold text-sm flex items-center gap-2" href="#">
+                        LinkedIn
+                    </a>
+</div>
+</div>
+</div>
+</footer>
+
+</body></html>

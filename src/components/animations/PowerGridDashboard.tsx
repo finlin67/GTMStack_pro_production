@@ -49,7 +49,7 @@ const Header = ({ darkMode, toggleDarkMode }: { darkMode: boolean; toggleDarkMod
       >
         {darkMode ? <Sun className="size-3" /> : <Moon className="size-3" />}
       </button>
-      <div className="size-5 rounded-full border border-primary/20 bg-cover bg-center bg-[url('https://picsum.photos/seed/power/100/100')]" />
+      <div className="size-5 rounded-full border border-primary/20 bg-cover bg-center bg-[url('/images/placeholder-avatar.svg')]" />
     </div>
   </header>
 );

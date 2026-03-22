@@ -3,13 +3,13 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** Contact page content for HomeTemplate (PageContent shape). */
 export const CONTACT_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'GET IN TOUCH',
-    titleStart: "Let's Scale ",
-    titleGradient: 'Your Revenue',
+    badge: 'START THE CONVERSATION',
+    titleStart: 'Map the Next Version of ',
+    titleGradient: 'Your GTM System',
     subtitle:
-      "Ready to optimize your engine? We're ready to build it. Reach out today for a diagnostic audit of your GTM motion.",
-    ctaPrimary: 'Book a Call',
-    ctaSecondary: 'Email Us',
+      'Use the notes field to share the motion, metric, or stack constraint you need to solve. You will get a direct response with practical next steps.',
+    ctaPrimary: 'Discuss your operating model',
+    ctaSecondary: 'Send email',
   },
   stats: [
     { value: '24h', label: 'Response Time' },
@@ -19,7 +19,7 @@ export const CONTACT_CONTENT: HomeTemplateContent = {
   ],
   methodology: {
     title: 'How We Engage',
-    description: 'A structured approach to our partnership, starting with a deep diagnostic audit.',
+    description: 'A clear, staged process that moves from diagnostic clarity to implementation.',
     steps: [
       {
         number: '01',
@@ -52,7 +52,7 @@ export const CONTACT_CONTENT: HomeTemplateContent = {
     ],
   },
   expertise: {
-    title: 'Ready for Support?',
+    title: 'Where to go deeper',
     items: [
       {
         icon: 'TrendingUp',
@@ -116,8 +116,8 @@ export const CONTACT_CONTENT: HomeTemplateContent = {
   founder: {
     name: 'Michael',
     role: 'Global GTM Strategist & Revenue Architect',
-    image: 'https://placehold.co/800x800/png',
-    bio: 'I personally review every inquiry. Expect a direct, no-fluff response within 24 hours.',
+    image: '/images/heroes/homepage-hero.jpg',
+    bio: 'Every inquiry is reviewed directly. Expect a practical response within 24 hours.',
     yearsExperience: '20+',
     timeline: [
       { icon: 'mail', title: 'Direct Reach', description: 'michael@gtmstack.pro' },
@@ -126,8 +126,8 @@ export const CONTACT_CONTENT: HomeTemplateContent = {
     ],
   },
   ctaBottom: {
-    title: 'Ready to build?',
-    subtitle: 'Drop us a line or book a time on the calendar.',
-    buttonText: 'Get Started',
+    title: 'Ready to scope the right starting point?',
+    subtitle: 'Share your current motion, systems, and target outcomes. We will recommend the highest-leverage path first.',
+    buttonText: 'Start the conversation',
   },
 }

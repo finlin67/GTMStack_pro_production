@@ -8,7 +8,7 @@ export const TECH_STACK_OPTIMIZATION_ENABLEMENT_CONTENT = {
     subheadline: "The Strategic Paradox: Generative AI is simultaneously the greatest creator of technical debt and its most potent cure, enabling a 70% reduction in modernization costs.",
     description: "The integrated capability of cloud, data, and AI is the primary driver of enterprise success. We pivot from static IT to weeks-long response times, strategically managing $2.41 trillion in US technical debt not by elimination, but by balancing remediation with AI-driven agility.",
     primaryCTA: { text: "Transform Your Digital Core", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Methodology", link: "/methodology" }
+    secondaryCTA: { text: "View the methodology", link: "/methodology" }
   },
   metricsSection: {
     headline: "Quantifying Impact: The Metrics of Modernization",
@@ -93,15 +93,15 @@ export const TECH_STACK_OPTIMIZATION_ENABLEMENT_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Transform Your Digital Core?",
-    subtitle: "Embrace Evergreen IT and unlock perpetual reinvention for sustainable growth and a future-proof GTM strategy.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    subtitle: "Embrace Evergreen IT and improve perpetual reinvention for sustainable growth and a future-proof GTM strategy.",
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "Empowering enterprises to achieve perpetual reinvention by optimizing their tech stack, fostering permission-based communities, and leveraging Invisible AI for sustainable growth.",
     sections: [
       { title: "Solutions", links: ["Tech Stack Optimization", "AI Enablement", "GTM Strategy", "Data & Analytics"] },
       { title: "Company", links: ["About Us", "Our Methodology", "Careers", "Blog"] },
-      { title: "Resources", links: ["Case Studies", "Whitepapers", "Webinars", "Contact Us"] }
+      { title: "Resources", links: ["Case Studies", "Whitepapers", "Webinars", "Contact"] }
     ],
     copyright: "© 2024 Digital Core Reinvention. All rights reserved."
   }

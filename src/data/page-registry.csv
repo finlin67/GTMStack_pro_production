@@ -1,5 +1,5 @@
 route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
-/,content/home.ts,Home,home.stitch.main,home:main,,
+/,content/home.ts,Home,home.stitch.main,home:stitch,,
 /about,content/about.ts,About GTM Stack,about.main,about:main,dark,
 /case-studies,content/case-studies.ts,Case Studies,Uploaded_CaseStudies_v1,case-studies:main,dark,
 /case-studies/event-to-store-lift-retail,content/case-studies.ts,Event-to-Store Revenue Lift,caseStudy.base,case-studies:event-to-store-lift-retail,dark,
@@ -13,6 +13,7 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /expertise/customer-marketing,content/expertise/customer-marketing.ts,Customer Marketing & Journey Mapping,Uploaded_StratInsights_v1,expertise:customer-marketing,dark,
 /expertise/demand-growth,content/expertise/demand-growth.ts,Demand & Growth,Uploaded_DemandGrowth_v1,pillar:demand-growth,dark,
 /expertise/demand-generation,content/expertise/demand-generation.ts,Demand Generation Campaigns,Uploaded_DemandGrowth_v1,expertise:demand-generation,dark,
+/expertise/digital-marketing,content/expertise/digital-marketing.ts,Digital Marketing,Uploaded_DemandGrowth_v1,expertise:digital-marketing,dark,
 /expertise/event-marketing,content/expertise/event-marketing.ts,Event & Tradeshow Management,Uploaded_ContentEngagement_v1,expertise:event-marketing,dark,
 /expertise/strategy,content/expertise/strategy.ts,GTM Strategy,Uploaded_StratInsights_v1,expertise:gtm-strategy-development,dark,
 /expertise/lead-gen-scoring,content/expertise/lead-gen-scoring.ts,Lead Generation & Scoring,Uploaded_DemandGrowth_v1,expertise:lead-gen-scoring,dark,

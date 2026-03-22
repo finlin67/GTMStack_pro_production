@@ -191,7 +191,7 @@ export default function IndustrySingleStitchLayout({
                     href="/contact"
                     className="rounded-md bg-[#007FFF] px-8 py-4 text-lg font-bold text-white shadow-lg transition-all hover:shadow-[#007FFF]/20"
                   >
-                    Build your {industry.title} GTM
+                    Get in Touch
                   </Link>
                 </div>
               </div>
@@ -487,7 +487,7 @@ export default function IndustrySingleStitchLayout({
                 href="/contact"
                 className="rounded-lg bg-[#007FFF] px-10 py-5 text-xl font-bold text-white shadow-xl shadow-[#007FFF]/30 transition-transform hover:scale-105"
               >
-                Book your GTM audit
+                Get in Touch
               </Link>
             </div>
           </div>

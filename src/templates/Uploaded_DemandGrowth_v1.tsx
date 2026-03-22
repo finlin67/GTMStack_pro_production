@@ -90,7 +90,7 @@ const DEFAULT_CONTENT: TemplateContent = {
       { label: "RevOps", href: "#" },
       { label: "About", href: "#" }
     ],
-    buttonText: "Get Started",
+    buttonText: "Explore the framework",
     buttonHref: "#"
   },
   hero: {

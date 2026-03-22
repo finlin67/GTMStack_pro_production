@@ -7,8 +7,8 @@ export const AI_NATIVE_GTM_ENGINE_CONTENT = {
     headline: "The AI-Native GTM Engine: Autonomous Orchestration for Strategic Growth",
     subheadline: "Transitioning Go-To-Market from Manual Reporting to Invisible AI Infrastructure",
     description: "This strategic methodology outlines a fundamental shift from the high friction of FY22 manual operations to a 2026 mindset where AI agents autonomously manage workflows and make goal-oriented decisions. It posits that just as the internet became fundamental infrastructure, AI is now an invisible, embedded capability driving the digital core of the organization.",
-    primaryCTA: { text: "Explore the Methodology", link: "/ai-native-gtm-engine/methodology" },
-    secondaryCTA: { text: "Contact an Expert", link: "/contact" },
+    primaryCTA: { text: "View the methodology", link: "/ai-native-gtm-engine/methodology" },
+    secondaryCTA: { text: "Start a conversation", link: "/contact" },
   },
   metricsSection: {
     headline: "Quantifiable Impact: Key Metrics Driving the AI-Native GTM Shift",
@@ -44,7 +44,7 @@ export const AI_NATIVE_GTM_ENGINE_CONTENT = {
       },
       {
         title: "Predictive ROAS Optimization",
-        description: "Leverage AI for audience segmentation and inventory forecasting to proactively identify and maximize the return on every marketing dollar spent.",
+        description: "Use AI for audience segmentation and inventory forecasting to proactively identify and maximize the return on every marketing dollar spent.",
       },
     ],
   },
@@ -84,8 +84,8 @@ export const AI_NATIVE_GTM_ENGINE_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Transform Your GTM Strategy?",
-    subtitle: "Embrace the AI-Native GTM Engine and unlock autonomous revenue growth.",
-    button: { text: "Schedule a Consultation", link: "/contact" },
+    subtitle: "Embrace the AI-Native GTM Engine and improve autonomous revenue growth.",
+    button: { text: "Start a conversation", link: "/contact" },
   },
   footer: {
     description: "The AI-Native GTM Engine is our vision for a future where technology empowers strategic growth, making Go-To-Market intelligent, efficient, and deeply human-centric.",

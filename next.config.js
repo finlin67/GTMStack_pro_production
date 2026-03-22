@@ -66,11 +66,6 @@ const baseConfig = {
         permanent: true,
       },
       {
-        source: '/expertise/roi-analysis',
-        destination: '/expertise/revenue-operations',
-        permanent: true,
-      },
-      {
         source: '/expertise/web-design-ui-ux',
         destination: '/expertise/digital-marketing',
         permanent: true,

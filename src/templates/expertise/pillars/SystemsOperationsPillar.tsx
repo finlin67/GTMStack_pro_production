@@ -366,7 +366,7 @@ function SystemsOperationsPillar(props: SystemsOperationsPillarProps) {
             <p className="text-gray-400 max-w-3xl leading-relaxed">
               {props.item.description ??
                 props.item.positioning ??
-                "Topic content placeholder."}
+                'Add the topic narrative in content to surface the full methodology for this layer.'}
             </p>
           </div>
         </section>

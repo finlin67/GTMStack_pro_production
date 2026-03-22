@@ -2,21 +2,25 @@
 
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-import * as Icons from "lucide-react"
 import { PILLARS } from "@/lib/types"
 import { getExpertiseByPillar } from "@/content/expertise"
-
-type IconName = keyof typeof Icons
+import { getLucideIcon } from "@/lib/lucideIconMap"
 
 const getIcon = (name?: string) => {
-  if (!name) return null
-  const IconComponent = Icons[name as IconName]
-  return typeof IconComponent === "function"
+  const IconComponent = getLucideIcon(name)
+  return IconComponent
     ? (IconComponent as React.ComponentType<{ className?: string }>)
     : null
 }
 
-export default function MegaMenu() {
+type MegaMenuProps = {
+  /** Anchor for `aria-controls` on the nav trigger when the panel is open */
+  id?: string
+  /** `id` of the menu button that labels this region */
+  labelledBy?: string
+}
+
+export default function MegaMenu({ id, labelledBy }: MegaMenuProps) {
   // Prevent clicks inside menu from closing it
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation()
@@ -24,10 +28,19 @@ export default function MegaMenu() {
 
   return (
     <div
+      id={id}
       className="rounded-2xl border border-slate-700/70 bg-slate-950/95 backdrop-blur-2xl shadow-[0_35px_100px_rgba(15,23,42,0.85)]"
       onClick={handleClick}
+      role="region"
+      aria-label={labelledBy ? undefined : "Expertise: pillars and topics"}
+      aria-labelledby={labelledBy}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 p-7">
+      <div className="px-7 pt-6 pb-0 md:px-7 md:pt-7 md:pb-0">
+        <p className="max-w-3xl text-[13px] leading-relaxed text-slate-300">
+          This is how the GTM model is organized—pillars you can read as a map, with topics underneath each. Not a list of services.
+        </p>
+      </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 p-7 pt-5">
         {PILLARS.map((pillar) => {
           const Icon = getIcon(pillar.icon)
           const items = getExpertiseByPillar(pillar.id)
@@ -62,10 +75,28 @@ export default function MegaMenu() {
           )
         })}
       </div>
-      <div className="border-t border-white/10 px-7 py-4 flex justify-end">
-        <Link href="/expertise" className="text-[13px] text-brand-300 hover:text-white inline-flex items-center gap-1">
-          View all expertise <ArrowRight className="h-4 w-4" />
-        </Link>
+      <div className="border-t border-white/10 px-7 py-4 space-y-3">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+          <p className="text-[12px] text-slate-400">Browse the full index if you want every topic in one place.</p>
+          <Link
+            href="/expertise"
+            className="text-[13px] text-brand-300 hover:text-white inline-flex items-center gap-1 shrink-0 sm:ml-auto"
+          >
+            Browse full Expertise index <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-1 border-t border-white/5">
+          <span className="text-[11px] uppercase tracking-[0.18em] text-slate-500">See also</span>
+          <Link href="/case-studies" className="text-[12px] text-slate-400 hover:text-brand-200 transition-colors">
+            Case Studies
+          </Link>
+          <Link href="/industries" className="text-[12px] text-slate-400 hover:text-brand-200 transition-colors">
+            Industries
+          </Link>
+          <Link href="/blog" className="text-[12px] text-slate-400 hover:text-brand-200 transition-colors">
+            Blog
+          </Link>
+        </div>
       </div>
     </div>
   )

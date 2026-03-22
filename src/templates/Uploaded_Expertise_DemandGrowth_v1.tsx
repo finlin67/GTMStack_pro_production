@@ -172,8 +172,8 @@ const DEFAULT_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Engineer Your Growth?",
-    description: "Stop guessing and start growing. Schedule a comprehensive audit of your demand and engagement systems today.",
-    button: { label: "Schedule My Audit", href: "#" }
+    description: "Share where demand or engagement is breaking down—we can compare notes and point you to the right next step.",
+    button: { label: "Get in Touch", href: "/contact" }
   },
   footer: {
     description: "Building the infrastructure for the next generation of high-growth enterprise companies.",

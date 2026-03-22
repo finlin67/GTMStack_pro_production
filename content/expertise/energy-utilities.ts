@@ -4,11 +4,11 @@ export const EXPERTISE_CONTENT = {
     description: "GTMStack.pro is the strategic partner for organizations seeking to redefine their market presence and accelerate growth. Our deep, data-driven expertise in Go-To-Market strategy, execution, and optimization empowers businesses to navigate complex landscapes and achieve sustainable competitive advantage."
   },
   hero: {
-    headline: "Unlocking Your Next Growth Horizon with Unparalleled GTM Expertise",
-    subheadline: "Leverage GTMStack.pro's profound strategic insights and proven methodologies to transform your market approach and achieve measurable success.",
+    headline: "Capture Your Next Growth Horizon with Unparalleled GTM Expertise",
+    subheadline: "Use GTMStack.pro's profound strategic insights and proven methodologies to transform your market approach and achieve measurable success.",
     description: "In today's dynamic market, a robust Go-To-Market strategy is not just an advantage—it's a necessity. Our team of seasoned GTM architects brings a wealth of experience across diverse industries, delivering bespoke solutions that drive market penetration, accelerate revenue, and optimize customer acquisition.",
-    primaryCTA: { text: "Explore Our Expertise", link: "/expertise#capabilities" },
-    secondaryCTA: { text: "Schedule a Strategic Consultation", link: "/contact" },
+    primaryCTA: { text: "Explore expertise", link: "/expertise#capabilities" },
+    secondaryCTA: { text: "Start a conversation", link: "/contact" },
     image: { src: "/images/expertise-hero.webp", alt: "Strategic planning session with data visualizations" }
   },
   metricsSection: {
@@ -75,7 +75,7 @@ export const EXPERTISE_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Transform Your Go-To-Market Strategy?",
-    subtitle: "Partner with GTMStack.pro and leverage our unparalleled expertise to achieve your most ambitious growth targets.",
+    subtitle: "Partner with GTMStack.pro and use our unparalleled expertise to achieve your most ambitious growth targets.",
     button: { text: "Connect with Our Experts", link: "/contact" }
   },
   footer: {
@@ -84,7 +84,7 @@ export const EXPERTISE_CONTENT = {
       { title: "Services", links: ["GTM Strategy", "Product Launch", "Sales Enablement", "Digital Transformation"] },
       { title: "Company", links: ["About Us", "Our Expertise", "Case Studies", "Careers"] },
       { title: "Resources", links: ["Blog", "Whitepapers", "Webinars", "FAQs"] },
-      { title: "Connect", links: ["Contact Us", "LinkedIn", "Twitter"] }
+      { title: "Connect", links: ["Contact", "LinkedIn", "Twitter"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }

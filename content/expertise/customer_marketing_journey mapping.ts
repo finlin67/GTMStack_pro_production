@@ -5,7 +5,7 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
   },
   hero: {
     headline: "Customer Marketing: The Invisible AI Orchestration for Predictable ARR.",
-    subheadline: "Unlock enterprise value by building self-sustaining relational ecosystems in the 'As-a-Service' era.",
+    subheadline: "Build enterprise value by creating self-sustaining relational ecosystems in the 'As-a-Service' era.",
     description: "We help modern enterprises pivot beyond transactional marketing to cultivate deep customer relationships, leveraging first-party data, authentic AI, and strategic friction to drive long-term loyalty and maximize Annual Recurring Revenue (ARR).",
     primaryCTA: { text: "Discover Your Relational Ecosystem", link: "/contact" },
     secondaryCTA: { text: "Download the Strategic Report", link: "/report-customer-marketing" }
@@ -50,7 +50,7 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
   ctaSection: {
     title: "Ready to Build Your Relational Ecosystem?",
     subtitle: "Partner with us to orchestrate your customer marketing journey with Invisible AI and drive predictable ARR.",
-    button: { text: "Schedule a Strategy Session", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "Empowering enterprises to navigate the 'As-a-Service' transition and build sustainable growth through AI-native customer marketing and journey mapping expertise.",

@@ -108,7 +108,7 @@ const DEFAULT_CONTENT: GalleryContentProps = {
       {
         id: 1,
         isFeatured: true,
-        image: 'https://picsum.photos/seed/anim1/800/450',
+        image: '/images/heroes/placeholder.svg',
         imageAlt: 'Dynamic Hover State',
         title: 'Dynamic Magnetic Hover',
         description: 'A sophisticated magnetic attraction effect for buttons and interactive elements using physics-based motion.',
@@ -116,7 +116,7 @@ const DEFAULT_CONTENT: GalleryContentProps = {
       },
       {
         id: 2,
-        image: 'https://picsum.photos/seed/anim2/800/450',
+        image: '/images/heroes/placeholder.svg',
         imageAlt: 'Parallax Scroll',
         title: 'Smooth Parallax Engine',
         description: 'Ultra-smooth scroll-driven parallax effects optimized for performance across all device types.',
@@ -124,7 +124,7 @@ const DEFAULT_CONTENT: GalleryContentProps = {
       },
       {
         id: 3,
-        image: 'https://picsum.photos/seed/anim3/800/450',
+        image: '/images/heroes/placeholder.svg',
         imageAlt: 'Glassmorphism UI',
         title: 'Glassmorphism Transition',
         description: 'Elegant blurred backdrop transitions with dynamic lighting and shadow adjustments.',
@@ -132,7 +132,7 @@ const DEFAULT_CONTENT: GalleryContentProps = {
       },
       {
         id: 4,
-        image: 'https://picsum.photos/seed/anim4/800/450',
+        image: '/images/heroes/placeholder.svg',
         imageAlt: 'SVG Path Animation',
         title: 'SVG Path Morphing',
         description: 'Complex vector shape morphing for storytelling and data visualization components.',
@@ -140,7 +140,7 @@ const DEFAULT_CONTENT: GalleryContentProps = {
       },
       {
         id: 5,
-        image: 'https://picsum.photos/seed/anim5/800/450',
+        image: '/images/heroes/placeholder.svg',
         imageAlt: '3D Card Flip',
         title: 'Perspective Card Flip',
         description: 'High-fidelity 3D card rotations with realistic depth and lighting calculations.',
@@ -148,7 +148,7 @@ const DEFAULT_CONTENT: GalleryContentProps = {
       },
       {
         id: 6,
-        image: 'https://picsum.photos/seed/anim6/800/450',
+        image: '/images/heroes/placeholder.svg',
         imageAlt: 'Text Reveal',
         title: 'Kinetic Typography Reveal',
         description: 'Staggered character animations for impactful headlines and editorial content.',

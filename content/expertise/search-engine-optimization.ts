@@ -7,7 +7,7 @@ export const SEARCH_ENGINE_OPTIMIZATION_AND_MANAGEMENT_CONTENT = {
     headline: "Mastering Search: Strategic SEO & SEM for Unrivaled Digital Growth.",
     subheadline: "Transform your online visibility into a powerful engine for lead generation and revenue growth with our data-driven search expertise.",
     description: "Our holistic approach to Search Engine Optimization and Management (SEO & SEM) is engineered to deliver sustainable organic presence and maximize the efficiency of your paid campaigns. We focus on attracting the right audience with precision, ensuring every search interaction contributes to your bottom line.",
-    primaryCTA: { text: "Unlock Your Search Potential", link: "/contact" },
+    primaryCTA: { text: "Improve Your Search Performance", link: "/contact" },
     secondaryCTA: { text: "Explore Our Proven Strategies", link: "/expertise/seo-sem#capabilities" },
     image: { src: "/images/seo-sem-hero.webp", alt: "Strategic SEO & SEM dashboard showing growth metrics" }
   },
@@ -52,7 +52,7 @@ export const SEARCH_ENGINE_OPTIMIZATION_AND_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Search Performance?",
     subtitle: "Partner with us to build a sustainable organic presence, maximize your paid search ROI, and achieve your digital growth objectives.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro delivers expert SEO & SEM strategies designed to drive targeted traffic, generate qualified leads, and maximize your return on investment. We build sustainable organic presence and optimize paid campaigns for enduring success.",

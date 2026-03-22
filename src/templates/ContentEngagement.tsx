@@ -133,7 +133,7 @@ const CONTENT_ENGAGEMENT_CONTENT = {
     ctaSection: {
         title: 'Ready to Build Your Narrative Engine?',
         subtitle: 'Stop publishing noise. Start engineering growth.',
-        buttonLabel: 'Schedule Audit',
+        buttonLabel: 'See the diagnostic framework',
     },
     footer: {
         description:

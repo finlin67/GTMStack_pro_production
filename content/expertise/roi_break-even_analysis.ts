@@ -26,7 +26,7 @@ export const ROI_BREAK_EVEN_ANALYSIS_CONTENT = {
     items: [
       {
         title: "Precision Targeting & Autonomous Strategy",
-        description: "Transition from broad demographics to high-fidelity, permission-based Zero-Party Data. Leverage AI Agents and Advantage+ systems for real-time segmentation and Answer Engine Optimization (AEO), ensuring visibility in the 'Zero-Click Paradigm'.",
+        description: "Transition from broad demographics to high-fidelity, permission-based Zero-Party Data. Use AI Agents and Advantage+ systems for real-time segmentation and Answer Engine Optimization (AEO), ensuring visibility in the 'Zero-Click Paradigm'.",
       },
       {
         title: "Digital Core Orchestration & Technical Debt Remediation",
@@ -66,9 +66,9 @@ export const ROI_BREAK_EVEN_ANALYSIS_CONTENT = {
     ],
   },
   ctaSection: {
-    title: "Ready to Unlock Autonomous Yield?",
+    title: "Ready to Build Autonomous Yield?",
     subtitle: "Transform your GTM strategy from retrospective reporting to real-time, incremental growth.",
-    button: { text: "Schedule a Consultation", link: "/contact" },
+    button: { text: "Start a conversation", link: "/contact" },
   },
   footer: {
     description: "Architecting the future of GTM with Autonomous Yield and a Digital Core. We turn strategic insights into measurable, sustainable growth.",

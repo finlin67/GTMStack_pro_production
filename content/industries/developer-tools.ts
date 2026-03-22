@@ -50,7 +50,7 @@ export const DEVELOPER_TOOLS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Development Workflow?",
     subtitle: "Join the thousands of engineering teams who are building smarter, faster, and with greater confidence.",
-    button: { label: "Get Started Today", href: "/signup" }
+    button: { label: "Explore the framework", href: "/signup" }
   },
   footer: {
     description: "GTMStack.pro provides advanced developer tools to empower engineering teams, accelerate innovation, and ensure the delivery of high-quality, scalable software solutions.",

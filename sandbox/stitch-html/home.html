@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>GTMStack.pro | Engineered Revenue Architecture</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Outfit:wght@700;800;900&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1e3f66",
+                        "saffron": "#F9C74F",
+                        "signal-blue": "#6FAFE0",
+                        "mid-navy": "#0D2137",
+                        "deep-navy": "#112B46",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#0D2137",
+                    },
+                    fontFamily: {
+                        "display": ["Outfit", "Inter", "sans-serif"],
+                        "sans": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .gradient-text {
+            background: linear-gradient(90deg, #6FAFE0 0%, #F9C74F 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .hero-glow {
+            background: radial-gradient(circle at 50% 50%, rgba(111, 175, 224, 0.15) 0%, rgba(13, 33, 55, 0) 70%);
+        }
+        .grid-pattern {
+            background-image: radial-gradient(circle, rgba(255,255,255,0.05) 1px, transparent 1px);
+            background-size: 30px 30px;
+        }
+        .marquee {
+            display: flex;
+            width: fit-content;
+            animation: marquee 30s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-sans text-slate-900 dark:text-slate-100 selection:bg-saffron/30">
+<!-- NAVBAR -->
+<nav class="sticky top-0 z-50 border-b border-white/10 bg-background-dark/80 backdrop-blur-md px-6 lg:px-20 py-4">
+<div class="max-w-7xl mx-auto flex items-center justify-between">
+<div class="flex items-center gap-1">
+<span class="font-display text-2xl font-black text-white tracking-tighter">GTM</span>
+<span class="font-display text-2xl font-black gradient-text tracking-tighter">Stack.pro</span>
+</div>
+<div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+<a class="hover:text-signal-blue transition-colors" href="#">Expertise</a>
+<a class="hover:text-signal-blue transition-colors" href="#">Industries</a>
+<a class="hover:text-signal-blue transition-colors" href="#">Case Studies</a>
+<a class="hover:text-signal-blue transition-colors" href="#">Insights</a>
+<a class="hover:text-signal-blue transition-colors" href="#">About</a>
+</div>
+<button class="bg-saffron hover:bg-saffron/90 text-mid-navy font-bold px-5 py-2.5 rounded-lg text-sm flex items-center gap-2 transition-transform active:scale-95 shadow-lg shadow-saffron/20">
+                Start a Conversation <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</nav>
+<!-- SECTION 1: HERO -->
+<section class="relative min-h-[85vh] flex items-center overflow-hidden bg-background-dark py-20 px-6 lg:px-20 border-b border-white/5">
+<div class="absolute inset-0 hero-glow"></div>
+<div class="absolute inset-0 grid-pattern"></div>
+<!-- Diagonal Velocity Lines -->
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-signal-blue to-transparent -rotate-45 translate-y-20"></div>
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-signal-blue to-transparent -rotate-45 translate-y-60"></div>
+</div>
+<div class="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-16 items-center">
+<div class="space-y-8">
+<div class="flex flex-wrap gap-3">
+<span class="bg-white/10 backdrop-blur-sm border border-white/10 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-blue"></span> 50+ B2B Companies
+                    </span>
+<span class="bg-signal-blue/10 backdrop-blur-sm border border-signal-blue/30 px-3 py-1 rounded-full text-[10px] uppercase tracking-widest font-bold flex items-center gap-2 text-signal-blue">
+<span class="w-1.5 h-1.5 rounded-full bg-signal-blue animate-pulse"></span> Available Now
+                    </span>
+</div>
+<h1 class="font-display text-6xl md:text-8xl font-black leading-[0.9] text-white tracking-tighter">
+                    Engineered <br/>
+<span class="gradient-text">Revenue</span> <br/> 
+                    Architecture.
+                </h1>
+<p class="text-lg text-slate-400 max-w-lg leading-relaxed">
+                    GTMStack.pro is a founder-led B2B GTM consulting practice helping companies build scalable revenue engines through precision engineering and data-forward methodology.
+                </p>
+<div class="space-y-4">
+<p class="text-xs font-bold text-slate-500 uppercase tracking-widest">I need help with:</p>
+<div class="flex flex-wrap gap-2">
+<button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-sm transition-all">→ Building Pipeline</button>
+<button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-sm transition-all">Content Strategy</button>
+<button class="bg-white/5 hover:bg-white/10 border border-white/10 px-4 py-2 rounded-lg text-sm transition-all">Sales Systems</button>
+</div>
+</div>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="bg-saffron text-mid-navy font-black px-8 py-4 rounded-xl text-lg hover:scale-105 transition-transform shadow-xl shadow-saffron/20">
+                        Start a Conversation
+                    </button>
+<button class="bg-white/5 border border-white/10 text-white font-bold px-8 py-4 rounded-xl text-lg hover:bg-white/10 transition-all">
+                        Explore the Work
+                    </button>
+</div>
+</div>
+<div class="relative hidden lg:block">
+<!-- Command Panel UI -->
+<div class="bg-[#163A59] border border-white/20 rounded-2xl p-6 shadow-2xl relative overflow-hidden group">
+<div class="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+<div class="flex gap-1.5">
+<div class="w-3 h-3 rounded-full bg-red-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
+<div class="w-3 h-3 rounded-full bg-green-500/50"></div>
+</div>
+<div class="text-[10px] font-mono text-signal-blue/60 uppercase tracking-tighter">Revenue Engine Control // v4.0.2</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Content Pillar -->
+<div class="border border-signal-blue/30 bg-background-dark/40 p-4 rounded-xl hover:border-signal-blue transition-colors group/card">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-signal-blue">auto_awesome</span>
+<span class="text-[10px] font-mono text-signal-blue/50">01</span>
+</div>
+<div class="text-xs font-bold text-white mb-1">CONTENT</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-signal-blue w-2/3 group-hover:w-full transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Demand Pillar -->
+<div class="border border-saffron/30 bg-background-dark/40 p-4 rounded-xl hover:border-saffron transition-colors group/card">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-saffron">bolt</span>
+<span class="text-[10px] font-mono text-saffron/50">02</span>
+</div>
+<div class="text-xs font-bold text-white mb-1">DEMAND</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-saffron w-1/2 group-hover:w-3/4 transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Strategy Pillar -->
+<div class="border border-white/20 bg-background-dark/40 p-4 rounded-xl hover:border-white transition-colors group/card">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-slate-400">insights</span>
+<span class="text-[10px] font-mono text-slate-500">03</span>
+</div>
+<div class="text-xs font-bold text-white mb-1">STRATEGY</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-white/40 w-1/3 group-hover:w-1/2 transition-all duration-1000"></div>
+</div>
+</div>
+<!-- Systems Pillar -->
+<div class="border border-signal-blue/30 bg-background-dark/40 p-4 rounded-xl hover:border-signal-blue transition-colors group/card">
+<div class="flex justify-between items-start mb-4">
+<span class="material-symbols-outlined text-signal-blue">settings_suggest</span>
+<span class="text-[10px] font-mono text-signal-blue/50">04</span>
+</div>
+<div class="text-xs font-bold text-white mb-1">SYSTEMS</div>
+<div class="h-1 w-full bg-white/5 rounded-full overflow-hidden">
+<div class="h-full bg-signal-blue w-3/4 group-hover:w-full transition-all duration-1000"></div>
+</div>
+</div>
+</div>
+<div class="mt-8 p-4 bg-white/5 rounded-lg border border-white/5 flex items-center justify-between">
+<div class="flex flex-col">
+<span class="text-[10px] text-slate-400 font-bold uppercase">System Output</span>
+<span class="text-xl font-display font-black text-white">$4.2M Pipeline</span>
+</div>
+<div class="h-12 w-24 bg-mid-navy rounded border border-white/10 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-t from-signal-blue/20 to-transparent animate-pulse"></div>
+<div class="flex items-end h-full gap-1 p-1">
+<div class="flex-1 bg-signal-blue/40 h-[20%]"></div>
+<div class="flex-1 bg-signal-blue/40 h-[40%]"></div>
+<div class="flex-1 bg-signal-blue/40 h-[30%]"></div>
+<div class="flex-1 bg-signal-blue/40 h-[70%]"></div>
+<div class="flex-1 bg-signal-blue/40 h-[60%]"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute -top-10 -right-10 w-40 h-40 bg-saffron/20 rounded-full blur-3xl animate-pulse"></div>
+<div class="absolute -bottom-10 -left-10 w-40 h-40 bg-signal-blue/20 rounded-full blur-3xl"></div>
+</div>
+</div>
+</section>
+<!-- SECTION 2: PROOF NUMBERS -->
+<section class="bg-deep-navy py-16 px-6 lg:px-20 border-b border-white/5">
+<div class="max-w-7xl mx-auto grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="text-4xl md:text-5xl font-display font-black text-white">$500M+</span>
+<span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Pipeline Generated</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="text-4xl md:text-5xl font-display font-black text-white">50+</span>
+<span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Companies Helped</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="text-4xl md:text-5xl font-display font-black text-white">47%</span>
+<span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Avg Growth Rate</span>
+</div>
+<div class="flex flex-col items-center text-center space-y-2">
+<span class="text-4xl md:text-5xl font-display font-black text-white">25Yrs</span>
+<span class="text-xs uppercase tracking-widest text-slate-400 font-bold">Experience</span>
+</div>
+</div>
+</section>
+<!-- SECTION 3: FOUR PILLARS -->
+<section class="bg-background-light py-24 px-6 lg:px-20">
+<div class="max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+<div class="space-y-4">
+<span class="text-primary font-bold tracking-[0.2em] uppercase text-xs">Our Core Architecture</span>
+<h2 class="text-mid-navy text-4xl md:text-5xl font-display font-black leading-tight tracking-tighter">
+                        Four Pillars. <br/> One Revenue Architecture.
+                    </h2>
+</div>
+<p class="text-slate-600 max-w-md">We don't just "do marketing." We architect systemic, repeatable revenue growth using a cross-functional stack.</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Card 1 -->
+<div class="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-signal-blue/10 flex items-center justify-center text-signal-blue mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">edit_note</span>
+</div>
+<span class="text-[10px] font-bold text-signal-blue uppercase tracking-widest mb-2 block">Engineered</span>
+<h3 class="text-xl font-display font-bold text-mid-navy mb-4">Content &amp; Engagement</h3>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Building the narrative engine that captures mindshare and creates category authority.</p>
+<ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-tight">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-signal-blue rounded-full"></span> ICP Definition</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-signal-blue rounded-full"></span> Narrative Design</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-signal-blue rounded-full"></span> Social Velocity</li>
+</ul>
+</div>
+<!-- Card 2 -->
+<div class="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-saffron/10 flex items-center justify-center text-saffron mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">bolt</span>
+</div>
+<span class="text-[10px] font-bold text-saffron uppercase tracking-widest mb-2 block">Engineered</span>
+<h3 class="text-xl font-display font-bold text-mid-navy mb-4">Demand &amp; Growth</h3>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Precision targeting and multi-channel orchestration to scale high-intent pipeline.</p>
+<ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-tight">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-saffron rounded-full"></span> ABM Execution</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-saffron rounded-full"></span> Paid Precision</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-saffron rounded-full"></span> Lead Capture</li>
+</ul>
+</div>
+<!-- Card 3 -->
+<div class="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-mid-navy/5 flex items-center justify-center text-mid-navy mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">query_stats</span>
+</div>
+<span class="text-[10px] font-bold text-mid-navy uppercase tracking-widest mb-2 block">Engineered</span>
+<h3 class="text-xl font-display font-bold text-mid-navy mb-4">Strategy &amp; Insights</h3>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">Data-driven roadmaps that align your market position with actual buyer behavior.</p>
+<ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-tight">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-mid-navy rounded-full"></span> Market Analysis</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-mid-navy rounded-full"></span> GTM Audit</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-mid-navy rounded-full"></span> Attribution</li>
+</ul>
+</div>
+<!-- Card 4 -->
+<div class="group bg-white p-8 rounded-2xl shadow-sm border border-slate-100 hover:shadow-xl transition-all hover:-translate-y-1">
+<div class="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-3xl">layers</span>
+</div>
+<span class="text-[10px] font-bold text-primary uppercase tracking-widest mb-2 block">Engineered</span>
+<h3 class="text-xl font-display font-bold text-mid-navy mb-4">Systems &amp; Operations</h3>
+<p class="text-slate-500 text-sm leading-relaxed mb-6">A frictionless tech stack designed to eliminate data silos and accelerate sales velocity.</p>
+<ul class="text-[11px] font-bold text-slate-400 space-y-2 uppercase tracking-tight">
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> CRM Optimization</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Automation</li>
+<li class="flex items-center gap-2"><span class="w-1 h-1 bg-primary rounded-full"></span> Analytics Stack</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 4: METHODOLOGY -->
+<section class="bg-background-dark py-24 px-6 lg:px-20 overflow-hidden relative">
+<div class="max-w-7xl mx-auto text-center mb-20">
+<h2 class="text-white text-4xl md:text-5xl font-display font-black mb-6">How We Build a Revenue Architecture</h2>
+<div class="w-24 h-1 bg-saffron mx-auto"></div>
+</div>
+<div class="max-w-6xl mx-auto relative">
+<!-- Flow Line -->
+<div class="hidden lg:block absolute top-10 left-0 w-full h-px border-t border-dashed border-white/20 z-0"></div>
+<div class="grid lg:grid-cols-4 gap-12 relative z-10">
+<!-- Step 1 -->
+<div class="text-center group">
+<div class="w-20 h-20 bg-deep-navy border border-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-signal-blue group-hover:border-signal-blue transition-colors relative">
+<span class="material-symbols-outlined text-4xl">map</span>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 hidden lg:block text-white/20">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<h4 class="text-white font-bold text-xl mb-2">01. Map</h4>
+<p class="text-slate-400 text-sm">Auditing current GTM gaps and mapping the future state architecture.</p>
+</div>
+<!-- Step 2 -->
+<div class="text-center group">
+<div class="w-20 h-20 bg-deep-navy border border-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-saffron group-hover:border-saffron transition-colors relative">
+<span class="material-symbols-outlined text-4xl">architecture</span>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 hidden lg:block text-white/20">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<h4 class="text-white font-bold text-xl mb-2">02. Design</h4>
+<p class="text-slate-400 text-sm">Prototyping campaigns, playbooks, and systems for growth.</p>
+</div>
+<!-- Step 3 -->
+<div class="text-center group">
+<div class="w-20 h-20 bg-deep-navy border border-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-white group-hover:border-white transition-colors relative">
+<span class="material-symbols-outlined text-4xl">precision_manufacturing</span>
+<div class="absolute -right-4 top-1/2 -translate-y-1/2 hidden lg:block text-white/20">
+<span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<h4 class="text-white font-bold text-xl mb-2">03. Instrument</h4>
+<p class="text-slate-400 text-sm">Building out the tech stack and deploying content engines.</p>
+</div>
+<!-- Step 4 -->
+<div class="text-center group">
+<div class="w-20 h-20 bg-deep-navy border border-white/10 rounded-2xl flex items-center justify-center mx-auto mb-6 text-signal-blue group-hover:border-signal-blue transition-colors">
+<span class="material-symbols-outlined text-4xl">rocket_launch</span>
+</div>
+<h4 class="text-white font-bold text-xl mb-2">04. Run</h4>
+<p class="text-slate-400 text-sm">Iterating based on live signals to compound revenue results.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 5: INDUSTRIES -->
+<section class="bg-background-light py-12 overflow-hidden border-y border-slate-200">
+<div class="marquee gap-8">
+<!-- Duplicate content for infinite marquee -->
+<div class="flex gap-8 items-center">
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">B2B SAAS</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">FINTECH</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">CYBERSECURITY</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">HEALTH TECH</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">MANUFACTURING</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">HR TECH</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">LOGISTICS</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">MARTECH</span>
+</div>
+<div class="flex gap-8 items-center">
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">B2B SAAS</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">FINTECH</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">CYBERSECURITY</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">HEALTH TECH</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">MANUFACTURING</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">HR TECH</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">LOGISTICS</span>
+<span class="text-2xl font-display font-black text-mid-navy/20 whitespace-nowrap">MARTECH</span>
+</div>
+</div>
+</section>
+<!-- SECTION 6: CASE STUDY -->
+<section class="bg-deep-navy py-24 px-6 lg:px-20 overflow-hidden">
+<div class="max-w-7xl mx-auto">
+<div class="bg-mid-navy rounded-3xl overflow-hidden border border-white/5 flex flex-col lg:flex-row shadow-2xl">
+<div class="lg:w-1/3 bg-signal-blue/10 p-12 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-white/5">
+<span class="text-[120px] font-display font-black leading-none gradient-text">8.4x</span>
+<span class="text-white text-xl font-bold uppercase tracking-widest mt-4">Pipeline Growth</span>
+<p class="text-slate-400 mt-2 text-sm">Series B FinTech Client</p>
+</div>
+<div class="lg:w-2/3 p-12 flex flex-col justify-center">
+<div class="bg-saffron/20 text-saffron text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-6 tracking-widest uppercase">Case Study: Flagship Result</div>
+<h3 class="text-3xl font-display font-bold text-white mb-6">From Fragmented Tactics to a Unified Revenue Engine.</h3>
+<p class="text-slate-400 leading-relaxed mb-8">
+                        The challenge was a disjointed GTM strategy that failed to bridge the gap between marketing interest and sales conversion. We re-architected their entire ICP targeting and content delivery mechanism.
+                    </p>
+<div class="border-l-4 border-signal-blue pl-6 mb-8 italic text-white/90 text-lg">
+                        "GTMStack.pro didn't just give us a strategy; they built the actual machinery. Our sales velocity increased by 40% in the first two quarters."
+                    </div>
+<button class="text-signal-blue font-bold flex items-center gap-2 hover:translate-x-2 transition-transform">
+                        Read the Full Narrative <span class="material-symbols-outlined">east</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 7: INSIGHTS -->
+<section class="bg-white py-24 px-6 lg:px-20">
+<div class="max-w-7xl mx-auto">
+<div class="flex justify-between items-end mb-16">
+<div>
+<span class="text-signal-blue font-bold tracking-[0.2em] uppercase text-xs">Architect's Journal</span>
+<h2 class="text-mid-navy text-4xl font-display font-black mt-2">Latest Insights</h2>
+</div>
+<button class="hidden md:block text-mid-navy font-bold border-b-2 border-mid-navy pb-1">View all posts</button>
+</div>
+<div class="grid md:grid-cols-3 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] bg-slate-100 rounded-xl mb-6 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-mid-navy/20 to-transparent"></div>
+<img alt="Data visualization dashboard" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract data visualization dashboard with growth charts" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6dikHIKEBSi0gTC2mFqRG-br58NZWQbdrvOwea_vTBxFfNRh0wEc6FsWPmXYOrawofBqeMM4aCu89o--1bMAnfpofNAfFTAHLIHRoJLqEqgT5mQ3E4yuxPg2UBu5_L4c9Ulu4lPRU4OZPWpoZ0m2gbEy8ateGz6ppizj3iEQazh1yoUVPdrOfqk31gM_nqKLHWS9AZ2eEVJAyZ_kcP4ftGxkz-VduYJI9CciaZY3SNmlKO55AZ9tp1TBmfVB1x0fy_D6CRsDiqqo"/>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 block">Strategy</span>
+<h3 class="text-xl font-display font-bold text-mid-navy group-hover:text-signal-blue transition-colors">The Content Engine: How to build a compounding asset.</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] bg-slate-100 rounded-xl mb-6 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-mid-navy/20 to-transparent"></div>
+<img alt="Team collaborating in modern office" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="B2B sales team collaborating in a modern tech office" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhdmOVYs4v5tGyiugqkEh2bAp2_T7JAbSgOyBgSbrhM9S-ulAFyqaLIFZERrwvBBKmWZ7FspmRRH2hf4zIN462Ggl6kfmmkCHiQvG95o1AAgWpcoABvnWIlPmXeJEBIJvbSABkPeed3Pba6J8zLRvtV6KIqkP6S3ZrVumY-Bk21mDjfW6Tvam1pKKzUTzDNcy6plxWTZL5_HzY1fYPqDWWFXHs6aF6KASfNFigwz3vls62LBYjleSy2XafuO08tRikBpXW1jds0_o"/>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 block">Insights</span>
+<h3 class="text-xl font-display font-bold text-mid-navy group-hover:text-signal-blue transition-colors">Why your ICP is lying to you (and what to do about it).</h3>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] bg-slate-100 rounded-xl mb-6 overflow-hidden relative">
+<div class="absolute inset-0 bg-gradient-to-tr from-mid-navy/20 to-transparent"></div>
+<img alt="Abstract tech network" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Abstract glowing technology network connections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCkk9p_ImQ3-t0n5zpj-0Oler5s5QPDhgO7IvBpyUd00Non9prRqORflPkJgp-NmVGujJ1iW5R7VIaRG1WNHIxP2jHKqW16boF0H7mHJOlsXQlOTK9ptjZGEZKc9UK7hNffZ27fgHN11najyCTCEgSoTl9KGOFQ89v_nQ01uYwMATao9SG3Da4wwFQ_M5yBKWNrGqHY9d3z7g8-vxQzHYIu5Lr5m3NpGnmTjLxealb7w8wYuwuUSbjBrPuhczgrFgdCX_0XO-w7Dj8"/>
+</div>
+<span class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 block">Systems</span>
+<h3 class="text-xl font-display font-bold text-mid-navy group-hover:text-signal-blue transition-colors">Headless MarTech: The future of revenue operations.</h3>
+</div>
+</div>
+</div>
+</section>
+<!-- SECTION 8: SOCIAL PROOF TICKER -->
+<section class="bg-deep-navy py-8 overflow-hidden">
+<div class="marquee gap-16">
+<div class="flex gap-16 items-center">
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 2.5X PIPELINE FOR SAAS INC</span>
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 40% COST REDUCTION IN ACQUISITION</span>
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> +$12M ARR ADDED IN 12 MONTHS</span>
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 60% IMPROVEMENT IN LTV/CAC</span>
+</div>
+<div class="flex gap-16 items-center">
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 2.5X PIPELINE FOR SAAS INC</span>
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 40% COST REDUCTION IN ACQUISITION</span>
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> +$12M ARR ADDED IN 12 MONTHS</span>
+<span class="text-sm font-bold text-white/40 flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-green-500"></span> 60% IMPROVEMENT IN LTV/CAC</span>
+</div>
+</div>
+</section>
+<!-- SECTION 9: FINAL CTA -->
+<section class="bg-background-dark py-32 px-6 lg:px-20 relative overflow-hidden text-center">
+<!-- Concentric Ring Background -->
+<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none opacity-20">
+<div class="absolute inset-0 border border-signal-blue rounded-full animate-pulse"></div>
+<div class="absolute inset-20 border border-signal-blue/50 rounded-full"></div>
+<div class="absolute inset-40 border border-signal-blue/30 rounded-full animate-pulse"></div>
+<div class="absolute inset-60 border border-signal-blue/10 rounded-full"></div>
+</div>
+<div class="relative max-w-3xl mx-auto space-y-10">
+<h2 class="text-5xl md:text-7xl font-display font-black text-white leading-tight tracking-tighter">Ready to Build a Revenue Architecture That Compounds?</h2>
+<p class="text-xl text-slate-400">Stop testing tactics. Start engineering growth.</p>
+<div class="flex justify-center">
+<button class="bg-saffron text-mid-navy font-black px-12 py-6 rounded-2xl text-2xl hover:scale-110 transition-transform shadow-[0_0_50px_rgba(249,199,79,0.3)]">
+                    Start a Conversation
+                </button>
+</div>
+</div>
+</section>
+<!-- FOOTER -->
+<footer class="bg-[#020617] text-slate-400 py-20 px-6 lg:px-20">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-12 mb-16">
+<div class="col-span-2 md:col-span-1 space-y-6">
+<div class="flex items-center gap-1">
+<span class="font-display text-xl font-black text-white">GTM</span>
+<span class="font-display text-xl font-black gradient-text">Stack.pro</span>
+</div>
+<p class="text-sm leading-relaxed">
+                    Precision engineering for the modern B2B revenue engine. Founder-led, data-forward, result-obsessed.
+                </p>
+<div class="flex gap-4">
+<a class="w-8 h-8 rounded bg-white/5 flex items-center justify-center hover:bg-signal-blue hover:text-white transition-colors" href="#">
+<svg class="w-4 h-4 fill-current" viewbox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path></svg>
+</a>
+</div>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Expertise</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white" href="#">Content Strategy</a></li>
+<li><a class="hover:text-white" href="#">Demand Generation</a></li>
+<li><a class="hover:text-white" href="#">RevOps &amp; Systems</a></li>
+<li><a class="hover:text-white" href="#">Sales Architecture</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Industries</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white" href="#">B2B SaaS</a></li>
+<li><a class="hover:text-white" href="#">FinTech</a></li>
+<li><a class="hover:text-white" href="#">Cybersecurity</a></li>
+<li><a class="hover:text-white" href="#">Enterprise IT</a></li>
+</ul>
+</div>
+<div>
+<h5 class="text-white font-bold mb-6 uppercase text-xs tracking-widest">Resources</h5>
+<ul class="space-y-4 text-sm">
+<li><a class="hover:text-white" href="#">The Blog</a></li>
+<li><a class="hover:text-white" href="#">Playbooks</a></li>
+<li><a class="hover:text-white" href="#">Newsletter</a></li>
+<li><a class="hover:text-white" href="#">Workshops</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-xs font-medium">
+<p>© 2024 GTMStack.pro Consulting Practice. All rights reserved.</p>
+<div class="flex gap-8">
+<a class="hover:text-white" href="#">Privacy Policy</a>
+<a class="hover:text-white" href="#">Terms of Service</a>
+<a class="hover:text-white" href="#">Sitemap</a>
+</div>
+</div>
+</footer>
+</body></html>

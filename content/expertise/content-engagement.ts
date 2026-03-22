@@ -7,8 +7,8 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
     headline: "Content & Engagement",
     subheadline: "Orchestrate journeys that build relationships and drive revenue.",
     description: "Customer-centric, data-driven content and engagement strategies with integrated automation.",
-    primaryCTA: { text: "Schedule a Strategic Consultation", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/content-engagement#our-approach" },
+    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/expertise/content-engagement#our-approach" },
     image: { src: "/images/content-engagement-hero.webp", alt: "Strategic Content & Engagement Dashboard" }
   },
   metricsSection: {
@@ -26,7 +26,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
       { title: "Customer Journey Mapping", description: "Visualizing and optimizing every stage of the customer's path to design personalized, impactful experiences that guide them towards desired outcomes." },
       { title: "Marketing Automation & Orchestration", description: "Implementing and configuring platforms to deliver personalized content, nurture leads, and streamline engagement workflows across multiple channels." },
       { title: "Data-Driven Performance Optimization", description: "Utilizing advanced analytics to track content performance, refine strategies, and continuously maximize ROI across all engagement touchpoints." },
-      { title: "Multi-Channel Campaign Design", description: "Developing integrated campaigns that leverage email, social media, webinars, and other channels to amplify your message and reach target audiences effectively." }
+      { title: "Multi-Channel Campaign Design", description: "Developing integrated campaigns that use email, social media, webinars, and other channels to amplify your message and reach target audiences effectively." }
     ]
   },
   philosophySection: {
@@ -50,12 +50,12 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Build Deeper Customer Relationships?",
     subtitle: "Partner with us to develop a holistic content and engagement strategy that drives meaningful interactions and accelerates your revenue growth.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in orchestrating strategic content and engagement initiatives that build lasting customer relationships and drive measurable business growth.",
     sections: [
-      { title: "Services", links: ["Strategy Consulting", "GTM Execution", "Performance Optimization"] },
+      { title: "Services", links: ["GTM strategy & narrative", "GTM Execution", "Performance Optimization"] },
       { title: "Expertise", links: ["Content & Engagement", "Product-Led Growth", "Market Entry"] },
       { title: "Company", links: ["About Us", "Careers", "Contact"] }
     ],

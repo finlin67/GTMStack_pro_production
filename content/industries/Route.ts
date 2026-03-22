@@ -47,7 +47,7 @@ export const FINTECH_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your FinTech Strategy?",
     subtitle: "Partner with GTMStack.pro to build the financial future, securely and innovatively.",
-    button: { label: "Get a FinTech Consultation", href: "/contact/fintech" }
+    button: { label: "Explore the FinTech GTM framework", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is a leading provider of strategic go-to-market solutions, empowering industries to achieve unparalleled growth and digital transformation.",

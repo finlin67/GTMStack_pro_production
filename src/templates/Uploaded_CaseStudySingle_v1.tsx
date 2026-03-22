@@ -125,7 +125,7 @@ const DEFAULT_CONTENT: CaseStudyContent = {
       { label: "Case Studies", href: "#" },
       { label: "Insights", href: "#" },
     ],
-    cta: "Get Audited",
+    cta: "Get in Touch",
     userProfileImage: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=facearea&facepad=2&w=256&h=256&q=80",
   },
   hero: {
@@ -238,14 +238,14 @@ const DEFAULT_CONTENT: CaseStudyContent = {
   },
   ctaSection: {
     title: "Ready to see similar results?",
-    description: "Book a discovery call to see how we can engineer your company's next phase of growth.",
-    primaryCta: "Schedule Your Audit",
+    description: "Reach out if you want to compare notes on a similar GTM problem—no pitch deck required.",
+    primaryCta: "Get in Touch",
     secondaryCta: "Download GTM Kit",
   },
   footer: {
     description: "Strategic growth consultants specialized in scaling enterprise SaaS and technology giants through data-driven GTM engineering.",
     services: [
-      { label: "GTM Audit", href: "#" },
+      { label: "Get in Touch", href: "/contact" },
       { label: "Sales Enablement", href: "#" },
       { label: "Revenue Operations", href: "#" },
       { label: "Market Expansion", href: "#" },

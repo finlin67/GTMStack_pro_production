@@ -28,7 +28,7 @@ export const CASE_STUDY_EVOLUTION_REV_OPS_CASE_STUDY_CASE_STUDY = {
     "AaS",
     "Data Integrity"
   ],
-  industry: "strategic-consulting",
+  industry: "gtm-operating-model",
   expertise: [
     "revenue-operations",
     "go-to-market-strategy",

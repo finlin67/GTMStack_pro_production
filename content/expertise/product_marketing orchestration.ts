@@ -55,7 +55,7 @@ export const PRODUCT_MARKETING_ORCHESTRATION_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Product Marketing?",
     subtitle: "Embrace the Invisible AI Core and drive sustainable ARR growth with our strategic orchestration.",
-    button: { text: "Get Started Today", link: "/contact" }
+    button: { text: "View the framework", link: "/contact" }
   },
   footer: {
     description: "Building the future of GTM, one strategic orchestration at a time. We empower organizations to navigate the AI-native landscape and achieve unparalleled growth and efficiency.",

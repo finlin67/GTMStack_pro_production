@@ -7,7 +7,7 @@ export const COMPETITIVE_INTELLIGENCE_POSITIONING_CONTENT = {
     headline: "From Manual Data to Autonomous Orchestration: Mastering Competitive Intelligence & Positioning",
     subheadline: "Transforming intelligence into the invisible infrastructure of your Digital Core to achieve sustainable growth and secure a durable competitive advantage.",
     description: "The strategic landscape of competitive intelligence has shifted from a reactive scorecard exercise to the foundational invisible infrastructure of the Digital Core. We equip organizations to navigate the 'Catch-22' of Generative AI, integrating precision automation with 'Proof of Humanity' in consented first-party relationships to secure competitive advantage.",
-    primaryCTA: { text: "Explore Our Methodology", link: "/contact" },
+    primaryCTA: { text: "View the methodology", link: "/contact" },
     secondaryCTA: { text: "Download Full Report", link: "/resources/competitive-intelligence-report" }
   },
   metricsSection: {
@@ -32,7 +32,7 @@ export const COMPETITIVE_INTELLIGENCE_POSITIONING_CONTENT = {
     headline: "Our Core Philosophy: Authentic AI & Proof of Humanity",
     principles: [
       { title: "Intelligence as Invisible Infrastructure", description: "Treat intelligence as the foundational, invisible infrastructure of the Digital Core, driving all strategic decisions and competitive advantage." },
-      { title: "AI-Driven Precision & Automation", description: "Leverage AI for precise automation, transforming manual, fragmented workflows into autonomous orchestration engines." },
+      { title: "AI-Driven Precision & Automation", description: "Use AI for precise automation, transforming manual, fragmented workflows into autonomous orchestration engines." },
       { title: "Proof of Humanity & Consented Relationships", description: "Emphasize 'Valuable Friction' and consented first-party data to build trust and counter AI-slop, fostering authentic customer relationships." },
       { title: "Perfectly Imperfect Philosophy", description: "Balance technological scale with human 'Durable Skills'—Strategic Communication, Critical Thinking, and Empathy—to guide AI and ensure authentic, sustainable growth." }
     ]
@@ -49,8 +49,8 @@ export const COMPETITIVE_INTELLIGENCE_POSITIONING_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Transform Your Competitive Intelligence?",
-    subtitle: "Empower your Digital Core with AI-driven precision and human-centric strategy. Unlock true incremental lift and secure your competitive advantage in the new digital landscape.",
-    button: { text: "Start Your Transformation", link: "/contact" }
+    subtitle: "Empower your Digital Core with AI-driven precision and human-centric strategy. Improve true incremental lift and secure your competitive advantage in the new digital landscape.",
+    button: { text: "Start a focused diagnostic", link: "/contact" }
   },
   footer: {
     description: "Navigating the future of competitive intelligence requires a proactive approach, balancing AI innovation with foundational human principles to secure sustainable growth in the Digital Core.",

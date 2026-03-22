@@ -8,7 +8,7 @@ export const PUBSEC_GOVERNMENT_CONTENT = {
     subheadline: "Modernizing government operations with cutting-edge technology designed for unparalleled security and compliance.",
     description: "In an era of evolving threats and increasing citizen expectations, government agencies face immense pressure to innovate while upholding public trust. GTMStack.pro delivers robust, scalable solutions that drive digital transformation, enhance data integrity, and streamline service delivery across all levels of government.",
     primaryCTA: { label: "Explore Government Solutions", href: "/solutions/government" },
-    secondaryCTA: { label: "Request a Consultation", href: "/contact" },
+    secondaryCTA: { label: "Get in Touch", href: "/contact" },
     image: { src: "/images/government-hero.jpg", alt: "Modern government building with digital overlay" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const PUBSEC_GOVERNMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Modernize Your Public Sector Operations?",
     subtitle: "Partner with GTMStack.pro to build a more secure, efficient, and citizen-responsive government.",
-    button: { label: "Schedule a Strategic Briefing", href: "/contact" }
+    button: { label: "Get in Touch", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering public sector and government agencies with secure, compliant, and innovative technology solutions that drive digital transformation and enhance citizen services.",

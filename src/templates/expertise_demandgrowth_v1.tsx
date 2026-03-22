@@ -171,8 +171,8 @@ const DEFAULT_CONTENT = {
   },
   ctaSection: {
     title: "Ready to Engineer Your Growth?",
-    description: "Stop guessing and start growing. Schedule a comprehensive audit of your demand and engagement systems today.",
-    button: { label: "Schedule My Audit", href: "#" }
+    description: "Share where demand or engagement is breaking down—we can compare notes and point you to the right next step.",
+    button: { label: "Get in Touch", href: "/contact" }
   },
   footer: {
     description: "Building the infrastructure for the next generation of high-growth enterprise companies.",
@@ -291,7 +291,7 @@ export default function Template(props: Props) {
                 <img 
                   alt={content.hero?.title?.join(' ') || "Hero Visual"} 
                   className="w-full h-full object-cover opacity-40 mix-blend-luminosity" 
-                  src={content.hero?.image || "https://picsum.photos/1200/800"}
+                  src={content.hero?.image || '/images/heroes/placeholder.svg'}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#020617] via-transparent to-transparent" />
                 
@@ -425,7 +425,7 @@ export default function Template(props: Props) {
               <img 
                 alt="Philosophy Visual" 
                 className="w-full h-full object-cover grayscale" 
-                src={content.philosophySection?.image || "https://picsum.photos/1200/200"}
+                src={content.philosophySection?.image || '/images/heroes/placeholder.svg'}
               />
             </div>
           </div>

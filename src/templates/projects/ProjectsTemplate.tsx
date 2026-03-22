@@ -337,7 +337,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
             Ready to Ship Your Next Revenue Blueprint?
           </h2>
           <button className="bg-primary hover:bg-blue-700 transition-all rounded-lg px-12 py-5 text-lg font-black text-white shadow-xl shadow-primary/20 active:scale-95">
-            Schedule Project Audit
+            See project methodology
           </button>
         </div>
       </section>

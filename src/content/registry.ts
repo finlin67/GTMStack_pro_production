@@ -6,11 +6,12 @@ import { ExpertiseItemSchema } from '@/src/lib/content-schemas/ExpertiseItem'
 import { ExpertisePageContentSchema } from '@/src/lib/content-schemas/ExpertisePageContent'
 import { IndustryItemSchema } from '@/src/lib/content-schemas/IndustryItem'
 
-import { HOME_CONTENT } from '@/content/home'
+import { HOME_CONTENT, HOME_STITCH_CONTENT } from '@/content/home'
 import { ABOUT_CONTENT } from '@/content/about'
 import { CONTACT_CONTENT } from '@/content/contact'
 import { RESUME_CONTENT } from '@/content/resume'
 import { DEMAND_GENERATION_CONTENT } from '@/content/expertise/demand-generation'
+import { DIGITAL_MARKETING_CONTENT } from '@/content/expertise/digital-marketing'
 import { DEMAND_GROWTH_CONTENT } from '@/content/expertise/demand-growth'
 import { STRATEGY_INSIGHTS_CONTENT } from '@/content/expertise/strategy-insights'
 import { CONTENT_ENGAGEMENT_CONTENT } from '@/content/expertise/content-engagement'
@@ -65,6 +66,7 @@ const expertiseByKey: Record<string, ExpertiseItem> = Object.fromEntries(
 const contentByKey: Record<string, unknown> = {
   'home:index': HOME_CONTENT,
   'home:main': HOME_CONTENT,
+  'home:stitch': HOME_STITCH_CONTENT,
   'about:main': ABOUT_CONTENT,
   'contact:main': CONTACT_CONTENT,
   'resume:main': RESUME_CONTENT,
@@ -79,6 +81,9 @@ const contentByKey: Record<string, unknown> = {
   ),
   'expertise:demand-generation': mapExpertiseContentToDemandGrowthTemplate(
     DEMAND_GENERATION_CONTENT
+  ),
+  'expertise:digital-marketing': mapExpertiseContentToDemandGrowthTemplate(
+    DIGITAL_MARKETING_CONTENT
   ),
   'expertise:content-marketing': mapExpertiseContentToContentEngagementTemplate(
     CONTENT_MARKETING_CONTENT

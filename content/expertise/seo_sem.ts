@@ -63,7 +63,7 @@ export const SEO_SEM_CONTENT = {
   },
   growthSection: {
     headline: "Measuring Impact in the AI-Native Ecosystem",
-    narrative: "Sustainable growth in 2026 requires balancing the precision of AI with authentic 'Proof of Humanity.' We leverage AI to manage data scale, while human judgment drives strategy, ethics, and genuine connection. Our 2026 Formula—Video + AI + 1P Data + Community—ensures a holistic approach, cultivating peer validation and community engagement as durable assets for long-term value in a world of automated reach.",
+    narrative: "Sustainable growth in 2026 requires balancing the precision of AI with authentic 'Proof of Humanity.' We use AI to manage data scale, while human judgment drives strategy, ethics, and genuine connection. Our 2026 Formula—Video + AI + 1P Data + Community—ensures a holistic approach, cultivating peer validation and community engagement as durable assets for long-term value in a world of automated reach.",
     metrics: [
       { label: "AIO Citations", value: "Replaces SEO Ranking" },
       { label: "Lift % / Incremental Revenue", value: "Replaces ROAS" },
@@ -74,14 +74,14 @@ export const SEO_SEM_CONTENT = {
   ctaSection: {
     title: "Secure Your Brand's Future in the AI-Driven Digital Landscape",
     subtitle: "Partner with us to transform your SEO/SEM strategy into an AI-citable, authority-driven ecosystem.",
-    button: { text: "Start Your AEO Transformation", link: "#contact" }
+    button: { text: "Start an AEO diagnostic", link: "#contact" }
   },
   footer: {
     description: "Navigating the transition from traditional SEO to Answer Engine Optimization is critical for survival. We provide the strategic framework and technical mandates to ensure your brand becomes an authoritative, citable source for AI, driving sustainable, incremental growth in the 'Zero-Click' era.",
     sections: [
       { title: "Strategic Pillars", links: ["Targeting & Strategy", "Orchestration & GTM", "Measurement & Yield"] },
       { title: "Key Concepts", links: ["Answer Engine Optimization", "Strategic Imperfection", "Invisible AI Core", "Zero-Click Paradigm"] },
-      { title: "Contact Us", links: ["Inquire", "Partnerships"] }
+      { title: "Contact", links: ["Inquire", "Partnerships"] }
     ],
     copyright: "© 2024 AI Orchestration Framework. All rights reserved."
   }

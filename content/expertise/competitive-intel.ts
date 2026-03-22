@@ -8,7 +8,7 @@ export const COMPETITIVE_INTELLIGENCE_POSITIONING_CONTENT = {
     subheadline: "Move beyond reactive responses to proactively craft a unique, defensible market position that attracts customers, commands premium pricing, and builds lasting brand loyalty.",
     description: "In today's dynamic landscape, simply knowing your competitors isn't enough. Our expertise transforms raw intelligence into a compelling narrative and differentiated value proposition, ensuring your business stands out and thrives.",
     primaryCTA: { text: "Define Your Market Leadership", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/services/competitive-intelligence#approach" },
+    secondaryCTA: { text: "View the methodology", link: "/services/competitive-intelligence#approach" },
     image: { src: "/images/competitive-intel-hero.webp", alt: "Strategic competitive analysis dashboard" }
   },
   metricsSection: {
@@ -53,7 +53,8 @@ export const COMPETITIVE_INTELLIGENCE_POSITIONING_CONTENT = {
     button: { text: "Start Your Strategic Assessment", link: "/contact" }
   },
   footer: {
-    description: "GTMStack.pro provides expert strategic consulting in Competitive Intelligence & Positioning, empowering businesses to achieve sustainable market leadership.",
+    description:
+      "GTMStack.pro maps Competitive Intelligence & Positioning as an operating discipline—signals, narrative, and differentiation you can defend in front of sales and product.",
     sections: [
       { title: "Services", links: ["Competitive Intelligence", "Market Positioning", "Value Proposition Development", "Strategic Growth Consulting"] },
       { title: "Company", links: ["About Us", "Our Philosophy", "Contact"] },

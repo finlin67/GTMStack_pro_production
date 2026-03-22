@@ -3,13 +3,13 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** Home page content for HomeTemplate (PageContent shape). */
 export const HOME_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'Founder-Led GTM Consulting',
-    titleStart: 'The Revenue Architect for ',
+    badge: 'Operator-Led GTM System',
+    titleStart: 'Revenue Architecture for ',
     titleGradient: 'B2B Tech',
     subtitle:
-      'Engineering predictable revenue growth for enterprise tech through strategic precision. We bridge the gap between product innovation and market dominance.',
-    ctaPrimary: 'Explore My Expertise',
-    ctaSecondary: 'GTMStack Defined',
+      'GTMStack.pro aligns strategy, signals, and systems into one operating model so product momentum becomes measurable pipeline performance.',
+    ctaPrimary: 'Explore Expertise',
+    ctaSecondary: 'See the GTM model',
   },
   stats: [
     { value: '140%', label: 'Pipeline Growth' },
@@ -129,20 +129,285 @@ export const HOME_CONTENT: HomeTemplateContent = {
   founder: {
     name: 'Michael',
     role: 'Global GTM Strategist & Revenue Architect',
-    image: 'https://placehold.co/800x800/png', // replace with real image later
-    bio: 'A veteran of enterprise GTM. I build scalable revenue engines that connect strategy to execution.',
+    image: '/images/heroes/homepage-hero.jpg',
+    bio: 'Enterprise GTM operator focused on connecting strategy, execution, and measurement into one accountable system.',
     yearsExperience: '20+',
     timeline: [
       { icon: 'account_balance', title: 'Wall Street Origins', description: 'M&A Analyst specializing in tech acquisitions.' },
       { icon: 'cloud_done', title: 'The Salesforce Era', description: 'Lead Strategist for Enterprise GTM at global scale.' },
-      { icon: 'rocket_launch', title: 'RevenueArchitect Founded', description: 'Engineering predictable growth for B2B tech.' },
+      { icon: 'rocket_launch', title: 'GTMStack.pro Launched', description: 'Building predictable growth systems for B2B teams.' },
     ],
   },
 
   ctaBottom: {
     title: 'Ready to engineer your growth?',
     subtitle:
-      'Stop guessing and start building. Our diagnostic audit uncovers the exact bottlenecks holding your revenue back.',
-    buttonText: 'Schedule Audit',
+      'Use the same diagnostic lens: where signals leak, where routing breaks, and where reporting stops matching reality.',
+    buttonText: 'See the diagnostic framework',
   },
+}
+
+/** Accent tokens used by HomeStitchTemplate pillar cards and methodology steps. */
+export type HomeStitchAccent = 'signalBlue' | 'saffron' | 'midNavy' | 'primary'
+
+export type HomeStitchInsightsBlock = {
+  kicker: string
+  title: string
+  viewAllHref: string
+  viewAllLabel: string
+  cards: Array<{
+    tag: string
+    title: string
+    img: string
+    href?: string
+  }>
+}
+
+export type HomeStitchContent = {
+  hero: {
+    badges: Array<{ text: string; variant: 'default' | 'accent' }>
+    titleLine1: string
+    titleLine2Gradient: string
+    titleLine3: string
+    thesis: string
+    subtitle: string
+    authorshipLine: string
+    focusLabel: string
+    focusTopics: string[]
+    ctaPrimary: { label: string; href: string }
+    ctaSecondary: { label: string; href: string }
+  }
+  commandPanel: {
+    version: string
+    pillars: Array<{
+      index: string
+      label: string
+      accent: HomeStitchAccent
+      icon: string
+      barWidth: string
+    }>
+    outputLabel: string
+    outputValue: string
+  }
+  proofStats: Array<{ value: string; label: string }>
+  pillarSection: {
+    kicker: string
+    title: string
+    description: string
+    tiles: Array<{
+      accent: HomeStitchAccent
+      icon: string
+      pill: string
+      title: string
+      desc: string
+      bullets: string[]
+    }>
+  }
+  methodology: {
+    title: string
+    steps: Array<{
+      step: string
+      accent: HomeStitchAccent
+      icon: string
+      desc: string
+    }>
+  }
+  marqueeIndustries: string[]
+  caseStudy: {
+    multiplier: string
+    metricLabel: string
+    clientLabel: string
+    tag: string
+    title: string
+    body: string
+    quote: string
+    ctaHref: string
+    ctaLabel: string
+  }
+  insights?: HomeStitchInsightsBlock
+  ticker: string[]
+  finalCta: {
+    title: string
+    subtitle: string
+    primaryCta: { label: string; href: string }
+    pathways: Array<{ label: string; href: string }>
+  }
+}
+
+function isHomeStitchContent(x: unknown): x is HomeStitchContent {
+  if (!x || typeof x !== 'object') return false
+  const o = x as Record<string, unknown>
+  return (
+    typeof o.hero === 'object' &&
+    o.hero !== null &&
+    typeof o.commandPanel === 'object' &&
+    o.commandPanel !== null &&
+    Array.isArray(o.proofStats) &&
+    typeof o.finalCta === 'object' &&
+    o.finalCta !== null
+  )
+}
+
+/** Default content for `home:stitch` (HomeStitchTemplate). */
+export const HOME_STITCH_CONTENT: HomeStitchContent = {
+  hero: {
+    badges: [
+      { text: 'GTM systems', variant: 'accent' },
+      { text: 'Operator-built', variant: 'default' },
+    ],
+    titleLine1: 'A',
+    titleLine2Gradient: 'revenue platform',
+    titleLine3: 'you can run.',
+    thesis:
+      'Strategy, systems, and proof in one place—so marketing, sales, and RevOps share one operating picture instead of three slide decks.',
+    subtitle:
+      'GTMStack.pro publishes how the work is wired: playbooks, measurement, and field notes from complex B2B motions.',
+    authorshipLine: 'Built by enterprise GTM operators and updated from live delivery work.',
+    focusLabel: 'Where we focus',
+    focusTopics: ['Demand & lifecycle', 'RevOps + Martech', 'ABM & pipeline quality', 'Attribution that sales trusts'],
+    ctaPrimary: { label: 'Explore expertise', href: '/expertise' },
+    ctaSecondary: { label: 'Review case studies', href: '/case-studies' },
+  },
+  commandPanel: {
+    version: 'gtm.os / v2',
+    pillars: [
+      { index: '01', label: 'Signals', accent: 'signalBlue', icon: 'hub', barWidth: '72%' },
+      { index: '02', label: 'Orchestration', accent: 'saffron', icon: 'account_tree', barWidth: '64%' },
+      { index: '03', label: 'Content', accent: 'signalBlue', icon: 'article', barWidth: '58%' },
+      { index: '04', label: 'Attribution', accent: 'midNavy', icon: 'monitoring', barWidth: '81%' },
+    ],
+    outputLabel: 'Pipeline quality index',
+    outputValue: 'High',
+  },
+  proofStats: [
+    { value: '87%', label: 'YoY pipeline (example program)' },
+    { value: '4 pillars', label: 'Expertise map you can navigate' },
+    { value: 'Field-tested', label: 'Case studies with metrics' },
+    { value: 'RevOps lens', label: 'Systems + narrative together' },
+  ],
+  pillarSection: {
+    kicker: 'Capability map',
+    title: 'Four pillars.\nOne operating view.',
+    description:
+      'Use this as a map: each pillar is a place where GTM either compounds or leaks. The site is organized the same way.',
+    tiles: [
+      {
+        accent: 'signalBlue',
+        icon: 'campaign',
+        pill: 'Demand & growth',
+        title: 'Pipeline you can explain',
+        desc: 'Programs, channels, and offers wired to ICP—not random acts of marketing.',
+        bullets: ['Integrated campaigns', 'Lifecycle + nurture', 'Paid + organic cohesion'],
+      },
+      {
+        accent: 'saffron',
+        icon: 'groups',
+        pill: 'Content & engagement',
+        title: 'Narrative that converts',
+        desc: 'Stories, proof, and enablement assets sales actually uses in live cycles.',
+        bullets: ['Positioning', 'Enablement packs', 'Omnichannel rhythm'],
+      },
+      {
+        accent: 'primary',
+        icon: 'psychology',
+        pill: 'Strategy & insights',
+        title: 'Decisions with evidence',
+        desc: 'ABM, segmentation, and lifecycle models grounded in buyer reality.',
+        bullets: ['ICP + tiers', 'Journey design', 'Customer marketing'],
+      },
+      {
+        accent: 'midNavy',
+        icon: 'precision_manufacturing',
+        pill: 'Systems & operations',
+        title: 'Stack that stays governable',
+        desc: 'Automation, data hygiene, and reporting that leadership can trust.',
+        bullets: ['Martech roadmap', 'Attribution', 'AI where it earns ROI'],
+      },
+    ],
+  },
+  methodology: {
+    title: 'How we think about delivery',
+    steps: [
+      {
+        step: 'Diagnose',
+        accent: 'signalBlue',
+        icon: 'search',
+        desc: 'Find leakage: routing, signals, content gaps, and reporting blind spots.',
+      },
+      {
+        step: 'Design',
+        accent: 'saffron',
+        icon: 'architecture',
+        desc: 'Blueprint the system: plays, journeys, and the minimum viable stack.',
+      },
+      {
+        step: 'Deploy',
+        accent: 'primary',
+        icon: 'rocket_launch',
+        desc: 'Ship in waves—so teams adopt and measurement stays honest.',
+      },
+      {
+        step: 'Optimize',
+        accent: 'midNavy',
+        icon: 'tune',
+        desc: 'Iterate on conversion quality, not vanity volume.',
+      },
+    ],
+  },
+  marqueeIndustries: ['SaaS', 'Fintech', 'Manufacturing', 'Cybersecurity', 'Healthcare', 'Energy'],
+  caseStudy: {
+    multiplier: '87%',
+    metricLabel: 'YoY pipeline growth',
+    clientLabel: 'Enterprise ABM + RevOps program',
+    tag: 'Case study',
+    title: 'From fragmented demand to a unified revenue operating model',
+    body:
+      'Marketing, SDR, and sales were working different definitions of a qualified account. We aligned tiers, routing, and reporting so pipeline conversations finally matched reality.',
+    quote:
+      '“The win wasn’t a new tool—it was one model everyone could execute against.”',
+    ctaHref: '/case-studies/prgx-unified-revenue-operating-model',
+    ctaLabel: 'Read the story',
+  },
+  insights: {
+    kicker: 'From the blog',
+    title: 'Latest insights',
+    viewAllHref: '/blog',
+    viewAllLabel: 'View all posts',
+    cards: [
+      {
+        tag: 'RevOps',
+        title: 'Making attribution legible for sales leadership',
+        img: '/images/gallery-thumbnails/PipelineDashboard.png',
+        href: '/blog',
+      },
+      {
+        tag: 'ABM',
+        title: 'Tiering accounts without drowning in spreadsheets',
+        img: '/images/gallery-thumbnails/ABM90Days.png',
+        href: '/blog',
+      },
+      {
+        tag: 'Demand',
+        title: 'Lifecycle hooks that still work in 2026',
+        img: '/images/gallery-thumbnails/LifecycleEngine.png',
+        href: '/blog',
+      },
+    ],
+  },
+  ticker: [],
+  finalCta: {
+    title: 'Ready to tighten the system?',
+    subtitle: 'Start with expertise and case studies, then reach out when you want a scoped diagnostic conversation.',
+    primaryCta: { label: 'Start a conversation', href: '/contact' },
+    pathways: [
+      { label: 'Expertise index', href: '/expertise' },
+      { label: 'Industries', href: '/industries' },
+      { label: 'Blog', href: '/blog' },
+    ],
+  },
+}
+
+export function getHomeStitchContent(content: unknown): HomeStitchContent {
+  if (isHomeStitchContent(content)) return content
+  return HOME_STITCH_CONTENT
 }

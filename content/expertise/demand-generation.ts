@@ -7,8 +7,8 @@ export const DEMAND_GENERATION_CAMPAIGNS_CONTENT = {
     headline: "Mastering Demand Generation: Drive Qualified Leads, Accelerate Revenue.",
     subheadline: "Orchestrate multi-channel experiences that move prospects through the buyer's journey with precision and measurable impact.",
     description: "Our expertise lies in developing and executing sophisticated demand generation campaigns that consistently deliver high-quality, sales-ready leads. We move beyond mere lead volume, focusing on strategic alignment with sales priorities and maximizing ROI through data-driven optimization.",
-    primaryCTA: { text: "Unlock Your Growth Potential", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/demand-generation-campaigns#capabilities" },
+    primaryCTA: { text: "Improve Your Growth Model", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/expertise/demand-generation-campaigns#capabilities" },
     image: { src: "/images/demand-generation-hero.jpg", alt: "Strategic demand generation campaign dashboard showing growth metrics" }
   },
   metricsSection: {
@@ -24,7 +24,7 @@ export const DEMAND_GENERATION_CAMPAIGNS_CONTENT = {
     items: [
       { title: "Targeted Campaign Development", description: "We develop bespoke campaigns tailored to your specific target audience, industry nuances, and overarching business goals, ensuring maximum relevance and impact." },
       { title: "Lead Scoring & Nurturing", description: "Implement robust lead scoring systems and sophisticated nurturing workflows to guide prospects seamlessly through the sales funnel, delivering sales-ready leads." },
-      { title: "Account-Based Marketing (ABM) Integration", description: "Leverage advanced ABM tactics to identify, engage, and convert high-potential accounts, focusing resources where they yield the greatest return." },
+      { title: "Account-Based Marketing (ABM) Integration", description: "Use advanced ABM tactics to identify, engage, and convert high-potential accounts, focusing resources where they yield the greatest return." },
       { title: "Data-Driven Optimization", description: "Continuously track, analyze, and optimize campaign performance using comprehensive analytics to refine strategies and maximize lead generation efficiency and ROI." },
       { title: "Content Marketing Strategy", description: "Design engaging content strategies that resonate with your audience at every stage of their journey, building trust and driving engagement." },
       { title: "Marketing Automation Configuration", description: "Configure and manage marketing automation platforms to deliver personalized experiences and streamline campaign execution." }
@@ -52,7 +52,7 @@ export const DEMAND_GENERATION_CAMPAIGNS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Demand Generation?",
     subtitle: "Partner with us to build campaigns that consistently deliver qualified leads and drive measurable revenue growth.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro empowers businesses with expert-level go-to-market strategies and execution, driving sustainable growth and market leadership.",

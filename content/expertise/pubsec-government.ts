@@ -8,7 +8,7 @@ export const PUBLIC_SECTOR_GOVERNMENT_CONTENT = {
     subheadline: "Navigate the complexities of public sector innovation with GTMStack.pro's unparalleled expertise.",
     description: "In an era demanding greater efficiency, transparency, and citizen-centricity, government agencies face unique challenges in adopting and deploying new technologies and services. GTMStack.pro provides the strategic foresight and tactical execution necessary to ensure successful program launches, optimize citizen outreach, and maximize the impact of public initiatives.",
     primaryCTA: { text: "Explore Government Solutions", link: "/solutions/public-sector-government" },
-    secondaryCTA: { text: "Request a Consultation", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/contact" },
     image: { src: "/images/hero-public-sector.jpg", alt: "Modern government building with digital overlay representing strategic transformation" }
   },
   metricsSection: {
@@ -35,7 +35,7 @@ export const PUBLIC_SECTOR_GOVERNMENT_CONTENT = {
       { title: "Citizen-Centricity", description: "Every strategy is designed with the end-user – the citizen – at its core, ensuring services are accessible, intuitive, and impactful." },
       { title: "Transparency & Accountability", description: "We operate with the highest standards of integrity, providing clear methodologies and measurable outcomes for every engagement." },
       { title: "Scalable & Sustainable Impact", description: "Our solutions are built for long-term success, designed to scale with evolving public needs and technological advancements." },
-      { title: "Collaborative Innovation", description: "Partnering closely with government agencies to co-create solutions that address specific challenges and leverage internal expertise." }
+      { title: "Collaborative Innovation", description: "Partnering closely with government agencies to co-create solutions that address specific challenges and use internal expertise." }
     ]
   },
   growthSection: {
@@ -53,12 +53,13 @@ export const PUBLIC_SECTOR_GOVERNMENT_CONTENT = {
     button: { text: "Connect with Our Government Experts", link: "/contact" }
   },
   footer: {
-    description: "GTMStack.pro is a leading strategic consultancy, empowering organizations across sectors to achieve their go-to-market objectives through expert strategy, execution, and optimization.",
+    description:
+      "GTMStack.pro documents a field-tested GTM operating model—strategy, execution, and optimization expressed as systems you can inspect, not slides you borrow.",
     sections: [
       { title: "Solutions", links: ["Public Sector", "Enterprise", "Startups", "Non-Profits"] },
       { title: "Company", links: ["About Us", "Our Team", "Careers"] },
       { title: "Resources", links: ["Blog", "Case Studies", "Whitepapers"] },
-      { title: "Contact", links: ["Get in Touch", "Support"] }
+      { title: "Contact", links: ["Start a conversation", "Support"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }

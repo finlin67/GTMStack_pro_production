@@ -51,7 +51,7 @@ export const FLEET_MANAGEMENT_LOGISTICS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Fleet Operations?",
     subtitle: "Connect with our logistics experts to discover how GTMStack.pro can optimize your efficiency, reduce costs, and drive unparalleled growth.",
-    button: { label: "Schedule a Consultation", href: "/contact" }
+    button: { label: "Explore the framework", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering logistics and fleet management professionals with intelligent, data-driven solutions that redefine operational excellence and strategic advantage.",

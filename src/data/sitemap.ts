@@ -229,7 +229,7 @@ export const FIXED_SITEMAP: SitemapEntry[] = [
     section: 'Main Pages',
     templateId: 'FallbackTemplate',
     contentKey: 'default:content',
-    description: 'Get in touch for consulting collaboration or speaking opportunities.',
+    description: 'Get in touch for methodology questions, speaking, or hiring conversations.',
     tags: '',
     pillar: '',
     industry: '',

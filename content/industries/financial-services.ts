@@ -7,7 +7,7 @@ export const FINANCIAL_SERVICES_CONTENT = {
     headline: "Transforming Financial Services: Navigate Complexity, Drive Growth.",
     subheadline: "Unlock unparalleled efficiency, ensure robust compliance, and deliver superior client experiences in an evolving market.",
     description: "In an industry defined by stringent regulations, rapid market shifts, and the imperative of trust, GTMStack.pro provides the strategic frameworks and technological solutions to not just compete, but to lead. From intelligent automation to predictive analytics, we empower your institution to achieve operational excellence and strategic advantage.",
-    primaryCTA: { label: "Request a Strategic Consultation", href: "/contact" },
+    primaryCTA: { label: "Review the methodology", href: "/contact" },
     secondaryCTA: { label: "Explore Our Solutions", href: "/solutions" },
     image: { src: "/images/financial-services-hero.webp", alt: "Modern financial trading floor with data visualizations" }
   },
@@ -50,7 +50,7 @@ export const FINANCIAL_SERVICES_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Financial Future?",
     subtitle: "Connect with our experts to discover how GTMStack.pro can empower your institution to achieve unparalleled efficiency, compliance, and growth.",
-    button: { label: "Schedule a Strategic Briefing", href: "/contact" }
+    button: { label: "See the measurement model", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering financial institutions with cutting-edge strategies and technology for a secure, compliant, and prosperous future.",

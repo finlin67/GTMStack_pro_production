@@ -4,8 +4,8 @@ export const DEVELOPER_TOOLS_CONTENT = {
     description: "GTMStack.pro empowers businesses to transform their Go-To-Market strategies by expertly integrating and optimizing developer tools, ensuring technical foundations drive measurable business growth and operational agility."
   },
   hero: {
-    headline: "Unlock Strategic GTM Advantage with Expert Developer Tool Integration.",
-    subheadline: "Leverage the full power of your engineering ecosystem to accelerate market entry, enhance product insights, and streamline operations.",
+    headline: "Build Strategic GTM Advantage with Expert Developer Tool Integration.",
+    subheadline: "Use the full power of your engineering ecosystem to accelerate market entry, enhance product insights, and streamline operations.",
     description: "In today's competitive landscape, developer tools are more than just technical utilities—they are critical enablers of Go-To-Market success. GTMStack.pro specializes in architecting and optimizing your developer toolchain to directly support and amplify your business objectives, from product-led growth to scalable customer acquisition.",
     primaryCTA: {
       text: "Optimize Your Developer Stack",
@@ -91,12 +91,12 @@ export const DEVELOPER_TOOLS_CONTENT = {
     title: "Ready to Transform Your GTM with Strategic Developer Tools?",
     subtitle: "Connect with GTMStack.pro to architect a developer tool strategy that drives measurable business impact.",
     button: {
-      text: "Schedule a Consultation",
+      text: "Start a conversation",
       link: "/contact"
     }
   },
   footer: {
-    description: "GTMStack.pro is your partner in building and optimizing Go-To-Market strategies that leverage cutting-edge technology and operational excellence for sustainable growth.",
+    description: "GTMStack.pro is your partner in building and optimizing Go-To-Market strategies that use cutting-edge technology and operational excellence for sustainable growth.",
     sections: [
       {
         title: "Services",

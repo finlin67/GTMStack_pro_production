@@ -84,7 +84,7 @@ const DEFAULT_CONTENT: TemplateContent = {
     headlineHighlight: "Engineered Infrastructure",
     deck: "",
     description: "High-performance engineered infrastructure for modern revenue teams. We architect, deploy, and scale the systems that power your growth.",
-    primaryButton: "Get Started",
+    primaryButton: "Explore the framework",
     secondaryButton: "Learn More",
     videoBgSrc: "https://assets.mixkit.co/videos/preview/mixkit-abstract-technology-elements-and-circuits-4416-large.mp4",
     animationText: "[Animation: Circuit Board Integration Web]",

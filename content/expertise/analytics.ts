@@ -4,11 +4,11 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
     description: "We move beyond complex tracking to deliver clear, concise narratives from your marketing data. Our expertise in reporting dashboards and attribution models ensures you gain actionable insights, justify marketing spend, and drive measurable revenue growth."
   },
   hero: {
-    headline: "Unlock True Marketing ROI with Actionable Reporting & Attribution.",
+    headline: "Turn Marketing ROI into Actionable Reporting & Attribution.",
     subheadline: "Stop guessing. Start growing. We build custom dashboards and robust attribution models that reveal what truly drives your business forward.",
     description: "In today's data-rich environment, simply collecting information isn't enough. Our approach shifts the focus from overwhelming data to strategic insights, empowering you to make informed decisions, optimize campaigns, and demonstrate the tangible impact of every marketing investment.",
-    primaryCTA: { text: "Request a Consultation", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/reporting-dashboards-attribution#approach" },
+    primaryCTA: { text: "View the methodology", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/expertise/reporting-dashboards-attribution#approach" },
     image: { src: "/images/reporting-dashboards-hero.webp", alt: "Dynamic marketing dashboard displaying key performance indicators and attribution models" }
   },
   metricsSection: {
@@ -41,7 +41,8 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
   },
   growthSection: {
     headline: "Driving Measurable Growth Across Diverse Industries.",
-    narrative: "From optimizing lead generation in SaaS to enhancing paid acquisition in e-commerce, our expertise in reporting dashboards and attribution has consistently empowered businesses to make smarter, data-driven decisions. We've helped clients in Fintech, Digital Marketing Agencies, and Consulting Services gain clarity on their marketing ROI, leading to optimized spend and improved performance across the board.",
+    narrative:
+      "From optimizing lead generation in SaaS to enhancing paid acquisition in e-commerce, reporting dashboards and attribution have helped Fintech, agency, and in-house GTM teams gain clarity on marketing ROI—optimizing spend and improving performance across the board.",
     metrics: [
       { label: "Marketing ROI", value: "Maximized" },
       { label: "Campaign Performance", value: "Optimized" },

@@ -28,7 +28,7 @@ export interface PageRegistryRow {
 }
 
 export const PAGE_REGISTRY: PageRegistryRow[] = [
-  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:main", theme: undefined, heroVisualId: "" },
+  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:stitch", theme: undefined, heroVisualId: "" },
   { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
   { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "" },
   { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "case-studies:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
@@ -42,6 +42,7 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
   { route: "/expertise/customer-marketing", fileRef: "content/expertise/customer-marketing.ts", pageTitle: "Customer Marketing & Journey Mapping", templateId: 'Uploaded_StratInsights_v1', contentKey: "expertise:customer-marketing", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/demand-growth", fileRef: "content/expertise/demand-growth.ts", pageTitle: "Demand & Growth", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "pillar:demand-growth", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/demand-generation", fileRef: "content/expertise/demand-generation.ts", pageTitle: "Demand Generation Campaigns", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:demand-generation", theme: 'dark', heroVisualId: "" },
+  { route: "/expertise/digital-marketing", fileRef: "content/expertise/digital-marketing.ts", pageTitle: "Digital Marketing", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:digital-marketing", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/event-marketing", fileRef: "content/expertise/event-marketing.ts", pageTitle: "Event & Tradeshow Management", templateId: 'Uploaded_ContentEngagement_v1', contentKey: "expertise:event-marketing", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/strategy", fileRef: "content/expertise/strategy.ts", pageTitle: "GTM Strategy", templateId: 'Uploaded_StratInsights_v1', contentKey: "expertise:gtm-strategy-development", theme: 'dark', heroVisualId: "" },
   { route: "/expertise/lead-gen-scoring", fileRef: "content/expertise/lead-gen-scoring.ts", pageTitle: "Lead Generation & Scoring", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:lead-gen-scoring", theme: 'dark', heroVisualId: "" },
@@ -78,7 +79,7 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
 ]
 
 export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
-  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:main", theme: undefined, heroVisualId: "" },
+  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:stitch", theme: undefined, heroVisualId: "" },
   "/about": { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
   "/case-studies": { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "" },
   "/case-studies/event-to-store-lift-retail": { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "case-studies:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
@@ -92,6 +93,7 @@ export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
   "/expertise/customer-marketing": { route: "/expertise/customer-marketing", fileRef: "content/expertise/customer-marketing.ts", pageTitle: "Customer Marketing & Journey Mapping", templateId: 'Uploaded_StratInsights_v1', contentKey: "expertise:customer-marketing", theme: 'dark', heroVisualId: "" },
   "/expertise/demand-growth": { route: "/expertise/demand-growth", fileRef: "content/expertise/demand-growth.ts", pageTitle: "Demand & Growth", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "pillar:demand-growth", theme: 'dark', heroVisualId: "" },
   "/expertise/demand-generation": { route: "/expertise/demand-generation", fileRef: "content/expertise/demand-generation.ts", pageTitle: "Demand Generation Campaigns", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:demand-generation", theme: 'dark', heroVisualId: "" },
+  "/expertise/digital-marketing": { route: "/expertise/digital-marketing", fileRef: "content/expertise/digital-marketing.ts", pageTitle: "Digital Marketing", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:digital-marketing", theme: 'dark', heroVisualId: "" },
   "/expertise/event-marketing": { route: "/expertise/event-marketing", fileRef: "content/expertise/event-marketing.ts", pageTitle: "Event & Tradeshow Management", templateId: 'Uploaded_ContentEngagement_v1', contentKey: "expertise:event-marketing", theme: 'dark', heroVisualId: "" },
   "/expertise/strategy": { route: "/expertise/strategy", fileRef: "content/expertise/strategy.ts", pageTitle: "GTM Strategy", templateId: 'Uploaded_StratInsights_v1', contentKey: "expertise:gtm-strategy-development", theme: 'dark', heroVisualId: "" },
   "/expertise/lead-gen-scoring": { route: "/expertise/lead-gen-scoring", fileRef: "content/expertise/lead-gen-scoring.ts", pageTitle: "Lead Generation & Scoring", templateId: 'Uploaded_DemandGrowth_v1', contentKey: "expertise:lead-gen-scoring", theme: 'dark', heroVisualId: "" },

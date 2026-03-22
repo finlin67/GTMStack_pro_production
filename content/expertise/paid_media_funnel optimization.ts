@@ -8,7 +8,7 @@ export const PAID_MEDIA_FUNNEL_OPTIMIZATION_CONTENT = {
     subheadline: "Re-architecting your GTM strategy for an AI-native, permission-based future.",
     description: "Move beyond vanity metrics and unconsented tracking. We integrate Cloud, Data, AI, and Applications into a unified Digital Core, driving continuous reinvention and ensuring your growth engine is built on authentic relationships and measurable yield.",
     primaryCTA: { text: "Reinvent Your GTM Strategy", link: "#contact" },
-    secondaryCTA: { text: "Explore Our Methodology", link: "#philosophy" }
+    secondaryCTA: { text: "View the methodology", link: "#philosophy" }
   },
   metricsSection: {
     headline: "Redefining Success: Our New KPI Paradigm",
@@ -54,7 +54,7 @@ export const PAID_MEDIA_FUNNEL_OPTIMIZATION_CONTENT = {
   ctaSection: {
     title: "Ready to Re-Architect Your GTM Strategy?",
     subtitle: "Transition from fragmented processes to an AI-orchestrated Digital Core for sustainable yield and a durable competitive moat.",
-    button: { text: "Start Your Transformation", link: "#contact" }
+    button: { text: "Start a focused diagnostic", link: "#contact" }
   },
   footer: {
     description: "Empowering organizations to thrive in the AI-native era through strategic reinvention and yield-first GTM methodologies.",

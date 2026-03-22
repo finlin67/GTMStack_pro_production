@@ -4,14 +4,14 @@
  */
 export const INDUSTRIES_MAIN_CONTENT = {
   brand: {
-    name: 'REVENUEARCHITECT',
+    name: 'GTMStack.pro',
     logoIcon: 'architecture',
   },
   hero: {
     badge: 'Enterprise Intelligence',
     title: 'Revenue Architecture by Industry',
     description:
-      'Precision-engineered revenue engines for high-velocity growth in regulated markets. We replace generic sales tactics with industry-specific architectural blueprints.',
+      'Industry-specific GTM systems for complex and regulated markets. We replace generic playbooks with operating models tailored to how each market actually buys.',
     metrics: [
       { value: '4.8x', label: 'Pipeline Velocity' },
       { value: '32%', label: 'Win Rate Increase' },
@@ -25,7 +25,7 @@ export const INDUSTRIES_MAIN_CONTENT = {
   challenges: {
     sectionTitle: 'Industry-Specific Revenue Friction',
     sectionDescription:
-      'Generalist strategies fail in complex markets. We solve the specific structural barriers that prevent scaling in regulated industries.',
+      'Generalist strategies break in complex markets. We focus on the structural blockers that slow pipeline quality, deal progression, and forecast confidence.',
     items: [
       {
         icon: 'gavel',
@@ -119,7 +119,7 @@ export const INDUSTRIES_MAIN_CONTENT = {
     title: 'Why Industry-Specific Architecture Matters',
     description: 'Generic playbooks fail when faced with specific market physics.',
     badPoints: [
-      'Generic "Spray and Pray" outreach tactics.',
+      'Generic outreach tactics that ignore buying context.',
       'Ignore regulatory constraints until too late.',
       'Disconnect between Marketing and Sales data.',
     ],

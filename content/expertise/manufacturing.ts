@@ -4,11 +4,11 @@ export const EXPERTISE_CONTENT = {
     description: "GTMStack.pro is dedicated to empowering businesses with deep strategic expertise, transforming complex challenges into clear pathways for growth and sustained success."
   },
   hero: {
-    headline: "Unlock Your Full Potential with GTMStack.pro's Strategic Expertise",
+    headline: "Reach Your Full Potential with GTMStack.pro's Strategic Expertise",
     subheadline: "Navigate market complexities and achieve ambitious goals through unparalleled insight and data-driven execution.",
     description: "Our team of seasoned professionals brings a wealth of experience and specialized knowledge across critical Go-To-Market domains. We don't just advise; we partner with you to implement robust strategies that deliver tangible, lasting results.",
-    primaryCTA: { text: "Explore Our Expertise", link: "/expertise" },
-    secondaryCTA: { text: "Schedule a Consultation", link: "/contact" },
+    primaryCTA: { text: "Explore expertise", link: "/expertise" },
+    secondaryCTA: { text: "Start a conversation", link: "/contact" },
     image: { src: "/images/hero-expertise.jpg", alt: "Professionals collaborating on strategic planning" }
   },
   metricsSection: {

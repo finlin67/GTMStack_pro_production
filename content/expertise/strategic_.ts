@@ -4,7 +4,7 @@ export const STRATEGIC__CONTENT = {
     description: "Transitioning from transactional extraction to relational orchestration, our methodology empowers high-tech organizations to thrive in a software-centric, AI-native ecosystem by focusing on customer outcomes and continuous value delivery."
   },
   hero: {
-    headline: "Unlock AI-Orchestrated Growth in the As-a-Service Era",
+    headline: "Build AI-Orchestrated Growth in the As-a-Service Era",
     subheadline: "Transforming Legacy Models into Relational, Outcome-Driven Ecosystems.",
     description: "The traditional 'Growth at all costs' model is obsolete. Success in 2026 demands a shift from selling product features to managing customer outcomes through an AI-native ecosystem, increasing enterprise value 3x to 4x for organizations embracing recurring, relational models.",
     primaryCTA: { text: "Discover the 3 Strategic Pillars", link: "#pillars" },

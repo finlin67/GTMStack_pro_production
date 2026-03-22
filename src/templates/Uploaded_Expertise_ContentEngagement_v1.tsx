@@ -111,7 +111,7 @@ const DEFAULT_CONTENT = {
   ctaSection: {
     title: "Ready to Build Your Narrative Engine?",
     subtitle: "Stop publishing noise. Start engineering growth.",
-    buttonLabel: "Schedule Audit",
+    buttonLabel: "Get in Touch",
   },
   footer: {
     description: "Combining data science with creative strategy to build revenue engines for the modern enterprise.",
@@ -196,10 +196,10 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
           </nav>
 
           <a 
-            href="#" 
+            href="/contact" 
             className="hidden sm:flex items-center justify-center rounded-xl h-12 px-8 bg-[#06B6D4] hover:bg-cyan-600 text-white text-sm font-black shadow-xl shadow-cyan-500/20 transition-all transform hover:scale-105 active:scale-95"
           >
-            GET AUDITED
+            Get in Touch
           </a>
         </header>
 

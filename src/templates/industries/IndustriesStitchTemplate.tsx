@@ -253,7 +253,7 @@ export default function IndustriesStitchTemplate({
                 href="/contact"
                 className="inline-flex items-center gap-2 font-bold text-[#fbbf24] transition-colors hover:text-white industries-stitch-gold-emissive"
               >
-                Initialize vertical audit{' '}
+                Get in Touch{' '}
                 <span className="material-symbols-outlined text-lg">arrow_forward</span>
               </Link>
             </div>
@@ -345,7 +345,7 @@ export default function IndustriesStitchTemplate({
               href="/contact"
               className="group relative inline-block rounded-2xl bg-[#fbbf24] px-10 py-5 text-xl font-black text-[#000f24] shadow-[0_0_50px_rgba(251,191,36,0.4)] transition-all hover:-translate-y-1 hover:bg-[#ffd700] hover:shadow-[0_0_80px_rgba(251,191,36,0.6)]"
             >
-              <span className="relative z-10">Initialize connection</span>
+              <span className="relative z-10">Get in Touch</span>
               <div className="absolute inset-0 rounded-2xl bg-white opacity-0 transition-opacity group-hover:opacity-10" />
             </Link>
 

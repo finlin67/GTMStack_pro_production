@@ -48,7 +48,7 @@ export const SUPPLY_CHAIN_LOGISTICS_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Supply Chain Excellence?",
     subtitle: "Connect with our experts to discover how GTMStack.pro can unlock new levels of efficiency, resilience, and profitability for your organization.",
-    button: { label: "Schedule a Consultation", href: "/contact" }
+    button: { label: "Get in Touch", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is a leader in advanced Supply Chain Logistics solutions, dedicated to empowering businesses with intelligent, resilient, and sustainable operational frameworks.",

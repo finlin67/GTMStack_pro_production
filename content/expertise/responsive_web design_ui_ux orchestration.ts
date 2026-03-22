@@ -7,8 +7,8 @@ export const RESPONSIVE_WEB_DESIGN_UI_UX_ORCHESTRATION_CONTENT = {
     headline: "Design as Strategic Orchestration: The New Era of Responsive Intelligence",
     subheadline: "Transforming UI/UX from Passive Facade to Dynamic, Intent-Driven Experiences",
     description: "Modern digital design transcends static adjustments, evolving into Responsive Intelligence where the UI dynamically orchestrates intent-driven experiences. We build Invisible Infrastructure with composable, headless UIs and API orchestration, embedding AI-native frameworks as the core system logic for seamless functionality and human-centric trust.",
-    primaryCTA: { text: "Explore Our Methodology", link: "/methodology" },
-    secondaryCTA: { text: "Contact Our Experts", link: "/contact" }
+    primaryCTA: { text: "View the methodology", link: "/methodology" },
+    secondaryCTA: { text: "View the methodology", link: "/contact" }
   },
   metricsSection: {
     headline: "The Yield Transformation Map: Recalibrating Performance Metrics for 2026",
@@ -50,7 +50,7 @@ export const RESPONSIVE_WEB_DESIGN_UI_UX_ORCHESTRATION_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Digital Core?",
     subtitle: "Embrace Service-First, autonomous ecosystems and turn foresight into strategic orchestration. Prioritize your digital core maturity and build for platform resilience.",
-    button: { text: "Schedule a Consultation", link: "/schedule-consultation" }
+    button: { text: "View the framework", link: "/contact" }
   },
   footer: {
     description: "The digital interface has evolved from a transactional tool to a gateway for ongoing relational value. To thrive, organizations must act like software companies, prioritizing recurring revenue and community-led innovation, embracing a Service-First, autonomous ecosystem.",

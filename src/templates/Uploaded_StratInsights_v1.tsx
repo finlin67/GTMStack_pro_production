@@ -119,8 +119,8 @@ const DEFAULT_CONTENT: TemplateContent = {
     headlineLine2: "at Every Stage",
     leadLine: "",
     description:
-      "High-trust consultancy for enterprise-grade B2B GTM strategy. We turn architectural complexity into revenue performance through account intelligence.",
-    primaryCta: "Get Started",
+      "Executive-ready GTM frameworks: how account intelligence, lifecycle design, and measurement connect in one operating picture.",
+    primaryCta: "Explore the framework",
     secondaryCta: "View Case Studies",
     activeLabel: "ACTIVE",
   },
@@ -218,7 +218,7 @@ const DEFAULT_CONTENT: TemplateContent = {
   },
   footer: {
     logoText: "GTMStack",
-    copyright: "© 2024 GTMStack Consultancy. All rights reserved. Engineering Relevance since 2018.",
+    copyright: "© 2024 GTMStack.pro — operator-led GTM reference. Engineering relevance since 2018.",
     socialLinks: [
       { icon: "Share2", href: "#" },
       { icon: "Mail", href: "#" },

@@ -8,11 +8,11 @@ export const MARKETING_CONTENT = {
     subheadline: "Leveraging deep customer insights and a data-driven approach to maximize your ROI.",
     description: "We help you build high-performing marketing programs that drive sustainable revenue growth. We combine deep customer insights with a data-driven approach to design and implement targeted campaigns that build lasting customer relationships and maximize your return on investment.",
     primaryCTA: {
-      text: "Schedule a Consultation",
+      text: "Start a conversation",
       link: "#contact"
     },
     secondaryCTA: {
-      text: "Explore Our Approach",
+      text: "View the methodology",
       link: "#capabilities"
     },
     image: {
@@ -37,7 +37,7 @@ export const MARKETING_CONTENT = {
       },
       {
         title: "Data-Driven Optimization",
-        description: "We leverage robust data and analytics to continuously improve campaign performance, ensuring strategies are refined for maximum efficiency and measurable ROI."
+        description: "We use robust data and analytics to continuously improve campaign performance, ensuring strategies are refined for maximum efficiency and measurable ROI."
       },
       {
         title: "Integrated Marketing Solutions",

@@ -139,7 +139,7 @@ const DEFAULT_CONTENT: TemplateContent = {
   ctaTitle: "Ready to Build Engineered Authority?",
   ctaDescription: "Join high-growth teams using GTMStack to architect journeys that convert. Your content is more than just assets—it's your ultimate sales machine.",
   ctaButton1: "Start Your Journey",
-  ctaButton2: "Book a Demo",
+  ctaButton2: "View examples",
   footerLogo: "GTMStack.pro",
   footerCopyright: "© 2024 GTMStack. All rights reserved.",
   footerLinks: ["Privacy Policy", "Terms of Service", "LinkedIn"]

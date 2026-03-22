@@ -130,7 +130,7 @@ export default function OmnichannelLiveAnalytics() {
             <button className="size-8 flex items-center justify-center rounded-lg bg-cyan-500/5 hover:bg-cyan-500/20 text-cyan-400 border border-cyan-500/20 transition-colors">
               <Bell size={16} />
             </button>
-            <div className="size-8 rounded-full border-2 border-cyan-400/50 bg-cover bg-center overflow-hidden" style={{ backgroundImage: 'url("https://picsum.photos/64")' }}>
+            <div className="size-8 rounded-full border-2 border-cyan-400/50 bg-cover bg-center overflow-hidden" style={{ backgroundImage: 'url("/images/placeholder-avatar.svg")' }}>
               <span className="sr-only">User Profile</span>
             </div>
           </div>

@@ -52,7 +52,7 @@ export const STRATEGY_INSIGHTS_CONTENT = {
     button: { text: "Implement the PAID Framework", link: "/contact" },
   },
   footer: {
-    description: "Redefining GTM for the AI era, where precision, autonomy, and deep customer relationships drive sustainable growth and unlock the Digital Core.",
+    description: "Redefining GTM for the AI era, where precision, autonomy, and deep customer relationships drive sustainable growth and improve the Digital Core.",
     sections: [
       { title: "About Us", links: ["Our Vision", "Methodology", "Our Team"] },
       { title: "Expertise", links: ["Strategy & Insights", "GTM Stack", "Data & AI"] },

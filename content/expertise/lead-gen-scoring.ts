@@ -8,7 +8,7 @@ export const LEAD_GEN_SCORING_CONTENT = {
     subheadline: "Move beyond vanity metrics. We engineer high-quality lead flows and implement advanced scoring models that accurately reflect prospect intent and sales readiness.",
     description: "Effective lead generation and scoring are the lifeblood of high-growth businesses. We ensure your sales team focuses on the most promising opportunities, directly impacting revenue and overall business performance.",
     primaryCTA: { text: "Optimize Your Lead Flow", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Expertise", link: "/expertise/lead-gen-scoring" },
+    secondaryCTA: { text: "Explore expertise", link: "/expertise/lead-gen-scoring" },
     image: { src: "/images/lead-gen-scoring-hero.jpg", alt: "Data analytics dashboard showing lead generation and scoring metrics" }
   },
   metricsSection: {
@@ -38,7 +38,7 @@ export const LEAD_GEN_SCORING_CONTENT = {
     ]
   },
   growthSection: {
-    headline: "Unlock Predictable Revenue Growth",
+    headline: "Build Predictable Revenue Growth",
     narrative: "In today's competitive landscape, effective lead generation and scoring are not merely marketing functions—they are the bedrock of sustainable business growth. We move beyond simplistic models, building sophisticated systems that ensure your sales pipeline is consistently filled with high-quality, engaged prospects. This strategic shift transforms your lead flow into a predictable revenue engine, maximizing sales efficiency and delivering a superior return on your marketing investment.",
     metrics: [
       { label: "Sales Efficiency", value: "Optimized" },
@@ -49,13 +49,13 @@ export const LEAD_GEN_SCORING_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Lead Generation Strategy?",
     subtitle: "Partner with us to build a robust, data-driven lead generation and scoring system that fuels your growth.",
-    button: { text: "Schedule a Strategic Consultation", link: "/contact" }
+    button: { text: "View the framework", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in strategic Lead Generation & Scoring solutions, empowering businesses to build predictable, high-quality lead flows and accelerate sales growth through data-driven insights.",
     sections: [
-      { title: "Expertise", links: ["/expertise/lead-gen-scoring", "/expertise/go-to-market-strategy", "/expertise/sales-enablement"] },
-      { title: "Services", links: ["/services/consulting", "/services/implementation", "/services/training"] },
+      { title: "Expertise", links: ["/expertise/lead-gen-scoring", "/expertise/strategy", "/expertise/sales-enablement"] },
+      { title: "Services", links: ["/expertise/demand-generation", "/expertise/marketing-automation", "/expertise/sales-enablement"] },
       { title: "Company", links: ["/about", "/careers", "/blog"] },
       { title: "Connect", links: ["/contact", "/linkedin", "/twitter"] }
     ],

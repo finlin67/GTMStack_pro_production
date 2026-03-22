@@ -1,0 +1,12 @@
+{
+  "route": "/",
+  "templateOutput": "src/templates/home/HomePage.tsx",
+  "contentOutput": "content/home.ts",
+  "hero": {
+    "primaryCtaHref": "/expertise",
+    "secondaryCtaHref": "/about"
+  },
+  "iconStrategy": "keep-material-symbols",
+  "notes": "Homepage Stitch export; convert to Home template while keeping content in content/home.ts"
+}
+

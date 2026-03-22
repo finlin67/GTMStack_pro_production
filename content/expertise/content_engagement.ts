@@ -7,7 +7,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
     headline: "The Future of Content & Engagement: Orchestrating Growth with Invisible AI",
     subheadline: "Transition from legacy demand generation to an AI-driven, relational GTM architecture that elevates enterprise value and ensures sustainable 'As-a-Service' success.",
     description: "The high-tech landscape demands a shift from volume-driven, transactional captures to a value-based, AI-orchestrated model. We provide the strategic methodology to achieve First-Party Sovereignty, build an Invisible AI Digital Core, and measure true Value-Based Yield, securing a 3x to 4x increase in enterprise value for firms embracing recurring revenue.",
-    primaryCTA: { text: "Explore Our Methodology", link: "/methodology" },
+    primaryCTA: { text: "View the methodology", link: "/methodology" },
     secondaryCTA: { text: "Request a Strategic Brief", link: "/contact" }
   },
   metricsSection: {
@@ -52,7 +52,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Orchestrate Your Future?",
     subtitle: "Build a modern digital core, fuel authentic engagement, and transform your GTM strategy for the AI era.",
-    button: { text: "Schedule a Strategic Session", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "Guiding high-tech firms through the architectural shift from transactional friction to relational orchestration, powered by invisible AI and durable human intellect.",

@@ -8,7 +8,7 @@ export const DEMAND_GROWTH_ENGINE_CONTENT = {
     subheadline: "Transforming manual stewardship into an invisible AI infrastructure for sustainable, value-driven growth and competitive advantage.",
     description: "In an era of autonomous commerce, traditional lead generation and manual data processes are structural liabilities. This strategic methodology outlines the pivot to an AI-orchestrated digital core, focusing on relationship depth, lifetime value, and strategic foresight.",
     primaryCTA: { text: "Build Your Invisible AI Engine", link: "#contact" },
-    secondaryCTA: { text: "Explore the Methodology", link: "#methodology" },
+    secondaryCTA: { text: "View the methodology", link: "#methodology" },
     image: { src: "/images/demand-growth-engine-hero.webp", alt: "AI-orchestrated growth engine visual" }
   },
   metricsSection: {
@@ -38,7 +38,7 @@ export const DEMAND_GROWTH_ENGINE_CONTENT = {
       },
       {
         title: "Authenticity & Community Co-creation",
-        description: "Leverage the 'Pratfall Effect' to build trust through authenticity signals and engage communities as strategic co-creators for product innovation."
+        description: "Use the 'Pratfall Effect' to build trust through authenticity signals and engage communities as strategic co-creators for product innovation."
       },
       {
         title: "Composable Integration & Invisible AI",
@@ -94,7 +94,7 @@ export const DEMAND_GROWTH_ENGINE_CONTENT = {
   ctaSection: {
     title: "Ready to Architect Your Invisible AI Growth Engine?",
     subtitle: "Transition from manual liabilities to autonomous, value-driven growth. Let's build your future-proof digital core.",
-    button: { text: "Schedule a Consultation", link: "#contact" }
+    button: { text: "Start a conversation", link: "#contact" }
   },
   footer: {
     description: "Empowering businesses to thrive in the era of autonomous commerce through AI-orchestrated demand and growth strategies.",

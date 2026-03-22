@@ -5,10 +5,10 @@ export const FLEET_MANAGEMENT_LOGISTICS_CONTENT = {
   },
   hero: {
     headline: "Mastering Modern Fleet Logistics: Drive Efficiency, Ensure Growth.",
-    subheadline: "Unlock the full potential of your operations with GTMStack.pro's specialized expertise in fleet management and supply chain optimization.",
+    subheadline: "Realize the full potential of your operations with GTMStack.pro's specialized expertise in fleet management and supply chain optimization.",
     description: "In an era of dynamic markets and intricate supply chains, GTMStack.pro provides the strategic insights and technological solutions necessary to transform your fleet operations from a cost center into a powerful engine for competitive advantage. We deliver measurable improvements in efficiency, cost-effectiveness, and operational resilience.",
     primaryCTA: { text: "Explore Our Solutions", link: "/solutions/fleet-management" },
-    secondaryCTA: { text: "Request a Consultation", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/contact" },
     image: { src: "/images/fleet-logistics-hero.webp", alt: "Modern logistics hub with trucks and data visualizations" }
   },
   metricsSection: {
@@ -24,7 +24,7 @@ export const FLEET_MANAGEMENT_LOGISTICS_CONTENT = {
     items: [
       {
         title: "Advanced Route Optimization",
-        description: "Leverage AI-driven algorithms to design the most efficient routes, minimizing fuel consumption, reducing travel times, and enhancing delivery reliability."
+        description: "Use AI-driven algorithms to design the most efficient routes, minimizing fuel consumption, reducing travel times, and enhancing delivery reliability."
       },
       {
         title: "Predictive Maintenance & Telematics",
@@ -76,7 +76,7 @@ export const FLEET_MANAGEMENT_LOGISTICS_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Logistics Excellence?",
     subtitle: "Connect with GTMStack.pro to discover how our expertise can drive unparalleled efficiency and strategic advantage for your fleet.",
-    button: { text: "Start Your Transformation", link: "/contact" }
+    button: { text: "Start a focused diagnostic", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro: Your strategic partner in navigating the complexities of modern fleet management and logistics, delivering precision, efficiency, and sustainable growth.",

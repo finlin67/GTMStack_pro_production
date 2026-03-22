@@ -48,7 +48,7 @@ export const AEROSPACE_MANUFACTURING_CONTENT = {
   ctaSection: {
     title: "Elevate Your Aerospace Manufacturing Capabilities.",
     subtitle: "Connect with our industry experts to discover how our solutions can transform your operations, ensure compliance, and secure your competitive edge in a demanding global market.",
-    button: { label: "Schedule a Consultation", href: "/contact" }
+    button: { label: "Explore the framework", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering critical industries with cutting-edge technology solutions that drive efficiency, compliance, and innovation. We build for the future of flight.",

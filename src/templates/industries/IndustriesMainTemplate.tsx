@@ -135,10 +135,13 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                   )
                 )}
               </nav>
-              <button className="bg-[#F97316] hover:bg-orange-600 text-white text-sm font-bold py-2.5 px-6 rounded transition-all shadow-lg shadow-orange-500/20 flex items-center gap-2">
-                <span>Get Audited</span>
+              <Link
+                href="/contact"
+                className="bg-[#F97316] hover:bg-orange-600 text-white text-sm font-bold py-2.5 px-6 rounded transition-all shadow-lg shadow-orange-500/20 flex items-center gap-2"
+              >
+                <span>Get in Touch</span>
                 <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>
-              </button>
+              </Link>
             </div>
           </header>
 
@@ -449,7 +452,7 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                     href="/contact"
                     className="bg-[#F97316] hover:bg-orange-600 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-lg shadow-orange-500/20 transition-all transform hover:-translate-y-1"
                   >
-                    Get Audited Now
+                    Get in Touch
                   </Link>
                   <Link
                     href="/case-studies"

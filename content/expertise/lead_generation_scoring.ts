@@ -5,13 +5,13 @@ export const LEAD_GENERATION_SCORING_CONTENT = {
   },
   hero: {
     headline: "Transforming Lead Generation: From Process Debt to AI-Driven Revenue Orchestration",
-    subheadline: "Embrace an Evergreen GTM Model: Unlock Enterprise Value with First-Party Integrity and Autonomous AI Agents.",
+    subheadline: "Embrace an Evergreen GTM Model: Build Enterprise Value with First-Party Integrity and Autonomous AI Agents.",
     description: "The competitive advantage in 2026 belongs to organizations that view their digital core as an evolving asset rather than a fixed cost. This report outlines the essential shift from manual lead management to a sophisticated, AI-orchestrated revenue engine, addressing process debt and driving measurable growth.",
-    primaryCTA: { text: "Explore Our Methodology", link: "/methodology" },
-    secondaryCTA: { text: "Request a Consultation", link: "/contact" }
+    primaryCTA: { text: "View the methodology", link: "/methodology" },
+    secondaryCTA: { text: "View the methodology", link: "/contact" }
   },
   metricsSection: {
-    headline: "The Cost of Inefficiency: Unlocking Trillions in Value",
+    headline: "The Cost of Inefficiency: Recovering Trillions in Value",
     stats: [
       { label: "Annual Technical Debt Cost to Organizations", value: "$2.41 Trillion" },
       { label: "Initial Cost Savings from Cloud Migration (CTT-Correios)", value: "15%" },
@@ -64,15 +64,15 @@ export const LEAD_GENERATION_SCORING_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Go-To-Market Strategy?",
     subtitle: "Partner with us to transform your lead generation and scoring into an AI-orchestrated revenue engine, building durable growth and competitive advantage for 2026 and beyond.",
-    button: { text: "Schedule a Strategy Session", link: "/contact" }
+    button: { text: "View the framework", link: "/contact" }
   },
   footer: {
     description: "Leading the charge in AI-driven GTM transformation. Empowering enterprises to move beyond process debt into an era of autonomous revenue growth and strategic partnership.",
     sections: [
-      { title: "Solutions", links: ["AI Orchestration", "First-Party Data", "Yield Measurement", "Strategic Consulting"] },
+      { title: "Solutions", links: ["AI Orchestration", "First-Party Data", "Yield Measurement", "GTM systems design"] },
       { title: "Company", links: ["About Us", "Our Philosophy", "Careers", "Contact"] },
       { title: "Resources", links: ["Methodology Reports", "Case Studies", "Webinars", "Blog"] }
     ],
-    copyright: "© 2024 Strategic GTM Architects. All rights reserved."
+    copyright: "© 2024 GTMStack.pro — operator-led GTM reference. All rights reserved."
   }
 };

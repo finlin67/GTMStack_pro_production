@@ -321,7 +321,7 @@ export default function BlogStitchFeedTemplate({
                     href="/contact"
                     className="block w-full rounded-lg bg-[#6FAFE0] py-3 text-center text-sm font-bold text-white transition-transform hover:scale-105"
                   >
-                    Run Assessment
+                    Get in Touch
                   </Link>
                 </div>
               </div>
@@ -407,7 +407,7 @@ export default function BlogStitchFeedTemplate({
               </div>
               <h3 className="mb-4 font-display text-2xl font-bold text-white">Resume CV Theme Park</h3>
               <p className="mb-8 leading-relaxed text-slate-400">
-                A highly opinionated, design-forward UI kit specifically built for GTM consultants and technical architects.
+                A highly opinionated, design-forward UI kit for GTM leaders and technical architects shipping in public.
               </p>
               <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider text-[#6FAFE0]">
                 View Demo <ExternalLink className="h-4 w-4" aria-hidden />
@@ -425,14 +425,14 @@ export default function BlogStitchFeedTemplate({
             Ready to Optimize Your Revenue Engine?
           </h2>
           <p className="relative z-10 mx-auto mb-12 max-w-xl text-lg leading-relaxed text-[#6FAFE0] opacity-80">
-            Let&apos;s audit your current stack and identify the low-hanging fruit for immediate growth.
+            Share what you&apos;re working on—we can compare notes and point you to the right next step.
           </p>
           <div className="relative z-10 flex flex-col justify-center gap-4 sm:flex-row">
             <Link
               href="/contact"
               className="rounded-lg bg-[#6FAFE0] px-10 py-4 text-lg font-bold text-white shadow-[0_10px_30px_rgba(111,175,224,0.2)] transition-transform hover:scale-105"
             >
-              Schedule Audit
+              Get in Touch
             </Link>
             <Link
               href="/resume"

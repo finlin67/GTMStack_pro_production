@@ -41,8 +41,8 @@ export default function GrowthMarketingTile({ metrics: initialMetrics }: GrowthM
     monthlyRevenue: "$4.2M",
     revenueGrowth: "+84%",
     expansionMultiplier: "3.4x",
-    avatar1Url: "https://picsum.photos/100/100?random=1",
-    avatar2Url: "https://picsum.photos/100/100?random=2",
+    avatar1Url: "/images/placeholder-avatar.svg",
+    avatar2Url: "/images/placeholder-avatar.svg",
     ...initialMetrics
   });
 

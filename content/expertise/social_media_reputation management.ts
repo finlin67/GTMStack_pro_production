@@ -8,7 +8,7 @@ export const SOCIAL_MEDIA_REPUTATION_MANAGEMENT_CONTENT = {
     subheadline: "Transforming social media from a vanity metric to a critical, AI-driven asset that anticipates market sentiment and orchestrates enterprise-wide responses.",
     description: "Our approach prioritizes deep relationships over mention volume, utilizing 'Invisible AI' for operational efficiency while weaponizing 'Strategic Imperfection' to bridge the authenticity gap. We aim to be cited as the definitive, humanized authority in an automated ecosystem.",
     primaryCTA: { text: "Discover Our Methodology", link: "#methodology" },
-    secondaryCTA: { text: "Request a Consultation", link: "#contact" },
+    secondaryCTA: { text: "View the methodology", link: "#contact" },
   },
   metricsSection: {
     headline: "Key Shifts in Digital Core Maturity & Performance",
@@ -71,7 +71,7 @@ export const SOCIAL_MEDIA_REPUTATION_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Architect Your Autonomous Reputation?",
     subtitle: "Embrace the future of social media and reputation management with a strategy built on Authentic AI, human connection, and measurable growth.",
-    button: { text: "Get Started Today", link: "#contact" },
+    button: { text: "View the framework", link: "#contact" },
   },
   footer: {
     description: "Redefining digital presence by transforming social engagement into a strategic asset, powered by advanced AI and a commitment to authentic human connection.",

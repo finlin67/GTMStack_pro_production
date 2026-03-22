@@ -339,7 +339,7 @@ export default function AIVisualizationsGalleryPage() {
                 href="/contact"
                 className="btn bg-white text-brand-900 hover:bg-white/90 px-6 py-3 text-base rounded-xl shadow-glow transition-all duration-300 hover:shadow-glow-violet"
               >
-                Start a project
+                Get in Touch
               </a>
               <a
                 href="/case-studies"

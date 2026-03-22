@@ -4,7 +4,7 @@ export const SUPPLY_CHAIN_LOGISTICS_CONTENT = {
     description: "GTMStack.pro empowers enterprises to transform their supply chain logistics into a strategic advantage, driving efficiency, resilience, and sustainable growth."
   },
   hero: {
-    headline: "Unlocking Peak Performance in Global Supply Chain Logistics.",
+    headline: "Driving Peak Performance in Global Supply Chain Logistics.",
     subheadline: "Navigate complexity, mitigate risks, and optimize every link from source to consumer with GTMStack.pro's unparalleled expertise.",
     description: "In an era of unprecedented global dynamics, a robust and agile supply chain is not just an operational necessity—it's a competitive imperative. GTMStack.pro delivers advanced strategies and technology-driven solutions to build resilient, efficient, and future-ready logistics networks.",
     primaryCTA: { text: "Optimize Your Supply Chain", link: "/contact" },
@@ -48,10 +48,11 @@ export const SUPPLY_CHAIN_LOGISTICS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Supply Chain?",
     subtitle: "Connect with our logistics experts to design a strategy that drives efficiency, resilience, and growth for your business.",
-    button: { text: "Schedule a Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
-    description: "GTMStack.pro is a leading strategic consultancy specializing in optimizing go-to-market and operational frameworks for global enterprises. We deliver data-driven solutions that drive efficiency, accelerate growth, and build lasting competitive advantage.",
+    description:
+      "GTMStack.pro applies an operating-model lens to go-to-market and operations: where handoffs break, where data should flow, and how to measure throughput—not just activity.",
     sections: [
       { title: "Services", links: ["Supply Chain Logistics", "Go-to-Market Strategy", "Digital Transformation", "Performance Analytics"] },
       { title: "Company", links: ["About Us", "Careers", "Blog", "Contact"] },

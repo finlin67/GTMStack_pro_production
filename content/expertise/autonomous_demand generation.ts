@@ -6,7 +6,7 @@ export const AUTONOMOUS_DEMAND_GENERATION_CONTENT = {
   hero: {
     headline: "The Evolution of Autonomous Demand Generation",
     subheadline: "Shifting from Manual Friction to Fluid Efficiency with Invisible AI",
-    description: "The competitive landscape demands a fundamental metamorphosis. Move beyond reactive reporting and manual data management to an autonomous infrastructure where AI Agents make goal-oriented business decisions in real-time, unlocking enterprise value and liberating human talent.",
+    description: "The competitive landscape demands a fundamental metamorphosis. Move beyond reactive reporting and manual data management to an autonomous infrastructure where AI Agents make goal-oriented business decisions in real-time, improving enterprise value and liberating human talent.",
     primaryCTA: { text: "Discover the Autonomous Blueprint", link: "/solutions/autonomous-dg/blueprint" },
     secondaryCTA: { text: "Assess Your Current Readiness", link: "/contact/assessment" }
   },
@@ -50,7 +50,7 @@ export const AUTONOMOUS_DEMAND_GENERATION_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Demand Generation?",
     subtitle: "Transition from reactive reporting to an autonomous, AI-driven ecosystem that maximizes enterprise value and liberates your talent.",
-    button: { text: "Start Your Transformation", link: "/contact/autonomous-dg" }
+    button: { text: "Start a focused diagnostic", link: "/contact/autonomous-dg" }
   },
   footer: {
     description: "Pioneering the next generation of GTM architecture, empowering enterprises to thrive in an AI-first, first-party data economy. We build the future of autonomous demand generation.",

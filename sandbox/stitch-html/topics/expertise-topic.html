@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>SEO Expertise | GTMStack.pro</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Outfit:wght@600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script>
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                brand: {
+                  navy: '#0A1628',
+                  navyLight: '#0D2137',
+                  navyLighter: '#112B3C',
+                  emerald: '#16A34A',
+                  pain: '#B91C1C',
+                  grayBg: '#F4F6F8',
+                  mutedBlue: '#475569'
+                }
+              },
+              fontFamily: {
+                sans: ['Inter', 'sans-serif'],
+                display: ['Outfit', 'sans-serif'],
+              },
+              backgroundImage: {
+                'gradient-hero': 'linear-gradient(90deg, #1B4FD8, #34D399)',
+                'gradient-logo': 'linear-gradient(90deg, #154360, #AED6F1)',
+              }
+            }
+          }
+        }
+    </script>
+<style type="text/tailwindcss">
+        .dot-grid {
+          background-image: radial-gradient(rgba(255,255,255,0.1) 1px, transparent 1px);
+          background-size: 28px 28px;
+        }
+        .text-gradient {
+          background: linear-gradient(90deg, #1B4FD8, #34D399);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+        }
+        .radial-glow {
+          background: radial-gradient(circle at 70% 30%, rgba(22,163,74,0.14) 0%, rgba(10,22,40,0) 60%),
+                      radial-gradient(circle at 30% 70%, rgba(27,79,216,0.1) 0%, rgba(10,22,40,0) 60%);
+        }
+        .nav-blur {
+          backdrop-filter: blur(8px);
+        }
+        .methodology-line::after {
+          content: '';
+          position: absolute;
+          top: 50%;
+          right: -2rem;
+          width: 2rem;
+          border-top: 2px dashed rgba(22,163,74,0.3);
+          display: none;
+        }
+        @media (min-width: 1024px) {
+          .methodology-line:not(:last-child)::after { display: block; }
+        }
+        .material-symbols-outlined {
+          font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-brand-navy font-sans text-white antialiased">
+<nav class="fixed top-0 left-0 w-full h-[64px] bg-brand-navy/95 border-b border-white/10 flex items-center z-50 nav-blur" data-purpose="main-nav">
+<div class="container mx-auto px-6 flex justify-between items-center">
+<div class="flex items-center space-x-1 font-display text-2xl" data-purpose="logo">
+<span class="text-white font-extrabold">GTM</span>
+<span class="bg-gradient-logo bg-clip-text text-transparent font-bold">Stack</span>
+<span class="text-white/40 font-medium">.pro</span>
+</div>
+<div class="hidden md:flex space-x-8 text-sm font-medium text-white/80">
+<a class="hover:text-brand-emerald transition-colors" href="#">Platform</a>
+<a class="text-brand-emerald" href="#">Expertise</a>
+<a class="hover:text-brand-emerald transition-colors" href="#">Case Studies</a>
+<a class="hover:text-brand-emerald transition-colors" href="#">Resources</a>
+</div>
+<button class="bg-brand-emerald text-white px-5 py-2 rounded-md font-semibold text-sm hover:bg-emerald-600 transition-all">
+            Get Audit
+        </button>
+</div>
+</nav>
+<main class="mt-[64px]">
+<section class="bg-brand-navyLight border-b border-white/5 py-2 px-6" data-purpose="breadcrumb">
+<div class="container mx-auto text-xs font-medium tracking-wide uppercase flex items-center space-x-3 text-white/50">
+<span>Expertise</span>
+<span>/</span>
+<span>Demand &amp; Growth</span>
+<span>/</span>
+<span class="text-brand-emerald">SEO</span>
+</div>
+</section>
+<section class="relative min-h-[700px] flex items-center py-20 overflow-hidden dot-grid radial-glow" data-purpose="hero">
+<div class="container mx-auto px-6">
+<div class="max-w-4xl" data-purpose="hero-content">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-brand-emerald/10 border border-brand-emerald/20 text-brand-emerald text-xs font-bold tracking-widest mb-6 font-display">
+                    DEMAND &amp; GROWTH → SEO
+                </div>
+<h1 class="text-5xl lg:text-7xl font-display font-extrabold leading-tight mb-6">
+                    Organic Growth,<br/>
+<span class="text-gradient">Engineered to Compound.</span>
+</h1>
+<p class="text-white/65 text-xl font-normal leading-relaxed mb-10 max-w-xl">
+                    Go beyond vanity keywords. We build technical SEO frameworks and high-intent content strategies designed to drive pipeline, not just traffic.
+                </p>
+<div class="flex flex-wrap gap-8 mb-12">
+<div data-purpose="stat">
+<div class="text-3xl font-display font-bold text-brand-emerald">14.2x</div>
+<div class="text-xs text-white/40 font-bold uppercase tracking-widest">ROI Avg.</div>
+</div>
+<div data-purpose="stat">
+<div class="text-3xl font-display font-bold text-brand-emerald">88%</div>
+<div class="text-xs text-white/40 font-bold uppercase tracking-widest">ICP Fit</div>
+</div>
+<div data-purpose="stat">
+<div class="text-3xl font-display font-bold text-brand-emerald">4-6mo</div>
+<div class="text-xs text-white/40 font-bold uppercase tracking-widest">MQL Inflection</div>
+</div>
+</div>
+<button class="bg-brand-emerald text-white px-8 py-4 rounded-md font-bold text-lg hover:shadow-[0_0_20px_rgba(22,163,74,0.4)] transition-all">
+                    Start Your SEO Audit
+                </button>
+</div>
+</div>
+</section>
+<section class="bg-brand-grayBg py-24 text-slate-800" data-purpose="executive-brief">
+<div class="container mx-auto px-6">
+<div class="flex flex-col md:flex-row md:items-start justify-between mb-16 gap-12">
+<div class="max-w-xl">
+<h2 class="text-sm font-bold text-brand-mutedBlue uppercase tracking-widest mb-4">Executive Brief</h2>
+<h3 class="text-4xl lg:text-5xl font-display font-bold text-brand-navy leading-tight">Identifying &amp; Solving Growth Impediments</h3>
+<p class="mt-6 text-slate-600 text-lg leading-relaxed max-w-lg">
+                        While traditional SEO measures volume, we diagnose and neutralize the friction points preventing organic search from becoming a high-yield pipeline generator.
+                    </p>
+</div>
+<div class="flex-1">
+<div class="bg-brand-navy p-8 rounded-xl border border-white/10 shadow-xl text-white relative overflow-hidden" data-purpose="problem-solution-framework">
+<div class="absolute top-0 right-0 w-32 h-32 bg-brand-emerald/10 blur-3xl -mr-16 -mt-16"></div>
+<h4 class="text-xs font-bold text-brand-emerald uppercase tracking-[0.2em] mb-8">The SEO Transformation Framework</h4>
+<div class="space-y-6">
+<div class="grid grid-cols-1 gap-6">
+<div class="flex items-start space-x-6 p-4 rounded-lg bg-white/5 border border-white/10 group hover:border-brand-emerald/30 transition-all">
+<div class="shrink-0 w-12 h-12 rounded bg-red-500/10 flex items-center justify-center text-red-500">
+<span class="material-symbols-outlined">link_off</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h5 class="font-bold text-white">Intent Misalignment</h5>
+<span class="text-[10px] font-bold text-brand-emerald bg-brand-emerald/10 px-2 py-0.5 rounded">SOLUTION 01</span>
+</div>
+<p class="text-white/50 text-xs leading-relaxed mb-3">Traffic decoupled from buying intent, resulting in vanity sessions.</p>
+<div class="text-sm font-medium text-brand-emerald flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Technical &amp; Semantic Audit + ICP Mapping</span>
+</div>
+</div>
+</div>
+<div class="flex items-start space-x-6 p-4 rounded-lg bg-white/5 border border-white/10 group hover:border-brand-emerald/30 transition-all">
+<div class="shrink-0 w-12 h-12 rounded bg-orange-500/10 flex items-center justify-center text-orange-500">
+<span class="material-symbols-outlined">lightbulb_outline</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h5 class="font-bold text-white">Structural Friction</h5>
+<span class="text-[10px] font-bold text-brand-emerald bg-brand-emerald/10 px-2 py-0.5 rounded">SOLUTION 02</span>
+</div>
+<p class="text-white/50 text-xs leading-relaxed mb-3">Technical debt and poor architecture neutralizing domain authority.</p>
+<div class="text-sm font-medium text-brand-emerald flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>High-Velocity Content Engine &amp; Tech Stability</span>
+</div>
+</div>
+</div>
+<div class="flex items-start space-x-6 p-4 rounded-lg bg-white/5 border border-white/10 group hover:border-brand-emerald/30 transition-all">
+<div class="shrink-0 w-12 h-12 rounded bg-purple-500/10 flex items-center justify-center text-purple-500">
+<span class="material-symbols-outlined">speed</span>
+</div>
+<div class="flex-1">
+<div class="flex justify-between items-center mb-1">
+<h5 class="font-bold text-white">Attribution Blackout</h5>
+<span class="text-[10px] font-bold text-brand-emerald bg-brand-emerald/10 px-2 py-0.5 rounded">SOLUTION 03</span>
+</div>
+<p class="text-white/50 text-xs leading-relaxed mb-3">Isolated performance data disconnected from CRM lead lifecycles.</p>
+<div class="text-sm font-medium text-brand-emerald flex items-center space-x-2">
+<span class="material-symbols-outlined text-sm">check_circle</span>
+<span>Closed-Loop Pipeline Attribution &amp; RevOps Hook</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4" data-purpose="solution-grid-stats">
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="text-2xl font-display font-bold text-brand-navy">Core Audit</div>
+<div class="text-xs text-brand-emerald font-bold uppercase mt-1 tracking-wider">Foundation</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="text-2xl font-display font-bold text-brand-navy">Intent Map</div>
+<div class="text-xs text-brand-emerald font-bold uppercase mt-1 tracking-wider">Strategy</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="text-2xl font-display font-bold text-brand-navy">Velocity</div>
+<div class="text-xs text-brand-emerald font-bold uppercase mt-1 tracking-wider">Growth</div>
+</div>
+<div class="bg-white p-6 rounded-xl border border-slate-200 shadow-sm">
+<div class="text-2xl font-display font-bold text-brand-navy">CRM Sync</div>
+<div class="text-xs text-brand-emerald font-bold uppercase mt-1 tracking-wider">Revenue</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-brand-navyLight py-24" data-purpose="methodology">
+<div class="container mx-auto px-6">
+<h2 class="text-4xl font-display font-bold mb-16 text-center">
+                The <span class="text-gradient">[SEO Engine]</span> We Build
+            </h2>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-20 relative">
+<div class="bg-brand-navyLighter p-8 rounded-xl border border-white/5 relative methodology-line">
+<span class="absolute top-4 right-6 text-6xl font-display font-black text-brand-emerald/10">01</span>
+<h4 class="font-display font-bold text-xl mb-4 relative z-10">Semantic Core</h4>
+<p class="text-white/60 text-sm leading-relaxed relative z-10">We map your product capabilities to the semantic clusters where your ICP lives, focusing on high-intent 'Solution' and 'Comparison' keywords.</p>
+</div>
+<div class="bg-brand-navyLighter p-8 rounded-xl border border-white/5 relative methodology-line">
+<span class="absolute top-4 right-6 text-6xl font-display font-black text-brand-emerald/10">02</span>
+<h4 class="font-display font-bold text-xl mb-4 relative z-10">Tech Stability</h4>
+<p class="text-white/60 text-sm leading-relaxed relative z-10">Deep-dive technical overhaul: ensuring lightning-fast LCP, perfect schema markup, and an optimized internal link architecture.</p>
+</div>
+<div class="bg-brand-navyLighter p-8 rounded-xl border border-white/5 relative methodology-line">
+<span class="absolute top-4 right-6 text-6xl font-display font-black text-brand-emerald/10">03</span>
+<h4 class="font-display font-bold text-xl mb-4 relative z-10">Content Velocity</h4>
+<p class="text-white/60 text-sm leading-relaxed relative z-10">Deploying a high-volume content engine of subject-matter expert articles designed to rank and convert at every stage of the funnel.</p>
+</div>
+<div class="bg-brand-navyLighter p-8 rounded-xl border border-white/5 relative">
+<span class="absolute top-4 right-6 text-6xl font-display font-black text-brand-emerald/10">04</span>
+<h4 class="font-display font-bold text-xl mb-4 relative z-10">RevOps Hook</h4>
+<p class="text-white/60 text-sm leading-relaxed relative z-10">Final step is full integration with your CRM to track organic lift from the first touch to the final closed-won opportunity.</p>
+</div>
+</div>
+<div class="max-w-3xl mx-auto bg-brand-emerald/5 border-l-4 border-brand-emerald p-8 rounded-r-xl" data-purpose="InsightCallout">
+<div class="flex items-center space-x-4 mb-4">
+<svg class="w-8 h-8 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
+<h5 class="text-brand-emerald font-bold text-xl font-display uppercase tracking-wider">Expert Insight</h5>
+</div>
+<p class="text-white/80 italic text-lg leading-relaxed">
+                    "SEO is no longer a siloed marketing channel. It is a fundamental component of the technical go-to-market stack. If your content doesn't align with your sales deck, you're building on sand."
+                </p>
+</div>
+</div>
+</section>
+<section class="bg-white py-24 text-slate-900" data-purpose="proof">
+<div class="container mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center">
+<div>
+<div class="inline-flex items-center px-3 py-1 rounded bg-slate-100 text-slate-500 text-[10px] font-bold tracking-[0.2em] mb-6">
+                    B2B SAAS | CONFIDENTIAL
+                </div>
+<h2 class="text-4xl font-display font-extrabold mb-8 leading-tight">Scale-Up Cybersecurity Firm Reclaims Category Dominance</h2>
+<p class="text-slate-600 text-lg mb-6">
+                    Faced with declining organic visibility and high CAC from paid search, we audited 400+ pages and re-engineered their content strategy toward bottom-of-funnel comparative keywords.
+                </p>
+<ul class="space-y-4 text-slate-700 font-medium">
+<li class="flex items-center space-x-3">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-emerald"></span>
+<span>Re-indexed 100% of core landing pages in 14 days</span>
+</li>
+<li class="flex items-center space-x-3">
+<span class="w-1.5 h-1.5 rounded-full bg-brand-emerald"></span>
+<span>Overtook primary competitor for 12 key terms</span>
+</li>
+</ul>
+</div>
+<div class="bg-slate-50 rounded-2xl p-12 border border-slate-100 flex flex-col justify-center items-center text-center">
+<div class="text-8xl font-display font-black text-brand-emerald mb-2">340%</div>
+<div class="text-slate-400 font-bold uppercase tracking-widest text-sm mb-12">Increase in Organic SQLs</div>
+<div class="grid grid-cols-3 w-full gap-4 border-t border-slate-200 pt-8">
+<div class="px-4 border-r border-slate-200">
+<div class="text-xl font-bold font-display text-slate-800">+112%</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Ranking Lift</div>
+</div>
+<div class="px-4 border-r border-slate-200">
+<div class="text-xl font-bold font-display text-slate-800">-42%</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">CPA Reduct.</div>
+</div>
+<div class="px-4">
+<div class="text-xl font-bold font-display text-slate-800">$1.4M</div>
+<div class="text-[10px] text-slate-400 font-bold uppercase">Pipe Value</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-brand-navyLight py-24" data-purpose="deliverables">
+<div class="container mx-auto px-6">
+<h2 class="text-3xl font-display font-bold mb-12 border-b border-white/10 pb-6">What's Included in the SEO Engine</h2>
+<div class="grid md:grid-cols-2 gap-x-16 gap-y-4 mb-16">
+<div class="flex items-center space-x-4 py-3 border-b border-white/5">
+<svg class="w-5 h-5 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+<span class="text-white/80 font-medium">Monthly Technical Performance Audit</span>
+</div>
+<div class="flex items-center space-x-4 py-3 border-b border-white/5">
+<svg class="w-5 h-5 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+<span class="text-white/80 font-medium">Bi-Weekly ICP Keyword Mapping Update</span>
+</div>
+<div class="flex items-center space-x-4 py-3 border-b border-white/5">
+<svg class="w-5 h-5 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+<span class="text-white/80 font-medium">4x High-Intent Content Pieces / Month</span>
+</div>
+<div class="flex items-center space-x-4 py-3 border-b border-white/5">
+<svg class="w-5 h-5 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+<span class="text-white/80 font-medium">Internal Link Management &amp; Silo Setup</span>
+</div>
+<div class="flex items-center space-x-4 py-3 border-b border-white/5">
+<svg class="w-5 h-5 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+<span class="text-white/80 font-medium">Search Console &amp; GA4 Pipeline Setup</span>
+</div>
+<div class="flex items-center space-x-4 py-3 border-b border-white/5">
+<svg class="w-5 h-5 text-brand-emerald" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="3"></path></svg>
+<span class="text-white/80 font-medium">Quarterly Roadmap &amp; Opportunity Analysis</span>
+</div>
+</div>
+<div class="bg-brand-navyLighter p-6 rounded-lg border border-brand-emerald/20 flex items-center justify-between text-sm">
+<span class="text-white/60">Note: Full scoping depends on domain authority and technical debt severity.</span>
+<a class="text-brand-emerald font-bold hover:underline" href="#">Download Service Deck →</a>
+</div>
+</div>
+</section>
+<section class="bg-brand-grayBg py-20" data-purpose="tools">
+<div class="container mx-auto px-6 text-center">
+<h3 class="text-slate-400 font-bold uppercase tracking-widest text-xs mb-10">Our SEO Tech Stack</h3>
+<div class="flex flex-wrap justify-center gap-4">
+<div class="bg-white px-6 py-4 rounded-lg shadow-sm flex items-center space-x-3 border border-slate-100">
+<div class="w-6 h-6 bg-brand-emerald rounded flex items-center justify-center text-[10px] text-white font-bold">S</div>
+<span class="text-slate-800 font-bold">Semrush</span>
+</div>
+<div class="bg-white px-6 py-4 rounded-lg shadow-sm flex items-center space-x-3 border border-slate-100">
+<div class="w-6 h-6 bg-brand-emerald rounded flex items-center justify-center text-[10px] text-white font-bold">A</div>
+<span class="text-slate-800 font-bold">Ahrefs</span>
+</div>
+<div class="bg-white px-6 py-4 rounded-lg shadow-sm flex items-center space-x-3 border border-slate-100">
+<div class="w-6 h-6 bg-brand-emerald rounded flex items-center justify-center text-[10px] text-white font-bold">6</div>
+<span class="text-slate-800 font-bold">6sense</span>
+</div>
+<div class="bg-white px-6 py-4 rounded-lg shadow-sm flex items-center space-x-3 border border-slate-100">
+<div class="w-6 h-6 bg-brand-emerald rounded flex items-center justify-center text-[10px] text-white font-bold">SF</div>
+<span class="text-slate-800 font-bold">Salesforce</span>
+</div>
+<div class="bg-white px-6 py-4 rounded-lg shadow-sm flex items-center space-x-3 border border-slate-100">
+<div class="w-6 h-6 bg-brand-emerald rounded flex items-center justify-center text-[10px] text-white font-bold">HS</div>
+<span class="text-slate-800 font-bold">HubSpot</span>
+</div>
+<div class="bg-white px-6 py-4 rounded-lg shadow-sm flex items-center space-x-3 border border-slate-100">
+<div class="w-6 h-6 bg-brand-emerald rounded flex items-center justify-center text-[10px] text-white font-bold">C</div>
+<span class="text-slate-800 font-bold">Clearscope</span>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-brand-navy py-24" data-purpose="faq">
+<div class="container mx-auto px-6 max-w-3xl">
+<h2 class="text-4xl font-display font-bold mb-12 text-center">Frequently Asked Questions</h2>
+<div class="space-y-4">
+<details class="group bg-brand-navyLight border border-white/5 rounded-lg overflow-hidden">
+<summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:text-brand-emerald transition-colors">
+                        How long before we see pipeline impact?
+                        <span class="text-brand-emerald group-open:rotate-180 transition-transform">▼</span>
+</summary>
+<div class="px-6 pb-6 text-white/60">
+                        Technical optimizations typically yield results in 4-6 weeks, while new content clusters generally hit peak performance within 3-5 months depending on domain authority.
+                    </div>
+</details>
+<details class="group bg-brand-navyLight border border-white/5 rounded-lg overflow-hidden">
+<summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:text-brand-emerald transition-colors">
+                        Do you handle the actual content writing?
+                        <span class="text-brand-emerald group-open:rotate-180 transition-transform">▼</span>
+</summary>
+<div class="px-6 pb-6 text-white/60">
+                        Yes, our team includes B2B SaaS specialist writers. We interview your subject matter experts to ensure the content is high-quality and authoritative.
+                    </div>
+</details>
+<details class="group bg-brand-navyLight border border-white/5 rounded-lg overflow-hidden">
+<summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:text-brand-emerald transition-colors">
+                        How do you track CRM attribution?
+                        <span class="text-brand-emerald group-open:rotate-180 transition-transform">▼</span>
+</summary>
+<div class="px-6 pb-6 text-white/60">
+                        We use multi-touch attribution models and set up specific UTM and hidden field capturing to ensure organic sessions are logged against Lead and Contact records.
+                    </div>
+</details>
+<details class="group bg-brand-navyLight border border-white/5 rounded-lg overflow-hidden">
+<summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:text-brand-emerald transition-colors">
+                        Do you work with headless CMS setups?
+                        <span class="text-brand-emerald group-open:rotate-180 transition-transform">▼</span>
+</summary>
+<div class="px-6 pb-6 text-white/60">
+                        Absolutely. We are highly experienced in technical SEO for Next.js, Gatsby, and modern headless CMS environments like Contentful and Sanity.
+                    </div>
+</details>
+<details class="group bg-brand-navyLight border border-white/5 rounded-lg overflow-hidden">
+<summary class="p-6 cursor-pointer font-bold text-lg flex justify-between items-center hover:text-brand-emerald transition-colors">
+                        What is your primary SEO metric?
+                        <span class="text-brand-emerald group-open:rotate-180 transition-transform">▼</span>
+</summary>
+<div class="px-6 pb-6 text-white/60">
+                        While we track rankings and traffic, our primary North Star metric is Organic Marketing Qualified Leads (MQLs) and Pipeline Generated.
+                    </div>
+</details>
+</div>
+</div>
+</section>
+<section class="relative bg-brand-navyLight py-24 overflow-hidden" data-purpose="footer-cta">
+<div class="absolute inset-0 bg-brand-emerald/5 opacity-50 dot-grid"></div>
+<div class="container mx-auto px-6 relative z-10 text-center">
+<h2 class="text-4xl lg:text-5xl font-display font-extrabold mb-8">Ready to turn organic into your<br/><span class="text-brand-emerald">top pipeline driver?</span></h2>
+<button class="bg-brand-emerald text-white px-10 py-5 rounded-md font-extrabold text-xl hover:bg-emerald-600 transition-all mb-20 shadow-xl">
+                Get Your Growth Strategy
+            </button>
+<div class="border-t border-white/10 pt-16">
+<h4 class="text-xs font-bold text-white/40 uppercase tracking-[0.3em] mb-10">Related Expertise</h4>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+<a class="group p-6 bg-brand-navy border border-white/5 rounded-xl hover:border-brand-emerald/50 transition-all text-left" href="#">
+<h5 class="font-display font-bold text-lg mb-2 group-hover:text-brand-emerald transition-colors">Demand Gen</h5>
+<p class="text-xs text-white/50">Full-funnel demand orchestration.</p>
+</a>
+<a class="group p-6 bg-brand-navy border border-white/5 rounded-xl hover:border-brand-emerald/50 transition-all text-left" href="#">
+<h5 class="font-display font-bold text-lg mb-2 group-hover:text-brand-emerald transition-colors">Paid Ads</h5>
+<p class="text-xs text-white/50">High-performance SEM &amp; Social.</p>
+</a>
+<a class="group p-6 bg-brand-navy border border-white/5 rounded-xl hover:border-brand-emerald/50 transition-all text-left" href="#">
+<h5 class="font-display font-bold text-lg mb-2 group-hover:text-brand-emerald transition-colors">Growth Mktg</h5>
+<p class="text-xs text-white/50">Rapid experimentation and scaling.</p>
+</a>
+<a class="group p-6 bg-brand-navy border border-white/5 rounded-xl hover:border-brand-emerald/50 transition-all text-left" href="#">
+<h5 class="font-display font-bold text-lg mb-2 group-hover:text-brand-emerald transition-colors">Event Mktg</h5>
+<p class="text-xs text-white/50">High-impact physical &amp; digital events.</p>
+</a>
+</div>
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-brand-navy border-t border-white/5 py-12" data-purpose="footer">
+<div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center text-white/40 text-sm">
+<div class="mb-6 md:mb-0">
+            © 2024 GTMStack.pro. All rights reserved. Built for B2B SaaS.
+        </div>
+<div class="flex space-x-8">
+<a class="hover:text-white transition-colors" href="#">Privacy Policy</a>
+<a class="hover:text-white transition-colors" href="#">Terms of Service</a>
+<a class="hover:text-white transition-colors" href="#">Contact</a>
+</div>
+</div>
+</footer>
+</body></html>

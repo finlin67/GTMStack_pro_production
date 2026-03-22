@@ -39,7 +39,7 @@ export const EVENT_TRADESHOW_MANAGEMENT_CONTENT = {
   },
   growthSection: {
     headline: "Transforming Event Participation into Strategic Growth",
-    narrative: "Many companies view events as a 'nice-to-have,' failing to unlock their full potential. We challenge this conventional thinking by treating events as critical strategic investments. Our unique positioning focuses on developing and executing event strategies that consistently deliver measurable business results, maximizing ROI and driving revenue growth. We don't just manage logistics; we orchestrate multi-faceted experiences designed to achieve your most ambitious business objectives.",
+    narrative: "Many companies view events as a 'nice-to-have,' failing to improve their full potential. We challenge this conventional thinking by treating events as critical strategic investments. Our unique positioning focuses on developing and executing event strategies that consistently deliver measurable business results, maximizing ROI and driving revenue growth. We don't just manage logistics; we orchestrate multi-faceted experiences designed to achieve your most ambitious business objectives.",
     metrics: [
       { label: "Sales Pipeline Growth", value: "Accelerated" },
       { label: "Brand Equity Enhancement", value: "Proven" },
@@ -49,7 +49,7 @@ export const EVENT_TRADESHOW_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Event Strategy?",
     subtitle: "Let's design an event experience that delivers measurable business results and propels your growth.",
-    button: { text: "Schedule a Consultation", link: "#contact" }
+    button: { text: "Start a conversation", link: "#contact" }
   },
   footer: {
     description: "GTMStack.pro specializes in strategic Event & Tradeshow Management, helping B2B companies maximize ROI and drive growth through impactful event participation.",

@@ -4,11 +4,11 @@ export const CONTENT_MARKETING_PERSONALIZATION_CONTENT = {
     description: "In a digital landscape saturated with information, generic content is a recipe for failure. We champion a data-driven, highly targeted approach to content marketing, building authentic relationships through relevant and personalized experiences that resonate deeply with your audience."
   },
   hero: {
-    headline: "Unlock Hyper-Relevant Engagement and Accelerate Growth with Personalized Content Strategies.",
+    headline: "Drive Hyper-Relevant Engagement and Accelerate Growth with Personalized Content Strategies.",
     subheadline: "Move beyond broadcasting to build authentic relationships and drive measurable outcomes through tailored content experiences.",
     description: "Our expertise in Content Marketing & Personalization transforms your outreach from generic to genuinely engaging. We design and implement holistic content and engagement strategies that foster brand loyalty, generate qualified leads, and significantly boost your revenue.",
-    primaryCTA: { text: "Schedule a Strategy Session", link: "/contact" },
-    secondaryCTA: { text: "Explore Our Approach", link: "/expertise/content-marketing-personalization#approach" },
+    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "View the methodology", link: "/expertise/content-marketing-personalization#approach" },
     image: { src: "/images/content-marketing-personalization-hero.jpg", alt: "Person interacting with personalized digital content" }
   },
   metricsSection: {
@@ -25,7 +25,7 @@ export const CONTENT_MARKETING_PERSONALIZATION_CONTENT = {
       { title: "Audience-Centric Content Strategy", description: "We develop content that directly addresses your target audience’s specific needs, challenges, and journey stages, ensuring maximum relevance and impact." },
       { title: "Personalized Engagement Journeys", description: "We meticulously map out the customer journey, designing and implementing personalized experiences at every touchpoint to foster deeper connections." },
       { title: "Data-Driven Optimization & ROI", description: "Our approach is rooted in continuous tracking and analysis of performance metrics, allowing us to refine your strategy and maximize your return on investment." },
-      { title: "Integrated Marketing Automation", description: "We leverage advanced marketing automation platforms to efficiently deliver personalized content, nurture leads, and streamline your engagement workflows." },
+      { title: "Integrated Marketing Automation", description: "We use advanced marketing automation platforms to efficiently deliver personalized content, nurture leads, and streamline your engagement workflows." },
       { title: "Buyer Persona Development", description: "Systematic creation of detailed buyer personas to deeply understand and segment your target audiences for precision targeting." },
       { title: "Content Mapping & Lifecycle Alignment", description: "Aligning content assets with specific stages of the customer journey to ensure the right message reaches the right person at the right time." }
     ]

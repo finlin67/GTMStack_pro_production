@@ -7,7 +7,7 @@ export const ACCOUNT_BASED_MARKETING_ABM_CONTENT = {
     headline: "Transform Your Revenue Engine with Strategic Account-Based Marketing.",
     subheadline: "GTMStack.pro designs and implements hyper-targeted ABM frameworks that convert high-value accounts into lasting partnerships.",
     description: "In today's competitive B2B landscape, generic outreach falls short. Our Account-Based Marketing expertise focuses your resources on the accounts that matter most, driving deeper engagement, accelerating sales cycles, and delivering measurable ROI. We build bespoke ABM programs that align sales and marketing, ensuring every interaction is impactful and every effort contributes directly to your bottom line.",
-    primaryCTA: { text: "Unlock Your ABM Potential", link: "/contact" },
+    primaryCTA: { text: "Strengthen Your ABM Program", link: "/contact" },
     secondaryCTA: { text: "Explore Our ABM Case Studies", link: "/case-studies/abm" },
     image: { src: "/images/abm-hero.webp", alt: "Strategic Account-Based Marketing dashboard showing targeted accounts" }
   },
@@ -48,12 +48,12 @@ export const ACCOUNT_BASED_MARKETING_ABM_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Account-Based Strategy?",
     subtitle: "Connect with GTMStack.pro to design an ABM program that delivers exceptional results.",
-    button: { text: "Schedule an ABM Strategy Session", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your strategic partner for Go-To-Market excellence, specializing in driving predictable revenue through expert strategy, execution, and optimization.",
     sections: [
-      { title: "Services", links: ["Account-Based Marketing", "GTM Strategy Consulting", "Sales Enablement", "Marketing Operations"] },
+      { title: "Services", links: ["Account-Based Marketing", "GTM strategy & systems", "Sales Enablement", "Marketing Operations"] },
       { title: "Company", links: ["About Us", "Our Team", "Careers", "Contact"] },
       { title: "Resources", links: ["Blog", "Case Studies", "Webinars", "Whitepapers"] }
     ],

@@ -8,7 +8,7 @@ export const MARKETING_AUTOMATION_WORKFLOWS_CONTENT = {
     subheadline: "Embrace the Age of AI: Redefining Marketer Value through Ethical Judgment and Empathy.",
     description: "The central methodology has shifted from the manual bookkeeping of data snapshots to the autonomous orchestration of relationships. Success in 2026 is predicated on exorcising the 'manual-QA' ghosts of the past, focusing on architecting permission-based ecosystems and steering the strategic narrative.",
     primaryCTA: { text: "Explore Our AI Methodology", link: "/solutions/ai-marketing" },
-    secondaryCTA: { text: "Contact an Expert", link: "/contact" }
+    secondaryCTA: { text: "Start a conversation", link: "/contact" }
   },
   metricsSection: {
     headline: "Measuring True Impact: From Vanity Metrics to Economic Yield",
@@ -25,7 +25,7 @@ export const MARKETING_AUTOMATION_WORKFLOWS_CONTENT = {
       { title: "First-Party Sovereignty & AEO", description: "Pivot to First-Party (1P) Sovereignty, building permission-based ecosystems. Master Answer Engine Optimization (AEO) to gain AI Citations in the 'Zero-Click' paradigm." },
       { title: "Autonomous Orchestration & Debt Remediation", description: "Transition from manual data processes to API-first, self-healing data streams. Balance technical debt at 15% of the IT budget using the PAID framework to sustain innovation." },
       { title: "Economic Impact Measurement", description: "Shift from legacy 'Lead Counts' to 'True Incremental Revenue' and 'Relationship Depth,' proving marketing as a revenue engine with CFO-aligned KPIs." },
-      { title: "Invisible AI Infrastructure", description: "Leverage AI as a strategic accelerator to reduce 'AI-slop,' ensuring technology becomes transparent and empowers human marketers for creative rigor and ethical judgment." }
+      { title: "Invisible AI Infrastructure", description: "Use AI as a strategic accelerator to reduce 'AI-slop,' ensuring technology becomes transparent and empowers human marketers for creative rigor and ethical judgment." }
     ]
   },
   philosophySection: {
@@ -50,7 +50,7 @@ export const MARKETING_AUTOMATION_WORKFLOWS_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Marketing Automation?",
     subtitle: "Transition from legacy friction to autonomous, AI-powered growth. Let us help you build your Invisible Infrastructure and master durable skills.",
-    button: { text: "Schedule a Consultation", link: "/contact" }
+    button: { text: "Start a conversation", link: "/contact" }
   },
   footer: {
     description: "Guiding enterprises through the profound metamorphosis of marketing automation, from manual scorecards to autonomous, AI-driven orchestration. Building sustainable growth through Invisible Infrastructure and human-centric strategy.",

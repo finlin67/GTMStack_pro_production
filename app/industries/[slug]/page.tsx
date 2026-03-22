@@ -23,7 +23,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const item = getIndustryBySlug(slug)
   if (!item) return { title: 'Not Found' }
   const registryRow = getPageBySlug('industries', slug)
-  const title = registryRow?.pageTitle ?? `${item.title} Industry Solutions | GTMstack.pro`
+  const title = registryRow?.pageTitle ?? `${item.title} Industry Solutions | GTMStack.pro`
   return {
     title,
     description: item.description,
