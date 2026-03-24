@@ -28,9 +28,9 @@ export interface PageRegistryRow {
 }
 
 export const PAGE_REGISTRY: PageRegistryRow[] = [
-  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:stitch", theme: undefined, heroVisualId: "" },
-  { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
-  { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "" },
+  { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:stitch", theme: undefined, heroVisualId: "growth-ai-animation" },
+  { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "gtmstack-hero-tile-v2" },
+  { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "gtm-strategy-audience-tile-v2" },
   { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "case-studies:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   { route: "/contact", fileRef: "content/contact.ts", pageTitle: "Contact Us", templateId: 'home.main', contentKey: "contact:main", theme: 'light', heroVisualId: "" },
   { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'Uploaded_Expertise_v1', contentKey: "expertise:stitch-main", theme: 'dark', heroVisualId: "" },
@@ -79,9 +79,9 @@ export const PAGE_REGISTRY: PageRegistryRow[] = [
 ]
 
 export const PAGE_BY_ROUTE: Record<string, PageRegistryRow> = {
-  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:stitch", theme: undefined, heroVisualId: "" },
-  "/about": { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "" },
-  "/case-studies": { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "" },
+  "/": { route: "/", fileRef: "content/home.ts", pageTitle: "Home", templateId: 'home.stitch.main', contentKey: "home:stitch", theme: undefined, heroVisualId: "growth-ai-animation" },
+  "/about": { route: "/about", fileRef: "content/about.ts", pageTitle: "About GTM Stack", templateId: 'about.main', contentKey: "about:main", theme: 'dark', heroVisualId: "gtmstack-hero-tile-v2" },
+  "/case-studies": { route: "/case-studies", fileRef: "content/case-studies.ts", pageTitle: "Case Studies", templateId: 'Uploaded_CaseStudies_v1', contentKey: "case-studies:main", theme: 'dark', heroVisualId: "gtm-strategy-audience-tile-v2" },
   "/case-studies/event-to-store-lift-retail": { route: "/case-studies/event-to-store-lift-retail", fileRef: "content/case-studies.ts", pageTitle: "Event-to-Store Revenue Lift", templateId: 'caseStudy.base', contentKey: "case-studies:event-to-store-lift-retail", theme: 'dark', heroVisualId: "" },
   "/contact": { route: "/contact", fileRef: "content/contact.ts", pageTitle: "Contact Us", templateId: 'home.main', contentKey: "contact:main", theme: 'light', heroVisualId: "" },
   "/expertise": { route: "/expertise", fileRef: "content/expertise/main.ts", pageTitle: "Expertise", templateId: 'Uploaded_Expertise_v1', contentKey: "expertise:stitch-main", theme: 'dark', heroVisualId: "" },

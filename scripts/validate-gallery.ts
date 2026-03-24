@@ -8,7 +8,7 @@
  *  - placeholder / AI Studio titles
  *  - placeholder / bare summaries
  *  - placeholder tags spill-over
- *  - every referenced thumbnail / entryHtml exists under public/
+ *  - every referenced thumbnail / entryHtml exists under the correct public path
  *
  * Exits with code 1 if any blocking issues are found; prints a table of results.
  */
@@ -94,8 +94,12 @@ type Issue = {
   message: string
 }
 
-function exists(relativePath: string): boolean {
+function existsInPublic(relativePath: string): boolean {
   return fs.existsSync(path.join(ROOT, 'public', relativePath.replace(/^\/+/, '')))
+}
+
+function existsThumbnail(relativePath: string): boolean {
+  return fs.existsSync(path.join(ROOT, 'public', 'images', relativePath.replace(/^\/+/, '')))
 }
 
 function validate(items: ManifestItem[]): Issue[] {
@@ -163,10 +167,10 @@ function validate(items: ManifestItem[]): Issue[] {
     }
 
     // --- Asset resolution ---
-    if (item.thumbnailPath && !exists(item.thumbnailPath)) {
-      issues.push({ id: loc, field: 'thumbnailPath', severity: 'warn', message: `Thumbnail not found in public/: ${item.thumbnailPath}` })
+    if (item.thumbnailPath && !existsThumbnail(item.thumbnailPath)) {
+      issues.push({ id: loc, field: 'thumbnailPath', severity: 'warn', message: `Thumbnail not found in public/images/: ${item.thumbnailPath}` })
     }
-    if (item.entryHtml && !exists(item.entryHtml)) {
+    if (item.entryHtml && !existsInPublic(item.entryHtml)) {
       issues.push({ id: loc, field: 'entryHtml', severity: 'warn', message: `Entry HTML not found in public/: ${item.entryHtml}` })
     }
   })

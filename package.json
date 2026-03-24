@@ -32,7 +32,10 @@
     "report:gallery:placeholders": "npx tsx scripts/report-gallery-placeholder-items.ts",
     "cleanup:thumbnail-factory": "node scripts/cleanup-thumbnail-factory.js",
     "gen:thumbnails:once": "npm run gen:thumbnails && npm run cleanup:thumbnail-factory",
-    "diag:easing": "node scripts/find-invalid-easing.js"
+    "diag:easing": "node scripts/find-invalid-easing.js",
+    "screenshot:live:dry": "npx tsx scripts/screenshot-live-components.ts",
+    "screenshot:live": "npx tsx scripts/screenshot-live-components.ts --apply",
+    "screenshot:live:copy": "npx tsx scripts/screenshot-live-components.ts --apply --copy-to-animations-repo"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.0",

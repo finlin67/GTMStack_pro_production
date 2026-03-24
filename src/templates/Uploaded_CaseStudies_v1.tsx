@@ -3,13 +3,14 @@
 import React from 'react'
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 import type { CaseStudyItem } from '@/lib/types'
 
 function isCaseStudyList(value: unknown): value is CaseStudyItem[] {
   return Array.isArray(value)
 }
 
-export default function Template(props: { content?: unknown; pageTitle?: string }) {
+export default function Template(props: { content?: unknown; pageTitle?: string; heroVisualId?: string }) {
   const items = isCaseStudyList(props.content) ? props.content : []
   const featured = items.filter((item) => item.featured)
   const allItems = items.length > 0 ? items : featured
@@ -21,7 +22,8 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
           <div className="absolute inset-0 bg-grid-dark opacity-50" aria-hidden="true" />
           <div className="absolute inset-0 bg-mesh opacity-70" aria-hidden="true" />
           <div className="container-width section-padding relative z-10">
-            <div className="max-w-3xl space-y-6">
+            <div className="grid gap-12 items-center lg:grid-cols-[1.1fr_0.9fr]">
+              <div className="max-w-3xl space-y-6">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Case studies</p>
               <h1 className="text-4xl font-semibold leading-tight md:text-6xl">Outcome-first GTM results</h1>
               <p className="text-lg text-slate-300 md:text-xl">
@@ -39,6 +41,12 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                   </span>
                 ))}
               </div>
+            </div>
+              {props.heroVisualId ? (
+                <div className="hidden lg:flex justify-center">
+                  <HeroVisualByRoute heroVisualId={props.heroVisualId} />
+                </div>
+              ) : null}
             </div>
           </div>
         </section>

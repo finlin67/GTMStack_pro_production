@@ -11,6 +11,7 @@ export type GalleryAnimationResolvableItem = {
  */
 export const GALLERY_ANIMATION_ID_MAP: Record<string, string> = {
   'marketing-analytics-carousel-v3': 'marketing-analytics-carousel',
+  'marketing-operations-workflow-tile-v2': 'marketing-operations-tile',
   'edu-marketers-dashboard-v2': 'edu-marketers-dashboard',
   'executive-logistics-dashboard-v3': 'executive-logistics-dashboard',
   'executive-logistics-dashboard-v2': 'executive-logistics-dashboard',
@@ -25,6 +26,21 @@ export const GALLERY_ANIMATION_ID_MAP: Record<string, string> = {
   'content-engagement-marketing-dashboard-v2': 'content-engagement-marketing',
   'abm-pipeline-strategy-dashboard-v2': 'abm-pipeline-strategy',
   'abm-pipeline-strategy-dashboard': 'abm-pipeline-strategy',
+  'abm-campaign-radar-analysis-v2': 'abm-radar-analysis',
+  'manufacturing-agency-dashboard-v2': 'manufacturing-lifecycle-dashboard',
+  'devmarketers-bottom-up-adoption-loop-v2': 'dev-marketers',
+  'devconsole-content-workflow-v2': 'developer-marketing',
+  'cyberagency-lifecycle-engine-v2': 'apex-shield-lifecycle-engine',
+  'eventpulse-enterprise-dashboard-v2': 'event-marketing',
+  'neonvideo-marketing-landing-page-v2': 'campaign-tile',
+  'growthsem-landing-page-v2': 'campaign-tile',
+  'email-marketing-json-lottie-v2': 'email-marketing-hero',
+  'demandgen-pipeline-hero-v2': 'campaign-tile',
+  'demand-gen-hero-v2': 'demand-generation-hero',
+  'content-marketing-with-ai-v2': 'content-marketing-mdx',
+  'marketingflow-ai-workflow-v2': 'content-marketing-mdx',
+  'nexus-industrial-dashboard-v2': 'abm-radar-analysis',
+  'dashboard-tiles-industrial-roi-dashboard-v2': 'industrial-dashboard',
 }
 
 const REGISTRY_IDS = ANIMATION_REGISTRY.map((entry) => entry.id)

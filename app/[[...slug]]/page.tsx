@@ -89,11 +89,18 @@ export default async function RegistryPage({ params }: Props) {
   const TemplateComponent = getTemplate(page.templateId) as ComponentType<{
     content: unknown
     pageTitle: string
+    heroVisualId?: string
   }>
 
   // Pass the found contentKey to getContentByKey() from src/content/registry.ts
   const content = getContentByKey(page.contentKey)
 
   // Return the Template component, passing the content and pageTitle
-  return <TemplateComponent content={content} pageTitle={page.pageTitle} />
+  return (
+    <TemplateComponent
+      content={content}
+      pageTitle={page.pageTitle}
+      heroVisualId={page.heroVisualId ? page.heroVisualId : undefined}
+    />
+  )
 }

@@ -145,12 +145,16 @@ Recommended commands:
   - `npm run sync:gallery:dry`
 - Apply:
   - `npm run sync:gallery`
-- Optional: copy entry HTML and local assets
-  - `node scripts/sync-gallery.js --apply --copy-entry-html`
+- For live React animations, regenerate thumbnails from this repo when needed:
+  - `npm run screenshot:live:dry`
+  - `npm run screenshot:live`
+  - `npm run screenshot:live:copy`
 
 Notes:
 - Sync never deletes files.
 - The default is dry-run, so you must pass `--apply` to write.
+- Avoid using `sync:gallery:entry-html` as part of normal thumbnail maintenance.
+- If you do need iframe fallback assets, only copy real animation HTML. Placeholder AI Studio HTML can suppress thumbnails.
 
 ### 7) Troubleshooting Checklist (Developer)
 
@@ -171,7 +175,8 @@ Symptoms: Modal shows no live animation
 
 Symptoms: Iframe preview fails
 - Ensure `entryHtml` exists under `public/` in this repo.
-- If missing, run sync with `--copy-entry-html`.
+- Only copy `entryHtml` for animations that have real HTML previews.
+- Do not use placeholder AI Studio HTML as a fallback, because it can suppress thumbnails.
 
 Symptoms: GitHub buttons missing
 - Confirm `githubUrl` and `githubReadmeUrl` are present in the manifest entry.
@@ -267,4 +272,3 @@ Animation registry:
 Sync scripts:
 - `scripts/sync-gallery.js`
 - `scripts/generate-thumbnails.js`
-

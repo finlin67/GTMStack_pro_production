@@ -4,6 +4,7 @@ import React from 'react'
 import Link from 'next/link'
 import { useReducedMotion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 import {
   getHomeStitchContent,
   type HomeStitchAccent,
@@ -35,7 +36,7 @@ const ACCENT: Record<HomeStitchAccent, string> = {
   primary: COLORS.primary,
 }
 
-export default function HomeStitchTemplate({ content }: HomeStitchTemplateProps) {
+export default function HomeStitchTemplate({ content, heroVisualId }: HomeStitchTemplateProps) {
   const c = getHomeStitchContent(content)
 
   return (
@@ -50,7 +51,7 @@ export default function HomeStitchTemplate({ content }: HomeStitchTemplateProps)
           width: max-content;
         }
       `}</style>
-      <HeroSection c={c} />
+      <HeroSection c={c} heroVisualId={heroVisualId} />
       <ProofSection c={c} />
       <PillarSection c={c} />
       <MethodologySection c={c} />
@@ -63,7 +64,7 @@ export default function HomeStitchTemplate({ content }: HomeStitchTemplateProps)
   )
 }
 
-function HeroSection({ c }: { c: HomeStitchContent }) {
+function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?: string }) {
   const { hero } = c
   return (
     <section
@@ -189,53 +190,57 @@ function HeroSection({ c }: { c: HomeStitchContent }) {
         </div>
 
         <div className="relative hidden lg:block">
-          <div
-            className="bg-[#163A59] border border-white/20 rounded-2xl p-6 shadow-2xl relative overflow-hidden group"
-            style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.35)' }}
-          >
-            <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
-              <div className="flex gap-1.5">
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'rgba(239,68,68,0.5)' }} />
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'rgba(234,179,8,0.5)' }} />
-                <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.5)' }} />
+          {heroVisualId ? (
+            <HeroVisualByRoute heroVisualId={heroVisualId} />
+          ) : (
+            <div
+              className="bg-[#163A59] border border-white/20 rounded-2xl p-6 shadow-2xl relative overflow-hidden group"
+              style={{ boxShadow: '0 20px 60px rgba(0,0,0,0.35)' }}
+            >
+              <div className="flex items-center justify-between mb-8 border-b border-white/10 pb-4">
+                <div className="flex gap-1.5">
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'rgba(239,68,68,0.5)' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'rgba(234,179,8,0.5)' }} />
+                  <div className="w-3 h-3 rounded-full" style={{ backgroundColor: 'rgba(34,197,94,0.5)' }} />
+                </div>
+                <div className="text-[10px] font-mono text-signal-blue/60 uppercase tracking-tighter">
+                  {c.commandPanel.version}
+                </div>
               </div>
-              <div className="text-[10px] font-mono text-signal-blue/60 uppercase tracking-tighter">
-                {c.commandPanel.version}
-              </div>
-            </div>
 
-            <div className="grid grid-cols-2 gap-4">
-              {c.commandPanel.pillars.map((p) => (
-                <PillarCard
-                  key={p.index}
-                  color={ACCENT[p.accent]}
-                  icon={p.icon}
-                  index={p.index}
-                  label={p.label}
-                  barWidth={p.barWidth}
-                />
-              ))}
-            </div>
-
-            <div className="mt-8 p-4 bg-white/5 rounded-lg border border-white/5 flex items-center justify-between">
-              <div className="flex flex-col">
-                <span className="text-[10px] text-slate-400 font-bold uppercase">{c.commandPanel.outputLabel}</span>
-                <span className="text-xl font-display font-black text-white">{c.commandPanel.outputValue}</span>
+              <div className="grid grid-cols-2 gap-4">
+                {c.commandPanel.pillars.map((p) => (
+                  <PillarCard
+                    key={p.index}
+                    color={ACCENT[p.accent]}
+                    icon={p.icon}
+                    index={p.index}
+                    label={p.label}
+                    barWidth={p.barWidth}
+                  />
+                ))}
               </div>
-              <div className="h-12 w-24 bg-mid-navy rounded border border-white/10 overflow-hidden relative">
-                <div className="absolute inset-0 bg-gradient-to-t from-[#6FAFE0]/20 to-transparent animate-pulse" />
-                <div className="flex items-end h-full gap-1 p-1">
-                  {[20, 40, 30, 70, 60].map((h) => (
-                    <div
-                      key={h}
-                      className="flex-1"
-                      style={{ height: `${h}%`, backgroundColor: 'rgba(111,175,224,0.4)' }}
-                    />
-                  ))}
+
+              <div className="mt-8 p-4 bg-white/5 rounded-lg border border-white/5 flex items-center justify-between">
+                <div className="flex flex-col">
+                  <span className="text-[10px] text-slate-400 font-bold uppercase">{c.commandPanel.outputLabel}</span>
+                  <span className="text-xl font-display font-black text-white">{c.commandPanel.outputValue}</span>
+                </div>
+                <div className="h-12 w-24 bg-mid-navy rounded border border-white/10 overflow-hidden relative">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#6FAFE0]/20 to-transparent animate-pulse" />
+                  <div className="flex items-end h-full gap-1 p-1">
+                    {[20, 40, 30, 70, 60].map((h) => (
+                      <div
+                        key={h}
+                        className="flex-1"
+                        style={{ height: `${h}%`, backgroundColor: 'rgba(111,175,224,0.4)' }}
+                      />
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
 
         <div className="absolute -top-10 -right-10 w-40 h-40 bg-[#F9C74F]/20 rounded-full blur-3xl animate-pulse pointer-events-none" />

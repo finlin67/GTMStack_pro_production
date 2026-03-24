@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \":*)",
+      "Bash(node _check_placeholders.js)",
+      "Bash(node -e \"try { JSON.parse\\(require\\(''fs''\\).readFileSync\\(''src/data/gallery-manifest.json'',''utf8''\\)\\); console.log\\(''OK''\\) } catch\\(e\\) { console.log\\(''ERROR:'', e.message\\) }\")",
+      "Bash(echo \"EXIT:$?\")",
+      "Bash(cat c:/GitProd/GTMStack_prod/GTMStack_pro_production/app/gallery/animations/[id]/page.tsx)",
+      "Bash(find c:/GitProd/GTMStack_prod/GTMStack_pro_production/app -name page.tsx -path */[*]/*)",
+      "Bash(xargs head:*)",
+      "Bash(cat c:/GitProd/GTMStack_prod/GTMStack_pro_production/app/case-studies/ai-visualizations/[id]/AnimationDetailClient.tsx)"
+    ]
+  }
+}

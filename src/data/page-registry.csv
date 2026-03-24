@@ -1,7 +1,7 @@
 route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
-/,content/home.ts,Home,home.stitch.main,home:stitch,,
-/about,content/about.ts,About GTM Stack,about.main,about:main,dark,
-/case-studies,content/case-studies.ts,Case Studies,Uploaded_CaseStudies_v1,case-studies:main,dark,
+/,content/home.ts,Home,home.stitch.main,home:stitch,,growth-ai-animation
+/about,content/about.ts,About GTM Stack,about.main,about:main,dark,gtmstack-hero-tile-v2
+/case-studies,content/case-studies.ts,Case Studies,Uploaded_CaseStudies_v1,case-studies:main,dark,gtm-strategy-audience-tile-v2
 /case-studies/event-to-store-lift-retail,content/case-studies.ts,Event-to-Store Revenue Lift,caseStudy.base,case-studies:event-to-store-lift-retail,dark,
 /contact,content/contact.ts,Contact Us,home.main,contact:main,light,
 /expertise,content/expertise/main.ts,Expertise,Uploaded_Expertise_v1,expertise:stitch-main,dark,

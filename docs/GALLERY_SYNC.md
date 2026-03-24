@@ -34,6 +34,8 @@ This is why the website can render thumbnails at:
 - The script **never deletes** files.
 - The default behavior is **dry-run** (no files are written).
 - The script only overwrites destination files when you run with `--apply` (and it logs overwrites clearly).
+- Normal thumbnail sync should use `npm run sync:gallery`, not `sync:gallery:entry-html`.
+- Placeholder AI Studio `preview.html` files can suppress thumbnails, so only copy real entry HTML when iframe fallback is truly needed.
 
 ---
 
@@ -95,6 +97,7 @@ What to check:
 
 - The file exists here after sync:
   - `public/images/<thumbnailPath>`
+- If the thumbnail file exists but the card still falls back, check for placeholder HTML under `public/animations/...`.
 
 ---
 

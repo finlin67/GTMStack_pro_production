@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from 'react'
 import { ArrowRight, CheckCircle2, Quote } from 'lucide-react'
+import HeroVisualByRoute from '@/src/components/hero/HeroVisualByRoute.client'
 import type { HomeTemplateContent } from '@/src/templates/home/HomeTemplate'
 
 type AboutResumeTemplateProps = {
@@ -93,7 +94,7 @@ const STACK_SKILLS: Array<{ name: string; cat: Exclude<StackCategory, 'all'> }> 
   { name: 'Google Looker Studio', cat: 'analytics-data' },
 ]
 
-export default function AboutResumeTemplate({ content }: AboutResumeTemplateProps) {
+export default function AboutResumeTemplate({ content, heroVisualId }: AboutResumeTemplateProps) {
   const data = content as HomeTemplateContent | null
   const [activeFilter, setActiveFilter] = useState<StackCategory>('all')
 
@@ -198,7 +199,13 @@ export default function AboutResumeTemplate({ content }: AboutResumeTemplateProp
               </div>
             </div>
 
-            <div className="flex items-center justify-center relative">
+            <div className="flex items-center justify-center relative min-h-[420px]">
+              {heroVisualId ? (
+                <div className="w-full max-w-[600px]">
+                  <HeroVisualByRoute heroVisualId={heroVisualId} />
+                </div>
+              ) : (
+              <>
               <div className="relative">
                 <div
                   className="absolute -top-6 -left-6 w-[184px] h-[184px] border-2 border-dashed border-white/10 rounded-full animate-spin"
@@ -230,6 +237,8 @@ export default function AboutResumeTemplate({ content }: AboutResumeTemplateProp
                   ) : null}
                 </p>
               </div>
+              </>
+              )}
             </div>
           </div>
         </div>

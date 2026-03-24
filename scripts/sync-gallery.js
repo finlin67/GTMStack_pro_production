@@ -105,6 +105,25 @@ function isLikelyManifestItem(item) {
   )
 }
 
+function readTextSafe(filePath) {
+  try {
+    return fs.readFileSync(filePath, 'utf8')
+  } catch {
+    return ''
+  }
+}
+
+function isPlaceholderPreviewHtmlSource(filePath) {
+  const source = readTextSafe(filePath)
+  if (!source) return false
+
+  return (
+    source.includes('Gallery thumbnail placeholder (Option B)') ||
+    source.includes('Run and deploy your AI Studio app') ||
+    source.includes('This contains everything you need to run your app locally.')
+  )
+}
+
 function copyFileWithLogs({ src, dest, dryRun, label, counters }) {
   const destExists = fs.existsSync(dest)
   const overwrite = destExists
@@ -274,8 +293,10 @@ Flags:
       copied: 0,
       overwrites: 0,
       missing: 0,
+      skippedPlaceholder: 0,
     }
     const missingEntrySources = []
+    const skippedPlaceholderSources = []
 
     const allowedExt = new Set([
       '.html',
@@ -357,6 +378,15 @@ Flags:
         continue
       }
 
+      if (isPlaceholderPreviewHtmlSource(srcEntry)) {
+        entryCounters.skippedPlaceholder += 1
+        skippedPlaceholderSources.push({ id: item.id, srcEntry })
+        console.log(`- Skipping placeholder entryHtml (${item.id})`)
+        console.log(`  from: ${srcEntry}`)
+        console.log('  reason: detected AI Studio placeholder HTML; not copying into public/animations')
+        continue
+      }
+
       const perFileCounters = { copied: 0, overwrites: 0 }
       copyFileWithLogs({
         src: srcEntry,
@@ -391,12 +421,25 @@ Flags:
       }
     }
 
+    if (skippedPlaceholderSources.length) {
+      console.log('')
+      console.log('Skipped placeholder entryHtml')
+      console.log('----------------------------')
+      for (const skip of skippedPlaceholderSources.slice(0, 50)) {
+        console.log(`- ${skip.id}: ${skip.srcEntry}`)
+      }
+      if (skippedPlaceholderSources.length > 50) {
+        console.log(`... and ${skippedPlaceholderSources.length - 50} more`)
+      }
+    }
+
     console.log('')
     console.log('Entry HTML Summary')
     console.log('------------------')
     console.log(`- Entry HTML referenced: ${entryCounters.referenced}`)
     console.log(`- Entry HTML assets copied: ${entryCounters.copied}`)
     console.log(`- Entry HTML missing at source: ${entryCounters.missing}`)
+    console.log(`- Entry HTML skipped as placeholder: ${entryCounters.skippedPlaceholder}`)
     console.log(`- Overwrites: ${entryCounters.overwrites}`)
   }
 
