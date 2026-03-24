@@ -535,8 +535,8 @@ export default function Template(props: Props) {
           <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
             <p className="text-slate-600 text-sm font-medium">{content.footer?.copyright}</p>
             <div className="flex gap-10 text-slate-600 text-sm font-medium">
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
+              <span aria-disabled="true" className="hover:text-white transition-colors cursor-default">Privacy Policy</span>
+              <span aria-disabled="true" className="hover:text-white transition-colors cursor-default">Terms of Service</span>
             </div>
           </div>
         </div>

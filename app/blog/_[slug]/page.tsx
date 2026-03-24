@@ -30,9 +30,9 @@ export default async function BlogSlugPage({ params }: { params: Promise<{ slug:
 
   const { frontmatter, content } = post
   return (
-    <div className="min-h-screen bg-[#0A0F2D] text-slate-100">
+    <div className="min-h-screen bg-[#0A1628] text-slate-100">
       <nav className="border-b border-slate-800 px-6 py-4">
-        <Link href="/blog" className="text-[#36C0CF] hover:underline">
+          <Link href="/blog" className="text-[#4A86D8] hover:underline">
           ← Blog
         </Link>
       </nav>
@@ -44,7 +44,7 @@ export default async function BlogSlugPage({ params }: { params: Promise<{ slug:
           {frontmatter.date as string}
           {frontmatter.author ? ` · ${frontmatter.author}` : ''}
         </div>
-        <div className="prose prose-invert prose-slate max-w-none [&_a]:text-[#36C0CF] [&_a]:underline">
+          <div className="prose prose-invert prose-slate max-w-none [&_a]:text-[#4A86D8] [&_a]:underline">
           <MDXRemote source={content} />
         </div>
       </article>

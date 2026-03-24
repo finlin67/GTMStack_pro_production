@@ -30,18 +30,18 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
   const { hero, article, sidebar } = content
 
   return (
-    <div className="min-h-screen bg-[#0a122a] font-sans text-[#dbe1ff] antialiased">
+    <div className="min-h-screen bg-[#0A1628] font-sans text-white antialiased">
       <div className="border-b border-white/5 px-6 py-4 lg:px-12">
         <Link
           href="/blog"
-          className="inline-flex items-center gap-2 text-sm text-[#6FAFE0] transition-colors hover:text-[#F9C74F]"
+          className="inline-flex items-center gap-2 text-sm text-[#4A86D8] transition-colors hover:text-[#FFDB58]"
         >
           <ArrowLeft className="h-4 w-4" aria-hidden />
           Back to Insights
         </Link>
       </div>
 
-      <section className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0a1628] to-[#0a122a] px-6 pb-16 pt-10 lg:px-20">
+      <section className="relative overflow-hidden border-b border-white/5 bg-gradient-to-b from-[#0A1628] to-[#020617] px-6 pb-16 pt-10 lg:px-20">
         <div
           className="pointer-events-none absolute inset-0 opacity-20"
           style={{
@@ -58,8 +58,8 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                   href={crumb.href}
                   className={
                     idx === hero.breadcrumbs.length - 1
-                      ? 'text-[#6FAFE0]'
-                      : 'hover:text-[#6FAFE0]'
+                      ? 'text-[#4A86D8]'
+                      : 'hover:text-[#4A86D8]'
                   }
                 >
                   {crumb.label}
@@ -72,7 +72,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
           </h1>
           <div className="flex flex-wrap items-center gap-8 md:gap-10">
             <div className="flex items-center gap-4">
-              <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-[#6FAFE0]/40 p-0.5">
+              <div className="relative h-14 w-14 overflow-hidden rounded-full border-2 border-[#4A86D8]/40 p-0.5">
                 <img
                   src={hero.author.image}
                   alt={hero.author.name ? `${hero.author.name} avatar` : 'Author avatar'}
@@ -110,22 +110,22 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
             </div>
 
             {article.intro ? (
-              <p className="mb-12 border-l-4 border-[#2563eb] py-2 pl-8 text-2xl font-medium leading-relaxed text-[#e2e8f0]">
+              <p className="mb-12 border-l-4 border-[#4A86D8] py-2 pl-8 text-2xl font-medium leading-relaxed text-[#e2e8f0]">
                 {article.intro}
               </p>
             ) : null}
 
             <div
-              className="prose prose-invert prose-lg max-w-none space-y-10 prose-headings:font-black prose-headings:tracking-tight prose-p:text-[#c3c6d7] prose-p:leading-[1.8] prose-strong:text-white prose-a:text-[#6FAFE0]"
+              className="prose prose-invert prose-lg max-w-none space-y-10 prose-headings:font-black prose-headings:tracking-tight prose-p:text-[#c3c6d7] prose-p:leading-[1.8] prose-strong:text-white prose-a:text-[#4A86D8]"
             >
               {article.sections.map((section, idx) => {
                 if (section.type === 'callout') {
                   return (
                     <div
                       key={idx}
-                      className="relative overflow-hidden rounded-2xl border border-[#2563eb]/30 bg-[#2563eb]/10 p-10"
+                      className="relative overflow-hidden rounded-2xl border border-[#4A86D8]/30 bg-[#4A86D8]/10 p-10"
                     >
-                      <h4 className="mb-6 text-xs font-black uppercase tracking-[0.2em] text-[#6FAFE0]">Key takeaway</h4>
+                      <h4 className="mb-6 text-xs font-black uppercase tracking-[0.2em] text-[#4A86D8]">Key takeaway</h4>
                       <p className="relative z-10 text-2xl font-bold italic leading-snug text-white">
                         &ldquo;{stripInner(section.content)}&rdquo;
                       </p>
@@ -145,7 +145,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                       <ul className="mt-8 list-none space-y-6 pl-0">
                         {section.items.map((item, i) => (
                           <li key={i} className="flex items-start gap-5">
-                            <div className="mt-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#2563eb]/20 text-[#6FAFE0]">
+                            <div className="mt-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#4A86D8]/20 text-[#4A86D8]">
                               <Icons.CheckCircle2 />
                             </div>
                             <div>
@@ -164,7 +164,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
             <div className="mt-16 flex flex-wrap items-center justify-between gap-8 border-t border-white/10 pt-10">
               <button
                 type="button"
-                className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#8d90a0] hover:text-[#6FAFE0]"
+                className="flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-[#8d90a0] hover:text-[#4A86D8]"
               >
                 <Icons.Share2 />
                 Share
@@ -183,12 +183,12 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
           </article>
 
           <aside className="w-full space-y-12 lg:w-[35%] lg:sticky lg:top-28 lg:self-start">
-            <div className="rounded-2xl border border-white/10 bg-[#171e37] p-8">
+            <div className="rounded-2xl border border-white/10 bg-[#112B3C] p-8">
               <h4 className="mb-6 text-[10px] font-black uppercase tracking-[0.2em] text-[#8d90a0]">About the author</h4>
               <p className="mb-6 text-base leading-relaxed text-[#c3c6d7]">{hero.author.bio}</p>
               <Link
                 href={hero.author.profileLink}
-                className="inline-flex items-center gap-2 text-sm font-black text-[#6FAFE0] hover:text-[#F9C74F]"
+                className="inline-flex items-center gap-2 text-sm font-black text-[#4A86D8] hover:text-[#FFDB58]"
               >
                 View profile
                 <span className="transition-transform group-hover:translate-x-1">
@@ -210,7 +210,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                       />
                     </div>
                     <div>
-                      <h5 className="line-clamp-2 font-bold leading-tight text-white group-hover:text-[#6FAFE0]">
+                      <h5 className="line-clamp-2 font-bold leading-tight text-white group-hover:text-[#4A86D8]">
                         {insight.title}
                       </h5>
                       <p className="mt-1 text-xs font-black uppercase tracking-widest text-[#64748b]">{insight.date}</p>
@@ -220,9 +220,9 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
               </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-[#2563eb] to-[#1e3a8a] p-8 shadow-xl">
+            <div className="relative overflow-hidden rounded-2xl bg-[#0D2137] border border-[#4A86D8]/30 p-8 shadow-xl">
               <h4 className="mb-3 text-2xl font-black leading-tight text-white">{sidebar.newsletter.title}</h4>
-              <p className="mb-6 text-sm font-medium text-blue-100">{sidebar.newsletter.description}</p>
+              <p className="mb-6 text-sm font-medium text-slate-300">{sidebar.newsletter.description}</p>
               <form className="space-y-3" onSubmit={(e) => e.preventDefault()}>
                 <input
                   className="w-full rounded-xl border border-white/20 bg-white/10 px-4 py-3 text-sm text-white placeholder:text-blue-200 focus:border-transparent focus:outline-none focus:ring-2 focus:ring-white/40"
@@ -230,13 +230,13 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                   type="email"
                 />
                 <button
-                  className="w-full rounded-xl bg-white py-3 text-sm font-black text-[#2563eb] transition hover:bg-blue-50"
+                  className="w-full rounded-xl bg-white py-3 text-sm font-black text-[#0A1628] transition hover:bg-slate-100"
                   type="submit"
                 >
                   {sidebar.newsletter.buttonText}
                 </button>
               </form>
-              <p className="mt-4 text-center text-[10px] font-black uppercase tracking-[0.2em] text-blue-200/70">
+              <p className="mt-4 text-center text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">
                 {sidebar.newsletter.subscriberCount}
               </p>
             </div>

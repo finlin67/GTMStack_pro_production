@@ -43,6 +43,7 @@ export interface ProjectsTemplateContent {
   metrics: Array<{ value: string; label: string }>;
   projects: Array<{
     id: number;
+    slug?: string;
     category: string;
     title: string;
     description: string;
@@ -80,6 +81,10 @@ export type ProjectsTemplateProps = {
 };
 
 function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
+  const getProjectHref = (project: ProjectsTemplateContent['projects'][number]) => {
+    return project.slug ? `/case-studies/${project.slug}` : '/case-studies';
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -126,19 +131,41 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
             </h2>
           </Link>
           <div className="hidden items-center gap-8 lg:flex">
-            {content.navigation.map((item, idx) => (
-              <Link
-                key={idx}
-                href="#"
-                className={`text-sm font-medium transition-colors hover:text-white ${
-                  item.includes("Active")
-                    ? "text-primary underline underline-offset-8 decoration-2 font-semibold"
-                    : "text-slate-400"
-                }`}
-              >
-                {item}
-              </Link>
-            ))}
+            {content.navigation.map((item, idx) => {
+              const lower = item.toLowerCase();
+              const mappedHref =
+                lower.includes('blog')
+                  ? '/blog'
+                  : lower.includes('expertise')
+                    ? '/expertise'
+                    : lower.includes('contact') || lower.includes('work together')
+                      ? '/contact'
+                      : lower.includes('how i work')
+                        ? '/expertise'
+                    : lower.includes('industr')
+                      ? '/industries'
+                      : lower.includes('gallery')
+                        ? '/gallery'
+                    : lower.includes('projects')
+                      ? '/case-studies'
+                      : null;
+
+              const navClass = `text-sm font-medium transition-colors hover:text-white ${
+                item.includes("Active")
+                  ? "text-primary underline underline-offset-8 decoration-2 font-semibold"
+                  : "text-slate-400"
+              }`;
+
+              return mappedHref ? (
+                <Link key={idx} href={mappedHref} className={navClass}>
+                  {item}
+                </Link>
+              ) : (
+                <span key={idx} aria-disabled="true" className={`${navClass} cursor-default`}>
+                  {item}
+                </span>
+              );
+            })}
           </div>
           <button className="bg-gradient-orange rounded-lg px-5 py-2 text-sm font-bold text-white transition-transform active:scale-95 shadow-lg shadow-orange-500/20">
             Get Audited
@@ -174,7 +201,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
               {content.hero.subtitle}
             </motion.p>
             <motion.div variants={itemVariants} className="flex flex-wrap gap-4">
-              <button className="bg-primary rounded-lg px-8 py-4 text-base font-bold text-white transition-all hover:bg-blue-700 shadow-xl shadow-primary/30">
+              <button className="nav-cta">
                 {content.hero.primaryCta}
               </button>
               <button className="rounded-lg border border-white/20 bg-transparent px-8 py-4 text-base font-bold text-white transition-all hover:bg-white/5">
@@ -255,7 +282,9 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
                         {project.category}
                       </span>
                       <h3 className="text-2xl font-bold text-white">
-                        {project.title}
+                        <Link href={getProjectHref(project)} className="transition-colors hover:text-primary">
+                          {project.title}
+                        </Link>
                       </h3>
                     </div>
                     <div className="text-white/20 transition-colors group-hover:text-primary">
@@ -270,6 +299,12 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
                     <span className="font-bold text-gold-metric">
                       {project.achievement}
                     </span>
+                    <Link
+                      href={getProjectHref(project)}
+                      className="ml-auto text-xs font-bold uppercase tracking-wider text-primary transition-colors hover:text-white"
+                    >
+                      View case study
+                    </Link>
                   </div>
                 </motion.div>
               );
@@ -277,10 +312,10 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
           </div>
 
           <div className="mt-16 flex justify-center">
-            <button className="group flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-10 py-4 font-bold text-white transition-all hover:bg-white/10 hover:border-white/20">
+            <Link href="/case-studies" className="group flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-10 py-4 font-bold text-white transition-all hover:bg-white/10 hover:border-white/20">
               View All Case Studies
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -314,18 +349,37 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
               { label: "Expertise", icon: Brain },
               { label: "Blog", icon: Newspaper },
               { label: "Gallery", icon: LayoutGrid },
-            ].map(({ label, icon: Icon }) => (
-              <Link
-                key={label}
-                href="#"
-                className="group flex items-center justify-between rounded-lg border border-white/5 bg-white/5 p-6 transition-all hover:bg-primary/10 hover:border-primary/30"
-              >
-                <span className="font-bold text-white">{label}</span>
-                <div className="text-slate-500 group-hover:text-primary">
-                  <Icon className="w-5 h-5" />
-                </div>
-              </Link>
-            ))}
+            ].map(({ label, icon: Icon }) => {
+              const href =
+                label === 'Industries'
+                  ? '/industries'
+                  : label === 'Gallery'
+                    ? '/gallery'
+                    :
+                label === 'Expertise'
+                  ? '/expertise'
+                  : label === 'Blog'
+                    ? '/blog'
+                    : null;
+
+              const teaserClass = "group flex items-center justify-between rounded-lg border border-white/5 bg-white/5 p-6 transition-all hover:bg-primary/10 hover:border-primary/30";
+
+              return href ? (
+                <Link key={label} href={href} className={teaserClass}>
+                  <span className="font-bold text-white">{label}</span>
+                  <div className="text-slate-500 group-hover:text-primary">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                </Link>
+              ) : (
+                <span key={label} aria-disabled="true" className={`${teaserClass} cursor-default`}>
+                  <span className="font-bold text-white">{label}</span>
+                  <div className="text-slate-500 group-hover:text-primary">
+                    <Icon className="w-5 h-5" />
+                  </div>
+                </span>
+              );
+            })}
           </div>
         </div>
       </section>
@@ -336,7 +390,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
           <h2 className="mb-8 text-4xl font-black text-white lg:text-5xl">
             Ready to Ship Your Next Revenue Blueprint?
           </h2>
-          <button className="bg-primary hover:bg-blue-700 transition-all rounded-lg px-12 py-5 text-lg font-black text-white shadow-xl shadow-primary/20 active:scale-95">
+          <button className="nav-cta text-lg px-12 py-5">
             See project methodology
           </button>
         </div>
@@ -369,7 +423,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
                 <li>
                   <Link
                     className="hover:text-white transition-colors"
-                    href="#"
+                    href="/expertise"
                   >
                     Revenue Operations
                   </Link>
@@ -377,7 +431,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
                 <li>
                   <Link
                     className="hover:text-white transition-colors"
-                    href="#"
+                    href="/expertise"
                   >
                     Account-Based Growth
                   </Link>
@@ -385,7 +439,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
                 <li>
                   <Link
                     className="hover:text-white transition-colors"
-                    href="#"
+                    href="/expertise"
                   >
                     Demand Generation
                   </Link>
@@ -393,7 +447,7 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
                 <li>
                   <Link
                     className="hover:text-white transition-colors"
-                    href="#"
+                    href="/expertise"
                   >
                     Sales Enablement
                   </Link>
@@ -406,33 +460,33 @@ function PageTemplate({ content }: { content: ProjectsTemplateContent }) {
               </h4>
               <ul className="space-y-4 text-sm">
                 <li>
-                  <Link
-                    className="hover:text-white transition-colors"
-                    href="#"
+                  <span
+                    aria-disabled="true"
+                    className="hover:text-white transition-colors cursor-default"
                   >
                     LinkedIn
-                  </Link>
+                  </span>
                 </li>
                 <li>
-                  <Link
-                    className="hover:text-white transition-colors"
-                    href="#"
+                  <span
+                    aria-disabled="true"
+                    className="hover:text-white transition-colors cursor-default"
                   >
                     Newsletter
-                  </Link>
+                  </span>
                 </li>
                 <li>
-                  <Link
-                    className="hover:text-white transition-colors"
-                    href="#"
+                  <span
+                    aria-disabled="true"
+                    className="hover:text-white transition-colors cursor-default"
                   >
                     Privacy Policy
-                  </Link>
+                  </span>
                 </li>
                 <li>
                   <Link
                     className="hover:text-white transition-colors"
-                    href="#"
+                    href="/contact"
                   >
                     Project Inquiries
                   </Link>

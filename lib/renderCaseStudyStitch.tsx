@@ -62,6 +62,7 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
     .slice(0, 2)
 
   const solutionSteps = parseSolutionSteps(caseStudy.solution)
+  const keyDecisions = caseStudy.keyDecisions ?? []
   const headlineMetrics = caseStudy.metrics.slice(0, 3)
   const outcomeBullets = caseStudy.results.slice(0, 3)
   const quoteText =
@@ -148,6 +149,26 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
                         {step.number}. {step.title}
                       </h3>
                       <p className="text-sm text-slate-600 leading-relaxed">{step.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </section>
+            )}
+
+            {keyDecisions.length > 0 && (
+              <section>
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                  <span className="size-2 bg-brand-600 rounded-full shrink-0" aria-hidden />
+                  Key decisions and why they mattered
+                </h2>
+                <div className="space-y-4">
+                  {keyDecisions.map((item, idx) => (
+                    <div key={`${item.decision}-${idx}`} className="p-6 border border-slate-200 rounded-xl bg-white">
+                      <h3 className="font-bold text-slate-900 mb-2">{item.decision}</h3>
+                      <p className="text-sm text-slate-600 leading-relaxed mb-3">{item.rationale}</p>
+                      {item.impact && (
+                        <p className="text-sm font-semibold text-emerald-700">Impact: {item.impact}</p>
+                      )}
                     </div>
                   ))}
                 </div>

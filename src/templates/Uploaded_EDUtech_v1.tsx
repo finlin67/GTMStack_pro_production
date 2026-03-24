@@ -239,7 +239,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
 
         <div>
           <a
-            href="#"
+            href="/contact"
             className="bg-slate-900 dark:bg-white text-white dark:text-slate-900 px-8 py-3 rounded-full text-sm font-bold uppercase tracking-wider transition-all hover:scale-105 hover:shadow-xl active:scale-95"
           >
             {content.ctaText}
@@ -403,7 +403,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
               </h3>
             </div>
             <a
-              href="#"
+              href="/blog"
               className="text-white hover:text-orange-400 underline underline-offset-8 transition-colors font-bold text-lg"
             >
               {content.journalSection.archiveLinkText}

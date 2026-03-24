@@ -72,6 +72,7 @@ export default function RenderCaseStudy({
       title: step.split(',')[0].trim(),
       description: step.trim(),
     }))
+  const keyDecisions = caseStudy.keyDecisions ?? []
 
   const executionStack = [
     { category: 'Channels', items: caseStudy.tags.slice(0, 3) },
@@ -161,6 +162,35 @@ export default function RenderCaseStudy({
           ))}
         </StaggerContainer>
       </SectionDark>
+
+      {keyDecisions.length > 0 && (
+        <SectionLight variant="white" padding="lg">
+          <div className="mb-10 max-w-3xl">
+            <span className="inline-block text-sm font-semibold text-brand-600 tracking-wide uppercase mb-3">
+              Strategic choices
+            </span>
+            <h2 className="font-display text-3xl md:text-4xl font-bold tracking-tight text-slate-900 text-balance mb-3">
+              Key Decisions and Why
+            </h2>
+            <p className="text-lg text-slate-600 leading-relaxed">
+              The highest-leverage choices that shaped execution and outcomes.
+            </p>
+          </div>
+          <StaggerContainer className="grid md:grid-cols-2 gap-6">
+            {keyDecisions.map((item, idx) => (
+              <StaggerItem key={`${item.decision}-${idx}`}>
+                <div className="card p-6 h-full">
+                  <h3 className="font-semibold text-slate-900 mb-2">{item.decision}</h3>
+                  <p className="text-sm text-slate-600 leading-relaxed mb-3">{item.rationale}</p>
+                  {item.impact && (
+                    <p className="text-sm font-semibold text-brand-700">Impact: {item.impact}</p>
+                  )}
+                </div>
+              </StaggerItem>
+            ))}
+          </StaggerContainer>
+        </SectionLight>
+      )}
 
       <SectionLight variant="slate" padding="lg">
         <SectionHeader

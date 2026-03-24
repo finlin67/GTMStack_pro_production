@@ -524,8 +524,8 @@ export default function DemandGrowthPillar({ content, pageTitle, theme, heroVisu
           <div className="pt-16 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-8">
             <p className="text-slate-600 text-sm font-medium">{content.footer?.copyright}</p>
             <div className="flex gap-10 text-slate-600 text-sm font-medium">
-              <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
-              <Link href="#" className="hover:text-white transition-colors">Terms of Service</Link>
+              <span aria-disabled="true" className="hover:text-white transition-colors cursor-default">Privacy Policy</span>
+              <span aria-disabled="true" className="hover:text-white transition-colors cursor-default">Terms of Service</span>
             </div>
           </div>
         </div>

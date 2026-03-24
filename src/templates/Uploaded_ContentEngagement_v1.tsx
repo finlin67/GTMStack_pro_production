@@ -206,10 +206,10 @@ export default function Template({
                 {data.heroDescription}
               </p>
               <div className="flex flex-wrap gap-4 pt-4">
-                <Link href="#" className="px-8 py-4 bg-[#EAB308] text-[#0F172A] font-bold rounded hover:bg-[#FACC15] transition-colors">
+                <Link href="/expertise" className="px-8 py-4 bg-[#EAB308] text-[#0F172A] font-bold rounded hover:bg-[#FACC15] transition-colors">
                   {data.heroCta1}
                 </Link>
-                <Link href="#" className="px-8 py-4 bg-[#1E293B] text-white font-bold rounded hover:bg-[#334155] transition-colors border border-slate-700">
+                <Link href="/contact" className="px-8 py-4 bg-[#1E293B] text-white font-bold rounded hover:bg-[#334155] transition-colors border border-slate-700">
                   {data.heroCta2}
                 </Link>
               </div>
@@ -397,10 +397,10 @@ export default function Template({
               {data.ctaDescription}
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-6">
-              <Link href="#" className="px-8 py-4 bg-[#EAB308] text-[#0F172A] font-bold rounded hover:bg-[#FACC15] transition-colors">
+              <Link href="/expertise" className="px-8 py-4 bg-[#EAB308] text-[#0F172A] font-bold rounded hover:bg-[#FACC15] transition-colors">
                 {data.ctaButton1}
               </Link>
-              <Link href="#" className="px-8 py-4 bg-[#0F172A] text-white font-bold rounded hover:bg-slate-800 transition-colors border border-slate-700">
+              <Link href="/contact" className="px-8 py-4 bg-[#0F172A] text-white font-bold rounded hover:bg-slate-800 transition-colors border border-slate-700">
                 {data.ctaButton2}
               </Link>
             </div>
@@ -419,7 +419,19 @@ export default function Template({
           </div>
           <div className="flex gap-6 mb-4 md:mb-0">
             {data.footerLinks.map((link, i) => (
-              <Link key={i} href="#" className="hover:text-white transition-colors">{link}</Link>
+              /proof|result|work|case study/i.test(link) ? (
+                <Link key={i} href="/case-studies" className="hover:text-white transition-colors">{link}</Link>
+              ) : /expertise|capabilit|how i work|topic/i.test(link) ? (
+                <Link key={i} href="/expertise" className="hover:text-white transition-colors">{link}</Link>
+              ) : /contact|talk|get in touch|connect/i.test(link) ? (
+                <Link key={i} href="/contact" className="hover:text-white transition-colors">{link}</Link>
+              ) : /blog|read|article|insight/i.test(link) ? (
+                <Link key={i} href="/blog" className="hover:text-white transition-colors">{link}</Link>
+              ) : /home|back|overview/i.test(link) ? (
+                <Link key={i} href="/" className="hover:text-white transition-colors">{link}</Link>
+              ) : (
+                <span key={i} aria-disabled="true" className="hover:text-white transition-colors cursor-default">{link}</span>
+              )
             ))}
           </div>
           <div>

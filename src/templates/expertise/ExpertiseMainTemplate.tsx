@@ -171,24 +171,45 @@ export default function ExpertiseMainTemplate({
             </div>
             <div className="mt-12 grid gap-6 md:grid-cols-2">
               {(pillars.items ?? []).map((pillar, idx) => (
-                <Link
-                  key={idx}
-                  href={pillarFallbackRoutes[idx] ?? '/expertise'}
-                  className={`group relative rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/5 ${pillar.ringColor ?? ''}`}
-                >
-                  <div className={`absolute right-6 top-6 h-20 w-20 rounded-full blur-3xl opacity-0 transition-opacity group-hover:opacity-100 ${pillar.glowColor ?? ''}`} />
-                  <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgStart ?? ''} ${pillar.color ?? ''}`}>
-                    <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
-                  </div>
-                  <div className="relative z-10 mt-6">
-                    <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
-                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
-                    <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
-                      Explore System
-                      <span className="material-symbols-outlined ml-2 text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
-                    </span>
-                  </div>
-                </Link>
+                pillarFallbackRoutes[idx] ? (
+                  <Link
+                    key={idx}
+                    href={pillarFallbackRoutes[idx]}
+                    className={`group relative rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/5 ${pillar.ringColor ?? ''}`}
+                  >
+                    <div className={`absolute right-6 top-6 h-20 w-20 rounded-full blur-3xl opacity-0 transition-opacity group-hover:opacity-100 ${pillar.glowColor ?? ''}`} />
+                    <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgStart ?? ''} ${pillar.color ?? ''}`}>
+                      <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
+                    </div>
+                    <div className="relative z-10 mt-6">
+                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
+                      <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
+                      <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
+                        Explore System
+                        <span className="material-symbols-outlined ml-2 text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
+                      </span>
+                    </div>
+                  </Link>
+                ) : (
+                  <span
+                    key={idx}
+                    aria-disabled="true"
+                    className={`group relative rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 dark:border-white/10 dark:bg-white/5 cursor-default ${pillar.ringColor ?? ''}`}
+                  >
+                    <div className={`absolute right-6 top-6 h-20 w-20 rounded-full blur-3xl opacity-0 transition-opacity ${pillar.glowColor ?? ''}`} />
+                    <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgStart ?? ''} ${pillar.color ?? ''}`}>
+                      <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
+                    </div>
+                    <div className="relative z-10 mt-6">
+                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
+                      <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
+                      <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
+                        Explore System
+                        <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
+                      </span>
+                    </div>
+                  </span>
+                )
               ))}
             </div>
           </div>

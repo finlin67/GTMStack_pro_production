@@ -18,7 +18,7 @@ import {
 } from 'lucide-react'
 
 /* Palette — main.png style: navy, cyan, gradient, green */
-const NAVY_DEEP = '#0A0F2D'
+const NAVY_DEEP = '#0A1628'
 const NAVY_DARK = '#020617'
 const ACCENT_CYAN = '#00CFFF'
 const ACCENT_BLUE = '#3B82F6'

@@ -115,15 +115,15 @@ export default function BlogPostTemplate({ content }: Props) {
   if (!content) return null;
 
   return (
-    <div className="dark font-display bg-[#0A0F2D] text-white antialiased">
+    <div className="min-h-screen bg-[#0A1628] font-sans text-white antialiased">
       {/* Navigation */}
-      <nav className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'border-slate-800 bg-[#0A0F2D]/95 backdrop-blur-md h-16' : 'border-transparent bg-[#0A0F2D] h-20'}`}>
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8 h-full">
+      <nav className={`sticky top-0 z-50 w-full border-b transition-all duration-300 ${isScrolled ? 'border-white/5 bg-[#0A1628]/95 backdrop-blur-md h-16' : 'border-transparent bg-[#0A1628] h-20'}`}>
+        <div className="container-width h-full">
           <div className="flex justify-between items-center h-full">
             <div className="flex items-center gap-3">
-              <DraftingCompass className="text-[#2463EB]" size={30} />
+              <DraftingCompass className="text-[#4A86D8]" size={30} />
               <div className="flex flex-col">
-                <span className="text-[10px] uppercase tracking-[0.3em] text-[#2463EB] font-bold leading-none">Architecture</span>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-[#4A86D8] font-bold leading-none">Architecture</span>
                 <span className="text-xl font-black tracking-tighter text-white uppercase">{content.header?.logoText}</span>
               </div>
             </div>
@@ -132,7 +132,7 @@ export default function BlogPostTemplate({ content }: Props) {
                 <Link
                   key={link.label}
                   href={link.href}
-                  className={`text-sm font-medium transition-colors ${link.active ? 'text-[#00A8A8] border-b-2 border-[#00A8A8]' : 'hover:text-[#00A8A8]'}`}
+                  className={`text-sm font-medium transition-colors ${link.active ? 'text-[#AED6F1] border-b-2 border-[#4A86D8]' : 'hover:text-[#AED6F1]'}`}
                 >
                   {link.label}
                 </Link>
@@ -140,7 +140,7 @@ export default function BlogPostTemplate({ content }: Props) {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className="bg-[#2463EB] hover:bg-[#1E5CB8] text-white px-6 py-2.5 rounded text-sm font-bold transition-all shadow-lg shadow-blue-500/20"
+                className="nav-cta"
               >
                 Get Audited
               </motion.button>
@@ -150,24 +150,27 @@ export default function BlogPostTemplate({ content }: Props) {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative border-b border-slate-800 overflow-hidden bg-[#0A0F2D]">
+      <section className="relative overflow-hidden border-b border-white/5 bg-[#0A1628]">
         <div className="absolute inset-0 blueprint-grid opacity-20"></div>
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 relative z-10 py-12"
+          className="container-width relative z-10 py-16 md:py-24"
         >
           <div className="flex flex-col gap-6">
+            <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-medium text-slate-400 transition-colors hover:text-[#AED6F1]">
+              ← Back to articles
+            </Link>
             <div className="flex items-center gap-2">
-              <span className="h-1.5 w-1.5 rounded-full bg-[#00A8A8] animate-pulse"></span>
-              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#00A8A8]">{content.hero?.tag}</span>
+              <span className="h-1.5 w-1.5 rounded-full bg-[#4A86D8]"></span>
+              <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#4A86D8]">{content.hero?.tag}</span>
             </div>
-            <h1 className="text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight max-w-4xl">
-              {content.hero?.title} <span className="text-[#FFD700]">{content.hero?.highlight}</span>
+            <h1 className="font-display text-4xl lg:text-6xl font-black text-white leading-tight tracking-tight max-w-4xl">
+              {content.hero?.title} <span className="text-gradient-cobalt-ice">{content.hero?.highlight}</span>
             </h1>
-            <div className="flex flex-wrap items-center gap-6 text-xs font-bold uppercase tracking-widest text-[#A0AEC0]">
-              <span className="flex items-center gap-2 text-[#00A8A8]"><Calendar size={14} /> {content.hero?.date}</span>
+            <div className="flex flex-wrap items-center gap-6 text-xs font-bold uppercase tracking-widest text-slate-400">
+              <span className="flex items-center gap-2 text-[#4A86D8]"><Calendar size={14} /> {content.hero?.date}</span>
               <span className="flex items-center gap-2"><Clock size={14} /> {content.hero?.readTime}</span>
               <span className="flex items-center gap-2"><User size={14} /> {content.hero?.author}</span>
             </div>
@@ -176,7 +179,7 @@ export default function BlogPostTemplate({ content }: Props) {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="container-width py-16 md:py-24">
         <div className="flex flex-col lg:flex-row gap-12">
           
           {/* Article Area */}
@@ -185,30 +188,29 @@ export default function BlogPostTemplate({ content }: Props) {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.3 }}
-              className="bg-[#1E2A5E] dashboard-border p-8 lg:p-12 mb-12 relative overflow-hidden group rounded-lg"
+              className="glass-card-surface p-8 lg:p-12 mb-12 relative overflow-hidden group"
             >
               <div className="absolute top-0 right-0 p-8 opacity-10 pointer-events-none group-hover:rotate-12 transition-transform duration-700">
-                <LayoutTemplate className="text-[#00A8A8]" size={150} />
+                <LayoutTemplate className="text-[#4A86D8]" size={150} />
               </div>
               
               <div className="flex justify-between items-start mb-12 relative z-10">
                 <div className="flex flex-col gap-2">
-                  <span className="text-[10px] font-black tracking-[0.3em] text-[#00A8A8] uppercase">{content.article?.summaryTag}</span>
-                  <span className="bg-[#00A8A8] text-white text-[10px] font-black px-3 py-1.5 rounded tracking-widest uppercase inline-block w-fit">{content.article?.categoryBadge}</span>
+                  <span className="text-[10px] font-black tracking-[0.3em] text-[#4A86D8] uppercase">{content.article?.summaryTag}</span>
+                  <span className="bg-[#4A86D8] text-white text-[10px] font-black px-3 py-1.5 rounded-xl tracking-widest uppercase inline-block w-fit">{content.article?.categoryBadge}</span>
                 </div>
                 <div className="text-right">
-                  <span className="text-[#FFD700] font-black text-6xl block">{content.article?.efficiencyDelta}</span>
-                  <span className="text-[10px] text-[#A0AEC0] uppercase font-bold">{content.article?.efficiencyLabel}</span>
+                  <span className="proof-gradient-text font-black text-6xl block">{content.article?.efficiencyDelta}</span>
+                  <span className="text-[10px] text-slate-400 uppercase font-bold">{content.article?.efficiencyLabel}</span>
                 </div>
               </div>
 
-              <div className="relative z-10 prose-custom mb-12">
+              <div className="relative z-10 mb-12 prose prose-invert prose-lg max-w-none prose-headings:font-display prose-headings:text-white prose-p:text-slate-300 prose-p:leading-[1.8] prose-strong:text-white prose-a:text-[#AED6F1]">
                 <p className="text-2xl text-white font-medium leading-relaxed mb-8">
                   {content.article?.leadParagraph}
                 </p>
                 {content.article?.bodyHtml ? (
                   <div 
-                    className="prose-custom"
                     dangerouslySetInnerHTML={{ __html: sanitizeHtml(content.article.bodyHtml) }}
                   />
                 ) : (
@@ -218,7 +220,7 @@ export default function BlogPostTemplate({ content }: Props) {
                 )}
                 
                 {content.article?.quote && (
-                  <div className="p-6 bg-slate-900/60 border-l-4 border-[#00A8A8] my-8">
+                  <div className="my-8 rounded-2xl border-l-4 border-[#4A86D8] bg-white/5 p-6">
                     <p className="text-white italic mb-0">&quot;{content.article.quote}&quot;</p>
                   </div>
                 )}
@@ -226,7 +228,7 @@ export default function BlogPostTemplate({ content }: Props) {
 
               <div className="mt-16 pt-12 border-t border-slate-800 relative z-10">
                 <div className="flex items-center gap-3 mb-8">
-                  <BarChart3 className="text-[#FFD700]" size={20} />
+                  <BarChart3 className="text-[#E8A040]" size={20} />
                   <h3 className="text-sm font-black uppercase tracking-[0.2em] text-white">Key Takeaways & Metrics</h3>
                 </div>
                 
@@ -235,35 +237,27 @@ export default function BlogPostTemplate({ content }: Props) {
                     <motion.div 
                       key={metric.label}
                       whileHover={{ y: -5 }}
-                      className={`p-6 bg-slate-900/40 border-l-2 ${metric.accentColor === 'teal' ? 'border-[#00A8A8]' : metric.accentColor === 'cyan' ? 'border-[#36C0CF]' : metric.accentColor === 'gold' ? 'border-[#FFD700]' : 'border-[#2463EB]'}`}
+                      className="card-dark bg-white/5 p-6"
                     >
                       <div className="flex justify-between items-start mb-2">
-                        <span className={`text-[10px] font-bold ${metric.accentColor === 'teal' ? 'text-[#00A8A8]' : metric.accentColor === 'cyan' ? 'text-[#36C0CF]' : metric.accentColor === 'gold' ? 'text-[#FFD700]' : 'text-[#2463EB]'} uppercase tracking-tighter`}>{metric.category}</span>
-                        <span className="text-[#00A8A8] font-black text-xl">{metric.value}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-tighter text-[#4A86D8]">{metric.category}</span>
+                        <span className="proof-gradient-text font-black text-xl">{metric.value}</span>
                       </div>
                       <h4 className="text-sm font-bold text-white mb-2">{metric.label}</h4>
-                      <p className="text-[11px] text-[#A0AEC0] leading-relaxed">{metric.description}</p>
+                      <p className="text-[11px] text-slate-400 leading-relaxed">{metric.description}</p>
                     </motion.div>
                   ))}
                 </div>
 
                 <div className="mt-12 flex flex-col sm:flex-row justify-between items-center gap-6">
-                  <div className="flex items-center gap-6">
-                    <div className="flex gap-1.5 items-end h-8">
-                      <motion.div initial={{ height: "40%" }} animate={{ height: "60%" }} transition={{ repeat: Infinity, repeatType: "reverse" as const, duration: 1 }} className="w-1.5 bg-[#00A8A8]"></motion.div>
-                      <motion.div initial={{ height: "80%" }} animate={{ height: "100%" }} transition={{ repeat: Infinity, repeatType: "reverse" as const, duration: 1.2 }} className="w-1.5 bg-[#00A8A8]"></motion.div>
-                      <motion.div initial={{ height: "50%" }} animate={{ height: "70%" }} transition={{ repeat: Infinity, repeatType: "reverse" as const, duration: 0.8 }} className="w-1.5 bg-[#00A8A8]"></motion.div>
-                      <motion.div initial={{ height: "70%" }} animate={{ height: "90%" }} transition={{ repeat: Infinity, repeatType: "reverse" as const, duration: 1.1 }} className="w-1.5 bg-[#00A8A8]"></motion.div>
-                    </div>
-                    <div className="text-[10px] text-[#A0AEC0] font-bold uppercase tracking-widest">
-                      Telemetry: Stable
-                    </div>
+                  <div className="text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+                    Telemetry snapshot: Stable
                   </div>
                   <div className="flex gap-4 w-full sm:w-auto">
-                    <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 bg-[#2463EB] hover:bg-[#2463EB]/80 text-white px-6 py-3 rounded text-xs font-black uppercase tracking-widest transition-all">
+                    <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 rounded-xl bg-[#4A86D8] px-6 py-3 text-xs font-black uppercase tracking-widest text-white transition-all hover:bg-[#3C74BE]">
                       <Download size={14} /> Download PDF
                     </button>
-                    <button className="flex-1 sm:flex-none flex items-center justify-center gap-2 border border-slate-700 hover:border-[#00A8A8] text-white px-6 py-3 rounded text-xs font-black uppercase tracking-widest transition-all">
+                    <button className="btn-hero-outline flex-1 sm:flex-none text-xs font-black uppercase tracking-widest">
                       <Share2 size={14} /> Share
                     </button>
                   </div>
@@ -271,11 +265,11 @@ export default function BlogPostTemplate({ content }: Props) {
               </div>
             </motion.article>
 
-            <div className="bg-[#0A0F2D] border border-slate-800 p-8 text-center rounded">
+            <div className="card-dark bg-[#112B3C] p-8 text-center">
               <blockquote className="text-2xl font-light text-white leading-tight italic max-w-2xl mx-auto">
-                &quot;Revenue isn&apos;t a byproduct of effort; it&apos;s a <span className="text-[#2463EB] font-bold not-italic">designed output</span> of a high-precision architectural system.&quot;
+                &quot;Revenue isn&apos;t a byproduct of effort; it&apos;s a <span className="text-[#AED6F1] font-bold not-italic">designed output</span> of a high-precision architectural system.&quot;
               </blockquote>
-              <cite className="block mt-6 text-[#A0AEC0] font-bold tracking-widest uppercase text-[10px]">&mdash; The Revenue Architect Manifesto</cite>
+              <cite className="block mt-6 text-slate-400 font-bold tracking-widest uppercase text-[10px]">The Revenue Architect Manifesto</cite>
             </div>
           </div>
 
@@ -286,27 +280,27 @@ export default function BlogPostTemplate({ content }: Props) {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="bg-[#1E2A5E] dashboard-border p-6 rounded-lg"
+              className="glass-card-surface-alt p-6"
             >
               <div className="flex items-center gap-2 mb-6">
-                <Activity className="text-[#00A8A8]" size={16} />
+                <Activity className="text-[#4A86D8]" size={16} />
                 <h3 className="text-xs font-black uppercase tracking-widest text-white">Post Telemetry</h3>
               </div>
               <div className="space-y-4">
                 <div className="flex justify-between items-center">
-                  <span className="text-xs text-[#A0AEC0]">Complexity Index</span>
+                  <span className="text-xs text-slate-400">Complexity Index</span>
                   <span className="text-xs font-black text-white">{content.sidebar?.telemetry?.index}</span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-xs text-[#A0AEC0]">Actionability</span>
-                  <span className="text-xs font-black text-[#00A8A8]">{content.sidebar?.telemetry?.actionability}%</span>
+                  <span className="text-xs text-slate-400">Actionability</span>
+                  <span className="proof-gradient-text text-xs font-black">{content.sidebar?.telemetry?.actionability}%</span>
                 </div>
                 <div className="w-full bg-slate-800 h-1 mt-2">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${content.sidebar?.telemetry?.actionability}%` }}
                     transition={{ duration: 1.5 }}
-                    className="bg-[#00A8A8] h-full"
+                    className="h-full bg-[linear-gradient(135deg,#C2440F_0%,#E8A040_55%,#FFDB58_100%)]"
                   ></motion.div>
                 </div>
               </div>
@@ -316,16 +310,16 @@ export default function BlogPostTemplate({ content }: Props) {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.5 }}
-              className="bg-[#2463EB] p-8 relative overflow-hidden group rounded-lg"
+              className="relative overflow-hidden rounded-2xl bg-[#112B3C] p-8"
             >
               <div className="relative z-10">
                 <h4 className="text-white font-black text-xl mb-3 uppercase tracking-tight">{content.sidebar?.cta?.title}</h4>
                 <p className="text-white/80 text-sm mb-6 leading-relaxed">{content.sidebar?.cta?.description}</p>
-                <button className="w-full bg-white text-[#2463EB] font-black py-3 rounded uppercase text-xs tracking-widest hover:bg-slate-100 transition-colors">
+                <button className="nav-cta w-full">
                   {content.sidebar?.cta?.buttonText}
                 </button>
               </div>
-              <div className="absolute -bottom-6 -right-6 pointer-events-none group-hover:scale-110 transition-transform duration-500 opacity-10 rotate-12">
+              <div className="absolute -bottom-6 -right-6 pointer-events-none opacity-10 rotate-12">
                 <DraftingCompass className="text-white" size={140} />
               </div>
             </motion.div>
@@ -334,22 +328,22 @@ export default function BlogPostTemplate({ content }: Props) {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.6 }}
-              className="bg-slate-900 border border-slate-800 p-8 rounded-lg"
+              className="glass-card-surface-alt p-8"
             >
               <h4 className="text-white font-black text-sm uppercase tracking-widest mb-4 flex items-center gap-2">
-                <Terminal size={14} className="text-[#00A8A8]" /> {content.sidebar?.newsletter?.title}
+                <Terminal size={14} className="text-[#4A86D8]" /> {content.sidebar?.newsletter?.title}
               </h4>
-              <p className="text-[#A0AEC0] text-xs mb-6 leading-relaxed">{content.sidebar?.newsletter?.description}</p>
+              <p className="text-slate-400 text-xs mb-6 leading-relaxed">{content.sidebar?.newsletter?.description}</p>
               <div className="space-y-3">
                 <div className="relative">
                   <Mail className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" size={14} />
                   <input 
-                    className="w-full bg-[#0A0F2D] border border-slate-700 text-white pl-10 p-3 rounded text-sm focus:border-[#00A8A8] outline-none transition-all" 
+                    className="w-full rounded-xl border border-white/10 bg-[#0A1628] pl-10 p-3 text-sm text-white outline-none transition-all focus:border-[#4A86D8]" 
                     placeholder="root@enterprise.com" 
                     type="email"
                   />
                 </div>
-                <button className="w-full bg-[#00A8A8] hover:bg-[#00A8A8]/80 text-white font-black py-3 rounded uppercase text-xs tracking-widest transition-colors shadow-lg shadow-[#00A8A8]/20">
+                <button className="nav-cta w-full">
                   {content.sidebar?.newsletter?.buttonText}
                 </button>
               </div>
@@ -359,13 +353,13 @@ export default function BlogPostTemplate({ content }: Props) {
               initial={{ x: 20, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
               transition={{ delay: 0.7 }}
-              className="bg-[#1E2A5E] dashboard-border p-6 rounded-lg"
+              className="glass-card-surface-alt p-6"
             >
               <h3 className="text-xs font-black uppercase tracking-widest text-white mb-6">Related Specs</h3>
               <div className="space-y-4">
                 {content.sidebar?.relatedSpecs?.map((spec: any) => (
                   <Link key={spec.title} className="block group" href={spec.href}>
-                    <h4 className="text-sm font-bold text-[#A0AEC0] group-hover:text-[#00A8A8] transition-colors flex items-center gap-2">
+                    <h4 className="text-sm font-bold text-slate-300 group-hover:text-[#AED6F1] transition-colors flex items-center gap-2">
                       <ChevronRight size={12} className="opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition-all" />
                       {spec.title}
                     </h4>
@@ -380,48 +374,52 @@ export default function BlogPostTemplate({ content }: Props) {
       </main>
 
       {/* Footer */}
-      <footer className="bg-[#0A0F2D] border-t border-slate-800 py-16">
-        <div className="max-w-[1600px] mx-auto px-4 sm:px-6 lg:px-8">
+      <footer className="bg-[#020617] border-t border-white/5 py-16">
+        <div className="container-width">
           <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12 mb-16">
             <div className="col-span-2">
               <div className="flex items-center gap-3 mb-6">
-                <DraftingCompass className="text-[#2463EB]" size={24} />
+                <DraftingCompass className="text-[#4A86D8]" size={24} />
                 <span className="text-lg font-black tracking-tighter text-white uppercase">{content.header?.logoText}</span>
               </div>
-              <p className="text-sm text-[#A0AEC0] leading-relaxed mb-6 max-w-sm">
+              <p className="text-sm text-slate-400 leading-relaxed mb-6 max-w-sm">
                 The definitive resource for GTM systems engineering. We help enterprise leaders design, build, and scale high-precision revenue machines.
               </p>
               <div className="flex gap-4">
-                <Link className="text-slate-500 hover:text-[#00A8A8] p-2 border border-slate-800 rounded hover:border-[#00A8A8] transition-all" href="#"><Network size={18} /></Link>
-                <Link className="text-slate-500 hover:text-[#00A8A8] p-2 border border-slate-800 rounded hover:border-[#00A8A8] transition-all" href="#"><Terminal size={18} /></Link>
-                <Link className="text-slate-500 hover:text-[#00A8A8] p-2 border border-slate-800 rounded hover:border-[#00A8A8] transition-all" href="#"><Lock size={18} /></Link>
+                <span aria-disabled="true" className="rounded-xl border border-white/10 p-2 text-slate-500 transition-all hover:border-[#AED6F1] hover:text-[#AED6F1] cursor-default"><Network size={18} /></span>
+                <span aria-disabled="true" className="rounded-xl border border-white/10 p-2 text-slate-500 transition-all hover:border-[#AED6F1] hover:text-[#AED6F1] cursor-default"><Terminal size={18} /></span>
+                <span aria-disabled="true" className="rounded-xl border border-white/10 p-2 text-slate-500 transition-all hover:border-[#AED6F1] hover:text-[#AED6F1] cursor-default"><Lock size={18} /></span>
               </div>
             </div>
             <div>
               <h5 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">Expertise</h5>
-              <ul className="flex flex-col gap-4 text-xs text-[#A0AEC0] font-medium">
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">RevOps Audit</Link></li>
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">Data Strategy</Link></li>
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">GTM Modeling</Link></li>
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">Sales Stack</Link></li>
+              <ul className="flex flex-col gap-4 text-xs text-slate-400 font-medium">
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/expertise">RevOps Audit</Link></li>
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/expertise">Data Strategy</Link></li>
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/expertise">GTM Modeling</Link></li>
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/expertise">Sales Stack</Link></li>
               </ul>
             </div>
             <div>
               <h5 className="text-white font-bold text-xs uppercase tracking-[0.2em] mb-6">Network</h5>
-              <ul className="flex flex-col gap-4 text-xs text-[#A0AEC0] font-medium">
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">Methodology</Link></li>
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">Gallery</Link></li>
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">Industries</Link></li>
-                <li><Link className="hover:text-[#00A8A8] transition-colors" href="#">About Me</Link></li>
+              <ul className="flex flex-col gap-4 text-xs text-slate-400 font-medium">
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/blog">All posts</Link></li>
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/gallery">Gallery</Link></li>
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/industries">Industries</Link></li>
+                <li><Link className="hover:text-[#AED6F1] transition-colors" href="/about">About Me</Link></li>
               </ul>
             </div>
           </div>
           
           <div className="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-[10px] text-slate-500 uppercase tracking-widest">© 2024 {content.header?.logoText} — BUILD_VERSION_1.0.4</p>
-            <div className="flex gap-6 text-[10px] uppercase font-bold tracking-widest text-[#00A8A8]">
-              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#00A8A8]"></span> Engineered for Growth</span>
-              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#FFD700]"></span> Precision Scale</span>
+            <p className="text-[10px] text-slate-500 uppercase tracking-widest">© 2024 {content.header?.logoText} • BUILD_VERSION_1.0.4</p>
+            <div className="flex items-center gap-4 text-[10px] font-bold uppercase tracking-widest">
+              <Link className="text-[#4A86D8] transition-colors hover:text-[#AED6F1]" href="/blog">Back to blog</Link>
+              <Link className="text-[#4A86D8] transition-colors hover:text-[#AED6F1]" href="/contact">Get in touch</Link>
+            </div>
+            <div className="flex gap-6 text-[10px] uppercase font-bold tracking-widest text-[#4A86D8]">
+              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#4A86D8]"></span> Engineered for Growth</span>
+              <span className="flex items-center gap-2"><span className="h-1 w-1 rounded-full bg-[#FFDB58]"></span> Precision Scale</span>
             </div>
           </div>
         </div>

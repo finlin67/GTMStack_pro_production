@@ -311,7 +311,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                 {link.label}
               </a>
             ))}
-            <a href="#" className="rounded-full bg-slate-900 px-5 py-2 text-sm font-bold text-white hover:bg-slate-800 transition-all">
+            <a href="/contact" className="rounded-full bg-slate-900 px-5 py-2 text-sm font-bold text-white hover:bg-slate-800 transition-all">
               {content.navigation.cta}
             </a>
           </div>
@@ -486,7 +486,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
               <h2 className="text-3xl font-bold tracking-tight text-slate-900">{content.relatedStories.title}</h2>
               <p className="mt-2 text-slate-500">{content.relatedStories.subtitle}</p>
             </div>
-            <a href="#" className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-2 group">
+            <a href="/case-studies" className="text-sm font-bold text-blue-600 hover:text-blue-700 flex items-center gap-2 group">
               View All Case Studies
               <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

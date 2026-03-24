@@ -431,7 +431,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                 <h4 className="text-white font-bold text-lg mb-8">Services</h4>
                 <ul className="space-y-4 text-base text-gray-400">
                   {content.footer?.services?.map((s: string) => (
-                    <li key={s}><a href="#" className="hover:text-[#06B6D4] transition-colors font-medium">{s}</a></li>
+                    <li key={s}><a href="/expertise" className="hover:text-[#06B6D4] transition-colors font-medium">{s}</a></li>
                   ))}
                 </ul>
               </div>
@@ -439,7 +439,13 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                 <h4 className="text-white font-bold text-lg mb-8">Company</h4>
                 <ul className="space-y-4 text-base text-gray-400">
                   {content.footer?.company?.map((c: string) => (
-                    <li key={c}><a href="#" className="hover:text-[#06B6D4] transition-colors font-medium">{c}</a></li>
+                    <li key={c}>
+                      {c.toLowerCase().includes('contact') ? (
+                        <a href="/contact" className="hover:text-[#06B6D4] transition-colors font-medium">{c}</a>
+                      ) : (
+                        <span aria-disabled="true" className="hover:text-[#06B6D4] transition-colors font-medium cursor-default">{c}</span>
+                      )}
+                    </li>
                   ))}
                 </ul>
               </div>
@@ -449,12 +455,12 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                 {content.footer?.copyright || '© 2023 RevenueArchitect Inc.'}
               </p>
               <div className="flex gap-8">
-                <a href="#" className="text-gray-400 hover:text-white transition-all transform hover:scale-125">
+                <span aria-disabled="true" className="text-gray-400 hover:text-white transition-all transform hover:scale-125 cursor-default">
                   <span className="material-symbols-outlined text-2xl">public</span>
-                </a>
-                <a href="#" className="text-gray-400 hover:text-white transition-all transform hover:scale-125">
+                </span>
+                <span aria-disabled="true" className="text-gray-400 hover:text-white transition-all transform hover:scale-125 cursor-default">
                   <span className="material-symbols-outlined text-2xl">mail</span>
-                </a>
+                </span>
               </div>
             </div>
           </div>

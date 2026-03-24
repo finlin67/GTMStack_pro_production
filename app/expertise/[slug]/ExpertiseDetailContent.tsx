@@ -24,7 +24,7 @@ const ExpertiseHeroVisual = dynamic(
 const CYAN = '#36C0CF'
 const BLUE = '#146EF5'
 const TEAL = '#00A8A8'
-const GOLD = '#FFD700'
+const GOLD = '#FFDB58'
 
 /** Demand & Growth pillar theme — stylepack/expertise/growth/theme.tokens.json */
 const DG_THEME = {

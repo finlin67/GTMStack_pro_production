@@ -301,7 +301,7 @@ export default function ContentEngagement({ content }: Props) {
                 <ul className="space-y-4 text-base text-gray-400">
                   {content.footer.services.map((s) => (
                       <li key={s}>
-                        <Link href="#" className="hover:text-accent-cyan transition-colors font-medium">
+                        <Link href="/expertise" className="hover:text-accent-cyan transition-colors font-medium">
                           {s}
                         </Link>
                       </li>
@@ -314,9 +314,15 @@ export default function ContentEngagement({ content }: Props) {
                 <ul className="space-y-4 text-base text-gray-400">
                   {content.footer.company.map((c) => (
                       <li key={c}>
-                        <Link href="#" className="hover:text-accent-cyan transition-colors font-medium">
-                          {c}
-                        </Link>
+                        {c.toLowerCase().includes('contact') ? (
+                          <Link href="/contact" className="hover:text-accent-cyan transition-colors font-medium">
+                            {c}
+                          </Link>
+                        ) : (
+                          <span aria-disabled="true" className="hover:text-accent-cyan transition-colors font-medium cursor-default">
+                            {c}
+                          </span>
+                        )}
                       </li>
                   ))}
                 </ul>
@@ -326,12 +332,12 @@ export default function ContentEngagement({ content }: Props) {
             <div className="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
               <p className="text-gray-500 text-base font-medium">{content.footer.copyright}</p>
               <div className="flex gap-8">
-                <Link href="#" className="text-gray-400 hover:text-white transition-all transform hover:scale-125">
+                <span aria-disabled="true" className="text-gray-400 hover:text-white transition-all transform hover:scale-125 cursor-default">
                   <i className="material-symbols-outlined text-2xl">public</i>
-                </Link>
-                <Link href="#" className="text-gray-400 hover:text-white transition-all transform hover:scale-125">
+                </span>
+                <span aria-disabled="true" className="text-gray-400 hover:text-white transition-all transform hover:scale-125 cursor-default">
                   <i className="material-symbols-outlined text-2xl">mail</i>
-                </Link>
+                </span>
               </div>
             </div>
           </div>

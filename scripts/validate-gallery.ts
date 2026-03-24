@@ -29,6 +29,46 @@ const PLACEHOLDER_SUMMARY =
 const PLACEHOLDER_TAG_WORDS = new Set(['run', 'deploy', 'your', 'studio'])
 const EMOJI_LEADING = /^[\u{1F300}-\u{1FFFF}\u{2600}-\u{27BF}]+\s*/u
 
+function toTitleCaseSlug(value: string | undefined | null): string {
+  if (!value) return ''
+  return value
+    .replace(/[-_/]+/g, ' ')
+    .split(' ')
+    .filter(Boolean)
+    .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
+}
+
+function stripLeadingEmoji(value: string): string {
+  return value.replace(EMOJI_LEADING, '').trim()
+}
+
+function normalizeTitle(title: string, slug: string): string {
+  const stripped = stripLeadingEmoji(title)
+  if (PLACEHOLDER_TITLE.test(stripped) || !stripped) {
+    return toTitleCaseSlug(slug.replace(/-v\d+$/, ''))
+  }
+  return stripped
+}
+
+function normalizeSummary(summary: string | null | undefined): string | null {
+  if (!summary) return null
+  const cleaned = summary
+    .replace(PLACEHOLDER_SUMMARY, '')
+    .replace(/<[^>]+>/g, ' ')
+    .replace(/&quot;/g, '"')
+    .replace(/&amp;/g, '&')
+    .replace(/\s+/g, ' ')
+    .trim()
+  return cleaned || null
+}
+
+function deriveSummary(slug: string, category: string): string {
+  const intent = toTitleCaseSlug(slug.replace(/-v\d+$/, ''))
+  const cat = toTitleCaseSlug(category)
+  return `${intent} - interactive ${cat} animation tile.`
+}
+
 type ManifestItem = {
   id: string
   slug: string
@@ -88,22 +128,32 @@ function validate(items: ManifestItem[]): Issue[] {
       }
     }
 
+    const normalizedTitle = normalizeTitle(item.title, item.slug || item.id)
+    const normalizedSummary =
+      normalizeSummary(item.summary) ?? deriveSummary(item.slug || item.id, item.category)
+
     // --- Title quality ---
     if (item.title) {
       if (PLACEHOLDER_TITLE.test(item.title)) {
-        issues.push({ id: loc, field: 'title', severity: 'error', message: `Placeholder title: "${item.title}"` })
+        issues.push({ id: loc, field: 'title', severity: 'warn', message: `Placeholder title: "${item.title}" (runtime fallback will derive a title)` })
       }
       if (EMOJI_LEADING.test(item.title)) {
-        issues.push({ id: loc, field: 'title', severity: 'warn', message: `Title starts with emoji: "${item.title}"` })
+        issues.push({ id: loc, field: 'title', severity: 'warn', message: `Title starts with emoji: "${item.title}" (runtime fallback strips emoji)` })
       }
+    }
+    if (!normalizedTitle) {
+      issues.push({ id: loc, field: 'title', severity: 'error', message: `Normalized title is empty` })
     }
 
     // --- Summary quality ---
     if (item.summary != null && PLACEHOLDER_SUMMARY.test(item.summary)) {
-      issues.push({ id: loc, field: 'summary', severity: 'warn', message: `Placeholder summary text detected` })
+      issues.push({ id: loc, field: 'summary', severity: 'warn', message: `Placeholder summary text detected (runtime fallback will derive summary)` })
     }
     if (!item.summary) {
       issues.push({ id: loc, field: 'summary', severity: 'warn', message: `Missing summary (will derive fallback at runtime)` })
+    }
+    if (!normalizedSummary) {
+      issues.push({ id: loc, field: 'summary', severity: 'error', message: `Normalized summary is empty` })
     }
 
     // --- Tag quality ---

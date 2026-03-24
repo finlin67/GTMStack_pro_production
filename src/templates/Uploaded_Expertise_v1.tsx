@@ -154,7 +154,7 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
                   <item.icon className="w-10 h-10 text-amber-500 mb-6" />
                   <h3 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h3>
                   <p className="text-slate-600 mb-8 flex-grow">{item.desc}</p>
-                  <Link href="#" className="text-amber-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
+                  <Link href="/expertise" className="text-amber-600 font-bold flex items-center gap-2 group-hover:gap-4 transition-all">
                     {data.pillars.exploreText} <ArrowRight className="w-4 h-4" />
                   </Link>
                 </div>

@@ -7,6 +7,12 @@ const MetricSchema = z.object({
   change: z.string().optional(),
 });
 
+const KeyDecisionSchema = z.object({
+  decision: z.string().min(1),
+  rationale: z.string().min(1),
+  impact: z.string().optional(),
+});
+
 export const CaseStudyItemSchema = z
   .object({
     slug: z.string().min(1),
@@ -15,6 +21,7 @@ export const CaseStudyItemSchema = z
     description: z.string().min(1),
     challenge: z.string().min(1),
     solution: z.string().min(1),
+    keyDecisions: z.array(KeyDecisionSchema).min(1).optional(),
     results: z.array(z.string().min(1)).min(1),
     tags: z.array(z.string().min(1)).min(1),
     industry: z.string().min(1),

@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 export type PillarCategoryProps = { children: React.ReactNode }
 export type PillarTopicProps = { children: React.ReactNode }
@@ -23,7 +24,7 @@ const CONTENT_ENGAGEMENT_CONTENT = {
     },
     navigation: [
         { label: 'Home', href: '/', active: false },
-        { label: 'Methodology', href: '/methodology', active: false },
+        { label: 'Methodology', href: '/expertise', active: false },
         { label: 'Expertise', href: '/expertise', active: true },
         { label: 'Projects', href: '/projects', active: false },
         { label: 'Industries', href: '/industries', active: false },
@@ -39,8 +40,8 @@ const CONTENT_ENGAGEMENT_CONTENT = {
         },
         description:
             'Storytelling engines that build trust, demand, and lifetime value. We re-engineer how your brand speaks to the market.',
-        primaryCTA: { label: 'Explore Storytelling', href: '/storytelling' },
-        secondaryCTA: { label: 'Request Audit', href: '/audit' },
+        primaryCTA: { label: 'Explore Storytelling', href: '/expertise' },
+        secondaryCTA: { label: 'Request Audit', href: '/contact' },
         image: {
             src: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=2070&auto=format&fit=crop',
             alt: 'Abstract digital particle flow representing data streams',
@@ -97,7 +98,7 @@ const CONTENT_ENGAGEMENT_CONTENT = {
     },
     explore: {
         title: 'Explore Further',
-        viewAllHref: '/all',
+        viewAllHref: '/expertise',
         cards: [
             {
                 category: 'BLOG',
@@ -107,7 +108,7 @@ const CONTENT_ENGAGEMENT_CONTENT = {
                 image:
                     'https://images.unsplash.com/photo-1499750310159-5b600aaf0378?q=80&w=2069&auto=format&fit=crop',
                 ctaLabel: 'Read Article',
-                href: '/blog/content-roi',
+                href: '/blog',
             },
             {
                 category: 'PROJECTS',
@@ -117,7 +118,7 @@ const CONTENT_ENGAGEMENT_CONTENT = {
                 image:
                     'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?q=80&w=2070&auto=format&fit=crop',
                 ctaLabel: 'View Case Study',
-                href: '/projects/saas-growth',
+                href: '/case-studies',
             },
             {
                 category: 'GALLERY',
@@ -126,7 +127,7 @@ const CONTENT_ENGAGEMENT_CONTENT = {
                 image:
                     'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=2070&auto=format&fit=crop',
                 ctaLabel: 'Browse Gallery',
-                href: '/gallery/visual-systems',
+                href: '/gallery',
             },
         ],
     },
@@ -149,119 +150,134 @@ type TemplateProps = {
     pageTitle?: string
 }
 
-function A({ children }: { href: string; children: React.ReactNode; className?: string }) {
-    // simple anchor (safe for server render); you can switch to next/link later
-    return <a href="#" onClick={(e) => e.preventDefault()}>{children}</a>
-}
-
 export default function ContentEngagementPillarTemplate(props: TemplateProps) {
     const c = CONTENT_ENGAGEMENT_CONTENT
     const title = props.pageTitle ?? c.metadata.title
 
     return (
-        <div style={{ padding: 24, maxWidth: 980, margin: '0 auto', fontFamily: 'system-ui, sans-serif' }}>
-            <header style={{ display: 'flex', justifyContent: 'space-between', gap: 16, alignItems: 'center' }}>
-                <div>
-                    <div style={{ fontWeight: 800 }}>{c.metadata.siteName}</div>
-                    <div style={{ opacity: 0.7, marginTop: 4 }}>{title}</div>
-                </div>
-                <nav style={{ display: 'flex', gap: 12, flexWrap: 'wrap', justifyContent: 'flex-end' }}>
-                    {c.navigation.map((n) => (
-                        <span key={n.href} style={{ fontWeight: n.active ? 800 : 500, opacity: n.active ? 1 : 0.75 }}>
-              {n.label}
-            </span>
-                    ))}
-                </nav>
-            </header>
-
-            <main style={{ marginTop: 28 }}>
-                <section style={{ padding: 18, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                    <div style={{ fontSize: 12, fontWeight: 800, letterSpacing: 1, opacity: 0.7 }}>
-                        {c.hero.badge}
+        <div className="min-h-screen bg-[#0A1628] text-white">
+            <div className="container-width section-padding">
+                <header className="flex flex-col gap-6 border-b border-white/10 pb-8 lg:flex-row lg:items-end lg:justify-between">
+                    <div>
+                        <div className="font-display text-lg font-bold tracking-tight text-white">{c.metadata.siteName}</div>
+                        <div className="mt-2 text-sm text-slate-400">{title}</div>
                     </div>
-                    <h1 style={{ marginTop: 10, fontSize: 42, lineHeight: 1.1 }}>
-                        {c.hero.headline.main} <span style={{ fontWeight: 800 }}>{c.hero.headline.highlight}</span>
-                    </h1>
-                    <p style={{ marginTop: 12, fontSize: 16, opacity: 0.8 }}>{c.hero.description}</p>
-
-                    <div style={{ display: 'flex', gap: 12, marginTop: 16, flexWrap: 'wrap' }}>
-                        <button style={{ padding: '10px 14px', borderRadius: 10, border: '1px solid #111827', background: '#111827', color: 'white' }}>
-                            {c.hero.primaryCTA.label}
-                        </button>
-                        <button style={{ padding: '10px 14px', borderRadius: 10, border: '1px solid #111827', background: 'transparent' }}>
-                            {c.hero.secondaryCTA.label}
-                        </button>
-                    </div>
-
-                    <div style={{ display: 'flex', gap: 10, marginTop: 16, flexWrap: 'wrap' }}>
-                        {c.hero.floatingBadges.map((b) => (
-                            <span key={b.label} style={{ padding: '6px 10px', borderRadius: 999, border: '1px solid #e5e7eb', fontSize: 13 }}>
-                {b.label}
-              </span>
+                    <nav className="flex flex-wrap gap-3 text-sm text-slate-400">
+                        {c.navigation.map((n) => (
+                            <Link
+                                key={n.href}
+                                href={n.href}
+                                className={n.active ? 'font-semibold text-[#FFDB58]' : 'font-medium'}
+                            >
+                                {n.label}
+                            </Link>
                         ))}
-                    </div>
-                </section>
+                    </nav>
+                </header>
 
-                <section style={{ marginTop: 18, display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 12 }}>
-                    {c.stats.map((s) => (
-                        <div key={s.label} style={{ padding: 16, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                            <div style={{ fontSize: 28, fontWeight: 900 }}>{s.value}</div>
-                            <div style={{ marginTop: 6, fontWeight: 700 }}>{s.label}</div>
-                            <div style={{ marginTop: 4, opacity: 0.75, fontSize: 13 }}>{s.subtext}</div>
+                <main className="mt-10 space-y-8">
+                    <section className="card-dark border-[#FFDB58]/20 bg-[#112B3C]/70 p-8 lg:p-10">
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#FFDB58]">
+                            {c.hero.badge}
                         </div>
-                    ))}
-                </section>
+                        <h1 className="font-display mt-4 text-4xl font-bold leading-tight text-white md:text-5xl lg:text-6xl">
+                            {c.hero.headline.main}{' '}
+                            <span className="text-gradient-cobalt-ice">{c.hero.headline.highlight}</span>
+                        </h1>
+                        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-300">{c.hero.description}</p>
 
-                <section style={{ marginTop: 18, padding: 18, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                    <h2 style={{ margin: 0, fontSize: 22 }}>{c.services.title}</h2>
-                    <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(2, minmax(0, 1fr))', gap: 12 }}>
-                        {c.services.items.map((it) => (
-                            <div key={it.title} style={{ padding: 14, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                                <div style={{ fontWeight: 800 }}>{it.title}</div>
-                                <div style={{ marginTop: 6, opacity: 0.8, fontSize: 14 }}>{it.description}</div>
+                        <div className="mt-8 flex flex-wrap gap-3">
+                            <a href={c.hero.primaryCTA.href} className="nav-cta">
+                                {c.hero.primaryCTA.label}
+                            </a>
+                            <a href={c.hero.secondaryCTA.href} className="btn-hero-outline">
+                                {c.hero.secondaryCTA.label}
+                            </a>
+                        </div>
+
+                        <div className="mt-8 flex flex-wrap gap-3">
+                            {c.hero.floatingBadges.map((b) => (
+                                <span
+                                    key={b.label}
+                                    className="rounded-full border border-[#FFDB58]/25 bg-[#FFDB58]/10 px-3 py-1.5 text-xs font-semibold uppercase tracking-wide text-[#FFDB58]"
+                                >
+                                    {b.label}
+                                </span>
+                            ))}
+                        </div>
+                    </section>
+
+                    <section className="grid gap-4 md:grid-cols-3">
+                        {c.stats.map((s) => (
+                            <div key={s.label} className="card-dark border-white/10 bg-[#0D2137] p-6">
+                                <div className="proof-gradient-text font-display text-3xl font-extrabold md:text-4xl">{s.value}</div>
+                                <div className="mt-3 text-base font-semibold text-white">{s.label}</div>
+                                <div className="mt-2 text-sm leading-relaxed text-slate-400">{s.subtext}</div>
                             </div>
                         ))}
-                    </div>
-                </section>
+                    </section>
 
-                <section style={{ marginTop: 18, padding: 18, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                    <blockquote style={{ margin: 0 }}>
-                        <div style={{ fontSize: 20, fontWeight: 900 }}>{c.quote.text}</div>
-                        <div style={{ marginTop: 10, opacity: 0.8 }}>{c.quote.subtext}</div>
-                    </blockquote>
-                </section>
+                    <section className="card-dark border-white/10 bg-[#0D2137] p-8 lg:p-10">
+                        <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#FFDB58]">Execution</div>
+                        <h2 className="font-display mt-3 text-3xl font-bold text-white">{c.services.title}</h2>
+                        <div className="mt-8 grid gap-4 md:grid-cols-2">
+                            {c.services.items.map((it) => (
+                                <div key={it.title} className="rounded-2xl border border-white/10 bg-white/5 p-5">
+                                    <div className="font-display text-lg font-semibold text-white">{it.title}</div>
+                                    <div className="mt-2 text-sm leading-relaxed text-slate-300">{it.description}</div>
+                                </div>
+                            ))}
+                        </div>
+                    </section>
 
-                <section style={{ marginTop: 18, padding: 18, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', gap: 12, alignItems: 'baseline', flexWrap: 'wrap' }}>
-                        <h2 style={{ margin: 0, fontSize: 22 }}>{c.explore.title}</h2>
-                        <span style={{ opacity: 0.75 }}>View all →</span>
-                    </div>
+                    <section className="rounded-2xl border border-[#FFDB58]/20 bg-[#112B3C] p-8 lg:p-10">
+                        <blockquote className="max-w-4xl">
+                            <div className="font-display text-2xl font-semibold leading-tight text-white md:text-3xl">{c.quote.text}</div>
+                            <div className="mt-4 text-base leading-relaxed text-slate-300">{c.quote.subtext}</div>
+                        </blockquote>
+                    </section>
 
-                    <div style={{ marginTop: 12, display: 'grid', gridTemplateColumns: 'repeat(3, minmax(0, 1fr))', gap: 12 }}>
-                        {c.explore.cards.map((card) => (
-                            <div key={card.title} style={{ padding: 14, border: '1px solid #e5e7eb', borderRadius: 12 }}>
-                                <div style={{ fontSize: 12, fontWeight: 900, letterSpacing: 1, opacity: 0.7 }}>{card.category}</div>
-                                <div style={{ marginTop: 6, fontWeight: 800 }}>{card.title}</div>
-                                <div style={{ marginTop: 6, opacity: 0.8, fontSize: 14 }}>{card.description}</div>
-                                <div style={{ marginTop: 10, fontWeight: 800 }}>{card.ctaLabel} →</div>
+                    <section className="card-dark border-white/10 bg-[#0D2137] p-8 lg:p-10">
+                        <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+                            <div>
+                                <div className="text-xs font-semibold uppercase tracking-[0.2em] text-[#FFDB58]">Related</div>
+                                <h2 className="font-display mt-3 text-3xl font-bold text-white">{c.explore.title}</h2>
                             </div>
-                        ))}
-                    </div>
-                </section>
+                            <a href={c.explore.viewAllHref} className="text-sm font-semibold text-[#AED6F1] hover:text-white">
+                                View all
+                            </a>
+                        </div>
 
-                <section style={{ marginTop: 18, padding: 18, border: '1px solid #e5e7eb', borderRadius: 12, textAlign: 'center' }}>
-                    <h2 style={{ margin: 0, fontSize: 24 }}>{c.ctaSection.title}</h2>
-                    <p style={{ marginTop: 10, opacity: 0.8 }}>{c.ctaSection.subtitle}</p>
-                    <button style={{ padding: '10px 14px', borderRadius: 10, border: '1px solid #111827', background: '#111827', color: 'white' }}>
-                        {c.ctaSection.buttonLabel}
-                    </button>
-                </section>
-            </main>
+                        <div className="mt-8 grid gap-4 lg:grid-cols-3">
+                            {c.explore.cards.map((card) => (
+                                <a
+                                    key={card.title}
+                                    href={card.href}
+                                    className="rounded-2xl border border-white/10 bg-white/5 p-5 transition-colors hover:border-[#AED6F1]/35"
+                                >
+                                    <div className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#FFDB58]">{card.category}</div>
+                                    <div className="mt-3 font-display text-lg font-semibold text-white">{card.title}</div>
+                                    <div className="mt-2 text-sm leading-relaxed text-slate-300">{card.description}</div>
+                                    <div className="mt-4 text-sm font-semibold text-[#AED6F1]">{card.ctaLabel}</div>
+                                </a>
+                            ))}
+                        </div>
+                    </section>
 
-            <footer style={{ marginTop: 24, paddingTop: 16, borderTop: '1px solid #e5e7eb' }}>
-                <div style={{ opacity: 0.8 }}>{c.footer.description}</div>
-                <div style={{ marginTop: 10, fontSize: 12, opacity: 0.7 }}>{c.footer.copyright}</div>
-            </footer>
+                    <section className="rounded-2xl border border-[#FFDB58]/25 bg-[#112B3C] px-8 py-10 text-center lg:px-10">
+                        <h2 className="font-display text-3xl font-bold text-white">{c.ctaSection.title}</h2>
+                        <p className="mx-auto mt-4 max-w-2xl text-base leading-relaxed text-slate-300">{c.ctaSection.subtitle}</p>
+                        <div className="mt-8">
+                            <button className="nav-cta">{c.ctaSection.buttonLabel}</button>
+                        </div>
+                    </section>
+                </main>
+
+                <footer className="mt-10 border-t border-white/10 pt-8">
+                    <div className="max-w-3xl text-sm leading-relaxed text-slate-400">{c.footer.description}</div>
+                    <div className="mt-4 text-xs uppercase tracking-[0.16em] text-slate-500">{c.footer.copyright}</div>
+                </footer>
+            </div>
         </div>
     )
 }

@@ -351,13 +351,13 @@ export default function Template(props: { content?: unknown; pageTitle?: string;
 
             <div className="flex flex-col sm:flex-row gap-4">
               <a 
-                href="#"
+                href="/expertise"
                 className="bg-[#24cae0] hover:bg-[#24cae0]/90 text-[#020617] font-black py-5 px-12 rounded-xl text-sm uppercase tracking-widest transition-all transform hover:scale-105 shadow-xl shadow-[#24cae0]/20"
               >
                 Explore Assets
               </a>
               <a 
-                href="#"
+                href="/blog"
                 className="bg-white/5 hover:bg-white/10 border border-white/10 text-white font-black py-5 px-12 rounded-xl text-sm uppercase tracking-widest transition-all"
               >
                 Documentation

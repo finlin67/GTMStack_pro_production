@@ -53,6 +53,11 @@ export interface CaseStudyItem {
   description: string
   challenge: string
   solution: string
+  keyDecisions?: Array<{
+    decision: string
+    rationale: string
+    impact?: string
+  }>
   results: string[]
   tags: string[]
   industry: string

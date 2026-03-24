@@ -148,14 +148,14 @@ export default function BlogIndexClient({
       />
 
       {!hasCompletedInitialWpRefresh && isRefreshingFromWp && (
-        <div className="pointer-events-none fixed right-4 top-20 z-40 w-44 rounded-lg border border-cyan-300/30 bg-[#0A0F2D]/85 p-3 backdrop-blur-sm">
+        <div className="pointer-events-none fixed right-4 top-20 z-40 w-44 rounded-lg border border-cyan-300/30 bg-[#0A1628]/85 p-3 backdrop-blur-sm">
           <div className="mb-2 h-2 w-24 animate-pulse rounded bg-cyan-300/35" />
           <div className="h-2 w-full animate-pulse rounded bg-cyan-300/20" />
         </div>
       )}
 
       {wpSyncLabel && (
-        <div className="pointer-events-none fixed bottom-3 right-3 z-40 rounded-md border border-cyan-300/25 bg-[#0A0F2D]/80 px-2.5 py-1 text-[11px] text-cyan-200/90 backdrop-blur-sm">
+        <div className="pointer-events-none fixed bottom-3 right-3 z-40 rounded-md border border-cyan-300/25 bg-[#0A1628]/80 px-2.5 py-1 text-[11px] text-cyan-200/90 backdrop-blur-sm">
           Last updated from WP: {wpSyncLabel}
         </div>
       )}

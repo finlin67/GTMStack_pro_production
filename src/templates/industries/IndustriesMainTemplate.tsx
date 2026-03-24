@@ -255,7 +255,7 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                 </div>
                 <Link
                   className="text-[#1c6ef2] font-bold flex items-center gap-1 hover:gap-2 transition-all"
-                  href="#"
+                  href="/expertise"
                 >
                   See All Challenges{' '}
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -476,12 +476,12 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                     regulated industries.
                   </p>
                   <div className="flex gap-4">
-                    <Link className="text-gray-400 hover:text-white transition-colors" href="#">
+                    <span aria-disabled="true" className="text-gray-400 hover:text-white transition-colors cursor-default">
                       <span className="material-symbols-outlined text-xl">share</span>
-                    </Link>
-                    <Link className="text-gray-400 hover:text-white transition-colors" href="#">
+                    </span>
+                    <span aria-disabled="true" className="text-gray-400 hover:text-white transition-colors cursor-default">
                       <span className="material-symbols-outlined text-xl">mail</span>
-                    </Link>
+                    </span>
                   </div>
                 </div>
 

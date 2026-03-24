@@ -6,13 +6,21 @@
 :root {
   /* Background tokens */
   --color-background: #020617;
-  --color-background-alt: #0A0F2D;
+  --color-background-alt: #0A1628;
+  --color-background-mid: #0D2137;
+  --color-background-deep: #112B3C;
   --color-background-card: rgba(10, 15, 45, 0.6);
   /* Foreground tokens */
   --color-foreground: #FFFFFF;
   --color-foreground-muted: #67E8F9;
+  --color-foreground-body-light: #3D4B5C;
   --color-border: rgba(255, 255, 255, 0.08);
   --color-border-strong: rgba(0, 207, 255, 0.3);
+  --color-nav-cta: #FFDB58;
+  --color-nav-cta-text: #0A1628;
+  --color-proof-start: #C2440F;
+  --color-proof-mid: #E8A040;
+  --color-proof-end: #FFDB58;
   /* Accent tokens (main.png palette) */
   --color-accent-primary: #00CFFF;
   --color-accent-secondary: #3B82F6;
@@ -113,6 +121,20 @@
     background-clip: text;
   }
 
+  .text-gradient-cobalt-ice {
+    background: linear-gradient(135deg, #154360 0%, #AED6F1 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .proof-gradient-text {
+    background: linear-gradient(135deg, var(--color-proof-start) 0%, var(--color-proof-mid) 55%, var(--color-proof-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
   /* Glass card surface - dark sections (main.png style) */
   .glass-card-surface {
     @apply rounded-2xl border-2 backdrop-blur-md transition-all duration-300;
@@ -199,6 +221,26 @@
   .btn-hero-outline {
     @apply btn text-white/90 hover:text-white hover:bg-white/10 px-6 py-3 text-base rounded-xl border border-white/20 transition-all duration-300;
   }
+
+  .nav-cta {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 font-semibold transition-all duration-300 hover:-translate-y-0.5;
+    background-color: var(--color-nav-cta);
+    color: var(--color-nav-cta-text);
+    box-shadow: 0 10px 30px rgba(255, 219, 88, 0.24);
+  }
+
+  .nav-cta:hover {
+    box-shadow: 0 16px 36px rgba(255, 219, 88, 0.34);
+  }
+
+  .dashboard-border {
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+  }
+
+  .dashboard-border:hover {
+    border-color: rgba(74, 134, 216, 0.35);
+  }
   
   /* Card base styles */
   .card {
@@ -229,7 +271,7 @@
   
   .btn-primary {
     @apply bg-brand-600 text-white hover:bg-brand-700 focus-visible:ring-brand-500;
-    @apply shadow-md hover:shadow-lg hover:shadow-glow;
+    @apply shadow-md hover:shadow-glow;
   }
   
   .btn-secondary {
@@ -282,7 +324,7 @@
 
   /* Gold text gradient (ExpertiseMainTemplate optional) */
   .text-gradient-gold {
-    background: linear-gradient(to right, #f97316, #eab308);
+    background: linear-gradient(135deg, var(--color-proof-start) 0%, var(--color-proof-mid) 55%, var(--color-proof-end) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;

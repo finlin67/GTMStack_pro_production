@@ -96,7 +96,7 @@ export default function CaseStudiesPage() {
               <div className="flex flex-wrap gap-3 mt-2">
                 <Link
                   href="/contact"
-                  className="bg-slate-300 text-[#020617] px-6 py-3 rounded-lg font-bold hover:bg-white transition-colors text-sm"
+                  className="nav-cta text-sm"
                 >
                   Start a conversation
                 </Link>
@@ -376,7 +376,7 @@ export default function CaseStudiesPage() {
             </p>
             <Link
               href="/contact"
-              className="bg-[#E8A040] text-[#020617] px-8 py-4 rounded-lg font-bold text-base hover:bg-white transition-all inline-flex items-center gap-2 shadow-[0_0_40px_rgba(232,160,64,0.3)]"
+              className="nav-cta text-base"
             >
               Start a conversation
               <ArrowRight className="w-5 h-5" />
