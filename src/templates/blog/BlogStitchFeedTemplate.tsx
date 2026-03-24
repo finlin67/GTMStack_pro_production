@@ -156,7 +156,7 @@ export default function BlogStitchFeedTemplate({
       ) : null}
 
       {/* Hero — stitch: deep navy, centered gradient title */}
-      <section className="relative flex h-[min(550px,90vh)] items-center justify-center overflow-hidden bg-[#112B46] px-6 text-center">
+      <section className="relative flex h-[min(380px,70vh)] items-center justify-center overflow-hidden bg-[#112B46] px-6 text-center">
         <div
           className="pointer-events-none absolute inset-0 opacity-40"
           style={{
