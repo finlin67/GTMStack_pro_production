@@ -138,7 +138,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                       <h2 className="pt-6 font-display text-3xl font-black text-white md:text-4xl">{section.title}</h2>
                     ) : null}
                     <div
-                      className="article-body text-lg text-[#c3c6d7]"
+                      className="gtm-wp-content prose prose-slate lg:prose-xl dark:prose-invert max-w-none"
                       dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.content) }}
                     />
                     {section.type === 'list' && section.items ? (

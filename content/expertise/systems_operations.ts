@@ -72,7 +72,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Operations into an Invisible Infrastructure?",
     subtitle: "Embrace AI-driven orchestration to eliminate friction, boost strategic imperative, and secure your competitive future.",
-    button: { text: "Start a focused diagnostic", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Embrace the future of Systems & Operations: Reinvest 15% of operational savings into human-centric Durable Skills to manage the Invisible AI steering wheel, creating a significant 'Competitive Moat'.",

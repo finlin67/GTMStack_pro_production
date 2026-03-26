@@ -7,7 +7,7 @@ export const DEMAND_GROWTH_CONTENT = {
     headline: "Demand & Growth",
     subheadline: "High-potential account acquisition and ROI-focused pipeline.",
     description: "Quality over quantity: we identify, qualify, and nurture accounts that convert.",
-    primaryCTA: { text: "Improve Your Growth Model", link: "/contact" },
+    primaryCTA: { text: "See related work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/demand-growth#philosophy" },
     image: { src: "/images/heroes/placeholder.svg", alt: "Strategic Demand & Growth Dashboard" },
   },
@@ -50,7 +50,7 @@ export const DEMAND_GROWTH_CONTENT = {
   ctaSection: {
     title: "Ready to Accelerate Your Revenue Growth?",
     subtitle: "We partner with B2B companies seeking to optimize their sales productivity and navigate complex sales cycles. Let's build a demand strategy that delivers.",
-    button: { text: "Start a conversation", link: "/contact" },
+    button: { text: "View case studies", link: "/case-studies" },
   },
   footer: {
     description: "GTMStack.pro empowers businesses with strategic Demand & Growth solutions, transforming lead generation into a precise, high-impact revenue engine.",

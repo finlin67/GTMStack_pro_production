@@ -8,7 +8,7 @@ export const PUBSEC_GOVERNMENT_CONTENT = {
     subheadline: "Modernizing government operations with cutting-edge technology designed for unparalleled security and compliance.",
     description: "In an era of evolving threats and increasing citizen expectations, government agencies face immense pressure to innovate while upholding public trust. GTMStack.pro delivers robust, scalable solutions that drive digital transformation, enhance data integrity, and streamline service delivery across all levels of government.",
     primaryCTA: { label: "Explore Government Solutions", href: "/solutions/government" },
-    secondaryCTA: { label: "Get in Touch", href: "/contact" },
+    secondaryCTA: { label: "Contact", href: "/contact" },
     image: { src: "/images/government-hero.jpg", alt: "Modern government building with digital overlay" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const PUBSEC_GOVERNMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Modernize Your Public Sector Operations?",
     subtitle: "Partner with GTMStack.pro to build a more secure, efficient, and citizen-responsive government.",
-    button: { label: "Get in Touch", href: "/contact" }
+    button: { label: "Contact", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering public sector and government agencies with secure, compliant, and innovative technology solutions that drive digital transformation and enhance citizen services.",
@@ -58,7 +58,7 @@ export const PUBSEC_GOVERNMENT_CONTENT = {
       { title: "Solutions", links: [{ label: "Cybersecurity", href: "/solutions/cybersecurity" }, { label: "Data & AI", href: "/solutions/data-ai" }, { label: "Cloud Services", href: "/solutions/cloud" }, { label: "Citizen Platforms", href: "/solutions/citizen-platforms" }] },
       { title: "Company", links: [{ label: "About Us", href: "/about" }, { label: "Careers", href: "/careers" }, { label: "Partners", href: "/partners" }] },
       { title: "Resources", links: [{ label: "Case Studies", href: "/resources/case-studies" }, { label: "Whitepapers", href: "/resources/whitepapers" }, { label: "Blog", href: "/blog" }] },
-      { title: "Contact", links: [{ label: "Get in Touch", href: "/contact" }, { label: "Support", href: "/support" }] }
+      { title: "Contact", links: [{ label: "Contact", href: "/contact" }, { label: "Support", href: "/support" }] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }

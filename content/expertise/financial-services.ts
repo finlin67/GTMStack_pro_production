@@ -50,7 +50,7 @@ export const FINANCIAL_SERVICES_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Financial Market Strategy?",
     subtitle: "Connect with our experts to craft a go-to-market plan that delivers unparalleled results.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your strategic partner for navigating the complexities of the financial services market, delivering innovative go-to-market solutions that drive measurable success.",

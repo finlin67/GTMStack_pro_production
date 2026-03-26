@@ -14,10 +14,10 @@ export const SKELETON_INDUSTRY_CONTENT = {
     subheadline: "Industry-specific growth systems for [industry]",
     description: "Detailed explanation of the unique challenges and opportunities in [industry]. Our approach integrates [specific factors] to accelerate revenue.",
     primaryCTA: { label: "Explore Strategy", href: "#capabilities" },
-    secondaryCTA: { label: "Get in Touch", href: "/contact" },
+    secondaryCTA: { label: "Contact", href: "/contact" },
     image: {
       src: "https://images.unsplash.com/[relevant-industry-image]",
-      alt: "[Industry] revenue architecture visualization",
+      alt: "[Industry] GTM system visualization",
     },
   },
   metricsSection: {
@@ -91,7 +91,7 @@ export const SKELETON_INDUSTRY_CONTENT = {
   ctaSection: {
     title: "Ready to Build [Industry] Revenue Architecture?",
     subtitle: "Let's design a growth system built for the realities of [industry].",
-    button: { label: "Get in Touch", href: "/contact" },
+    button: { label: "Contact", href: "/contact" },
   },
   footer: {
     description: "[Industry]-specific B2B GTM architecture for predictable, regulated, high-value growth.",

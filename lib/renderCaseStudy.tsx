@@ -86,8 +86,8 @@ export default function RenderCaseStudy({
         label={caseStudy.client}
         title={outcomeHeadline}
         description={outcomeSubhead}
-        primaryCta={{ label: 'Start a Conversation', href: '/contact' }}
-        secondaryCta={{ label: config.viewAllLabel, href: config.viewAllHref }}
+        primaryCta={{ label: config.viewAllLabel, href: config.viewAllHref }}
+        secondaryCta={{ label: 'Explore Expertise', href: '/expertise' }}
         align="left"
         size="default"
         motif={HERO_VISUALS.defaults.detail.motif || 'signal'}
@@ -139,7 +139,7 @@ export default function RenderCaseStudy({
             The Route Map
           </h2>
           <p className="text-lg text-slate-300 leading-relaxed">
-            Step-by-step path from challenge to outcome.
+            How the work moved from problem to outcome.
           </p>
         </div>
         <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -268,34 +268,32 @@ export default function RenderCaseStudy({
           <SectionHeader
             label="Lessons"
             title="What's Next"
-            description="Key takeaways and ongoing opportunities."
+            description="A short read on what changed and what mattered most."
             className="mb-8"
           />
           <FadeIn>
             <div className="prose-brand max-w-3xl">
               <p className="text-lg text-slate-700 leading-relaxed">
-                This engagement demonstrates the power of a systematic, data-driven approach to GTM.
-                The results speak to the importance of clear strategy, proper execution infrastructure,
-                and continuous optimization. Moving forward, the focus shifts to scaling these wins
-                and identifying the next growth lever.
+                The value here is not just the headline metric. It is the combination of clearer operating
+                choices, better instrumentation, and tighter execution that made the result repeatable.
               </p>
               <div className="mt-8 grid md:grid-cols-2 gap-6">
                 <div className="p-6 rounded-xl bg-slate-50 border border-slate-200">
                   <h3 className="font-semibold text-slate-900 mb-2 flex items-center gap-2">
                     <Target className="w-5 h-5 text-brand-600" />
-                    Ongoing Optimization
+                    What changed
                   </h3>
                   <p className="text-sm text-slate-600">
-                    Continuous monitoring and refinement to maintain momentum and identify new opportunities.
+                    A clearer system, better signal quality, and less ambiguity in execution.
                   </p>
                 </div>
                 <div className="p-6 rounded-xl bg-slate-50 border border-slate-200">
                   <h3 className="font-semibold text-slate-900 mb-2 flex items-center gap-2">
                     <Zap className="w-5 h-5 text-brand-600" />
-                    Scale & Expand
+                    Why it matters
                   </h3>
                   <p className="text-sm text-slate-600">
-                    Apply proven frameworks to adjacent markets, channels, or product lines.
+                    The same underlying choices often transfer well to adjacent teams, markets, or motions.
                   </p>
                 </div>
               </div>
@@ -328,22 +326,22 @@ export default function RenderCaseStudy({
         <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
           <div className="text-center lg:text-left max-w-2xl">
             <h2 className="font-display text-2xl md:text-3xl font-bold tracking-tight text-white mb-2">
-              Ready for results like these?
+              Explore more work like this
             </h2>
             <p className="text-lg text-white/90">
-              Let&apos;s discuss how I can help accelerate your growth.
+              Continue through the case studies or jump into the related expertise behind this project.
             </p>
           </div>
           <div className="flex flex-wrap items-center gap-4">
             <Link
-              href="/contact"
+              href={config.viewAllHref}
               className="btn bg-white text-brand-700 hover:bg-white/90 shadow-lg px-6 py-3 text-base rounded-xl group"
             >
-              Get in Touch
+              {config.viewAllLabel}
               <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </Link>
-            <Link href={config.viewAllHref} className="btn-hero-outline">
-              {config.viewAllLabel}
+            <Link href="/expertise" className="btn-hero-outline">
+              Explore Expertise
             </Link>
           </div>
         </div>

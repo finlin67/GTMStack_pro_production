@@ -54,12 +54,12 @@ export const PUBLIC_SECTOR_GOVERNMENT_CONTENT = {
   },
   footer: {
     description:
-      "GTMStack.pro documents a field-tested GTM operating model—strategy, execution, and optimization expressed as systems you can inspect, not slides you borrow.",
+      "GTMStack.pro documents field-tested GTM systems—strategy, execution, and optimization expressed as work you can inspect, not slides you borrow.",
     sections: [
       { title: "Solutions", links: ["Public Sector", "Enterprise", "Startups", "Non-Profits"] },
       { title: "Company", links: ["About Us", "Our Team", "Careers"] },
       { title: "Resources", links: ["Blog", "Case Studies", "Whitepapers"] },
-      { title: "Contact", links: ["Start a conversation", "Support"] }
+      { title: "Contact", links: ["Contact", "Support"] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }

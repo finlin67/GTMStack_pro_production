@@ -50,7 +50,7 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
   ctaSection: {
     title: "Ready to Build Your Relational Ecosystem?",
     subtitle: "Partner with us to orchestrate your customer marketing journey with Invisible AI and drive predictable ARR.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Empowering enterprises to navigate the 'As-a-Service' transition and build sustainable growth through AI-native customer marketing and journey mapping expertise.",

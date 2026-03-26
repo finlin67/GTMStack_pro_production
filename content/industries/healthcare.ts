@@ -7,7 +7,7 @@ export const FINTECH_CONTENT = {
     headline: "Master FinTech Market Entry and Scale with Unrivaled Precision.",
     subheadline: "Transform regulatory challenges into strategic advantages and capture market share faster than ever before.",
     description: "In the rapidly evolving FinTech landscape, speed, security, and compliance are paramount. GTMStack.pro provides the specialized Go-To-Market framework and intelligence needed to launch, grow, and dominate, ensuring every strategy is robust, scalable, and fully compliant.",
-    primaryCTA: { label: "Get in Touch", href: "/contact" },
+    primaryCTA: { label: "Contact", href: "/contact" },
     secondaryCTA: { label: "Explore FinTech Solutions", href: "/solutions/fintech" },
     image: { src: "/images/fintech-hero.webp", alt: "Abstract representation of secure financial data flow and market growth" }
   },
@@ -50,7 +50,7 @@ export const FINTECH_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your FinTech Growth Trajectory?",
     subtitle: "Partner with GTMStack.pro to build a compliant, secure, and high-impact Go-To-Market strategy that delivers measurable results.",
-    button: { label: "Get in Touch", href: "/contact" }
+    button: { label: "Contact", href: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is the trusted partner for FinTech companies seeking to achieve compliant, secure, and accelerated market growth through expert Go-To-Market strategies.",

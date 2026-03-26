@@ -152,26 +152,38 @@ function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?:
             <span className="text-white">{hero.titleLine3}</span>
           </h1>
 
-          <p className="text-sm md:text-base text-slate-300 max-w-xl leading-relaxed border-l-2 border-[#6FAFE0]/40 pl-3">
-            {hero.thesis}
-          </p>
+          {hero.thesis ? (
+            <p className="text-sm md:text-base text-slate-300 max-w-xl leading-relaxed border-l-2 border-[#6FAFE0]/40 pl-3">
+              {hero.thesis}
+            </p>
+          ) : null}
 
-          <p className="text-base md:text-lg text-slate-400 max-w-lg leading-relaxed">{hero.subtitle}</p>
-          <p className="text-sm text-slate-500 max-w-lg leading-relaxed">{hero.authorshipLine}</p>
+          {hero.subtitle ? (
+            <p className="text-base md:text-lg text-slate-400 max-w-lg leading-relaxed">{hero.subtitle}</p>
+          ) : null}
+          {hero.authorshipLine ? (
+            <p className="text-sm text-slate-500 max-w-lg leading-relaxed">{hero.authorshipLine}</p>
+          ) : null}
 
-          <div className="space-y-2">
-            <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">{hero.focusLabel}</p>
-            <div className="flex flex-wrap gap-2">
-              {hero.focusTopics.map((t) => (
-                <span
-                  key={t}
-                  className="bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 rounded-lg text-xs md:text-sm transition-all"
-                >
-                  {t}
-                </span>
-              ))}
+          {hero.focusLabel || hero.focusTopics.length > 0 ? (
+            <div className="space-y-2">
+              {hero.focusLabel ? (
+                <p className="text-xs font-bold text-slate-500 uppercase tracking-widest">{hero.focusLabel}</p>
+              ) : null}
+              {hero.focusTopics.length > 0 ? (
+                <div className="flex flex-wrap gap-2">
+                  {hero.focusTopics.map((t) => (
+                    <span
+                      key={t}
+                      className="bg-white/5 hover:bg-white/10 border border-white/10 px-3 py-1.5 rounded-lg text-xs md:text-sm transition-all"
+                    >
+                      {t}
+                    </span>
+                  ))}
+                </div>
+              ) : null}
             </div>
-          </div>
+          ) : null}
 
           <div className="flex flex-wrap gap-3 pt-1">
             <Link

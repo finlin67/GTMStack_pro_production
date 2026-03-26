@@ -180,18 +180,15 @@ export default function IndustrySingleStitchLayout({
                   </span>{' '}
                   complexity.
                 </h1>
-                <p className="mb-6 max-w-xl text-lg leading-relaxed text-slate-400">
-                  {industry.positioning || industry.description}
-                </p>
                 <p className="mb-10 max-w-xl text-base leading-relaxed text-slate-400 md:text-lg">
                   {whyNowText}
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <Link
-                    href="/contact"
+                    href="/case-studies"
                     className="rounded-md bg-[#007FFF] px-8 py-4 text-lg font-bold text-white shadow-lg transition-all hover:shadow-[#007FFF]/20"
                   >
-                    Get in Touch
+                    View Case Studies
                   </Link>
                 </div>
               </div>
@@ -305,7 +302,7 @@ export default function IndustrySingleStitchLayout({
           <section className="border-y border-slate-200 bg-white py-16 md:py-20">
             <div className="container-width section-padding">
               <h2 className="mb-8 text-center text-2xl font-bold text-[#0A1628] md:text-3xl">
-                Modern growth plays for {industry.title}
+                GTM patterns for {industry.title}
               </h2>
               <ul className="mx-auto max-w-3xl space-y-4">
                 {industry.playbook.map((play, idx) => (
@@ -369,7 +366,7 @@ export default function IndustrySingleStitchLayout({
           <section className="border-t border-white/5 bg-[#0D2137] py-16 md:py-20">
             <div className="container-width section-padding">
               <h2 className="mb-10 text-center text-2xl font-bold text-white md:text-3xl">
-                How we&apos;ve delivered
+                Relevant proof
               </h2>
               <div className="grid gap-6 md:grid-cols-3">
                 {industry.proof.slice(0, 6).map((p, idx) => (
@@ -437,7 +434,7 @@ export default function IndustrySingleStitchLayout({
           <section className="bg-[#F4F6F8] py-20 md:py-24">
             <div className="container-width section-padding">
               <h2 className="mb-10 text-3xl font-bold text-[#0A1628] md:mb-12">
-                Other industries we empower
+                Other industries covered
               </h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
                 {related.map((item, idx) => {
@@ -476,18 +473,18 @@ export default function IndustrySingleStitchLayout({
           />
           <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
             <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
-              Ready for a {industry.title} GTM{' '}
-              <span className="ind-single-text-gradient">built to convert?</span>
+              See more GTM work for{' '}
+              <span className="ind-single-text-gradient">{industry.title}</span>
             </h2>
             <p className="mx-auto mb-12 max-w-xl text-lg text-white/60">
-              Let&apos;s audit your current GTM engine and identify leakage points in your pipeline.
+              Use the related expertise and case studies to keep moving through the portfolio.
             </p>
             <div className="flex justify-center">
               <Link
-                href="/contact"
+                href="/case-studies"
                 className="rounded-lg bg-[#007FFF] px-10 py-5 text-xl font-bold text-white shadow-xl shadow-[#007FFF]/30 transition-transform hover:scale-105"
               >
-                Get in Touch
+                View Case Studies
               </Link>
             </div>
           </div>

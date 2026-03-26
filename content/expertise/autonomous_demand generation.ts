@@ -50,7 +50,7 @@ export const AUTONOMOUS_DEMAND_GENERATION_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Demand Generation?",
     subtitle: "Transition from reactive reporting to an autonomous, AI-driven ecosystem that maximizes enterprise value and liberates your talent.",
-    button: { text: "Start a focused diagnostic", link: "/contact/autonomous-dg" }
+    button: { text: "Contact", link: "/contact/autonomous-dg" }
   },
   footer: {
     description: "Pioneering the next generation of GTM architecture, empowering enterprises to thrive in an AI-first, first-party data economy. We build the future of autonomous demand generation.",

@@ -7,7 +7,7 @@ export const FINANCIAL_SERVICES_CONTENT = {
     headline: "Mastering Financial Services: Compliance, Security, and Unrivaled Growth.",
     subheadline: "Transforming operational challenges into strategic advantages for banks, asset managers, and fintech innovators.",
     description: "In an industry defined by stringent regulations, evolving market dynamics, and the imperative of trust, GTMStack.pro delivers the specialized solutions financial institutions need to thrive. Secure your data, streamline compliance, and unlock new avenues for client acquisition and retention.",
-    primaryCTA: { label: "Get in Touch", href: "/contact/compliance-audit" },
+    primaryCTA: { label: "Contact", href: "/contact/compliance-audit" },
     secondaryCTA: { label: "Explore Our Financial Solutions", href: "/solutions/financial-services" },
     image: { src: "/images/financial-hero.jpg", alt: "Financial professional analyzing data on multiple screens" }
   },
@@ -50,7 +50,7 @@ export const FINANCIAL_SERVICES_CONTENT = {
   ctaSection: {
     title: "Secure Your Future. Accelerate Your Growth.",
     subtitle: "Connect with our financial services experts to discover how GTMStack.pro can elevate your institution's performance and compliance.",
-    button: { label: "Get in Touch", href: "/contact/consultation" }
+    button: { label: "Contact", href: "/contact/consultation" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering financial institutions with cutting-edge technology and strategic insights for a secure and prosperous future.",

@@ -51,7 +51,7 @@ export const CYBERSECURITY_CONTENT = {
   ctaSection: {
     title: "Elevate Your Security Posture. Secure Your Future.",
     subtitle: "Partner with GTMStack.pro to transform your cybersecurity challenges into strategic advantages. Let's build a resilient, secure foundation for your business.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your trusted partner in navigating the complexities of the digital world. We deliver strategic expertise and innovative solutions to drive your business forward securely.",

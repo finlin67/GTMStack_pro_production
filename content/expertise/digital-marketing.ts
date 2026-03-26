@@ -13,7 +13,7 @@ export const DIGITAL_MARKETING_CONTENT = {
     subheadline: 'Unify execution across web, paid, social, and email with attribution tied to pipeline.',
     description:
       'We align digital tactics to funnel stages and revenue outcomes—reducing fragmentation, improving ROI visibility, and scaling consistent messaging without burning CAC.',
-    primaryCTA: { text: 'Start a conversation', link: '/contact' },
+    primaryCTA: { text: 'See case studies', link: '/case-studies' },
     secondaryCTA: { text: 'Explore Demand & Growth', link: '/expertise/demand-growth' },
     image: {
       src: '/images/heroes/industries-default.webp',
@@ -99,7 +99,7 @@ export const DIGITAL_MARKETING_CONTENT = {
     button: { text: 'Contact', link: '/contact' },
   },
   footer: {
-    description: 'GTMStack.pro — B2B GTM operating model, documented in the open.',
+    description: 'GTMStack.pro — operator-built GTM portfolio, documented in the open.',
     sections: [
       { title: 'Expertise', links: ['Demand & Growth', 'Content & Engagement', 'Systems & Operations'] },
       { title: 'Company', links: ['About', 'Contact', 'Case Studies'] },

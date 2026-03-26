@@ -83,29 +83,27 @@ export default function CaseStudiesPage() {
                 Case studies
               </span>
               <h1 className="font-display text-4xl md:text-5xl font-extrabold leading-tight text-white">
-                Proof,{' '}
+                Selected{' '}
                 <span className="bg-gradient-to-r from-slate-200 via-cyan-100 to-slate-300 bg-clip-text text-transparent">
-                  Not Promises.
-                </span>{' '}
-                Real Outcomes. Measured Results.
+                  GTM work.
+                </span>
               </h1>
               <p className="text-base text-slate-400 max-w-lg leading-relaxed">
-                Explore how we help category leaders re-engineer go-to-market engines for sustainable,
-                predictable growth.
+                Real GTM programs, reporting rebuilds, ABM systems, and portfolio artifacts tied to measurable outcomes.
               </p>
               <div className="flex flex-wrap gap-3 mt-2">
                 <Link
-                  href="/contact"
+                  href="#browse"
                   className="nav-cta text-sm"
                 >
-                  Start a conversation
+                  Browse case studies
                 </Link>
-                <a
-                  href="#browse"
+                <Link
+                  href="/expertise"
                   className="border border-slate-700 text-white px-6 py-3 rounded-lg font-bold hover:bg-slate-800 transition-colors text-sm"
                 >
-                  View all results
-                </a>
+                  Explore expertise
+                </Link>
               </div>
             </div>
             <div className="relative">
@@ -369,16 +367,16 @@ export default function CaseStudiesPage() {
           <div className="absolute inset-0 pointer-events-none bg-brand-600/10 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 max-w-[600px] mx-auto" />
           <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 relative z-10 text-center flex flex-col items-center gap-6">
             <h2 className="font-display text-2xl md:text-4xl font-extrabold text-white max-w-2xl text-balance">
-              Ready to turn your GTM into a measurable revenue engine?
+              If the work resonates, keep exploring
             </h2>
             <p className="text-slate-400 text-base max-w-xl">
-              We work with a focused set of partners each quarter to ensure maximum outcome delivery.
+              Start with the case studies, then move into expertise or industries if you want more context.
             </p>
             <Link
-              href="/contact"
+              href="/expertise"
               className="nav-cta text-base"
             >
-              Start a conversation
+              Explore expertise
               <ArrowRight className="w-5 h-5" />
             </Link>
           </div>

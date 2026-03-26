@@ -7,7 +7,7 @@ export const GTMSTACK_PRO_EXPERTISE_CONTENT = {
     headline: "Mastering Go-To-Market: Precision Strategies for Unrivaled Growth.",
     subheadline: "Use GTMStack.pro's deep expertise to transform your market approach into a powerful engine for predictable, scalable revenue.",
     description: "In today's dynamic market, a robust Go-To-Market strategy isn't just an advantage—it's a necessity. GTMStack.pro provides the strategic foresight, data-driven methodologies, and hands-on execution required to navigate complex markets, capture new opportunities, and outperform competitors.",
-    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    primaryCTA: { text: "Contact", link: "/contact" },
     secondaryCTA: { text: "Explore Our Methodologies", link: "/methodologies" },
     image: { src: "/images/hero-expertise.webp", alt: "GTMStack.pro team collaborating on a strategic Go-To-Market plan" }
   },
@@ -51,7 +51,7 @@ export const GTMSTACK_PRO_EXPERTISE_CONTENT = {
   ctaSection: {
     title: "Reach Your Full Market Potential.",
     subtitle: "Connect with GTMStack.pro's experts to craft a Go-To-Market strategy that delivers unparalleled results.",
-    button: { text: "Start a GTM diagnostic", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is dedicated to empowering businesses with world-class Go-To-Market strategies and execution, driving predictable revenue and sustainable growth.",

@@ -18,6 +18,12 @@ import { Shuffle } from 'lucide-react'
 
 const DEBUG_TILE = false
 
+// ANIMATION_DESIGN_SIZE: animations are authored at 600×600px.
+// Adjust ANIMATION_SCALE (0.1–1.0) to shrink them inside the tile without
+// touching any animation file. 1.0 = full size, 0.85 = 15% smaller, etc.
+const ANIMATION_DESIGN_SIZE = 600
+const ANIMATION_SCALE = 1.0
+
 type ResolvedMode = 'CUSTOM_ANIMATION' | 'TILE_ANIMATION'
 
 interface ExpertiseHeroVisualProps {
@@ -25,6 +31,8 @@ interface ExpertiseHeroVisualProps {
   config?: ExpertiseHeroConfig
   borderClassName: string
   tileVariant?: TileVariant
+  /** ID from page-registry.csv — overrides path-based animation selection */
+  heroVisualId?: string
 }
 
 /**
@@ -51,7 +59,7 @@ function getMarketingFunctionFromPath(pathname: string): MarketingFunction | nul
   return routeToFunction[pathname] || null
 }
 
-export function ExpertiseHeroVisual({ animation, config, borderClassName, tileVariant }: ExpertiseHeroVisualProps) {
+export function ExpertiseHeroVisual({ animation, config, borderClassName, tileVariant, heroVisualId }: ExpertiseHeroVisualProps) {
   const shouldReduceMotion = useReducedMotion()
   const pathname = usePathname() || ''
   const searchParams = useSearchParams()
@@ -65,6 +73,15 @@ export function ExpertiseHeroVisual({ animation, config, borderClassName, tileVa
 
   // Check for ?anim= query param or use registry entry
   useEffect(() => {
+    // heroVisualId from page-registry.csv is highest priority
+    if (heroVisualId?.trim()) {
+      const anim = getAnimationById(heroVisualId.trim())
+      if (anim) {
+        setCurrentAnimId(anim.id)
+        return
+      }
+    }
+
     const animParam = searchParams?.get('anim')
     if (animParam) {
       const anim = getAnimationById(animParam)
@@ -166,7 +183,18 @@ export function ExpertiseHeroVisual({ animation, config, borderClassName, tileVa
                 <p className="text-sm">Animation disabled (reduced motion)</p>
               </div>
             ) : (
-              <Component />
+              <div
+                style={{
+                  width: ANIMATION_DESIGN_SIZE,
+                  height: ANIMATION_DESIGN_SIZE,
+                  transform: `scale(${ANIMATION_SCALE})`,
+                  transformOrigin: 'top left',
+                  overflow: 'hidden',
+                  flexShrink: 0,
+                }}
+              >
+                <Component />
+              </div>
             )}
           </div>
         </div>
@@ -184,7 +212,18 @@ export function ExpertiseHeroVisual({ animation, config, borderClassName, tileVa
           className={`relative mx-auto w-full max-w-[600px] h-[600px] overflow-hidden rounded-2xl ${borderClassName}`}
           data-reduced-motion={shouldReduceMotion ? 'true' : undefined}
         >
-          <Component />
+          <div
+            style={{
+              width: ANIMATION_DESIGN_SIZE,
+              height: ANIMATION_DESIGN_SIZE,
+              transform: `scale(${ANIMATION_SCALE})`,
+              transformOrigin: 'top left',
+              overflow: 'hidden',
+              flexShrink: 0,
+            }}
+          >
+            <Component />
+          </div>
         </div>
       </div>
     )

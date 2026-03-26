@@ -54,7 +54,7 @@ export const PAID_MEDIA_FUNNEL_OPTIMIZATION_CONTENT = {
   ctaSection: {
     title: "Ready to Re-Architect Your GTM Strategy?",
     subtitle: "Transition from fragmented processes to an AI-orchestrated Digital Core for sustainable yield and a durable competitive moat.",
-    button: { text: "Start a focused diagnostic", link: "#contact" }
+    button: { text: "Contact", link: "#contact" }
   },
   footer: {
     description: "Empowering organizations to thrive in the AI-native era through strategic reinvention and yield-first GTM methodologies.",

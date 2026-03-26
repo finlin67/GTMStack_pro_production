@@ -50,7 +50,7 @@ export const PAID_ADVERTISING_SEM_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Paid Media Performance?",
     subtitle: "Let's architect an integrated funnel ecosystem that drives qualified leads and accelerates your revenue growth.",
-    button: { text: "Start a conversation", link: "#contact" }
+    button: { text: "View case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in architecting integrated Go-To-Market strategies, leveraging expertise in Paid Media & Funnel Optimization to drive measurable growth and sustainable revenue.",

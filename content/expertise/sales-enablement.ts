@@ -7,7 +7,7 @@ export const SALES_ENABLEMENT_CONTENT = {
     headline: "Master Upsell & Cross-Sell Strategies for Sustainable Growth.",
     subheadline: "Transform your customer relationships into powerful engines for revenue expansion and market leadership.",
     description: "We help you realize the full potential of your existing customer base through strategic upsell and cross-sell initiatives. We combine deep customer insights with a data-driven approach to design and implement targeted campaigns that drive revenue growth and build lasting customer relationships.",
-    primaryCTA: { text: "Start a conversation", link: "#contact" },
+    primaryCTA: { text: "See related work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "#capabilities" },
     image: { src: "/images/upsell-cross-sell-hero.webp", alt: "Strategic upsell and cross-sell growth chart illustrating revenue expansion" }
   },

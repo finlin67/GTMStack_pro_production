@@ -3,13 +3,13 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** Home page content for HomeTemplate (PageContent shape). */
 export const HOME_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'Operator-Led GTM System',
-    titleStart: 'Revenue Architecture for ',
-    titleGradient: 'B2B Tech',
+    badge: 'Operator-Built GTM Portfolio',
+    titleStart: 'Real GTM Work for ',
+    titleGradient: 'Complex B2B Teams',
     subtitle:
-      'GTMStack.pro aligns strategy, signals, and systems into one operating model so product momentum becomes measurable pipeline performance.',
-    ctaPrimary: 'Explore Expertise',
-    ctaSecondary: 'See the GTM model',
+      'GTMStack.pro is a live portfolio of GTM systems, case studies, and working artifacts across demand, messaging, operations, and measurement.',
+    ctaPrimary: 'Browse Expertise',
+    ctaSecondary: 'View Case Studies',
   },
   stats: [
     { value: '140%', label: 'Pipeline Growth' },
@@ -91,7 +91,7 @@ export const HOME_CONTENT: HomeTemplateContent = {
   },
   quote: {
     text: "We reject the 'growth at all costs' narrative in favor of ",
-    highlight: 'predictable revenue growth',
+    highlight: 'measurable, durable growth',
   },
   caseStudies: {
     title: 'Explore Further',
@@ -140,10 +140,10 @@ export const HOME_CONTENT: HomeTemplateContent = {
   },
 
   ctaBottom: {
-    title: 'Ready to engineer your growth?',
+    title: 'Start with the work',
     subtitle:
-      'Use the same diagnostic lens: where signals leak, where routing breaks, and where reporting stops matching reality.',
-    buttonText: 'See the diagnostic framework',
+      'Browse the expertise map, industry pages, and case studies to see how the pieces connect before you reach out.',
+    buttonText: 'Explore the portfolio',
   },
 }
 
@@ -252,21 +252,20 @@ function isHomeStitchContent(x: unknown): x is HomeStitchContent {
 export const HOME_STITCH_CONTENT: HomeStitchContent = {
   hero: {
     badges: [
-      { text: 'GTM systems', variant: 'accent' },
+      { text: 'GTM portfolio', variant: 'accent' },
       { text: 'Operator-built', variant: 'default' },
     ],
-    titleLine1: 'A',
-    titleLine2Gradient: 'revenue platform',
-    titleLine3: 'you can run.',
-    thesis:
-      'Strategy, systems, and proof in one place—so marketing, sales, and RevOps share one operating picture instead of three slide decks.',
+    titleLine1: 'Real',
+    titleLine2Gradient: 'GTM work',
+    titleLine3: 'for complex B2B teams.',
+    thesis: '',
     subtitle:
-      'GTMStack.pro publishes how the work is wired: playbooks, measurement, and field notes from complex B2B motions.',
-    authorshipLine: 'Built by enterprise GTM operators and updated from live delivery work.',
-    focusLabel: 'Where we focus',
-    focusTopics: ['Demand & lifecycle', 'RevOps + Martech', 'ABM & pipeline quality', 'Attribution that sales trusts'],
-    ctaPrimary: { label: 'Explore expertise', href: '/expertise' },
-    ctaSecondary: { label: 'Review case studies', href: '/case-studies' },
+      'GTMStack.pro is an operator-built portfolio of demand, messaging, RevOps, and measurement work across complex B2B environments.',
+    authorshipLine: '',
+    focusLabel: '',
+    focusTopics: [],
+    ctaPrimary: { label: 'Browse case studies', href: '/case-studies' },
+    ctaSecondary: { label: 'Explore expertise', href: '/expertise' },
   },
   commandPanel: {
     version: 'gtm.os / v2',
@@ -396,9 +395,9 @@ export const HOME_STITCH_CONTENT: HomeStitchContent = {
   },
   ticker: [],
   finalCta: {
-    title: 'Ready to tighten the system?',
-    subtitle: 'Start with expertise and case studies, then reach out when you want a scoped diagnostic conversation.',
-    primaryCta: { label: 'Start a conversation', href: '/contact' },
+    title: 'Start with the work, then the conversation',
+    subtitle: 'Use the site to get oriented first, then reach out when there is a page, system, or problem worth discussing.',
+    primaryCta: { label: 'Contact', href: '/contact' },
     pathways: [
       { label: 'Expertise index', href: '/expertise' },
       { label: 'Industries', href: '/industries' },

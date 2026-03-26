@@ -8,7 +8,7 @@ export const GTM_STRATEGY_CONTENT = {
     subheadline: "Navigate complex markets with confidence. Our data-driven Go-to-Market strategies open new revenue streams and optimize your path to success.",
     description: "In today's dynamic landscape, a robust Go-to-Market strategy is not just an advantage—it's a necessity. GTMStack.pro provides the deep expertise and actionable frameworks required to launch products, enter new markets, and scale operations effectively, ensuring every initiative is poised for maximum impact.",
     primaryCTA: { text: "Explore Our GTM Solutions", link: "/solutions" },
-    secondaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "Contact", link: "/contact" },
     image: { src: "/images/gtm-strategy-hero.jpg", alt: "Strategic business leaders analyzing market data on a digital dashboard" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const GTM_STRATEGY_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Market Success?",
     subtitle: "Connect with our GTM experts to craft a strategy that delivers measurable, impactful results.",
-    button: { text: "Start a GTM diagnostic", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your dedicated partner in navigating the complexities of market entry and expansion. We provide strategic Go-to-Market expertise to help you reach full business potential.",

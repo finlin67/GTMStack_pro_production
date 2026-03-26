@@ -68,7 +68,7 @@ export const ROI_BREAK_EVEN_ANALYSIS_CONTENT = {
   ctaSection: {
     title: "Ready to Build Autonomous Yield?",
     subtitle: "Transform your GTM strategy from retrospective reporting to real-time, incremental growth.",
-    button: { text: "Start a conversation", link: "/contact" },
+    button: { text: "Contact", link: "/contact" },
   },
   footer: {
     description: "Architecting the future of GTM with Autonomous Yield and a Digital Core. We turn strategic insights into measurable, sustainable growth.",

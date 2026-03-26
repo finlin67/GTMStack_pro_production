@@ -75,7 +75,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your ABM Strategy?",
     subtitle: "Improve high-value relationships and measurable growth with our AI-native, human-centric approach.",
-    button: { text: "Start a focused diagnostic", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Empowering B2B enterprises to thrive in the Age of AI by building durable trust and orchestrating high-value account relationships with strategic precision and human ingenuity.",

@@ -62,7 +62,7 @@ const DEFAULT_CONTENT: TemplateContent = {
   hero: {
     title: 'Four Pillars. One Revenue Architecture',
     subtitle:
-      'Master your revenue engine with a published operating model: tech, data, and teams aligned to one measurement story.',
+      'Explore the GTM portfolio through shared systems: tech, data, and teams aligned to one measurement story.',
     cta1: 'Explore the framework',
     cta2: 'View Framework',
   },

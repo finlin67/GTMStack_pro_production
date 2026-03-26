@@ -104,7 +104,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Build Your Narrative Engine?",
     subtitle: "Stop publishing noise. Start engineering growth.",
-    buttonLabel: "Get in Touch",
+    buttonLabel: "Contact",
   },
   footer: {
     description: "Combining data science with creative strategy to build revenue engines for the modern enterprise.",

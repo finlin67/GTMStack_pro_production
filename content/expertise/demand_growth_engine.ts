@@ -94,7 +94,7 @@ export const DEMAND_GROWTH_ENGINE_CONTENT = {
   ctaSection: {
     title: "Ready to Architect Your Invisible AI Growth Engine?",
     subtitle: "Transition from manual liabilities to autonomous, value-driven growth. Let's build your future-proof digital core.",
-    button: { text: "Start a conversation", link: "#contact" }
+    button: { text: "Contact", link: "#contact" }
   },
   footer: {
     description: "Empowering businesses to thrive in the era of autonomous commerce through AI-orchestrated demand and growth strategies.",

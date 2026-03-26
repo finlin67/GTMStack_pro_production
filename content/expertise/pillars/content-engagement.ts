@@ -126,7 +126,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
     ],
   },
   ctaSection: {
-    title: 'Ready for Content & Engagement results?',
+    title: 'Explore more content and engagement work',
     subtitle: 'Stop publishing noise. Start engineering growth.',
     buttonLabel: 'Connect on methodology',
   },

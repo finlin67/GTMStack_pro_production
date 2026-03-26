@@ -4,46 +4,46 @@ route,fileRef,pageTitle,templateId,contentKey,theme,heroVisualId
 /case-studies,content/case-studies.ts,Case Studies,Uploaded_CaseStudies_v1,case-studies:main,dark,gtm-strategy-audience-tile-v2
 /case-studies/event-to-store-lift-retail,content/case-studies.ts,Event-to-Store Revenue Lift,caseStudy.base,case-studies:event-to-store-lift-retail,dark,
 /contact,content/contact.ts,Contact Us,home.main,contact:main,light,
-/expertise,content/expertise/main.ts,Expertise,Uploaded_Expertise_v1,expertise:stitch-main,dark,
-/expertise/account-based-marketing,content/expertise/account-based-marketing.ts,Account-Based Marketing (ABM),Uploaded_DemandGrowth_v1,expertise:account-based-marketing,dark,
-/expertise/competitive-intel,content/expertise/competitive-intel.ts,Competitive Intelligence & Positioning,Uploaded_StratInsights_v1,expertise:competitive-intel,dark,
-/expertise/content-engagement,content/expertise/content-engagement.ts,Content & Engagement,Uploaded_ContentEngagement_v1,pillar:content-engagement,dark,
-/expertise/content-marketing,content/expertise/content-marketing.ts,Content Creation & Personalization,Uploaded_ContentEngagement_v1,expertise:content-marketing,dark,
-/expertise/crm-management,content/expertise/crm-management.ts,CRM Management & Integration,Uploaded_SystemOperations_v1,expertise:crm-management,dark,
-/expertise/customer-marketing,content/expertise/customer-marketing.ts,Customer Marketing & Journey Mapping,Uploaded_StratInsights_v1,expertise:customer-marketing,dark,
-/expertise/demand-growth,content/expertise/demand-growth.ts,Demand & Growth,Uploaded_DemandGrowth_v1,pillar:demand-growth,dark,
-/expertise/demand-generation,content/expertise/demand-generation.ts,Demand Generation Campaigns,Uploaded_DemandGrowth_v1,expertise:demand-generation,dark,
-/expertise/digital-marketing,content/expertise/digital-marketing.ts,Digital Marketing,Uploaded_DemandGrowth_v1,expertise:digital-marketing,dark,
-/expertise/event-marketing,content/expertise/event-marketing.ts,Event & Tradeshow Management,Uploaded_ContentEngagement_v1,expertise:event-marketing,dark,
-/expertise/strategy,content/expertise/strategy.ts,GTM Strategy,Uploaded_StratInsights_v1,expertise:gtm-strategy-development,dark,
-/expertise/lead-gen-scoring,content/expertise/lead-gen-scoring.ts,Lead Generation & Scoring,Uploaded_DemandGrowth_v1,expertise:lead-gen-scoring,dark,
-/expertise/marketing-analytics-reporting,content/expertise/marketing-analytics-reporting.ts,Marketing Analytics & Reporting,Uploaded_SystemOperations_v1,expertise:marketing-analytics-reporting,dark,
-/expertise/marketing-automation,content/expertise/marketing-automation.ts,Marketing Automation & Workflows,Uploaded_SystemOperations_v1,expertise:marketing-automation,dark,
-/expertise/paid-advertising-sem,content/expertise/paid-advertising-sem.ts,Paid Media & Funnel Optimization,Uploaded_DemandGrowth_v1,expertise:paid-advertising-sem,dark,
-/expertise/product-marketing,content/expertise/product-marketing.ts,Product Marketing,Uploaded_StratInsights_v1,expertise:product-marketing,dark,
-/expertise/analytics,content/expertise/analytics.ts,Reporting Dashboards & Attribution,Uploaded_SystemOperations_v1,expertise:analytics,dark,
-/expertise/web-design-ui-ux,content/expertise/web-design-ui-ux.ts,Responsive Web Design & UI/UX,Uploaded_ContentEngagement_v1,expertise:web-design-ui-ux,dark,
-/expertise/roi-analysis,content/expertise/roi-analysis.ts,ROI & Break-Even Analysis,Uploaded_StratInsights_v1,expertise:roi-analysis,dark,
-/expertise/search-engine-optimization,content/expertise/search-engine-optimization.ts,Search Engine Optimization & Management (SEO & SEM),Uploaded_ContentEngagement_v1,expertise:search-engine-optimization,dark,
-/expertise/social-media-marketing,content/expertise/social-media-marketing.ts,Social Media & Reputation Management,Uploaded_ContentEngagement_v1,expertise:social-media-marketing,dark,
-/expertise/strategy-insights,content/expertise/strategy-insights.ts,Strategy & Insights,Uploaded_StratInsights_v1,pillar:strategy-insights,dark,
-/expertise/systems-operations,content/expertise/systems-operations.ts,Systems & Operations,Uploaded_SystemOperations_v1,pillar:systems-operations,dark,
-/expertise/martech-optimization,content/expertise/martech-optimization.ts,Tech Stack Optimization & Enablement,Uploaded_SystemOperations_v1,expertise:martech-optimization,dark,
-/expertise/sales-enablement,content/expertise/sales-enablement.ts,Upsell/Cross-Sell Strategies,Uploaded_DemandGrowth_v1,expertise:sales-enablement,dark,
+/expertise,content/expertise/main.ts,Expertise,Uploaded_Expertise_v1,expertise:stitch-main,dark,g-t-m-audience-tile
+/expertise/account-based-marketing,content/expertise/account-based-marketing.ts,Account-Based Marketing (ABM),Uploaded_DemandGrowth_v1,expertise:account-based-marketing,dark,gtmstack-pro
+/expertise/competitive-intel,content/expertise/competitive-intel.ts,Competitive Intelligence & Positioning,Uploaded_StratInsights_v1,expertise:competitive-intel,dark,nexus-stakeholder-portal
+/expertise/content-engagement,content/expertise/content-engagement.ts,Content & Engagement,Uploaded_ContentEngagement_v1,pillar:content-engagement,dark,content-marketing-mdx
+/expertise/content-marketing,content/expertise/content-marketing.ts,Content Creation & Personalization,Uploaded_ContentEngagement_v1,expertise:content-marketing,dark,content-engagement-marketing
+/expertise/crm-management,content/expertise/crm-management.ts,CRM Management & Integration,Uploaded_SystemOperations_v1,expertise:crm-management,dark,crm-campaigns-tile
+/expertise/customer-marketing,content/expertise/customer-marketing.ts,Customer Marketing & Journey Mapping,Uploaded_StratInsights_v1,expertise:customer-marketing,dark,content-marketing-animation
+/expertise/demand-growth,content/expertise/demand-growth.ts,Demand & Growth,Uploaded_DemandGrowth_v1,pillar:demand-growth,dark,demand-gen-flow
+/expertise/demand-generation,content/expertise/demand-generation.ts,Demand Generation Campaigns,Uploaded_DemandGrowth_v1,expertise:demand-generation,dark,demand-gen-flow
+/expertise/digital-marketing,content/expertise/digital-marketing.ts,Digital Marketing,Uploaded_DemandGrowth_v1,expertise:digital-marketing,dark,content-strategist-dashboard
+/expertise/event-marketing,content/expertise/event-marketing.ts,Event & Tradeshow Management,Uploaded_ContentEngagement_v1,expertise:event-marketing,dark,event-pulse
+/expertise/strategy,content/expertise/strategy.ts,GTM Strategy,Uploaded_StratInsights_v1,expertise:gtm-strategy-development,dark,engineering-workflow
+/expertise/lead-gen-scoring,content/expertise/lead-gen-scoring.ts,Lead Generation & Scoring,Uploaded_DemandGrowth_v1,expertise:lead-gen-scoring,dark,lead-gen-tile-animation
+/expertise/marketing-analytics-reporting,content/expertise/marketing-analytics-reporting.ts,Marketing Analytics & Reporting,Uploaded_SystemOperations_v1,expertise:marketing-analytics-reporting,dark,marketing-automation-live-feed
+/expertise/marketing-automation,content/expertise/marketing-automation.ts,Marketing Automation & Workflows,Uploaded_SystemOperations_v1,expertise:marketing-automation,dark,automation-engine-dashboard
+/expertise/paid-advertising-sem,content/expertise/paid-advertising-sem.ts,Paid Media & Funnel Optimization,Uploaded_DemandGrowth_v1,expertise:paid-advertising-sem,dark,growth-s-e-m-tile
+/expertise/product-marketing,content/expertise/product-marketing.ts,Product Marketing,Uploaded_StratInsights_v1,expertise:product-marketing,dark,g-t-m-audience-tile
+/expertise/analytics,content/expertise/analytics.ts,Reporting Dashboards & Attribution,Uploaded_SystemOperations_v1,expertise:analytics,dark,lifecycle-360
+/expertise/web-design-ui-ux,content/expertise/web-design-ui-ux.ts,Responsive Web Design & UI/UX,Uploaded_ContentEngagement_v1,expertise:web-design-ui-ux,dark,plg-journey-dashboard
+/expertise/roi-analysis,content/expertise/roi-analysis.ts,ROI & Break-Even Analysis,Uploaded_StratInsights_v1,expertise:roi-analysis,dark,omnichannel-live-analytics
+/expertise/search-engine-optimization,content/expertise/search-engine-optimization.ts,Search Engine Optimization & Management (SEO & SEM),Uploaded_ContentEngagement_v1,expertise:search-engine-optimization,dark,seo-growth-flow
+/expertise/social-media-marketing,content/expertise/social-media-marketing.ts,Social Media & Reputation Management,Uploaded_ContentEngagement_v1,expertise:social-media-marketing,dark,social-media-hero
+/expertise/strategy-insights,content/expertise/strategy-insights.ts,Strategy & Insights,Uploaded_StratInsights_v1,pillar:strategy-insights,dark,quantum-dashboard
+/expertise/systems-operations,content/expertise/systems-operations.ts,Systems & Operations,Uploaded_SystemOperations_v1,pillar:systems-operations,dark,engineering-workflow-system
+/expertise/martech-optimization,content/expertise/martech-optimization.ts,Tech Stack Optimization & Enablement,Uploaded_SystemOperations_v1,expertise:martech-optimization,dark,mar-tech-tile
+/expertise/sales-enablement,content/expertise/sales-enablement.ts,Upsell/Cross-Sell Strategies,Uploaded_DemandGrowth_v1,expertise:sales-enablement,dark,enterprise-sales-motion
 /gallery,content/gallery/main.ts,Animation Gallery,gallery.main,gallery:main,dark,
-/industries,content/industries/main.ts,Architecting Growth by Industry,industries.stitch.main,industries:main,dark,
-/industries/cybersecurity,content/industries.ts,Cybersecurity,Uploaded_B2BTechIndustry_v1,industries:cybersecurity,dark,
-/industries/developer-tools,content/industries.ts,Developer Tools & DevOps,Uploaded_B2BTechIndustry_v1,industries:developer-tools,dark,
-/industries/energy-utilities,content/industries.ts,Energy & Utilities,Uploaded_IndustrialIndustry_v1,industries:energy-utilities,dark,
-/industries/financial-services,content/industries.ts,Financial Services,Uploaded_Sector_v1,industries:financial-services,light,
-/industries/fleet-management-logistics,content/industries.ts,Fleet & Logistics,Uploaded_Sector_v1,industries:fleet-management-logistics,dark,
-/industries/healthcare,content/industries.ts,Healthcare & Health Technology,Uploaded_Healthcare_v1,industries:healthcare,light,
-/industries/manufacturing,content/industries.ts,Manufacturing,Uploaded_Sector_v1,industries:manufacturing,dark,
-/industries/non-profit-education,content/industries.ts,Non-Profit & Education,Uploaded_EDUtech_v1,industries:non-profit-education,dark,
-/industries/pubsec-government,content/industries.ts,Public Sector & Gov,Uploaded_Sector_v1,industries:pubsec-government,dark,
-/industries/retail,content/industries.ts,Retail & Consumer,Uploaded_B2BTechIndustry_v1,industries:retail,dark,
-/industries/supply-chain-logistics,content/industries.ts,Supply Chain & Logistics,Uploaded_IndustrialIndustry_v1,industries:supply-chain-logistics,dark,
-/industries/technology-saas,content/industries.ts,Technology & SaaS,Uploaded_B2BTechIndustry_v1,industries:technology-saas,light,
+/industries,content/industries/main.ts,Architecting Growth by Industry,industries.stitch.main,industries:main,dark,industrial-dashboard
+/industries/cybersecurity,content/industries.ts,Cybersecurity,Uploaded_B2BTechIndustry_v1,industries:cybersecurity,dark,drift-guard
+/industries/developer-tools,content/industries.ts,Developer Tools & DevOps,Uploaded_B2BTechIndustry_v1,industries:developer-tools,dark,dev-marketers
+/industries/energy-utilities,content/industries.ts,Energy & Utilities,Uploaded_IndustrialIndustry_v1,industries:energy-utilities,dark,energy-flow-digital
+/industries/financial-services,content/industries.ts,Financial Services,Uploaded_Sector_v1,industries:financial-services,light,financial-tile
+/industries/fleet-management-logistics,content/industries.ts,Fleet & Logistics,Uploaded_Sector_v1,industries:fleet-management-logistics,dark,fleet-tile
+/industries/healthcare,content/industries.ts,Healthcare & Health Technology,Uploaded_Healthcare_v1,industries:healthcare,light,clinical-holographic-control-surface
+/industries/manufacturing,content/industries.ts,Manufacturing,Uploaded_Sector_v1,industries:manufacturing,dark,manufacturing-lifecycle-dashboard
+/industries/non-profit-education,content/industries.ts,Non-Profit & Education,Uploaded_EDUtech_v1,industries:non-profit-education,dark,ed-journey-k12-ecosystem
+/industries/pubsec-government,content/industries.ts,Public Sector & Gov,Uploaded_Sector_v1,industries:pubsec-government,dark,pub-sec-tile
+/industries/retail,content/industries.ts,Retail & Consumer,Uploaded_B2BTechIndustry_v1,industries:retail,dark,omni-retail-tile
+/industries/supply-chain-logistics,content/industries.ts,Supply Chain & Logistics,Uploaded_IndustrialIndustry_v1,industries:supply-chain-logistics,dark,ExecutiveLogisticsDashboard.tsx
+/industries/technology-saas,content/industries.ts,Technology & SaaS,Uploaded_B2BTechIndustry_v1,industries:technology-saas,light,rev-ops-dashboard
 /p/test,content/home.ts,Test CMS Page,home.main,home:main,dark,
 /projects,content/projects/main.ts,Projects,projects.main,projects:main,dark,
 /resume,content/resume.ts,Resume,profile.main,resume:main,light,

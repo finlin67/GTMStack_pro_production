@@ -50,7 +50,7 @@ export const SOCIAL_MEDIA_AND_REPUTATION_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Brand's Digital Influence?",
     subtitle: "Partner with us to build authentic communities, proactively manage your reputation, and drive measurable business impact.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View related work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in developing and executing comprehensive Social Media & Reputation Management strategies that build brand communities, shape perceptions, and protect your brand’s reputation.",

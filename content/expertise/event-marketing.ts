@@ -49,7 +49,7 @@ export const EVENT_TRADESHOW_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Event Strategy?",
     subtitle: "Let's design an event experience that delivers measurable business results and propels your growth.",
-    button: { text: "Start a conversation", link: "#contact" }
+    button: { text: "View case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in strategic Event & Tradeshow Management, helping B2B companies maximize ROI and drive growth through impactful event participation.",

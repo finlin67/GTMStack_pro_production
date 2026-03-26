@@ -16,19 +16,22 @@ export const EXPERTISE_MAIN_CONTENT = {
     { label: 'Contact', href: '/contact', active: false },
   ],
   hero: {
-    badge: 'GTM Expertise',
-    title: 'Build a Revenue System You Can Operate',
-    subtitle: 'Four connected pillars that align message, demand, decisions, and operations into one measurable GTM model.',
-    ctaPrimary: 'Start the diagnostic',
-    ctaSecondary: 'View the methodology',
+    badge: 'Built GTM Systems',
+    title: 'Systems I’ve built, tested, and documented across GTM',
+    subtitle:
+      'This page groups the work into four areas so you can quickly see the messaging, demand, strategy, and operations systems behind the portfolio and, if useful, compare them to your own GTM stack.',
+    ctaPrimary: 'Browse the systems',
+    ctaSecondary: 'See case studies',
   },
   pillars: {
-    title: 'Four Pillars of GTM Mastery',
-    subtitle: 'Content & Engagement, Demand & Growth, Strategy & Insights, Systems & Operations.',
+    title: 'Work Organized by System Area',
+    subtitle:
+      'Each section points to systems, experiments, frameworks, and operating patterns I’ve built and used in practice.',
     items: [
       {
         title: 'Content & Engagement',
-        description: 'Content strategies and engagement systems that drive pipeline.',
+        description:
+          'Messaging systems, content engines, and engagement workflows I’ve built and iterated.',
         icon: 'campaign',
         color: 'text-[#2463eb]',
         bgStart: 'bg-[#2463eb]/10',
@@ -37,7 +40,8 @@ export const EXPERTISE_MAIN_CONTENT = {
       },
       {
         title: 'Demand & Growth',
-        description: 'Demand generation and growth systems for predictable pipeline.',
+        description:
+          'Acquisition systems, funnel tests, and pipeline programs built for repeatable growth.',
         icon: 'trending_up',
         color: 'text-[#059669]',
         bgStart: 'bg-[#059669]/10',
@@ -46,7 +50,8 @@ export const EXPERTISE_MAIN_CONTENT = {
       },
       {
         title: 'Strategy & Insights',
-        description: 'Strategic advisory and data-driven insights for GTM decisions.',
+        description:
+          'Research models, planning frameworks, and decision systems used to guide GTM moves.',
         icon: 'insights',
         color: 'text-[#7c3aed]',
         bgStart: 'bg-[#7c3aed]/10',
@@ -55,7 +60,8 @@ export const EXPERTISE_MAIN_CONTENT = {
       },
       {
         title: 'Systems & Operations',
-        description: 'RevOps, automation, and infrastructure that scales revenue.',
+        description:
+          'RevOps infrastructure, automations, and reporting systems built to make revenue work visible.',
         icon: 'settings',
         color: 'text-[#dc2626]',
         bgStart: 'bg-[#dc2626]/10',
@@ -65,13 +71,13 @@ export const EXPERTISE_MAIN_CONTENT = {
     ],
   },
   philosophy: {
-    quote: 'We build systems that drive predictable revenue — not campaigns that burn cash.',
-    highlight: 'predictable revenue',
+    quote: 'The goal is to make GTM work easier to understand,',
+    highlight: 'trace, and improve',
   },
   insights: {
     title: 'Latest Insights',
-    subtitle: 'GTM playbooks, case studies, and revenue architecture thinking.',
-    cta: 'View all',
+    subtitle: 'Field notes, case studies, and operator thinking connected to the work on this site.',
+    cta: 'See all insights',
     items: [
       {
         type: 'Playbook',
@@ -100,10 +106,11 @@ export const EXPERTISE_MAIN_CONTENT = {
     ],
   },
   ctaBand: {
-    title: 'Ready to engineer your revenue systems?',
-    subtitle: 'Review how the four pillars connect to your funnel, then prioritize the work that removes the most leakage first.',
-    ctaPrimary: 'Start a conversation',
-    ctaSecondary: 'View Case Studies',
+    title: 'Want a second set of eyes on your GTM stack?',
+    subtitle:
+      'If the work here overlaps with what your team is building, send me a note. I’m always open to reviewing a GTM system, comparing approaches, or talking through where things might be stuck.',
+    ctaPrimary: 'Send a note',
+    ctaSecondary: 'See case studies',
   },
   footer: {
     columns: [
@@ -126,6 +133,6 @@ export const EXPERTISE_MAIN_CONTENT = {
       },
     ],
     copyright: '© GTMStack.pro. All rights reserved.',
-    tagline: 'Engineered GTM systems for the modern enterprise.',
+    tagline: 'Operator-built GTM portfolio, with room for the occasional GTM review.',
   },
 }

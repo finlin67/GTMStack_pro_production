@@ -39,11 +39,11 @@ export const metadata: Metadata = {
     icon: '/gtmstack-logo.png',
   },
   title: {
-    default: 'GTMStack.pro | B2B GTM operating model',
+    default: 'GTMStack.pro | Operator-built GTM portfolio',
     template: '%s | GTMStack.pro',
   },
   description:
-    'A public B2B go-to-market reference: how narrative, demand, insight, and ops fit together—built and documented by one operator.',
+    'An operator-built GTM portfolio: case studies, systems, messaging, and field-tested artifacts from complex B2B work.',
   keywords: [
     'B2B marketing operations',
     'go-to-market systems',
@@ -58,15 +58,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://gtmstack.pro',
     siteName: 'GTMStack.pro',
-    title: 'GTMStack.pro | B2B GTM operating model',
+    title: 'GTMStack.pro | Operator-built GTM portfolio',
     description:
-      'A live GTM operating model you can read end to end—systems, measurement, and execution in one place.',
+      'A live GTM portfolio with case studies, systems thinking, and measurable work across complex B2B teams.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'GTMStack.pro | B2B GTM operating model',
+    title: 'GTMStack.pro | Operator-built GTM portfolio',
     description:
-      'A live GTM operating model you can read end to end—systems, measurement, and execution in one place.',
+      'A live GTM portfolio with case studies, systems thinking, and measurable work across complex B2B teams.',
   },
   robots: {
     index: true,

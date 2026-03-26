@@ -52,7 +52,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Orchestrate Your Future?",
     subtitle: "Build a modern digital core, fuel authentic engagement, and transform your GTM strategy for the AI era.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Guiding high-tech firms through the architectural shift from transactional friction to relational orchestration, powered by invisible AI and durable human intellect.",

@@ -30,9 +30,9 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import http from 'node:http'
-import puppeteer from 'puppeteer'
+import puppeteer, { type Page } from 'puppeteer'
 import { resolveRegistryIdForManifestItem } from '@/src/lib/galleryAnimationMap'
-import { ANIMATION_REGISTRY } from '@/src/data/animations'
+import { ALL_ANIMATION_REGISTRY } from '@/src/data/animations'
 
 // ---------------------------------------------------------------------------
 // Types
@@ -53,6 +53,14 @@ type ResolvedTarget = {
   animationId: string
   title: string
   thumbnailPath: string
+}
+
+type PreviewDiagnostics = {
+  title: string
+  hasPreviewRoot: boolean
+  hasViteOverlay: boolean
+  hasNextErrorOverlay: boolean
+  bodySnippet: string
 }
 
 // ---------------------------------------------------------------------------
@@ -108,6 +116,28 @@ function ensureDir(dirPath: string): void {
   }
 }
 
+async function getPreviewDiagnostics(page: Page): Promise<PreviewDiagnostics> {
+  return page.evaluate(() => {
+    const bodyText = document.body?.innerText || ''
+    const bodySnippet = bodyText.replace(/\s+/g, ' ').trim().slice(0, 280)
+
+    return {
+      title: document.title || '',
+      hasPreviewRoot: Boolean(document.querySelector('[data-preview-root]')),
+      hasViteOverlay:
+        Boolean(document.querySelector('vite-error-overlay')) ||
+        bodyText.includes('[plugin:vite') ||
+        bodyText.includes('vite-error-overlay'),
+      hasNextErrorOverlay:
+        Boolean(document.querySelector('nextjs-portal')) ||
+        bodyText.includes('Application error') ||
+        bodyText.includes('Unhandled Runtime Error') ||
+        bodyText.includes('Switched to client rendering because the server rendering errored'),
+      bodySnippet,
+    }
+  })
+}
+
 async function checkServerReachable(baseUrl: string): Promise<boolean> {
   return new Promise((resolve) => {
     try {
@@ -152,7 +182,7 @@ async function main() {
   const manifest: ManifestItem[] = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
 
   // --- Load animation registry ids (must match runtime resolution) ---
-  const registryIds = new Set(ANIMATION_REGISTRY.map((entry) => entry.id))
+  const registryIds = new Set(ALL_ANIMATION_REGISTRY.map((entry) => entry.id))
   console.log(`Registry IDs loaded: ${registryIds.size}`)
 
   // --- Resolve manifest items to animationIds ---
@@ -251,13 +281,35 @@ async function main() {
           deviceScaleFactor: 2,
         })
 
-        await page.goto(previewUrl, { waitUntil: 'networkidle0', timeout: 30000 })
+        await page.goto(previewUrl, { waitUntil: 'domcontentloaded', timeout: 60000 })
 
-        // Wait for the preview root to confirm the component mounted
-        try {
-          await page.waitForSelector('[data-preview-root]', { timeout: 10000 })
-        } catch {
-          // Component may not render (no match), but continue and take screenshot anyway
+        await page.waitForFunction(
+          () => {
+            const bodyText = document.body?.innerText || ''
+            return Boolean(document.querySelector('[data-preview-root]')) ||
+              bodyText.includes('[plugin:vite') ||
+              bodyText.includes('Application error') ||
+              bodyText.includes('Unhandled Runtime Error') ||
+              bodyText.includes('Switched to client rendering because the server rendering errored')
+          },
+          { timeout: 15000 }
+        )
+
+        const diagnostics = await getPreviewDiagnostics(page)
+        if (!diagnostics.hasPreviewRoot) {
+          throw new Error(
+            `Preview root missing. title="${diagnostics.title}" snippet="${diagnostics.bodySnippet}"`
+          )
+        }
+        if (diagnostics.hasViteOverlay) {
+          throw new Error(
+            `Detected Vite overlay instead of GTMStack preview. title="${diagnostics.title}" snippet="${diagnostics.bodySnippet}"`
+          )
+        }
+        if (diagnostics.hasNextErrorOverlay) {
+          throw new Error(
+            `Detected Next.js error overlay. title="${diagnostics.title}" snippet="${diagnostics.bodySnippet}"`
+          )
         }
 
         // Let the animation play for settle time

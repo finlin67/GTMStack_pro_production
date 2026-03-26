@@ -53,7 +53,7 @@ export const EVENT_TRADESHOW_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Event Strategy?",
     subtitle: "Shift from legacy logistics to AI-driven orchestration and improve the true revenue potential of your events. Remediate technical debt and build a future-proof GTM stack.",
-    button: { text: "Start a conversation", link: "/contact/consultation" }
+    button: { text: "Contact", link: "/contact/consultation" }
   },
   footer: {
     description: "Proactive technical debt remediation is crucial. Our data-driven approach ensures your 'Digital Core' can respond to shifting market conditions with zero-touch efficiency, maximizing your event budget's impact.",

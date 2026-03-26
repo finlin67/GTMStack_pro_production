@@ -54,7 +54,7 @@ export const CONTENT_CREATION_PERSONALIZATION_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Content Strategy?",
     subtitle: "Transform your enterprise with an AI-native, human-governed approach to content creation and personalization that drives real growth.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Empowering enterprises to master the convergence of authenticity and autonomous intelligence, building durable brand equity and sustainable growth in the AI-native era.",

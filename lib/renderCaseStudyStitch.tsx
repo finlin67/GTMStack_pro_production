@@ -137,7 +137,7 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
               <section>
                 <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
                   <span className="size-2 bg-brand-600 rounded-full shrink-0" aria-hidden />
-                  Our methodology
+                  How the work unfolded
                 </h2>
                 <div className="grid md:grid-cols-2 gap-6">
                   {solutionSteps.map((step) => (
@@ -324,21 +324,21 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
       >
         <div className="max-w-3xl mx-auto relative z-10">
           <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
-            Ready for similar results?
+            Explore similar work
           </h2>
           <p className="text-slate-300 text-lg md:text-xl mb-10">
-            Let&apos;s talk about your GTM stack and how we can accelerate your next proof point.
+            Continue through the case studies or jump into the related expertise behind this project.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">
             <Link
-              href="/contact"
+              href={config.viewAllHref}
               className="inline-flex items-center gap-2 bg-sky-400 text-[#0A1628] px-8 py-4 rounded-xl font-black text-base hover:scale-[1.02] transition-transform shadow-lg shadow-sky-400/20"
             >
-              Start a conversation
+              {config.viewAllLabel}
               <ArrowRight className="w-5 h-5" />
             </Link>
-            <Link href={config.viewAllHref} className="text-slate-300 hover:text-white text-sm font-semibold underline-offset-4 hover:underline">
-              {config.viewAllLabel}
+            <Link href="/expertise" className="text-slate-300 hover:text-white text-sm font-semibold underline-offset-4 hover:underline">
+              Explore expertise
             </Link>
           </div>
         </div>

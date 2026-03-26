@@ -8,7 +8,7 @@ export const MARKETING_CONTENT = {
     subheadline: "Leveraging deep customer insights and a data-driven approach to maximize your ROI.",
     description: "We help you build high-performing marketing programs that drive sustainable revenue growth. We combine deep customer insights with a data-driven approach to design and implement targeted campaigns that build lasting customer relationships and maximize your return on investment.",
     primaryCTA: {
-      text: "Start a conversation",
+      text: "Contact",
       link: "#contact"
     },
     secondaryCTA: {

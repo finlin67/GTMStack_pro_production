@@ -39,7 +39,7 @@ export const RESUME_CONTENT: HomeTemplateContent = {
         number: '03',
         icon: 'Rocket',
         title: 'Founder / CEO',
-        description: 'Building the first dedicated revenue architecture firm.',
+        description: 'Building an operator-led GTM portfolio and systems practice.',
         progress: '75%',
       },
       {

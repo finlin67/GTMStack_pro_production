@@ -139,7 +139,7 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                 href="/contact"
                 className="bg-[#F97316] hover:bg-orange-600 text-white text-sm font-bold py-2.5 px-6 rounded transition-all shadow-lg shadow-orange-500/20 flex items-center gap-2"
               >
-                <span>Get in Touch</span>
+                <span>Contact</span>
                 <span className="material-symbols-outlined text-sm font-bold">arrow_forward</span>
               </Link>
             </div>
@@ -192,13 +192,13 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                       href="#industries-grid"
                       className="bg-[#1c6ef2] hover:bg-blue-600 text-white font-bold py-3 px-8 rounded flex items-center gap-2 transition-all"
                     >
-                      Explore Industries
+                      View Contexts
                     </Link>
                     <Link
                       href="/methodology"
                       className="bg-transparent border border-gray-600 text-white hover:border-white hover:bg-white/5 font-bold py-3 px-8 rounded flex items-center gap-2 transition-all"
                     >
-                      View Methodology
+                      See the Core System
                     </Link>
                   </div>
                 </div>
@@ -257,7 +257,7 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                   className="text-[#1c6ef2] font-bold flex items-center gap-1 hover:gap-2 transition-all"
                   href="/expertise"
                 >
-                  See All Challenges{' '}
+                  See Related Expertise{' '}
                   <span className="material-symbols-outlined text-sm">arrow_forward</span>
                 </Link>
               </div>
@@ -452,7 +452,7 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                     href="/contact"
                     className="bg-[#F97316] hover:bg-orange-600 text-white font-bold text-lg py-4 px-10 rounded-lg shadow-lg shadow-orange-500/20 transition-all transform hover:-translate-y-1"
                   >
-                    Get in Touch
+                    Contact
                   </Link>
                   <Link
                     href="/case-studies"
@@ -472,7 +472,7 @@ function PageTemplate({ content }: { content: IndustriesMainContent }) {
                     <span className="text-white font-bold text-lg">{content.brand.name}</span>
                   </div>
                   <p className="text-gray-500 text-sm mb-4">
-                    The premier revenue architecture firm for high-growth B2B enterprises in
+                    An operator-built GTM portfolio for complex B2B teams working across
                     regulated industries.
                   </p>
                   <div className="flex gap-4">

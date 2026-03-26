@@ -25,6 +25,7 @@ export default function IndustryTemplate({
   featuredCaseStudies,
   whyNow,
   heroVariant = 'stitch',
+  heroVisualId,
 }: IndustryTemplateProps) {
   return (
     <IndustryPageContent
@@ -33,6 +34,7 @@ export default function IndustryTemplate({
       featuredCaseStudies={featuredCaseStudies}
       whyNow={whyNow}
       heroVariant={heroVariant}
+      heroVisualId={heroVisualId}
     />
   )
 }

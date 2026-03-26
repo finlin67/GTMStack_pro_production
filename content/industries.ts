@@ -5,7 +5,7 @@ export const industryItems: IndustryItem[] = [
     slug: 'b2b-saas',
     title: 'B2B SaaS',
     description: 'Revenue milestones from seed to scale. PLG motions, enterprise enablement, and expansion strategies that compound.',
-    longDescription: 'Specialized GTM expertise for B2B software companies at every stage. Navigate the route from PLG motions and freemium optimization to enterprise sales enablement and expansion revenue strategies. Modern growth plays include unified revenue operating models, product-led growth engines, and lifecycle marketing that drives expansion revenue.',
+    longDescription: 'Specialized GTM expertise for B2B software companies at every stage. Navigate the route from PLG motions and freemium optimization to enterprise sales enablement and expansion revenue strategies. Modern growth plays include unified GTM systems, product-led growth engines, and lifecycle marketing that drives expansion revenue.',
     positioning: 'Revenue milestones from seed to scale. PLG motions, enterprise enablement, and expansion strategies that compound.',
     gtmRealities: [
       'Balancing PLG and sales-led motions requires integrated data and attribution.',
@@ -15,7 +15,7 @@ export const industryItems: IndustryItem[] = [
       'Product usage data must integrate with CRM for full-funnel visibility.',
     ],
     playbook: [
-      'Unified revenue operating models integrating ABM, automation, and attribution.',
+      'Unified GTM systems integrating ABM, automation, and attribution.',
       'Product-led growth engines with freemium optimization and in-app conversion triggers.',
       'Lifecycle marketing playbooks driving expansion revenue and reducing churn.',
       'Multi-touch attribution models tracking marketing influence across buyer journey.',

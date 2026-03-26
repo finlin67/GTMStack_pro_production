@@ -7,7 +7,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
     headline: "Drive Exponential Growth with Account-Based Marketing for High-Value Accounts.",
     subheadline: "Shift from broad outreach to precision engagement, fostering deeper relationships and accelerating revenue with a truly integrated ABM strategy.",
     description: "In today's competitive landscape, success hinges on strategic focus. We guide you in building a holistic Account-Based Marketing program that transcends mere targeting, deeply understanding your most valuable accounts to deliver personalized experiences and measurable ROI.",
-    primaryCTA: { text: "Build Your ABM Strategy", link: "/contact" },
+    primaryCTA: { text: "See ABM case studies", link: "/case-studies" },
     secondaryCTA: { text: "Explore Our ABM Approach", link: "/expertise/account-based-marketing#approach" },
     image: { src: "/images/abm-hero.webp", alt: "Strategic Account-Based Marketing dashboard showing targeted accounts" }
   },
@@ -52,7 +52,7 @@ export const ACCOUNT_BASED_MARKETING_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Approach to High-Value Accounts?",
     subtitle: "Partner with us to design and implement an Account-Based Marketing strategy that delivers measurable results and builds enduring client relationships.",
-    button: { text: "Start an ABM diagnostic", link: "/contact" }
+    button: { text: "View ABM case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro empowers businesses to optimize their go-to-market strategies, driving growth and building lasting customer relationships through expert guidance and innovative solutions.",

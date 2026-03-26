@@ -175,6 +175,234 @@ const VideoCreativeHero = dynamic(
   () => import('@/src/components/animations/VideoCreativeHero'),
   { ssr: false }
 )
+const SystemsProcessTile = dynamic(
+  () => import('@/src/components/animations/SystemsProcessTile'),
+  { ssr: false }
+)
+const FleetTile = dynamic(
+  () => import('@/src/components/animations/FleetTile'),
+  { ssr: false }
+)
+const HealthCareTile = dynamic(
+  () => import('@/src/components/animations/HealthCareTile'),
+  { ssr: false }
+)
+const EnergyGridTile = dynamic(
+  () => import('@/src/components/animations/EnergyGridTile'),
+  { ssr: false }
+)
+const TelcoAITile = dynamic(
+  () => import('@/src/components/animations/TelcoAITile'),
+  { ssr: false }
+)
+const ScalabilityRadar = dynamic(
+  () => import('@/src/components/animations/ScalabilityRadar'),
+  { ssr: false }
+)
+const PubSecTile = dynamic(
+  () => import('@/src/components/animations/PubSecTile'),
+  { ssr: false }
+)
+const PowerGridDashboard = dynamic(
+  () => import('@/src/components/animations/PowerGridDashboard'),
+  { ssr: false }
+)
+const FleetROICalculator = dynamic(
+  () => import('@/src/components/animations/FleetROICalculator'),
+  { ssr: false }
+)
+const EngineeringWorkflowSystem = dynamic(
+  () => import('@/src/components/animations/EngineeringWorkflowSystem'),
+  { ssr: false }
+)
+const EnergyFlowDigital = dynamic(
+  () => import('@/src/components/animations/EnergyFlowDigital'),
+  { ssr: false }
+)
+const EdJourneyK12Ecosystem = dynamic(
+  () => import('@/src/components/animations/EdJourneyK12Ecosystem'),
+  { ssr: false }
+)
+const EdTechCompactROIFunnel = dynamic(
+  () => import('@/src/components/animations/EdTechCompactROIFunnel'),
+  { ssr: false }
+)
+const FinancialTile = dynamic(
+  () => import('@/src/components/animations/FinancialTile'),
+  { ssr: false }
+)
+const ClinicalHolographicControlSurface = dynamic(
+  () => import('@/src/components/animations/ClinicalHolographicControlSurface'),
+  { ssr: false }
+)
+const EngineeringWorkflow = dynamic(
+  () => import('@/src/components/animations/EngineeringWorkflow'),
+  { ssr: false }
+)
+const EventPulse = dynamic(
+  () => import('@/src/components/animations/EventPulse'),
+  { ssr: false }
+)
+const ImpactDashboard = dynamic(
+  () => import('@/src/components/animations/ImpactDashboard'),
+  { ssr: false }
+)
+const StrategyInsightsTile = dynamic(
+  () => import('@/src/components/animations/StrategyInsightsTile'),
+  { ssr: false }
+)
+const ContentStrategistDashboard = dynamic(
+  () => import('@/src/components/animations/ContentStrategistDashboard'),
+  { ssr: false }
+)
+const SalesEnablementTile = dynamic(
+  () => import('@/src/components/animations/SalesEnablementTile'),
+  { ssr: false }
+)
+const OmnichannelLiveAnalytics = dynamic(
+  () => import('@/src/components/animations/OmnichannelLiveAnalytics'),
+  { ssr: false }
+)
+const MarTechTile = dynamic(
+  () => import('@/src/components/animations/MarTechTile'),
+  { ssr: false }
+)
+const KpiSpotlightMosaic = dynamic(
+  () => import('@/src/components/animations/KpiSpotlightMosaic'),
+  { ssr: false }
+)
+const GTMAudienceTile = dynamic(
+  () => import('@/src/components/animations/GTMAudienceTile'),
+  { ssr: false }
+)
+const EsgAnalyticsHub = dynamic(
+  () => import('@/src/components/animations/EsgAnalyticsHub'),
+  { ssr: false }
+)
+const DriftGuard = dynamic(
+  () => import('@/src/components/animations/DriftGuard'),
+  { ssr: false }
+)
+const DemandGrowthTile = dynamic(
+  () => import('@/src/components/animations/DemandGrowthTile'),
+  { ssr: false }
+)
+const RevOpsMeshTile = dynamic(
+  () => import('@/src/components/animations/RevOpsMeshTile'),
+  { ssr: false }
+)
+const OilGasTile = dynamic(
+  () => import('@/src/components/animations/OilGasTile'),
+  { ssr: false }
+)
+const Lifecycle360 = dynamic(
+  () => import('@/src/components/animations/Lifecycle-360'),
+  { ssr: false }
+)
+const GrowthSEMTile = dynamic(
+  () => import('@/src/components/animations/GrowthSEMTile'),
+  { ssr: false }
+)
+const EocLogisticsDashboard = dynamic(
+  () => import('@/src/components/animations/EocLogisticsDashboard'),
+  { ssr: false }
+)
+const SocialMediaHero = dynamic(
+  () => import('@/src/components/animations/SocialMediaHero'),
+  { ssr: false }
+)
+const EDUMarketingTile = dynamic(
+  () => import('@/src/components/animations/EDUMarketingTile'),
+  { ssr: false }
+)
+const RevOpsDashboard = dynamic(
+  () => import('@/src/components/animations/RevOpsDashboard'),
+  { ssr: false }
+)
+const RevOpsDash = dynamic(
+  () => import('@/src/components/animations/RevOpsDash'),
+  { ssr: false }
+)
+const ABMPipeTrackerTile = dynamic(
+  () => import('@/src/components/animations/ABMPipeTrackerTile'),
+  { ssr: false }
+)
+const AIGrowth = dynamic(
+  () => import('@/src/components/animations/AIGrowth'),
+  { ssr: false }
+)
+const GTMStackHero = dynamic(
+  () => import('@/src/components/animations/GTMStackHero'),
+  { ssr: false }
+)
+const PlgJourneyDashboard = dynamic(
+  () => import('@/src/components/animations/PlgJourneyDashboard'),
+  { ssr: false }
+)
+const EnterpriseSalesMotionDashboard = dynamic(
+  () => import('@/src/components/animations/EnterpriseSalesMotionDashboard'),
+  { ssr: false }
+)
+const EventMarketingTile = dynamic(
+  () => import('@/src/components/animations/EventMarketingTile'),
+  { ssr: false }
+)
+const LeadGenBanner = dynamic(
+  () => import('@/src/components/animations/LeadGenBanner'),
+  { ssr: false }
+)
+const MarketingFunnel = dynamic(
+  () => import('@/src/components/animations/MarketingFunnel'),
+  { ssr: false }
+)
+const NGOSDOTile = dynamic(
+  () => import('@/src/components/animations/NGOSDOTile'),
+  { ssr: false }
+)
+const NGOTile = dynamic(
+  () => import('@/src/components/animations/NGOTile'),
+  { ssr: false }
+)
+const PaidAdvertisingHero = dynamic(
+  () => import('@/src/components/animations/PaidAdvertisingHero'),
+  { ssr: false }
+)
+const SEOHero = dynamic(
+  () => import('@/src/components/animations/SEOHero'),
+  { ssr: false }
+)
+const SEOKeywordDiscovery = dynamic(
+  () => import('@/src/components/animations/SEOKeywordDiscovery'),
+  { ssr: false }
+)
+const WasteMan = dynamic(
+  () => import('@/src/components/animations/WasteMan'),
+  { ssr: false }
+)
+const EngineeringExcellenceWorkflowTile = dynamic(
+  () => import('@/src/components/animations/EngineeringExcellenceWorkflowTile'),
+  { ssr: false }
+)
+const GrowthMarketingTile = dynamic(
+  () => import('@/src/components/animations/GrowthMarketingTile'),
+  { ssr: false }
+)
+const OmniRetailTile = dynamic(
+  () => import('@/src/components/animations/OmniRetailTile'),
+  { ssr: false }
+)
+const WealthManageTile = dynamic(
+  () => import('@/src/components/animations/WealthManageTile'),
+  { ssr: false }
+)
+const ABM90Days = dynamic(
+  () => import('@/src/components/animations/ABM90Days'),
+  { ssr: false }
+)
+const ContentEngagementTile = dynamic(
+  () => import('@/src/components/animations/ContentEngagementTile'),
+  { ssr: false }
+)
 
 export type AnimationSourceType = 'google-ai-studio' | 'custom' | 'lottie' | 'video'
 export type MarketingFunction =
@@ -847,8 +1075,643 @@ function mergeGeneratedMeta(entry: AnimationEntry): AnimationEntry {
   }
 }
 
+const PREVIEW_ONLY_ANIMATION_REGISTRY: AnimationEntry[] = [
+  {
+    id: 'rev-ops-dash',
+    title: 'RevOps Dashboard',
+    description: 'Preview-only entry for hero tile rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['revops', 'dashboard', 'revenue', 'operations'],
+    sourceType: 'custom',
+    componentPath: 'RevOpsDash.tsx',
+    component: RevOpsDash,
+    featured: false,
+  },
+  {
+    id: 'systems-process-tile',
+    title: 'Systems Process Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['systems', 'process', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'SystemsProcessTile.tsx',
+    component: SystemsProcessTile,
+    featured: false,
+  },
+  {
+    id: 'fleet-tile',
+    title: 'Fleet Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'manufacturing',
+    tags: ['fleet', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'FleetTile.tsx',
+    component: FleetTile,
+    featured: false,
+  },
+  {
+    id: 'health-care-tile',
+    title: 'Health Care Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['healthcare', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'HealthCareTile.tsx',
+    component: HealthCareTile,
+    featured: false,
+  },
+  {
+    id: 'energy-grid-tile',
+    title: 'Energy Grid Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'manufacturing',
+    tags: ['energy', 'grid', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'EnergyGridTile.tsx',
+    component: EnergyGridTile,
+    featured: false,
+  },
+  {
+    id: 'telco-a-i-tile',
+    title: 'Telco AI Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['telco', 'ai', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'TelcoAITile.tsx',
+    component: TelcoAITile,
+    featured: false,
+  },
+  {
+    id: 'rev-ops-mesh-tile',
+    title: 'RevOps Mesh Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['revops', 'mesh', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'RevOpsMeshTile.tsx',
+    component: RevOpsMeshTile,
+    featured: false,
+  },
+  {
+    id: 'oil-gas-tile',
+    title: 'Oil and Gas Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'manufacturing',
+    tags: ['oil', 'gas', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'OilGasTile.tsx',
+    component: OilGasTile,
+    featured: false,
+  },
+  {
+    id: 'lifecycle-360',
+    title: 'Lifecycle 360',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-automation',
+    tags: ['lifecycle', 'dashboard'],
+    sourceType: 'custom',
+    componentPath: 'Lifecycle-360.tsx',
+    component: Lifecycle360,
+    featured: false,
+  },
+  {
+    id: 'growth-s-e-m-tile',
+    title: 'Growth SEM Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'growth-marketing',
+    tags: ['growth', 'sem', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'GrowthSEMTile.tsx',
+    component: GrowthSEMTile,
+    featured: false,
+  },
+  {
+    id: 'eoc-logistics-dashboard',
+    title: 'EOC Logistics Dashboard',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'event-marketing',
+    tags: ['eoc', 'logistics', 'dashboard'],
+    sourceType: 'custom',
+    componentPath: 'EocLogisticsDashboard.tsx',
+    component: EocLogisticsDashboard,
+    featured: false,
+  },
+  {
+    id: 'social-media-hero',
+    title: 'Social Media Hero',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'social-media-marketing',
+    tags: ['social', 'media', 'hero'],
+    sourceType: 'custom',
+    componentPath: 'SocialMediaHero.tsx',
+    component: SocialMediaHero,
+    featured: false,
+  },
+  {
+    id: 'e-d-u-marketing-tile',
+    title: 'EDU Marketing Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'education',
+    tags: ['education', 'marketing', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'EDUMarketingTile.tsx',
+    component: EDUMarketingTile,
+    featured: false,
+  },
+  {
+    id: 'scalability-radar',
+    title: 'Scalability Radar',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['scalability', 'radar'],
+    sourceType: 'custom',
+    componentPath: 'ScalabilityRadar.tsx',
+    component: ScalabilityRadar,
+    featured: false,
+  },
+  {
+    id: 'pub-sec-tile',
+    title: 'Pub Sec Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['public-sector', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'PubSecTile.tsx',
+    component: PubSecTile,
+    featured: false,
+  },
+  {
+    id: 'power-grid-dashboard',
+    title: 'Power Grid Dashboard',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'manufacturing',
+    tags: ['power', 'grid', 'dashboard'],
+    sourceType: 'custom',
+    componentPath: 'PowerGridDashboard.tsx',
+    component: PowerGridDashboard,
+    featured: false,
+  },
+  {
+    id: 'fleet-r-o-i-calculator',
+    title: 'Fleet ROI Calculator',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'manufacturing',
+    tags: ['fleet', 'roi', 'calculator'],
+    sourceType: 'custom',
+    componentPath: 'FleetROICalculator.tsx',
+    component: FleetROICalculator,
+    featured: false,
+  },
+  {
+    id: 'engineering-workflow-system',
+    title: 'Engineering Workflow System',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'developer-tools',
+    tags: ['engineering', 'workflow', 'system'],
+    sourceType: 'custom',
+    componentPath: 'EngineeringWorkflowSystem.tsx',
+    component: EngineeringWorkflowSystem,
+    featured: false,
+  },
+  {
+    id: 'energy-flow-digital',
+    title: 'Energy Flow Digital',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'manufacturing',
+    tags: ['energy', 'flow', 'digital'],
+    sourceType: 'custom',
+    componentPath: 'EnergyFlowDigital.tsx',
+    component: EnergyFlowDigital,
+    featured: false,
+  },
+  {
+    id: 'ed-journey-k12-ecosystem',
+    title: 'Ed Journey K12 Ecosystem',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'education',
+    tags: ['education', 'journey', 'ecosystem'],
+    sourceType: 'custom',
+    componentPath: 'EdJourneyK12Ecosystem.tsx',
+    component: EdJourneyK12Ecosystem,
+    featured: false,
+  },
+  {
+    id: 'ed-tech-compact-r-o-i-funnel',
+    title: 'EdTech Compact ROI Funnel',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'education',
+    tags: ['education', 'roi', 'funnel'],
+    sourceType: 'custom',
+    componentPath: 'EdTechCompactROIFunnel.tsx',
+    component: EdTechCompactROIFunnel,
+    featured: false,
+  },
+  {
+    id: 'financial-tile',
+    title: 'Financial Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'growth-marketing',
+    tags: ['financial', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'FinancialTile.tsx',
+    component: FinancialTile,
+    featured: false,
+  },
+  {
+    id: 'clinical-holographic-control-surface',
+    title: 'Clinical Holographic Control Surface',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['clinical', 'holographic', 'surface'],
+    sourceType: 'custom',
+    componentPath: 'ClinicalHolographicControlSurface.tsx',
+    component: ClinicalHolographicControlSurface,
+    featured: false,
+  },
+  {
+    id: 'engineering-workflow',
+    title: 'Engineering Workflow',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'developer-tools',
+    tags: ['engineering', 'workflow'],
+    sourceType: 'custom',
+    componentPath: 'EngineeringWorkflow.tsx',
+    component: EngineeringWorkflow,
+    featured: false,
+  },
+  {
+    id: 'event-pulse',
+    title: 'Event Pulse',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'event-marketing',
+    tags: ['event', 'pulse'],
+    sourceType: 'custom',
+    componentPath: 'EventPulse.tsx',
+    component: EventPulse,
+    featured: false,
+  },
+  {
+    id: 'impact-dashboard',
+    title: 'Impact Dashboard',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'event-marketing',
+    tags: ['impact', 'dashboard'],
+    sourceType: 'custom',
+    componentPath: 'ImpactDashboard.tsx',
+    component: ImpactDashboard,
+    featured: false,
+  },
+  {
+    id: 'strategy-insights-tile',
+    title: 'Strategy Insights Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'content-marketing',
+    tags: ['strategy', 'insights', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'StrategyInsightsTile.tsx',
+    component: StrategyInsightsTile,
+    featured: false,
+  },
+  {
+    id: 'content-strategist-dashboard',
+    title: 'Content Strategist Dashboard',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'content-marketing',
+    tags: ['content', 'strategist', 'dashboard'],
+    sourceType: 'custom',
+    componentPath: 'ContentStrategistDashboard.tsx',
+    component: ContentStrategistDashboard,
+    featured: false,
+  },
+  {
+    id: 'sales-enablement-tile',
+    title: 'Sales Enablement Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'demand-generation',
+    tags: ['sales', 'enablement', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'SalesEnablementTile.tsx',
+    component: SalesEnablementTile,
+    featured: false,
+  },
+  {
+    id: 'omnichannel-live-analytics',
+    title: 'Omnichannel Live Analytics',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'omnichannel-marketing',
+    tags: ['omnichannel', 'analytics'],
+    sourceType: 'custom',
+    componentPath: 'OmnichannelLiveAnalytics.tsx',
+    component: OmnichannelLiveAnalytics,
+    featured: false,
+  },
+  {
+    id: 'mar-tech-tile',
+    title: 'MarTech Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['martech', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'MarTechTile.tsx',
+    component: MarTechTile,
+    featured: false,
+  },
+  {
+    id: 'kpi-spotlight-mosaic',
+    title: 'KPI Spotlight Mosaic',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['kpi', 'spotlight', 'mosaic'],
+    sourceType: 'custom',
+    componentPath: 'KpiSpotlightMosaic.tsx',
+    component: KpiSpotlightMosaic,
+    featured: false,
+  },
+  {
+    id: 'g-t-m-audience-tile',
+    title: 'GTM Audience Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['gtm', 'audience', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'GTMAudienceTile.tsx',
+    component: GTMAudienceTile,
+    featured: false,
+  },
+  {
+    id: 'esg-analytics-hub',
+    title: 'ESG Analytics Hub',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'growth-marketing',
+    tags: ['esg', 'analytics', 'hub'],
+    sourceType: 'custom',
+    componentPath: 'EsgAnalyticsHub.tsx',
+    component: EsgAnalyticsHub,
+    featured: false,
+  },
+  {
+    id: 'drift-guard',
+    title: 'Drift Guard',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-automation',
+    tags: ['drift', 'guard'],
+    sourceType: 'custom',
+    componentPath: 'DriftGuard.tsx',
+    component: DriftGuard,
+    featured: false,
+  },
+  {
+    id: 'demand-growth-tile',
+    title: 'Demand Growth Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'demand-generation',
+    tags: ['demand', 'growth', 'tile'],
+    sourceType: 'custom',
+    componentPath: 'DemandGrowthTile.tsx',
+    component: DemandGrowthTile,
+    featured: false,
+  },
+  {
+    id: 'rev-ops-dashboard',
+    title: 'RevOps Dashboard',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'marketing-operations',
+    tags: ['revops', 'dashboard'],
+    sourceType: 'custom',
+    componentPath: 'RevOpsDashboard.tsx',
+    component: RevOpsDashboard,
+    featured: false,
+  },
+  {
+    id: 'a-b-m-pipe-tracker-tile',
+    title: 'ABM Pipe Tracker Tile',
+    description: 'Preview-only entry for gallery live rendering.',
+    marketingFunction: 'account-based-marketing-abm',
+    tags: ['abm', 'pipeline', 'tracker'],
+    sourceType: 'custom',
+    componentPath: 'ABMPipeTrackerTile.tsx',
+    component: ABMPipeTrackerTile,
+    featured: false,
+  },
+  {
+    id: 'ai-growth',
+    title: 'AI Growth',
+    description: 'AI-driven growth metrics and pipeline visualization.',
+    marketingFunction: 'growth-marketing',
+    tags: ['ai', 'growth', 'metrics'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'AIGrowth.tsx',
+    component: AIGrowth,
+    featured: false,
+  },
+  {
+    id: 'gtm-stack-hero',
+    title: 'GTM Stack Hero',
+    description: 'GTM stack modules animating from chaos into a unified operating system.',
+    marketingFunction: 'home',
+    tags: ['gtm', 'stack', 'hero', 'overview'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'GTMStackHero.tsx',
+    component: GTMStackHero,
+    featured: false,
+  },
+  {
+    id: 'plg-journey-dashboard',
+    title: 'PLG Journey Dashboard',
+    description: 'Product-led growth journey and pipeline dashboard.',
+    marketingFunction: 'demand-generation',
+    tags: ['plg', 'product-led-growth', 'pipeline', 'dashboard'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'PlgJourneyDashboard.tsx',
+    component: PlgJourneyDashboard,
+    featured: false,
+  },
+  {
+    id: 'enterprise-sales-motion',
+    title: 'Enterprise Sales Motion Dashboard',
+    description: 'Enterprise sales motion and revenue pipeline visualization.',
+    marketingFunction: 'lifecycle-marketing',
+    tags: ['enterprise', 'sales', 'motion', 'pipeline'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'EnterpriseSalesMotionDashboard.tsx',
+    component: EnterpriseSalesMotionDashboard,
+    featured: false,
+  },
+  {
+    id: 'event-marketing-tile',
+    title: 'Event Marketing Tile',
+    description: 'Event marketing metrics and registration pipeline tile.',
+    marketingFunction: 'event-marketing',
+    tags: ['event', 'marketing', 'tile', 'registration'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'EventMarketingTile.tsx',
+    component: EventMarketingTile,
+    featured: false,
+  },
+  {
+    id: 'lead-gen-banner',
+    title: 'Lead Gen Banner',
+    description: 'Lead generation pipeline and conversion banner animation.',
+    marketingFunction: 'demand-generation',
+    tags: ['lead-gen', 'banner', 'conversion'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'LeadGenBanner.tsx',
+    component: LeadGenBanner,
+    featured: false,
+  },
+  {
+    id: 'marketing-funnel',
+    title: 'Marketing Funnel',
+    description: 'Full-funnel marketing visualization from awareness to conversion.',
+    marketingFunction: 'marketing-operations',
+    tags: ['funnel', 'marketing', 'conversion', 'pipeline'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'MarketingFunnel.tsx',
+    component: MarketingFunnel,
+    featured: false,
+  },
+  {
+    id: 'ngo-sdo-tile',
+    title: 'NGO / SDO Dashboard Tile',
+    description: 'Non-profit and standards organization impact dashboard.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['ngo', 'sdo', 'non-profit', 'impact'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'NGOSDOTile.tsx',
+    component: NGOSDOTile,
+    featured: false,
+  },
+  {
+    id: 'ngo-tile',
+    title: 'NGO Dashboard Tile',
+    description: 'Non-profit organization marketing and outreach dashboard.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['ngo', 'non-profit', 'outreach', 'dashboard'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'NGOTile.tsx',
+    component: NGOTile,
+    featured: false,
+  },
+  {
+    id: 'paid-advertising-hero',
+    title: 'Paid Advertising Hero',
+    description: 'Paid media and SEM campaign performance hero visualization.',
+    marketingFunction: 'demand-generation',
+    tags: ['paid', 'advertising', 'sem', 'campaigns'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'PaidAdvertisingHero.tsx',
+    component: PaidAdvertisingHero,
+    featured: false,
+  },
+  {
+    id: 'seo-hero',
+    title: 'SEO Hero',
+    description: 'SEO keyword rankings and organic search growth visualization.',
+    marketingFunction: 'search-engine-optimization',
+    tags: ['seo', 'hero', 'rankings', 'organic'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'SEOHero.tsx',
+    component: SEOHero,
+    featured: false,
+  },
+  {
+    id: 'seo-keyword-discovery',
+    title: 'SEO Keyword Discovery',
+    description: 'SEO keyword research and discovery pipeline visualization.',
+    marketingFunction: 'search-engine-optimization',
+    tags: ['seo', 'keywords', 'discovery', 'research'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'SEOKeywordDiscovery.tsx',
+    component: SEOKeywordDiscovery,
+    featured: false,
+  },
+  {
+    id: 'waste-management',
+    title: 'Waste Management Tile',
+    description: 'Waste management and environmental services dashboard tile.',
+    marketingFunction: 'manufacturing',
+    tags: ['waste', 'management', 'environmental', 'logistics'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'WasteMan.tsx',
+    component: WasteMan,
+    featured: false,
+  },
+  {
+    id: 'engineering-excellence-workflow',
+    title: 'Engineering Excellence Workflow',
+    description: 'Engineering workflow excellence and process optimization tile.',
+    marketingFunction: 'developer-tools',
+    tags: ['engineering', 'excellence', 'workflow', 'process'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'EngineeringExcellenceWorkflowTile.tsx',
+    component: EngineeringExcellenceWorkflowTile,
+    featured: false,
+  },
+  {
+    id: 'growth-marketing-tile',
+    title: 'Growth Marketing Tile',
+    description: 'Growth marketing metrics and conversion optimization tile.',
+    marketingFunction: 'growth-marketing',
+    tags: ['growth', 'marketing', 'tile', 'conversion'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'GrowthMarketingTile.tsx',
+    component: GrowthMarketingTile,
+    featured: false,
+  },
+  {
+    id: 'omni-retail-tile',
+    title: 'Omnichannel Retail Tile',
+    description: 'Omnichannel retail commerce dashboard and metrics tile.',
+    marketingFunction: 'omnichannel-marketing',
+    tags: ['omnichannel', 'retail', 'commerce', 'tile'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'OmniRetailTile.tsx',
+    component: OmniRetailTile,
+    featured: false,
+  },
+  {
+    id: 'wealth-management-tile',
+    title: 'Wealth Management Tile',
+    description: 'Financial wealth management and client portfolio dashboard tile.',
+    marketingFunction: 'customer-experience-cx',
+    tags: ['wealth', 'management', 'financial', 'portfolio'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'WealthManageTile.tsx',
+    component: WealthManageTile,
+    featured: false,
+  },
+  {
+    id: 'abm-90-days',
+    title: 'ABM 90-Day Strategy',
+    description: 'Account-based marketing 90-day pipeline strategy and flow visualization.',
+    marketingFunction: 'account-based-marketing-abm',
+    tags: ['abm', '90-days', 'pipeline', 'strategy'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'ABM90Days.tsx',
+    component: ABM90Days,
+    featured: false,
+  },
+  {
+    id: 'content-engagement-tile',
+    title: 'Content Engagement Tile',
+    description: 'Content engagement metrics and audience interaction tile.',
+    marketingFunction: 'content-marketing',
+    tags: ['content', 'engagement', 'tile', 'audience'],
+    sourceType: 'google-ai-studio',
+    componentPath: 'ContentEngagementTile.tsx',
+    component: ContentEngagementTile,
+    featured: false,
+  },
+].map(mergeGeneratedMeta)
+
 export const ANIMATION_REGISTRY: AnimationEntry[] =
   LEGACY_ANIMATION_REGISTRY.map(mergeGeneratedMeta)
+
+export const ALL_ANIMATION_REGISTRY: AnimationEntry[] = [
+  ...ANIMATION_REGISTRY,
+  ...PREVIEW_ONLY_ANIMATION_REGISTRY,
+]
 
 /**
  * Get all animations for a specific marketing function
@@ -865,14 +1728,14 @@ export function getAnimationsByFunction(
  * Get animation by ID
  */
 export function getAnimationById(id: string): AnimationEntry | undefined {
-  return ANIMATION_REGISTRY.find((anim) => anim.id === id)
+  return ALL_ANIMATION_REGISTRY.find((anim) => anim.id === id)
 }
 
 /**
  * Get all animation IDs (for generateStaticParams)
  */
 export function getAllAnimationIds(): string[] {
-  return ANIMATION_REGISTRY.map((anim) => anim.id)
+  return ALL_ANIMATION_REGISTRY.map((anim) => anim.id)
 }
 
 /**

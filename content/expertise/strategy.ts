@@ -49,7 +49,7 @@ export const GTM_STRATEGY_CONTENT = {
   ctaSection: {
     title: "Ready to Launch Your Next Product with Confidence?",
     subtitle: "Partner with us to develop a pragmatic, data-driven GTM strategy that ensures adoption, maximizes revenue, and secures long-term market success.",
-    button: { text: "Start a conversation", link: "#contact" }
+    button: { text: "View related work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in crafting and executing data-driven Go-to-Market strategies that drive adoption, maximize revenue, and ensure long-term market success for B2B companies in rapidly evolving markets.",

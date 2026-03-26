@@ -7,7 +7,7 @@ export const STRATEGY_INSIGHTS_CONTENT = {
     headline: "Strategy & Insights",
     subheadline: "Data-driven strategies for growth and competitive advantage.",
     description: "We synthesize data, apply behavioral economics, and deliver predictive insights.",
-    primaryCTA: { text: "Sharpen Your Strategic Advantage", link: "/contact" },
+    primaryCTA: { text: "See strategic work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/expertise/strategy-insights#capabilities" },
     image: { src: "/images/strategy-insights-hero.jpg", alt: "Strategic insights dashboard with data visualizations" }
   },
@@ -50,7 +50,7 @@ export const STRATEGY_INSIGHTS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Strategic Approach?",
     subtitle: "Partner with us to convert complex data into clear, actionable insights that drive your business forward and secure your competitive edge.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro delivers unparalleled strategic insights, transforming complex data into actionable recommendations that drive measurable business outcomes and sustainable growth.",

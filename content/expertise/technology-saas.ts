@@ -8,7 +8,7 @@ export const GTMSTACK_PRO_CONTENT = {
     subheadline: "Navigate complex market landscapes and accelerate revenue with our unparalleled Go-to-Market expertise.",
     description: "In today's dynamic B2B technology sector, a robust Go-to-Market strategy isn't just an advantage—it's a necessity. GTMStack.pro provides the strategic foresight and tactical execution required to penetrate new markets, optimize existing channels, and drive sustainable, high-impact growth. We transform ambitious visions into measurable market success.",
     primaryCTA: { text: "Explore expertise", link: "/expertise" },
-    secondaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "Contact", link: "/contact" },
     image: { src: "/images/hero-gtm-expertise.webp", alt: "Strategic business leaders analyzing market data on a digital dashboard" }
   },
   metricsSection: {
@@ -50,7 +50,7 @@ export const GTMSTACK_PRO_CONTENT = {
   ctaSection: {
     title: "Ready to Redefine Your Market Success?",
     subtitle: "Connect with GTMStack.pro to transform your Go-to-Market strategy into a powerful engine for growth.",
-    button: { text: "Start a GTM diagnostic", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your dedicated partner in crafting and executing Go-to-Market strategies that deliver measurable, sustainable growth for B2B SaaS and technology companies.",

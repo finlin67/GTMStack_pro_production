@@ -7,7 +7,7 @@ export const CONTENT_MARKETING_PERSONALIZATION_CONTENT = {
     headline: "Drive Hyper-Relevant Engagement and Accelerate Growth with Personalized Content Strategies.",
     subheadline: "Move beyond broadcasting to build authentic relationships and drive measurable outcomes through tailored content experiences.",
     description: "Our expertise in Content Marketing & Personalization transforms your outreach from generic to genuinely engaging. We design and implement holistic content and engagement strategies that foster brand loyalty, generate qualified leads, and significantly boost your revenue.",
-    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    primaryCTA: { text: "See related work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/expertise/content-marketing-personalization#approach" },
     image: { src: "/images/content-marketing-personalization-hero.jpg", alt: "Person interacting with personalized digital content" }
   },

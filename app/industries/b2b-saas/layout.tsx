@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'B2B SaaS & Enterprise Software Industry Solutions | GTMstack.pro',
   description:
-    'Revenue architecture for B2B SaaS and enterprise software. Unified revenue operating model—87% YoY pipeline, 180% MQL-to-SQL lift, 25% NRR increase. The Revenue Architect.',
+    'Operator-built GTM systems for B2B SaaS and enterprise software. Unified ABM, RevOps, and measurable pipeline outcomes across complex growth motions.',
 }
 
 export default function B2BSaaSLayout({

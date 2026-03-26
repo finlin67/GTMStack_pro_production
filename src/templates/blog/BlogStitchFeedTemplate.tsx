@@ -321,7 +321,7 @@ export default function BlogStitchFeedTemplate({
                     href="/contact"
                     className="block w-full rounded-lg bg-[#6FAFE0] py-3 text-center text-sm font-bold text-white transition-transform hover:scale-105"
                   >
-                    Get in Touch
+                    Contact
                   </Link>
                 </div>
               </div>
@@ -432,7 +432,7 @@ export default function BlogStitchFeedTemplate({
               href="/contact"
               className="rounded-lg bg-[#6FAFE0] px-10 py-4 text-lg font-bold text-white shadow-[0_10px_30px_rgba(111,175,224,0.2)] transition-transform hover:scale-105"
             >
-              Get in Touch
+              Contact
             </Link>
             <Link
               href="/resume"

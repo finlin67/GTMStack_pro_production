@@ -698,7 +698,7 @@ export const expertiseItems: ExpertiseItem[] = [
       "Lack of clear ownership for data quality, documentation, and enablement across the GTM stack."
     ],
     modern_plays: [
-      "Ops Architecture: Designing unified operating models and process frameworks across Marketing, Sales, and RevOps.",
+      "Ops Architecture: Designing unified systems and process frameworks across Marketing, Sales, and RevOps.",
       "Automation at Scale: Implementing workflows, triggers, and integrations to remove manual effort and delays.",
       "Data Quality & Governance: Defining standards, monitoring, and remediation processes for CRM and MAP data.",
       "MarTech Rationalization: Consolidating and right-sizing the stack to improve utilization and reduce spend.",

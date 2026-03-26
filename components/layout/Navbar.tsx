@@ -311,7 +311,7 @@ export default function Navbar() {
             />
             <div className="hidden sm:flex flex-col justify-center leading-tight border-l border-white/10 pl-2.5 md:pl-4 min-h-[2.5rem] md:min-h-[3rem]">
               <span className="font-display text-[10px] md:text-[11px] font-medium text-slate-400/95 tracking-[0.07em] uppercase">
-                B2B GTM operating model
+                Operator-built GTM portfolio
               </span>
             </div>
           </Link>
@@ -444,7 +444,7 @@ export default function Navbar() {
               Gallery
             </Link>
             <Link href="/contact" className="nav-cta" aria-label="Contact: start a conversation">
-              Get in Touch
+              Contact
             </Link>
           </div>
 

@@ -182,7 +182,7 @@ const DEFAULT_CONTENT: TemplateContent = {
   lifecycle: {
     title: "Executive-Ready GTM Lifecycle",
     description:
-      "Our systematic approach to revenue architecture is designed for workshop collaboration and executive buy-in. We map every node of your buyer's journey to a measurable stage.",
+      "Our systematic approach to GTM strategy is designed for workshop collaboration and executive buy-in. We map every node of your buyer's journey to a measurable stage.",
     steps: [
       {
         id: "lc-1",

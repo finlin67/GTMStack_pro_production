@@ -88,6 +88,7 @@ export interface ExpertiseTopicTemplateProps {
  */
 export default function ExpertiseTopicTemplate({
   item,
+  heroVisualId,
 }: ExpertiseTopicTemplateProps) {
   const pillarId = getPillarIdForTopic(item.slug)
   const pillarTitle = PILLAR_TITLES[pillarId]
@@ -145,6 +146,7 @@ export default function ExpertiseTopicTemplate({
       usePmmAiTheme={usePmmAiTheme}
       useStrategyInsightsTheme={useStrategyInsightsTheme}
       useSystemsOperationsTheme={useSystemsOperationsTheme}
+      heroVisualId={heroVisualId}
     />
   )
 

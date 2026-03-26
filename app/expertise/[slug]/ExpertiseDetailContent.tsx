@@ -236,6 +236,8 @@ interface ExpertiseDetailContentProps {
   usePmmAiTheme?: boolean
   useStrategyInsightsTheme?: boolean
   useSystemsOperationsTheme?: boolean
+  /** ID from page-registry.csv — forwarded to ExpertiseHeroVisual to override path-based selection */
+  heroVisualId?: string
 }
 
 export function ExpertiseDetailContent({
@@ -254,6 +256,7 @@ export function ExpertiseDetailContent({
   usePmmAiTheme = false,
   useStrategyInsightsTheme = false,
   useSystemsOperationsTheme = false,
+  heroVisualId,
 }: ExpertiseDetailContentProps) {
   const challengesRef = useRef<HTMLDivElement>(null)
   const resultsRef = useRef<HTMLDivElement>(null)
@@ -392,7 +395,7 @@ export function ExpertiseDetailContent({
                 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-white"
                 style={{ textShadow: theme ? `0 0 40px ${accent}80, 0 0 80px ${accent}33` : `0 0 40px rgba(54,192,207,0.2), 0 0 80px rgba(54,192,207,0.15)` }}
               >
-                {item.title} Expertise
+                {item.title}
               </motion.h1>
               <motion.p
                 initial={{ opacity: 0, y: 8 }}
@@ -419,7 +422,7 @@ export function ExpertiseDetailContent({
                         : { backgroundColor: ctaBg, boxShadow: theme ? undefined : '0 0 40px rgba(0,168,168,0.2)' }
                   }
                 >
-                  Book a Strategy Call
+                  View case studies
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </motion.div>
@@ -457,6 +460,7 @@ export function ExpertiseDetailContent({
                 <ExpertiseHeroVisual
                   config={heroConfig ? { engine: 'scan', accent: 'cyan', metrics: heroConfig.metrics ?? [], tagline: heroConfig.tagline ?? '' } : undefined}
                   borderClassName="border-white/20"
+                  heroVisualId={heroVisualId}
                 />
               </div>
             </motion.div>
@@ -770,14 +774,14 @@ export function ExpertiseDetailContent({
           className="container-width text-center max-w-2xl mx-auto"
         >
           <h2 className="font-display text-2xl md:text-4xl font-bold text-white mb-3">
-            {item.slug === 'product-marketing' ? 'Ready for product marketing that wins?' : `Ready for ${item.title} results?`}
+            {item.slug === 'product-marketing' ? 'Explore related product marketing work' : `See more around ${item.title}`}
           </h2>
           <Link
-            href="/contact"
+            href="/case-studies"
             className={`inline-flex items-center gap-2 px-8 py-4 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.05] ${usePmmAiTheme ? 'pmm-cta-primary' : ''} ${useStrategyInsightsTheme ? 'si-cta-primary' : ''} ${useSystemsOperationsTheme ? 'so-cta-primary' : ''}`}
             style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : ctaGradient ? { background: ctaBg, color: '#fff' } : { backgroundColor: ctaBg }}
           >
-            Get in Touch
+            View Case Studies
             <ArrowRight className="w-5 h-5" />
           </Link>
         </motion.div>

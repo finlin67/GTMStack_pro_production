@@ -161,7 +161,7 @@ export default function ExpertiseMainTemplate({
         <section className="bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
           <div className="container-width section-padding">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Pillars</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Systems</p>
               <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
                 {pillars.title}
               </h2>
@@ -185,7 +185,7 @@ export default function ExpertiseMainTemplate({
                       <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
                       <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
                       <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
-                        Explore System
+                        View work
                         <span className="material-symbols-outlined ml-2 text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
                       </span>
                     </div>
@@ -204,7 +204,7 @@ export default function ExpertiseMainTemplate({
                       <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
                       <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
                       <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
-                        Explore System
+                        View work
                         <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
                       </span>
                     </div>

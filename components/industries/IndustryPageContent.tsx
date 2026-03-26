@@ -20,11 +20,15 @@ import { getHeroVisualForPath } from '@/lib/heroVisualRegistry'
 import {
   getAnimationsByRoute,
   getRotatedAnimationByRoute,
+  getAnimationById,
   type AnimationEntry,
 } from '@/src/data/animations'
 import IndustrySingleStitchLayout from '@/components/industries/IndustrySingleStitchLayout'
 
 const ROTATION_STORAGE_KEY = 'lastAnim_industries_'
+
+const ANIMATION_DESIGN_SIZE = 600
+const ANIMATION_SCALE = 0.85
 
 const HeroVisualDyn = dynamic(
   () => import('@/components/ui/HeroVisual').then((m) => m.HeroVisual),
@@ -43,15 +47,30 @@ interface IndustryPageContentProps {
   whyNow?: string
   /** `stitch` = sandbox/stitch-html/industries/industry-single.html (GTM cobalt + lime). */
   heroVariant?: 'default' | 'stitch'
+  /** ID from page-registry.csv — takes priority over route-based animation selection */
+  heroVisualId?: string
 }
 
 function renderAnimationTile(entry: AnimationEntry) {
   const Component = entry.component
+  const scaledSize = ANIMATION_DESIGN_SIZE * ANIMATION_SCALE
   return (
-    <div className="relative w-full max-w-[600px]">
+    <div className="relative w-full">
       <div className="absolute -left-10 -top-10 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl animate-drift-slow" />
-      <div className="relative mx-auto w-full max-w-[600px] h-[600px] overflow-hidden rounded-2xl border border-white/20 bg-white/5">
-        <Component />
+      <div
+        className="relative mx-auto overflow-hidden rounded-2xl border border-white/20 bg-white/5"
+        style={{ width: scaledSize, height: scaledSize }}
+      >
+        <div
+          style={{
+            width: ANIMATION_DESIGN_SIZE,
+            height: ANIMATION_DESIGN_SIZE,
+            transform: `scale(${ANIMATION_SCALE})`,
+            transformOrigin: 'top left',
+          }}
+        >
+          <Component />
+        </div>
       </div>
     </div>
   )
@@ -92,14 +111,19 @@ export default function IndustryPageContent({
   featuredCaseStudies,
   whyNow,
   heroVariant = 'stitch',
+  heroVisualId,
 }: IndustryPageContentProps) {
-  const whyNowText = whyNow || `${industry.title} companies face unique GTM challenges. Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
+  const whyNowText = whyNow || `${industry.title} has its own buying context, operating constraints, and proof requirements. This page shows how GTM changes in that market.`
 
   const route = `/industries/${industry.slug}`
   const routeAnimations = getAnimationsByRoute(route)
   const [rotatedEntry, setRotatedEntry] = useState<AnimationEntry | null>(null)
 
+  // heroVisualId from page-registry.csv takes priority over route-based selection
+  const csvEntry = heroVisualId?.trim() ? getAnimationById(heroVisualId.trim()) : undefined
+
   useEffect(() => {
+    if (csvEntry) return // CSV override in place — skip route-based rotation
     const animations = getAnimationsByRoute(route)
     if (animations.length === 0) return
     const lastId = typeof window !== 'undefined' ? window.sessionStorage?.getItem(ROTATION_STORAGE_KEY + industry.slug) ?? null : null
@@ -110,7 +134,7 @@ export default function IndustryPageContent({
         window.sessionStorage?.setItem(ROTATION_STORAGE_KEY + industry.slug, picked.id)
       }
     }
-  }, [route, industry.slug])
+  }, [route, industry.slug, csvEntry])
 
   const registryEntry = getHeroVisualForPath(route)
   const fallbackHeroVisual =
@@ -121,7 +145,9 @@ export default function IndustryPageContent({
     ) ?? HERO_VISUALS.defaults.detail
 
   let heroVisual: ReactNode | HeroVisualModel = fallbackHeroVisual
-  if (routeAnimations.length > 0 && rotatedEntry) {
+  if (csvEntry) {
+    heroVisual = renderAnimationTile(csvEntry)
+  } else if (routeAnimations.length > 0 && rotatedEntry) {
     heroVisual = renderAnimationTile(rotatedEntry)
   } else if (routeAnimations.length === 0 && registryEntry?.mediaType === 'animation' && registryEntry.component) {
     const Component = registryEntry.component
@@ -136,6 +162,7 @@ export default function IndustryPageContent({
   }
 
   const isAnimationHero =
+    Boolean(csvEntry) ||
     (routeAnimations.length > 0 && rotatedEntry != null) ||
     Boolean(
       routeAnimations.length === 0 &&
@@ -166,9 +193,9 @@ export default function IndustryPageContent({
         align="left"
         motif={fallbackHeroVisual?.motif ?? 'topo'}
         title={industry.title}
-        description={industry.positioning || industry.description}
-        primaryCta={{ label: 'Start a conversation', href: '/contact' }}
-        secondaryCta={{ label: 'View case studies', href: '/case-studies' }}
+        description={whyNowText}
+        primaryCta={{ label: 'See case studies', href: '/case-studies' }}
+        secondaryCta={{ label: 'Explore expertise', href: '/expertise' }}
         rightVisual={
           React.isValidElement(heroVisual) || typeof heroVisual === 'string' || typeof heroVisual === 'number' ? (
             <div className="relative hidden lg:block">{heroVisual}</div>
@@ -178,9 +205,7 @@ export default function IndustryPageContent({
         }
         slug={industry.slug}
         kind="industries"
-      >
-        <p className="text-lg text-slate-200 max-w-2xl mt-4">{whyNowText}</p>
-      </HeroDark>
+      />
 
       {/* GTM realities section */}
       {industry.gtmRealities && industry.gtmRealities.length > 0 && (
@@ -220,7 +245,7 @@ export default function IndustryPageContent({
             <SectionHeader
               label="Modern growth plays"
               title="Modern growth plays (2025+)"
-              description="GTM strategies that work within industry constraints while driving measurable pipeline outcomes."
+              description="The GTM realities that shape how messaging, motion, and proof need to work in this market."
               align="left"
               className="mb-8 text-white"
             />
@@ -247,7 +272,7 @@ export default function IndustryPageContent({
           <div className="relative z-10">
             <SectionHeader
               label="Proof"
-              title="How I've delivered / transferable proof"
+              title="Relevant proof"
               description={industry.proof.some(p => p.outcome.toLowerCase().includes('transferable')) 
                 ? "These are transferable enterprise wins from adjacent verticals—proof that the frameworks work in similar environments."
                 : "Real results from enterprise engagements demonstrating measurable pipeline outcomes."}
@@ -324,10 +349,10 @@ export default function IndustryPageContent({
 
       {/* CTA Band */}
       <CTABand
-        title={`Ready to accelerate your ${industry.title.toLowerCase()} GTM?`}
-        description="Let's discuss how modern growth plays and proven frameworks can accelerate your pipeline."
-        primaryCta={{ label: 'Start a Conversation', href: '/contact' }}
-        secondaryCta={{ label: 'View Case Studies', href: '/case-studies' }}
+        title={`See how this connects to ${industry.title}`}
+        description="Use the related case studies and expertise pages to go one level deeper."
+        primaryCta={{ label: 'View Case Studies', href: '/case-studies' }}
+        secondaryCta={{ label: 'Explore Expertise', href: '/expertise' }}
         variant="dark"
       />
     </>

@@ -8,7 +8,7 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
     subheadline: "Pivot from Reactive Reporting to Predictive Orchestration: A Strategic Imperative for 2026.",
     description: "The modern enterprise demands a strategic shift away from 'reporting on the past' towards an autonomous Digital Core. This report details how embracing permission-based precision, 'Invisible AI' orchestration, and value-centric measurement will redefine GTM success and capture significant enterprise value.",
     primaryCTA: { text: "Read the Full Strategic Methodology Report", link: "/report/strategy" },
-    secondaryCTA: { text: "Start a conversation", link: "/contact/consultation" },
+    secondaryCTA: { text: "Contact", link: "/contact/consultation" },
   },
   metricsSection: {
     headline: "Transformative Impact: Key Metrics for the AI-Driven Digital Core",
@@ -75,7 +75,7 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
   ctaSection: {
     title: "Ready to Revolutionize Your Reporting & Attribution?",
     subtitle: "Embrace the Digital Core and Invisible AI to transcend manual scorecards and improve unparalleled growth and strategic foresight. The future belongs to those who view their technology stack as an engine for growth.",
-    button: { text: "Start a GTM diagnostic", link: "/contact/transformation" },
+    button: { text: "Contact", link: "/contact/transformation" },
   },
   footer: {
     description: "Future-proof your GTM strategy with predictive, AI-driven reporting and attribution. Elevate beyond manual scorecards and embrace a frictionless Digital Core where data flows without human friction, driving tangible enterprise value.",

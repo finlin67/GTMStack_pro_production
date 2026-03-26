@@ -3,7 +3,7 @@ import { Metadata } from 'next'
 export const metadata: Metadata = {
   title: 'Financial Services Industry Solutions | GTMstack.pro',
   description:
-    'Regulatory-first marketing and revenue architecture for fintech and banking leaders. Wall Street rigor, Silicon Valley velocity. 87% YoY pipeline, 180% MQL-to-SQL lift.',
+    'Regulatory-first GTM systems for fintech and banking teams, with enterprise pipeline, measurement, and trust-building built for complex markets.',
 }
 
 export default function FinancialServicesLayout({

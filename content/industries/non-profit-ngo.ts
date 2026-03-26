@@ -60,7 +60,7 @@ export const NON_PROFIT_NGO_CONTENT = {
     sections: [
       { title: "Services", links: [{ label: "Fundraising Strategy", href: "/services/fundraising" }, { label: "Brand Development", href: "/services/brand" }, { label: "Impact Storytelling", href: "/services/storytelling" }] },
       { title: "About", links: [{ label: "Our Approach", href: "/about" }, { label: "Case Studies", href: "/case-studies" }] },
-      { title: "Contact", links: [{ label: "Get in Touch", href: "/contact" }, { label: "Support", href: "/support" }] }
+      { title: "Contact", links: [{ label: "Contact", href: "/contact" }, { label: "Support", href: "/support" }] }
     ],
     copyright: "© 2026 GTMStack.pro. All rights reserved."
   }

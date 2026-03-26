@@ -9,10 +9,27 @@ const HERO_VISUAL_ID_MAP: Record<string, string> = {
   'gtm-strategy-audience-tile-v2': 'gtm-audience-tile-hero',
 }
 
+// ANIMATION_DESIGN_SIZE: animations are authored at 600×600px.
+// Adjust ANIMATION_SCALE (0.1–1.0) to shrink them inside the tile without
+// touching any animation file. 1.0 = full size, 0.85 = 15% smaller, etc.
+const ANIMATION_DESIGN_SIZE = 600
+const ANIMATION_SCALE = 1.0
+
 function renderAnimationShell(Component: React.ComponentType) {
   return (
-    <div className="hidden lg:block w-[600px] h-[600px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5 flex items-center justify-center">
-      <Component />
+    <div className="hidden lg:block w-[600px] h-[600px] shrink-0 overflow-hidden rounded-2xl border border-white/10 bg-white/5">
+      <div
+        style={{
+          width: ANIMATION_DESIGN_SIZE,
+          height: ANIMATION_DESIGN_SIZE,
+          transform: `scale(${ANIMATION_SCALE})`,
+          transformOrigin: 'top left',
+          overflow: 'hidden',
+          flexShrink: 0,
+        }}
+      >
+        <Component />
+      </div>
     </div>
   )
 }

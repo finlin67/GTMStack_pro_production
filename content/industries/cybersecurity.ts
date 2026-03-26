@@ -7,7 +7,7 @@ export const CYBERSECURITY_CONTENT = {
     headline: "Cybersecurity is a Business Imperative, Not Just an IT Problem.",
     subheadline: "Navigate the complex threat landscape with a strategic, risk-based approach that aligns security with your core business objectives.",
     description: "In an era of escalating cyber threats and stringent regulatory demands, a robust cybersecurity posture is critical for survival and growth. We partner with organizations across industries to build resilient defenses, manage risk effectively, and foster a security-aware culture that protects your most valuable assets.",
-    primaryCTA: { label: "Review the operating model", href: "/contact" },
+    primaryCTA: { label: "Contact", href: "/contact" },
     secondaryCTA: { label: "Explore Our Capabilities", href: "/services" },
     image: { src: "/images/cybersecurity-hero.jpg", alt: "Abstract digital security network protecting data" }
   },

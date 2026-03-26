@@ -232,6 +232,7 @@ export default async function ExpertiseDetailPage({ params }: Props) {
       usePmmAiTheme={usePmmAiTheme}
       useStrategyInsightsTheme={useStrategyInsightsTheme}
       useSystemsOperationsTheme={useSystemsOperationsTheme}
+      heroVisualId={registryRow?.heroVisualId || undefined}
     />
   )
 

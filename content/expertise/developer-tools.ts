@@ -91,7 +91,7 @@ export const DEVELOPER_TOOLS_CONTENT = {
     title: "Ready to Transform Your GTM with Strategic Developer Tools?",
     subtitle: "Connect with GTMStack.pro to architect a developer tool strategy that drives measurable business impact.",
     button: {
-      text: "Start a conversation",
+      text: "Contact",
       link: "/contact"
     }
   },

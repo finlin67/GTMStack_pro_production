@@ -83,7 +83,7 @@ export const EXPERTISE_MAIN_CONTENT = {
   // INSIGHTS / FEATURED CONTENT SECTION
   insights: {
     title: '[Section title - e.g., "Latest Insights"]',
-    subtitle: '[Description - e.g., "GTM playbooks, case studies, and revenue architecture thinking"]',
+    subtitle: '[Description - e.g., "Field notes, case studies, and operator thinking connected to the work"]',
     cta: '[Button text - e.g., "View all"]',
     items: [
       {

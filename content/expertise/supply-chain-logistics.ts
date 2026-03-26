@@ -48,7 +48,7 @@ export const SUPPLY_CHAIN_LOGISTICS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Supply Chain?",
     subtitle: "Connect with our logistics experts to design a strategy that drives efficiency, resilience, and growth for your business.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description:

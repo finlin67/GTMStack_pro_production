@@ -226,7 +226,7 @@ const DEFAULT_CONTENT: PageContent = {
     buttonText: "Connect on methodology",
   },
   footer: {
-    description: "Enterprise GTM operating model: how high-performance revenue systems are engineered for B2B leaders.",
+    description: "Operator-built GTM portfolio: how high-performance revenue systems are designed and documented for B2B teams.",
     sections: [
       {
         title: "Platform",

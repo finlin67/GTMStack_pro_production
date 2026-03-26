@@ -8,7 +8,7 @@ export const EXPERTISE_CONTENT = {
     subheadline: "Build predictable revenue and sustainable market leadership with GTMStack.pro's unparalleled expertise in B2B SaaS GTM.",
     description: "In today's dynamic market, a robust Go-To-Market strategy is not merely an advantage—it's a necessity. GTMStack.pro provides the strategic foresight and operational excellence required to navigate complexities, optimize performance, and drive significant, measurable results.",
     primaryCTA: { text: "Explore expertise", link: "/expertise#capabilities" },
-    secondaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "Contact", link: "/contact" },
     image: { src: "/images/hero-expertise.webp", alt: "Strategic business professionals collaborating on a GTM plan" }
   },
   metricsSection: {

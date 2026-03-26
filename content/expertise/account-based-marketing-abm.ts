@@ -48,7 +48,7 @@ export const ACCOUNT_BASED_MARKETING_ABM_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Account-Based Strategy?",
     subtitle: "Connect with GTMStack.pro to design an ABM program that delivers exceptional results.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "GTMStack.pro is your strategic partner for Go-To-Market excellence, specializing in driving predictable revenue through expert strategy, execution, and optimization.",

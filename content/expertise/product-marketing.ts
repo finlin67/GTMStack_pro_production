@@ -7,7 +7,7 @@ export const PRODUCT_MARKETING_CONTENT = {
     headline: "Strategic Product Marketing for Unrivaled Market Impact",
     subheadline: "Aligning Product Strategy with Market Needs to Drive Adoption and Revenue.",
     description: "Our expertise in Product Marketing spans positioning, messaging, content strategy, launch planning, and channel execution. We empower B2B and B2C companies to define their target audience, articulate their value proposition, and execute strategic go-to-market plans that resonate and convert.",
-    primaryCTA: { text: "Start a conversation", link: "#contact" },
+    primaryCTA: { text: "See product marketing work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "#capabilities" },
     image: { src: "/images/product-marketing-hero.webp", alt: "Strategic Product Marketing Dashboard" }
   },
@@ -40,7 +40,7 @@ export const PRODUCT_MARKETING_CONTENT = {
       {
         title: "Strategic Alignment & Execution",
         description:
-          "One operating model: define the 'what' and 'why' at the leadership layer, then ship campaigns and assets that sales and CS can run—without losing the thread to revenue.",
+          "One shared system: define the 'what' and 'why' at the leadership layer, then ship campaigns and assets that sales and CS can actually use—without losing the thread to revenue.",
       }
     ]
   },

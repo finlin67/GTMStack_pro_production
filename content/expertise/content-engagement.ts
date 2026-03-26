@@ -7,7 +7,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
     headline: "Content & Engagement",
     subheadline: "Orchestrate journeys that build relationships and drive revenue.",
     description: "Customer-centric, data-driven content and engagement strategies with integrated automation.",
-    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    primaryCTA: { text: "See related work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/expertise/content-engagement#our-approach" },
     image: { src: "/images/content-engagement-hero.webp", alt: "Strategic Content & Engagement Dashboard" }
   },
@@ -50,7 +50,7 @@ export const CONTENT_ENGAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Build Deeper Customer Relationships?",
     subtitle: "Partner with us to develop a holistic content and engagement strategy that drives meaningful interactions and accelerates your revenue growth.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in orchestrating strategic content and engagement initiatives that build lasting customer relationships and drive measurable business growth.",

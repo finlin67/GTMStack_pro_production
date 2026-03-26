@@ -3,13 +3,13 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** About page content for HomeTemplate (PageContent shape). */
 export const ABOUT_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'OPERATOR-LED GTM ARCHITECTURE',
-    titleStart: 'Building Revenue Systems for ',
-    titleGradient: 'Complex B2B Markets',
+    badge: 'ABOUT GTMSTACK.PRO',
+    titleStart: 'Why This ',
+    titleGradient: 'Portfolio Exists',
     subtitle:
-      'GTMStack.pro applies enterprise GTM operating discipline to complex SaaS and services motions where pipeline quality matters more than activity volume.',
-    ctaPrimary: 'Explore Expertise',
-    ctaSecondary: 'See the track record',
+      'GTMStack.pro is a portfolio of real GTM work across demand, analytics, operations, messaging, and industry-specific programs.',
+    ctaPrimary: 'View Case Studies',
+    ctaSecondary: 'Explore Expertise',
   },
   stats: [
     { value: '$1.2M', label: 'Pipeline Built' },
@@ -157,8 +157,8 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     ],
   },
   ctaBottom: {
-    title: 'Ready to improve pipeline quality?',
-    subtitle: 'Share your current motion, stack constraints, and where outcomes are lagging. We will map the highest-leverage starting point.',
-    buttonText: 'Start a Conversation',
+    title: 'See the work behind the profile',
+    subtitle: 'The clearest way to understand the background is through the case studies, expertise pages, and portfolio artifacts collected across the site.',
+    buttonText: 'Browse Case Studies',
   },
 }

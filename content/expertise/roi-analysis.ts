@@ -51,7 +51,7 @@ export const ROI_AND_BREAK_EVEN_ANALYSIS_CONTENT = {
   ctaSection: {
     title: "Ready to See the True Value of Your Marketing?",
     subtitle: "Let's build a robust ROI framework that empowers data-driven decisions and fuels your profitable growth.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View related work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro delivers expert ROI & Break-Even Analysis, transforming your marketing data into strategic insights for profitable growth.",

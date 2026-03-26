@@ -10,10 +10,12 @@ const ALLOWED_TAGS = [
   'h1', 'h2', 'h3', 'h4', 'h5', 'h6', 'blockquote', 'pre', 'code',
   'img', 'figure', 'figcaption', 'table', 'thead', 'tbody', 'tr', 'th', 'td',
   'div', 'span', 'hr',
-  'iframe', // for embedded video (YouTube, Vimeo, Wistia)
-  'embed',  // for PDF and media embeds
-  'object', // for PDF and fallback embeds
-  'param',  // for object parameters
+  'iframe',  // for embedded video (YouTube, Vimeo, Wistia)
+  'embed',   // for PDF and media embeds
+  'object',  // for PDF and fallback embeds
+  'param',   // for object parameters
+  'video',   // for self-hosted video
+  'source',  // for <video> and <audio> source elements
 ]
 const ALLOWED_ATTR = [
   'href', 'target', 'rel', 'class', 'id', 'src', 'alt', 'title', 'width', 'height',

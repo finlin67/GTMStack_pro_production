@@ -50,7 +50,7 @@ export const MARKETING_AUTOMATION_CONTENT = {
   ctaSection: {
     title: "Ready to Build Intelligent Marketing Workflows?",
     subtitle: "Partner with us to transform your marketing operations, drive revenue, and create exceptional customer experiences.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View automation work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro helps businesses design and implement intelligent marketing automation and workflow solutions that streamline operations, enhance customer journeys, and accelerate revenue growth.",

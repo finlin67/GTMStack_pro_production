@@ -5,7 +5,7 @@ export const FINANCIAL_SERVICES_FINTECH_INDUSTRY_CONTENT = {
     badge: "Industry Focus",
     title: "From Transactions to Relationships: The FinTech Evolution",
     subtitle: "Navigate the shift from product-centric to relational 'as-a-service' models, achieving 3-4x enterprise value for recurring revenue.",
-    description: "The financial sector is transforming. Legacy transaction-based models are yielding to relational, recurring revenue architectures. Incumbents must embrace 'as-a-service' to survive FinTech disruption, moving from utility provider to investor-rewarded partner. Predictable revenue is the new currency, driving significant enterprise value rewards.",
+    description: "The financial sector is transforming. Legacy transaction-based models are yielding to recurring, relationship-driven growth systems. Incumbents must embrace service-led models to survive FinTech disruption, moving from utility provider to investor-rewarded partner.",
     metrics: [
       { value: "3-4x", label: "Enterprise Value Lift" },
       { value: "1%", label: "Mature AI Rollouts" },

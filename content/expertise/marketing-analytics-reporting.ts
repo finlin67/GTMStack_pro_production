@@ -7,7 +7,7 @@ export const REPORTING_DASHBOARDS_ATTRIBUTION_CONTENT = {
     headline: "Master Your Marketing ROI with Strategic Reporting & Attribution.",
     subheadline: "See the true impact of your campaigns. We build robust dashboards and attribution models that translate raw data into actionable insights, empowering confident, data-driven decisions.",
     description: "In today's complex marketing landscape, simply collecting data isn't enough. Our expertise lies in interpreting that data, building sophisticated attribution models, and designing intuitive dashboards that reveal the customer journey and optimize every marketing dollar. Justify spend, refine strategy, and accelerate growth.",
-    primaryCTA: { text: "Start a conversation", link: "/contact" },
+    primaryCTA: { text: "See analytics case studies", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/expertise/reporting-dashboards-attribution#approach" },
     image: { src: "/images/reporting-dashboards-hero.webp", alt: "Strategic Reporting Dashboards and Attribution Models" }
   },

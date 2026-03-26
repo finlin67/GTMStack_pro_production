@@ -7,6 +7,35 @@ It reflects changes made during a targeted debugging and tooling session in Marc
 
 ---
 
+## 0. Executive Runbook (Use This First)
+
+If you only need the correct process (and want to avoid the TSX/HTML mix-up), use this exact flow:
+
+1. **Sync manifest + existing thumbnails from animations repo**
+   ```bash
+   npm run sync:gallery
+   ```
+2. **Do NOT sync entry HTML by default**
+   - Avoid: `npm run sync:gallery:entry-html`
+3. **For TSX/live component thumbnails**
+   ```bash
+   npm run dev
+   npm run screenshot:live
+   ```
+4. **For HTML-only previews**
+   ```bash
+   npm run regen:gallery-thumbs
+   ```
+5. **Validate gallery metadata + assets**
+   ```bash
+   npm run validate:gallery
+   npm run report:gallery:placeholders
+   ```
+
+If a thumbnail still looks wrong, check **Section 8 (Issue Patterns Seen in This Repo)** below.
+
+---
+
 ## 1. What Was Added (Changes From This Session)
 
 Three new files were added and `package.json` was updated.
@@ -66,6 +95,18 @@ GTMStack_pro_production
         | renders <Image src={item.thumbnailUrl} /> on each card
         | falls back to initials tile if thumbnailUrl is undefined
 ```
+
+## 2.1 TSX vs HTML: Which Pipeline Should Own the Thumbnail?
+
+Use this decision table before running any thumbnail command:
+
+| Animation source | Primary thumbnail script | Why |
+|---|---|---|
+| Registered React component (`ANIMATION_REGISTRY` / preview route works) | `npm run screenshot:live` | Captures real `.tsx` runtime via `/preview/[animationId]` |
+| HTML entry preview is the source of truth (`entryHtml` in manifest) | `npm run regen:gallery-thumbs` | Captures `public/animations/.../*.html` pages |
+| Raw component staging page (`/thumbnail-factory`) | `npm run gen:thumbnails` (special-purpose only) | Uses file-name-based component staging, not manifest mapping |
+
+**Important:** `gen:thumbnails` can produce technically valid screenshots that are wrong for gallery mapping, because it stages all `src/components/animations/*.tsx` files by component filename rather than manifest item identity.
 
 ### The placeholder suppression rule (important)
 
@@ -146,6 +187,16 @@ npm run regen:gallery-thumbs       # write
 
 This script screenshots HTML files served from `public/animations/`.
 It will be a no-op for animations without HTML files in that directory.
+
+### Why `gen:thumbnails` is usually the wrong default for gallery cards
+
+`npm run gen:thumbnails` uses `scripts/generate-thumbnails.js` + `/thumbnail-factory`, which:
+
+- loads **all** `.tsx` files via `require.context`
+- screenshots by component name (`data-testid`)
+- writes to `public/images/gallery-thumbnails/*.png`
+
+This is useful for broad component staging, but not ideal as the gallery source pipeline because gallery cards are driven by `src/data/gallery-manifest.json` + `thumbnailPath` + id mapping resolution.
 
 ### Syncing manifest and thumbnails from GTMStack_Animations
 
@@ -319,3 +370,79 @@ has a TSX component and no real HTML entry file, do not copy its HTML into
 grep -rl "Run and deploy your AI Studio app" public/animations/ | wc -l
 # Should return 0
 ```
+
+---
+
+## 8. Issue Patterns Seen in This Repo (Root Causes + Fixes)
+
+These are the failure modes already observed in this project and likely behind "wrong thumbnail" incidents:
+
+### Issue A — TSX + HTML pipelines were mixed
+
+**Symptom:** The generated image exists, but gallery card shows a different visual (or fallback initials tile).
+
+**Root cause:** A thumbnail was generated from one source (e.g., component staging / HTML placeholder) while gallery resolution used a different source (manifest mapping or suppressed entry HTML).
+
+**Fix:** Pick one owner per item:
+- TSX runtime → `screenshot:live`
+- HTML runtime → `regen:gallery-thumbs`
+
+---
+
+### Issue B — Placeholder HTML accidentally copied into `public/animations/`
+
+**Symptom:** Thumbnail appears to be "ignored" even though PNG exists.
+
+**Root cause:** Placeholder HTML in `public/animations/...` triggers suppression logic in `src/lib/galleryManifest.ts` (`placeholderPreview = true`, `thumbnailUrl = undefined`).
+
+**Fix:**
+- Remove placeholder HTML files
+- Avoid routine use of `sync:gallery:entry-html`
+- Re-run sync/screenshot pipeline and hard refresh
+
+---
+
+### Issue C — Manifest item maps to wrong registry animation id
+
+**Symptom:** A card/modal resolves to the wrong live component preview.
+
+**Root cause:** `resolveRegistryIdForManifestItem()` in `src/lib/galleryAnimationMap.ts` picked an unintended fallback, or explicit map entry points to the wrong id.
+
+**Fix:**
+- Add or correct explicit mapping in `GALLERY_ANIMATION_ID_MAP`
+- Prefer high-confidence explicit mapping for versioned IDs (`*-v2`, `*-v3`)
+
+---
+
+### Issue D — `entryType: "tsx"` with blank `entryHtml` in manifest
+
+**Symptom:** HTML thumbnail regeneration skips or produces no update.
+
+**Root cause:** HTML pipeline requires an `entryHtml` file under `public/animations`; TSX-only items should use live component screenshot path.
+
+**Fix:** Use `screenshot:live` for those items.
+
+---
+
+### Issue E — Thumbnail generated to a location not used by card path
+
+**Symptom:** New image file exists but card still shows older image.
+
+**Root cause:** Generated output path doesn't match `thumbnailPath` in manifest (`public/images/<thumbnailPath>`).
+
+**Fix:** Confirm `thumbnailPath` and output destination match exactly before and after generation.
+
+---
+
+### Quick Diagnostics Bundle
+
+Run these together when thumbnails look wrong:
+
+```bash
+npm run validate:gallery
+npm run report:gallery:placeholders
+npm run screenshot:live:dry
+npm run regen:gallery-thumbs:dry
+```
+
+This quickly tells you whether the issue is mapping, placeholder suppression, or wrong pipeline selection.

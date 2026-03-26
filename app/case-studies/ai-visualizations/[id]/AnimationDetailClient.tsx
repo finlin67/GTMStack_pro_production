@@ -242,7 +242,7 @@ export function AnimationDetailClient({ params }: Props) {
                 href="/contact"
                 className="btn bg-white text-brand-900 hover:bg-white/90 px-6 py-3 text-base rounded-xl shadow-glow transition-all duration-300"
               >
-                Get in Touch
+                Contact
               </a>
               <Link
                 href="/case-studies/ai-visualizations"

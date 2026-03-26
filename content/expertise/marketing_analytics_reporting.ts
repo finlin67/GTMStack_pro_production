@@ -8,7 +8,7 @@ export const MARKETING_ANALYTICS_REPORTING_CONTENT = {
     subheadline: "Build 3x-4x Enterprise Value with Autonomous Orchestration and Precision Signals",
     description: "The marketing landscape is undergoing a fundamental transformation. Move beyond manual reporting and legacy systems to an AI-driven, self-optimizing ecosystem that fuels continuous growth and elevates strategic yield. Discover the roadmap to marketing maturity, where analytics becomes an invisible, intelligent infrastructure.",
     primaryCTA: { text: "View the methodology", link: "#methodology" },
-    secondaryCTA: { text: "Start a conversation", link: "#contact" }
+    secondaryCTA: { text: "Contact", link: "#contact" }
   },
   metricsSection: {
     headline: "The Impact of Strategic Analytics",

@@ -8,7 +8,7 @@ export const EXPERTISE_CONTENT = {
     subheadline: "Use GTMStack.pro's profound strategic insights and proven methodologies to transform your market approach and achieve measurable success.",
     description: "In today's dynamic market, a robust Go-To-Market strategy is not just an advantage—it's a necessity. Our team of seasoned GTM architects brings a wealth of experience across diverse industries, delivering bespoke solutions that drive market penetration, accelerate revenue, and optimize customer acquisition.",
     primaryCTA: { text: "Explore expertise", link: "/expertise#capabilities" },
-    secondaryCTA: { text: "Start a conversation", link: "/contact" },
+    secondaryCTA: { text: "Contact", link: "/contact" },
     image: { src: "/images/expertise-hero.webp", alt: "Strategic planning session with data visualizations" }
   },
   metricsSection: {

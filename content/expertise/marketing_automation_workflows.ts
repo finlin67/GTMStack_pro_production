@@ -8,7 +8,7 @@ export const MARKETING_AUTOMATION_WORKFLOWS_CONTENT = {
     subheadline: "Embrace the Age of AI: Redefining Marketer Value through Ethical Judgment and Empathy.",
     description: "The central methodology has shifted from the manual bookkeeping of data snapshots to the autonomous orchestration of relationships. Success in 2026 is predicated on exorcising the 'manual-QA' ghosts of the past, focusing on architecting permission-based ecosystems and steering the strategic narrative.",
     primaryCTA: { text: "Explore Our AI Methodology", link: "/solutions/ai-marketing" },
-    secondaryCTA: { text: "Start a conversation", link: "/contact" }
+    secondaryCTA: { text: "Contact", link: "/contact" }
   },
   metricsSection: {
     headline: "Measuring True Impact: From Vanity Metrics to Economic Yield",
@@ -50,7 +50,7 @@ export const MARKETING_AUTOMATION_WORKFLOWS_CONTENT = {
   ctaSection: {
     title: "Ready to Evolve Your Marketing Automation?",
     subtitle: "Transition from legacy friction to autonomous, AI-powered growth. Let us help you build your Invisible Infrastructure and master durable skills.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Guiding enterprises through the profound metamorphosis of marketing automation, from manual scorecards to autonomous, AI-driven orchestration. Building sustainable growth through Invisible Infrastructure and human-centric strategy.",

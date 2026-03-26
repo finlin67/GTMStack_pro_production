@@ -183,11 +183,11 @@ export default function Template({
     <div className="min-h-screen bg-[#0A1628] text-white font-sans selection:bg-azure/30">
       {pageTitle && <title>{pageTitle}</title>}
       <style
-        // Local gradient for Demand & Growth accents (lighter green → aqua)
+        // Local gradient for Demand & Growth accents (orange → amber gold)
         dangerouslySetInnerHTML={{
           __html: `
           .demand-text-gradient {
-            background: linear-gradient(135deg, #A3FF78 0%, #22C55E 40%, #4ADE80 70%, #A5B4FC 100%);
+            background: linear-gradient(135deg, #F97316 0%, #FB923C 40%, #FBBF24 80%, #F59E0B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -214,7 +214,7 @@ export default function Template({
                     </div>
                   )}
                   <h1 className="font-heading font-bold text-4xl md:text-5xl lg:text-[3.25rem] leading-[1.12] mb-3 max-w-3xl">
-                    <span className="block text-white">{data.hero.titleLine1}</span>
+                    <span className="block demand-text-gradient">{data.hero.titleLine1}</span>
                     {data.hero.titleLine2 ? (
                       <span className="mt-2 block text-2xl md:text-3xl lg:text-4xl demand-text-gradient">
                         {data.hero.titleLine2}
@@ -225,9 +225,9 @@ export default function Template({
                     {data.hero.description}
                   </p>
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <Link 
+                    <Link
                       href={data.hero.primaryButtonHref}
-                      className="btn-cta-primary"
+                      className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-xl font-heading font-semibold text-white transition-all duration-300 hover:scale-[1.03] bg-cobalt hover:bg-azure"
                     >
                       {data.hero.primaryButtonText} <ArrowRight className="w-4 h-4" />
                     </Link>

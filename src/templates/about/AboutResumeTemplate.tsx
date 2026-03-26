@@ -248,7 +248,7 @@ export default function AboutResumeTemplate({ content, heroVisualId }: AboutResu
       <section className="bg-white py-20 px-6 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <h3 className="text-center text-sm font-bold tracking-[0.2em] text-slate-400 uppercase mb-12">
-            Performance Benchmarks
+            Selected Outcomes
           </h3>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-center">
             {performanceCards.map((stat) => (
@@ -264,7 +264,7 @@ export default function AboutResumeTemplate({ content, heroVisualId }: AboutResu
       {/* Strategic Evolution */}
       <section className="py-24 px-6 lg:px-24 relative overflow-hidden bg-[#0D1F38] text-white">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-20">Strategic Evolution</h2>
+          <h2 className="text-3xl lg:text-4xl font-bold text-center mb-20">Operating Background</h2>
 
           <div className="relative">
             {/* vertical spine */}
@@ -330,7 +330,7 @@ export default function AboutResumeTemplate({ content, heroVisualId }: AboutResu
       {/* Stack Matrix */}
       <section className="bg-[#0A1628] py-24 px-6 lg:px-24">
         <div className="max-w-6xl mx-auto text-white">
-          <h2 className="text-3xl font-bold text-center mb-8">The Stack Matrix</h2>
+          <h2 className="text-3xl font-bold text-center mb-8">Tools and Systems</h2>
 
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {STACK_FILTERS.map((f) => {
@@ -369,7 +369,7 @@ export default function AboutResumeTemplate({ content, heroVisualId }: AboutResu
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
             <div className="rounded-2xl border border-slate-200 p-6">
-              <h2 className="text-lg font-bold mb-6">Professional Validation</h2>
+              <h2 className="text-lg font-bold mb-6">Selected Credentials</h2>
               <div className="space-y-4">
                 <ValidationRow title="Salesforce Certified Administrator" meta="Credential ID: 192837465" />
                 <ValidationRow title="HubSpot Revenue Operations" meta="Expert Level Certified" />
@@ -378,7 +378,7 @@ export default function AboutResumeTemplate({ content, heroVisualId }: AboutResu
             </div>
 
             <div className="rounded-2xl border border-slate-200 p-6">
-              <h2 className="text-lg font-bold mb-6">Academic Foundation</h2>
+              <h2 className="text-lg font-bold mb-6">Academic Background</h2>
                 <div className="bg-slate-50 p-6 rounded-xl border-t-4" style={{ borderTopColor: BRAND_GOLD }}>
                 <div className="flex items-center gap-4 mb-3">
                   <div className="w-12 h-12 bg-red-800 flex items-center justify-center text-white font-bold rounded">
@@ -419,7 +419,7 @@ export default function AboutResumeTemplate({ content, heroVisualId }: AboutResu
               onClick={() => window.print()}
               className="border border-white/20 hover:bg-white/10 text-white px-10 py-4 rounded-xl font-bold text-lg transition-all"
             >
-              Save Offline PDF
+              Print Page
             </button>
           </div>
         </div>

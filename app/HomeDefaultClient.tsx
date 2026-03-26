@@ -245,7 +245,7 @@ export default function HomeDefaultClient() {
                     e.currentTarget.style.boxShadow = `0 0 30px rgba(0,207,255,0.2)`
                   }}
                 >
-                  Get in Touch
+                  Contact
                   <ArrowRight className="w-5 h-5" aria-hidden="true" />
                 </Link>
                 <Link
@@ -512,7 +512,7 @@ export default function HomeDefaultClient() {
                 e.currentTarget.style.boxShadow = `0 0 45px rgba(0,207,255,0.2)`
               }}
             >
-                  Get in Touch
+                  Contact
               <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link

@@ -50,7 +50,7 @@ export const TECH_STACK_OPTIMIZATION_ENABLEMENT_CONTENT = {
     title: "Ready to Transform Your Marketing Tech Stack?",
     subtitle:
       "Walk the stack map together: where tools duplicate work, where data breaks, and what to instrument next.",
-    button: { text: "Start a conversation", link: "#contact" }
+    button: { text: "View related work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in strategic tech stack optimization and enablement, transforming fragmented marketing technology into a cohesive, high-performing ecosystem that drives efficiency, insights, and measurable ROI.",

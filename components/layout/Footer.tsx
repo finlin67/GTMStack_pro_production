@@ -42,7 +42,7 @@ const footerLinks = {
     { label: 'Background', href: '/resume' },
   ],
   connect: [
-    { label: 'Get in Touch', href: '/contact' },
+    { label: 'Contact', href: '/contact' },
     ...(linkedinUrl ? [{ label: 'LinkedIn', href: linkedinUrl, external: true as const }] : []),
     ...(twitterUrl ? [{ label: 'Twitter', href: twitterUrl, external: true as const }] : []),
   ],
@@ -74,7 +74,7 @@ export function Footer() {
                   GTMStack<span className="text-brand-300">.pro</span>
                 </span>
                 <span className="text-[11px] text-slate-400 tracking-[0.08em] uppercase">
-                  B2B GTM operating model
+                  Operator-built GTM portfolio
                 </span>
               </div>
             </Link>

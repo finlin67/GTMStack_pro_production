@@ -7,7 +7,7 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
     headline: "Mastering Customer Marketing & Journey Mapping.",
     subheadline: "Gain deeper customer understanding to drive engagement, loyalty, and revenue.",
     description: "Our expertise transforms generic marketing into personalized, impactful customer experiences. We specialize in mapping unique customer journeys, identifying critical touchpoints, and developing targeted strategies that resonate with individual needs and motivations across diverse industries like SaaS, Fintech, and Retail.",
-    primaryCTA: { text: "Discover Your Customer's Journey", link: "/contact" },
+    primaryCTA: { text: "See journey work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/services/customer-marketing" },
     image: { src: "/images/customer-journey-hero.jpg", alt: "Visual representation of a complex customer journey map with various touchpoints" }
   },
@@ -50,7 +50,7 @@ export const CUSTOMER_MARKETING_JOURNEY_MAPPING_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Customer Experience?",
     subtitle: "Partner with GTMStack.pro to improve deeper customer understanding and drive unparalleled engagement and loyalty.",
-    button: { text: "Start a journey diagnostic", link: "/contact" }
+    button: { text: "View related work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in Customer Marketing & Journey Mapping, helping businesses deliver personalized experiences that drive engagement, loyalty, and revenue.",

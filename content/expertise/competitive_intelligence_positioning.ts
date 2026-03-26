@@ -50,7 +50,7 @@ export const COMPETITIVE_INTELLIGENCE_POSITIONING_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Competitive Intelligence?",
     subtitle: "Empower your Digital Core with AI-driven precision and human-centric strategy. Improve true incremental lift and secure your competitive advantage in the new digital landscape.",
-    button: { text: "Start a focused diagnostic", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Navigating the future of competitive intelligence requires a proactive approach, balancing AI innovation with foundational human principles to secure sustainable growth in the Digital Core.",

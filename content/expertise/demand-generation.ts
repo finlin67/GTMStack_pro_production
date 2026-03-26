@@ -7,7 +7,7 @@ export const DEMAND_GENERATION_CAMPAIGNS_CONTENT = {
     headline: "Mastering Demand Generation: Drive Qualified Leads, Accelerate Revenue.",
     subheadline: "Orchestrate multi-channel experiences that move prospects through the buyer's journey with precision and measurable impact.",
     description: "Our expertise lies in developing and executing sophisticated demand generation campaigns that consistently deliver high-quality, sales-ready leads. We move beyond mere lead volume, focusing on strategic alignment with sales priorities and maximizing ROI through data-driven optimization.",
-    primaryCTA: { text: "Improve Your Growth Model", link: "/contact" },
+    primaryCTA: { text: "See related work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "/expertise/demand-generation-campaigns#capabilities" },
     image: { src: "/images/demand-generation-hero.jpg", alt: "Strategic demand generation campaign dashboard showing growth metrics" }
   },
@@ -52,7 +52,7 @@ export const DEMAND_GENERATION_CAMPAIGNS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Demand Generation?",
     subtitle: "Partner with us to build campaigns that consistently deliver qualified leads and drive measurable revenue growth.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro empowers businesses with expert-level go-to-market strategies and execution, driving sustainable growth and market leadership.",

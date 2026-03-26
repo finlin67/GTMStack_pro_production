@@ -94,7 +94,7 @@ export const TECH_STACK_OPTIMIZATION_ENABLEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Digital Core?",
     subtitle: "Embrace Evergreen IT and improve perpetual reinvention for sustainable growth and a future-proof GTM strategy.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "Contact", link: "/contact" }
   },
   footer: {
     description: "Empowering enterprises to achieve perpetual reinvention by optimizing their tech stack, fostering permission-based communities, and leveraging Invisible AI for sustainable growth.",

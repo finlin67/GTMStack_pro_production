@@ -132,7 +132,7 @@ const GTMStackHero = () => {
           {/* Tagline */}
           <p className="text-xl md:text-2xl text-slate-300 font-light max-w-2xl mx-auto"
              style={{ animation: 'fadeInUp 1s ease-out 0.2s both' }}>
-            Operator-first GTM: one operating model—strategy, signals, systems, and proof—for B2B technology companies
+            Operator-first GTM: one shared system for strategy, signals, execution, and proof across B2B technology companies
           </p>
 
           {/* Subtitle */}

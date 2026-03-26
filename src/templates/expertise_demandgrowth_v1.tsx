@@ -172,7 +172,7 @@ const DEFAULT_CONTENT = {
   ctaSection: {
     title: "Ready to Engineer Your Growth?",
     description: "Share where demand or engagement is breaking down—we can compare notes and point you to the right next step.",
-    button: { label: "Get in Touch", href: "/contact" }
+    button: { label: "Contact", href: "/contact" }
   },
   footer: {
     description: "Building the infrastructure for the next generation of high-growth enterprise companies.",

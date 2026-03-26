@@ -1,7 +1,7 @@
 'use client'
 
 import { useMemo, useState } from 'react'
-import { ANIMATION_REGISTRY } from '@/src/data/animations'
+import { getAnimationById } from '@/src/data/animations'
 import { GalleryModal } from '@/components/gallery/GalleryModal'
 import type { GalleryItem } from '@/src/lib/galleryManifest'
 import { StitchGalleryShell } from '@/components/gallery/StitchGalleryShell.client'
@@ -87,7 +87,7 @@ export default function GalleryMainTemplate({
     () =>
       visibleItems.map((item) => {
         const registryId = resolveRegistryIdForManifestItem(item)
-        const hasMappedComponent = !!ANIMATION_REGISTRY.find((a) => a.id === registryId)
+        const hasMappedComponent = !!(registryId && getAnimationById(registryId))
         const decision = resolvePreviewDecision({
           hasMappedComponent,
           entryHtml: item.entryHtml,
@@ -113,7 +113,7 @@ export default function GalleryMainTemplate({
   }, [displayItems, selectedId])
 
   const selectedAnimation = useMemo(
-    () => ANIMATION_REGISTRY.find((a) => a.id === selectedRegistryId) ?? null,
+    () => (selectedRegistryId ? getAnimationById(selectedRegistryId) ?? null : null),
     [selectedRegistryId]
   )
 
@@ -172,4 +172,3 @@ export default function GalleryMainTemplate({
     </>
   )
 }
-

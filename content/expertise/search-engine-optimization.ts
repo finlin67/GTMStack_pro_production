@@ -52,7 +52,7 @@ export const SEARCH_ENGINE_OPTIMIZATION_AND_MANAGEMENT_CONTENT = {
   ctaSection: {
     title: "Ready to Elevate Your Search Performance?",
     subtitle: "Partner with us to build a sustainable organic presence, maximize your paid search ROI, and achieve your digital growth objectives.",
-    button: { text: "Start a conversation", link: "/contact" }
+    button: { text: "View case studies", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro delivers expert SEO & SEM strategies designed to drive targeted traffic, generate qualified leads, and maximize your return on investment. We build sustainable organic presence and optimize paid campaigns for enduring success.",

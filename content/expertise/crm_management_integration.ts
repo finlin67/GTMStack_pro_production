@@ -54,7 +54,7 @@ export const CRM_MANAGEMENT_INTEGRATION_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your CRM into a Magnetic Digital Core?",
     subtitle: "Implement our Strategic Roadmap to align with 2026 market standards, manage technical debt effectively, and use Authentic AI for sustainable, human-centric growth.",
-    button: { text: "Start a digital core diagnostic", link: "#contact" }
+    button: { text: "Contact", link: "#contact" }
   },
   footer: {
     description: "By valuing strategic imperfection and human-centric trust over polished automation, we ensure our Digital Core remains a servant to authentic, sustainable growth. Your CRM, reimagined.",

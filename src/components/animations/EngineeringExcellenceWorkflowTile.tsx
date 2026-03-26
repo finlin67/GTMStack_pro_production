@@ -239,7 +239,7 @@ export default function EngineeringExcellenceWorkflowTile() {
             className="mt-6 flex gap-3 shrink-0"
           >
             <button className="flex-1 bg-[#2160f2] hover:bg-[#2160f2]/90 py-3 rounded-lg text-[11px] font-bold uppercase transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2">
-              Get in Touch
+              Contact
             </button>
             <button className="flex-1 border border-white/20 hover:bg-white/5 py-3 rounded-lg text-[11px] font-bold uppercase transition-all">
               Download PDF

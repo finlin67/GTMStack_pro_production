@@ -7,7 +7,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
     headline: "Systems & Operations",
     subheadline: "Operational excellence that drives efficiency and scale.",
     description: "We build adaptive frameworks that eliminate bottlenecks and empower scale.",
-    primaryCTA: { text: "Optimize Your Operations", link: "#contact" },
+    primaryCTA: { text: "See systems work", link: "/case-studies" },
     secondaryCTA: { text: "View the methodology", link: "#capabilities" },
     image: { src: "/images/systems-operations-hero.jpg", alt: "Strategic overview of interconnected business processes and data flow" }
   },
@@ -51,7 +51,7 @@ export const SYSTEMS_OPERATIONS_CONTENT = {
   ctaSection: {
     title: "Ready to Transform Your Operations?",
     subtitle: "Partner with us to build resilient, efficient, and growth-enabling systems that define your competitive edge.",
-    button: { text: "Start a conversation", link: "#contact" }
+    button: { text: "View related work", link: "/case-studies" }
   },
   footer: {
     description: "GTMStack.pro specializes in designing and implementing robust systems and operations that drive sustainable growth and competitive advantage for technology-driven businesses.",

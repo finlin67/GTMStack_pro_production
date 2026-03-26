@@ -301,6 +301,21 @@
     @apply bg-accent-50 text-accent-700 border-accent-200/60;
   }
   
+  /* WordPress blog post content — applies Tailwind Typography + brand refinements */
+  .gtm-wp-content iframe {
+    @apply w-full rounded-2xl;
+    aspect-ratio: 16 / 9;
+  }
+
+  .gtm-wp-content h2,
+  .gtm-wp-content h3 {
+    @apply font-display font-black mt-12;
+  }
+
+  .gtm-wp-content img {
+    @apply shadow-md rounded-xl;
+  }
+
   /* Prose overrides for MDX */
   .prose-brand {
     @apply prose prose-slate max-w-none;
