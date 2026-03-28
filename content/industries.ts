@@ -4,9 +4,9 @@ export const industryItems: IndustryItem[] = [
   {
     slug: 'b2b-saas',
     title: 'B2B SaaS',
-    description: 'Revenue milestones from seed to scale. PLG motions, enterprise enablement, and expansion strategies that compound.',
+    description: 'B2B SaaS environments where PLG, enterprise sales, and lifecycle automation had to operate together. Work covers pipeline generation, attribution design, and account-based expansion motions.',
     longDescription: 'Specialized GTM expertise for B2B software companies at every stage. Navigate the route from PLG motions and freemium optimization to enterprise sales enablement and expansion revenue strategies. Modern growth plays include unified GTM systems, product-led growth engines, and lifecycle marketing that drives expansion revenue.',
-    positioning: 'Revenue milestones from seed to scale. PLG motions, enterprise enablement, and expansion strategies that compound.',
+    positioning: 'B2B SaaS environments where PLG, enterprise sales, and lifecycle automation had to operate together. Work covers pipeline generation, attribution design, and account-based expansion motions.',
     gtmRealities: [
       'Balancing PLG and sales-led motions requires integrated data and attribution.',
       'Scaling from SMB to enterprise demands different GTM plays and messaging.',
@@ -62,9 +62,9 @@ export const industryItems: IndustryItem[] = [
   {
     slug: 'fintech',
     title: 'FinTech & Payments',
-    description: 'Digital trust + precision GTM for FinTech firms navigating regulation and long sales cycles.',
+    description: 'FinTech and payments environments where compliance review, trust signals, and multi-stakeholder buying cycles shaped messaging and sales motion.',
     longDescription: 'Navigate regulatory complexity while driving aggressive growth. Regulatory pressure shapes every GTM decision, and trust is core conversion friction—especially for enterprise buyers. Modern growth plays include digital trust programs, AI-driven personalization, precision ABM, and multi-touch attribution aligned to audit requirements.',
-    positioning: 'Digital trust + precision GTM for FinTech firms navigating regulation and long sales cycles.',
+    positioning: 'FinTech and payments environments where compliance review, trust signals, and multi-stakeholder buying cycles shaped messaging and sales motion.',
     gtmRealities: [
       'Regulatory pressure (GDPR, EU AI Act, SOC2, PCI, etc.) shapes every GTM decision.',
       'Trust and risk perception are core conversion friction, especially enterprise buyers.',

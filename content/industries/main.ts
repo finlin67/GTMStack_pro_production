@@ -132,10 +132,10 @@ export const INDUSTRIES_MAIN_CONTENT = {
   testimonial: {
     quote:
       "The useful shift was seeing how the same system had to change once the market's buying reality came into focus.",
-    author: 'Marcus Thorne',
-    role: 'CRO, FinTech Enterprise',
-    avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=2574&auto=format&fit=crop',
-    logos: ['ACME Corp', 'Globex', 'Soylent', 'Initech', 'Umbrella'],
+    author: '',
+    role: '',
+    avatar: '',
+    logos: [],
   },
 }
 

@@ -71,8 +71,8 @@ export const EXPERTISE_MAIN_CONTENT = {
     ],
   },
   philosophy: {
-    quote: 'The goal is to make GTM work easier to understand,',
-    highlight: 'trace, and improve',
+    quote: 'Each page connects to real programs, documented results, and the systems that made them repeatable.',
+    highlight: '',
   },
   insights: {
     title: 'Latest Insights',
@@ -106,10 +106,10 @@ export const EXPERTISE_MAIN_CONTENT = {
     ],
   },
   ctaBand: {
-    title: 'Want a second set of eyes on your GTM stack?',
+    title: 'Seen something that connects to work you\'re doing?',
     subtitle:
-      'If the work here overlaps with what your team is building, send me a note. I’m always open to reviewing a GTM system, comparing approaches, or talking through where things might be stuck.',
-    ctaPrimary: 'Send a note',
+      ‘Browse the case studies and expertise pages first. If something overlaps with work you\’re running, feel free to reach out.’,
+    ctaPrimary: 'Contact',
     ctaSecondary: 'See case studies',
   },
   footer: {

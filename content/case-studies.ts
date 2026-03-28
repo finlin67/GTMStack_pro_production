@@ -74,7 +74,7 @@ export const caseStudyItems: CaseStudyItem[] = [
     title: '87% YoY Pipeline Growth via Unified ABM + RevOps Model',
     client: 'PRGX Global',
     description:
-      'Architected a unified revenue operating model integrating ABM, automation, and attribution to scale predictable enterprise pipeline.',
+      'Built a unified revenue operating model connecting ABM, marketing automation, and attribution across Demandbase, Marketo, and Salesforce. Resulted in 87% YoY pipeline growth and 180% lift in MQL→SQL conversion.',
     challenge:
       'PRGX needed to evolve from broad demand gen into full-funnel, governance-driven ABM. Systems were fragmented across Demandbase, Marketo, CRM, and analytics, limiting visibility and repeatability.',
     solution:

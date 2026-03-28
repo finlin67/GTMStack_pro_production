@@ -325,13 +325,13 @@ export const HOME_STITCH_CONTENT: HomeStitchContent = {
     ],
   },
   methodology: {
-    title: 'How we think about delivery',
+    title: 'Delivery approach used across programs',
     steps: [
       {
         step: 'Diagnose',
         accent: 'signalBlue',
         icon: 'search',
-        desc: 'Find leakage: routing, signals, content gaps, and reporting blind spots.',
+        desc: 'Audited routing logic, signal coverage, and reporting gaps in live programs before making changes.',
       },
       {
         step: 'Design',
