@@ -1,0 +1,32 @@
+{
+  "fold": 900,
+  "h1Bottom": 505.453125,
+  "firstSectionBottom": 886.09375,
+  "secondSectionTop": null,
+  "ctaBottoms": [
+    {
+      "text": "Case Studies",
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "bottom": 96
+    },
+    {
+      "text": "Browse gallery",
+      "bottom": 697.203125
+    },
+    {
+      "text": "View case studies",
+      "bottom": 699.203125
+    },
+    {
+      "text": "Browse all",
+      "bottom": 1123.6875
+    },
+    {
+      "text": "GTMStack Pro DashboardGTMStack Pro Dashb",
+      "bottom": 1645.390625
+    }
+  ]
+}

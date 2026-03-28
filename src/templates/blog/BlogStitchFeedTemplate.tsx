@@ -1,18 +1,9 @@
 'use client'
 
 import Link from 'next/link'
-import {
-  ArrowRight,
-  ExternalLink,
-  LayoutGrid,
-  Rocket,
-  Search,
-  TrendingUp,
-  User,
-} from 'lucide-react'
+import { Search, ChevronDown } from 'lucide-react'
 import type {
   StitchBlogFeedContent,
-  StitchFeaturedLargeCard,
   StitchPostCard,
 } from '@/lib/blog-adapter'
 
@@ -27,113 +18,120 @@ export type BlogStitchFeedTemplateProps = {
   error?: string
 }
 
-function GridPostCard({ post }: { post: StitchPostCard }) {
-  const img = post.imageUrl
+// Maps a category name to a Tailwind badge class pair (bg + text)
+const CATEGORY_BADGE: Record<string, string> = {
+  systems: 'bg-blue-50 text-blue-600',
+  execution: 'bg-amber-50 text-amber-600',
+  strategy: 'bg-emerald-50 text-emerald-600',
+  demand: 'bg-indigo-50 text-indigo-600',
+}
+
+function categoryBadge(name: string) {
+  const key = name.toLowerCase().replace(/\s+/g, '-')
+  return CATEGORY_BADGE[key] ?? 'bg-blue-50 text-blue-600'
+}
+
+// Arrow icon shared by both post card variants
+function ArrowIcon() {
   return (
-    <Link
-      href={post.href}
-      className={`group block overflow-hidden rounded-xl bg-white shadow-[0_20px_40px_rgba(13,33,55,0.25)] transition-all duration-300 hover:-translate-y-2 ${post.borderBottomClass}`}
+    <svg
+      className="h-4 w-4 transition-transform group-hover/link:translate-x-1"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      aria-hidden
     >
-      <div className="relative aspect-video overflow-hidden bg-slate-200">
-        {img ? (
-          <img
-            src={img}
-            alt={post.imageAlt}
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
-          />
-        ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#112B46] to-[#0D2137] text-sm text-white/70">
-            No image
-          </div>
-        )}
-        <span
-          className={`absolute left-4 top-4 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-widest ${post.categoryBadgeClass}`}
-        >
-          {post.categoryName}
-        </span>
-      </div>
-      <div className="p-6">
-        <div className="mb-3 flex items-center gap-2 text-[11px] font-bold uppercase tracking-tighter text-slate-400">
-          <span>{post.date}</span>
-          <span className="h-1 w-1 rounded-full bg-slate-300" />
-          <span>{post.readTimeLabel}</span>
-        </div>
-        <h3 className="mb-3 font-display text-xl font-bold leading-tight text-slate-900 transition-colors group-hover:text-[#6FAFE0]">
-          {post.title}
-        </h3>
-        <p className="mb-6 line-clamp-2 text-sm leading-relaxed text-slate-600">{post.excerpt}</p>
-        <div className="flex items-center gap-3">
-          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
-            <User className="h-4 w-4 text-[#6FAFE0]" aria-hidden />
-          </div>
-          <span className="text-xs font-semibold text-slate-900">{post.authorName}</span>
-        </div>
-      </div>
-    </Link>
+      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14m-7-7 7 7-7 7" />
+    </svg>
   )
 }
 
-function FeaturedLargeCard({ post }: { post: StitchFeaturedLargeCard }) {
-  const img = post.imageUrl
+// Featured post — full-width with 21:9 hero image
+function FeaturedPost({ post }: { post: StitchPostCard }) {
   return (
-    <Link
-      href={post.href}
-      className={`group flex flex-col overflow-hidden rounded-2xl bg-white shadow-[0_20px_40px_rgba(13,33,55,0.25)] transition-all duration-300 hover:-translate-y-2 ${post.bottomBorderClass}`}
-    >
-      <div className="relative aspect-[16/9] overflow-hidden bg-slate-200">
-        {img ? (
+    <article className="group">
+      <div className="mb-6 aspect-[21/9] overflow-hidden rounded-2xl bg-slate-100">
+        {post.imageUrl ? (
           <img
-            src={img}
+            src={post.imageUrl}
             alt={post.imageAlt}
             className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
             loading="lazy"
           />
         ) : (
-          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#112B46] to-[#0D2137] text-slate-300">
+          <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0A1628] to-[#154360] text-sm text-slate-400">
             No image
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-        <span
-          className={`absolute left-6 top-6 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest ${post.ribbonClass}`}
-        >
-          {post.ribbonLabel}
+      </div>
+      <div className="space-y-4">
+        <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+          {post.categoryName}
         </span>
-      </div>
-      <div className="flex flex-grow flex-col p-10">
-        <div className="mb-4 flex items-center gap-3 text-xs font-bold uppercase tracking-widest text-slate-400">
-          <span>{post.editionMeta}</span>
-          <span className="h-1 w-1 rounded-full bg-slate-300" />
-          <span>{post.secondaryMeta}</span>
+        <h2 className="font-display text-4xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
+          {post.title}
+        </h2>
+        <p className="max-w-3xl text-base font-light text-slate-500">{post.excerpt}</p>
+        <div className="flex items-center gap-6 pt-2">
+          <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
+            {post.date}&nbsp;•&nbsp;{post.readTimeLabel}
+          </span>
+          <Link href={post.href} className="group/link flex items-center gap-1 text-sm font-bold text-[#0d5cab]">
+            Read Full Blueprint
+            <ArrowIcon />
+          </Link>
         </div>
-        <h3 className="mb-5 font-display text-3xl font-bold leading-tight text-slate-900">{post.title}</h3>
-        <p className="mb-8 text-lg leading-relaxed text-slate-600">{post.excerptLong}</p>
-        <div className="mt-auto flex items-center justify-between">
-          <div className="flex items-center gap-4">
-            <div className="flex h-12 w-12 items-center justify-center rounded-full bg-slate-100">
-              <User className="h-7 w-7 text-[#6FAFE0]" aria-hidden />
+      </div>
+    </article>
+  )
+}
+
+// Secondary post — horizontal image + content layout
+function SecondaryPost({ post }: { post: StitchPostCard }) {
+  return (
+    <article className="group">
+      <div className="flex flex-col gap-10 md:flex-row">
+        <div className="aspect-[4/3] w-full shrink-0 overflow-hidden rounded-2xl bg-slate-100 md:w-2/5">
+          {post.imageUrl ? (
+            <img
+              src={post.imageUrl}
+              alt={post.imageAlt}
+              className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
+              loading="lazy"
+            />
+          ) : (
+            <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#0A1628] to-[#154360] text-sm text-slate-400">
+              No image
             </div>
-            <div>
-              <span className="block text-sm font-bold text-slate-900">{post.authorName}</span>
-              <span className="block text-[10px] uppercase tracking-widest text-slate-400">
-                {post.authorSubtitle}
-              </span>
-            </div>
+          )}
+        </div>
+        <div className="flex flex-col justify-center py-2">
+          <span className="mb-3 block text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
+            {post.categoryName}
+          </span>
+          <h3 className="mb-4 font-display text-3xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
+            {post.title}
+          </h3>
+          <p className="mb-6 text-base font-light text-slate-500">{post.excerpt}</p>
+          <div className="flex items-center gap-6">
+            <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
+              {post.date}&nbsp;•&nbsp;{post.readTimeLabel}
+            </span>
+            <Link href={post.href} className="group/link flex items-center gap-1 text-sm font-bold text-[#0d5cab]">
+              Read Article
+              <ArrowIcon />
+            </Link>
           </div>
-          <ArrowRight
-            className="h-6 w-6 text-slate-300 transition-all group-hover:translate-x-2 group-hover:text-[#6FAFE0]"
-            aria-hidden
-          />
         </div>
       </div>
-    </Link>
+    </article>
   )
 }
 
 /**
- * Blog index — layout and tokens from sandbox/stitch-html/blog.html (hero, sticky filters, 8+4 grid, featured row, promos).
- * Nav/footer come from root layout. Data from WordPress via `adaptStitchBlogFeedData`.
+ * Blog index — layout and visual tokens from sandbox/stitch-html/blog.html.
+ * Nav/footer are injected by root layout.tsx. Data comes from WordPress via
+ * `adaptStitchBlogFeedData` → `BlogIndexClient`.
  */
 export default function BlogStitchFeedTemplate({
   data,
@@ -147,301 +145,279 @@ export default function BlogStitchFeedTemplate({
 }: BlogStitchFeedTemplateProps) {
   const { hero, grid, featuredLarge, categoryPills, tagPills, sidebar } = data
 
+  // All posts for the Editor's Picks sidebar list
+  const allPosts: StitchPostCard[] = [...grid, ...featuredLarge]
+  const featuredPost = grid[0]
+  const secondaryPosts = grid.slice(1)
+
   return (
-    <div className="min-h-screen bg-[#f6f7f8] font-sans text-slate-900">
-      {error ? (
+    <div className="min-h-screen bg-[#f4f6f8] font-sans text-slate-900 antialiased">
+      {error && (
         <div className="border-b border-amber-500/40 bg-amber-500/10 px-6 py-3 text-center text-sm text-amber-900">
           {error}
         </div>
-      ) : null}
+      )}
 
-      {/* Hero — stitch: deep navy, centered gradient title */}
-      <section className="relative flex h-[min(380px,70vh)] items-center justify-center overflow-hidden bg-[#112B46] px-6 text-center">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-40"
-          style={{
-            background: 'radial-gradient(circle at 50% 50%, rgba(111, 175, 224, 0.15) 0%, transparent 70%)',
-          }}
-        />
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.1]"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(111, 175, 224, 0.1) 1px, transparent 0)',
-            backgroundSize: '24px 24px',
-          }}
-        />
-        <div className="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#6FAFE0]/5 blur-[120px]" />
-        <div className="relative z-10 max-w-4xl">
-          <h1 className="mb-8 font-display text-6xl font-bold leading-none tracking-tight md:text-8xl">
-            <span
-              className="bg-gradient-to-r from-[#6FAFE0] to-[#F9C74F] bg-clip-text text-transparent"
-              style={{ WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}
-            >
-              {hero.titleGradient}
+      {/* ── Hero ─────────────────────────────────────────────────────────── */}
+      <section className="relative overflow-hidden bg-gradient-to-br from-[#0A1628] to-[#154360] px-8 pb-32 pt-20">
+        <div className="relative z-10 mx-auto max-w-7xl">
+          <div className="max-w-3xl">
+            <span className="mb-6 block text-xs font-medium uppercase tracking-[0.2em] text-[#FFDB58]">
+              The Strategic Architect&apos;s Journal
             </span>
-          </h1>
-          <p className="mx-auto max-w-2xl text-lg font-light leading-relaxed text-[#6FAFE0] opacity-90 md:text-2xl">
-            {hero.subtitle}
-          </p>
+            <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl">
+              Precision Engineering for B2B SaaS Growth.
+            </h1>
+            <p className="max-w-2xl text-lg font-light leading-relaxed text-slate-300 md:text-xl">
+              {hero.subtitle}
+            </p>
+          </div>
         </div>
+        <div className="pointer-events-none absolute -right-20 top-0 h-[600px] w-[600px] rounded-full bg-[#0d5cab]/20 blur-[120px]" />
       </section>
 
-      {/* Sticky category pills + search — stitch bar */}
-      <section className="sticky top-[84px] z-40 border-y border-slate-200 bg-[#f6f7f8]/90 px-8 py-4 backdrop-blur-md md:top-[100px] lg:top-[112px]">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4">
-          {/* Category pills row */}
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex flex-wrap items-center justify-center gap-3 md:justify-start">
-              {categoryPills.map((pill) => {
-                const active =
-                  pill.slug === '' ? !selectedCategorySlug : selectedCategorySlug === pill.slug
-                return (
-                  <button
-                    key={pill.slug || 'all'}
-                    type="button"
-                    onClick={() => onCategorySelect(pill.slug)}
-                    className={`rounded-full px-5 py-2 text-sm font-semibold transition-colors ${
-                      active
-                        ? 'bg-[#6FAFE0] text-white'
-                        : 'font-medium text-slate-600 hover:bg-slate-200'
-                    }`}
-                  >
-                    {pill.label}
-                  </button>
-                )
-              })}
-            </div>
-            <div className="relative w-full md:w-auto">
-              <Search
-                className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400"
-                aria-hidden
-              />
-              <input
-                type="search"
-                value={searchValue}
-                onChange={(e) => onSearchChange(e.target.value)}
-                placeholder="Search insights..."
-                className="w-full rounded-full border border-slate-200 bg-white py-2 pl-10 pr-6 text-sm text-slate-900 transition-all placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-[#6FAFE0]/20 md:w-64"
-              />
-            </div>
+      {/* ── Category / Search filter bar ─────────────────────────────────── */}
+      <section className="relative z-30 mx-auto -mt-8 max-w-7xl px-8">
+        <div className="flex flex-col items-center justify-between gap-4 rounded-full border border-slate-100 bg-white px-6 py-3 shadow-lg md:flex-row">
+          {/* Category pills */}
+          <div className="flex w-full items-center gap-2 overflow-x-auto md:w-auto" style={{ scrollbarWidth: 'none' }}>
+            {categoryPills.map((pill) => {
+              const active = pill.slug === '' ? !selectedCategorySlug : selectedCategorySlug === pill.slug
+              return (
+                <button
+                  key={pill.slug || 'all'}
+                  type="button"
+                  onClick={() => onCategorySelect(pill.slug)}
+                  className={`whitespace-nowrap rounded-full px-5 py-2 text-sm transition-all ${
+                    active
+                      ? 'bg-[#0d5cab] font-semibold text-white shadow-md'
+                      : 'font-medium text-slate-600 hover:bg-slate-50'
+                  }`}
+                >
+                  {pill.label}
+                </button>
+              )
+            })}
           </div>
 
-          {/* Tag pills row — shown only when WP tags are available */}
-          {tagPills.length > 0 && (
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[10px] font-bold uppercase tracking-widest text-slate-400">Tags:</span>
-              {tagPills.map((pill) => {
-                const active =
-                  pill.slug === '' ? !selectedTagSlug : selectedTagSlug === pill.slug
-                return (
-                  <button
-                    key={pill.slug || 'all-tags'}
-                    type="button"
-                    onClick={() => onTagSelect(pill.slug)}
-                    className={`rounded-full border px-3 py-1 text-xs font-semibold transition-colors ${
-                      active
-                        ? 'border-[#F9C74F] bg-[#F9C74F] text-[#0D2137]'
-                        : 'border-slate-200 text-slate-500 hover:border-[#F9C74F]/60 hover:text-slate-800'
-                    }`}
-                  >
-                    #{pill.label.replace(/^#/, '')}
-                  </button>
-                )
-              })}
-            </div>
-          )}
+          {/* Search */}
+          <div className="group relative w-full md:w-72">
+            <Search
+              className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400 transition-colors group-focus-within:text-[#0d5cab]"
+              aria-hidden
+            />
+            <input
+              className="w-full rounded-full border-none bg-slate-50 py-2 pl-11 pr-6 text-sm outline-none placeholder:text-slate-400 focus:ring-2 focus:ring-[#0d5cab]/20"
+              placeholder="Search the archives..."
+              type="text"
+              value={searchValue}
+              onChange={(e) => onSearchChange(e.target.value)}
+            />
+          </div>
         </div>
       </section>
 
-      {/* Main grid + sidebar */}
-      <section className="relative overflow-hidden bg-[#f6f7f8] py-16 pl-8 pr-8">
-        <div
-          className="pointer-events-none absolute inset-0 opacity-[0.05]"
-          style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, rgba(111, 175, 224, 0.1) 1px, transparent 0)',
-            backgroundSize: '24px 24px',
-          }}
-        />
-        <div className="relative z-10 mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-12">
-          <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 lg:col-span-8">
-            {grid.length === 0 ? (
-              <p className="col-span-full rounded-xl border border-slate-200 bg-white p-12 text-center text-slate-500">
+      {/* ── Main grid + sidebar ───────────────────────────────────────────── */}
+      <section className="mx-auto mb-32 mt-16 max-w-7xl px-8">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
+
+          {/* Left column — posts */}
+          <div className="space-y-20 lg:col-span-8">
+            {/* No results */}
+            {grid.length === 0 && (
+              <p className="rounded-2xl border border-slate-200 bg-white p-12 text-center text-slate-500">
                 No posts match your filters yet.
               </p>
-            ) : (
-              grid.map((p) => <GridPostCard key={p.id} post={p} />)
+            )}
+
+            {/* Featured post */}
+            {featuredPost && <FeaturedPost post={featuredPost} />}
+
+            {/* Dividers + secondary posts */}
+            {secondaryPosts.map((post, idx) => (
+              <div key={post.id}>
+                <div className="mb-20 w-full border-t border-slate-200" />
+                <SecondaryPost post={post} />
+              </div>
+            ))}
+
+            {/* Load more */}
+            {grid.length > 0 && (
+              <div className="mt-16 flex justify-center">
+                <button type="button" className="group flex flex-col items-center gap-4">
+                  <span className="flex h-14 w-14 items-center justify-center rounded-full border border-[#0d5cab]/20 transition-all group-hover:border-[#0d5cab] group-hover:bg-[#0d5cab]">
+                    <ChevronDown className="h-5 w-5 text-[#0d5cab] transition-colors group-hover:text-white" aria-hidden />
+                  </span>
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-slate-500 transition-colors group-hover:text-slate-900">
+                    Load More Articles
+                  </span>
+                </button>
+              </div>
             )}
           </div>
 
-          <aside className="space-y-8 lg:col-span-4">
-            <div className="lg:sticky lg:top-[188px] lg:space-y-8">
-              <div className="rounded-xl border border-slate-200 bg-white p-8 shadow-sm">
-                <h4 className="mb-6 flex items-center gap-2 text-[14px] font-bold uppercase tracking-widest text-[#0D2137]">
-                  <span className="h-2 w-2 rounded-full bg-[#6FAFE0]" aria-hidden />
-                  Trending Topics
-                </h4>
-                <div className="flex flex-col gap-3">
-                  {sidebar.trendingTags.map((t) => (
-                    <button
-                      key={t.slug}
-                      type="button"
-                      onClick={() => onTagSelect(t.slug)}
-                      className={`group flex cursor-pointer items-center justify-between rounded-xl border px-6 py-5 text-base font-bold shadow-sm transition-all ${
-                        selectedTagSlug === t.slug
-                          ? 'border-transparent bg-[#6FAFE0] text-white'
-                          : 'border-slate-50 bg-slate-100 text-slate-800 hover:border-transparent hover:bg-[#6FAFE0] hover:text-white'
-                      }`}
+          {/* Right column — sidebar */}
+          <aside className="hidden space-y-8 lg:col-span-4 lg:block">
+            <div className="sticky top-32 space-y-8">
+
+              {/* Terminal: Editor's Picks */}
+              <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+                <div className="mb-4 flex items-center justify-between border-b border-slate-50 pb-3">
+                  <h4 className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#0d5cab]" />
+                    Terminal: Editor&apos;s Picks
+                  </h4>
+                  <span className="font-mono text-[9px] text-slate-300">v.2.4.0</span>
+                </div>
+                <div
+                  className="max-h-[360px] space-y-4 overflow-y-auto pr-2"
+                  style={{ scrollbarWidth: 'thin', scrollbarColor: '#e2e8f0 transparent' }}
+                >
+                  {allPosts.slice(0, 8).map((post, idx) => (
+                    <Link
+                      key={post.id}
+                      href={post.href}
+                      className="group block rounded-xl p-2 transition-all hover:bg-slate-50"
                     >
-                      {t.label}
-                      <TrendingUp className="h-5 w-5 opacity-40 transition-opacity group-hover:opacity-100" />
-                    </button>
+                      <div className="mb-1 flex gap-2">
+                        <span className={`rounded px-2 py-0.5 text-[8px] font-bold uppercase tracking-tighter ${categoryBadge(post.categoryName)}`}>
+                          {post.categoryName}
+                        </span>
+                        <span className="font-mono text-[9px] text-slate-300">
+                          {String(idx + 1).padStart(2, '0')}
+                        </span>
+                      </div>
+                      <h5 className="line-clamp-2 text-xs leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
+                        {post.title}
+                      </h5>
+                    </Link>
                   ))}
                 </div>
               </div>
 
-              <div className="relative overflow-hidden rounded-xl bg-[#0D2137] p-8">
-                <div
-                  className="pointer-events-none absolute inset-0 opacity-10"
-                  style={{
-                    backgroundImage:
-                      'radial-gradient(circle at 2px 2px, rgba(111, 175, 224, 0.1) 1px, transparent 0)',
-                    backgroundSize: '24px 24px',
-                  }}
-                />
+              {/* Semantic Index */}
+              {(categoryPills.length > 1 || tagPills.length > 0) && (
+                <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm">
+                  <h4 className="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" />
+                    </svg>
+                    Semantic Index
+                  </h4>
+                  <div className="flex flex-wrap items-center gap-2">
+                    {/* Top categories as larger links */}
+                    {categoryPills.filter((p) => p.slug).slice(0, 2).map((pill) => (
+                      <button
+                        key={pill.slug}
+                        type="button"
+                        onClick={() => onCategorySelect(pill.slug)}
+                        className="text-lg font-bold text-[#0d5cab] hover:underline"
+                      >
+                        {pill.label}
+                      </button>
+                    ))}
+                    {/* Tag pills at varying weights */}
+                    {tagPills.filter((p) => p.slug).slice(0, 8).map((pill, idx) => {
+                      const styles = [
+                        'text-xs font-medium text-slate-400',
+                        'text-base font-semibold text-slate-700',
+                        'text-sm font-medium text-slate-500',
+                        'text-xs font-medium text-slate-400',
+                        'text-lg font-bold text-slate-900',
+                        'text-sm font-medium text-slate-500',
+                        'text-base font-semibold text-[#0d5cab]/80',
+                        'text-xs font-medium text-slate-400',
+                      ]
+                      return (
+                        <button
+                          key={pill.slug}
+                          type="button"
+                          onClick={() => onTagSelect(pill.slug)}
+                          className={`transition-colors hover:text-[#0d5cab] ${styles[idx % styles.length]}`}
+                        >
+                          {pill.label}
+                        </button>
+                      )
+                    })}
+                  </div>
+                </div>
+              )}
+
+              {/* CTA block */}
+              <div className="group relative overflow-hidden rounded-3xl bg-[#0047AB] p-8 shadow-xl shadow-blue-500/20">
                 <div className="relative z-10">
-                  <span className="mb-4 block text-[10px] font-bold uppercase tracking-[0.2em] text-[#6FAFE0]">
-                    Recommended Tool
-                  </span>
-                  <h3 className="mb-4 font-display text-2xl font-bold text-white">Flight Assessment Tool</h3>
-                  <p className="mb-8 text-sm leading-relaxed text-white/70">
-                    Audit your GTM readiness with our custom technical scorecard. Identify friction points in under 10
-                    minutes.
+                  <h4 className="mb-3 font-display text-xl font-bold text-white">Marketing Assessment Tool</h4>
+                  <p className="mb-6 text-sm font-medium leading-relaxed text-blue-100">
+                    Quantify Your GTM Stack: Start Assessment Now
                   </p>
                   <Link
                     href="/contact"
-                    className="block w-full rounded-lg bg-[#6FAFE0] py-3 text-center text-sm font-bold text-white transition-transform hover:scale-105"
+                    className="block w-full rounded-xl bg-white py-3 text-center text-xs font-bold uppercase tracking-widest text-[#0047AB] shadow-lg transition-all hover:bg-slate-100 active:scale-[0.98]"
                   >
-                    Contact
+                    Launch Terminal
                   </Link>
                 </div>
+                <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-white/10 blur-2xl transition-transform duration-700 group-hover:scale-150" />
               </div>
 
-              <div className="rounded-xl border border-white/50 bg-white/85 p-8 shadow-lg backdrop-blur-md">
-                <div className="mb-6 flex items-center gap-4">
-                  {sidebar.authorImage ? (
-                    <img
-                      src={sidebar.authorImage}
-                      alt=""
-                      className="h-16 w-16 rounded-xl object-cover grayscale"
-                    />
-                  ) : (
-                    <div className="flex h-16 w-16 items-center justify-center rounded-xl bg-slate-100">
-                      <User className="h-8 w-8 text-[#6FAFE0]" aria-hidden />
+              {/* Expert Contributors */}
+              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-6">
+                <h4 className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                  Expert Contributors
+                </h4>
+                <div className="space-y-4">
+                  <div className="flex cursor-pointer items-center gap-3 rounded-xl p-2 transition-all hover:bg-white">
+                    {sidebar.authorImage ? (
+                      <img
+                        src={sidebar.authorImage}
+                        alt={sidebar.authorName}
+                        className="h-8 w-8 rounded-full border border-slate-200 object-cover"
+                      />
+                    ) : (
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full border border-slate-300 bg-slate-200">
+                        <span className="text-[10px] font-bold text-slate-500">
+                          {sidebar.authorName.split(' ').map((n) => n[0]).join('').slice(0, 2).toUpperCase()}
+                        </span>
+                      </div>
+                    )}
+                    <div>
+                      <h5 className="text-[11px] text-slate-900">{sidebar.authorName}</h5>
+                      <p className="font-mono text-[9px] uppercase tracking-tighter text-slate-400">
+                        {sidebar.authorRole}
+                      </p>
                     </div>
-                  )}
-                  <div>
-                    <h4 className="font-display font-bold text-[#0D2137]">{sidebar.authorName}</h4>
-                    <p className="text-xs text-slate-500">{sidebar.authorRole}</p>
                   </div>
                 </div>
-                <p className="mb-6 text-sm leading-relaxed text-slate-600">{sidebar.authorBio}</p>
-                <a
-                  href={sidebar.linkedInHref}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center gap-2 text-sm font-bold text-[#6FAFE0]"
-                >
-                  Connect on LinkedIn
-                  <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden />
-                </a>
               </div>
             </div>
           </aside>
         </div>
       </section>
 
-      {/* Featured large — stitch second section */}
-      {featuredLarge.length > 0 ? (
-        <section className="bg-[#f6f7f8] py-20">
-          <div className="mx-auto max-w-7xl px-8">
-            <div className="grid grid-cols-1 gap-12 md:grid-cols-2">
-              {featuredLarge.map((p) => (
-                <FeaturedLargeCard key={p.id} post={p} />
-              ))}
-            </div>
-          </div>
-        </section>
-      ) : null}
-
-      {/* Built for Fun — stitch promo band */}
-      <section className="border-t border-white/5 bg-[#0D2137] px-8 py-24">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-16 text-center">
-            <h2 className="mb-4 font-display text-3xl font-bold text-white md:text-5xl">
-              Built for Fun. Shipped for Real.
-            </h2>
-            <div className="mx-auto h-1 w-20 rounded-full bg-[#6FAFE0]" />
-          </div>
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            <Link
-              href="/contact"
-              className="group cursor-pointer rounded-2xl border border-white/5 bg-[rgba(17,43,70,0.6)] p-10 backdrop-blur-md transition-all hover:bg-[#112B46]"
-            >
-              <div className="mb-8">
-                <Rocket className="h-10 w-10 text-[#F9C74F]" aria-hidden />
-              </div>
-              <h3 className="mb-4 font-display text-2xl font-bold text-white">Flight Assessment Tool</h3>
-              <p className="mb-8 leading-relaxed text-slate-400">
-                A custom interactive dashboard that measures GTM operational maturity across 48 critical benchmarks.
-              </p>
-              <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider text-[#6FAFE0]">
-                Explore Tool <ExternalLink className="h-4 w-4" aria-hidden />
-              </div>
-            </Link>
-            <Link
-              href="/resume"
-              className="group cursor-pointer rounded-2xl border border-white/5 bg-[rgba(17,43,70,0.6)] p-10 backdrop-blur-md transition-all hover:bg-[#112B46]"
-            >
-              <div className="mb-8">
-                <LayoutGrid className="h-10 w-10 text-[#6FAFE0]" aria-hidden />
-              </div>
-              <h3 className="mb-4 font-display text-2xl font-bold text-white">Resume CV Theme Park</h3>
-              <p className="mb-8 leading-relaxed text-slate-400">
-                A highly opinionated, design-forward UI kit for GTM leaders and technical architects shipping in public.
-              </p>
-              <div className="flex items-center gap-4 text-sm font-bold uppercase tracking-wider text-[#6FAFE0]">
-                View Demo <ExternalLink className="h-4 w-4" aria-hidden />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA — stitch glass card */}
-      <section className="flex justify-center bg-[#0D2137] px-8 pb-32 pt-16 text-center">
-        <div className="relative max-w-3xl overflow-hidden rounded-3xl border border-white/5 bg-[rgba(17,43,70,0.6)] p-12 shadow-[0_20px_40px_rgba(13,33,55,0.25)] backdrop-blur-md md:p-20">
-          <div className="pointer-events-none absolute inset-0 bg-gradient-to-br from-[#6FAFE0]/10 to-transparent" />
-          <h2 className="relative z-10 mb-8 font-display text-3xl font-bold leading-tight text-white md:text-5xl">
-            Ready to Optimize Your Revenue Engine?
-          </h2>
-          <p className="relative z-10 mx-auto mb-12 max-w-xl text-lg leading-relaxed text-[#6FAFE0] opacity-80">
-            Share what you&apos;re working on—we can compare notes and point you to the right next step.
+      {/* ── Newsletter CTA ─────────────────────────────────────────────────── */}
+      <section className="relative mx-auto mb-32 max-w-7xl overflow-hidden rounded-3xl bg-[#0A1628] px-8 py-24">
+        <div className="relative z-10 mx-auto max-w-3xl text-center">
+          <h2 className="mb-6 font-display text-4xl font-bold text-white">Master the SaaS Architecture.</h2>
+          <p className="mx-auto mb-12 max-w-xl text-lg text-slate-400">
+            Join 15,000+ Founders and GTM Leaders receiving our weekly tactical blueprint for scaling enterprise revenue.
           </p>
-          <div className="relative z-10 flex flex-col justify-center gap-4 sm:flex-row">
-            <Link
-              href="/contact"
-              className="rounded-lg bg-[#6FAFE0] px-10 py-4 text-lg font-bold text-white shadow-[0_10px_30px_rgba(111,175,224,0.2)] transition-transform hover:scale-105"
+          <form className="mx-auto flex max-w-lg flex-col gap-4 sm:flex-row" onSubmit={(e) => e.preventDefault()}>
+            <input
+              className="flex-grow rounded-full border border-white/10 bg-white/5 px-6 py-4 text-sm text-white outline-none placeholder:text-slate-500 focus:ring-2 focus:ring-[#FFDB58]/50"
+              placeholder="professional@company.com"
+              type="email"
+            />
+            <button
+              type="submit"
+              className="whitespace-nowrap rounded-full bg-[#FFDB58] px-10 py-4 text-sm font-bold tracking-tight text-[#0A1628] transition-all hover:shadow-lg active:scale-95"
             >
-              Contact
-            </Link>
-            <Link
-              href="/resume"
-              className="rounded-lg border border-white/20 px-10 py-4 text-lg font-bold text-white transition-all hover:bg-white/10"
-            >
-              View Resume
-            </Link>
-          </div>
+              Subscribe
+            </button>
+          </form>
+          <p className="mt-6 text-[10px] uppercase tracking-widest text-slate-500">Tactical insights only. No fluff.</p>
         </div>
+        <div className="pointer-events-none absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#0d5cab]/10 blur-3xl" />
+        <div className="pointer-events-none absolute -right-12 -top-12 h-48 w-48 rounded-full bg-[#FFDB58]/5 blur-2xl" />
       </section>
     </div>
   )

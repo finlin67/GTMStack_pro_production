@@ -26,7 +26,7 @@ export function RelatedExpertise({
   return (
     <div className={className}>
       <FadeIn>
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6">
           <h3 className="font-display text-2xl font-bold text-slate-900">
             {title}
           </h3>
@@ -42,7 +42,7 @@ export function RelatedExpertise({
         </div>
       </FadeIn>
 
-      <CardGrid columns={3}>
+      <CardGrid columns={3} className="gap-5 md:gap-6">
         {items.slice(0, 3).map((item) => (
           <CardGridItem key={item.slug}>
             <Card
@@ -78,7 +78,7 @@ export function RelatedCaseStudies({
   return (
     <div className={className}>
       <FadeIn>
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6">
           <h3 className="font-display text-2xl font-bold text-slate-900">
             {title}
           </h3>
@@ -94,7 +94,7 @@ export function RelatedCaseStudies({
         </div>
       </FadeIn>
 
-      <CardGrid columns={2}>
+      <CardGrid columns={2} className="gap-5 md:gap-6">
         {items.slice(0, 2).map((item) => (
           <CardGridItem key={item.slug}>
             <CaseStudyCard
@@ -131,7 +131,7 @@ export function RelatedIndustries({
   return (
     <div className={className}>
       <FadeIn>
-        <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center justify-between mb-6">
           <h3 className="font-display text-2xl font-bold text-slate-900">
             {title}
           </h3>

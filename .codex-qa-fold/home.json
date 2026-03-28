@@ -1,0 +1,32 @@
+{
+  "fold": 900,
+  "h1Bottom": 541.6875,
+  "firstSectionBottom": 818,
+  "secondSectionTop": 818,
+  "ctaBottoms": [
+    {
+      "text": "Case Studies",
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "bottom": 96
+    },
+    {
+      "text": "Browse case studies",
+      "bottom": 723.6875
+    },
+    {
+      "text": "Explore expertise",
+      "bottom": 723.6875
+    },
+    {
+      "text": "View all posts",
+      "bottom": 3081.9375
+    },
+    {
+      "text": "Contact",
+      "bottom": 4027.78125
+    }
+  ]
+}

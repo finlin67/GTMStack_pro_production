@@ -21,12 +21,12 @@ export default function Template(props: { content?: unknown; pageTitle?: string;
         <section className="relative overflow-hidden bg-slate-950">
           <div className="absolute inset-0 bg-grid-dark opacity-50" aria-hidden="true" />
           <div className="absolute inset-0 bg-mesh opacity-70" aria-hidden="true" />
-          <div className="container-width section-padding relative z-10">
-            <div className="grid gap-12 items-center lg:grid-cols-[1.1fr_0.9fr]">
-              <div className="max-w-3xl space-y-6">
+          <div className="container-width relative z-10 py-12 md:py-16 lg:py-20">
+            <div className="grid gap-8 items-center lg:grid-cols-[1.1fr_0.9fr] lg:gap-10">
+              <div className="max-w-3xl space-y-4 md:space-y-5">
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-cyan-200">Case studies</p>
-              <h1 className="text-4xl font-semibold leading-tight md:text-6xl">Outcome-first GTM results</h1>
-              <p className="text-lg text-slate-300 md:text-xl">
+              <h1 className="text-3xl font-semibold leading-tight md:text-5xl">Outcome-first GTM results</h1>
+              <p className="max-w-2xl text-base text-slate-300 leading-relaxed md:text-lg">
                 {items.length > 0
                   ? `Outcomes across ${items.length} engagements, spanning industry GTM, revenue operations, and growth systems.`
                   : 'Curated GTM outcomes and proof points.'}
@@ -53,7 +53,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string;
 
         {featured.length > 0 ? (
           <section className="bg-white text-slate-900">
-            <div className="container-width section-padding">
+            <div className="container-width py-12 md:py-16">
               <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
                 <div>
                   <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Featured</p>
@@ -67,12 +67,12 @@ export default function Template(props: { content?: unknown; pageTitle?: string;
                   <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-              <div className="mt-10 grid gap-6 md:grid-cols-2">
+              <div className="mt-8 grid gap-6 md:grid-cols-2">
                 {featured.slice(0, 4).map((study) => (
                   <Link
                     key={study.slug}
                     href={`/case-studies/${study.slug}`}
-                    className="group rounded-2xl border border-slate-200/70 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                    className="group rounded-2xl border border-slate-200/70 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg md:p-6"
                   >
                     <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                       {study.client}
@@ -99,7 +99,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string;
         ) : null}
 
         <section className="bg-slate-50 text-slate-900">
-          <div className="container-width section-padding">
+          <div className="container-width py-12 md:py-16">
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">All case studies</p>
@@ -107,12 +107,12 @@ export default function Template(props: { content?: unknown; pageTitle?: string;
               </div>
               <span className="text-sm text-slate-500">{items.length} total engagements</span>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+            <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
               {allItems.map((study) => (
                 <Link
                   key={study.slug}
                   href={`/case-studies/${study.slug}`}
-                  className="group rounded-2xl border border-slate-200/70 bg-white p-6 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg"
+                  className="group rounded-2xl border border-slate-200/70 bg-white p-5 shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg md:p-6"
                 >
                   <div className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                     {study.client} · {study.year}

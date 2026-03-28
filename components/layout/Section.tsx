@@ -19,10 +19,10 @@ const backgroundStyles = {
 
 const paddingStyles = {
   none: '',
-  sm: 'py-12 md:py-16',
-  md: 'py-16 md:py-24',
-  lg: 'py-20 md:py-32',
-  xl: 'py-24 md:py-40',
+  sm: 'py-8 md:py-10',
+  md: 'py-10 md:py-12',
+  lg: 'py-14 md:py-16',
+  xl: 'py-16 md:py-20',
 }
 
 export function Section({
@@ -67,7 +67,7 @@ export function SectionHeader({
   return (
     <div
       className={cn(
-        'max-w-3xl space-y-3 md:space-y-4',
+        'max-w-2xl space-y-2 md:space-y-3',
         align === 'center' && 'mx-auto text-center',
         className
       )}
@@ -81,7 +81,7 @@ export function SectionHeader({
         {title}
       </h2>
       {description && (
-        <p className="text-lg md:text-xl text-slate-600 leading-relaxed">
+        <p className="text-base md:text-lg text-slate-600 leading-[1.65]">
           {description}
         </p>
       )}

@@ -1,0 +1,32 @@
+{
+  "fold": 900,
+  "h1Bottom": 379.640625,
+  "firstSectionBottom": 741,
+  "secondSectionTop": 741,
+  "ctaBottoms": [
+    {
+      "text": "Case Studies",
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "bottom": 96
+    },
+    {
+      "text": "View the methodology",
+      "bottom": 583.640625
+    },
+    {
+      "text": "View case studies",
+      "bottom": 3614.4375
+    },
+    {
+      "text": "View the methodology",
+      "bottom": 3659.4375
+    },
+    {
+      "text": "Case Studies",
+      "bottom": 3911.9375
+    }
+  ]
+}

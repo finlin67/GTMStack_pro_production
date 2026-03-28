@@ -72,28 +72,27 @@ const STITCH_CSS = `
 
 /** PMM.AI reference — only for 6 Demand & Growth pages (exact tokens) */
 const PMM_AI_THEME = {
-  background: '#0b1720',
-  backgroundAlt: '#0f2632',
+  background: '#121b2f',
+  backgroundAlt: '#19243a',
   foreground: '#FFFFFF',
-  muted: '#2ea7ff',
-  accentPrimary: 'var(--orange-grad)',
-  accentSecondary: '#7dd3fc',
-  gradientStart: '#1e3a8a',
-  gradientEnd: '#7dd3fc',
+  muted: '#FCD34D',
+  accentPrimary: 'var(--solar-grad)',
+  accentSecondary: '#F59E0B',
+  gradientStart: '#F59E0B',
+  gradientEnd: '#FCD34D',
   success: '#22C55E',
-  highlight: '#fbbf24',
+  highlight: '#FCD34D',
   ctaGradient: true,
 }
 
 const PMM_AI_CSS = `
 .theme-demand-growth {
-  --primary: #2ea7ff;
-  --background-dark: #0b1720;
-  --panel-bg: #0f2632;
-  --muted-text: rgba(255,255,255,0.70);
-  --blue-grad: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #7dd3fc 100%);
-  --orange-grad: linear-gradient(135deg, #f97316 0%, #fbbf24 100%);
-  --header-footer-grad: linear-gradient(90deg, #1e40af 0%, #3b82f6 100%);
+  --primary: #FCD34D;
+  --background-dark: #121b2f;
+  --panel-bg: #1a2539;
+  --muted-text: #7a849d;
+  --solar-grad: linear-gradient(90deg, #F59E0B 0%, #FCD34D 100%);
+  --header-footer-grad: linear-gradient(90deg, #121b2f 0%, #19243a 100%);
 }
 .theme-demand-growth { background: var(--background-dark); min-height: 100vh; }
 /* Force PMM.AI canvas on all dark sections */
@@ -103,11 +102,11 @@ const PMM_AI_CSS = `
 .theme-demand-growth section[class*="bg-gradient"] { background: var(--background-dark) !important; }
 /* Panels/cards use panel-bg */
 .theme-demand-growth .dark-card,
-.theme-demand-growth [class*="border-brand"] { background-color: var(--panel-bg) !important; border-color: rgba(255,255,255,0.1) !important; }
-/* Blue gradient for emphasized text only */
-.theme-demand-growth .pmm-accent-text { background: var(--blue-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
-/* Orange gradient for primary CTAs only */
-.theme-demand-growth .pmm-cta-primary { background: var(--orange-grad) !important; color: #fff; }
+.theme-demand-growth [class*="border-brand"] { background-color: var(--panel-bg) !important; border-color: rgba(252,211,77,0.14) !important; }
+/* Amber gradient for emphasized text only */
+.theme-demand-growth .pmm-accent-text { background: var(--solar-grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+/* Solar CTA */
+.theme-demand-growth .pmm-cta-primary { background: var(--solar-grad) !important; color: #191c1d; }
 /* Muted text */
 .theme-demand-growth .pmm-muted { color: var(--muted-text); }
 `
@@ -325,7 +324,7 @@ export function ExpertiseDetailContent({
     <div className="min-h-screen text-white" style={theme ? { backgroundColor: bg } : { backgroundColor: 'var(--color-background-alt)' }}>
       {/* ========== HERO ========== */}
       <section
-        className="relative overflow-hidden pt-8 pb-6 md:pt-12 md:pb-8"
+        className="relative overflow-hidden pt-6 pb-4 md:pt-8 md:pb-6"
         style={{ background: heroGradient }}
       >
         <div className="pointer-events-none absolute inset-0 z-0 opacity-70">
@@ -362,7 +361,7 @@ export function ExpertiseDetailContent({
           </svg>
         </div>
         <div className="container-width relative z-10">
-          <nav className="flex items-center gap-2 text-xs md:text-sm mb-3 text-white/90" aria-label="Breadcrumb">
+          <nav className="flex items-center gap-2 text-xs md:text-sm mb-2 text-white/90" aria-label="Breadcrumb">
             <Link href="/" className="transition-colors hover:opacity-90" style={{ color: accent }}>Home</Link>
             <span className="text-white/60">/</span>
             <Link href="/expertise" className="transition-colors hover:opacity-90" style={{ color: accent }}>Expertise</Link>
@@ -373,7 +372,7 @@ export function ExpertiseDetailContent({
             <span className="text-white/60">/</span>
             <span className="text-white font-medium">{item.title}</span>
           </nav>
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-4 lg:gap-6 items-center">
+          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-3 lg:gap-4 items-center">
             <div>
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
@@ -401,7 +400,7 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.08 }}
-                className="mt-2 text-base md:text-lg text-white/90 max-w-2xl font-medium"
+                className="mt-1.5 text-base md:text-lg text-white/90 max-w-xl font-medium leading-[1.65]"
               >
                 {tagline}
               </motion.p>
@@ -409,7 +408,7 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.12 }}
-                className="mt-4 flex flex-wrap gap-2"
+                className="mt-3 flex flex-wrap gap-2"
               >
                 <Link
                   href="/contact"
@@ -431,7 +430,7 @@ export function ExpertiseDetailContent({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="mt-4 grid grid-cols-2 gap-2 max-w-sm"
+                  className="mt-3 grid grid-cols-2 gap-2 max-w-xs"
                 >
                   {heroConfig.metrics.map((m) => (
                     <div
@@ -477,9 +476,9 @@ export function ExpertiseDetailContent({
       />
 
       {/* ========== CHALLENGES ========== */}
-      <section ref={challengesRef} className="relative py-4 md:py-6" style={{ backgroundColor: bgDark }}>
+      <section ref={challengesRef} className="relative py-3 md:py-4" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
-          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3">Common Challenges</h2>
+          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-2.5">Common Challenges</h2>
           <motion.ul
             initial="hidden"
             animate={isChallengesInView ? 'visible' : 'hidden'}
@@ -510,7 +509,7 @@ export function ExpertiseDetailContent({
       />
 
       {/* ========== ROUTE MAP ========== */}
-      <section className="relative py-4 md:py-6 overflow-hidden" style={{ backgroundColor: bg }}>
+      <section className="relative py-3 md:py-4 overflow-hidden" style={{ backgroundColor: bg }}>
         <div className="container-width relative">
           <div className="pointer-events-none absolute inset-0 opacity-80">
             <svg viewBox="0 0 500 180" className="w-full h-32 md:h-40" preserveAspectRatio="none">
@@ -543,7 +542,7 @@ export function ExpertiseDetailContent({
               />
             </svg>
           </div>
-          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4 relative z-10">Route Map</h2>
+          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3 relative z-10">Route Map</h2>
           <div className={`grid gap-2 relative z-10 ${(ROUTE_STEPS_BY_SLUG[item.slug] ?? ROUTE_STEPS).length === 5 ? 'md:grid-cols-2 lg:grid-cols-5' : 'md:grid-cols-2 lg:grid-cols-4'}`}>
             {(ROUTE_STEPS_BY_SLUG[item.slug] ?? ROUTE_STEPS).map((step, i) => {
               const Icon = step.icon
@@ -555,7 +554,7 @@ export function ExpertiseDetailContent({
                   viewport={{ once: true, margin: '-20px' }}
                   transition={{ duration: 0.3, delay: i * 0.05 }}
                   whileHover={{ scale: 1.05, y: -6, boxShadow: `0 12px 40px ${accent}80` }}
-                  className={`rounded-xl border-2 p-4 backdrop-blur-sm transition-all ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                  className={`rounded-xl border-2 p-3.5 md:p-4 backdrop-blur-sm transition-all ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
                   style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bgAlt}E6` }}
                 >
                   <div
@@ -588,9 +587,9 @@ export function ExpertiseDetailContent({
       />
 
       {/* ========== EXECUTION STACK ========== */}
-      <section className="relative py-4 md:py-6" style={{ backgroundColor: bgDark }}>
+      <section className="relative py-3 md:py-4" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
-          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3">Execution Stack</h2>
+          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-2.5">Execution Stack</h2>
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
@@ -624,9 +623,9 @@ export function ExpertiseDetailContent({
       />
 
       {/* ========== RESULTS ========== */}
-      <section ref={resultsRef} className="relative py-4 md:py-6" style={{ backgroundColor: bg }}>
+      <section ref={resultsRef} className="relative py-3 md:py-4" style={{ backgroundColor: bg }}>
         <div className="container-width">
-          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-4">Results</h2>
+          <h2 className="font-display text-xl md:text-2xl font-bold text-white mb-3">Results</h2>
           <div className={`grid gap-4 ${results.length >= 5 ? 'md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5' : 'md:grid-cols-3'}`}>
             {results.map((r, i) => (
               <motion.div
@@ -639,7 +638,7 @@ export function ExpertiseDetailContent({
                   boxShadow: item.slug === 'product-marketing' ? `0 0 48px ${accent}80, 0 0 24px ${highlightColor}4D` : `0 0 60px ${highlightColor}66`,
                   borderColor: item.slug === 'product-marketing' ? `${accent}B3` : `${highlightColor}B3`,
                 }}
-                className={`rounded-xl border-2 text-center backdrop-blur-sm transition-all ${item.slug === 'product-marketing' ? 'p-8 md:p-10' : 'p-6'} ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
+                className={`rounded-xl border-2 text-center backdrop-blur-sm transition-all ${item.slug === 'product-marketing' ? 'p-6 md:p-8' : 'p-5'} ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
                 style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}66`, backgroundColor: `${bgAlt}CC` }}
               >
                 <motion.span
@@ -666,10 +665,10 @@ export function ExpertiseDetailContent({
       />
 
       {/* ========== RELATED ========== */}
-      <section className="relative py-4 md:py-6" style={{ backgroundColor: bgDark }}>
+      <section className="relative py-3 md:py-4" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
-          <h2 className="font-display text-xl font-bold text-white mb-3">Related</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <h2 className="font-display text-xl font-bold text-white mb-2.5">Related</h2>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
             {relatedExpertise.slice(0, 3).map((e, i) => (
               <motion.div
                 key={e.slug}
@@ -743,7 +742,7 @@ export function ExpertiseDetailContent({
               </motion.div>
             ))}
           </div>
-          <div className="mt-4">
+          <div className="mt-3">
             <Link
               href="/expertise"
               className="inline-flex items-center gap-2 transition-colors text-sm hover:opacity-90 text-white/90"
@@ -764,7 +763,7 @@ export function ExpertiseDetailContent({
 
       {/* ========== FOOTER CTA ========== */}
       <section
-        className="relative py-8 md:py-10"
+        className="relative py-6 md:py-8"
         style={{ background: theme ? `linear-gradient(180deg, ${bgAlt} 0%, ${bg} 100%)` : 'linear-gradient(180deg, var(--color-background-alt) 0%, var(--color-background-alt) 100%)' }}
       >
         <motion.div

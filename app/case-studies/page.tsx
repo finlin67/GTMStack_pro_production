@@ -73,12 +73,12 @@ export default function CaseStudiesPage() {
   return (
     <>
       <Reveal>
-        <section className={`relative bg-[#020617] overflow-hidden py-12 md:py-16 ${dataLinePattern}`}>
+        <section className={`relative bg-[#020617] overflow-hidden py-8 md:py-10 ${dataLinePattern}`}>
           <div className="absolute inset-0 pointer-events-none opacity-[0.06]">
             <SignalField intensity="subtle" pattern="constellation" density="sparse" />
           </div>
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 grid lg:grid-cols-2 gap-8 lg:gap-16 items-center relative z-10">
-            <div className="flex flex-col gap-4">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 grid lg:grid-cols-2 gap-6 lg:gap-8 items-center relative z-10">
+            <div className="flex flex-col gap-2.5">
               <span className="text-[11px] font-semibold tracking-[0.2em] text-slate-400 uppercase">
                 Case studies
               </span>
@@ -88,7 +88,7 @@ export default function CaseStudiesPage() {
                   GTM work.
                 </span>
               </h1>
-              <p className="text-base text-slate-400 max-w-lg leading-relaxed">
+              <p className="text-[15px] md:text-base text-slate-400 max-w-lg leading-[1.65]">
                 Real GTM programs, reporting rebuilds, ABM systems, and portfolio artifacts tied to measurable outcomes.
               </p>
               <div className="flex flex-wrap gap-3 mt-2">
@@ -107,11 +107,11 @@ export default function CaseStudiesPage() {
               </div>
             </div>
             <div className="relative">
-              <div className="grid grid-cols-2 gap-3 md:gap-4">
+              <div className="grid grid-cols-2 gap-2.5 md:gap-3">
                 {heroMiniStats.map((s, i) => (
                   <div
                     key={s.label}
-                    className={`bg-[#0D2137] p-4 md:p-5 rounded-xl border border-slate-700 shadow-2xl flex flex-col gap-1 ${
+                    className={`bg-[#0D2137] p-3.5 md:p-4 rounded-xl border border-slate-700 shadow-2xl flex flex-col gap-1 ${
                       i % 2 === 1 ? 'translate-y-4 md:translate-y-6' : ''
                     }`}
                   >
@@ -127,14 +127,14 @@ export default function CaseStudiesPage() {
       </Reveal>
 
       <Reveal delay={0.05}>
-        <SectionLight variant="white" className="overflow-hidden py-12 md:py-16" id="browse">
+        <SectionLight variant="white" className="overflow-hidden py-6 md:py-8" id="browse">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-8">
+            <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900 mb-4 md:mb-6">
               Filter by what matters to you
             </h2>
-            <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+            <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
               <aside className="w-full lg:w-64 shrink-0">
-                <div className="lg:sticky lg:top-24 space-y-8">
+                <div className="lg:sticky lg:top-24 space-y-6">
                   <div>
                     <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest mb-4 border-b border-slate-200 pb-2">
                       Industry
@@ -214,7 +214,7 @@ export default function CaseStudiesPage() {
               </aside>
 
               <div className="flex-1 min-w-0">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-5">
                   <p className="text-sm text-slate-600">
                     Showing{' '}
                     <span className="font-semibold text-slate-900">{filteredItems.length}</span> case
@@ -267,9 +267,9 @@ export default function CaseStudiesPage() {
       </Reveal>
 
       <Reveal delay={0.06}>
-        <section className="bg-[#020617] py-14 md:py-16 border-y border-slate-800">
+        <section className="bg-[#020617] py-8 md:py-10 border-y border-slate-800">
           <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 text-center">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-5 md:gap-8 text-center">
               {proofBandStats.map((s) => (
                 <div key={s.label} className="flex flex-col gap-1">
                   <span className="text-2xl md:text-3xl font-extrabold text-white font-display">{s.value}</span>
@@ -280,8 +280,8 @@ export default function CaseStudiesPage() {
               ))}
             </div>
           </div>
-          <div className="mt-10 border-t border-slate-800/50 py-6 overflow-hidden">
-            <div className="flex flex-wrap justify-center gap-6 md:gap-12 text-center">
+          <div className="mt-4 border-t border-slate-800/50 py-3 overflow-hidden">
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-center">
               {marqueeLabels.map((label) => (
                 <span
                   key={label}
@@ -297,8 +297,8 @@ export default function CaseStudiesPage() {
 
       {flagshipPair.length > 0 && (
         <Reveal delay={0.07}>
-          <SectionLight variant="white" className="py-14 md:py-16">
-            <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 flex flex-col gap-10">
+          <SectionLight variant="white" className="py-8 md:py-10">
+            <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 flex flex-col gap-6">
               <h2 className="font-display text-2xl md:text-3xl font-bold text-slate-900">
                 Featured flagship results
               </h2>
@@ -311,15 +311,15 @@ export default function CaseStudiesPage() {
                     key={study.slug}
                     className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} rounded-xl overflow-hidden border border-slate-200 shadow-lg`}
                   >
-                    <div className="w-full md:w-[40%] bg-[#0D2137] p-8 md:p-10 text-white flex flex-col justify-center">
+                    <div className="w-full md:w-[40%] bg-[#0D2137] p-5 md:p-6 text-white flex flex-col justify-center">
                       <span className="text-[10px] font-bold tracking-[0.2em] text-brand-400 uppercase mb-3">
                         {study.tags[0] ?? 'Spotlight'}
                       </span>
                       <h3 className="text-xl md:text-2xl font-bold mb-3 font-display">{study.title}</h3>
                       <p className="text-slate-400 text-sm leading-relaxed">{study.description}</p>
                     </div>
-                    <div className="w-full md:w-[60%] bg-white p-8 md:p-10 flex flex-col justify-center">
-                      <div className="grid grid-cols-2 gap-8 mb-6">
+                    <div className="w-full md:w-[60%] bg-white p-5 md:p-6 flex flex-col justify-center">
+                      <div className="grid grid-cols-2 gap-5 mb-4">
                         {m && (
                           <div>
                             <div className="text-2xl md:text-3xl font-extrabold text-slate-900 font-display">
@@ -365,7 +365,7 @@ export default function CaseStudiesPage() {
             <SignalField intensity="subtle" pattern="mesh" density="sparse" />
           </div>
           <div className="absolute inset-0 pointer-events-none bg-brand-600/10 blur-[120px] rounded-full -translate-x-1/2 -translate-y-1/2 max-w-[600px] mx-auto" />
-          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 relative z-10 text-center flex flex-col items-center gap-6">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-8 md:px-16 relative z-10 text-center flex flex-col items-center gap-4">
             <h2 className="font-display text-2xl md:text-4xl font-extrabold text-white max-w-2xl text-balance">
               If the work resonates, keep exploring
             </h2>

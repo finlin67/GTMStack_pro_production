@@ -1,0 +1,49 @@
+{
+  "fold": 844,
+  "h1Bottom": 277.78125,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 0,
+      "bottom": 0
+    },
+    {
+      "text": "Contact",
+      "top": 0,
+      "bottom": 0
+    },
+    {
+      "text": "Enter the system",
+      "top": 419.34375,
+      "bottom": 479.34375
+    },
+    {
+      "text": "View intelligence",
+      "top": 495.34375,
+      "bottom": 557.34375
+    },
+    {
+      "text": "cloud_syncNODE_02B2B SaaSRevenue milestones from s",
+      "top": 1801.6875,
+      "bottom": 2051.859375
+    },
+    {
+      "text": "local_shippingNODE_05Fleet Management & LogisticsC",
+      "top": 2601.8125,
+      "bottom": 2851.984375
+    },
+    {
+      "text": "encryptedNODE_08CybersecurityTrust-building that c",
+      "top": 3401.9375,
+      "bottom": 3652.109375
+    },
+    {
+      "text": "cloud_syncNODE_18Technology & SaaSHelping SaaS com",
+      "top": 6159.65625,
+      "bottom": 6409.828125
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

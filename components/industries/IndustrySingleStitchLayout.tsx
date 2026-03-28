@@ -144,7 +144,7 @@ export default function IndustrySingleStitchLayout({
       <div className="ind-stitch-root font-sans text-slate-900 antialiased">
         {/* Breadcrumbs bar — gtmDeepBlue */}
         <section className="border-b border-white/5 bg-[#0D2137]" aria-label="Breadcrumb">
-          <div className="container-width section-padding py-4">
+          <div className="container-width py-3 md:py-4">
             <nav className="text-xs font-medium uppercase tracking-widest text-white/50">
               <Link href="/industries" className="transition-colors hover:text-white">
                 Industries
@@ -158,29 +158,29 @@ export default function IndustrySingleStitchLayout({
         </section>
 
         {/* Hero */}
-        <section className="relative overflow-hidden bg-[#0A1628] py-16 ind-single-dot-grid md:py-24 lg:py-32">
+        <section className="relative overflow-hidden bg-[#0A1628] py-7 ind-single-dot-grid md:py-8 lg:py-10">
           <div className="pointer-events-none absolute inset-0 ind-single-glow-left" aria-hidden />
           <div className="pointer-events-none absolute inset-0 ind-single-glow-right" aria-hidden />
-          <div className="relative z-10 container-width section-padding">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+          <div className="relative z-10 container-width py-3 md:py-4">
+            <div className="grid items-center gap-5 lg:grid-cols-2 lg:gap-6">
               <div>
                 <Link
                   href="/industries"
-                  className="mb-8 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/60 transition-colors hover:text-white"
+                  className="mb-5 inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-white/60 transition-colors hover:text-white"
                 >
                   <span className="text-lg" aria-hidden>
                     ←
                   </span>
                   All industries
                 </Link>
-                <h1 className="mb-6 text-4xl font-bold leading-[1.1] text-white md:text-5xl lg:text-7xl">
+                <h1 className="mb-4 text-4xl font-bold leading-[1.1] text-white md:text-5xl lg:text-6xl">
                   GTM built for{' '}
                   <span className="ind-single-text-gradient block lg:inline">
                     {industry.title}&apos;s
                   </span>{' '}
                   complexity.
                 </h1>
-                <p className="mb-10 max-w-xl text-base leading-relaxed text-slate-400 md:text-lg">
+                <p className="mb-4 max-w-lg text-base leading-[1.65] text-slate-400 md:text-lg">
                   {whyNowText}
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -194,7 +194,7 @@ export default function IndustrySingleStitchLayout({
               </div>
 
               <div className="relative">
-                <div className="rounded-2xl border border-[#007FFF]/30 bg-[#0D2137] p-6 shadow-2xl md:p-8">
+                <div className="rounded-2xl border border-[#007FFF]/30 bg-[#0D2137] p-4 shadow-2xl md:p-5">
                   {heroRightIsVisual && heroRight ? (
                     <div className="min-h-[280px] w-full overflow-hidden rounded-xl lg:min-h-[360px]">
                       {heroRight}
@@ -228,7 +228,7 @@ export default function IndustrySingleStitchLayout({
 
                   {displayStats.length > 0 && (
                     <div
-                      className={`grid grid-cols-3 gap-4 border-t border-white/10 pt-8 ${heroRightIsVisual && heroRight ? 'mt-8' : ''}`}
+                      className={`grid grid-cols-3 gap-2.5 border-t border-white/10 pt-5 ${heroRightIsVisual && heroRight ? 'mt-5' : ''}`}
                     >
                       {displayStats.map((s) => (
                         <div key={s.label}>
@@ -249,9 +249,9 @@ export default function IndustrySingleStitchLayout({
         </section>
 
         {/* Challenge */}
-        <section className="bg-[#F4F6F8] py-20 md:py-24">
-          <div className="container-width section-padding">
-            <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
+        <section className="bg-[#F4F6F8] py-10 md:py-12">
+          <div className="container-width py-8 md:py-10">
+            <div className="grid items-center gap-6 lg:grid-cols-2 lg:gap-8">
               <div>
                 <span className="mb-4 block text-sm font-bold uppercase tracking-widest text-[#007FFF]">
                   The challenge
@@ -259,12 +259,12 @@ export default function IndustrySingleStitchLayout({
                 <h2 className="mb-6 text-3xl font-bold text-[#0A1628] md:text-4xl">
                   Why generic GTM breaks in {industry.title}
                 </h2>
-                <div className="space-y-6 leading-relaxed text-slate-600">
+                <div className="space-y-4 leading-relaxed text-slate-600">
                   {para1 && <p>{para1}</p>}
                   {para2 && <p>{para2}</p>}
                 </div>
                 {industry.gtmRealities && industry.gtmRealities.length > 0 && (
-                  <ul className="mt-8 space-y-3">
+                  <ul className="mt-6 space-y-3">
                     {industry.gtmRealities.slice(0, 5).map((r, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-slate-600">
                         <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#007FFF]" />
@@ -299,12 +299,12 @@ export default function IndustrySingleStitchLayout({
 
         {/* Playbook (optional) */}
         {industry.playbook && industry.playbook.length > 0 && (
-          <section className="border-y border-slate-200 bg-white py-16 md:py-20">
-            <div className="container-width section-padding">
-              <h2 className="mb-8 text-center text-2xl font-bold text-[#0A1628] md:text-3xl">
+          <section className="border-y border-slate-200 bg-white py-12 md:py-16">
+            <div className="container-width py-10 md:py-12">
+              <h2 className="mb-6 text-center text-2xl font-bold text-[#0A1628] md:text-3xl">
                 GTM patterns for {industry.title}
               </h2>
-              <ul className="mx-auto max-w-3xl space-y-4">
+              <ul className="mx-auto max-w-3xl space-y-3">
                 {industry.playbook.map((play, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-slate-600">
                     <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#A8E61D]" />
@@ -317,14 +317,14 @@ export default function IndustrySingleStitchLayout({
         )}
 
         {/* Architecture — 4 pillars */}
-        <section className="bg-[#0D2137] py-20 md:py-24">
-          <div className="container-width section-padding mb-12 text-center md:mb-16">
+        <section className="bg-[#0D2137] py-10 md:py-12">
+          <div className="container-width py-8 text-center md:mb-10 md:py-10">
             <h2 className="text-3xl font-bold text-white md:text-4xl">
               The{' '}
               <span className="ind-single-text-gradient">{industry.title} GTM</span> architecture
             </h2>
           </div>
-          <div className="container-width section-padding">
+          <div className="container-width py-8 md:py-10">
             <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
               {PILLAR_COPY.map((p, idx) => (
                 <Link
@@ -344,9 +344,9 @@ export default function IndustrySingleStitchLayout({
         </section>
 
         {/* Proof band — big numbers */}
-        <section className="bg-white py-20 md:py-24">
-          <div className="container-width section-padding">
-            <div className="grid gap-10 md:grid-cols-3 md:gap-12">
+        <section className="bg-white py-10 md:py-12">
+          <div className="container-width py-8 md:py-10">
+            <div className="grid gap-8 md:grid-cols-3 md:gap-10">
               {proofBandStats.map((s, idx) => (
                 <div key={`${s.label}-${idx}`} className="text-center">
                   <span className="mb-2 block font-['Montserrat',sans-serif] text-5xl font-bold ind-single-text-gradient md:text-6xl">
@@ -363,8 +363,8 @@ export default function IndustrySingleStitchLayout({
 
         {/* Proof cards (enterprise wins) */}
         {industry.proof && industry.proof.length > 0 && (
-          <section className="border-t border-white/5 bg-[#0D2137] py-16 md:py-20">
-            <div className="container-width section-padding">
+          <section className="border-t border-white/5 bg-[#0D2137] py-10 md:py-12">
+            <div className="container-width py-8 md:py-10">
               <h2 className="mb-10 text-center text-2xl font-bold text-white md:text-3xl">
                 Relevant proof
               </h2>
@@ -390,8 +390,8 @@ export default function IndustrySingleStitchLayout({
 
         {/* Case studies — paired cards */}
         {featuredCaseStudies && featuredCaseStudies.length > 0 && (
-          <section className="bg-[#0D2137] py-16 md:py-24">
-            <div className="container-width section-padding space-y-10 md:space-y-12">
+          <section className="bg-[#0D2137] py-10 md:py-12">
+            <div className="container-width space-y-6 py-8 md:space-y-8 md:py-10">
               {chunkPairs(featuredCaseStudies).map((pair, rowIdx) => (
                 <div
                   key={rowIdx}
@@ -404,7 +404,7 @@ export default function IndustrySingleStitchLayout({
                       i === 0 ? 'border-[#A8E61D] hover:text-[#A8E61D]' : 'border-[#007FFF] hover:text-[#007FFF]'
                     const bg = i === 0 ? 'bg-[#0A1628]' : 'bg-[#112B3C]'
                     return (
-                      <div key={cs.slug} className={`border-t-4 ${borderAccent} p-8 md:p-12 ${bg}`}>
+                      <div key={cs.slug} className={`border-t-4 ${borderAccent} p-6 md:p-8 ${bg}`}>
                         <span
                           className={`mb-4 block text-xs font-bold uppercase tracking-widest ${labelAccent}`}
                         >
@@ -431,9 +431,9 @@ export default function IndustrySingleStitchLayout({
 
         {/* Related industries */}
         {related.length > 0 && (
-          <section className="bg-[#F4F6F8] py-20 md:py-24">
-            <div className="container-width section-padding">
-              <h2 className="mb-10 text-3xl font-bold text-[#0A1628] md:mb-12">
+          <section className="bg-[#F4F6F8] py-10 md:py-12">
+            <div className="container-width py-8 md:py-10">
+              <h2 className="mb-8 text-3xl font-bold text-[#0A1628] md:mb-10">
                 Other industries covered
               </h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
@@ -458,7 +458,7 @@ export default function IndustrySingleStitchLayout({
         )}
 
         {/* Footer CTA */}
-        <section className="relative overflow-hidden bg-[#112B3C] py-24 ind-single-lat-lon md:py-32">
+        <section className="relative overflow-hidden bg-[#112B3C] py-12 ind-single-lat-lon md:py-16">
           <div
             className="pointer-events-none absolute left-1/2 top-1/2 h-[800px] w-[800px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/5"
             aria-hidden
@@ -472,11 +472,11 @@ export default function IndustrySingleStitchLayout({
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-4xl px-6 text-center">
-            <h2 className="mb-8 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
+            <h2 className="mb-6 text-4xl font-bold text-white md:text-5xl lg:text-6xl">
               See more GTM work for{' '}
               <span className="ind-single-text-gradient">{industry.title}</span>
             </h2>
-            <p className="mx-auto mb-12 max-w-xl text-lg text-white/60">
+            <p className="mx-auto mb-8 max-w-lg text-lg text-white/60 leading-[1.65]">
               Use the related expertise and case studies to keep moving through the portfolio.
             </p>
             <div className="flex justify-center">

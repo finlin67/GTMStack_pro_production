@@ -1,0 +1,49 @@
+{
+  "fold": 900,
+  "h1Bottom": 379.640625,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 56,
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "top": 48,
+      "bottom": 96
+    },
+    {
+      "text": "See related work",
+      "top": 535.640625,
+      "bottom": 591.640625
+    },
+    {
+      "text": "View the methodology",
+      "top": 535.640625,
+      "bottom": 583.640625
+    },
+    {
+      "text": "View case studies",
+      "top": 3558.4375,
+      "bottom": 3614.4375
+    },
+    {
+      "text": "View the methodology",
+      "top": 3638.4375,
+      "bottom": 3659.4375
+    },
+    {
+      "text": "Case Studies",
+      "top": 3894.9375,
+      "bottom": 3911.9375
+    },
+    {
+      "text": "Contact",
+      "top": 3858.9375,
+      "bottom": 3875.9375
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

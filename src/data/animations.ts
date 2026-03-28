@@ -412,6 +412,7 @@ export type MarketingFunction =
   | 'marketing-automation'
   | 'account-based-marketing-abm'
   | 'content-marketing'
+  | 'social-media-marketing'
   | 'email-marketing'
   | 'demand-generation'
   | 'omnichannel-marketing'
@@ -1075,7 +1076,7 @@ function mergeGeneratedMeta(entry: AnimationEntry): AnimationEntry {
   }
 }
 
-const PREVIEW_ONLY_ANIMATION_REGISTRY: AnimationEntry[] = [
+const PREVIEW_ONLY_ANIMATION_REGISTRY_BASE: AnimationEntry[] = [
   {
     id: 'rev-ops-dash',
     title: 'RevOps Dashboard',
@@ -1703,7 +1704,10 @@ const PREVIEW_ONLY_ANIMATION_REGISTRY: AnimationEntry[] = [
     component: ContentEngagementTile,
     featured: false,
   },
-].map(mergeGeneratedMeta)
+]
+
+const PREVIEW_ONLY_ANIMATION_REGISTRY: AnimationEntry[] =
+  PREVIEW_ONLY_ANIMATION_REGISTRY_BASE.map(mergeGeneratedMeta)
 
 export const ANIMATION_REGISTRY: AnimationEntry[] =
   LEGACY_ANIMATION_REGISTRY.map(mergeGeneratedMeta)

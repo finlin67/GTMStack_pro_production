@@ -1,0 +1,426 @@
+/* ============================================================
+   GTMStack — Blog Post Body Styles
+   File: styles/gtm-post-body.css
+
+   HOW TO USE:
+   1. Import this file in globals.css:
+      @import './gtm-post-body.css';
+
+   2. Add the class to the dangerouslySetInnerHTML div in
+      BlogStitchPostTemplate.tsx (and/or BlogStitchFeedTemplate):
+
+      <div
+        className="prose prose-slate dark:prose-invert prose-lg max-w-none gtm-post-body"
+        dangerouslySetInnerHTML={{ __html: sanitizeHtml(content) }}
+      />
+
+   Works with BOTH Classic Editor and Gutenberg output.
+   Gutenberg adds extra wrapper classes (wp-block-*) that
+   get bonus styles at the bottom of this file.
+   ============================================================ */
+
+/* ── BASE RESET within post body ────────────────────────────── */
+.gtm-post-body {
+  --accent:        #F59E0B;   /* orange-gold brand accent */
+  --accent-dim:    rgba(245, 158, 11, 0.10);
+  --accent-border: rgba(245, 158, 11, 0.30);
+  --text-primary:  #111827;   /* gray-900 */
+  --text-body:     #374151;   /* gray-700 */
+  --text-muted:    #6b7280;   /* gray-500 */
+  --surface:       rgba(0, 0, 0, 0.03);
+  --surface-hover: rgba(0, 0, 0, 0.05);
+  --border:        rgba(0, 0, 0, 0.08);
+  color: var(--text-body);
+  line-height: 1.85;
+  font-size: 1.0625rem; /* 17px — slightly more comfortable than 16 */
+}
+
+/* ── PARAGRAPH ───────────────────────────────────────────────── */
+.gtm-post-body p {
+  color: var(--text-body);
+  margin-bottom: 1.75rem;
+  line-height: 1.85;
+}
+
+/* First paragraph after a heading gets a slightly larger lead */
+.gtm-post-body h2 + p,
+.gtm-post-body h3 + p {
+  font-size: 1.125rem;
+  color: #4b5563; /* gray-600 — slightly brighter on light bg */
+}
+
+/* ── HEADINGS ────────────────────────────────────────────────── */
+.gtm-post-body h2 {
+  font-size: 1.875rem;       /* 30px */
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-top: 4rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+/* Orange underline accent on H2 */
+.gtm-post-body h2::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: var(--accent);
+  border-radius: 2px;
+}
+
+.gtm-post-body h3 {
+  font-size: 1.375rem;       /* 22px */
+  font-weight: 800;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-top: 3rem;
+  margin-bottom: 1rem;
+}
+
+/* Subtle left tick on H3 */
+.gtm-post-body h3::before {
+  content: '//';
+  color: var(--accent);
+  margin-right: 0.5rem;
+  font-weight: 900;
+  opacity: 0.7;
+}
+
+.gtm-post-body h4 {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.8125rem;
+  margin-top: 2.5rem;
+  margin-bottom: 0.75rem;
+  color: var(--accent);
+}
+
+/* ── BLOCKQUOTE / PULLQUOTE ──────────────────────────────────── */
+/* This is the most powerful upgrade — every WP blockquote becomes
+   a branded callout card automatically. */
+.gtm-post-body blockquote {
+  background: var(--accent-dim);
+  border: 1px solid var(--accent-border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 1rem 1rem 0;
+  padding: 1.75rem 2rem;
+  margin: 2.5rem 0;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative quote mark */
+.gtm-post-body blockquote::before {
+  content: '"';
+  position: absolute;
+  top: -0.5rem;
+  right: 1.5rem;
+  font-size: 6rem;
+  line-height: 1;
+  color: var(--accent);
+  opacity: 0.15;
+  font-family: Georgia, serif;
+  pointer-events: none;
+}
+
+.gtm-post-body blockquote p {
+  color: #1e293b; /* slate-800 */
+  font-size: 1.125rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.6;
+  margin: 0;
+}
+
+.gtm-post-body blockquote cite,
+.gtm-post-body blockquote footer {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  font-style: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+/* ── UNORDERED LIST ──────────────────────────────────────────── */
+.gtm-post-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 1.75rem 0;
+  space-y: 0.75rem;
+}
+
+.gtm-post-body ul li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.875rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.gtm-post-body ul li:last-child {
+  border-bottom: none;
+}
+
+/* Orange diamond bullet */
+.gtm-post-body ul li::before {
+  content: '◆';
+  color: var(--accent);
+  font-size: 0.5rem;
+  flex-shrink: 0;
+  margin-top: 0.45rem;
+  opacity: 0.8;
+}
+
+/* ── ORDERED LIST ────────────────────────────────────────────── */
+.gtm-post-body ol {
+  list-style: none;
+  counter-reset: gtm-counter;
+  padding: 0;
+  margin: 1.75rem 0;
+}
+
+.gtm-post-body ol li {
+  counter-increment: gtm-counter;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-body);
+  line-height: 1.7;
+}
+
+.gtm-post-body ol li:last-child {
+  border-bottom: none;
+}
+
+.gtm-post-body ol li::before {
+  content: counter(gtm-counter, decimal-leading-zero);
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 900;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+  min-width: 1.75rem;
+}
+
+/* ── STRONG / EMPHASIS ───────────────────────────────────────── */
+.gtm-post-body strong {
+  color: var(--text-primary);
+  font-weight: 800;
+}
+
+.gtm-post-body em {
+  color: #4b5563; /* gray-600 */
+  font-style: italic;
+}
+
+/* ── LINKS ───────────────────────────────────────────────────── */
+.gtm-post-body a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid var(--accent-border);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.gtm-post-body a:hover {
+  color: #d97706; /* amber-600 — darker for light bg */
+  border-color: #d97706;
+}
+
+/* ── CODE ────────────────────────────────────────────────────── */
+.gtm-post-body code {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 0.375rem;
+  padding: 0.15em 0.5em;
+  font-size: 0.875em;
+  color: #0369a1; /* sky-700 — readable on light */
+  font-family: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+}
+
+.gtm-post-body pre {
+  background: #0f172a; /* slate-900 */
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  overflow-x: auto;
+  margin: 2rem 0;
+}
+
+.gtm-post-body pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+/* ── HORIZONTAL RULE ─────────────────────────────────────────── */
+.gtm-post-body hr {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  margin: 3.5rem auto;
+  max-width: 16rem;
+  opacity: 0.5;
+}
+
+/* ── IMAGES ──────────────────────────────────────────────────── */
+.gtm-post-body img {
+  border-radius: 0.875rem;
+  border: 1px solid var(--border);
+  width: 100%;
+  height: auto;
+  margin: 2rem 0;
+}
+
+.gtm-post-body figure {
+  margin: 2.5rem 0;
+}
+
+.gtm-post-body figcaption {
+  text-align: center;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 0.75rem;
+}
+
+/* ── TABLES ──────────────────────────────────────────────────── */
+.gtm-post-body table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2.5rem 0;
+  font-size: 0.9375rem;
+}
+
+.gtm-post-body th {
+  background: var(--accent-dim);
+  color: var(--accent);
+  font-size: 0.6875rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  padding: 0.875rem 1.25rem;
+  text-align: left;
+  border-bottom: 1px solid var(--accent-border);
+}
+
+.gtm-post-body td {
+  padding: 0.875rem 1.25rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--text-body);
+  vertical-align: top;
+}
+
+.gtm-post-body tr:last-child td {
+  border-bottom: none;
+}
+
+.gtm-post-body tr:hover td {
+  background: var(--surface-hover);
+}
+
+/* ── INLINE STAT CALLOUT ─────────────────────────────────────── */
+/* Usage in WP: wrap a number in a <strong> inside its own <p>
+   that starts with a % or $ — auto-detected and visually lifted */
+.gtm-post-body p:has(> strong:only-child) {
+  font-size: 2.25rem;
+  font-weight: 900;
+  color: var(--text-primary);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  text-align: center;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 0.875rem;
+  background: var(--surface);
+  margin: 2.5rem 0;
+}
+
+/* ── WORDPRESS GUTENBERG BLOCK CLASSES ───────────────────────── */
+/* These kick in automatically once you switch to Gutenberg.
+   No code changes needed — just new authoring habits. */
+
+/* Gutenberg Pullquote block */
+.gtm-post-body .wp-block-pullquote {
+  border: none;
+  padding: 2.5rem;
+  background: var(--accent-dim);
+  border-top: 2px solid var(--accent);
+  border-bottom: 2px solid var(--accent);
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.gtm-post-body .wp-block-pullquote blockquote {
+  background: none;
+  border: none;
+  padding: 0;
+}
+
+.gtm-post-body .wp-block-pullquote p {
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+/* Gutenberg Callout / Notice blocks */
+.gtm-post-body .wp-block-notice,
+.gtm-post-body .notice {
+  padding: 1.25rem 1.5rem;
+  border-radius: 0.75rem;
+  border-left: 3px solid var(--accent);
+  background: var(--accent-dim);
+  margin: 2rem 0;
+}
+
+/* Gutenberg Separator block */
+.gtm-post-body .wp-block-separator {
+  border: none;
+  height: 1px;
+  background: linear-gradient(to right, transparent, var(--accent), transparent);
+  margin: 3rem auto;
+  max-width: 14rem;
+  opacity: 0.5;
+}
+
+/* Gutenberg Cover block */
+.gtm-post-body .wp-block-cover {
+  border-radius: 1rem;
+  overflow: hidden;
+  margin: 2.5rem 0;
+}
+
+/* Gutenberg Table block */
+.gtm-post-body .wp-block-table {
+  overflow-x: auto;
+}
+
+/* Gutenberg image caption */
+.gtm-post-body .wp-element-caption {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}

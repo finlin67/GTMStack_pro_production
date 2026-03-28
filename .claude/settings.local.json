@@ -8,7 +8,9 @@
       "Bash(cat c:/GitProd/GTMStack_prod/GTMStack_pro_production/app/gallery/animations/[id]/page.tsx)",
       "Bash(find c:/GitProd/GTMStack_prod/GTMStack_pro_production/app -name page.tsx -path */[*]/*)",
       "Bash(xargs head:*)",
-      "Bash(cat c:/GitProd/GTMStack_prod/GTMStack_pro_production/app/case-studies/ai-visualizations/[id]/AnimationDetailClient.tsx)"
+      "Bash(cat c:/GitProd/GTMStack_prod/GTMStack_pro_production/app/case-studies/ai-visualizations/[id]/AnimationDetailClient.tsx)",
+      "Bash(npx tsc:*)",
+      "Bash(find /c/GitProd/GTMStack_prod/GTMStack_pro_production/src -name *animation* -o -name *data*)"
     ]
   }
 }

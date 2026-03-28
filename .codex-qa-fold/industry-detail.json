@@ -1,0 +1,32 @@
+{
+  "fold": 900,
+  "h1Bottom": 549,
+  "firstSectionBottom": 170,
+  "secondSectionTop": 170,
+  "ctaBottoms": [
+    {
+      "text": "Case Studies",
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "bottom": 96
+    },
+    {
+      "text": "View Case Studies",
+      "bottom": 845
+    },
+    {
+      "text": "Content & EngagementCompliance-aware tho",
+      "bottom": 2738
+    },
+    {
+      "text": "Demand & GrowthIntent-driven ABM, lifecy",
+      "bottom": 2738
+    },
+    {
+      "text": "Strategy & InsightsMarket intelligence, ",
+      "bottom": 2738
+    }
+  ]
+}

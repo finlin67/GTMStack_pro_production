@@ -3,18 +3,21 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** About page content for HomeTemplate (PageContent shape). */
 export const ABOUT_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'ABOUT GTMSTACK.PRO',
-    titleStart: 'Why This ',
-    titleGradient: 'Portfolio Exists',
+    badge: 'OPERATOR-LED GTM ARCHITECTURE',
+    titleStart: 'Revenue Systems for ',
+    titleGradient: 'B2B Growth',
     subtitle:
-      'GTMStack.pro is a portfolio of real GTM work across demand, analytics, operations, messaging, and industry-specific programs.',
+      'Engineering precision pipeline infrastructure where data-driven strategy meets high-conviction execution for scaling consulting firms.',
     ctaPrimary: 'View Case Studies',
     ctaSecondary: 'Explore Expertise',
   },
   stats: [
-    { value: '$1.2M', label: 'Pipeline Built' },
-    { value: '87%', label: 'Growth Rate' },
-    { value: '12+', label: 'Years Exp' },
+    { value: '$9M', label: 'Pipeline' },
+    { value: '180%', label: 'ROI' },
+    { value: '45%', label: 'DB Acq' },
+    { value: '22%', label: 'Campaign Red.' },
+    { value: '50+', label: 'Partners' },
+    { value: '15x', label: 'Ad Returns' },
   ],
   methodology: {
     title: 'Operating Track Record',
@@ -59,25 +62,25 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     title: 'AI & MACHINE LEARNING',
     items: [
       {
-        icon: 'TrendingUp',
-        title: 'Predictive Lead Scoring',
+        icon: 'Brain',
+        title: 'Cognitive Funnels',
         description:
-          'Integrated custom ML models to prioritize high-intent accounts, resulting in 40% higher MQL-to-SQL conversion.',
-        tags: ['Impact: 40% Conversion Lift'],
+          'Automated lead scoring systems that adapt to buyer behavior using LLM-driven sentiment analysis.',
+        tags: [],
       },
       {
-        icon: 'Map',
-        title: 'Content Intelligence',
+        icon: 'Database',
+        title: 'Data Lake Architecture',
         description:
-          'Used LLM workflows for multi-channel content personalization at scale, reducing production time by 60%.',
-        tags: ['Impact: 60% Faster Delivery'],
+          'Centralizing fragmented marketing silos into a single source of truth for real-time attribution.',
+        tags: [],
       },
       {
-        icon: 'Network',
-        title: 'GTM Workflow Automation',
+        icon: 'Settings',
+        title: 'Pipeline Automation',
         description:
-          'Built AI-driven agents to automate technical attribution and data enrichment across enterprise CRM environments.',
-        tags: ['Impact: 100% Data Accuracy'],
+          'Orchestrating complex multi-touch campaigns through robotic process automation (RPA).',
+        tags: [],
       },
     ],
   },
@@ -90,25 +93,27 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     subtitle: 'Impact across GTM strategy, demand execution, and revenue operations.',
     items: [
       {
-        title: 'Pipeline Generated',
-        description: '',
-        outcomeLabel: 'Benchmark',
+        title: 'Career World 4D',
+        description:
+          'A high-fidelity modeling engine designed for precision revenue forecasting. Implemented a zero-latency data pipeline resulting in 4D visualization of market trends.',
+        outcomeLabel: 'Revenue Ops',
         outcomeValue: '$9M',
       },
       {
-        title: 'MQL-to-SQL Lift',
-        description: '',
-        outcomeLabel: 'Benchmark',
+        title: 'Marketing Flight Planner',
+        description:
+          'AI-driven diagnostic tool mapping the entire GTM funnel. Enables operators to predict bottlenecks before they impact the bottom line.',
+        outcomeLabel: 'AI Diagnostic',
         outcomeValue: '180%',
       },
       {
-        title: 'CAC Reduction',
+        title: 'Database Acquisition',
         description: '',
         outcomeLabel: 'Benchmark',
         outcomeValue: '45%',
       },
       {
-        title: 'Churn Decrease',
+        title: 'Campaign Reduction',
         description: '',
         outcomeLabel: 'Benchmark',
         outcomeValue: '22%',
@@ -120,7 +125,7 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
         outcomeValue: '50+',
       },
       {
-        title: 'ROI on Ad Spend',
+        title: 'Ad Returns',
         description: '',
         outcomeLabel: 'Benchmark',
         outcomeValue: '15x',
@@ -157,8 +162,9 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     ],
   },
   ctaBottom: {
-    title: 'See the work behind the profile',
-    subtitle: 'The clearest way to understand the background is through the case studies, expertise pages, and portfolio artifacts collected across the site.',
-    buttonText: 'Browse Case Studies',
+    title: 'Ready to improve pipeline quality?',
+    subtitle:
+      'Stop guessing and start building. Secure a technical audit of your GTM architecture and discover where your growth leaks are hiding.',
+    buttonText: 'Schedule GTM Audit',
   },
 }

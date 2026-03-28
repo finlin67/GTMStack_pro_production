@@ -1,0 +1,44 @@
+{
+  "fold": 900,
+  "h1Bottom": 554.5625,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 56,
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "top": 48,
+      "bottom": 96
+    },
+    {
+      "text": "View Case Studies",
+      "top": 1942.625,
+      "bottom": 1988.625
+    },
+    {
+      "text": "Explore Expertise",
+      "top": 1942.625,
+      "bottom": 1988.625
+    },
+    {
+      "text": "View Frameworks",
+      "top": 5021,
+      "bottom": 5083
+    },
+    {
+      "text": "Case Studies",
+      "top": 5318.5,
+      "bottom": 5335.5
+    },
+    {
+      "text": "Contact",
+      "top": 5282.5,
+      "bottom": 5299.5
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

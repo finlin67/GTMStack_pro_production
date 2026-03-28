@@ -1,0 +1,49 @@
+{
+  "fold": 844,
+  "h1Bottom": 249.5,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 0,
+      "bottom": 0
+    },
+    {
+      "text": "Contact",
+      "top": 0,
+      "bottom": 0
+    },
+    {
+      "text": "Browse case studies",
+      "top": 351.75,
+      "bottom": 395.75
+    },
+    {
+      "text": "Explore expertise",
+      "top": 407.75,
+      "bottom": 453.75
+    },
+    {
+      "text": "Account Intelligence",
+      "top": 1411.75,
+      "bottom": 1447.75
+    },
+    {
+      "text": "Campaign Framework",
+      "top": 1663.75,
+      "bottom": 1699.75
+    },
+    {
+      "text": "ABMEnterprise GTMABM System LaunchBuilt PRGX's fir",
+      "top": 1669.75,
+      "bottom": 1991.25
+    },
+    {
+      "text": "ABMRevenue Operations87% YoY Pipeline Growth via U",
+      "top": 2383.25,
+      "bottom": 2703.25
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

@@ -1,3 +1,5 @@
+@import '../styles/gtm-post-body.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -29,7 +31,7 @@
   --color-success: #22C55E;
   
   /* Spacing tokens */
-  --section-padding-y: theme('spacing.24');
+  --section-padding-y: theme('spacing.16');
   --container-padding-x: theme('spacing.6');
   
   /* Animation tokens */
@@ -41,14 +43,14 @@
 
 @media (min-width: 768px) {
   :root {
-    --section-padding-y: theme('spacing.32');
+    --section-padding-y: theme('spacing.20');
     --container-padding-x: theme('spacing.8');
   }
 }
 
 @media (min-width: 1024px) {
   :root {
-    --section-padding-y: theme('spacing.40');
+    --section-padding-y: theme('spacing.24');
   }
 }
 
@@ -110,7 +112,7 @@
   
   /* Section wrapper */
   .section-padding {
-    @apply py-24 md:py-32 lg:py-40;
+    @apply py-14 md:py-16 lg:py-20;
   }
   
   /* Text gradient utility - Premium GTMStack gradient (pink-purple → blue) */
@@ -595,16 +597,16 @@
 /* ========== Demand & Growth pillar theme (scoped only) ========== */
 /* Source: stylepack/expertise/growth/STYLE_SPEC.MD + theme.tokens.json */
 .theme-demand-growth {
-  --dg-background: #102040;
-  --dg-background-alt: #203050;
+  --dg-background: #121b2f;
+  --dg-background-alt: #19243a;
   --dg-foreground: #FFFFFF;
-  --dg-muted: #20a0a0;
-  --dg-accent-primary: #205060;
-  --dg-accent-secondary: #404060;
-  --dg-gradient-start: #20a0a0;
-  --dg-gradient-end: #404060;
+  --dg-muted: #FCD34D;
+  --dg-accent-primary: #F59E0B;
+  --dg-accent-secondary: #FCD34D;
+  --dg-gradient-start: #F59E0B;
+  --dg-gradient-end: #FCD34D;
   --dg-success: #22C55E;
-  --dg-highlight: #FACC15;
+  --dg-highlight: #FCD34D;
 }
 
 /* Hero: Demand & Growth gradient */
@@ -633,7 +635,8 @@
 /* Card borders and dark cards */
 .theme-demand-growth .dark-card,
 .theme-demand-growth [class*="border-brand-500"] {
-  border-color: color-mix(in srgb, var(--dg-muted) 40%, transparent) !important;
+  border-color: color-mix(in srgb, var(--dg-muted) 32%, transparent) !important;
+  background-color: rgba(18, 27, 47, 0.6) !important;
 }
 
 .theme-demand-growth .dark-card:hover,
@@ -658,8 +661,8 @@
 
 /* Primary CTA button (filled) - white bg, accent text */
 .theme-demand-growth .btn.bg-white {
-  background-color: #fff !important;
-  color: var(--dg-accent-primary) !important;
+  background-color: var(--dg-muted) !important;
+  color: #191c1d !important;
 }
 
 .theme-demand-growth .btn.bg-white:hover {

@@ -71,16 +71,16 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
 
   return (
     <>
-      <section className={`relative overflow-hidden bg-[#0A1628] py-16 md:py-24 px-4 sm:px-6 ${heroPattern}`}>
+      <section className={`relative overflow-hidden bg-[#0A1628] px-4 py-7 sm:px-6 md:py-8 ${heroPattern}`}>
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-4xl">
             <p className="text-emerald-500 font-bold tracking-widest text-sm mb-4 uppercase">
               {caseStudy.tags[0] ? `${caseStudy.tags[0]} · case study` : 'Case study'}
             </p>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-8 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black leading-tight mb-4 bg-gradient-to-r from-white to-slate-300 bg-clip-text text-transparent">
               {caseStudy.title}
             </h1>
-            <div className="flex flex-wrap gap-6 md:gap-8 text-slate-400 text-sm font-medium">
+            <div className="flex flex-wrap gap-3 md:gap-5 text-slate-400 text-sm font-medium">
               <div className="flex items-center gap-2">
                 <Building2 className="w-5 h-5 text-emerald-500 shrink-0" aria-hidden />
                 <span>Client: {caseStudy.client}</span>
@@ -99,11 +99,11 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
           </div>
 
           {headlineMetrics.length > 0 && (
-            <div className="mt-12 md:mt-16 grid grid-cols-1 md:grid-cols-3 gap-px bg-slate-700 border border-slate-700 rounded-xl overflow-hidden">
+            <div className="mt-3 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-slate-700 bg-slate-700 md:mt-4 md:grid-cols-3">
               {headlineMetrics.map((m, i) => (
                 <div
                   key={`${m.label}-${i}`}
-                  className="p-6 md:p-8 flex flex-col items-center md:items-start bg-[#0D2137]"
+                  className="p-4 md:p-5 flex flex-col items-center md:items-start bg-[#0D2137]"
                 >
                   <span className="text-slate-400 text-sm font-semibold mb-1">{m.label}</span>
                   <span
@@ -120,30 +120,30 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
         </div>
       </section>
 
-      <main className="bg-white py-16 md:py-20 px-4 sm:px-6">
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-12 lg:gap-16">
-          <div className="lg:w-[70%] space-y-14 md:space-y-16">
+      <main className="bg-white px-4 py-8 sm:px-6 md:py-10">
+        <div className="max-w-7xl mx-auto flex flex-col gap-6 lg:flex-row lg:gap-8">
+          <div className="space-y-6 md:space-y-8 lg:w-[70%]">
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                 <span className="size-2 bg-brand-600 rounded-full shrink-0" aria-hidden />
                 The challenge
               </h2>
-              <div className="prose-brand max-w-3xl space-y-4">
-                <p className="text-slate-600 leading-relaxed text-lg">{caseStudy.challenge}</p>
+              <div className="prose-brand max-w-2xl space-y-3">
+                <p className="text-slate-600 leading-[1.65] text-lg">{caseStudy.challenge}</p>
               </div>
             </section>
 
             {solutionSteps.length > 0 && (
               <section>
-                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                   <span className="size-2 bg-brand-600 rounded-full shrink-0" aria-hidden />
                   How the work unfolded
                 </h2>
-                <div className="grid md:grid-cols-2 gap-6">
+                <div className="grid md:grid-cols-2 gap-4">
                   {solutionSteps.map((step) => (
                     <div
                       key={step.number}
-                      className="p-6 border border-slate-100 rounded-xl bg-slate-50"
+                      className="p-5 border border-slate-100 rounded-xl bg-slate-50"
                     >
                       <h3 className="font-bold text-slate-900 mb-2">
                         {step.number}. {step.title}
@@ -157,13 +157,13 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
 
             {keyDecisions.length > 0 && (
               <section>
-                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+                <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                   <span className="size-2 bg-brand-600 rounded-full shrink-0" aria-hidden />
                   Key decisions and why they mattered
                 </h2>
-                <div className="space-y-4">
+                <div className="space-y-3">
                   {keyDecisions.map((item, idx) => (
-                    <div key={`${item.decision}-${idx}`} className="p-6 border border-slate-200 rounded-xl bg-white">
+                    <div key={`${item.decision}-${idx}`} className="p-4 border border-slate-200 rounded-xl bg-white">
                       <h3 className="font-bold text-slate-900 mb-2">{item.decision}</h3>
                       <p className="text-sm text-slate-600 leading-relaxed mb-3">{item.rationale}</p>
                       {item.impact && (
@@ -176,11 +176,11 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
             )}
 
             <section>
-              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6 flex items-center gap-3">
+              <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-4 flex items-center gap-3">
                 <span className="size-2 bg-brand-600 rounded-full shrink-0" aria-hidden />
                 The execution
               </h2>
-              <p className="text-slate-600 leading-relaxed text-lg mb-6">{caseStudy.solution}</p>
+              <p className="text-slate-600 leading-relaxed text-lg mb-4">{caseStudy.solution}</p>
               <div
                 className="rounded-xl overflow-hidden border border-slate-200 bg-gradient-to-br from-slate-100 to-slate-200 aspect-[21/9] flex items-center justify-center text-slate-500 text-sm font-medium"
                 role="img"
@@ -191,10 +191,10 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
             </section>
           </div>
 
-          <aside className="lg:w-[30%] space-y-8">
-            <div className="bg-slate-50 rounded-xl p-6 md:p-8 border border-slate-200 lg:sticky lg:top-28">
-              <h3 className="text-xl font-bold text-slate-900 mb-6">At a glance</h3>
-              <div className="space-y-6">
+          <aside className="space-y-5 lg:w-[30%]">
+            <div className="bg-slate-50 rounded-xl p-4 md:p-5 border border-slate-200 lg:sticky lg:top-24">
+              <h3 className="text-xl font-bold text-slate-900 mb-4">At a glance</h3>
+              <div className="space-y-5">
                 <div>
                   <p className="text-xs uppercase tracking-wider text-slate-400 font-bold mb-2">
                     Engagement
@@ -248,16 +248,16 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
         </div>
       </main>
 
-      <section className="bg-[#F4F6F8] py-16 md:py-24 px-4 sm:px-6 border-y border-slate-200">
+      <section className="border-y border-slate-200 bg-[#F4F6F8] px-4 py-8 sm:px-6 md:py-10">
         <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-12 md:mb-16">
+          <div className="text-center mb-6 md:mb-8">
             <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">The outcome</h2>
             <p className="text-slate-600 max-w-2xl mx-auto text-lg">
               Measurable impact across pipeline, efficiency, and growth.
             </p>
           </div>
-          <div className="grid md:grid-cols-2 gap-10 md:gap-12 items-start">
-            <div className="space-y-8">
+          <div className="grid md:grid-cols-2 gap-5 md:gap-6 items-start">
+            <div className="space-y-5">
               {outcomeBullets.map((text, idx) => {
                 const Icon = [TrendingUp, Wallet, CheckCircle2][idx % 3]
                 return (
@@ -272,7 +272,7 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
                 )
               })}
             </div>
-            <div className="bg-white p-6 md:p-8 rounded-2xl shadow-xl border border-slate-200">
+            <div className="bg-white p-5 md:p-6 rounded-2xl shadow-xl border border-slate-200">
               <div className="h-56 flex items-end gap-2 sm:gap-4 justify-between px-1">
                 <div className="w-full bg-slate-100 rounded-t-lg h-12" />
                 <div className="w-full bg-slate-200 rounded-t-lg h-24" />
@@ -288,10 +288,10 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
         </div>
       </section>
 
-      <section className="py-16 md:py-24 px-4 sm:px-6 bg-white">
+      <section className="bg-white px-4 py-6 sm:px-6 md:py-8">
         <div className="max-w-4xl mx-auto text-center">
-          <Quote className="w-14 h-14 mx-auto text-brand-500/25 mb-6" aria-hidden />
-          <blockquote className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight mb-8">
+          <Quote className="w-14 h-14 mx-auto text-brand-500/25 mb-4" aria-hidden />
+          <blockquote className="text-2xl md:text-3xl font-bold text-slate-900 leading-tight mb-5">
             &ldquo;{quoteText}&rdquo;
           </blockquote>
           <p className="text-slate-900 font-bold text-lg">{caseStudy.client}</p>
@@ -320,13 +320,13 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
       )}
 
       <section
-        className={`py-16 md:py-20 px-4 sm:px-6 bg-[#0A1628] text-center relative overflow-hidden ${heroPattern}`}
+        className={`relative overflow-hidden bg-[#0A1628] px-4 py-8 text-center sm:px-6 md:py-10 ${heroPattern}`}
       >
         <div className="max-w-3xl mx-auto relative z-10">
-          <h2 className="text-3xl md:text-5xl font-black text-white mb-6">
+          <h2 className="text-3xl md:text-5xl font-black text-white mb-4">
             Explore similar work
           </h2>
-          <p className="text-slate-300 text-lg md:text-xl mb-10">
+          <p className="text-slate-300 text-lg md:text-xl mb-6">
             Continue through the case studies or jump into the related expertise behind this project.
           </p>
           <div className="flex flex-wrap items-center justify-center gap-4">

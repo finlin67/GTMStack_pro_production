@@ -1,0 +1,49 @@
+{
+  "fold": 844,
+  "h1Bottom": 348.78125,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 0,
+      "bottom": 0
+    },
+    {
+      "text": "Contact",
+      "top": 0,
+      "bottom": 0
+    },
+    {
+      "text": "View Case Studies",
+      "top": 539.125,
+      "bottom": 599.125
+    },
+    {
+      "text": "Content & EngagementCompliance-aware thought leade",
+      "top": 3339.125,
+      "bottom": 3540.375
+    },
+    {
+      "text": "Demand & GrowthIntent-driven ABM, lifecycle orches",
+      "top": 3564.375,
+      "bottom": 3765.625
+    },
+    {
+      "text": "Strategy & InsightsMarket intelligence, positionin",
+      "top": 3789.625,
+      "bottom": 3990.875
+    },
+    {
+      "text": "Systems & OperationsRevOps, automation, and analyt",
+      "top": 4014.875,
+      "bottom": 4216.125
+    },
+    {
+      "text": "B2B SaaSRevenue milestones from seed to scale. PLG",
+      "top": 5392.6875,
+      "bottom": 5524.6875
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

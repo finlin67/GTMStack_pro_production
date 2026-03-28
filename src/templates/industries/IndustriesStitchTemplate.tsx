@@ -103,7 +103,7 @@ export default function IndustriesStitchTemplate({
 
       <div className="bg-[#0f1723] text-slate-100 antialiased">
         {/* Hero — stitch industry.html */}
-        <section className="relative flex min-h-[85vh] items-center overflow-hidden bg-[#000f24] pt-8 pb-16 md:pt-12">
+        <section className="relative flex min-h-[58vh] items-center overflow-hidden bg-[#000f24] pt-4 pb-8 md:pt-6 md:pb-10">
           <div className="industries-stitch-noise absolute inset-0" aria-hidden />
           <div
             className="absolute top-1/4 -right-20 h-[600px] w-[600px] rounded-full bg-[#3b82f6]/10 blur-[120px]"
@@ -114,9 +114,9 @@ export default function IndustriesStitchTemplate({
             aria-hidden
           />
 
-          <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center gap-12 px-6 lg:grid-cols-2">
+          <div className="relative z-10 mx-auto grid w-full max-w-[1280px] items-center gap-6 px-6 lg:grid-cols-2 lg:gap-8">
             <div>
-              <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#fbbf24] shadow-[0_0_15px_rgba(251,191,36,0.3)]">
+              <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#fbbf24]/30 bg-[#fbbf24]/10 px-3 py-1 text-xs font-bold uppercase tracking-widest text-[#fbbf24] shadow-[0_0_15px_rgba(251,191,36,0.3)]">
                 <span className="relative flex h-2 w-2">
                   <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#fbbf24] opacity-75" />
                   <span className="relative inline-flex h-2 w-2 rounded-full bg-[#fbbf24]" />
@@ -124,11 +124,11 @@ export default function IndustriesStitchTemplate({
                 {content.hero.badge}
               </div>
 
-              <h1 className="mb-8 text-4xl font-black leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
+              <h1 className="mb-4 text-4xl font-black leading-[1.1] tracking-tight md:text-6xl lg:text-7xl">
                 <span className="industries-stitch-hero-gradient">{content.hero.title}</span>
               </h1>
 
-              <p className="mb-10 max-w-xl text-lg leading-relaxed text-slate-400 md:text-xl">
+              <p className="mb-5 max-w-lg text-base md:text-lg leading-[1.65] text-slate-400">
                 {content.hero.description}
               </p>
 
@@ -172,8 +172,8 @@ export default function IndustriesStitchTemplate({
         </section>
 
         {/* Proof band */}
-        <section className="relative overflow-hidden border-y border-slate-200 bg-white py-16 md:py-20">
-          <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-12 px-6 text-center md:grid-cols-3">
+        <section className="relative overflow-hidden border-y border-slate-200 bg-white py-8 md:py-10">
+          <div className="mx-auto grid max-w-[1280px] grid-cols-1 gap-8 px-6 text-center md:grid-cols-3">
             {proofMetrics.slice(0, 3).map((m, idx) => (
               <div key={idx} className="group">
                 <p className="mb-2 text-4xl font-black tracking-tighter text-[#000f24] transition-colors duration-300 group-hover:text-[#fbbf24] md:text-5xl">
@@ -189,16 +189,16 @@ export default function IndustriesStitchTemplate({
         {/* Industry grid — live links from industryItems */}
         <section
           id="industries-stitch-grid"
-          className="relative bg-[#0f1723] py-24 md:py-32"
+          className="relative bg-[#0f1723] py-12 md:py-16"
         >
           <div className="industries-stitch-noise absolute inset-0" aria-hidden />
           <div className="relative z-10 mx-auto max-w-[1280px] px-6">
-            <div className="mb-16 flex flex-col justify-between gap-8 md:mb-20 md:flex-row md:items-end">
+            <div className="mb-8 flex flex-col justify-between gap-4 md:mb-10 md:flex-row md:items-end">
               <div>
-                <h2 className="mb-6 text-3xl font-black text-white md:text-5xl">
+                <h2 className="mb-4 text-3xl font-black text-white md:text-5xl">
                   {content.industries.sectionTitle}
                 </h2>
-                <p className="max-w-2xl text-lg text-slate-400">
+                <p className="max-w-xl text-base md:text-lg leading-[1.65] text-slate-400">
                   Modular GTM frameworks for vertical dynamics. Select a sector to open its{' '}
                   <span className="font-semibold text-[#fbbf24]">intelligence motion</span>.
                 </p>
@@ -221,11 +221,11 @@ export default function IndustriesStitchTemplate({
                   <Link
                     key={item.slug}
                     href={`/industries/${item.slug}`}
-                    className="industries-stitch-card group relative block overflow-hidden rounded-xl border border-slate-800 bg-[#1a2638] p-6"
+                    className="industries-stitch-card group relative block overflow-hidden rounded-xl border border-slate-800 bg-[#1a2638] p-5"
                   >
                     <div className="industries-stitch-gold-card-glow pointer-events-none absolute inset-0 transition-all" />
                     <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[#fbbf24] via-[#fbbf24]/50 to-transparent opacity-0 transition-opacity group-hover:opacity-100" />
-                    <div className="mb-8 flex items-start justify-between">
+                    <div className="mb-6 flex items-start justify-between">
                       <span className="material-symbols-outlined text-[#fbbf24] industries-stitch-gold-emissive">
                         {mat}
                       </span>
@@ -234,8 +234,8 @@ export default function IndustriesStitchTemplate({
                       </span>
                     </div>
                     <h3 className="mb-2 text-xl font-bold text-white">{item.title}</h3>
-                    <p className="mb-6 line-clamp-3 text-sm text-slate-400">{item.description}</p>
-                    <div className="flex items-center justify-between border-t border-slate-800 pt-6">
+                    <p className="mb-5 line-clamp-3 text-sm leading-[1.6] text-slate-400">{item.description}</p>
+                    <div className="flex items-center justify-between border-t border-slate-800 pt-5">
                       <span className="text-[10px] font-black uppercase tracking-widest text-[#fbbf24] industries-stitch-gold-emissive">
                         {kpi}
                       </span>
@@ -248,7 +248,7 @@ export default function IndustriesStitchTemplate({
               })}
             </div>
 
-            <div className="mt-12 flex justify-center">
+            <div className="mt-6 flex justify-center">
               <Link
                 href="/contact"
                 className="inline-flex items-center gap-2 font-bold text-[#fbbf24] transition-colors hover:text-white industries-stitch-gold-emissive"
@@ -261,12 +261,12 @@ export default function IndustriesStitchTemplate({
         </section>
 
         {/* Intelligence architecture */}
-        <section className="relative overflow-hidden bg-white py-24 md:py-32">
+        <section className="relative overflow-hidden bg-white py-12 md:py-16">
           <div className="relative mx-auto max-w-[1280px] px-6">
-            <h2 className="mb-20 text-center text-3xl font-black text-[#000f24] md:mb-24 md:text-5xl">
+            <h2 className="mb-8 text-center text-3xl font-black text-[#000f24] md:mb-10 md:text-5xl">
               Intelligence architecture
             </h2>
-            <div className="relative grid gap-16 lg:grid-cols-3">
+            <div className="relative grid gap-8 lg:grid-cols-3">
               <div className="absolute left-[15%] right-[15%] top-1/3 z-0 hidden h-0.5 bg-slate-100 lg:block">
                 <div className="h-full w-1/3 animate-pulse bg-[#fbbf24] [animation-duration:3s]" />
               </div>
@@ -304,7 +304,7 @@ export default function IndustriesStitchTemplate({
                     {step.n}
                   </div>
                   <div
-                    className={`mb-8 flex h-20 w-20 items-center justify-center rounded-2xl shadow-xl transition-all ${step.box}`}
+                    className={`mb-6 flex h-20 w-20 items-center justify-center rounded-2xl shadow-xl transition-all ${step.box}`}
                   >
                     <span
                       className={`material-symbols-outlined text-3xl ${step.iconOnGold ? 'text-[#000f24]' : 'text-white'}`}
@@ -312,7 +312,7 @@ export default function IndustriesStitchTemplate({
                       {step.icon}
                     </span>
                   </div>
-                  <h3 className="mb-4 text-2xl font-extrabold text-[#000f24]">{step.title}</h3>
+                  <h3 className="mb-3 text-2xl font-extrabold text-[#000f24]">{step.title}</h3>
                   <p className="leading-relaxed text-slate-500">{step.body}</p>
                 </div>
               ))}
@@ -321,23 +321,23 @@ export default function IndustriesStitchTemplate({
         </section>
 
         {/* Dark CTA */}
-        <section className="relative overflow-hidden bg-[#000f24] pb-32 pt-24 md:pb-48 md:pt-32">
+        <section className="relative overflow-hidden bg-[#000f24] py-12 md:py-16">
           <div className="industries-stitch-noise absolute inset-0" aria-hidden />
           <div
             className="industries-stitch-horizon-curve absolute -bottom-[20%] left-1/2 h-[400px] w-[120%] -translate-x-1/2 bg-[#fbbf24]/10 blur-[120px]"
             aria-hidden
           />
           <div className="relative z-10 mx-auto max-w-[1280px] px-6 text-center">
-            <div className="relative mb-12">
+            <div className="relative mb-8">
               <div className="pointer-events-none absolute inset-0 flex items-center justify-center opacity-10">
                 <div className="h-[300px] w-[300px] animate-ping rounded-full border border-[#fbbf24]" />
                 <div className="absolute h-[450px] w-[450px] rounded-full border border-[#fbbf24]" />
               </div>
-              <h2 className="mb-8 text-4xl font-black tracking-tighter text-white md:text-6xl lg:text-7xl">
+              <h2 className="mb-4 text-4xl font-black tracking-tighter text-white md:text-6xl lg:text-7xl">
                 Ready to enter <br />
                 <span className="text-[#fbbf24] industries-stitch-gold-emissive">the system?</span>
               </h2>
-              <p className="mx-auto mb-12 max-w-xl text-lg text-slate-400 md:text-xl">
+              <p className="mx-auto mb-6 max-w-lg text-base md:text-lg leading-[1.65] text-slate-400">
                 {content.comparison.description}
               </p>
             </div>
@@ -350,7 +350,7 @@ export default function IndustriesStitchTemplate({
             </Link>
 
             {content.testimonial?.logos?.length ? (
-              <div className="mt-16 flex flex-wrap items-center justify-center gap-10 opacity-50 grayscale md:mt-20">
+              <div className="mt-10 flex flex-wrap items-center justify-center gap-8 opacity-50 grayscale md:mt-12">
                 {content.testimonial.logos.map((logo) => (
                   <span key={logo} className="text-lg font-black text-white">
                     {logo}

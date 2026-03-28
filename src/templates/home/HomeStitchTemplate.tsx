@@ -68,7 +68,7 @@ function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?:
   const { hero } = c
   return (
     <section
-      className="relative min-h-0 overflow-hidden border-b border-white/5 py-8 md:py-10 lg:py-12"
+      className="relative min-h-0 overflow-hidden border-b border-white/5 py-6 md:py-8 lg:py-10"
       style={{ backgroundColor: COLORS.backgroundDark }}
     >
       <div
@@ -105,8 +105,8 @@ function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?:
         />
       </div>
 
-      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-8 lg:gap-10 items-start lg:items-center px-6 lg:px-20 pt-1 pb-4 md:pb-6">
-        <div className="space-y-4 md:space-y-5">
+      <div className="relative max-w-7xl mx-auto grid lg:grid-cols-2 gap-6 lg:gap-8 items-start lg:items-center px-6 lg:px-20 pt-0 pb-2 md:pb-4">
+        <div className="space-y-3 md:space-y-4">
           <div className="flex flex-wrap gap-2">
             {hero.badges.map((b, i) =>
               b.variant === 'accent' ? (
@@ -137,7 +137,7 @@ function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?:
             )}
           </div>
 
-          <h1 className="max-w-xl font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-black leading-[1.08] text-white tracking-tight">
+          <h1 className="max-w-lg font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-black leading-[1.04] text-white tracking-tight">
             {hero.titleLine1}{' '}
             <span
               style={{
@@ -153,13 +153,13 @@ function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?:
           </h1>
 
           {hero.thesis ? (
-            <p className="text-sm md:text-base text-slate-300 max-w-xl leading-relaxed border-l-2 border-[#6FAFE0]/40 pl-3">
+            <p className="text-sm md:text-base text-slate-300 max-w-lg leading-[1.65] border-l-2 border-[#6FAFE0]/40 pl-3">
               {hero.thesis}
             </p>
           ) : null}
 
           {hero.subtitle ? (
-            <p className="text-base md:text-lg text-slate-400 max-w-lg leading-relaxed">{hero.subtitle}</p>
+            <p className="text-base md:text-lg text-slate-400 max-w-md leading-[1.65]">{hero.subtitle}</p>
           ) : null}
           {hero.authorshipLine ? (
             <p className="text-sm text-slate-500 max-w-lg leading-relaxed">{hero.authorshipLine}</p>
@@ -283,9 +283,9 @@ function ProofSection({ c }: { c: HomeStitchContent }) {
 function PillarSection({ c }: { c: HomeStitchContent }) {
   const s = c.pillarSection
   return (
-    <section className="bg-[#f6f7f8] py-24 px-6 lg:px-20">
+    <section className="bg-[#f6f7f8] py-16 md:py-20 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 md:mb-12 gap-4">
           <div className="space-y-4">
             <span
               className="text-primary font-bold tracking-[0.2em] uppercase text-xs"
@@ -321,17 +321,17 @@ function PillarSection({ c }: { c: HomeStitchContent }) {
 function MethodologySection({ c }: { c: HomeStitchContent }) {
   return (
     <section
-      className="bg-[#0D2137] py-24 px-6 lg:px-20 overflow-hidden relative"
+      className="bg-[#0D2137] py-16 md:py-20 px-6 lg:px-20 overflow-hidden relative"
       style={{ backgroundColor: COLORS.backgroundDark }}
     >
-      <div className="max-w-7xl mx-auto text-center mb-20">
-        <h2 className="text-white text-4xl md:text-5xl font-display font-black mb-6">{c.methodology.title}</h2>
+      <div className="max-w-7xl mx-auto text-center mb-12 md:mb-14">
+        <h2 className="text-white text-4xl md:text-5xl font-display font-black mb-4">{c.methodology.title}</h2>
         <div className="w-24 h-1 bg-[#F9C74F] mx-auto" />
       </div>
 
       <div className="max-w-6xl mx-auto relative">
         <div className="hidden lg:block absolute top-10 left-0 w-full h-px border-t border-dashed border-white/20 z-0" />
-        <div className="grid lg:grid-cols-4 gap-12 relative z-10">
+        <div className="grid lg:grid-cols-4 gap-8 md:gap-10 relative z-10">
           {c.methodology.steps.map((step) => (
             <MethodStep
               key={step.step}
@@ -383,10 +383,10 @@ function MarqueeSection({ c }: { c: HomeStitchContent }) {
 function CaseStudySection({ c }: { c: HomeStitchContent }) {
   const cs = c.caseStudy
   return (
-    <section className="bg-[#112B46] py-24 px-6 lg:px-20 overflow-hidden" style={{ backgroundColor: COLORS.deepNavy }}>
+    <section className="bg-[#112B46] py-16 md:py-20 px-6 lg:px-20 overflow-hidden" style={{ backgroundColor: COLORS.deepNavy }}>
       <div className="max-w-7xl mx-auto">
         <div className="bg-[#0D2137] rounded-3xl overflow-hidden border border-white/5 flex flex-col lg:flex-row shadow-2xl">
-          <div className="lg:w-1/3 bg-[#6FAFE0]/10 p-12 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-white/5">
+          <div className="lg:w-1/3 bg-[#6FAFE0]/10 p-8 md:p-10 flex flex-col justify-center items-center text-center border-b lg:border-b-0 lg:border-r border-white/5">
             <span
               className="text-[120px] font-display font-black leading-none"
               style={{
@@ -400,7 +400,7 @@ function CaseStudySection({ c }: { c: HomeStitchContent }) {
             <span className="text-white text-xl font-bold uppercase tracking-widest mt-4">{cs.metricLabel}</span>
             <p className="text-slate-400 mt-2 text-sm">{cs.clientLabel}</p>
           </div>
-          <div className="lg:w-2/3 p-12 flex flex-col justify-center">
+          <div className="lg:w-2/3 p-8 md:p-10 flex flex-col justify-center">
             <div className="bg-[#F9C74F]/20 text-[#F9C74F] text-[10px] font-bold px-3 py-1 rounded-full w-fit mb-6 tracking-widest uppercase">
               {cs.tag}
             </div>
@@ -423,9 +423,9 @@ function CaseStudySection({ c }: { c: HomeStitchContent }) {
 function InsightsSection({ insights }: { insights: HomeStitchInsightsBlock }) {
   const ins = insights
   return (
-    <section className="bg-white py-24 px-6 lg:px-20">
+    <section className="bg-white py-16 md:py-20 px-6 lg:px-20">
       <div className="max-w-7xl mx-auto">
-        <div className="flex justify-between items-end mb-16">
+        <div className="flex justify-between items-end mb-10 md:mb-12">
           <div>
             <span className="text-[#6FAFE0] font-bold tracking-[0.2em] uppercase text-xs">{ins.kicker}</span>
             <h2 className="text-[#0D2137] text-4xl font-display font-black mt-2">{ins.title}</h2>
@@ -438,7 +438,7 @@ function InsightsSection({ insights }: { insights: HomeStitchInsightsBlock }) {
           </Link>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-6">
           {ins.cards.map((card: HomeStitchInsightsBlock['cards'][number]) => (
             <InsightCard key={card.title} tag={card.tag} title={card.title} img={card.img} href={card.href} />
           ))}
@@ -479,7 +479,7 @@ function FinalCtaSection({ c }: { c: HomeStitchContent }) {
   const f = c.finalCta
   return (
     <section
-      className="bg-[#0D2137] py-32 px-6 lg:px-20 relative overflow-hidden text-center"
+      className="bg-[#0D2137] py-20 md:py-24 px-6 lg:px-20 relative overflow-hidden text-center"
       style={{ backgroundColor: COLORS.backgroundDark }}
     >
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none opacity-20">
@@ -489,11 +489,11 @@ function FinalCtaSection({ c }: { c: HomeStitchContent }) {
         <div className="absolute inset-[60px] rounded-full border" style={{ borderColor: 'rgba(111,175,224,0.1)' }} />
       </div>
 
-      <div className="relative max-w-3xl mx-auto space-y-10">
+      <div className="relative max-w-3xl mx-auto space-y-6 md:space-y-8">
         <h2 className="text-5xl md:text-7xl font-display font-black text-white leading-tight tracking-tighter">
           {f.title}
         </h2>
-        <p className="text-xl text-slate-400">{f.subtitle}</p>
+        <p className="text-xl text-slate-400 max-w-2xl mx-auto leading-[1.65]">{f.subtitle}</p>
         <div className="flex flex-col items-center gap-8">
           <Link
             href={f.primaryCta.href}

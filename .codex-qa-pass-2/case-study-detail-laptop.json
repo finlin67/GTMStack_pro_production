@@ -1,0 +1,49 @@
+{
+  "fold": 900,
+  "h1Bottom": 505.453125,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 56,
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "top": 48,
+      "bottom": 96
+    },
+    {
+      "text": "Browse gallery",
+      "top": 649.203125,
+      "bottom": 697.203125
+    },
+    {
+      "text": "View case studies",
+      "top": 649.203125,
+      "bottom": 699.203125
+    },
+    {
+      "text": "Browse all",
+      "top": 1099.6875,
+      "bottom": 1123.6875
+    },
+    {
+      "text": "GTMStack Pro DashboardGTMStack Pro DashboardCompre",
+      "top": 1209.28125,
+      "bottom": 1645.390625
+    },
+    {
+      "text": "SEO Growth FlowSEO Growth FlowSearch intent to rev",
+      "top": 1209.28125,
+      "bottom": 1645.390625
+    },
+    {
+      "text": "GTMStack Pro DashboardFeaturedGTMStack Pro Dashboa",
+      "top": 2958.703125,
+      "bottom": 3372.078125
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

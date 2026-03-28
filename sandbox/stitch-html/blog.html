@@ -1,429 +1,431 @@
-<html class="dark" lang="en"><head></head><body class="text-on-surface">```html
-
-
+<html class="scroll-smooth" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>GTMStack.pro | GTM Insights &amp; RevOps Blog</title>
+<title>GTMStack | The Strategic Architect's Journal</title>
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&amp;family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<style type="text/tailwindcss">
-        :root {
-            --primary: #1e3f66;
-            --saffron: #F9C74F;
-            --signal-blue: #6FAFE0;
-            --mid-navy: #0D2137;
-            --deep-navy: #112B46;
-            --background-light: #f6f7f8;
-            --background-dark: #0D2137;
-        }
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-            vertical-align: middle;
-        }
-        .circuit-pattern {
-            background-image: radial-gradient(circle at 2px 2px, rgba(111, 175, 224, 0.1) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
-        .glass-card {
-            background: rgba(17, 43, 70, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .light-glass-card {
-            background: rgba(255, 255, 255, 0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-        }
-        .nebula-shadow {
-            box-shadow: 0 20px 40px rgba(13, 33, 55, 0.25);
-        }
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--background-dark);
-        }
-        h1, h2, h3, .font-headline {
-            font-family: 'Space Grotesk', sans-serif;
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #6FAFE0 0%, #F9C74F 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-data-viz {
-            background: radial-gradient(circle at 50% 50%, rgba(111, 175, 224, 0.15) 0%, transparent 70%);
-        }
-    </style>
 <script id="tailwind-config">
         tailwind.config = {
             darkMode: "class",
             theme: {
                 extend: {
                     colors: {
-                        "primary": "#1e3f66",
-                        "saffron": "#F9C74F",
-                        "signal-blue": "#6FAFE0",
-                        "mid-navy": "#0D2137",
-                        "deep-navy": "#112B46",
-                        "background-light": "#f6f7f8",
-                        "background-dark": "#0D2137",
-                        "surface": "#0D2137",
-                        "surface-variant": "#112B46",
-                        "outline-variant": "rgba(111, 175, 224, 0.2)"
+                        "primary": "#0d5cab",
+                        "on-secondary-fixed": "#231b00",
+                        "secondary-fixed": "#ffe179",
+                        "inverse-surface": "#1f3148",
+                        "tertiary-fixed-dim": "#62df7d",
+                        "secondary": "#715c00",
+                        "on-secondary-container": "#745f00",
+                        "error-container": "#ffdad6",
+                        "surface-container-high": "#dce9ff",
+                        "on-primary-fixed": "#001b3c",
+                        "on-secondary-fixed-variant": "#554500",
+                        "on-tertiary-container": "#f7fff2",
+                        "on-primary-fixed-variant": "#004789",
+                        "surface-container-low": "#eff4ff",
+                        "on-surface": "#081c32",
+                        "primary-fixed": "#d5e3ff",
+                        "on-primary-container": "#fefcff",
+                        "tertiary": "#006b2c",
+                        "tertiary-container": "#00873a",
+                        "surface": "#f8f9ff",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-fixed-variant": "#005320",
+                        "surface-variant": "#d2e4ff",
+                        "outline-variant": "#c2c6d3",
+                        "surface-tint": "#135eae",
+                        "on-secondary": "#ffffff",
+                        "tertiary-fixed": "#7ffc97",
+                        "surface-container-highest": "#d2e4ff",
+                        "inverse-primary": "#a7c8ff",
+                        "secondary-container": "#feda57",
+                        "inverse-on-surface": "#eaf1ff",
+                        "on-error-container": "#93000a",
+                        "surface-dim": "#c8dbf9",
+                        "surface-container-lowest": "#ffffff",
+                        "on-background": "#081c32",
+                        "error": "#ba1a1a",
+                        "secondary-fixed-dim": "#e6c443",
+                        "primary-container": "#3675c6",
+                        "on-surface-variant": "#424751",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary": "#ffffff",
+                        "on-error": "#ffffff",
+                        "primary-fixed-dim": "#a7c8ff",
+                        "surface-container": "#e5eeff",
+                        "background": "#f8f9ff",
+                        "outline": "#727783",
+                        "on-tertiary-fixed": "#002109"
                     },
                     fontFamily: {
-                        "headline": ["Space Grotesk"],
-                        "body": ["Inter"],
-                        "label": ["Inter"]
+                        "headline": ["Outfit", "sans-serif"],
+                        "body": ["Inter", "sans-serif"],
+                        "label": ["Inter", "sans-serif"]
                     },
-                    borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+                    borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
                 },
             },
         }
     </script>
-
-
-<nav class="fixed top-0 left-0 right-0 z-50 h-[110px] bg-mid-navy border-b border-white/5 flex items-center px-12 w-full">
-<div class="flex items-center w-full max-w-[1440px] mx-auto">
-<div class="flex items-center shrink-0">
-<span class="text-3xl font-bold tracking-tighter text-white font-headline">
-<span class="text-signal-blue">GTM</span>Stack<span class="opacity-40 text-sm ml-0.5">.pro</span>
-</span>
+<style type="text/tailwindcss">
+        body { font-family: 'Inter', sans-serif; line-height: 1.85; background-color: #f4f6f8; color: #081c32; }
+        .hero-gradient { background: linear-gradient(135deg, #0A1628, #154360); }
+        .material-symbols-outlined { font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .custom-scrollbar::-webkit-scrollbar { width: 4px; }
+        .custom-scrollbar::-webkit-scrollbar-track { background: transparent; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #e2e8f0; border-radius: 10px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover { background: #cbd5e1; }
+        h1, h2, h3, h4, h5, h6, .font-headline { font-family: 'Outfit', sans-serif; font-weight: 800; }
+    </style>
+</head>
+<body class="antialiased font-body">
+<header class="sticky top-0 w-full z-50 bg-[#0A1628]/90 backdrop-blur-xl border-b border-white/5">
+<nav class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-headline text-white flex items-center gap-2">
+<span class="text-[#FFDB58]">GTM</span>Stack
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-medium tracking-wide" href="#">Strategy</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-medium tracking-wide" href="#">Execution</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-medium tracking-wide" href="#">Demand</a>
+<a class="text-slate-400 hover:text-white transition-colors text-sm font-medium tracking-wide" href="#">Systems</a>
 </div>
-<div class="hidden md:flex flex-grow items-center justify-between ml-24 font-headline font-bold tracking-tight text-[15px]">
-<a class="text-slate-400 hover:text-signal-blue transition-colors px-8 py-10" href="#">Expertise</a>
-<a class="text-slate-400 hover:text-signal-blue transition-colors px-8 py-10" href="#">Case Studies</a>
-<a class="text-slate-400 hover:text-signal-blue transition-colors px-8 py-10" href="#">Gallery</a>
-<a class="text-slate-400 hover:text-signal-blue transition-colors px-8 py-10" href="#">Industries</a>
-<a class="text-slate-400 hover:text-signal-blue transition-colors px-8 py-10" href="#">About</a>
-<a class="text-signal-blue border-b-2 border-signal-blue h-[110px] flex items-center translate-y-[1px] px-8" href="#">Blog</a>
-</div>
+<div class="flex items-center gap-6">
+<button class="bg-[#FFDB58] text-[#0A1628] hover:bg-white transition-all duration-300 px-6 py-2.5 rounded-full font-bold text-sm tracking-tight active:scale-95">
+                    Work With Us
+                </button>
 </div>
 </nav>
-<section class="relative pt-[110px] h-[550px] bg-deep-navy overflow-hidden flex items-center justify-center text-center px-6">
-<div class="absolute inset-0 hero-data-viz opacity-40"></div>
-<div class="absolute inset-0 circuit-pattern opacity-[0.1]"></div>
-<div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-signal-blue/5 rounded-full blur-[120px]"></div>
-<div class="relative z-10 max-w-4xl">
-<h1 class="text-6xl md:text-8xl font-bold tracking-tight mb-8 leading-none gradient-text">GTM Insights</h1>
-<p class="text-lg md:text-2xl text-signal-blue font-light max-w-2xl mx-auto leading-relaxed opacity-90">
-            Deconstructing complex GTM architectures and operational workflows for high-growth revenue teams.
-        </p>
-</div>
-</section>
-<section class="sticky top-[110px] z-40 bg-background-light/90 backdrop-blur-md border-y border-slate-200 py-4 px-8">
-<div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-<div class="flex flex-wrap items-center gap-3">
-<button class="px-5 py-2 bg-signal-blue text-white rounded-full text-sm font-semibold">All</button>
-<button class="px-5 py-2 text-slate-600 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors">Blog</button>
-<button class="px-5 py-2 text-slate-600 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors">AI Strategy</button>
-<button class="px-5 py-2 text-slate-600 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors">Business</button>
-<button class="px-5 py-2 text-slate-600 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors">Technology</button>
-<button class="px-5 py-2 text-slate-600 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors">Design</button>
-<button class="px-5 py-2 text-slate-600 hover:bg-slate-200 rounded-full text-sm font-medium transition-colors">Videos</button>
-</div>
-<div class="relative group">
-<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-<input class="pl-10 pr-6 py-2 bg-white border border-slate-200 rounded-full text-sm text-slate-900 w-64 focus:outline-none focus:ring-2 focus:ring-signal-blue/20 transition-all" placeholder="Search insights..." type="text"/>
-</div>
-</div>
-</section>
-<section class="bg-background-light py-16 px-8 relative overflow-hidden">
-<div class="absolute inset-0 circuit-pattern opacity-[0.05] pointer-events-none"></div>
-<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12">
-<div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-<div class="group bg-white rounded-xl overflow-hidden nebula-shadow hover:-translate-y-2 transition-all duration-300 border-b-[3px] border-saffron">
-<div class="aspect-video relative overflow-hidden bg-slate-200">
-<img alt="Abstract data visualization with glowing blue nodes" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGJj0cq_dXFkRoT3mAx1id2B9_83SRZZuoX__6D3QPNNLlm04BO7VOd959N_pQEEIIGOsCc4-ypM4NBQzKe3wi0yBUpEIKUPRxP-iqJLuhFIcpOrJUw8eVMD-v2fBTsFjcRjCXAI_-lO6yw0MdSxW1XrbcdjCdwLOvWmYY4adhjrstAApoKAnj1DDjbFmsi5DHk66yYF6AjdTR6gKr167EBQDASwFvKxYwCcRIwBTfD6tqrbKfDKeaDy2QzxwRNFA3K2EfNdeCyX8"/>
-<span class="absolute top-4 left-4 bg-signal-blue text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">RevOps</span>
-</div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-tighter mb-3">
-<span>Mar 12, 2024</span>
-<span class="w-1 h-1 rounded-full bg-slate-300"></span>
-<span>8 min read</span>
-</div>
-<h3 class="text-xl font-bold text-slate-900 mb-3 font-headline leading-tight">The Modular RevOps Stack: Building for Infinite Scale</h3>
-<p class="text-slate-600 text-sm leading-relaxed mb-6">Learn how top-tier revenue teams architect their stack to avoid technical debt during hyper-growth.</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-sm text-signal-blue">person</span>
-</div>
-<span class="text-xs font-semibold text-slate-900">Mark Fischer</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-xl overflow-hidden nebula-shadow hover:-translate-y-2 transition-all duration-300 border-b-[3px] border-signal-blue">
-<div class="aspect-video relative overflow-hidden bg-slate-200">
-<img alt="Futuristic AI interface concept" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD06LKVR3sWdJBM0rWsqEeNJxCHVVHTMHDVGpJYlU7MgcnBcfx6qX0UJAIaVaCbCbjjouPbphJ0lLruDoZkRZxid1HrQdoOaDFqpgS2eAH9KXDsUjFHK2jpJ-hjKr3zLoayUKlRrgxuQdq1S1qzQg_GhXS0D1TQKgHXH5qBp26dwUTNeEJ5BuPlXe1gAXz_bm8T4hzedpEfFluugwluug1_ExdEHw27VjU2LDhd-ZDZ6xKW6Ii9Z0QY_PqfZi9xmbSs_63h9a8EYqI"/>
-<span class="absolute top-4 left-4 bg-deep-navy text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">AI Strategy</span>
-</div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-tighter mb-3">
-<span>Mar 08, 2024</span>
-<span class="w-1 h-1 rounded-full bg-slate-300"></span>
-<span>12 min read</span>
-</div>
-<h3 class="text-xl font-bold text-slate-900 mb-3 font-headline leading-tight">Generative AI in B2B: Beyond the Hype Cycle</h3>
-<p class="text-slate-600 text-sm leading-relaxed mb-6">Practical applications for LLMs in sales development and customer success orchestration.</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-sm text-signal-blue">person</span>
-</div>
-<span class="text-xs font-semibold text-slate-900">Sarah Chen</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-xl overflow-hidden nebula-shadow hover:-translate-y-2 transition-all duration-300 border-b-[3px] border-signal-blue/50">
-<div class="aspect-video relative overflow-hidden bg-slate-200">
-<img alt="Clean minimal desk with high-end tech" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcq6sjAz0Wuot98Cd9YeqtLX9co9zqiRiR9P6atSMOuECRex-hGF1fKp3uNM8lD-tNXoHVY7zqdyIJ8oVNt5gubuJ_zkub3mVckuJAhcrI9ufIBINcOi9v1wEIc8xx1mDXhoALEKLorzWEXCwqLYUzG2DtyVW_qjQIbREYOKBShqdHnFT-3Du3447twl9pxra3v27p7Y6Y2fvLO_nVkVwX8TlO0ixjR1u6wCYQVLNSk07c5iOapMQC2HRPx0tHRZeyjz0mlPf0tf4"/>
-<span class="absolute top-4 left-4 bg-signal-blue text-white text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Analytics</span>
-</div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-tighter mb-3">
-<span>Feb 28, 2024</span>
-<span class="w-1 h-1 rounded-full bg-slate-300"></span>
-<span>6 min read</span>
-</div>
-<h3 class="text-xl font-bold text-slate-900 mb-3 font-headline leading-tight">Attribution Models are Dead: Long Live Influence</h3>
-<p class="text-slate-600 text-sm leading-relaxed mb-6">Why tracking every touchpoint is failing your marketing ROI and how to pivot to holistic influence mapping.</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-sm text-signal-blue">person</span>
-</div>
-<span class="text-xs font-semibold text-slate-900">Mark Fischer</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-xl overflow-hidden nebula-shadow hover:-translate-y-2 transition-all duration-300 border-b-[3px] border-saffron">
-<div class="aspect-video relative overflow-hidden bg-slate-200">
-<img alt="Business meeting in a modern glass office" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK7T_HOk1NWb5sqffKXZeN6bLx7SdT5-0qoHyrCGYJAUBmrXqrY6p1Y-3zYbLyPVuYifnhHaAlA6f6Y18SHuMfmJiOMubRT8GPDeTXNynsbrH-5t_DAIf7_WKzBIuyrVdp-GYGGiYQ8c6118eTpsryCBbM-2zvcBCB-oCE5E0sr0VUDOjHsPhcWhY7p7sm9w6HxxTPFewrIoAi5PxVVSoMOk1wEsBJz_jASkoTTrIErK-i9X9-HOTNsKuvukdNcnltGVGU30oOMvA"/>
-<span class="absolute top-4 left-4 bg-saffron text-mid-navy text-[10px] font-bold uppercase tracking-widest px-3 py-1 rounded-full">Leadership</span>
-</div>
-<div class="p-6">
-<div class="flex items-center gap-2 text-[11px] font-bold text-slate-400 uppercase tracking-tighter mb-3">
-<span>Feb 15, 2024</span>
-<span class="w-1 h-1 rounded-full bg-slate-300"></span>
-<span>15 min read</span>
-</div>
-<h3 class="text-xl font-bold text-slate-900 mb-3 font-headline leading-tight">The 2024 Revenue Leader's Playbook</h3>
-<p class="text-slate-600 text-sm leading-relaxed mb-6">Adapting to the new B2B buying journey: Self-serve, PLG, and Enterprise motion convergence.</p>
-<div class="flex items-center gap-3">
-<div class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-sm text-signal-blue">person</span>
-</div>
-<span class="text-xs font-semibold text-slate-900">Jordan Reed</span>
-</div>
-</div>
-</div>
-</div>
-<div class="lg:col-span-4 space-y-8">
-<div class="sticky top-[182px] space-y-8">
-<div class="bg-white p-8 rounded-xl shadow-sm border border-slate-200">
-<h4 class="text-mid-navy font-bold text-[14px] uppercase tracking-widest mb-6 flex items-center gap-2">
-<span class="w-2 h-2 rounded-full bg-signal-blue"></span>
-                        Trending Topics
-                    </h4>
-<div class="flex flex-col gap-3">
-<span class="bg-slate-100 text-slate-800 px-6 py-5 rounded-xl text-base font-bold hover:bg-signal-blue hover:text-white transition-all cursor-pointer flex justify-between items-center group shadow-sm border border-slate-50">
-                            #RevOps 
-                            <span class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">trending_up</span>
-</span>
-<span class="bg-slate-100 text-slate-800 px-6 py-5 rounded-xl text-base font-bold hover:bg-signal-blue hover:text-white transition-all cursor-pointer flex justify-between items-center group shadow-sm border border-slate-50">
-                            #AI 
-                            <span class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">trending_up</span>
-</span>
-<span class="bg-slate-100 text-slate-800 px-6 py-5 rounded-xl text-base font-bold hover:bg-signal-blue hover:text-white transition-all cursor-pointer flex justify-between items-center group shadow-sm border border-slate-50">
-                            #HubSpot 
-                            <span class="material-symbols-outlined text-lg opacity-40 group-hover:opacity-100 transition-opacity">trending_up</span>
-</span>
-</div>
-</div>
-<div class="bg-mid-navy p-8 rounded-xl relative overflow-hidden group">
-<div class="absolute inset-0 circuit-pattern opacity-10"></div>
-<div class="relative z-10">
-<span class="text-signal-blue text-[10px] font-bold uppercase tracking-[0.2em] mb-4 block">Recommended Tool</span>
-<h3 class="text-white text-2xl font-bold font-headline mb-4">Flight Assessment Tool</h3>
-<p class="text-white/70 text-sm mb-8 leading-relaxed">Audit your GTM readiness with our custom technical scorecard. Identify friction points in under 10 minutes.</p>
-<button class="w-full bg-signal-blue text-white py-3 rounded-lg font-bold hover:scale-105 transition-transform">Run Assessment</button>
-</div>
-</div>
-<div class="light-glass-card p-8 rounded-xl border border-white/50 shadow-lg">
-<div class="flex items-center gap-4 mb-6">
-<img alt="Professional portrait of Mark Fischer" class="w-16 h-16 rounded-xl object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC41tK1GFadV4xJBvNho6mKCjyXDp1tWqLy1E5wTNMc8wwmTOv1d2g5MFw2cnjZ5YQstQ1LcmsLzv1IEZEDXTy8zjoXc6bPUkmqhl6bMPODqTkSml8pHawtd7CQ57AKd6OrxluBN300gzwcSq8TNacR-GMXLk3-DxglklXdkKXB3SB3_J8flpyk5D3E7JY8wo_LL80drE1iAqXGJKY7qYADnltgFjgHfEx8k9QA8TUpHPUNWspSZDrRHFm89uSAHD9F4F2S4L7Hcd8"/>
-<div>
-<h4 class="text-mid-navy font-bold font-headline">Mark Fischer</h4>
-<p class="text-slate-500 text-xs">Founder, GTMStack.pro</p>
-</div>
-</div>
-<p class="text-slate-600 text-sm leading-relaxed mb-6">
-                        Architecting complex Go-To-Market ecosystems for over a decade. Dedicated to removing friction from the revenue engine.
+</header>
+<main>
+<section class="hero-gradient pt-20 pb-32 px-8 relative overflow-hidden">
+<div class="max-w-7xl mx-auto relative z-10">
+<div class="max-w-3xl">
+<span class="text-[#FFDB58] font-medium tracking-[0.2em] uppercase text-xs mb-6 block">The Strategic Architect's Journal</span>
+<h1 class="text-5xl md:text-6xl text-white leading-[1.1] mb-8 tracking-tight">
+                        Precision Engineering for B2B SaaS Growth.
+                    </h1>
+<p class="text-slate-300 text-lg md:text-xl max-w-2xl font-light leading-relaxed">
+                        In-depth blueprints, strategic frameworks, and raw execution data for the architects building the next generation of enterprise software.
                     </p>
-<a class="flex items-center gap-2 text-signal-blue font-bold text-sm group" href="#">
-                        Connect on LinkedIn
-                        <span class="material-symbols-outlined text-sm group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</div>
+</div>
+<div class="absolute -right-20 top-0 w-[600px] h-[600px] bg-primary/20 blur-[120px] rounded-full"></div>
+</section>
+<section class="max-w-7xl mx-auto px-8 -mt-8 relative z-30">
+<div class="bg-white rounded-full shadow-lg border border-slate-100 flex flex-col md:flex-row justify-between items-center gap-4 py-3 px-6">
+<div class="flex items-center gap-2 overflow-x-auto no-scrollbar w-full md:w-auto">
+<button class="px-5 py-2 rounded-full bg-primary text-white font-semibold text-sm whitespace-nowrap shadow-md">All Insights</button>
+<button class="px-5 py-2 rounded-full hover:bg-slate-50 text-slate-600 font-medium text-sm transition-all whitespace-nowrap">Strategy</button>
+<button class="px-5 py-2 rounded-full hover:bg-slate-50 text-slate-600 font-medium text-sm transition-all whitespace-nowrap">Execution</button>
+<button class="px-5 py-2 rounded-full hover:bg-slate-50 text-slate-600 font-medium text-sm transition-all whitespace-nowrap">Demand</button>
+<button class="px-5 py-2 rounded-full hover:bg-slate-50 text-slate-600 font-medium text-sm transition-all whitespace-nowrap">Systems</button>
+</div>
+<div class="relative w-full md:w-72 group">
+<span class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-primary transition-colors text-xl">search</span>
+<input class="w-full pl-11 pr-6 py-2 bg-slate-50 rounded-full border-none focus:ring-2 focus:ring-primary/20 text-sm transition-all outline-none placeholder:text-slate-400 font-body" placeholder="Search the archives..." type="text"/>
+</div>
+</div>
+</section>
+<section class="max-w-7xl mx-auto px-8 mt-16 mb-32">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+<div class="lg:col-span-8 space-y-20">
+<article class="group">
+<div class="mb-6 aspect-[21/9] rounded-2xl overflow-hidden bg-slate-100">
+<img alt="Featured Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2Q60Du71U71u6unHQAyG2KXfdT6tiPsUy47wLqGnU-3KHdNzyGelCaXrLJ-WxHUo8huDFX1JJHYv1QSE_zjHxof8TAay7J3AU1NfoTfCIaAFC-EvP54XwNDk5vm20tfNi1nIg8yyop5z0iVR5KlA9rdKomf9lhlvSzwp4_An5Y2AwFQqofDxWWRqhGR7kuTdM3piUX6856Gu2G443_STuGKFcniTM6jc3gyDp8vfWqDUksJylBbOaQhYScySkJGDmIQfQCnaHs0Y"/>
+</div>
+<div class="space-y-4">
+<span class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] block font-body">Strategy</span>
+<h2 class="text-4xl text-on-surface leading-tight group-hover:text-primary transition-colors">The Modern GTM Architecture</h2>
+<p class="text-on-surface-variant text-base font-light max-w-3xl">A comprehensive blueprint for building scalable revenue engines in the post-conglomerate era of B2B SaaS enterprise software development.</p>
+<div class="pt-2 flex items-center gap-6">
+<span class="text-slate-400 text-xs font-medium uppercase tracking-widest font-body">Oct 24, 2024 • 14 min</span>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group/link font-body" href="#">
+                                    Read Full Blueprint
+                                    <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</article>
+<div class="w-full h-px bg-slate-200"></div>
+<article class="group">
+<div class="flex flex-col md:flex-row gap-10">
+<div class="w-full md:w-2/5 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
+<img alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl6fSNFz07l-R2GAV8iXuwxrXsvatz2QDFW1tiXHrbtIoxxv0nzFFVMKVKbi8f-XgwLtnzv015xnxUPbciWpWqrtwXmPxcfCD2LDYoFSOIgWMwHzPOgcDmWQuiF4Jb0eCJVenr0GEp1JPA5gyVveM56ZwK5Bm_w-2hY5l9qDHiKkRUePthzlG6a8XAdiMEaMjiZh6HgpOKE1OM2PnFXYUQCBw_f-496N43C_BulyrHMwxvZnHen2oATDNXEGCdO8nIuXIYU_IK7o8"/>
+</div>
+<div class="flex flex-col justify-center py-2">
+<span class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] block mb-3 font-body">Execution</span>
+<h3 class="text-3xl text-on-surface leading-tight mb-4 group-hover:text-primary transition-colors">Optimizing Sales Velocity: The 15% Margin Rule</h3>
+<p class="text-on-surface-variant text-base mb-6 font-light">Why most SaaS organizations are leaving millions on the table by ignoring micro-inefficiencies in their mid-funnel operations and sales handoffs.</p>
+<div class="flex items-center gap-6">
+<span class="text-slate-400 text-xs font-medium uppercase tracking-widest font-body">Oct 12, 2024 • 8 min</span>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group/link font-body" href="#">
+                                        View Framework
+                                        <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
 </a>
 </div>
 </div>
 </div>
+</article>
+<div class="w-full h-px bg-slate-200"></div>
+<article class="group">
+<div class="flex flex-col md:flex-row gap-10">
+<div class="w-full md:w-2/5 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
+<img alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbKEHVaWWMvUmZUQlRjhPKPkvCXonjGTVKIMOnSyCRdzgN_aE3iNdz7aT8ieOImJi4cxg9jBoQuka7l2Med0QjAB-Sbn-rYEYFHY2fxEOFvVhXNi-h_AaoqRripV0sEr2dxltjT39hz-Z7QlWxU_jWnhDF-Jiwc9HBFwKWWEX5LgEgPk1LldldBBhf4D8AZ6Y-vGj7HdrefuNKt2URpeNT1Mf6aH1cM5Mm2FuXsFiyrU7LNZ89SoIUmG0N0pwNXVylIZ_L5dUzkCA"/>
+</div>
+<div class="flex flex-col justify-center py-2">
+<span class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] block mb-3 font-body">Systems</span>
+<h3 class="text-3xl text-on-surface leading-tight mb-4 group-hover:text-primary transition-colors">The RevOps Stack of 2025: A Radical Simplification</h3>
+<p class="text-on-surface-variant text-base mb-6 font-light">Stop adding tools. Start removing friction. Our updated blueprint for a lean, data-first revenue operations engine built for the next decade.</p>
+<div class="flex items-center gap-6">
+<span class="text-slate-400 text-xs font-medium uppercase tracking-widest font-body">Sep 28, 2024 • 12 min</span>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group/link font-body" href="#">
+                                        View Stack
+                                        <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<div class="w-full h-px bg-slate-200"></div>
+<article class="group">
+<div class="flex flex-col md:flex-row gap-10">
+<div class="w-full md:w-2/5 aspect-[4/3] rounded-2xl overflow-hidden shrink-0">
+<img alt="Post" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDNQHUjIa4abhZE8hi1wIE363_GLiR4KXcNZRjYuPWa0OJhKfONPp9DNlF8iZcUoLTM08RUWiUGem4N0cdUsPQLGz1pYII4cq8ZlC-2ukXicbvH2l3k2aG-45LiGgLtC6pdno9JXgGRLqbLI7Q3xQcWcZ6ibjv--EG524ZygDW_k_NqvUyINvjlJsPxPXt40EPueb6Cf5aIgHDvYoZrUhCn1oacsuFpP8fRSnbrxgeo4_df7elUB2lhu67qG2CPoO56xhMz1Eq3XiU"/>
+</div>
+<div class="flex flex-col justify-center py-2">
+<span class="text-slate-400 text-[11px] font-bold uppercase tracking-[0.2em] block mb-3 font-body">Demand</span>
+<h3 class="text-3xl text-on-surface leading-tight mb-4 group-hover:text-primary transition-colors">Demand Capture vs Demand Creation</h3>
+<p class="text-on-surface-variant text-base mb-6 font-light">Analyzing the ROI of brand-heavy creative vs direct response performance for Series B enterprise software companies navigating complex sales cycles.</p>
+<div class="flex items-center gap-6">
+<span class="text-slate-400 text-xs font-medium uppercase tracking-widest font-body">Sep 15, 2024 • 10 min</span>
+<a class="text-primary text-sm font-bold flex items-center gap-1 group/link font-body" href="#">
+                                        Read Analysis
+                                        <span class="material-symbols-outlined text-sm transition-transform group-hover/link:translate-x-1">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</article>
+<div class="mt-16 flex justify-center">
+<button class="group flex flex-col items-center gap-4">
+<span class="w-14 h-14 rounded-full border border-primary/20 flex items-center justify-center transition-all group-hover:bg-primary group-hover:border-primary">
+<span class="material-symbols-outlined text-primary group-hover:text-white transition-colors">expand_more</span>
+</span>
+<span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 group-hover:text-on-surface transition-colors font-body">Load More Articles</span>
+</button>
+</div>
+</div>
+<aside class="hidden lg:block lg:col-span-4 space-y-8">
+<div class="sticky top-32 space-y-8">
+<div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+<div class="flex items-center justify-between mb-4 border-b border-slate-50 pb-3">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-slate-400 flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span> Terminal: Editor's Picks
+                                </h4>
+<span class="text-[9px] font-mono text-slate-300">v.2.4.0</span>
+</div>
+<div class="max-h-[360px] overflow-y-auto custom-scrollbar pr-2 space-y-4">
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-[8px] font-bold uppercase tracking-tighter font-body">Systems</span>
+<span class="text-[9px] text-slate-300 font-mono">01</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">2025 Tech Consolidation Guide: Audit Revenue Stack</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-amber-50 text-amber-600 text-[8px] font-bold uppercase tracking-tighter font-body">Execution</span>
+<span class="text-[9px] text-slate-300 font-mono">02</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">Attribution is Dead: First-Party Signal Power</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 text-[8px] font-bold uppercase tracking-tighter font-body">Strategy</span>
+<span class="text-[9px] text-slate-300 font-mono">03</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">PLG Paradox: Navigating Enterprise ACV</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 text-[8px] font-bold uppercase tracking-tighter font-body">Demand</span>
+<span class="text-[9px] text-slate-300 font-mono">04</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">Zero-Click Content: LinkedIn Distribution</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-blue-50 text-blue-600 text-[8px] font-bold uppercase tracking-tighter font-body">Systems</span>
+<span class="text-[9px] text-slate-300 font-mono">05</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">Building the Data Lake for Sales Ops</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-amber-50 text-amber-600 text-[8px] font-bold uppercase tracking-tighter font-body">Execution</span>
+<span class="text-[9px] text-slate-300 font-mono">06</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">The 15% Margin Rule in Mid-Funnel</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-emerald-50 text-emerald-600 text-[8px] font-bold uppercase tracking-tighter font-body">Strategy</span>
+<span class="text-[9px] text-slate-300 font-mono">07</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">Post-Conglomerate SaaS Architectures</h5>
+</div>
+<div class="group cursor-pointer p-2 rounded-xl hover:bg-slate-50 transition-all">
+<div class="flex gap-2 mb-1">
+<span class="px-2 py-0.5 rounded bg-indigo-50 text-indigo-600 text-[8px] font-bold uppercase tracking-tighter font-body">Demand</span>
+<span class="text-[9px] text-slate-300 font-mono">08</span>
+</div>
+<h5 class="text-xs leading-tight text-on-surface group-hover:text-primary transition-colors">Capture vs Creation: ROI Analysis</h5>
+</div>
+</div>
+</div>
+<div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">history</span> Historical Data
+                            </h4>
+<div class="space-y-2">
+<details class="group border-b border-slate-50 pb-2" open="">
+<summary class="flex items-center justify-between cursor-pointer list-none py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors">
+<span class="text-sm font-bold text-on-surface font-body">FY 2023</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-2 pl-4 space-y-3 font-body">
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">The Death of the Traditional SDR Model</a>
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">Signal-Based Prospecting Blueprints</a>
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">The 2023 GTM Budget Survey</a>
+</div>
+</details>
+<details class="group border-b border-slate-50 pb-2">
+<summary class="flex items-center justify-between cursor-pointer list-none py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors">
+<span class="text-sm font-bold text-on-surface font-body">FY 2022</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-2 pl-4 space-y-3 font-body">
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">Why Your Lead Scoring is Failing You</a>
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">Dark Social and the Attribution Trap</a>
+</div>
+</details>
+<details class="group border-b border-slate-50 pb-2">
+<summary class="flex items-center justify-between cursor-pointer list-none py-2 hover:bg-slate-50 rounded-lg px-2 transition-colors">
+<span class="text-sm font-bold text-on-surface font-body">FY 2021</span>
+<span class="material-symbols-outlined text-sm text-slate-300 group-open:rotate-180 transition-transform">expand_more</span>
+</summary>
+<div class="pt-2 pl-4 space-y-3 font-body">
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">The First 90 Days of a RevOps Leader</a>
+<a class="block text-[11px] font-medium text-slate-500 hover:text-primary transition-colors" href="#">Transitioning from Lead-Gen to Demand-Gen</a>
+</div>
+</details>
+</div>
+</div>
+<div class="bg-white p-6 rounded-3xl border border-slate-100 shadow-sm">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-sm">tag</span> Semantic Index
+                            </h4>
+<div class="flex flex-wrap gap-2 items-center font-body">
+<a class="text-lg font-bold text-primary hover:underline" href="#">RevOps</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary" href="#">Attribution</a>
+<a class="text-base font-semibold text-slate-700 hover:text-primary" href="#">GTM Architecture</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary" href="#">B2B SaaS</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary" href="#">PLG</a>
+<a class="text-lg font-bold text-slate-900 hover:text-primary" href="#">Revenue Tech</a>
+<a class="text-sm font-medium text-slate-500 hover:text-primary" href="#">Sales Velocity</a>
+<a class="text-xs font-medium text-slate-400 hover:text-primary" href="#">Data Strategy</a>
+<a class="text-base font-semibold text-primary/80 hover:text-primary" href="#">Enterprise</a>
+</div>
+</div>
+<div class="bg-[#0047AB] p-8 rounded-3xl shadow-xl shadow-blue-500/20 relative overflow-hidden group">
+<div class="relative z-10">
+<h4 class="text-white text-xl mb-3">Marketing Assessment Tool</h4>
+<p class="text-blue-100 text-sm font-medium mb-6 leading-relaxed font-body">Quantify Your GTM Stack: Start Assessment Now</p>
+<button class="w-full bg-white text-[#0047AB] py-3 rounded-xl font-bold text-xs uppercase tracking-widest hover:bg-slate-100 transition-all active:scale-[0.98] shadow-lg font-body">
+                                    Launch Terminal
+                                </button>
+</div>
+<div class="absolute -right-8 -bottom-8 w-32 h-32 bg-white/10 rounded-full blur-2xl group-hover:scale-150 transition-transform duration-700"></div>
+</div>
+<div class="bg-slate-50 p-6 rounded-3xl border border-slate-200">
+<h4 class="text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-6">Expert Contributors</h4>
+<div class="space-y-4">
+<div class="flex items-center gap-3 p-2 hover:bg-white rounded-xl transition-all group cursor-pointer">
+<img alt="Elena" class="w-8 h-8 rounded-full object-cover border border-slate-200" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCl6fSNFz07l-R2GAV8iXuwxrXsvatz2QDFW1tiXHrbtIoxxv0nzFFVMKVKbi8f-XgwLtnzv015xnxUPbciWpWqrtwXmPxcfCD2LDYoFSOIgWMwHzPOgcDmWQuiF4Jb0eCJVenr0GEp1JPA5gyVveM56ZwK5Bm_w-2hY5l9qDHiKkRUePthzlG6a8XAdiMEaMjiZh6HgpOKE1OM2PnFXYUQCBw_f-496N43C_BulyrHMwxvZnHen2oATDNXEGCdO8nIuXIYU_IK7o8"/>
+<div>
+<h5 class="text-[11px] text-on-surface">Elena Soros</h5>
+<p class="text-[9px] text-slate-400 font-mono tracking-tighter">VP STRATEGY</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 hover:bg-white rounded-xl transition-all group cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300">
+<span class="text-[10px] font-bold text-slate-500 font-body">MK</span>
+</div>
+<div>
+<h5 class="text-[11px] text-on-surface">Marcus Kray</h5>
+<p class="text-[9px] text-slate-400 font-mono tracking-tighter">HEAD OF REVOPS</p>
+</div>
+</div>
+<div class="flex items-center gap-3 p-2 hover:bg-white rounded-xl transition-all group cursor-pointer">
+<div class="w-8 h-8 rounded-full bg-slate-200 flex items-center justify-center border border-slate-300">
+<span class="text-[10px] font-bold text-slate-500 font-body">JD</span>
+</div>
+<div>
+<h5 class="text-[11px] text-on-surface">Jane Doe</h5>
+<p class="text-[9px] text-slate-400 font-mono tracking-tighter">GTM ANALYST</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</aside>
 </div>
 </section>
-<section class="py-20 bg-background-light">
-<div class="max-w-7xl mx-auto px-8">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-<div class="group bg-white rounded-2xl overflow-hidden nebula-shadow hover:-translate-y-2 transition-all duration-300 border-b-[4px] border-signal-blue flex flex-col">
-<div class="aspect-[16/9] relative overflow-hidden bg-slate-200">
-<img alt="Advanced technical system visualization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGJj0cq_dXFkRoT3mAx1id2B9_83SRZZuoX__6D3QPNNLlm04BO7VOd959N_pQEEIIGOsCc4-ypM4NBQzKe3wi0yBUpEIKUPRxP-iqJLuhFIcpOrJUw8eVMD-v2fBTsFjcRjCXAI_-lO6yw0MdSxW1XrbcdjCdwLOvWmYY4adhjrstAApoKAnj1DDjbFmsi5DHk66yYF6AjdTR6gKr167EBQDASwFvKxYwCcRIwBTfD6tqrbKfDKeaDy2QzxwRNFA3K2EfNdeCyX8"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-<span class="absolute top-6 left-6 bg-signal-blue text-white text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Featured Analysis</span>
+<section class="bg-[#0A1628] py-24 px-8 mb-32 rounded-3xl max-w-7xl mx-auto overflow-hidden relative">
+<div class="max-w-3xl mx-auto text-center relative z-10">
+<h2 class="text-4xl text-white mb-6">Master the SaaS Architecture.</h2>
+<p class="text-slate-400 text-lg mb-12 max-w-xl mx-auto font-body">Join 15,000+ Founders and GTM Leaders receiving our weekly tactical blueprint for scaling enterprise revenue.</p>
+<form class="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto font-body">
+<input class="flex-grow px-6 py-4 rounded-full bg-white/5 border border-white/10 text-white placeholder:text-slate-500 focus:ring-2 focus:ring-[#FFDB58]/50 outline-none text-sm" placeholder="professional@company.com" type="email"/>
+<button class="bg-[#FFDB58] text-[#0A1628] px-10 py-4 rounded-full font-bold text-sm tracking-tight hover:shadow-lg transition-all active:scale-95 whitespace-nowrap">Subscribe</button>
+</form>
+<p class="mt-6 text-[10px] text-slate-500 uppercase tracking-widest font-body">Tactical insights only. No fluff.</p>
 </div>
-<div class="p-10 flex-grow flex flex-col">
-<div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-<span>March 2024 Edition</span>
-<span class="w-1 h-1 rounded-full bg-slate-300"></span>
-<span>Long Read</span>
-</div>
-<h3 class="text-3xl font-bold text-slate-900 mb-5 font-headline leading-tight">GTM Infrastructure for the Next Era: A Comprehensive Technical Blueprint</h3>
-<p class="text-slate-600 text-lg leading-relaxed mb-8">An in-depth exploration of unified data layers and orchestration engines that power multi-billion dollar revenue organizations. We strip back the layers of typical SaaS bloat.</p>
-<div class="mt-auto flex items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl text-signal-blue">person</span>
-</div>
-<div>
-<span class="block text-sm font-bold text-slate-900">Mark Fischer</span>
-<span class="block text-[10px] text-slate-400 uppercase tracking-widest">Lead Architect</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-signal-blue group-hover:translate-x-2 transition-all">arrow_forward</span>
-</div>
-</div>
-</div>
-<div class="group bg-white rounded-2xl overflow-hidden nebula-shadow hover:-translate-y-2 transition-all duration-300 border-b-[4px] border-saffron flex flex-col">
-<div class="aspect-[16/9] relative overflow-hidden bg-slate-200">
-<img alt="Abstract business strategy visualization" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK7T_HOk1NWb5sqffKXZeN6bLx7SdT5-0qoHyrCGYJAUBmrXqrY6p1Y-3zYbLyPVuYifnhHaAlA6f6Y18SHuMfmJiOMubRT8GPDeTXNynsbrH-5t_DAIf7_WKzBIuyrVdp-GYGGiYQ8c6118eTpsryCBbM-2zvcBCB-oCE5E0sr0VUDOjHsPhcWhY7p7sm9w6HxxTPFewrIoAi5PxVVSoMOk1wEsBJz_jASkoTTrIErK-i9X9-HOTNsKuvukdNcnltGVGU30oOMvA"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-<span class="absolute top-6 left-6 bg-saffron text-mid-navy text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full">Executive Brief</span>
-</div>
-<div class="p-10 flex-grow flex flex-col">
-<div class="flex items-center gap-3 text-xs font-bold text-slate-400 uppercase tracking-widest mb-4">
-<span>Spring 2024 Report</span>
-<span class="w-1 h-1 rounded-full bg-slate-300"></span>
-<span>Key Insights</span>
-</div>
-<h3 class="text-3xl font-bold text-slate-900 mb-5 font-headline leading-tight">The 2024 RevOps Maturity Matrix: Benchmark Your Stack</h3>
-<p class="text-slate-600 text-lg leading-relaxed mb-8">Where does your revenue engine sit compared to industry leaders? Our framework evaluates tooling, process, and data integrity to plot your path to operational excellence.</p>
-<div class="mt-auto flex items-center justify-between">
-<div class="flex items-center gap-4">
-<div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center">
-<span class="material-symbols-outlined text-2xl text-signal-blue">person</span>
-</div>
-<div>
-<span class="block text-sm font-bold text-slate-900">Sarah Chen</span>
-<span class="block text-[10px] text-slate-400 uppercase tracking-widest">Strategy Director</span>
-</div>
-</div>
-<span class="material-symbols-outlined text-slate-300 group-hover:text-signal-blue group-hover:translate-x-2 transition-all">arrow_forward</span>
-</div>
-</div>
-</div>
-</div>
-</div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/10 rounded-full blur-3xl"></div>
+<div class="absolute -top-12 -right-12 w-48 h-48 bg-[#FFDB58]/5 rounded-full blur-2xl"></div>
 </section>
-<section class="bg-mid-navy py-24 px-8 border-t border-white/5">
-<div class="max-w-7xl mx-auto">
-<div class="text-center mb-16">
-<h2 class="text-3xl md:text-5xl font-bold text-white font-headline mb-4">Built for Fun. Shipped for Real.</h2>
-<div class="h-1 w-20 bg-signal-blue mx-auto rounded-full"></div>
+</main>
+<footer class="bg-slate-950 w-full pt-20 pb-10">
+<div class="flex flex-col items-center space-y-8 px-8 w-full">
+<div class="text-xl font-headline text-white flex items-center gap-2">
+<span class="text-[#FFDB58]">GTM</span>Stack
+            </div>
+<div class="flex flex-wrap justify-center gap-x-12 gap-y-4">
+<a class="text-slate-500 hover:text-white transition-colors text-sm font-medium font-body" href="#">Privacy Policy</a>
+<a class="text-slate-500 hover:text-white transition-colors text-sm font-medium font-body" href="#">Terms of Service</a>
+<a class="text-slate-500 hover:text-white transition-colors text-sm font-medium font-body" href="#">Contact</a>
+<a class="text-[#FFDB58] hover:text-white transition-colors text-sm font-bold font-body" href="#">Archive</a>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-<div class="glass-card p-10 rounded-2xl group cursor-pointer hover:bg-deep-navy transition-all border border-white/5">
-<div class="mb-8">
-<span class="material-symbols-outlined text-4xl text-saffron">rocket_launch</span>
+<div class="w-full max-w-7xl h-[1px] bg-white/5 my-4"></div>
+<div class="flex flex-col md:flex-row justify-between items-center w-full max-w-7xl gap-6 font-body">
+<p class="text-slate-600 text-xs font-medium">© 2024 GTMStack. The Strategic Architect's Journal.</p>
+<div class="flex gap-6">
+<a class="text-slate-600 hover:text-[#FFDB58] transition-colors" href="#">
+<span class="sr-only">Twitter</span>
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.84 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"></path></svg>
+</a>
+<a class="text-slate-600 hover:text-[#FFDB58] transition-colors" href="#">
+<span class="sr-only">LinkedIn</span>
+<svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.2225 0z"></path></svg>
+</a>
 </div>
-<h3 class="text-2xl font-bold text-white font-headline mb-4">Flight Assessment Tool</h3>
-<p class="text-slate-400 leading-relaxed mb-8">A custom interactive dashboard that measures GTM operational maturity across 48 critical benchmarks.</p>
-<div class="flex items-center gap-4 text-signal-blue font-bold text-sm uppercase tracking-wider">
-                    Explore Tool <span class="material-symbols-outlined text-sm">open_in_new</span>
-</div>
-</div>
-<div class="glass-card p-10 rounded-2xl group cursor-pointer hover:bg-deep-navy transition-all border border-white/5">
-<div class="mb-8">
-<span class="material-symbols-outlined text-4xl text-signal-blue">grid_view</span>
-</div>
-<h3 class="text-2xl font-bold text-white font-headline mb-4">Resume CV Theme Park</h3>
-<p class="text-slate-400 leading-relaxed mb-8">A highly opinionated, design-forward UI kit specifically built for GTM consultants and technical architects.</p>
-<div class="flex items-center gap-4 text-signal-blue font-bold text-sm uppercase tracking-wider">
-                    View Demo <span class="material-symbols-outlined text-sm">open_in_new</span>
-</div>
-</div>
-</div>
-</div>
-</section>
-<section class="bg-mid-navy pb-32 pt-16 px-8 flex justify-center text-center">
-<div class="max-w-3xl glass-card p-12 md:p-20 rounded-3xl relative overflow-hidden nebula-shadow">
-<div class="absolute inset-0 bg-gradient-to-br from-signal-blue/10 to-transparent pointer-events-none"></div>
-<h2 class="text-3xl md:text-5xl font-bold text-white font-headline mb-8 leading-tight">Ready to Optimize Your Revenue Engine?</h2>
-<p class="text-signal-blue text-lg mb-12 opacity-80 leading-relaxed max-w-xl mx-auto">Let's audit your current stack and identify the low-hanging fruit for immediate growth.</p>
-<div class="flex flex-col sm:flex-row justify-center gap-4 relative z-10">
-<button class="bg-signal-blue text-white px-10 py-4 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-[0_10px_30px_rgba(111,175,224,0.2)]">Schedule Audit</button>
-<button class="border border-white/20 text-white px-10 py-4 rounded-lg font-bold text-lg hover:bg-white/10 transition-all">View Resume</button>
-</div>
-</div>
-</section>
-<footer class="bg-deep-navy border-t border-white/5 pt-20 pb-12 px-8 relative overflow-hidden">
-<div class="absolute inset-0 circuit-pattern opacity-[0.05] pointer-events-none"></div>
-<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16 relative z-10">
-<div class="col-span-2">
-<span class="text-lg font-bold text-white font-headline mb-6 block">GTMStack.pro</span>
-<p class="text-slate-400 text-sm max-w-xs leading-relaxed mb-8">Engineering Go-To-Market efficiency through technical architecture and operational excellence.</p>
-<div class="flex gap-4">
-<a class="w-10 h-10 rounded-lg bg-mid-navy flex items-center justify-center text-white hover:bg-signal-blue transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
-<a class="w-10 h-10 rounded-lg bg-mid-navy flex items-center justify-center text-white hover:bg-signal-blue transition-colors" href="#"><span class="material-symbols-outlined">hub</span></a>
-</div>
-</div>
-<div>
-<h5 class="text-white font-bold text-xs uppercase tracking-widest mb-6">Expertise</h5>
-<ul class="space-y-4 text-slate-400 text-sm">
-<li><a class="hover:text-signal-blue transition-colors" href="#">Revenue Ops</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Sales Stack</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Data Strategy</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">CRM Arch</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-white font-bold text-xs uppercase tracking-widest mb-6">Company</h5>
-<ul class="space-y-4 text-slate-400 text-sm">
-<li><a class="hover:text-signal-blue transition-colors" href="#">About Us</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Case Studies</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Careers</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Blog</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-white font-bold text-xs uppercase tracking-widest mb-6">Connect</h5>
-<ul class="space-y-4 text-slate-400 text-sm">
-<li><a class="hover:text-signal-blue transition-colors" href="#">Contact</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Schedule Call</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">LinkedIn</a></li>
-</ul>
-</div>
-<div>
-<h5 class="text-white font-bold text-xs uppercase tracking-widest mb-6">Legal</h5>
-<ul class="space-y-4 text-slate-400 text-sm">
-<li><a class="hover:text-signal-blue transition-colors" href="#">Privacy Policy</a></li>
-<li><a class="hover:text-signal-blue transition-colors" href="#">Terms</a></li>
-</ul>
-</div>
-</div>
-<div class="max-w-7xl mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500 text-[11px] font-bold uppercase tracking-[0.2em]">
-<span>© 2024 GTMStack.pro. All rights reserved.</span>
-<div class="flex gap-8">
-<a href="#">Status</a>
-<a href="#">Documentation</a>
-<a href="#">Security</a>
 </div>
 </div>
 </footer>
-```</body></html>
+
+</body></html>

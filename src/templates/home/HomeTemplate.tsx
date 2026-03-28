@@ -31,6 +31,12 @@ export interface CaseStudyItem {
   outcomeLabel?: string;
   outcomeValue?: string;
   quote?: string;
+  /**
+   * Optional stitch-html parity fields used by /about "Built to Prove It..." cards.
+   * Safe to omit for other pages.
+   */
+  imageSrc?: string;
+  chips?: string[];
 }
 
 export interface FounderTimelineItem {

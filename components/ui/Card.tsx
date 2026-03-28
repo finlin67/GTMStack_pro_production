@@ -195,8 +195,8 @@ export function CaseStudyCard({
             )}
           >
             <div className="h-1.5 w-full shrink-0" style={{ backgroundColor: strip }} />
-            <div className="p-6 md:p-8 flex flex-col flex-1">
-              <div className="flex gap-2 mb-4 flex-wrap">
+            <div className="p-5 md:p-6 flex flex-col flex-1">
+              <div className="flex gap-2 mb-3 flex-wrap">
                 {tags.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
@@ -206,15 +206,15 @@ export function CaseStudyCard({
                   </span>
                 ))}
               </div>
-              <h3 className="font-display text-xl font-bold mb-3 text-slate-900 dark:text-white leading-tight group-hover:text-brand-600 transition-colors">
+              <h3 className="font-display text-lg md:text-xl font-bold mb-2 text-slate-900 dark:text-white leading-tight group-hover:text-brand-600 transition-colors">
                 {title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-6 flex-1 leading-relaxed">
+              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1 leading-6">
                 {description}
               </p>
               {primary && (
                 <div
-                  className="text-3xl font-extrabold mb-6"
+                  className="text-3xl font-extrabold mb-4"
                   style={{ color: strip }}
                 >
                   {primary.value}
@@ -244,7 +244,7 @@ export function CaseStudyCard({
           {/* Decorative header */}
           <div className="h-2 bg-gradient-to-r from-brand-500 via-brand-400 to-accent-400" />
           
-          <div className="p-6">
+          <div className="p-5">
             {/* Client badge */}
             <span className="inline-block text-xs font-medium text-slate-500 uppercase tracking-wider mb-3">
               {client}
@@ -259,7 +259,7 @@ export function CaseStudyCard({
             </p>
 
             {/* Metrics */}
-            <div className="grid grid-cols-3 gap-3 py-4 border-y border-slate-100 mb-4">
+            <div className="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 mb-3">
               {metrics.slice(0, 3).map((metric) => (
                 <div key={metric.label} className="text-center">
                   <p className="text-lg font-bold text-brand-600">{metric.value}</p>

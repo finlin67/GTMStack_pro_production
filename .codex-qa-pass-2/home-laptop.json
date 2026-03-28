@@ -1,0 +1,49 @@
+{
+  "fold": 900,
+  "h1Bottom": 541.6875,
+  "sections": [],
+  "ctas": [
+    {
+      "text": "Case Studies",
+      "top": 56,
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "top": 48,
+      "bottom": 96
+    },
+    {
+      "text": "Browse case studies",
+      "top": 661.6875,
+      "bottom": 723.6875
+    },
+    {
+      "text": "Explore expertise",
+      "top": 661.6875,
+      "bottom": 723.6875
+    },
+    {
+      "text": "View all posts",
+      "top": 3051.9375,
+      "bottom": 3081.9375
+    },
+    {
+      "text": "Contact",
+      "top": 3947.78125,
+      "bottom": 4027.78125
+    },
+    {
+      "text": "Case Studies",
+      "top": 4400.78125,
+      "bottom": 4417.78125
+    },
+    {
+      "text": "Contact",
+      "top": 4364.78125,
+      "bottom": 4381.78125
+    }
+  ],
+  "bodyClass": "min-h-screen flex flex-col font-sans antialiased",
+  "hasErrorText": false
+}

@@ -1,0 +1,32 @@
+{
+  "fold": 900,
+  "h1Bottom": 255.84375,
+  "firstSectionBottom": 431,
+  "secondSectionTop": null,
+  "ctaBottoms": [
+    {
+      "text": "Case Studies",
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "bottom": 96
+    },
+    {
+      "text": "Browse case studies",
+      "bottom": 377.84375
+    },
+    {
+      "text": "Explore expertise",
+      "bottom": 377.84375
+    },
+    {
+      "text": "Account Intelligence",
+      "bottom": 1285
+    },
+    {
+      "text": "Campaign Framework",
+      "bottom": 1537
+    }
+  ]
+}

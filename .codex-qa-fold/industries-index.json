@@ -1,0 +1,32 @@
+{
+  "fold": 900,
+  "h1Bottom": 489.375,
+  "firstSectionBottom": 711.375,
+  "secondSectionTop": 711.375,
+  "ctaBottoms": [
+    {
+      "text": "Case Studies",
+      "bottom": 88
+    },
+    {
+      "text": "Contact",
+      "bottom": 96
+    },
+    {
+      "text": "Enter the system",
+      "bottom": 670.375
+    },
+    {
+      "text": "View intelligence",
+      "bottom": 671.375
+    },
+    {
+      "text": "cloud_syncNODE_02B2B SaaSRevenue milesto",
+      "bottom": 1405.921875
+    },
+    {
+      "text": "local_shippingNODE_05Fleet Management & ",
+      "bottom": 1724.09375
+    }
+  ]
+}

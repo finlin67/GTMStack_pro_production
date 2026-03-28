@@ -4,7 +4,7 @@
 
 ▲ Next.js 16.1.6 (webpack)
 - Local:         http://localhost:3105
-- Network:       http://192.168.68.60:3105
+- Network:       http://192.168.68.63:3105
 - Environments: .env.local, .env
 
 ✓ Starting...
