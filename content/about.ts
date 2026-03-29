@@ -3,11 +3,11 @@ import type { HomeTemplateContent } from '../src/templates/home/HomeTemplate'
 /** About page content for HomeTemplate (PageContent shape). */
 export const ABOUT_CONTENT: HomeTemplateContent = {
   hero: {
-    badge: 'OPERATOR-LED GTM ARCHITECTURE',
-    titleStart: 'Revenue Systems for ',
-    titleGradient: 'B2B Growth',
+    badge: 'GTM OPERATOR BACKGROUND',
+    titleStart: 'The operator behind ',
+    titleGradient: 'GTMStack.pro',
     subtitle:
-      'Engineering precision pipeline infrastructure where data-driven strategy meets high-conviction execution for scaling consulting firms.',
+      'B2B GTM work across Salesforce, PRGX, AMCS, and Red Hat. Documented programs, results, and frameworks throughout this site.',
     ctaPrimary: 'View Case Studies',
     ctaSecondary: 'Explore Expertise',
   },
@@ -59,74 +59,74 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     ],
   },
   expertise: {
-    title: 'AI & MACHINE LEARNING',
+    title: 'Systems and tools applied in practice',
     items: [
       {
         icon: 'Brain',
         title: 'Cognitive Funnels',
         description:
-          'Automated lead scoring systems that adapt to buyer behavior using LLM-driven sentiment analysis.',
+          'Lead scoring and routing models built for active ABM programs. Used at PRGX to improve MQL→SQL conversion by 180%.',
         tags: [],
       },
       {
         icon: 'Database',
         title: 'Data Lake Architecture',
         description:
-          'Centralizing fragmented marketing silos into a single source of truth for real-time attribution.',
+          'Data pipeline and attribution infrastructure built across CRM, MAP, and BI layers. Reduced reporting cycles from 4 days to 2 hours at Salesforce.',
         tags: [],
       },
       {
         icon: 'Settings',
         title: 'Pipeline Automation',
         description:
-          'Orchestrating complex multi-touch campaigns through robotic process automation (RPA).',
+          'Automated multi-touch workflows across email, paid, and SDR channels. Deployed at AMCS and PRGX to reduce manual coordination and improve lead routing accuracy.',
         tags: [],
       },
     ],
   },
   quote: {
-    text: 'We design GTM operating systems that connect strategic intent to day-to-day execution with',
-    highlight: 'efficiency and scalable growth',
+    text: 'The work connects pipeline reporting, campaign execution, and sales routing into one readable system.',
+    highlight: '',
   },
   caseStudies: {
     title: 'Performance Benchmarks',
     subtitle: 'Impact across GTM strategy, demand execution, and revenue operations.',
     items: [
       {
-        title: 'Career World 4D',
+        title: 'Revenue Operations Buildout — PRGX Global',
         description:
-          'A high-fidelity modeling engine designed for precision revenue forecasting. Implemented a zero-latency data pipeline resulting in 4D visualization of market trends.',
+          'Unified ABM, attribution, and CRM systems across a 300-account enterprise pipeline program. Resulted in 87% YoY pipeline growth and 180% lift in MQL→SQL conversion.',
         outcomeLabel: 'Revenue Ops',
         outcomeValue: '$9M',
       },
       {
-        title: 'Marketing Flight Planner',
+        title: 'Demand Analytics Rebuild — Salesforce',
         description:
-          'AI-driven diagnostic tool mapping the entire GTM funnel. Enables operators to predict bottlenecks before they impact the bottom line.',
+          'Rebuilt demand gen analytics and attribution infrastructure for Salesforce NGO and Education GTM. Delivered 76% YoY pipeline lift and ~85% improvement in CRM data quality.',
         outcomeLabel: 'AI Diagnostic',
         outcomeValue: '180%',
       },
       {
         title: 'Database Acquisition',
-        description: '',
+        description: 'Contact acquisition and database enrichment across B2B demand programs. Benchmarked using Demandbase enrichment and lifecycle segmentation at PRGX and AMCS.',
         outcomeLabel: 'Benchmark',
         outcomeValue: '45%',
       },
       {
         title: 'Campaign Reduction',
-        description: '',
+        description: 'Campaign overhead reduced through MarTech consolidation and workflow automation. Documented across PRGX global paid and email programs.',
         outcomeLabel: 'Benchmark',
         outcomeValue: '22%',
       },
       {
         title: 'Global Partners',
-        description: '',
+        description: 'Partner and channel relationships managed across global GTM motions at Salesforce and Red Hat. Included co-marketing, enablement, and aligned pipeline reporting.',
         outcomeLabel: 'Benchmark',
         outcomeValue: '50+',
       },
       {
         title: 'Ad Returns',
-        description: '',
+        description: 'Paid media return on ad spend across B2B campaigns using intent-driven targeting and ICP-filtered audiences. Measured at program level across PRGX and AMCS paid channels.',
         outcomeLabel: 'Benchmark',
         outcomeValue: '15x',
       },
@@ -162,9 +162,9 @@ export const ABOUT_CONTENT: HomeTemplateContent = {
     ],
   },
   ctaBottom: {
-    title: 'Ready to improve pipeline quality?',
+    title: 'Start with the work',
     subtitle:
-      'Stop guessing and start building. Secure a technical audit of your GTM architecture and discover where your growth leaks are hiding.',
-    buttonText: 'Schedule GTM Audit',
+      'Browse the case studies and expertise pages to see how the pieces connect.',
+    buttonText: 'Explore the portfolio',
   },
 }
