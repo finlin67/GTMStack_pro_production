@@ -2,6 +2,10 @@
 
 A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
 
+## Recovery Notes
+
+- `RECOVERY_CHECKPOINT_2026-04-01.md` - branch recovery summary, preserved states, and next-step plan
+
 ## Features
 
 - **Modern SaaS-style UI** - Clean, enterprise-credible design with abstract/data-driven visuals
