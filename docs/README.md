@@ -2,9 +2,14 @@
 
 A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
 
-## Recovery Notes
+## Start Here
 
 - `RECOVERY_CHECKPOINT_2026-04-01.md` - branch recovery summary, preserved states, and next-step plan
+- `PROJECT_OVERVIEW_MARKETING_AND_DEVELOPER.md` - cross-functional project handoff for marketing and engineering
+- `CANONICAL_DOC_MAP.md` - which docs are authoritative for each topic cluster
+- `WEBSITE_USER_GUIDE.md` - user-facing narrative and site purpose
+- `PROJECT_STRUCTURE.md` - architectural and structural map for developers
+- `ROUTING.md` - registry-driven routing and runtime behavior
 
 ## Features
 
