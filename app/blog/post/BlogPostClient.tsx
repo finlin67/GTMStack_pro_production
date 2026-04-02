@@ -7,7 +7,9 @@ import { ArrowLeft } from 'lucide-react'
 import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
 import { sanitizeHtml } from '@/lib/sanitize-html'
 import BlogStitchPostTemplate from '@/src/templates/blog/BlogStitchPostTemplate'
-import { adaptBlogSinglePostData } from '@/lib/blog-adapter'
+import HowToPostTemplate from '@/src/templates/blog/HowToPostTemplate'
+import InsightPostTemplate from '@/src/templates/blog/InsightPostTemplate'
+import { adaptBlogSinglePostData, adaptHowToPostData, adaptInsightPostData } from '@/lib/blog-adapter'
 
 function stripHtml(html: string) {
   return html.replace(/<[^>]*>/g, '').trim()
@@ -100,6 +102,16 @@ export default function BlogPostClient() {
   }
 
   if (!adaptedContent) return null
+
+  const layoutType = post?.acf?.layout_type
+
+  if (layoutType === 'how-to' && post) {
+    return <HowToPostTemplate post={adaptHowToPostData(post, relatedPosts)} />
+  }
+
+  if (layoutType === 'insight' && post) {
+    return <InsightPostTemplate post={adaptInsightPostData(post, relatedPosts)} />
+  }
 
   return <BlogStitchPostTemplate content={adaptedContent} />
 }

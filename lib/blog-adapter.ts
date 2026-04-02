@@ -11,6 +11,24 @@
  */
 
 import type { WPPost, WPTerm } from '@/lib/wp-client'
+import type {
+  AdaptedArticleBase,
+  AdaptedCaseStudyPost,
+  AdaptedComparisonPost,
+  AdaptedFrameworkPost,
+  AdaptedGuidePost,
+  AdaptedHowToPost,
+  AdaptedInsightPost,
+  AdaptedResearchPost,
+  WPAcfCaseStudyFields,
+  WPAcfComparisonFields,
+  WPAcfFrameworkFields,
+  WPAcfGuideFields,
+  WPAcfHowToFields,
+  WPAcfInsightFields,
+  WPAcfRepeaterItem,
+  WPAcfResearchFields,
+} from '@/src/types/blog'
 import {
   getEmbeddedAuthor,
   getAuthorAvatarUrl,
@@ -118,6 +136,169 @@ const GRAPHIC_LABELS = [
 
 function stripHtml(html: string): string {
   return html.replace(/<[^>]*>/g, '').trim()
+}
+
+function getArticleCategoryNames(post: WPPost): string[] {
+  return getPostCategories(post)
+    .map((term) => term.name?.trim())
+    .filter(Boolean) as string[]
+}
+
+function getArticleAuthorName(post: WPPost): string | undefined {
+  return getEmbeddedAuthor(post)?.name?.trim() || undefined
+}
+
+function buildArticleRelatedArticles(post: WPPost, relatedPosts: WPPost[]): Array<{ title: string; url: string }> {
+  return relatedPosts
+    .filter((candidate) => candidate.id !== post.id)
+    .slice(0, 3)
+    .map((candidate) => ({
+      title: stripHtml(candidate.title?.rendered || candidate.slug),
+      url: `/blog/post?slug=${encodeURIComponent(candidate.slug)}`,
+    }))
+}
+
+function buildArticleSemanticTerms(post: WPPost): string[] {
+  const categoryNames = getPostCategories(post).map((term) => term.name?.trim() || '')
+  const tagNames = getPostTags(post).map((term) => term.name?.trim() || '')
+
+  return Array.from(
+    new Set(
+      [...categoryNames, ...tagNames]
+        .map((term) => term.trim())
+        .filter(Boolean)
+    )
+  ).slice(0, 6)
+}
+
+function mapRepeaterItems(rows?: WPAcfRepeaterItem[]): string[] {
+  return (rows || [])
+    .map((row) => row?.item?.trim())
+    .filter(Boolean) as string[]
+}
+
+function adaptArticleBase(post: WPPost, relatedPosts: WPPost[] = []): AdaptedArticleBase {
+  const acf = post.acf || {}
+  const embeddedAuthor = getEmbeddedAuthor(post)
+
+  return {
+    slug: post.slug,
+    title: stripHtml(post.title?.rendered || ''),
+    excerpt: stripHtml(post.excerpt?.rendered || ''),
+    contentHtml: post.content?.rendered || '',
+    publishedAt: post.date,
+    featuredImage: getFeaturedImageUrl(post) || undefined,
+    categories: getArticleCategoryNames(post),
+    authorName: getArticleAuthorName(post),
+    authorAvatarUrl: getAuthorAvatarUrl(embeddedAuthor),
+    relatedArticles: buildArticleRelatedArticles(post, relatedPosts),
+    semanticTerms: buildArticleSemanticTerms(post),
+    sidebarPromo: {
+      title: 'Marketing Assessment Tool',
+      body: 'Quantify your GTM stack and identify your next growth bottleneck.',
+      buttonLabel: 'Launch Terminal',
+      buttonUrl: '/contact',
+    },
+    heroKicker: acf.hero_kicker || '',
+    dek: acf.dek || '',
+    featuredQuote: acf.featured_quote || '',
+    quoteSource: acf.quote_source || '',
+    ctaHeadline: acf.cta_headline || '',
+    ctaBody: acf.cta_body || '',
+    ctaButtonLabel: acf.cta_button_label || '',
+    ctaButtonUrl: acf.cta_button_url || '',
+    authorNote: acf.author_note || '',
+  }
+}
+
+export function adaptHowToPostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedHowToPost {
+  const acf = (post.acf || {}) as WPAcfHowToFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    showTakeaways: Boolean(acf.show_takeaways),
+    takeaways: mapRepeaterItems(acf.takeaways),
+    checklistTitle: acf.checklist_title || '',
+    checklistItems: mapRepeaterItems(acf.checklist_items),
+  }
+}
+
+export function adaptInsightPostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedInsightPost {
+  const acf = (post.acf || {}) as WPAcfInsightFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    keyIdeas: mapRepeaterItems(acf.key_ideas),
+    closingThesis: acf.closing_thesis || '',
+  }
+}
+
+export function adaptComparisonPostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedComparisonPost {
+  const acf = (post.acf || {}) as WPAcfComparisonFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    comparisonSummary: acf.comparison_summary || '',
+    comparedEntities: mapRepeaterItems(acf.compared_entities),
+    decisionFactors: mapRepeaterItems(acf.decision_factors),
+    recommendedChoice: acf.recommended_choice || '',
+  }
+}
+
+export function adaptFrameworkPostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedFrameworkPost {
+  const acf = (post.acf || {}) as WPAcfFrameworkFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    frameworkName: acf.framework_name || '',
+    corePrinciples: mapRepeaterItems(acf.core_principles),
+    implementationSteps: mapRepeaterItems(acf.implementation_steps),
+    maturityModel: acf.maturity_model || '',
+  }
+}
+
+export function adaptCaseStudyPostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedCaseStudyPost {
+  const acf = (post.acf || {}) as WPAcfCaseStudyFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    clientName: acf.client_name || '',
+    industry: acf.industry || '',
+    challenge: acf.challenge || '',
+    solution: acf.solution || '',
+    outcomes: mapRepeaterItems(acf.outcomes),
+    metrics: (acf.metrics || [])
+      .map((metric) => ({
+        label: metric.label?.trim() || '',
+        value: metric.value?.trim() || '',
+      }))
+      .filter((metric) => metric.label || metric.value),
+  }
+}
+
+export function adaptResearchPostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedResearchPost {
+  const acf = (post.acf || {}) as WPAcfResearchFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    executiveSummary: acf.executive_summary || '',
+    methodology: acf.methodology || '',
+    keyFindings: mapRepeaterItems(acf.key_findings),
+    dataSources: mapRepeaterItems(acf.data_sources),
+    researchDate: acf.research_date || '',
+  }
+}
+
+export function adaptGuidePostData(post: WPPost, relatedPosts: WPPost[] = []): AdaptedGuidePost {
+  const acf = (post.acf || {}) as WPAcfGuideFields
+
+  return {
+    ...adaptArticleBase(post, relatedPosts),
+    guideSummary: acf.guide_summary || '',
+    prerequisites: mapRepeaterItems(acf.prerequisites),
+    stepSections: mapRepeaterItems(acf.step_sections),
+    faqItems: mapRepeaterItems(acf.faq_items),
+  }
 }
 
 function getPrimaryCategory(post: WPPost): string {

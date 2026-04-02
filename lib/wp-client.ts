@@ -1,3 +1,5 @@
+import type { WPAcfArticleFields } from '@/src/types/blog'
+
 /**
  * WordPress REST API v2 client (browser + server).
  * Uses NEXT_PUBLIC_WORDPRESS_API_URL (client) or WORDPRESS_API_URL (server).
@@ -12,39 +14,29 @@ export type WPTerm = {
   count?: number
 }
 
-/** WordPress REST user object when posts are fetched with `_embed=1` */
-export type WPEmbeddedAuthor = {
-  id?: number
+export type WPAuthor = {
   name?: string
-  slug?: string
   description?: string
-  avatar_urls?: Record<string, string | undefined>
+  avatar_urls?: Record<string, string>
 }
 
 export type WPPost = {
   id: number
   slug: string
+  date: string
   title: { rendered: string }
   excerpt: { rendered: string }
   content: { rendered: string }
-  date: string
   categories?: number[]
   tags?: number[]
-  author?: number
+  acf?: WPAcfArticleFields
   _embedded?: {
-    /** Embedded post authors (usually one) — requires `_embed=1` */
-    author?: WPEmbeddedAuthor[]
+    author?: WPAuthor[]
     'wp:featuredmedia'?: Array<{
       source_url?: string
       alt_text?: string
-      media_details?: { width?: number; height?: number }
     }>
-    /**
-     * Per-taxonomy term arrays, one sub-array per registered taxonomy.
-     * WP default order: [categories[], post_tags[], ...custom_taxs[]].
-     * Do NOT rely on positional index — use taxonomy field lookup.
-     */
-    'wp:term'?: WPTerm[][]
+    'wp:term'?: Array<Array<{ id?: number; name?: string; slug?: string }>>
   }
 }
 
@@ -73,17 +65,28 @@ function getBaseUrl(): string {
     typeof window !== 'undefined'
       ? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
       : process.env.WORDPRESS_API_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
-  const base = (raw ?? 'https://m.gtmstack.pro/wp-json/wp/v2')
+
+  let base = (raw ?? 'https://m.gtmstack.pro/wp-json/wp/v2')
     .replace(/\r/g, '')
     .trim()
     .replace(/\/+$/, '')
-  return base
+
+  if (!base.startsWith('http')) {
+    throw new Error('WORDPRESS_API_URL must start with http(s)')
+  }
+
+  if (base.endsWith('/wp-json/wp/v2')) {
+    return base
+  }
+  if (base.endsWith('/wp-json/wp')) {
+    return `${base}/v2`
+  }
+  if (base.endsWith('/wp-json')) {
+    return `${base}/wp/v2`
+  }
+  return `${base}/wp-json/wp/v2`
 }
 
-/**
- * GET /posts with optional search, categories, tags, pagination.
- * _embed=1 includes wp:featuredmedia and wp:term (categories + tags).
- */
 export async function fetchPosts(params: FetchPostsParams = {}): Promise<WPPost[]> {
   const { search, categoryIds, tagIds, page = 1, per_page = 10 } = params
   const url = new URL(`${getBaseUrl()}/posts`)
@@ -99,9 +102,6 @@ export async function fetchPosts(params: FetchPostsParams = {}): Promise<WPPost[
   return await parseJsonResponse<WPPost[]>(res, 'Failed to parse posts response')
 }
 
-/**
- * Fetch posts for index: returns list and total pages (from X-WP-TotalPages header).
- */
 export async function fetchPostsWithTotal(
   params: FetchPostsParams = {}
 ): Promise<{ posts: WPPost[]; totalPages: number }> {
@@ -133,17 +133,9 @@ export async function fetchPostBySlug(slug: string): Promise<WPPost | null> {
   const res = await fetch(url, { cache: 'no-store' })
   if (!res.ok) throw new Error(`Failed to fetch post: ${res.status}`)
   const posts = await parseJsonResponse<WPPost[]>(res, 'Failed to parse post response')
-  const post = posts[0] ?? null
-  if (post && typeof process !== 'undefined' && process.env?.NODE_ENV !== 'production') {
-    const contentLen = post.content?.rendered?.length ?? 0
-    const excerptLen = post.excerpt?.rendered?.length ?? 0
-    // eslint-disable-next-line no-console
-    console.log('[wp-client fetchPostBySlug]', { slug, contentLen, excerptLen })
-  }
-  return post
+  return posts[0] ?? null
 }
 
-/** GET /categories — for filter pills and slug→id mapping */
 export async function fetchCategories(): Promise<WPTerm[]> {
   const url = `${getBaseUrl()}/categories?per_page=100&orderby=count&order=desc`
   const res = await fetch(url, { cache: 'no-store' })
@@ -155,7 +147,6 @@ export async function fetchCategories(): Promise<WPTerm[]> {
   return data.map((c) => ({ id: c.id, name: c.name, slug: c.slug, taxonomy: 'category', count: c.count }))
 }
 
-/** GET /tags — for filter pills and slug→id mapping */
 export async function fetchTags(): Promise<WPTerm[]> {
   const url = `${getBaseUrl()}/tags?per_page=100&orderby=count&order=desc`
   const res = await fetch(url, { cache: 'no-store' })
@@ -167,52 +158,55 @@ export async function fetchTags(): Promise<WPTerm[]> {
   return data.map((t) => ({ id: t.id, name: t.name, slug: t.slug, taxonomy: 'post_tag', count: t.count }))
 }
 
-/** Get category terms for a post from _embedded['wp:term'].
- *  Matches by taxonomy === 'category' first; positional [0] as fallback.
- */
 export function getPostCategories(post: WPPost): WPTerm[] {
   const terms = post._embedded?.['wp:term']
-  if (!Array.isArray(terms)) return []
-  // Prefer taxonomy-field match (robust against custom taxonomy ordering)
-  const byField = terms.flat().filter((t) => t?.taxonomy === 'category')
-  if (byField.length > 0) return byField
-  // Positional fallback: WP default has categories at index 0
+  if (!terms || !Array.isArray(terms)) return []
   const first = terms[0]
-  return Array.isArray(first) ? first : []
+  if (!Array.isArray(first)) return []
+  return first
+    .filter((item): item is { id?: number; name?: string; slug?: string } => Boolean(item))
+    .map((item) => ({
+      id: item.id ?? 0,
+      name: item.name ?? '',
+      slug: item.slug ?? '',
+      taxonomy: 'category',
+    }))
+    .filter((item) => item.id > 0 || item.name.length > 0 || item.slug.length > 0)
 }
 
-/** Get tag terms for a post from _embedded['wp:term'].
- *  Matches by taxonomy === 'post_tag' first; positional [1] as fallback.
- */
 export function getPostTags(post: WPPost): WPTerm[] {
   const terms = post._embedded?.['wp:term']
-  if (!Array.isArray(terms)) return []
-  // Prefer taxonomy-field match (robust against custom taxonomy ordering)
-  const byField = terms.flat().filter((t) => t?.taxonomy === 'post_tag')
-  if (byField.length > 0) return byField
-  // Positional fallback: WP default has post_tag at index 1
-  if (terms.length < 2) return []
+  if (!terms || !Array.isArray(terms) || terms.length < 2) return []
   const second = terms[1]
-  return Array.isArray(second) ? second : []
+  if (!Array.isArray(second)) return []
+  return second
+    .filter((item): item is { id?: number; name?: string; slug?: string } => Boolean(item))
+    .map((item) => ({
+      id: item.id ?? 0,
+      name: item.name ?? '',
+      slug: item.slug ?? '',
+      taxonomy: 'post_tag',
+    }))
+    .filter((item) => item.id > 0 || item.name.length > 0 || item.slug.length > 0)
 }
 
-/** Author from `_embedded.author[0]` (requires `_embed=1` on post requests). */
-export function getEmbeddedAuthor(post: WPPost): WPEmbeddedAuthor | null {
-  const authors = post._embedded?.author
-  if (!Array.isArray(authors) || authors.length === 0) return null
-  return authors[0] ?? null
+export function getEmbeddedAuthor(post: WPPost): WPAuthor | null {
+  return post._embedded?.author?.[0] ?? null
 }
 
-/** Prefer 96px Gravatar; fallback to largest available. */
-export function getAuthorAvatarUrl(author: WPEmbeddedAuthor | null): string | undefined {
+export function getAuthorAvatarUrl(author: WPAuthor | null | undefined): string | undefined {
   if (!author?.avatar_urls) return undefined
-  const u = author.avatar_urls
-  return u['96'] ?? u['48'] ?? u['24'] ?? Object.values(u).find(Boolean)
+  return (
+    author.avatar_urls['96'] ||
+    author.avatar_urls['48'] ||
+    author.avatar_urls['24'] ||
+    Object.values(author.avatar_urls)[0]
+  )
 }
 
-/** Rough read time from HTML/plain text (~200 wpm). */
 export function estimateReadTimeMinutesFromHtml(html: string): number {
   const text = html.replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim()
-  const words = text.split(/\s+/).filter(Boolean).length
-  return Math.max(1, Math.ceil(words / 200))
+  if (!text) return 1
+  const words = text.split(' ').filter(Boolean).length
+  return Math.max(1, Math.ceil(words / 225))
 }
