@@ -17,7 +17,7 @@ export const EXPERTISE_MAIN_CONTENT = {
   ],
   hero: {
     badge: 'Built GTM Systems',
-    title: 'Systems I’ve built, tested, and documented across GTM',
+    title: "Systems I've built, tested, and documented across GTM",
     subtitle:
       'This page groups the work into four areas so you can quickly see the messaging, demand, strategy, and operations systems behind the portfolio and, if useful, compare them to your own GTM stack.',
     ctaPrimary: 'Browse the systems',
@@ -26,12 +26,12 @@ export const EXPERTISE_MAIN_CONTENT = {
   pillars: {
     title: 'Work Organized by System Area',
     subtitle:
-      'Each section points to systems, experiments, frameworks, and operating patterns I’ve built and used in practice.',
+      "Each section points to systems, experiments, frameworks, and operating patterns I've built and used in practice.",
     items: [
       {
         title: 'Content & Engagement',
         description:
-          'Messaging systems, content engines, and engagement workflows I’ve built and iterated.',
+          "Messaging systems, content engines, and engagement workflows I've built and iterated.",
         icon: 'campaign',
         color: 'text-[#2463eb]',
         bgStart: 'bg-[#2463eb]/10',
@@ -106,9 +106,9 @@ export const EXPERTISE_MAIN_CONTENT = {
     ],
   },
   ctaBand: {
-    title: 'Seen something that connects to work you\'re doing?',
+    title: "Seen something that connects to work you're doing?",
     subtitle:
-      ‘Browse the case studies and expertise pages first. If something overlaps with work you\’re running, feel free to reach out.’,
+      "Browse the case studies and expertise pages first. If something overlaps with work you're running, feel free to reach out.",
     ctaPrimary: 'Contact',
     ctaSecondary: 'See case studies',
   },
@@ -132,7 +132,7 @@ export const EXPERTISE_MAIN_CONTENT = {
         ],
       },
     ],
-    copyright: '© GTMStack.pro. All rights reserved.',
+    copyright: 'Copyright GTMStack.pro. All rights reserved.',
     tagline: 'Operator-built GTM portfolio, with room for the occasional GTM review.',
   },
 }
