@@ -20,7 +20,7 @@ export function StatRow({ stats, variant = 'default', className }: StatRowProps)
     return (
       <div className={cn('flex flex-wrap items-center gap-8 md:gap-12', className)}>
         {stats.map((stat, index) => (
-          <div key={index} className="flex items-baseline gap-2">
+          <div key={index} className="flex items-baseline gap-2 min-w-[100px]">
             <span className="text-3xl md:text-4xl font-bold text-brand-600">{stat.value}</span>
             <span className="text-sm text-slate-600">{stat.label}</span>
           </div>
@@ -33,7 +33,7 @@ export function StatRow({ stats, variant = 'default', className }: StatRowProps)
     return (
       <StaggerContainer
         className={cn(
-          'grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6',
+          'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6',
           className
         )}
       >
@@ -57,7 +57,7 @@ export function StatRow({ stats, variant = 'default', className }: StatRowProps)
   return (
     <StaggerContainer
       className={cn(
-        'grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12',
+        'grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-12',
         className
       )}
     >

@@ -88,7 +88,7 @@ export function Footer() {
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-600 transition-colors shadow-[0_10px_24px_rgba(15,23,42,0.5)]"
+                  className="w-11 h-11 rounded-xl bg-slate-900/80 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white hover:bg-slate-800 hover:border-slate-600 transition-colors shadow-[0_10px_24px_rgba(15,23,42,0.5)]"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -105,7 +105,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[13px] text-slate-400 hover:text-white transition-colors"
+                    className="block py-1.5 text-[13px] text-slate-400 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -122,7 +122,7 @@ export function Footer() {
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-[13px] text-slate-400 hover:text-white transition-colors"
+                    className="block py-1.5 text-[13px] text-slate-400 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -132,7 +132,7 @@ export function Footer() {
           </div>
 
           {/* Connect Links */}
-          <div>
+          <div className="col-span-2 sm:col-span-1">
             <h3 className="font-semibold text-white text-[13px] mb-4 tracking-[0.14em] uppercase">Connect</h3>
             <ul className="space-y-3">
               {footerLinks.connect.map((link) => (
@@ -142,7 +142,7 @@ export function Footer() {
                       href={link.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1 text-[13px] text-slate-400 hover:text-white transition-colors"
+                      className="inline-flex items-center gap-1 py-1.5 text-[13px] text-slate-400 hover:text-white transition-colors"
                     >
                       {link.label}
                       <ArrowUpRight className="w-3 h-3" />
@@ -165,7 +165,7 @@ export function Footer() {
       {/* Bottom Bar */}
       <div className="border-t border-slate-800">
         <div className="container-width py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-[13px] text-slate-500">
+          <p className="text-[13px] text-slate-500 text-center sm:text-left">
             © {new Date().getFullYear()} GTMStack.pro. All rights reserved.
           </p>
           <div className="flex items-center gap-6">

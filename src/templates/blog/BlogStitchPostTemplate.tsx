@@ -410,15 +410,15 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
 
           <aside className="hidden space-y-8 lg:col-span-4 lg:block">
             <div className="sticky top-28 space-y-8">
-              {sidebar.relatedInsights.length > 0 && (
-                <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-200/40">
-                  <div className="mb-4 flex items-center justify-between border-b border-slate-50 pb-3">
-                    <h4 className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                      <span className="h-2 w-2 animate-pulse rounded-full bg-[#0d5cab]" />
-                      Related Articles
-                    </h4>
-                    <span className="font-mono text-[9px] text-slate-300">v.2.4.0</span>
-                  </div>
+              <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-200/40">
+                <div className="mb-4 flex items-center justify-between border-b border-slate-50 pb-3">
+                  <h4 className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#0d5cab]" />
+                    Related Articles
+                  </h4>
+                  <span className="font-mono text-[9px] text-slate-300">v.2.4.0</span>
+                </div>
+                {sidebar.relatedInsights.length > 0 ? (
                   <div className="space-y-4">
                     {sidebar.relatedInsights.map((insight, idx) => (
                       <Link
@@ -433,8 +433,20 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                       </Link>
                     ))}
                   </div>
-                </div>
-              )}
+                ) : (
+                  <div className="rounded-2xl border border-dashed border-slate-200 bg-slate-50 px-4 py-5">
+                    <p className="text-sm leading-6 text-slate-500">
+                      More insights are on the way. Browse the latest writing from the journal.
+                    </p>
+                    <Link
+                      href="/blog"
+                      className="mt-4 inline-flex text-xs font-bold uppercase tracking-[0.18em] text-[#0d5cab] transition-colors hover:text-[#0a4b8b]"
+                    >
+                      View all insights
+                    </Link>
+                  </div>
+                )}
+              </div>
 
               {article.tags.length > 0 && (
                 <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-200/40">

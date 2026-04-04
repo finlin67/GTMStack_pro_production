@@ -66,10 +66,13 @@ function getBaseUrl(): string {
       ? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
       : process.env.WORDPRESS_API_URL ?? process.env.NEXT_PUBLIC_WORDPRESS_API_URL
 
-  let base = (raw ?? 'https://m.gtmstack.pro/wp-json/wp/v2')
-    .replace(/\r/g, '')
-    .trim()
-    .replace(/\/+$/, '')
+  if (!raw) {
+    throw new Error(
+      'WORDPRESS_API_URL is not configured. Set WORDPRESS_API_URL (server) or NEXT_PUBLIC_WORDPRESS_API_URL (client) in your environment.'
+    )
+  }
+
+  let base = raw.replace(/\r/g, '').trim().replace(/\/+$/, '')
 
   if (!base.startsWith('http')) {
     throw new Error('WORDPRESS_API_URL must start with http(s)')
@@ -97,8 +100,13 @@ export async function fetchPosts(params: FetchPostsParams = {}): Promise<WPPost[
   if (categoryIds?.length) url.searchParams.set('categories', categoryIds.join(','))
   if (tagIds?.length) url.searchParams.set('tags', tagIds.join(','))
 
-  const res = await fetch(url.toString(), { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`)
+  let res: Response
+  try {
+    res = await fetch(url.toString(), { cache: 'no-store' })
+  } catch (err) {
+    throw new Error(`WordPress fetch failed (network error): ${err instanceof Error ? err.message : String(err)}`)
+  }
+  if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status} ${res.statusText}`)
   return await parseJsonResponse<WPPost[]>(res, 'Failed to parse posts response')
 }
 
@@ -114,8 +122,13 @@ export async function fetchPostsWithTotal(
   if (categoryIds?.length) url.searchParams.set('categories', categoryIds.join(','))
   if (tagIds?.length) url.searchParams.set('tags', tagIds.join(','))
 
-  const res = await fetch(url.toString(), { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`)
+  let res: Response
+  try {
+    res = await fetch(url.toString(), { cache: 'no-store' })
+  } catch (err) {
+    throw new Error(`WordPress fetch failed (network error): ${err instanceof Error ? err.message : String(err)}`)
+  }
+  if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status} ${res.statusText}`)
   const posts = await parseJsonResponse<WPPost[]>(res, 'Failed to parse posts response')
   const totalPages = Math.max(1, parseInt(res.headers.get('X-WP-TotalPages') ?? '1', 10))
   return { posts, totalPages }
@@ -123,8 +136,13 @@ export async function fetchPostsWithTotal(
 
 export async function fetchLatestPosts(perPage = 6): Promise<WPPost[]> {
   const url = `${getBaseUrl()}/posts?per_page=${perPage}&_embed=1`
-  const res = await fetch(url, { cache: 'no-store' })
-  if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status}`)
+  let res: Response
+  try {
+    res = await fetch(url, { cache: 'no-store' })
+  } catch (err) {
+    throw new Error(`WordPress fetch failed (network error): ${err instanceof Error ? err.message : String(err)}`)
+  }
+  if (!res.ok) throw new Error(`Failed to fetch posts: ${res.status} ${res.statusText}`)
   return await parseJsonResponse<WPPost[]>(res, 'Failed to parse latest posts response')
 }
 

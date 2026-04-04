@@ -137,7 +137,7 @@ function HeroSection({ c, heroVisualId }: { c: HomeStitchContent; heroVisualId?:
             )}
           </div>
 
-          <h1 className="max-w-lg font-display text-4xl sm:text-5xl md:text-6xl lg:text-[3.25rem] xl:text-7xl font-black leading-[1.04] text-white tracking-tight">
+          <h1 className="max-w-lg font-display text-4xl sm:text-5xl md:text-6xl lg:text-6xl xl:text-7xl font-black leading-[1.04] text-white tracking-tight">
             {hero.titleLine1}{' '}
             <span
               style={{

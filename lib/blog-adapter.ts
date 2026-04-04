@@ -142,6 +142,17 @@ function stripHtml(html: string): string {
   return decodeHtmlEntities(html.replace(/<[^>]*>/g, '').trim())
 }
 
+function stripDisplayPrefix(value: string): string {
+  return value
+    .replace(/^(?:ACF|FIELD|META|WP)[A-Z0-9_\-\s]{0,40}:\s*/i, '')
+    .replace(/^[A-Z][A-Z0-9]*(?:_[A-Z0-9]+)+:\s*/, '')
+    .trim()
+}
+
+function cleanDisplayText(value?: string): string {
+  return stripDisplayPrefix(decodeHtmlEntities((value || '').trim()))
+}
+
 function decodeHtmlEntities(value: string): string {
   if (!value) return ''
 
@@ -186,12 +197,12 @@ function decodeHtmlEntities(value: string): string {
 
 function getArticleCategoryNames(post: WPPost): string[] {
   return getPostCategories(post)
-    .map((term) => term.name?.trim())
+    .map((term) => cleanDisplayText(term.name))
     .filter(Boolean) as string[]
 }
 
 function getArticleAuthorName(post: WPPost): string | undefined {
-  return getEmbeddedAuthor(post)?.name?.trim() || undefined
+  return cleanDisplayText(getEmbeddedAuthor(post)?.name) || undefined
 }
 
 function buildArticleRelatedArticles(post: WPPost, relatedPosts: WPPost[]): Array<{ title: string; url: string }> {
@@ -205,8 +216,8 @@ function buildArticleRelatedArticles(post: WPPost, relatedPosts: WPPost[]): Arra
 }
 
 function buildArticleSemanticTerms(post: WPPost): string[] {
-  const categoryNames = getPostCategories(post).map((term) => term.name?.trim() || '')
-  const tagNames = getPostTags(post).map((term) => term.name?.trim() || '')
+  const categoryNames = getPostCategories(post).map((term) => cleanDisplayText(term.name))
+  const tagNames = getPostTags(post).map((term) => cleanDisplayText(term.name))
 
   return Array.from(
     new Set(
@@ -219,13 +230,13 @@ function buildArticleSemanticTerms(post: WPPost): string[] {
 
 function mapRepeaterItems(rows?: WPAcfRepeaterItem[]): string[] {
   return (rows || [])
-    .map((row) => row?.item?.trim())
+    .map((row) => cleanDisplayText(row?.item))
     .filter(Boolean) as string[]
 }
 
 function mapTextItems(rows?: Array<{ text?: string }>): string[] {
   return (rows || [])
-    .map((row) => row?.text?.trim())
+    .map((row) => cleanDisplayText(row?.text))
     .filter(Boolean) as string[]
 }
 
@@ -239,7 +250,7 @@ function escapeHtml(value: string): string {
 }
 
 function normalizeRichText(value?: string): string {
-  const trimmed = value?.trim() || ''
+  const trimmed = stripDisplayPrefix(decodeHtmlEntities((value || '').trim()))
   if (!trimmed) return ''
 
   if (/<[a-z][\s\S]*>/i.test(trimmed)) {
@@ -257,7 +268,7 @@ function normalizeRichText(value?: string): string {
 function mapFaqItems(rows?: Array<{ question?: string; answer?: string }>): AdaptedModularFaqItem[] {
   return (rows || [])
     .map((row) => ({
-      question: row?.question?.trim() || '',
+      question: cleanDisplayText(row?.question),
       answer: normalizeRichText(row?.answer),
     }))
     .filter((row) => row.question && row.answer)
@@ -277,14 +288,14 @@ function mapModularSections(rows?: WPAcfModularSection[]): AdaptedModularArticle
       const type = normalizeModularSectionType(section?.type)
       return {
         type,
-        heading: section?.heading?.trim() || '',
+        heading: cleanDisplayText(section?.heading),
         body: normalizeRichText(section?.body),
-        style: section?.style?.trim() || '',
+        style: cleanDisplayText(section?.style).toLowerCase(),
         items: type === 'checklist' ? mapTextItems(section?.items) : [],
         imageUrl: section?.image_url?.trim() || '',
-        imageAlt: section?.image_alt?.trim() || '',
-        imageCaption: section?.image_caption?.trim() || '',
-        imagePrompt: section?.image_prompt?.trim() || '',
+        imageAlt: cleanDisplayText(section?.image_alt),
+        imageCaption: cleanDisplayText(section?.image_caption),
+        imagePrompt: cleanDisplayText(section?.image_prompt),
       }
     })
     .filter((section) => {
@@ -324,13 +335,13 @@ function adaptArticleBase(post: WPPost, relatedPosts: WPPost[] = []): AdaptedArt
       buttonLabel: 'Launch Terminal',
       buttonUrl: '/contact',
     },
-    heroKicker: acf.hero_kicker || '',
-    dek: acf.dek || '',
-    featuredQuote: acf.featured_quote || '',
-    quoteSource: acf.quote_source || '',
-    ctaHeadline: acf.cta_headline || '',
+    heroKicker: cleanDisplayText(acf.hero_kicker),
+    dek: cleanDisplayText(acf.dek),
+    featuredQuote: cleanDisplayText(acf.featured_quote),
+    quoteSource: cleanDisplayText(acf.quote_source),
+    ctaHeadline: cleanDisplayText(acf.cta_headline),
     ctaBody: acf.cta_body || '',
-    ctaButtonLabel: acf.cta_button_label || '',
+    ctaButtonLabel: cleanDisplayText(acf.cta_button_label),
     ctaButtonUrl: acf.cta_button_url || '',
     authorNote: acf.author_note || '',
   }
@@ -428,7 +439,7 @@ export function adaptGuidePostData(post: WPPost, relatedPosts: WPPost[] = []): A
 
 function getPrimaryCategory(post: WPPost): string {
   const cats = getPostCategories(post)
-  return cats[0]?.name?.trim() || 'General'
+  return cleanDisplayText(cats[0]?.name) || 'General'
 }
 
 function getPrimaryCategorySlug(post: WPPost): string | undefined {
@@ -470,7 +481,7 @@ export function adaptBlogFeedData(props: BlogFeedAdapterProps): AdaptedBlogFeedC
     borderColor: BORDER_COLORS[idx % BORDER_COLORS.length],
   }))
 
-  const categoryNames = categories.map((c) => c.name)
+  const categoryNames = categories.map((c) => cleanDisplayText(c.name))
 
   return {
     nav: {
@@ -861,7 +872,7 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
   const primaryCategory = getPrimaryCategory(post)
   const catSlug = getPrimaryCategorySlug(post)
   const tagTerms = getPostTags(post)
-  const tags = tagTerms.map((t) => t.name).filter(Boolean)
+  const tags = tagTerms.map((t) => cleanDisplayText(t.name)).filter(Boolean)
 
   const featuredMedia = post._embedded?.['wp:featuredmedia']?.[0]
   const featuredFromHelper = getFeaturedImageUrl(post)
@@ -871,7 +882,7 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
 
   const embedded = getEmbeddedAuthor(post)
   const avatarUrl = getAuthorAvatarUrl(embedded)
-  const authorName = embedded?.name?.trim() || 'Editorial'
+  const authorName = cleanDisplayText(embedded?.name) || 'Editorial'
   const authorBio = embedded?.description
     ? stripHtml(embedded.description).slice(0, 280)
     : 'GTM and revenue operations insights from the GTMStack team.'
@@ -884,9 +895,9 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
   const cta =
     acf.cta_headline?.trim() || acf.cta_body?.trim() || acf.cta_button_label?.trim() || acf.cta_button_url?.trim()
       ? {
-          headline: acf.cta_headline?.trim() || '',
+          headline: cleanDisplayText(acf.cta_headline),
           body: normalizeRichText(acf.cta_body),
-          buttonLabel: acf.cta_button_label?.trim() || 'Learn More',
+          buttonLabel: cleanDisplayText(acf.cta_button_label) || 'Learn More',
           buttonUrl: acf.cta_button_url?.trim() || '/contact',
         }
       : null
@@ -963,10 +974,10 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
       modularSections,
       faqItems,
       cta,
-      featuredQuote: acf.featured_quote?.trim() || '',
-      quoteSource: acf.quote_source?.trim() || '',
-      heroKicker: acf.hero_kicker?.trim() || '',
-      dek: acf.dek?.trim() || '',
+      featuredQuote: cleanDisplayText(acf.featured_quote),
+      quoteSource: cleanDisplayText(acf.quote_source),
+      heroKicker: cleanDisplayText(acf.hero_kicker),
+      dek: cleanDisplayText(acf.dek),
       authorNote: normalizeRichText(acf.author_note),
     },
     sidebar: {

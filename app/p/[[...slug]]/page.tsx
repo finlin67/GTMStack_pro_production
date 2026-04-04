@@ -40,6 +40,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return {
     title: page.pageTitle,
+    robots: { index: false, follow: false },
   }
 }
 

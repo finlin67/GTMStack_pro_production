@@ -1,24 +1,10 @@
 import type { Metadata } from 'next'
 import { GeistSans } from 'geist/font/sans'
 import { GeistMono } from 'geist/font/mono'
-import { Inter, Montserrat, Outfit, Rubik } from 'next/font/google'
+import { Inter, Outfit } from 'next/font/google'
 import Navbar from '@/components/layout/Navbar'
 import { Footer } from '@/components/layout/Footer'
 import './globals.css'
-
-/** Industry stitch template (IndustrySingleStitchLayout) — loaded once, self-hosted via next/font */
-const stitchMontserrat = Montserrat({
-  subsets: ['latin'],
-  weight: ['600', '700', '800'],
-  variable: '--font-stitch-montserrat',
-  display: 'swap',
-})
-const stitchRubik = Rubik({
-  subsets: ['latin'],
-  weight: ['400', '500', '600'],
-  variable: '--font-stitch-rubik',
-  display: 'swap',
-})
 
 /** Site UI/body + navigation */
 const inter = Inter({
@@ -35,6 +21,7 @@ const outfit = Outfit({
 })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://gtmstack.pro'),
   icons: {
     icon: '/gtmstack-logo.png',
   },
@@ -61,12 +48,14 @@ export const metadata: Metadata = {
     title: 'GTMStack.pro | Operator-built GTM portfolio',
     description:
       'A live GTM portfolio with case studies, systems thinking, and measurable work across complex B2B teams.',
+    images: [{ url: '/og-default.png', width: 1200, height: 630, alt: 'GTMStack.pro' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'GTMStack.pro | Operator-built GTM portfolio',
     description:
       'A live GTM portfolio with case studies, systems thinking, and measurable work across complex B2B teams.',
+    images: ['/og-default.png'],
   },
   robots: {
     index: true,
@@ -82,7 +71,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${outfit.variable} ${stitchMontserrat.variable} ${stitchRubik.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${outfit.variable}`}
     >
       <body className="min-h-screen flex flex-col font-sans antialiased">
         <a href="#main-content" className="skip-link">

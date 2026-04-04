@@ -1,19 +1,15 @@
 'use client'
 
-import React, { useEffect, useState, useRef, useCallback, useMemo } from 'react'
+import React, { useEffect, useMemo, useState } from 'react'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import { ArrowLeft } from 'lucide-react'
-import { fetchPostBySlug, fetchPosts, WPPost, getPostCategories } from '@/lib/wp-client'
+import { fetchPostBySlug, fetchPosts, WPPost } from '@/lib/wp-client'
 import { sanitizeHtml } from '@/lib/sanitize-html'
 import BlogStitchPostTemplate from '@/src/templates/blog/BlogStitchPostTemplate'
 import HowToPostTemplate from '@/src/templates/blog/HowToPostTemplate'
 import InsightPostTemplate from '@/src/templates/blog/InsightPostTemplate'
 import { adaptBlogSinglePostData, adaptHowToPostData, adaptInsightPostData } from '@/lib/blog-adapter'
-
-function stripHtml(html: string) {
-  return html.replace(/<[^>]*>/g, '').trim()
-}
 
 export default function BlogPostClient() {
   const searchParams = useSearchParams()
@@ -43,17 +39,39 @@ export default function BlogPostClient() {
         if (!postData) {
           setError('Post not found')
         } else {
-          // Related posts by same category (WP taxonomy); fallback to latest if no categories
-          const categoryIds = postData.categories?.length
-            ? postData.categories
-            : undefined
-          const relatedResult = await fetchPosts({
-            categoryIds,
-            per_page: 5,
-          })
-          const related = relatedResult
-            .filter((p) => p.id !== postData.id)
-            .slice(0, 4)
+          const relatedMap = new Map<number, WPPost>()
+          const pushRelated = (items: WPPost[]) => {
+            for (const item of items) {
+              if (item.id === postData.id || relatedMap.has(item.id)) continue
+              relatedMap.set(item.id, item)
+              if (relatedMap.size >= 4) break
+            }
+          }
+
+          if (postData.categories?.length) {
+            const byCategory = await fetchPosts({
+              categoryIds: postData.categories,
+              per_page: 6,
+            })
+            pushRelated(byCategory)
+          }
+
+          if (relatedMap.size < 4 && postData.tags?.length) {
+            const byTag = await fetchPosts({
+              tagIds: postData.tags,
+              per_page: 6,
+            })
+            pushRelated(byTag)
+          }
+
+          if (relatedMap.size < 4) {
+            const latest = await fetchPosts({
+              per_page: 8,
+            })
+            pushRelated(latest)
+          }
+
+          const related = Array.from(relatedMap.values()).slice(0, 4)
           setRelatedPosts(related)
         }
       } catch (e: unknown) {

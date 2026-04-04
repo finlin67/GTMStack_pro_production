@@ -29,43 +29,35 @@ export default function MegaMenu({ id, labelledBy }: MegaMenuProps) {
   return (
     <div
       id={id}
-      className="rounded-2xl border border-slate-700/70 bg-slate-950/95 backdrop-blur-2xl shadow-[0_35px_100px_rgba(15,23,42,0.85)]"
+      className="rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
       onClick={handleClick}
       role="region"
       aria-label={labelledBy ? undefined : "Expertise: pillars and topics"}
       aria-labelledby={labelledBy}
     >
-      <div className="px-7 pt-6 pb-0 md:px-7 md:pt-7 md:pb-0">
-        <p className="max-w-3xl text-[13px] leading-relaxed text-slate-300">
-          This is how the GTM model is organized—pillars you can read as a map, with topics underneath each. Not a list of services.
-        </p>
-      </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-7 p-7 pt-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 p-6">
         {PILLARS.map((pillar) => {
           const Icon = getIcon(pillar.icon)
           const items = getExpertiseByPillar(pillar.id)
           return (
-            <div key={pillar.title} className="space-y-3.5">
-              <div className="space-y-1.5">
-                <Link href={pillar.href} className="flex items-center gap-3 text-[13px] font-semibold text-slate-50">
-                  <span className="h-9 w-9 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center shadow-[0_0_24px_rgba(59,130,246,0.25)]">
-                    {Icon && <Icon className="h-4 w-4 text-brand-200" aria-hidden="true" />}
+            <div key={pillar.title} className="space-y-3">
+              <div>
+                <Link href={pillar.href} className="flex items-center gap-2.5 text-[13px] font-semibold text-slate-50 hover:text-white transition-colors group">
+                  <span className="h-8 w-8 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center group-hover:bg-white/10 transition-colors">
+                    {Icon && <Icon className="h-3.5 w-3.5 text-brand-300" aria-hidden="true" />}
                   </span>
                   {pillar.title}
                 </Link>
-                <p className="text-[12px] leading-relaxed text-slate-400">
-                  {pillar.description}
-                </p>
               </div>
-              <div className="h-px w-full bg-white/5" />
-              <ul className="grid grid-cols-1 gap-1.5">
+              <div className="h-px w-full bg-white/[0.06]" />
+              <ul className="space-y-0.5">
                 {items.map((item, index) => (
                   <li key={`${item.slug}-${index}`}>
                     <Link
                       href={`/expertise/${item.slug}`}
-                      className="flex items-center gap-2 text-[13px] text-slate-300 hover:text-white hover:translate-x-0.5 transition-transform"
+                      className="flex items-center gap-2 px-1 py-1 rounded-lg text-[13px] text-slate-400 hover:text-white hover:bg-white/[0.04] transition-colors"
                     >
-                      <span className="h-1.5 w-1.5 rounded-full bg-slate-600" />
+                      <span className="h-1 w-1 rounded-full bg-slate-600 shrink-0" />
                       <span>{item.title}</span>
                     </Link>
                   </li>
@@ -75,28 +67,14 @@ export default function MegaMenu({ id, labelledBy }: MegaMenuProps) {
           )
         })}
       </div>
-      <div className="border-t border-white/10 px-7 py-4 space-y-3">
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-          <p className="text-[12px] text-slate-400">Browse the full index if you want every topic in one place.</p>
-          <Link
-            href="/expertise"
-            className="text-[13px] text-brand-300 hover:text-white inline-flex items-center gap-1 shrink-0 sm:ml-auto"
-          >
-            Browse full Expertise index <ArrowRight className="h-4 w-4" />
-          </Link>
-        </div>
-        <div className="flex flex-wrap items-center gap-x-4 gap-y-1.5 pt-1 border-t border-white/5">
-          <span className="text-[11px] uppercase tracking-[0.18em] text-slate-500">See also</span>
-          <Link href="/case-studies" className="text-[12px] text-slate-400 hover:text-brand-200 transition-colors">
-            Case Studies
-          </Link>
-          <Link href="/industries" className="text-[12px] text-slate-400 hover:text-brand-200 transition-colors">
-            Industries
-          </Link>
-          <Link href="/blog" className="text-[12px] text-slate-400 hover:text-brand-200 transition-colors">
-            Blog
-          </Link>
-        </div>
+      <div className="border-t border-white/[0.06] px-6 py-3 flex items-center justify-between">
+        <Link
+          href="/expertise"
+          className="text-[13px] text-slate-300 hover:text-white inline-flex items-center gap-1.5 transition-colors group"
+        >
+          Browse full index
+          <ArrowRight className="h-3.5 w-3.5 text-slate-500 group-hover:text-white group-hover:translate-x-0.5 transition-all" />
+        </Link>
       </div>
     </div>
   )

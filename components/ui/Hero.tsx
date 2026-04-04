@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { ArrowRight } from 'lucide-react'
-import { StaggerContainer, StaggerItem } from '@/components/motion/FadeIn'
+import { StaggerContainer, StaggerItem } from '@/components/motion/FadeIn.client'
 import { cn } from '@/lib/utils'
 
 interface HeroProps {

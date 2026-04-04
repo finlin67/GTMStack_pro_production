@@ -2,6 +2,7 @@
  * Blog index — server-rendered with WP taxonomy filters and search.
  * WP setup: create categories in WordPress (Posts → Categories) and assign to posts so filter pills and _embed=wp:term work.
  */
+import type { Metadata } from 'next'
 import { Suspense } from 'react'
 import BlogIndexClient from './BlogIndexClient'
 import {
@@ -13,6 +14,17 @@ import {
 const POSTS_PER_PAGE = 9
 
 export const revalidate = 60
+
+export const metadata: Metadata = {
+  title: 'Blog',
+  description:
+    'Field notes on B2B go-to-market: demand generation, marketing operations, revenue systems, ABM, and practitioner-level GTM thinking.',
+  openGraph: {
+    title: 'GTM Blog | GTMStack.pro',
+    description:
+      'Field notes on B2B go-to-market: demand generation, marketing operations, revenue systems, ABM, and practitioner-level GTM thinking.',
+  },
+}
 
 export default async function BlogPage() {
   // Static export: do not read searchParams here so /blog can be prerendered.

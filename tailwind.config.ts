@@ -143,9 +143,9 @@ const config: Config = {
       },
       // Design System: Typography Scale
       fontFamily: {
-        sans: ['var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-inter)', 'var(--font-geist-sans)', 'system-ui', 'sans-serif'],
         mono: ['var(--font-geist-mono)', 'monospace'],
-        display: ['var(--font-cabinet)', 'var(--font-geist-sans)', 'system-ui', 'sans-serif'],
+        display: ['var(--font-outfit)', 'var(--font-geist-sans)', 'system-ui', 'sans-serif'],
       },
       fontSize: {
         // Fluid type scale

@@ -13,12 +13,12 @@ import { caseStudyItems, getFeaturedCaseStudies } from "@/src/data/caseStudies"
 
 type IndustryIcon = typeof Cloud
 
-/** Desktop mega triggers — Inter, cyan underline, calm focus ring */
+/** Desktop mega triggers */
 const navTriggerClasses =
-  "inline-flex items-center gap-1 text-sm font-medium tracking-tight text-slate-300 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md px-2.5 py-1.5 relative after:absolute after:left-2.5 after:-bottom-px after:h-px after:w-0 after:bg-cyan-400/65 after:transition-[width] after:duration-200 after:ease-out hover:after:w-[calc(100%-1.25rem)]"
+  "inline-flex items-center gap-1.5 text-sm font-medium tracking-tight text-slate-300 hover:text-white hover:bg-white/[0.06] data-[open=true]:text-white data-[open=true]:bg-white/[0.06] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-lg px-3 py-1.5"
 
 const navAboutClasses =
-  "relative text-sm font-medium tracking-tight text-slate-400 hover:text-white transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-md px-2.5 py-1.5 after:absolute after:left-2.5 after:-bottom-px after:h-px after:w-0 after:bg-cyan-400/50 after:transition-[width] after:duration-200 after:ease-out hover:after:w-[calc(100%-1.25rem)]"
+  "text-sm font-medium tracking-tight text-slate-300 hover:text-white hover:bg-white/[0.06] transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cyan-500/40 focus-visible:ring-offset-2 focus-visible:ring-offset-slate-950 rounded-lg px-3 py-1.5"
 
 const NAV_IDS = {
   expertise: { panel: "nav-panel-expertise", button: "nav-button-expertise" },
@@ -310,7 +310,7 @@ export default function Navbar() {
               className="h-12 w-auto sm:h-14 md:h-16 lg:h-[4.5rem] max-w-[min(100%,calc(100vw-6.5rem))] sm:max-w-[min(480px,calc(100vw-8rem))] object-contain object-left"
             />
             <div className="hidden sm:flex flex-col justify-center leading-tight border-l border-white/10 pl-2.5 md:pl-4 min-h-[2.5rem] md:min-h-[3rem]">
-              <span className="font-display text-[10px] md:text-[11px] font-medium text-slate-400/95 tracking-[0.07em] uppercase">
+              <span className="font-display text-[11px] md:text-xs font-medium text-slate-400/95 tracking-[0.07em] uppercase">
                 Operator-built GTM portfolio
               </span>
             </div>
@@ -342,7 +342,8 @@ export default function Navbar() {
                 }}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
-                className={`${navTriggerClasses} ${safeOpen ? "text-white" : ""}`}
+                className={navTriggerClasses}
+                data-open={safeOpen}
                 aria-expanded={safeOpen}
                 aria-haspopup="true"
                 aria-controls={safeOpen ? NAV_IDS.expertise.panel : undefined}
@@ -363,7 +364,8 @@ export default function Navbar() {
                 }}
                 onMouseEnter={handleIndustriesMouseEnter}
                 onMouseLeave={handleIndustriesMouseLeave}
-                className={`${navTriggerClasses} ${safeIndustriesOpen ? "text-white" : ""}`}
+                className={navTriggerClasses}
+                data-open={safeIndustriesOpen}
                 aria-expanded={safeIndustriesOpen}
                 aria-haspopup="true"
                 aria-label="Industries: where the model meets real markets"
@@ -395,7 +397,8 @@ export default function Navbar() {
                 }}
                 onMouseEnter={handleCaseStudiesMouseEnter}
                 onMouseLeave={handleCaseStudiesMouseLeave}
-                className={`${navTriggerClasses} ${safeCaseStudiesOpen ? "text-white" : ""}`}
+                className={navTriggerClasses}
+                data-open={safeCaseStudiesOpen}
                 aria-expanded={safeCaseStudiesOpen}
                 aria-haspopup="true"
                 aria-controls={safeCaseStudiesOpen ? NAV_IDS.caseStudies.panel : undefined}
@@ -428,7 +431,8 @@ export default function Navbar() {
                 }}
                 onMouseEnter={handleBlogMouseEnter}
                 onMouseLeave={handleBlogMouseLeave}
-                className={`${navTriggerClasses} ${safeBlogOpen ? "text-white" : ""}`}
+                className={navTriggerClasses}
+                data-open={safeBlogOpen}
                 aria-expanded={safeBlogOpen}
                 aria-haspopup="true"
                 aria-controls={safeBlogOpen ? NAV_IDS.blog.panel : undefined}
@@ -454,7 +458,7 @@ export default function Navbar() {
             id="nav-mobile-menu-button"
             type="button"
             onClick={() => hydrated && setMobileOpen(!mobileOpen)}
-            className="md:hidden rounded-lg p-2 text-slate-300 transition-colors hover:bg-white/[0.06] hover:text-white"
+            className="md:hidden rounded-lg p-2.5 text-slate-300 transition-colors hover:bg-white/[0.06] hover:text-white"
             aria-label={safeMobileOpen ? "Close menu" : "Open menu"}
             aria-expanded={safeMobileOpen}
             aria-controls="mobile-primary-nav"
@@ -490,64 +494,40 @@ export default function Navbar() {
           onMouseLeave={handleIndustriesMouseLeave}
           style={{ left: industriesLeft }}
         >
-          <div className="container-width">
-            <div className="max-w-md">
-              <div
-                id={NAV_IDS.industries.panel}
-                role="region"
-                aria-labelledby={NAV_IDS.industries.button}
-                className="overflow-hidden rounded-2xl border border-white/10 bg-slate-950/95 shadow-[0_30px_80px_rgba(15,23,42,0.8)] backdrop-blur-2xl"
-              >
-                <div className="p-3">
-                  <div className="mb-1 text-[11px] uppercase tracking-[0.24em] text-slate-400">Featured industries</div>
-                  <p className="mb-3 pr-1 text-[12px] leading-snug text-slate-400">
-                    How the GTM model shows up in real markets—not a service list.
-                  </p>
-                  <div className="divide-y divide-white/5">
-                    {featuredIndustries.map((industry) => {
-                      const Icon = industry.icon ? industryIconMap[industry.icon] ?? Cloud : Cloud
-                      return (
-                        <Link
-                          key={industry.slug}
-                          href={`/industries/${industry.slug}`}
-                          className="flex items-center gap-3 py-2.5 px-2 rounded-xl hover:bg-white/5 transition-colors"
-                        >
-                          <div className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/10 bg-white/[0.04] text-cyan-300/90">
-                            <Icon className="h-4 w-4" aria-hidden="true" />
-                          </div>
-                          <div className="flex-1">
-                            <p className="text-[13px] font-semibold text-white">{industry.title}</p>
-                            <p className="text-[11px] text-slate-400 line-clamp-1">{industry.description}</p>
-                          </div>
-                        </Link>
-                      )
-                    })}
-                  </div>
-                </div>
-                <div className="border-t border-white/10 bg-slate-900/80 px-3 py-2.5">
-                  <p className="mb-2 text-[11px] uppercase tracking-[0.18em] text-slate-400">Also explore</p>
-                  <div className="flex flex-wrap gap-x-4 gap-y-1.5 text-[12px]">
-                    <Link href="/expertise" className="text-slate-400 transition-colors hover:text-cyan-200/90">
-                      Expertise
-                    </Link>
-                    <Link href="/case-studies" className="text-slate-400 transition-colors hover:text-cyan-200/90">
-                      Case Studies
-                    </Link>
-                    <Link href="/blog" className="text-slate-400 transition-colors hover:text-cyan-200/90">
-                      Blog
-                    </Link>
-                  </div>
-                </div>
-                <div className="border-t border-white/10 bg-slate-900/80">
+          <div
+            id={NAV_IDS.industries.panel}
+            role="region"
+            aria-labelledby={NAV_IDS.industries.button}
+            className="w-64 overflow-hidden rounded-2xl border border-white/10 bg-slate-900/95 shadow-[0_20px_60px_rgba(0,0,0,0.5)] backdrop-blur-2xl"
+          >
+            <div className="px-4 pt-4 pb-3 border-b border-white/[0.06]">
+              <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">Industries</p>
+            </div>
+            <div className="p-2 space-y-0.5">
+              {featuredIndustries.map((industry) => {
+                const Icon = industry.icon ? industryIconMap[industry.icon] ?? Cloud : Cloud
+                return (
                   <Link
-                    href="/industries"
-                    className="flex items-center justify-between gap-2 px-3 py-3 text-sm font-medium text-cyan-200/90 transition-colors hover:text-white"
+                    key={industry.slug}
+                    href={`/industries/${industry.slug}`}
+                    className="flex items-center gap-3 py-2 px-3 rounded-xl hover:bg-white/[0.05] transition-colors group"
                   >
-                    View all industries
-                    <ChevronDown className="h-4 w-4 -rotate-90" />
+                    <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-white/[0.04] text-cyan-300/80 group-hover:bg-white/10 transition-colors">
+                      <Icon className="h-3.5 w-3.5" aria-hidden="true" />
+                    </div>
+                    <p className="text-[13px] text-slate-300 group-hover:text-white transition-colors">{industry.title}</p>
                   </Link>
-                </div>
-              </div>
+                )
+              })}
+            </div>
+            <div className="border-t border-white/[0.06] px-4 py-3">
+              <Link
+                href="/industries"
+                className="flex items-center justify-between text-[13px] font-medium text-slate-300 hover:text-white transition-colors group"
+              >
+                All industries
+                <ChevronDown className="h-4 w-4 -rotate-90 text-slate-500 group-hover:text-white transition-colors" />
+              </Link>
             </div>
           </div>
         </div>
@@ -562,13 +542,11 @@ export default function Navbar() {
           onMouseLeave={handleCaseStudiesMouseLeave}
           style={{ left: caseStudiesLeft }}
         >
-          <div className="container-width">
-            <CaseStudiesNavPanel
-              items={featuredCaseStudyNav}
-              id={NAV_IDS.caseStudies.panel}
-              labelledBy={NAV_IDS.caseStudies.button}
-            />
-          </div>
+          <CaseStudiesNavPanel
+            items={featuredCaseStudyNav}
+            id={NAV_IDS.caseStudies.panel}
+            labelledBy={NAV_IDS.caseStudies.button}
+          />
         </div>
       )}
 
@@ -581,9 +559,7 @@ export default function Navbar() {
           onMouseLeave={handleBlogMouseLeave}
           style={{ left: blogLeft }}
         >
-          <div className="container-width">
-            <BlogNavPanel id={NAV_IDS.blog.panel} labelledBy={NAV_IDS.blog.button} />
-          </div>
+          <BlogNavPanel id={NAV_IDS.blog.panel} labelledBy={NAV_IDS.blog.button} />
         </div>
       )}
     </header>
