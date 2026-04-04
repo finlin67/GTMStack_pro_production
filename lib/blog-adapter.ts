@@ -19,6 +19,8 @@ import type {
   AdaptedGuidePost,
   AdaptedHowToPost,
   AdaptedInsightPost,
+  AdaptedModularArticleSection,
+  AdaptedModularFaqItem,
   AdaptedResearchPost,
   WPAcfCaseStudyFields,
   WPAcfComparisonFields,
@@ -26,6 +28,8 @@ import type {
   WPAcfGuideFields,
   WPAcfHowToFields,
   WPAcfInsightFields,
+  WPAcfModularArticleFields,
+  WPAcfModularSection,
   WPAcfRepeaterItem,
   WPAcfResearchFields,
 } from '@/src/types/blog'
@@ -135,7 +139,49 @@ const GRAPHIC_LABELS = [
 ]
 
 function stripHtml(html: string): string {
-  return html.replace(/<[^>]*>/g, '').trim()
+  return decodeHtmlEntities(html.replace(/<[^>]*>/g, '').trim())
+}
+
+function decodeHtmlEntities(value: string): string {
+  if (!value) return ''
+
+  const namedEntities: Record<string, string> = {
+    amp: '&',
+    lt: '<',
+    gt: '>',
+    quot: '"',
+    apos: "'",
+    nbsp: ' ',
+    rsquo: "'",
+    lsquo: "'",
+    rdquo: '"',
+    ldquo: '"',
+    hellip: '...',
+    ndash: '-',
+    mdash: '-',
+  }
+
+  return value.replace(/&(#x?[0-9a-f]+|\w+);/gi, (match, entity: string) => {
+    const normalized = entity.toLowerCase()
+
+    if (normalized[0] === '#') {
+      const isHex = normalized[1] === 'x'
+      const raw = isHex ? normalized.slice(2) : normalized.slice(1)
+      const codePoint = Number.parseInt(raw, isHex ? 16 : 10)
+
+      if (Number.isFinite(codePoint)) {
+        try {
+          return String.fromCodePoint(codePoint)
+        } catch {
+          return match
+        }
+      }
+
+      return match
+    }
+
+    return namedEntities[normalized] ?? match
+  })
 }
 
 function getArticleCategoryNames(post: WPPost): string[] {
@@ -175,6 +221,85 @@ function mapRepeaterItems(rows?: WPAcfRepeaterItem[]): string[] {
   return (rows || [])
     .map((row) => row?.item?.trim())
     .filter(Boolean) as string[]
+}
+
+function mapTextItems(rows?: Array<{ text?: string }>): string[] {
+  return (rows || [])
+    .map((row) => row?.text?.trim())
+    .filter(Boolean) as string[]
+}
+
+function escapeHtml(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
+
+function normalizeRichText(value?: string): string {
+  const trimmed = value?.trim() || ''
+  if (!trimmed) return ''
+
+  if (/<[a-z][\s\S]*>/i.test(trimmed)) {
+    return trimmed
+  }
+
+  return trimmed
+    .split(/\n{2,}/)
+    .map((paragraph) => paragraph.trim())
+    .filter(Boolean)
+    .map((paragraph) => `<p>${escapeHtml(paragraph).replace(/\n/g, '<br />')}</p>`)
+    .join('')
+}
+
+function mapFaqItems(rows?: Array<{ question?: string; answer?: string }>): AdaptedModularFaqItem[] {
+  return (rows || [])
+    .map((row) => ({
+      question: row?.question?.trim() || '',
+      answer: normalizeRichText(row?.answer),
+    }))
+    .filter((row) => row.question && row.answer)
+}
+
+function normalizeModularSectionType(rawType?: string): AdaptedModularArticleSection['type'] {
+  const normalized = (rawType || '').trim().toLowerCase().replace(/[\s_-]+/g, '_')
+  if (normalized === 'callout' || normalized === 'colored_callout') return 'callout'
+  if (normalized === 'checklist' || normalized === 'list' || normalized === 'bullet_list') return 'checklist'
+  if (normalized === 'image' || normalized === 'image_block') return 'image'
+  return 'text'
+}
+
+function mapModularSections(rows?: WPAcfModularSection[]): AdaptedModularArticleSection[] {
+  return (rows || [])
+    .map((section) => {
+      const type = normalizeModularSectionType(section?.type)
+      return {
+        type,
+        heading: section?.heading?.trim() || '',
+        body: normalizeRichText(section?.body),
+        style: section?.style?.trim() || '',
+        items: type === 'checklist' ? mapTextItems(section?.items) : [],
+        imageUrl: section?.image_url?.trim() || '',
+        imageAlt: section?.image_alt?.trim() || '',
+        imageCaption: section?.image_caption?.trim() || '',
+        imagePrompt: section?.image_prompt?.trim() || '',
+      }
+    })
+    .filter((section) => {
+      if (section.type === 'checklist') return Boolean(section.heading || section.body || section.items.length)
+      if (section.type === 'image') {
+        return Boolean(
+          section.heading ||
+          section.body ||
+          section.imageUrl ||
+          section.imageCaption ||
+          section.imagePrompt
+        )
+      }
+      return Boolean(section.heading || section.body)
+    })
 }
 
 function adaptArticleBase(post: WPPost, relatedPosts: WPPost[] = []): AdaptedArticleBase {
@@ -683,7 +808,9 @@ export interface AdaptedBlogSinglePostContent {
     readingTime: string
   }
   article: {
+    layoutType?: string
     featuredImage: { src: string; alt: string }
+    showFeaturedImage?: boolean
     intro: string
     sections: Array<{
       title?: string
@@ -692,6 +819,19 @@ export interface AdaptedBlogSinglePostContent {
       items?: Array<{ title: string; description: string }>
     }>
     tags: string[]
+    modularSections?: AdaptedModularArticleSection[]
+    faqItems?: AdaptedModularFaqItem[]
+    cta?: {
+      headline: string
+      body: string
+      buttonLabel: string
+      buttonUrl: string
+    } | null
+    featuredQuote?: string
+    quoteSource?: string
+    heroKicker?: string
+    dek?: string
+    authorNote?: string
   }
   sidebar: {
     relatedInsights: Array<{
@@ -716,6 +856,7 @@ export interface AdaptedBlogSinglePostContent {
 
 export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): AdaptedBlogSinglePostContent {
   const { post, relatedPosts } = props
+  const acf = (post.acf || {}) as WPAcfModularArticleFields
 
   const primaryCategory = getPrimaryCategory(post)
   const catSlug = getPrimaryCategorySlug(post)
@@ -737,14 +878,26 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
 
   const readM = estimateReadTimeMinutesFromHtml(post.content?.rendered || post.excerpt?.rendered || '')
   const readLabel = `${readM} min read`
+  const layoutType = acf.layout_type
+  const modularSections = layoutType === 'modular_article' ? mapModularSections(acf.sections) : []
+  const faqItems = mapFaqItems(acf.faq_items)
+  const cta =
+    acf.cta_headline?.trim() || acf.cta_body?.trim() || acf.cta_button_label?.trim() || acf.cta_button_url?.trim()
+      ? {
+          headline: acf.cta_headline?.trim() || '',
+          body: normalizeRichText(acf.cta_body),
+          buttonLabel: acf.cta_button_label?.trim() || 'Learn More',
+          buttonUrl: acf.cta_button_url?.trim() || '/contact',
+        }
+      : null
 
   const contentSections: AdaptedBlogSinglePostContent['article']['sections'] = []
-  if (post.content?.rendered?.trim()) {
+  if (layoutType !== 'modular_article' && post.content?.rendered?.trim()) {
     contentSections.push({
       type: 'paragraph',
       content: post.content.rendered,
     })
-  } else if (post.excerpt?.rendered?.trim()) {
+  } else if (layoutType !== 'modular_article' && post.excerpt?.rendered?.trim()) {
     contentSections.push({
       type: 'paragraph',
       content: `<p>${stripHtml(post.excerpt.rendered)}</p>`,
@@ -793,16 +946,28 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
       readingTime: readLabel,
     },
     article: {
+      layoutType,
       featuredImage: {
         src: featuredImageUrl,
         alt: featuredImageAlt,
       },
+      showFeaturedImage: layoutType !== 'modular_article' || Boolean(featuredFromHelper || featuredMedia?.source_url),
       /** Lead paragraph; omitted when body HTML is present (avoids duplicate excerpt + content). */
-      intro: post.content?.rendered?.trim()
+      intro: layoutType === 'modular_article'
+        ? ''
+        : post.content?.rendered?.trim()
         ? ''
         : stripHtml(post.excerpt?.rendered || ''),
       sections: contentSections,
       tags: tags,
+      modularSections,
+      faqItems,
+      cta,
+      featuredQuote: acf.featured_quote?.trim() || '',
+      quoteSource: acf.quote_source?.trim() || '',
+      heroKicker: acf.hero_kicker?.trim() || '',
+      dek: acf.dek?.trim() || '',
+      authorNote: normalizeRichText(acf.author_note),
     },
     sidebar: {
       relatedInsights,

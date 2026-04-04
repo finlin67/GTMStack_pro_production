@@ -6,9 +6,31 @@ export type WPLayoutType =
   | 'case-study'
   | 'research'
   | 'guide'
+  | 'modular_article'
 
 export type WPAcfRepeaterItem = {
   item?: string
+}
+
+export type WPAcfFaqItem = {
+  question?: string
+  answer?: string
+}
+
+export type WPAcfSectionItem = {
+  text?: string
+}
+
+export type WPAcfModularSection = {
+  type?: string
+  heading?: string
+  body?: string
+  style?: string
+  items?: WPAcfSectionItem[]
+  image_url?: string
+  image_alt?: string
+  image_caption?: string
+  image_prompt?: string
 }
 
 export type WPAcfMetricItem = {
@@ -27,6 +49,8 @@ export type WPAcfSharedFields = {
   cta_button_label?: string
   cta_button_url?: string
   author_note?: string
+  faq_items?: WPAcfFaqItem[]
+  sections?: WPAcfModularSection[]
 }
 
 export type WPAcfHowToFields = WPAcfSharedFields & {
@@ -86,6 +110,12 @@ export type WPAcfGuideFields = WPAcfSharedFields & {
   faq_items?: WPAcfRepeaterItem[]
 }
 
+export type WPAcfModularArticleFields = WPAcfSharedFields & {
+  layout_type?: 'modular_article'
+  faq_items?: WPAcfFaqItem[]
+  sections?: WPAcfModularSection[]
+}
+
 export type WPAcfArticleFields =
   | WPAcfHowToFields
   | WPAcfInsightFields
@@ -94,6 +124,7 @@ export type WPAcfArticleFields =
   | WPAcfCaseStudyFields
   | WPAcfResearchFields
   | WPAcfGuideFields
+  | WPAcfModularArticleFields
 
 export type AdaptedArticleBase = {
   slug: string
@@ -172,4 +203,21 @@ export type AdaptedGuidePost = AdaptedArticleBase & {
   prerequisites: string[]
   stepSections: string[]
   faqItems: string[]
+}
+
+export type AdaptedModularArticleSection = {
+  type: 'text' | 'callout' | 'checklist' | 'image'
+  heading?: string
+  body?: string
+  style?: string
+  items: string[]
+  imageUrl?: string
+  imageAlt?: string
+  imageCaption?: string
+  imagePrompt?: string
+}
+
+export type AdaptedModularFaqItem = {
+  question: string
+  answer: string
 }
