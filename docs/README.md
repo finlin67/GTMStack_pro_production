@@ -1,6 +1,6 @@
 # GTMStack.pro Reference
 
-A production-ready marketing and portfolio site built with Next.js 14 (App Router), TypeScript, Tailwind CSS, and MDX.
+A production-ready marketing and portfolio site built with Next.js (App Router), TypeScript, Tailwind CSS, and MDX.
 
 ## Start Here
 
@@ -11,25 +11,35 @@ A production-ready marketing and portfolio site built with Next.js 14 (App Route
 - `PROJECT_STRUCTURE.md` - architectural and structural map for developers
 - `ROUTING.md` - registry-driven routing and runtime behavior
 
+### Blog
+
+- `BLOG-WORDPRESS-DEVELOPER-GUIDE.md` - developer guide: architecture, templates, adapters, WP plugin, env vars
+- `BLOG_CONTENT_TYPES_GUIDE.md` - editorial guide: how to choose and use post layout types (for CMO/authors)
+- `BLOG_WORDPRESS.md` - quick reference: template-to-adapter mapping
+
 ## Features
 
 - **Modern SaaS-style UI** - Clean, enterprise-credible design with abstract/data-driven visuals
 - **Comprehensive Design System** - Custom colors, typography scale, spacing, radii, and shadows
-- **Reusable Components** - Navbar, Footer, Hero, CTABand, Section, CardGrid, StatRow, FilterChips, RelatedItems
-- **Content Collections** - 20 Expertise items across 4 pillars, 8 Industries, 10 Case Studies
-- **Dynamic Routes** - `/expertise/[slug]`, `/industries/[slug]`, `/case-studies/[slug]`
+- **Reusable Components** - Navbar, Footer, Hero, CTABand, Section, CardGrid, StatRow, FilterChips, BlogNavPanel
+- **Content Collections** - Expertise items across 4 pillars, Industries, and Case Studies
+- **Registry-Driven Routing** - `src/data/page-registry.csv` + catch-all `app/[[...slug]]/page.tsx`; add pages without file changes
 - **Client-side Filtering** - Tag and pillar-based filtering on landing pages
 - **Framer Motion Animations** - Subtle scroll and hover effects throughout
 - **Full TypeScript** - Type-safe content and components
+- **Multi-Template Blog** - Headless WordPress with four distinct post layout types: legacy, modular article, how-to, and insight
+- **Animation Gallery** - 100+ Tailwind animations with metadata, admin UI, and thumbnail generation
+- **Admin CMS Layer** - Internal admin UI for registry editing, template uploads, and content management
 
 ## Tech Stack
 
-- [Next.js 14](https://nextjs.org/) - React framework with App Router
+- [Next.js](https://nextjs.org/) - React framework with App Router
 - [TypeScript](https://www.typescriptlang.org/) - Type safety
 - [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS
 - [Framer Motion](https://www.framer.com/motion/) - Animations
 - [MDX](https://mdxjs.com/) - Markdown with JSX support
 - [Lucide React](https://lucide.dev/) - Icon library
+- [Zod](https://zod.dev/) - Runtime schema validation for content and API payloads
 
 ## Getting Started
 
@@ -59,50 +69,47 @@ Open [http://localhost:3000](http://localhost:3000) to view the site.
 ## Project Structure
 
 ```
-├── app/                          # Next.js App Router pages
+├── app/                          # Next.js App Router
+│   ├── [[...slug]]/page.tsx     # Registry catch-all (most public pages)
 │   ├── layout.tsx               # Root layout with Navbar/Footer
-│   ├── page.tsx                 # Home page
-│   ├── about/                   # About page
-│   ├── expertise/               # Expertise section
-│   │   ├── page.tsx            # Expertise landing
-│   │   ├── [slug]/page.tsx     # Expertise detail
-│   │   ├── strategy/           # GTM Strategy pillar
-│   │   ├── analytics/          # Revenue Analytics pillar
-│   │   ├── automation/         # Marketing Automation pillar
-│   │   └── optimization/       # Growth Optimization pillar
-│   ├── industries/              # Industries section
-│   │   ├── page.tsx            # Industries landing
-│   │   └── [slug]/page.tsx     # Industry detail
-│   ├── case-studies/            # Case Studies section
-│   │   ├── page.tsx            # Case studies landing
-│   │   └── [slug]/page.tsx     # Case study detail
-│   ├── resume/                  # Resume page
-│   └── contact/                 # Contact page
+│   ├── about/                   # About page (filesystem route)
+│   ├── contact/                 # Contact page (filesystem route)
+│   ├── blog/                    # Blog section (headless WordPress)
+│   │   ├── page.tsx            # Blog index shell
+│   │   ├── BlogIndexClient.tsx  # Client refresh layer
+│   │   └── post/               # Post detail
+│   ├── gallery/                 # Animation gallery
+│   ├── admin/                   # Internal admin CMS
+│   ├── case-studies/            # Case studies (filesystem + registry)
+│   ├── industries/              # Industries (filesystem + registry)
+│   ├── expertise/               # Expertise (filesystem + registry)
+│   └── api/                     # API routes (admin, animations, nav)
+├── src/
+│   ├── templates/               # Page templates (registry-driven rendering)
+│   │   ├── blog/               # Blog templates (Feed, Stitch, HowTo, Insight)
+│   │   ├── expertise/          # Expertise pillar templates
+│   │   ├── industries/         # Industry templates
+│   │   └── registry.ts         # templateId → component mapping
+│   ├── content/                 # Content registry (contentKey → data)
+│   └── data/                    # page-registry.csv + generated files
 ├── components/
-│   ├── layout/                  # Layout components
-│   │   ├── Navbar.tsx
-│   │   ├── Footer.tsx
-│   │   └── Section.tsx
-│   ├── ui/                      # UI components
-│   │   ├── Hero.tsx
-│   │   ├── CTABand.tsx
-│   │   ├── Card.tsx
-│   │   ├── CardGrid.tsx
-│   │   ├── StatRow.tsx
-│   │   ├── FilterChips.tsx
-│   │   ├── RelatedItems.tsx
-│   │   └── Button.tsx
-│   └── motion/                  # Animation components
-│       └── FadeIn.tsx
-├── content/                     # Content data
-│   ├── expertise.ts            # 20 expertise items
-│   ├── industries.ts           # 8 industries
-│   └── case-studies.ts         # 10 case studies
-├── lib/                         # Utilities
-│   ├── types.ts                # TypeScript types
-│   └── utils.ts                # Helper functions
+│   ├── layout/                  # Navbar, Footer, MegaMenu, BlogNavPanel
+│   ├── ui/                      # Hero, CTABand, Card, CardGrid, StatRow
+│   └── admin/                   # Admin UI components
+├── content/                     # TypeScript content files (source of truth)
+│   ├── expertise/              # Expertise items by topic
+│   ├── industries.ts
+│   └── case-studies.ts
+├── lib/                         # Utilities and clients
+│   ├── wp-client.ts            # WordPress API client
+│   ├── blog-adapter.ts         # WP post → UI props adapters
+│   └── admin-auth.ts           # Admin session handling
+├── public/                      # Static assets, animation thumbnails, OG images
+├── scripts/                     # Code generation (registry, animations, thumbnails)
 └── tailwind.config.ts          # Tailwind + Design System
 ```
+
+See [PROJECT_STRUCTURE.md](./PROJECT_STRUCTURE.md) for the full architectural map.
 
 ## Design System
 
@@ -134,32 +141,34 @@ All components follow consistent patterns:
 
 ## Blog (WordPress)
 
-The blog is powered by **headless WordPress**. Content is authored in WordPress and fetched via the REST API. See **[docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md](docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md)** for:
+The blog is powered by **headless WordPress**. Content is authored in WordPress and fetched via the REST API. Four distinct post layouts are supported, driven by an ACF `layout_type` field on each post. See **[docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md](docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md)** for:
 
 - Architecture & API integration
+- Post layout types: `legacy`, `modular_article`, `how_to`, `insight`
 - Environment variables (`NEXT_PUBLIC_WORDPRESS_API_URL`, `WORDPRESS_API_URL`)
+- WordPress plugin setup (GTMStack Headless Blog Kit)
 - Managing content in WordPress
 - Extending the blog and troubleshooting
 
 ## Content Management
 
-Content is managed through TypeScript files in `/content/`:
+Content is managed through TypeScript files in `/content/` and is governed by `src/data/page-registry.csv`. A content file only becomes a public page when it has a matching registry row. See [CONTENT_MANAGEMENT_GUIDE.md](./CONTENT_MANAGEMENT_GUIDE.md) for the full workflow.
 
-### Expertise (20 items)
+### Expertise
 
 Grouped into 4 pillars:
-1. **GTM Strategy** - Positioning, competitive analysis, planning
-2. **Revenue Analytics** - Attribution, dashboards, predictive
-3. **Marketing Automation** - Workflows, nurturing, ABM
-4. **Growth Optimization** - CRO, testing, experiments
+1. **Content & Engagement** - Content creation, SEO, social, events, web design
+2. **Demand & Growth** - ABM, demand gen, lead scoring, paid media, upsell
+3. **Strategy & Insights** - Competitive intelligence, GTM strategy, product marketing
+4. **Systems & Operations** - CRM, marketing automation, analytics, martech
 
-### Industries (8 items)
+### Industries
 
-B2B SaaS, FinTech, HealthTech, Developer Tools, E-Commerce, Cybersecurity, Climate Tech, AI/ML
+Multiple verticals including B2B SaaS, FinTech, HealthTech, Cybersecurity, Fleet & Logistics, Manufacturing, Public Sector, Retail, and more.
 
-### Case Studies (10 items)
+### Case Studies
 
-Detailed project case studies with metrics, challenges, solutions, and results.
+Detailed project case studies with metrics, challenges, solutions, and results. Not all authored case studies may be registered as live public routes — check `src/data/page-registry.csv` for the published set.
 
 ## Customization
 

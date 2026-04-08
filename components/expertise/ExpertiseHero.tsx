@@ -66,7 +66,7 @@ export function ExpertiseHero({
     <SectionDark
       variant="hero"
       motif="pathway"
-      padding="lg"
+      padding="md"
       className="overflow-hidden"
       containerClassName="relative"
       accentOrb
@@ -79,8 +79,8 @@ export function ExpertiseHero({
       </div>
       <div className={`absolute inset-0 pointer-events-none opacity-20 bg-gradient-to-r ${theme.overlay}`} />
 
-      <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-12 items-center">
-        <StaggerContainer className="space-y-6">
+      <div className="page-header-grid page-header-grid-with-visual">
+        <StaggerContainer className="page-header-copy max-w-[40rem] space-y-0">
           <StaggerItem>
             <nav className="flex items-center gap-2 text-sm text-slate-300">
               <Link href="/" className="hover:text-white transition-colors">
@@ -102,7 +102,7 @@ export function ExpertiseHero({
           </StaggerItem>
 
           <StaggerItem>
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-white/10 border border-white/15 text-white text-sm font-semibold backdrop-blur-sm">
+            <div className="page-header-kicker mb-4 mt-3">
               {Icon && <Icon className="w-4 h-4 text-white" aria-hidden="true" />}
               <span className="text-xs uppercase tracking-[0.12em] text-slate-200">{config?.engine ?? 'scan'}</span>
               <span className="h-1 w-1 rounded-full bg-white/50" />
@@ -111,28 +111,28 @@ export function ExpertiseHero({
           </StaggerItem>
 
           <StaggerItem>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-white text-balance">
+            <h1 className="page-header-title page-header-title-default text-white">
               {item.title}
             </h1>
           </StaggerItem>
 
           {tagline && (
             <StaggerItem>
-              <p className="text-lg text-slate-200 max-w-2xl leading-relaxed">{tagline}</p>
+              <p className="page-header-body max-w-[38rem] text-slate-200">{tagline}</p>
             </StaggerItem>
           )}
 
           <StaggerItem>
-            <div className="flex flex-wrap gap-3">
+            <div className="page-header-actions">
               <a
                 href="#route"
-                className={`btn text-brand-900 px-6 py-3 text-base rounded-xl shadow-glow transition-all duration-300 ${theme.primary} text-white`}
+                className={`btn px-5 py-2.5 text-sm md:text-base rounded-xl shadow-glow transition-all duration-300 ${theme.primary} text-white`}
               >
                 View route map
               </a>
               <a
                 href="/contact"
-                className={`btn bg-white/10 text-white px-6 py-3 text-base rounded-xl backdrop-blur-sm transition-all duration-300 ${theme.secondary}`}
+                className={`btn bg-white/10 text-white px-5 py-2.5 text-sm md:text-base rounded-xl backdrop-blur-sm transition-all duration-300 ${theme.secondary}`}
                 style={{ borderWidth: 1 }}
               >
                 Connect on methodology
@@ -142,7 +142,7 @@ export function ExpertiseHero({
 
           {metrics.length > 0 && (
             <StaggerItem>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
                 {metrics.map((metric) => (
                   <div
                     key={metric.label}
@@ -169,7 +169,7 @@ export function ExpertiseHero({
           )}
         </StaggerContainer>
 
-        <FadeIn delay={0.25}>
+        <FadeIn delay={0.25} className="page-header-visual">
           <ExpertiseHeroVisual animation={animation} config={config} borderClassName={theme.border} />
         </FadeIn>
       </div>

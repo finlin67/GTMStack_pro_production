@@ -1,6 +1,6 @@
 'use client'
 
-const DEBUG_HERO_VARIANT = true
+const DEBUG_HERO_VARIANT = false
 
 import React from 'react'
 import dynamic from 'next/dynamic'
@@ -162,17 +162,15 @@ export function HeroDark({
   return (
     <section
       className={cn(
-        'relative overflow-hidden',
+        'page-header-shell',
         'bg-gradient-to-b from-slate-950 via-brand-950 to-slate-950',
         'text-white',
-        isLarge
-          ? 'pt-32 pb-24 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40'
-          : 'pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28',
+        isLarge ? 'page-header-shell-large' : 'page-header-shell-default',
         className
       )}
     >
       {DEBUG_HERO_VARIANT && (
-        <div className="absolute top-4 left-4 z-50 px-3 py-1.5 text-xs font-mono bg-white/10 border border-white/15 rounded backdrop-blur-sm pointer-events-none">
+        <div className="absolute top-4 left-4 z-50 px-3 py-1.5 text-xs font-mono bg-white/10 border border-white/[0.15] rounded backdrop-blur-sm pointer-events-none">
           <div className="text-white/70">{pathname}</div>
           <div className="text-cyan-300">{resolvedBackgroundVariant}</div>
         </div>
@@ -182,7 +180,7 @@ export function HeroDark({
 
       {/* Ambient gradient orbs with drift */}
       <div className="absolute z-0 top-0 left-1/4 w-[600px] h-[600px] bg-brand-500/20 rounded-full blur-3xl animate-drift-slow pointer-events-none" />
-      <div className="absolute z-0 top-20 right-1/4 w-[400px] h-[400px] bg-cool-400/15 rounded-full blur-3xl animate-drift-medium pointer-events-none" />
+      <div className="absolute z-0 top-20 right-1/4 w-[400px] h-[400px] bg-cool-400/[0.15] rounded-full blur-3xl animate-drift-medium pointer-events-none" />
       <div className="absolute z-0 bottom-0 left-1/2 w-[500px] h-[500px] bg-cyan-400/10 rounded-full blur-3xl animate-drift-fast pointer-events-none" />
 
       {/* Motif overlay */}
@@ -193,20 +191,20 @@ export function HeroDark({
       <div className="container-width relative z-10">
         <div
           className={cn(
-            'grid lg:grid-cols-2 gap-12 lg:gap-16 items-center',
-            hasRightVisual && 'lg:grid-cols-[1.2fr_1fr]'
+            'page-header-grid',
+            hasRightVisual && 'page-header-grid-with-visual'
           )}
         >
           {/* Left: Text Content */}
           <StaggerContainer
             className={cn(
-              hasRightVisual ? 'max-w-none' : 'max-w-4xl',
+              hasRightVisual ? 'page-header-copy' : 'page-header-copy max-w-[42rem]',
               isCentered && !hasRightVisual && 'mx-auto text-center'
             )}
           >
             {label && (
               <StaggerItem>
-                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-sm font-medium mb-6 backdrop-blur-sm">
+                <span className="page-header-kicker mb-4 text-brand-200">
                   <span className="w-1.5 h-1.5 rounded-full bg-brand-400 animate-pulse" />
                   {label}
                 </span>
@@ -214,7 +212,7 @@ export function HeroDark({
             )}
 
             <StaggerItem>
-              <div className="relative inline-block">
+              <div className={cn('relative', hasRightVisual ? 'max-w-[34rem]' : 'max-w-[42rem]')}>
                 {titleGlow && !shouldReduceMotion && (
                   <motion.div
                     initial={{ opacity: 0 }}
@@ -225,11 +223,8 @@ export function HeroDark({
                 )}
                 <h1
                   className={cn(
-                    'relative font-display font-bold tracking-tight text-white text-balance',
-                    isLarge
-                      ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
-                      : 'text-3xl md:text-4xl lg:text-5xl',
-                    'leading-tight'
+                    'page-header-title relative text-white',
+                    isLarge ? 'page-header-title-large' : 'page-header-title-default'
                   )}
                 >
                   {title}
@@ -248,8 +243,9 @@ export function HeroDark({
             <StaggerItem>
               <p
                 className={cn(
-                  'mt-6 text-slate-300 leading-relaxed',
-                  isLarge ? 'text-lg md:text-xl max-w-2xl' : 'text-lg',
+                  'page-header-body text-slate-300',
+                  isLarge && 'max-w-[42rem]',
+                  !isLarge && 'max-w-[38rem]',
                   isCentered && !hasRightVisual && 'mx-auto'
                 )}
               >
@@ -259,7 +255,7 @@ export function HeroDark({
 
             {(primaryCta || secondaryCta) && (
               <StaggerItem>
-                <div className="relative mt-8">
+                <div className="relative mt-6">
                   {orbitingIcons && !shouldReduceMotion && (
                     <motion.div
                       animate={{ rotate: 360 }}
@@ -269,17 +265,17 @@ export function HeroDark({
                       <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-8 h-8 rounded-full bg-brand-500/20 border border-brand-400/30 flex items-center justify-center">
                         <Rocket className="w-4 h-4 text-cyan-400/80" />
                       </div>
-                      <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-7 h-7 rounded-full bg-cool-500/15 border border-cool-400/25 flex items-center justify-center">
+                      <div className="absolute top-1/2 -right-2 -translate-y-1/2 w-7 h-7 rounded-full bg-cool-500/[0.15] border border-cool-400/25 flex items-center justify-center">
                         <Zap className="w-3.5 h-3.5 text-cool-300/70" />
                       </div>
-                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-cyan-500/15 border border-cyan-400/25 flex items-center justify-center">
+                      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-7 h-7 rounded-full bg-cyan-500/[0.15] border border-cyan-400/25 flex items-center justify-center">
                         <BarChart3 className="w-3.5 h-3.5 text-cyan-300/70" />
                       </div>
                     </motion.div>
                   )}
                   <StaggerContainer
                     className={cn(
-                      'relative flex flex-wrap gap-4',
+                      'page-header-actions relative',
                       isCentered && !hasRightVisual && 'justify-center'
                     )}
                   >
@@ -288,7 +284,7 @@ export function HeroDark({
                         <HoverScale scale={1.01}>
                           <Link
                             href={primaryCta.href}
-                            className="btn bg-brand-500 text-white hover:bg-brand-400 px-6 py-3 text-base rounded-xl group shadow-glow transition-all duration-300 hover:shadow-glow-violet"
+                            className="btn bg-brand-500 text-white hover:bg-brand-400 px-5 py-2.5 text-sm md:text-base rounded-xl group shadow-glow transition-all duration-300 hover:shadow-glow-violet"
                           >
                             {primaryCta.label}
                             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -301,7 +297,7 @@ export function HeroDark({
                         <HoverScale scale={1.01}>
                           <Link
                             href={secondaryCta.href}
-                            className="btn bg-white/10 text-white border border-white/20 hover:bg-white/20 px-6 py-3 text-base rounded-xl backdrop-blur-sm transition-all duration-300"
+                            className="btn bg-white/10 text-white border border-white/20 hover:bg-white/20 px-5 py-2.5 text-sm md:text-base rounded-xl backdrop-blur-sm transition-all duration-300"
                           >
                             {secondaryCta.label}
                           </Link>
@@ -314,26 +310,30 @@ export function HeroDark({
             )}
 
             {children && (
-              <StaggerItem className="mt-12">
+              <StaggerItem className="mt-8 md:mt-10">
                 {children}
               </StaggerItem>
             )}
           </StaggerContainer>
 
           {/* Right: Visual (always render wrapper to prevent hydration mismatch) */}
-          <div className="relative hidden lg:block">
-            <div className="relative aspect-square rounded-3xl overflow-hidden border border-white/10 bg-gradient-to-br from-brand-900/20 to-slate-900/40 backdrop-blur-sm shadow-glow-violet">
-              <div className="absolute inset-0">
+          <div className="page-header-visual">
+            <div
+              className={cn(
+                'page-header-visual-frame',
+                isLarge && 'page-header-visual-frame-large'
+              )}
+            >
+              <div className="page-header-visual-inner">
                 {resolvedRightVisual ?? (
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-500/40 via-cool-400/30 to-cyan-400/30 animate-float" />
                 )}
               </div>
-              {/* Diagonal glow overlay behind the frame */}
-              <div className="absolute inset-0 bg-gradient-to-br from-brand-500/18 via-cool-400/14 to-cyan-400/16 mix-blend-screen pointer-events-none" />
+              <div className="page-header-visual-glow" />
               
               {/* Decorative accent orbs */}
-              <div className="absolute -top-6 -right-6 w-32 h-32 bg-brand-400/30 rounded-full blur-2xl" />
-              <div className="absolute -bottom-6 -left-6 w-40 h-40 bg-cyan-400/25 rounded-full blur-2xl" />
+              <div className="absolute -top-4 -right-4 w-24 h-24 bg-brand-400/24 rounded-full blur-2xl" />
+              <div className="absolute -bottom-5 -left-5 w-28 h-28 bg-cyan-400/18 rounded-full blur-2xl" />
             </div>
           </div>
         </div>

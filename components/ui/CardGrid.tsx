@@ -25,7 +25,7 @@ export function CardGrid({ children, columns = 3, className }: CardGridProps) {
 
   return (
     <StaggerContainer
-      className={cn('grid', gridGap[columns], gridCols[columns], className)}
+      className={cn('grid items-stretch', gridGap[columns], gridCols[columns], className)}
     >
       {children}
     </StaggerContainer>
@@ -39,6 +39,6 @@ export function CardGridItem({
   children: ReactNode
   className?: string
 }) {
-  return <StaggerItem className={className}>{children}</StaggerItem>
+  return <StaggerItem className={cn('h-full', className)}>{children}</StaggerItem>
 }
 

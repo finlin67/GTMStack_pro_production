@@ -1,4 +1,24 @@
-﻿## [2026-03-16] - Docs canonical consistency pass
+﻿## [2026-04-04] - Clean display text & improve related posts logic
+- What changed: Added `stripDisplayPrefix` and `cleanDisplayText` helpers in `lib/blog-adapter.ts` to remove CAP-style prefixes and decode/trim HTML entities. Applied across categories, tags, author names, CTA fields, modular items, image alt/caption, and ACF fields. Improved `normalizeRichText` to strip display prefixes before HTML processing. Rewrote related-post fetching in `app/blog/post/BlogPostClient.tsx`: deduplicates results, prefers category matches, then tag matches, then latest posts, capped at 4. `BlogStitchPostTemplate` now always renders the related-articles card with a fallback message when no related insights are found. New `app/api/nav-posts/route.ts` endpoint added. Added `public/og-default.png` for social sharing fallback. Several obsolete components removed: `components/animations/HeroAnimation.tsx`, `components/ui/HeroRightVisual.tsx`, `components/ui/IndustriesDropdown.tsx`, `components/ui/LatestPosts.tsx`.
+- Why it matters: Cleaner displayed text throughout the blog, more relevant related-post suggestions, leaner component tree.
+
+## [2026-04-04] - Add modular article & FAQ support
+- What changed: New types for modular articles, sections, FAQ items, and ACF shapes added to `src/types/blog.ts`. `lib/blog-adapter.ts` extended: decodes HTML entities, normalises rich text, maps modular sections and FAQ items, adds CTA/featured-quote/heroKicker/authorNote fields, exposes `layoutType` and `showFeaturedImage` on adapted article data. `src/templates/blog/BlogStitchPostTemplate.tsx` updated: added `renderModularArticle` path alongside preserved `renderLegacyArticle` path; conditionally shows hero image; renders modular section types (callout, checklist, image, text), FAQ accordion, CTA, and author note blocks.
+- Why it matters: Frontend can now render both legacy and ACF-driven modular article layouts, unlocking richer WordPress post structures without code changes per post.
+
+## [2026-04-02] - Add HowTo/Insight templates and WP client fixes
+- What changed: Two new post templates added: `src/templates/blog/HowToPostTemplate.tsx` and `src/templates/blog/InsightPostTemplate.tsx`. Corresponding adapters `adaptHowToPostData` and `adaptInsightPostData` added to `lib/blog-adapter.ts`. `app/blog/post/BlogPostClient.tsx` updated to select template by `post.acf.layout_type`. `lib/wp-client.ts` hardened: normalises/validates base URL, improves embedded term/tag extraction, simplifies author/avatar types, removes dev logging, tweaks read-time estimation, adds ACF field support. New `src/types/blog.ts` types. WordPress plugin bootstrap added at `wp-content/plugins/gtmstack-headless-blog-kit/gtmstack-headless-blog-kit.php`.
+- Why it matters: Enables four distinct post layouts (`legacy`, `modular_article`, `how_to`, `insight`) driven by a single ACF field on each WordPress post. WP API parsing is more robust and predictable.
+
+## [2026-04-01] - Branch recovery and docs entry points
+- What changed: Recovered and promoted the major UI/content rewrite branch (`origin/chore/animations-sync`) to `main` after identifying it contained visually confirmed changes (blog, gallery, Demand & Growth, About). Fixed malformed quote characters in `content/expertise/main.ts` that blocked compilation. Added `docs/RECOVERY_CHECKPOINT_2026-04-01.md` capturing the branch map and recovery plan. Added `docs/PROJECT_OVERVIEW_MARKETING_AND_DEVELOPER.md` as a cross-functional handoff document.
+- Why it matters: Restores the approved production direction to `main` and provides a recovery reference for future branch confusion.
+
+## [2026-03-28] - Content audit, About page update, case study enrichment
+- What changed: About page content updated. Case study content enriched. Content audit status report added as `docs/CONTENT_AUDIT_STATUS_REPORT_2026-03-28.md`. CTA and hero visual selection refined. UI spacing tweaks.
+- Why it matters: Keeps site copy and proof content current; captures audit state for future content gap work.
+
+## [2026-03-16] - Docs canonical consistency pass
 - What changed: Normalized canonical wording for metadata, archive-note phrasing, and branding consistency across key docs (`ANIMATION_SYSTEM_GUIDE.md`, `CONTENT_MANAGEMENT_GUIDE.md`, `PROJECT_STRUCTURE.md`, `SITE-PAGES-AND-HIERARCHY.md`, `WEBSITE_USER_GUIDE.md`, `GALLERY_MANAGEMENT_GUIDE.md`).
 - Why it matters: Reduces editorial drift after consolidation and keeps canonical docs aligned in tone and maintenance signals.
 

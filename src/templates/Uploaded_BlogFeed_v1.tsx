@@ -360,7 +360,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
       </nav>
 
       {/* Hero Section */}
-      <header className="relative bg-slate-900 py-24 lg:py-36 overflow-hidden">
+      <header className="relative overflow-hidden bg-slate-900 py-20 lg:py-24">
         {/* Background Pattern */}
         <div className="absolute right-0 top-0 w-full h-full opacity-10 pointer-events-none">
           <svg fill="none" height="100%" viewBox="0 0 800 800" width="100%" xmlns="http://www.w3.org/2000/svg" className="absolute right-0 top-0 h-full w-auto">
@@ -373,17 +373,17 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-6xl lg:text-8xl font-black text-white leading-[0.9] mb-8 tracking-tighter">
+            <h1 className="text-5xl lg:text-7xl font-black text-white leading-[0.92] mb-6 tracking-tighter">
               {content.hero.title} <span className="bg-gradient-to-r from-orange-500 to-yellow-500 bg-clip-text text-transparent">{content.hero.titleAccent}</span> Blog
             </h1>
-            <p className="text-xl text-slate-300 mb-12 leading-relaxed font-medium">
+            <p className="max-w-2xl text-lg text-slate-300 mb-10 leading-[1.65] font-medium">
               {content.hero.subtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-5">
-              <button className="bg-blue-600 text-white px-10 py-5 rounded-xl font-extrabold hover:bg-blue-700 transition-all text-center shadow-xl shadow-blue-600/30 active:scale-95">
+              <button className="bg-blue-600 text-white px-8 py-4 rounded-xl font-extrabold hover:bg-blue-700 transition-all text-center shadow-xl shadow-blue-600/30 active:scale-95">
                 {content.hero.primaryCta}
               </button>
-              <button className="border border-white/20 text-white px-10 py-5 rounded-xl font-extrabold hover:bg-white/10 transition-all text-center backdrop-blur-sm active:scale-95">
+              <button className="border border-white/20 text-white px-8 py-4 rounded-xl font-extrabold hover:bg-white/10 transition-all text-center backdrop-blur-sm active:scale-95">
                 {content.hero.secondaryCta}
               </button>
             </div>
@@ -429,10 +429,10 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
       </section>
 
       {/* Posts Grid */}
-      <main className="bg-white py-24">
+      <main className="bg-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {filteredPosts.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredPosts.map((post) => (
                 <Link
                   key={post.id}
@@ -454,14 +454,14 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
                       </span>
                     </div>
 
-                    <div className="p-8 flex-grow flex flex-col">
-                      <div className="flex justify-between items-center mb-5">
+                    <div className="p-6 flex-grow flex flex-col">
+                      <div className="template-meta-row mb-5 justify-between">
                         <span className="text-orange-500 text-[10px] font-black uppercase tracking-[0.2em]">
                           {post.readTime}
                         </span>
                         <span className="text-slate-400 text-xs font-medium">{post.date}</span>
                       </div>
-                      <h3 className="text-2xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">
+                      <h3 className="text-xl font-bold text-slate-900 mb-4 leading-tight group-hover:text-blue-600 transition-colors">
                         {post.title}
                       </h3>
                       <p className="text-slate-500 text-sm leading-relaxed line-clamp-3 mb-8">
@@ -482,8 +482,11 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
               ))}
             </div>
           ) : (
-            <div className="text-center py-20">
-              <h3 className="text-2xl font-bold text-slate-400">No insights found matching your criteria.</h3>
+            <div className="template-empty-state">
+              <h3 className="text-2xl font-bold text-slate-700">No insights found matching your criteria.</h3>
+              <p className="mt-3 max-w-xl text-sm leading-6 text-slate-500">
+                Try broadening the category filters or clearing the search to explore more articles.
+              </p>
               <button 
                 onClick={() => { setSearchQuery(''); setSelectedCategory('All Insights'); }}
                 className="mt-4 text-blue-600 font-bold hover:underline"
@@ -504,7 +507,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
       </main>
 
       {/* Philosophy Quote Block */}
-      <section className="bg-slate-50 py-32 border-y border-slate-100">
+      <section className="bg-slate-50 py-24 border-y border-slate-100">
         <div className="max-w-5xl mx-auto px-4 text-center">
           <div className="mb-12 inline-block p-4 bg-blue-600/10 rounded-2xl">
             <div className="text-blue-600">
@@ -518,7 +521,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
       </section>
 
       {/* Browse by Category */}
-      <section className="bg-white py-32">
+      <section className="bg-white py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-end justify-between mb-16">
             <div>
@@ -548,7 +551,7 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
       </section>
 
       {/* Related Section Teasers */}
-      <section className="bg-slate-50 py-24">
+      <section className="bg-slate-50 py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {content.teasers.map((teaser) => (
@@ -571,19 +574,21 @@ export default function Template(props: { content?: unknown; pageTitle?: string 
       </section>
 
       {/* Dark CTA Band */}
-      <section className="relative py-24 overflow-hidden bg-slate-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-          <div className="text-center md:text-left">
-            <h2 className="text-4xl md:text-5xl font-black text-white mb-4 tracking-tight">
+      <section className="relative overflow-hidden bg-slate-900 py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="template-cta-shell border-white/10 bg-white/[0.03] text-white">
+            <div className="template-cta-copy">
+            <h2 className="template-cta-title text-white">
               {content.ctaBand.title}
             </h2>
-            <p className="text-slate-400 text-lg max-w-xl">
+            <p className="template-cta-body text-slate-400 max-w-xl">
               {content.ctaBand.subtitle}
             </p>
-          </div>
-          <button className="bg-blue-600 text-white px-12 py-5 rounded-xl font-black hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/40 active:scale-95 whitespace-nowrap">
+            </div>
+          <button className="bg-blue-600 text-white px-10 py-4 rounded-xl font-black hover:bg-blue-700 transition-all shadow-2xl shadow-blue-600/40 active:scale-95 whitespace-nowrap">
             {content.ctaBand.buttonText}
           </button>
+          </div>
         </div>
       </section>
 

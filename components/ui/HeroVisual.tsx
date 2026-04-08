@@ -265,7 +265,7 @@ export function HeroVisual({
         </div>
 
         <div className="absolute inset-0 z-20 bg-gradient-to-t from-slate-950/40 via-transparent to-transparent" />
-        <div className="absolute inset-0 z-20 bg-gradient-to-br from-brand-500/10 via-transparent to-cyan-500/8" />
+        <div className="absolute inset-0 z-20 bg-gradient-to-br from-brand-500/10 via-transparent to-cyan-500/[0.08]" />
 
         {!reducedMotion && (
           <motion.div
@@ -460,7 +460,7 @@ export function HeroVisual({
 
       {/* Gradient overlays for depth and glassy effect */}
       <div className="absolute inset-0 z-50 bg-gradient-to-t from-slate-950/45 via-slate-950/10 to-transparent" />
-      <div className="absolute inset-0 z-50 bg-gradient-to-br from-brand-500/15 via-transparent to-cyan-500/10" />
+      <div className="absolute inset-0 z-50 bg-gradient-to-br from-brand-500/[0.15] via-transparent to-cyan-500/10" />
       <div className="absolute inset-0 z-50 bg-gradient-to-tl from-transparent via-transparent to-cool-500/5" />
       
       {/* Shimmer sweep overlay */}

@@ -14,10 +14,10 @@ interface SectionLightProps {
 
 const paddingStyles = {
   none: '',
-  sm: 'py-16 md:py-20',
-  md: 'py-20 md:py-28',
-  lg: 'py-24 md:py-32 lg:py-40',
-  xl: 'py-32 md:py-40 lg:py-48',
+  sm: 'py-10 md:py-12',
+  md: 'py-12 md:py-16',
+  lg: 'py-14 md:py-20 lg:py-24',
+  xl: 'py-16 md:py-20 lg:py-28',
 }
 
 export function SectionLight({

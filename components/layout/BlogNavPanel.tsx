@@ -41,20 +41,23 @@ export function BlogNavPanel({ id, labelledBy }: BlogNavPanelProps) {
   return (
     <div
       id={id}
-      className="w-80 rounded-2xl border border-white/10 bg-slate-900/95 backdrop-blur-2xl shadow-[0_20px_60px_rgba(0,0,0,0.5)]"
+      className="w-[21rem] overflow-hidden rounded-[1.6rem] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(15,23,42,0.98),rgba(2,6,23,0.98))] backdrop-blur-2xl shadow-[0_30px_90px_rgba(2,6,23,0.72)]"
       role="region"
       aria-label={labelledBy ? undefined : "Blog and insights"}
       aria-labelledby={labelledBy}
     >
       {/* Header */}
-      <div className="px-4 pt-4 pb-3 border-b border-white/[0.06]">
+      <div className="border-b border-white/[0.06] px-5 pb-3 pt-4">
         <p className="text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-500">
           Recent posts
+        </p>
+        <p className="mt-2 max-w-[16rem] text-[12px] leading-relaxed text-slate-400">
+          Field notes, systems thinking, and operating lessons from live GTM work.
         </p>
       </div>
 
       {/* Post list */}
-      <div className="p-2">
+      <div className="p-3">
         {loading && (
           <div className="space-y-1">
             {[1, 2, 3].map((i) => (
@@ -78,7 +81,7 @@ export function BlogNavPanel({ id, labelledBy }: BlogNavPanelProps) {
               <li key={post.slug}>
                 <Link
                   href={`/blog/post?slug=${post.slug}`}
-                  className="flex items-start gap-3 px-3 py-2.5 rounded-xl hover:bg-white/[0.05] transition-colors group"
+                  className="group flex items-start gap-3 rounded-xl border border-transparent px-3.5 py-3 transition-all hover:border-white/[0.08] hover:bg-white/[0.05]"
                 >
                   <FileText className="h-3.5 w-3.5 text-slate-600 mt-0.5 shrink-0 group-hover:text-cyan-400 transition-colors" aria-hidden />
                   <div className="min-w-0">
@@ -109,7 +112,7 @@ export function BlogNavPanel({ id, labelledBy }: BlogNavPanelProps) {
       </div>
 
       {/* Footer CTA */}
-      <div className="px-4 py-3 border-t border-white/[0.06]">
+      <div className="border-t border-white/[0.06] px-5 py-3.5">
         <Link
           href="/blog"
           className="flex items-center justify-between text-[13px] font-medium text-slate-300 hover:text-white transition-colors group"

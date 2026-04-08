@@ -151,8 +151,13 @@ export default function GalleryMainTemplate({
           showThumbnails={true}
         />
       ) : (
-        <div className="min-h-[60vh] flex items-center justify-center text-slate-400">
-          No animations available yet.
+        <div className="container-width py-14 md:py-20">
+          <div className="template-empty-state">
+            <p className="text-lg font-semibold text-slate-700">No animations available yet.</p>
+            <p className="mt-2 max-w-xl text-sm leading-6 text-slate-500">
+              Gallery items will appear here once previewable animations are available in the manifest.
+            </p>
+          </div>
         </div>
       )}
 

@@ -128,17 +128,17 @@ export default function ExpertiseMainTemplate({
           <div className="container-width section-padding relative z-10">
             <div className="grid gap-12 lg:grid-cols-[1.1fr_0.9fr] items-center">
               <div className="max-w-2xl space-y-8">
-                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-cyan-200">
+                <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-cyan-100">
                   <span className="relative flex size-2">
                     <span className="absolute inline-flex size-2 animate-ping rounded-full bg-cyan-400 opacity-60" />
                     <span className="relative inline-flex size-2 rounded-full bg-cyan-300" />
                   </span>
                   {hero.badge}
                 </div>
-                <h1 className="text-4xl font-semibold leading-tight text-white md:text-6xl whitespace-pre-line">
+                <h1 className="font-display text-[2.7rem] font-semibold leading-[0.98] tracking-tight text-white md:text-[4.4rem] whitespace-pre-line">
                   {hero.title}
                 </h1>
-                <p className="text-lg text-slate-300 md:text-xl">
+                <p className="max-w-[38rem] text-[15px] leading-8 text-slate-300/90 md:text-[1.05rem]">
                   {hero.subtitle}
                 </p>
                 <div className="flex flex-wrap gap-4">
@@ -162,10 +162,10 @@ export default function ExpertiseMainTemplate({
           <div className="container-width section-padding">
             <div className="max-w-3xl">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Systems</p>
-              <h2 className="mt-4 text-3xl font-semibold md:text-4xl">
+              <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">
                 {pillars.title}
               </h2>
-              <p className="mt-4 text-base text-slate-600 dark:text-slate-300">
+              <p className="mt-4 max-w-[42rem] text-[15px] leading-8 text-slate-600 dark:text-slate-300">
                 {pillars.subtitle}
               </p>
             </div>
@@ -175,15 +175,15 @@ export default function ExpertiseMainTemplate({
                   <Link
                     key={idx}
                     href={pillarFallbackRoutes[idx]}
-                    className={`group relative rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/5 ${pillar.ringColor ?? ''}`}
+                    className={`group relative flex h-full flex-col rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(9,16,32,0.96))] p-8 shadow-[0_20px_50px_rgba(2,6,23,0.18)] transition-all duration-300 hover:-translate-y-1 hover:border-cyan-300/20 hover:shadow-[0_28px_68px_rgba(8,145,178,0.14)] ${pillar.ringColor ?? ''}`}
                   >
                     <div className={`absolute right-6 top-6 h-20 w-20 rounded-full blur-3xl opacity-0 transition-opacity group-hover:opacity-100 ${pillar.glowColor ?? ''}`} />
                     <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgStart ?? ''} ${pillar.color ?? ''}`}>
                       <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
                     </div>
                     <div className="relative z-10 mt-6">
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
-                      <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
+                      <h3 className="font-display text-xl font-semibold text-white">{pillar.title}</h3>
+                      <p className="mt-3 flex-grow text-[15px] leading-7 text-slate-300/88">{pillar.description}</p>
                       <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
                         View work
                         <span className="material-symbols-outlined ml-2 text-sm transition-transform group-hover:translate-x-1">arrow_forward</span>
@@ -194,15 +194,15 @@ export default function ExpertiseMainTemplate({
                   <span
                     key={idx}
                     aria-disabled="true"
-                    className={`group relative rounded-2xl border border-slate-200/70 bg-white p-8 shadow-sm transition-all duration-300 dark:border-white/10 dark:bg-white/5 cursor-default ${pillar.ringColor ?? ''}`}
+                    className={`group relative flex h-full flex-col rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(9,16,32,0.96))] p-8 shadow-[0_20px_50px_rgba(2,6,23,0.18)] transition-all duration-300 cursor-default ${pillar.ringColor ?? ''}`}
                   >
                     <div className={`absolute right-6 top-6 h-20 w-20 rounded-full blur-3xl opacity-0 transition-opacity ${pillar.glowColor ?? ''}`} />
                     <div className={`relative z-10 flex h-12 w-12 items-center justify-center rounded-xl ${pillar.bgStart ?? ''} ${pillar.color ?? ''}`}>
                       <span className="material-symbols-outlined text-2xl">{pillar.icon}</span>
                     </div>
                     <div className="relative z-10 mt-6">
-                      <h3 className="text-xl font-semibold text-slate-900 dark:text-white">{pillar.title}</h3>
-                      <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{pillar.description}</p>
+                      <h3 className="font-display text-xl font-semibold text-white">{pillar.title}</h3>
+                      <p className="mt-3 flex-grow text-[15px] leading-7 text-slate-300/88">{pillar.description}</p>
                       <span className={`mt-6 inline-flex items-center text-sm font-semibold ${pillar.color ?? ''}`}>
                         View work
                         <span className="material-symbols-outlined ml-2 text-sm">arrow_forward</span>
@@ -220,7 +220,7 @@ export default function ExpertiseMainTemplate({
           <div className="container-width section-padding relative z-10">
             <div className="max-w-4xl">
               <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-200">Philosophy</p>
-              <h2 className="mt-6 text-3xl font-semibold leading-tight md:text-5xl">
+              <h2 className="mt-6 font-display text-3xl font-semibold leading-[1.02] md:text-5xl">
                 {(() => {
                   const quote = philosophy.quote ?? ''
                   const highlight = philosophy.highlight ?? ''
@@ -243,8 +243,8 @@ export default function ExpertiseMainTemplate({
             <div className="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
               <div>
                 <p className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-500">Insights</p>
-                <h2 className="mt-4 text-3xl font-semibold md:text-4xl">{insights.title}</h2>
-                <p className="mt-2 text-base text-slate-600 dark:text-slate-300">{insights.subtitle}</p>
+                <h2 className="mt-4 font-display text-3xl font-semibold leading-tight md:text-4xl">{insights.title}</h2>
+                <p className="mt-3 max-w-[40rem] text-[15px] leading-8 text-slate-600 dark:text-slate-300">{insights.subtitle}</p>
               </div>
               <Link className="hidden items-center text-sm font-semibold text-cyan-600 hover:underline md:inline-flex" href="/blog">
                 {insights.cta}
@@ -253,7 +253,7 @@ export default function ExpertiseMainTemplate({
             </div>
             <div className="mt-10 grid gap-6 md:grid-cols-3">
               {(insights.items ?? []).map((item, idx) => (
-                <div key={idx} className="overflow-hidden rounded-2xl border border-slate-200/70 bg-white shadow-sm transition-all hover:-translate-y-1 hover:shadow-lg dark:border-white/10 dark:bg-white/5">
+                <div key={idx} className="overflow-hidden rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(9,16,32,0.96))] shadow-[0_20px_50px_rgba(2,6,23,0.18)] transition-all hover:-translate-y-1 hover:border-cyan-300/20 hover:shadow-[0_28px_68px_rgba(8,145,178,0.14)]">
                   <div className="relative h-44 overflow-hidden">
                     <Image
                       src={item.image ?? '/images/placeholder.webp'}
@@ -270,9 +270,9 @@ export default function ExpertiseMainTemplate({
                     ) : null}
                   </div>
                   <div className="p-6">
-                    <h3 className="text-lg font-semibold text-slate-900 dark:text-white">{item.title}</h3>
-                    <p className="mt-3 text-sm text-slate-600 dark:text-slate-300">{item.description}</p>
-                    <div className="mt-6 flex items-center justify-between border-t border-slate-200 pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-500 dark:border-white/10 dark:text-slate-400">
+                    <h3 className="font-display text-lg font-semibold text-white">{item.title}</h3>
+                    <p className="mt-3 text-[15px] leading-7 text-slate-300/88">{item.description}</p>
+                    <div className="mt-6 flex items-center justify-between border-t border-white/10 pt-4 text-xs font-semibold uppercase tracking-[0.2em] text-slate-400">
                       <span>{item.date}</span>
                       <span>{item.cta}</span>
                     </div>
@@ -286,8 +286,8 @@ export default function ExpertiseMainTemplate({
         <section className="relative overflow-hidden bg-slate-950 text-white">
           <div className="absolute inset-0 bg-hero-gradient opacity-80" aria-hidden="true" />
           <div className="container-width section-padding relative z-10 text-center">
-            <h2 className="text-3xl font-semibold md:text-5xl">{ctaBand.title}</h2>
-            <p className="mx-auto mt-6 max-w-2xl text-base text-slate-300 md:text-lg">
+            <h2 className="font-display text-3xl font-semibold leading-[1.02] md:text-5xl">{ctaBand.title}</h2>
+            <p className="mx-auto mt-6 max-w-2xl text-[15px] leading-8 text-slate-300/90 md:text-[1.05rem]">
               {ctaBand.subtitle}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">

@@ -36,33 +36,26 @@ export function Hero({
   return (
     <section
       className={cn(
-        'relative overflow-hidden',
-        isLarge
-          ? 'pt-32 pb-24 md:pt-40 md:pb-32 lg:pt-48 lg:pb-40'
-          : 'pt-24 pb-16 md:pt-32 md:pb-24 lg:pt-36 lg:pb-28',
+        'page-header-shell',
+        'bg-gradient-to-b from-slate-950 via-[#071424] to-slate-950 text-white',
+        isLarge ? 'page-header-shell-large' : 'page-header-shell-default',
         className
       )}
     >
       {/* Background decoration */}
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 via-white to-white" />
-      <div className="absolute inset-0 bg-mesh opacity-60" />
-      <div className="absolute inset-0 bg-grid opacity-40" />
+      <div className="absolute inset-0 bg-grid-dark opacity-30" />
+      <div className="absolute inset-0 bg-mesh opacity-25" />
       
       {/* Gradient orbs */}
-      <div className="absolute top-0 left-1/4 w-[600px] h-[600px] bg-brand-400/10 rounded-full blur-3xl" />
-      <div className="absolute top-20 right-1/4 w-[400px] h-[400px] bg-accent-400/10 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/4 h-[600px] w-[600px] rounded-full bg-cyan-400/10 blur-3xl" />
+      <div className="absolute top-20 right-1/4 h-[400px] w-[400px] rounded-full bg-blue-400/10 blur-3xl" />
 
       <div className="container-width relative">
-        <StaggerContainer
-          className={cn(
-            'max-w-4xl',
-            isCentered && 'mx-auto text-center'
-          )}
-        >
+        <StaggerContainer className={cn('page-header-copy max-w-[42rem]', isCentered && 'mx-auto text-center')}>
           {label && (
             <StaggerItem>
-              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-100 text-brand-700 text-sm font-medium mb-6">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-500 animate-pulse" />
+              <span className="section-eyebrow mb-5 border-white/10 bg-white/[0.05] text-slate-200 shadow-[0_12px_30px_rgba(2,6,23,0.18)]">
+                <span className="h-1.5 w-1.5 rounded-full bg-cyan-300 animate-pulse" />
                 {label}
               </span>
             </StaggerItem>
@@ -71,18 +64,15 @@ export function Hero({
           <StaggerItem>
             <h1
               className={cn(
-                'font-display font-bold tracking-tight text-slate-900 text-balance',
-                isLarge
-                  ? 'text-4xl md:text-5xl lg:text-6xl xl:text-7xl'
-                  : 'text-3xl md:text-4xl lg:text-5xl',
-                'leading-tight'
+                'page-header-title text-white',
+                isLarge ? 'page-header-title-large' : 'page-header-title-default'
               )}
             >
               {title}
               {titleHighlight && (
                 <>
                   {' '}
-                  <span className="text-gradient">{titleHighlight}</span>
+                  <span className="bg-gradient-to-r from-cyan-200 via-sky-300 to-blue-300 bg-clip-text text-transparent">{titleHighlight}</span>
                 </>
               )}
             </h1>
@@ -91,8 +81,9 @@ export function Hero({
           <StaggerItem>
             <p
               className={cn(
-              'mt-6 text-slate-600 leading-relaxed md:leading-relaxed',
-                isLarge ? 'text-lg md:text-xl max-w-2xl' : 'text-lg',
+                'page-header-body',
+                isLarge && 'max-w-[35rem]',
+                !isLarge && 'max-w-[34rem]',
                 isCentered && 'mx-auto'
               )}
             >
@@ -104,14 +95,14 @@ export function Hero({
             <StaggerItem>
               <div
                 className={cn(
-                  'mt-8 flex flex-wrap gap-4',
+                  'page-header-actions',
                   isCentered && 'justify-center'
                 )}
               >
                 {primaryCta && (
                   <Link
                     href={primaryCta.href}
-                    className="btn btn-primary px-6 py-3 text-base rounded-xl group"
+                    className="btn btn-primary px-6 py-3 text-sm md:text-base rounded-xl group"
                   >
                     {primaryCta.label}
                     <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -120,7 +111,7 @@ export function Hero({
                 {secondaryCta && (
                   <Link
                     href={secondaryCta.href}
-                    className="btn btn-secondary px-6 py-3 text-base rounded-xl"
+                    className="btn btn-secondary px-6 py-3 text-sm md:text-base rounded-xl"
                   >
                     {secondaryCta.label}
                   </Link>
@@ -130,7 +121,7 @@ export function Hero({
           )}
 
           {children && (
-            <StaggerItem className="mt-12">
+            <StaggerItem className="mt-8 md:mt-10">
               {children}
             </StaggerItem>
           )}
@@ -148,21 +139,21 @@ interface PageHeroProps {
 
 export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
   return (
-    <section className="relative pt-28 pb-16 md:pt-36 md:pb-20 overflow-hidden">
-      <div className="absolute inset-0 bg-gradient-to-b from-slate-50 to-white" />
-      <div className="absolute inset-0 bg-grid opacity-30" />
+    <section className="page-header-shell page-header-shell-default">
+      <div className="absolute inset-0 bg-gradient-to-b from-slate-950 via-[#071424] to-slate-950" />
+      <div className="absolute inset-0 bg-grid-dark opacity-30" />
 
       <div className="container-width relative">
-        <StaggerContainer className="max-w-5xl">
+        <StaggerContainer className="page-header-copy max-w-[40rem]">
           {breadcrumbs && breadcrumbs.length > 0 && (
             <StaggerItem>
-              <nav className="flex items-center gap-2 text-sm mb-4">
+              <nav className="mb-3 flex items-center gap-2 text-sm">
                 {breadcrumbs.map((crumb, index) => (
                   <span key={crumb.href} className="flex items-center gap-2">
                     {index > 0 && <span className="text-slate-300">/</span>}
                     <Link
                       href={crumb.href}
-                      className="text-slate-500 hover:text-brand-600 transition-colors"
+                      className="text-slate-400 hover:text-cyan-200 transition-colors"
                     >
                       {crumb.label}
                     </Link>
@@ -173,14 +164,14 @@ export function PageHero({ title, description, breadcrumbs }: PageHeroProps) {
           )}
 
           <StaggerItem>
-            <h1 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 tracking-tight leading-tight">
+            <h1 className="page-header-title page-header-title-default text-white">
               {title}
             </h1>
           </StaggerItem>
 
           {description && (
             <StaggerItem>
-              <p className="mt-4 text-lg md:text-xl leading-relaxed text-slate-600 max-w-3xl">
+              <p className="page-header-body max-w-[34rem]">
                 {description}
               </p>
             </StaggerItem>

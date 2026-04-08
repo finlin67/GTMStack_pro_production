@@ -1,6 +1,6 @@
 # Canonical Documentation Reference
 
-Last updated: 2026-03-16
+Last updated: 2026-04-04
 
 ## 1) Strict Canonical Map (One-Line Policy per Cluster)
 
@@ -16,7 +16,8 @@ Last updated: 2026-03-16
 | Homepage refactor planning | docs/REFACTOR_PLAN.md | Maintain a single authoritative plan doc; summaries should be absorbed and then removed. |
 | About page refactor planning | docs/ABOUT_PAGE_REFACTOR_PLAN.md | Maintain one About refactor plan; status summaries should be folded in as short sections. |
 | Change tracking | docs/CHANGELOG.md | Record all changes as dated entries in one rolling changelog; snapshot change docs should be migrated into it. |
-| WordPress/blog operations | docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md | Keep architecture + editorial workflow together in one guide; special-case embed instructions become a subsection. |
+| WordPress/blog operations (developer) | docs/BLOG-WORDPRESS-DEVELOPER-GUIDE.md | Keep architecture + editorial workflow together in one guide; special-case embed instructions become a subsection. |
+| WordPress/blog operations (editorial / CMO) | docs/BLOG_CONTENT_TYPES_GUIDE.md | Non-technical guide for content authors covering the four post layout types, category/tag strategy, and publishing checklist. |
 | Gallery implementation and maintenance | docs/GALLERY_MANAGEMENT_GUIDE.md | Keep gallery ownership guidance in one maintenance doc; AI prompts are appendices or archive-only artifacts. |
 | Local setup | docs/project-setup.md | Keep local developer setup in one quickstart doc. |
 | Production deployment | docs/HOSTINGER_NODE_DEPLOY.md | Keep production host-specific deployment settings in one deployment runbook. |

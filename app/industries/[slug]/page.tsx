@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import { industryItems, getIndustryBySlug } from '@/src/data/industries'
 import { getExpertiseBySlug } from '@/content/expertise'
 import { getCaseStudyBySlug } from '@/src/data/caseStudies'
+import { filterPublicCaseStudyItems, filterPublicExpertiseItems } from '@/lib/internalLinks'
 import { getPageBySlug } from '@/lib/pageRegistry'
 import { getIndustryContentByKey } from '@/src/content/registry'
 import IndustryTemplate from '@/src/templates/industries/IndustryTemplate'
@@ -48,6 +49,9 @@ export default async function IndustryDetailPage({ params }: Props) {
     ?.map(s => getCaseStudyBySlug(s))
     .filter((item): item is NonNullable<typeof item> => Boolean(item)) || []
 
+  const publicFeaturedExpertise = filterPublicExpertiseItems(featuredExpertise)
+  const publicFeaturedCaseStudies = filterPublicCaseStudyItems(featuredCaseStudies)
+
   // Generate "why now" text based on industry
   const whyNowText = industry.positioning 
     ? `${industry.title} companies face unique GTM challenges. ${industry.positioning} Modern growth plays and proven frameworks can accelerate pipeline while navigating industry-specific constraints.`
@@ -59,8 +63,8 @@ export default async function IndustryDetailPage({ params }: Props) {
   const defaultContent = (
     <IndustryPageContent
       industry={industry}
-      featuredExpertise={featuredExpertise}
-      featuredCaseStudies={featuredCaseStudies.length > 0 ? featuredCaseStudies : undefined}
+      featuredExpertise={publicFeaturedExpertise}
+      featuredCaseStudies={publicFeaturedCaseStudies.length > 0 ? publicFeaturedCaseStudies : undefined}
       whyNow={whyNowText}
     />
   )
@@ -69,8 +73,8 @@ export default async function IndustryDetailPage({ params }: Props) {
     return (
       <IndustryTemplate
         industry={resolved ?? industry}
-        featuredExpertise={featuredExpertise}
-        featuredCaseStudies={featuredCaseStudies.length > 0 ? featuredCaseStudies : undefined}
+        featuredExpertise={publicFeaturedExpertise}
+        featuredCaseStudies={publicFeaturedCaseStudies.length > 0 ? publicFeaturedCaseStudies : undefined}
         whyNow={whyNowText}
         pageTitle={registryRow.pageTitle}
         theme={registryRow.theme ?? undefined}

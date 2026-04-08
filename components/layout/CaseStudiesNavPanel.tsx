@@ -18,23 +18,23 @@ export function CaseStudiesNavPanel({ items, id, labelledBy }: CaseStudiesNavPan
   return (
     <div
       id={id}
-      className="rounded-2xl border border-slate-700/70 bg-slate-950/95 backdrop-blur-2xl shadow-[0_35px_100px_rgba(15,23,42,0.85)]"
+      className="overflow-hidden rounded-[1.75rem] border border-white/[0.12] bg-[linear-gradient(180deg,rgba(15,23,42,0.98),rgba(2,6,23,0.98))] backdrop-blur-2xl shadow-[0_36px_110px_rgba(2,6,23,0.78)]"
       onClick={handleClick}
       role="region"
       aria-label={labelledBy ? undefined : "Featured case studies"}
       aria-labelledby={labelledBy}
     >
-      <div className="px-7 pt-6 pb-0 md:px-7 md:pt-7 md:pb-0">
+      <div className="border-b border-white/[0.06] px-7 pb-4 pt-6 md:px-7 md:pt-7">
         <p className="max-w-3xl text-[13px] leading-relaxed text-slate-300">
-          A sample of how GTM systems show up in the field—strategy, execution, and measurable outcomes.
+          A sample of how GTM systems show up in the field: strategy, execution, and measurable outcomes.
         </p>
       </div>
-      <div className="grid grid-cols-1 gap-4 p-7 pt-5 md:grid-cols-3 md:gap-5">
+      <div className="grid grid-cols-1 gap-4 p-7 md:grid-cols-3 md:gap-5">
         {items.map((cs) => (
           <Link
             key={cs.slug}
             href={`/case-studies/${cs.slug}`}
-            className="group rounded-xl border border-white/10 bg-slate-900/60 p-4 transition-colors hover:border-cyan-500/30 hover:bg-slate-900/90"
+            className="group rounded-2xl border border-white/[0.08] bg-white/[0.03] p-4 transition-all hover:-translate-y-0.5 hover:border-cyan-500/25 hover:bg-white/[0.05]"
           >
             <p className="text-[11px] uppercase tracking-[0.16em] text-slate-500">{cs.client}</p>
             <p className="mt-1.5 text-[14px] font-semibold leading-snug text-slate-50 group-hover:text-white">
@@ -51,7 +51,7 @@ export function CaseStudiesNavPanel({ items, id, labelledBy }: CaseStudiesNavPan
           </Link>
         ))}
       </div>
-      <div className="border-t border-white/10 px-7 py-4 space-y-3">
+      <div className="space-y-3 border-t border-white/10 px-7 py-4">
         <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
           <p className="text-[12px] text-slate-400">See the full library of engagements and industries.</p>
           <Link

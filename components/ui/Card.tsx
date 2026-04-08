@@ -1,12 +1,11 @@
 'use client'
 
 import Link from 'next/link'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
-import * as Icons from 'lucide-react'
+import { ArrowRight, ArrowUpRight, Activity } from 'lucide-react'
 import { HoverScale } from '@/components/motion/FadeIn'
+import { IconBadge } from '@/components/ui/IconBadge'
+import { getLucideIcon } from '@/lib/lucideIconMap'
 import { cn } from '@/lib/utils'
-
-type IconName = keyof typeof Icons
 
 interface CardProps {
   title: string
@@ -31,33 +30,30 @@ export function Card({
   external = false,
   className,
 }: CardProps) {
-  const IconComponent = icon && Icons[icon as IconName] 
-    ? (Icons[icon as IconName] as React.ComponentType<{ className?: string }>) 
-    : null
+  const IconComponent = getLucideIcon(icon)
 
   const cardContent = (
     <div
       className={cn(
-        'card card-hover group h-full p-6',
-        variant === 'featured' && 'border-brand-200/60 bg-gradient-to-br from-white to-brand-50/30',
-        variant === 'compact' && 'p-4',
+        'card card-hover group h-full p-6 md:p-7',
+        variant === 'featured' && 'border-cyan-300/18 bg-[linear-gradient(180deg,rgba(13,26,42,0.96),rgba(9,18,32,0.98))]',
+        variant === 'compact' && 'p-5 md:p-6',
         className
       )}
     >
       <div className="flex flex-col h-full">
         {/* Header */}
-        <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="mb-4 flex items-start justify-between gap-4">
           {IconComponent && (
-            <div
+            <IconBadge
+              icon={IconComponent}
+              size="lg"
+              tone={variant === 'featured' ? 'brand' : 'neutral'}
               className={cn(
-                'w-10 h-10 rounded-lg flex items-center justify-center transition-colors',
-                variant === 'featured'
-                  ? 'bg-brand-100 text-brand-600'
-                  : 'bg-slate-100 text-slate-600 group-hover:bg-brand-100 group-hover:text-brand-600'
+                'transition-colors',
+                variant !== 'featured' && 'group-hover:border-brand-100 group-hover:bg-brand-50 group-hover:text-brand-600'
               )}
-            >
-              <IconComponent className="w-5 h-5" />
-            </div>
+            />
           )}
           {badge && (
             <span className="badge badge-brand text-xs">{badge}</span>
@@ -65,25 +61,25 @@ export function Card({
         </div>
 
         {/* Content */}
-        <h3 className="font-semibold text-slate-900 group-hover:text-brand-600 transition-colors mb-2">
+        <h3 className="mb-3 text-xl font-semibold tracking-tight text-white transition-colors group-hover:text-cyan-100">
           {title}
         </h3>
-        <p className="text-sm text-slate-600 leading-relaxed flex-grow">
+        <p className="flex-grow text-[15px] leading-7 text-slate-300/88">
           {description}
         </p>
 
         {/* Footer */}
-        <div className="mt-4 pt-4 border-t border-slate-100 flex items-center justify-between">
+        <div className="card-footer-row">
           {tags && tags.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
               {tags.slice(0, 2).map((tag) => (
-                <span key={tag} className="text-xs text-slate-500 bg-slate-50 px-2 py-0.5 rounded">
+                <span key={tag} className="card-tag">
                   {tag}
                 </span>
               ))}
             </div>
           )}
-          <span className="inline-flex items-center gap-1 text-sm font-medium text-brand-600 ml-auto">
+          <span className="ml-auto inline-flex items-center gap-1 text-sm font-semibold text-cyan-200">
             {external ? 'View' : 'Learn more'}
             {external ? (
               <ArrowUpRight className="w-3.5 h-3.5" />
@@ -124,22 +120,20 @@ interface MetricCardProps {
 }
 
 export function MetricCard({ label, value, change, icon, className }: MetricCardProps) {
-  const IconComponent = icon ? (Icons[icon as IconName] as React.ComponentType<{ className?: string }>) : null
+  const IconComponent = getLucideIcon(icon)
 
   return (
-    <div className={cn('card p-5', className)}>
+    <div className={cn('card p-5 md:p-6', className)}>
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="text-sm text-slate-500 mb-1">{label}</p>
-          <p className="text-2xl font-bold text-slate-900">{value}</p>
+          <p className="mb-1 text-sm text-slate-400">{label}</p>
+          <p className="text-2xl font-bold tracking-tight text-white">{value}</p>
           {change && (
             <p className="text-sm font-medium text-emerald-600 mt-1">{change}</p>
           )}
         </div>
         {IconComponent && (
-          <div className="w-10 h-10 rounded-lg bg-brand-50 flex items-center justify-center text-brand-600">
-            <IconComponent className="w-5 h-5" />
-          </div>
+          <IconBadge icon={IconComponent} tone="brand" size="md" />
         )}
       </div>
     </div>
@@ -189,38 +183,47 @@ export function CaseStudyCard({
         <Link href={href} className="block h-full">
           <div
             className={cn(
-              'group bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden flex flex-col shadow-sm hover:shadow-md transition-shadow h-full',
-              featured && 'ring-1 ring-brand-200/60',
-              className
-            )}
-          >
-            <div className="h-1.5 w-full shrink-0" style={{ backgroundColor: strip }} />
-            <div className="p-5 md:p-6 flex flex-col flex-1">
-              <div className="flex gap-2 mb-3 flex-wrap">
+            'group flex h-full flex-col overflow-hidden rounded-[1.6rem] border border-white/10 bg-[linear-gradient(180deg,rgba(15,23,42,0.92),rgba(9,16,32,0.96))] shadow-[0_20px_50px_rgba(2,6,23,0.26)] transition-all hover:-translate-y-1 hover:border-cyan-300/22 hover:shadow-[0_28px_68px_rgba(8,145,178,0.18)]',
+            featured && 'ring-1 ring-cyan-300/18',
+            className
+          )}
+        >
+          <div className="h-1.5 w-full shrink-0" style={{ backgroundColor: strip }} />
+            <div className="flex flex-1 flex-col p-5 md:p-6">
+              <div className="mb-3 flex flex-wrap gap-2">
                 {tags.slice(0, 2).map((tag) => (
                   <span
                     key={tag}
-                    className="text-[10px] font-bold px-2 py-1 bg-slate-100 dark:bg-slate-800 rounded text-slate-500 uppercase tracking-wide"
+                    className="card-tag text-[10px] font-bold uppercase tracking-[0.14em]"
                   >
                     {tag}
                   </span>
                 ))}
               </div>
-              <h3 className="font-display text-lg md:text-xl font-bold mb-2 text-slate-900 dark:text-white leading-tight group-hover:text-brand-600 transition-colors">
+              <h3 className="mb-2 font-display text-lg font-bold leading-tight text-white transition-colors group-hover:text-cyan-100 md:text-xl">
                 {title}
               </h3>
-              <p className="text-sm text-slate-600 dark:text-slate-400 mb-4 flex-1 leading-6">
+              <p className="mb-5 flex-1 text-[15px] leading-7 text-slate-300/88">
                 {description}
               </p>
               {primary && (
-                <div
-                  className="text-3xl font-extrabold mb-4"
-                  style={{ color: strip }}
-                >
-                  {primary.value}
+                <div className="mb-4 flex items-center gap-3">
+                  <IconBadge
+                    icon={Activity}
+                    tone="soft"
+                    size="sm"
+                    className="border-white/10 bg-white/[0.06]"
+                    iconClassName="text-slate-300"
+                  />
+                  <div
+                    className="text-3xl font-extrabold"
+                    style={{ color: strip }}
+                  >
+                    {primary.value}
+                  </div>
                 </div>
               )}
-              <span className="inline-flex items-center gap-2 text-brand-600 font-bold text-sm group-hover:gap-3 transition-all mt-auto">
+              <span className="mt-auto inline-flex items-center gap-2 text-sm font-bold text-cyan-200 transition-all group-hover:gap-3">
                 Read case study
                 <ArrowRight className="w-4 h-4" />
               </span>
@@ -237,41 +240,41 @@ export function CaseStudyCard({
         <div
           className={cn(
             'card card-hover group h-full overflow-hidden',
-            featured && 'border-brand-200/60',
+            featured && 'border-cyan-300/18',
             className
           )}
         >
           {/* Decorative header */}
-          <div className="h-2 bg-gradient-to-r from-brand-500 via-brand-400 to-accent-400" />
+          <div className="h-2 bg-gradient-to-r from-cyan-400 via-blue-400 to-sky-300" />
           
-          <div className="p-5">
+          <div className="flex h-full flex-col p-6 md:p-7">
             {/* Client badge */}
-            <span className="inline-block text-xs font-medium text-slate-500 uppercase tracking-wider mb-3">
+            <span className="mb-3 inline-block text-xs font-medium uppercase tracking-[0.18em] text-slate-400">
               {client}
             </span>
 
-            <h3 className="font-semibold text-lg text-slate-900 group-hover:text-brand-600 transition-colors mb-2">
+            <h3 className="mb-3 text-xl font-semibold tracking-tight text-white transition-colors group-hover:text-cyan-100">
               {title}
             </h3>
 
-            <p className="text-sm text-slate-600 leading-relaxed mb-4">
+            <p className="mb-5 flex-grow text-[15px] leading-7 text-slate-300/88">
               {description}
             </p>
 
             {/* Metrics */}
-            <div className="grid grid-cols-3 gap-2 py-3 border-y border-slate-100 mb-3">
+            <div className="mb-4 grid grid-cols-3 gap-2 border-y border-white/10 py-4">
               {metrics.slice(0, 3).map((metric) => (
-                <div key={metric.label} className="text-center">
-                  <p className="text-lg font-bold text-brand-600">{metric.value}</p>
-                  <p className="text-xs text-slate-500">{metric.label}</p>
+                <div key={metric.label} className="card-metric-chip">
+                  <p className="text-lg font-bold tracking-tight text-cyan-200">{metric.value}</p>
+                  <p className="text-xs text-slate-400">{metric.label}</p>
                 </div>
               ))}
             </div>
 
             {/* Tags */}
-            <div className="flex flex-wrap gap-1.5">
+            <div className="mt-auto flex flex-wrap gap-1.5">
               {tags.slice(0, 3).map((tag) => (
-                <span key={tag} className="badge text-xs">
+                <span key={tag} className="card-tag text-xs">
                   {tag}
                 </span>
               ))}

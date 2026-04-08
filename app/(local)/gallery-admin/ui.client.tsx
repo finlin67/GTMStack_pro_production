@@ -246,12 +246,12 @@ export default function GalleryAdminClient() {
                       </div>
                       <div className="flex items-center gap-2 shrink-0">
                         {i.usedOnPages && (
-                          <span className="rounded bg-emerald-500/15 text-emerald-300 text-[10px] px-2 py-0.5">
+                          <span className="rounded bg-emerald-500/[0.15] text-emerald-300 text-[10px] px-2 py-0.5">
                             Used
                           </span>
                         )}
                         {i.hasOverride && (
-                          <span className="rounded bg-amber-500/15 text-amber-300 text-[10px] px-2 py-0.5">
+                          <span className="rounded bg-amber-500/[0.15] text-amber-300 text-[10px] px-2 py-0.5">
                             Override
                           </span>
                         )}

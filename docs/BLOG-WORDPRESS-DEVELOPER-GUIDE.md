@@ -45,17 +45,108 @@ Use this sequence whenever an editor says, "I published in WordPress but don't s
 
 | File | Purpose |
 |------|---------|
-| `lib/wp-client.ts` | WordPress API client used by the blog. Exposes `fetchPosts`, `fetchPostBySlug`, `fetchLatestPosts`, and `WPPost` type. |
-| `lib/wordpress.ts` | Server-side WordPress client used by static blog page build and category fetches. |
+| `lib/wp-client.ts` | WordPress API client. Exposes `fetchPosts`, `fetchPostBySlug`, `fetchLatestPosts`, `WPPost` type, and helpers (`getPostCategories`, `getPostTags`, `getEmbeddedAuthor`). |
+| `lib/wordpress.ts` | Server-side WordPress client used by the static blog page build and category fetches. |
+| `lib/blog-adapter.ts` | Maps `WPPost` + categories to UI props for all layouts. Exports `adaptStitchBlogFeedData`, `adaptBlogSinglePostData`, `adaptHowToPostData`, `adaptInsightPostData`, and display-text helpers (`cleanDisplayText`, `stripDisplayPrefix`). |
+| `src/types/blog.ts` | TypeScript types for all ACF field shapes, modular section types, FAQ items, HowTo steps, and Insight data points. |
 | `app/blog/page.tsx` | Static blog page shell; fetches initial posts/categories at build/render time. |
 | `app/blog/BlogIndexClient.tsx` | Client refresh layer; re-fetches posts from WP on first load and query changes; renders `BlogStitchFeedTemplate`. |
-| `src/templates/blog/BlogStitchFeedTemplate.tsx` | Stitch-style blog index (featured row, category pills, grid, sidebar). Props from `adaptStitchBlogFeedData()`. |
-| `src/templates/blog/BlogStitchPostTemplate.tsx` | Stitch-style single post. Props from `adaptBlogSinglePostData()`. |
-| `lib/blog-adapter.ts` | Maps `WPPost` + categories to UI props (feed + single post). |
 | `app/blog/post/page.tsx` | Wrapper for the post detail view. |
-| `app/blog/post/BlogPostClient.tsx` | Post detail page — fetches single post by slug; renders `BlogStitchPostTemplate`. |
-| `components/ui/LatestPosts.tsx` | Reusable "Latest Posts" block with direct browser fetch from WP. |
+| `app/blog/post/BlogPostClient.tsx` | Post detail page — fetches single post by slug; selects template by `post.acf.layout_type`; fetches and deduplicates related posts. |
+| `src/templates/blog/BlogStitchFeedTemplate.tsx` | Blog index template (featured row, category pills, post grid, sidebar). |
+| `src/templates/blog/BlogStitchPostTemplate.tsx` | Single post template for `legacy` and `modular_article` layouts. |
+| `src/templates/blog/HowToPostTemplate.tsx` | Single post template for `how_to` layout (step-by-step format). |
+| `src/templates/blog/InsightPostTemplate.tsx` | Single post template for `insight` layout (strategic analysis format). |
+| `app/api/nav-posts/route.ts` | Public API endpoint returning latest posts for nav/mega-menu consumption. |
+| `wp-content/plugins/gtmstack-headless-blog-kit/gtmstack-headless-blog-kit.php` | WordPress plugin that registers ACF fields for layout types and exposes them in the REST API. |
 | `.github/workflows/deploy.yml` | Production static deploy pipeline; runs automatically on `main` pushes. |
+
+---
+
+## Post Layout Types (ACF-Driven Templates)
+
+As of April 2026, the blog supports **four distinct post layouts** selected by a single ACF field on each WordPress post. `BlogPostClient.tsx` reads `post.acf.layout_type` at runtime and renders the matching template.
+
+### Layout Type → Template Mapping
+
+| `acf.layout_type` value | Template component | Adapter function | Best for |
+|---|---|---|---|
+| _(missing / `legacy`)_ | `BlogStitchPostTemplate` | `adaptBlogSinglePostData()` | General articles, existing posts |
+| `modular_article` | `BlogStitchPostTemplate` (modular path) | `adaptBlogSinglePostData()` | Rich editorial pieces with callouts, checklists, FAQ, CTA |
+| `how_to` | `HowToPostTemplate` | `adaptHowToPostData()` | Step-by-step guides, tutorials |
+| `insight` | `InsightPostTemplate` | `adaptInsightPostData()` | Strategic analysis, opinion pieces, data stories |
+
+### Where each template lives
+
+```
+src/templates/blog/
+├── BlogStitchFeedTemplate.tsx    # Blog index (all layout types)
+├── BlogStitchPostTemplate.tsx    # legacy + modular_article posts
+├── HowToPostTemplate.tsx         # how_to posts
+└── InsightPostTemplate.tsx       # insight posts
+```
+
+### Modular Article sections (inside `BlogStitchPostTemplate`)
+
+When `layout_type === 'modular_article'`, the adapter maps ACF repeater fields into typed section objects. The template's `renderModularArticle()` branch handles each section type:
+
+| Section type | Rendered as |
+|---|---|
+| `text` | Styled rich-text block |
+| `callout` | Highlighted callout box |
+| `checklist` | Styled bulleted checklist |
+| `image` | Full-width or constrained image with caption |
+
+Additional blocks rendered outside the main section loop:
+
+- **FAQ accordion** — Collapsible Q&A list from `faqItems`.
+- **Featured quote** — Pull-quote block from `acf.featured_quote`.
+- **CTA block** — Conversion prompt from `acf.cta_*` fields.
+- **Author note** — Closing author bio/note from `acf.author_note`.
+
+### Setting `layout_type` in WordPress
+
+1. Install and activate the **GTMStack Headless Blog Kit** plugin (`wp-content/plugins/gtmstack-headless-blog-kit/gtmstack-headless-blog-kit.php`). This plugin registers the ACF field group that exposes `layout_type` in the post editor.
+2. Open any post in the WordPress block editor.
+3. Find the **GTMStack Layout** meta box (usually at the bottom of the editor, or in the right sidebar depending on your WP theme).
+4. Set **Layout Type** to one of: `legacy`, `modular_article`, `how_to`, `insight`.
+5. Fill in any layout-specific ACF fields (step list for `how_to`, section repeater for `modular_article`, etc.).
+6. Publish or update.
+
+### Types reference
+
+All TypeScript types for ACF-driven blog content live in `src/types/blog.ts`:
+
+- `WPAcfFields` — top-level ACF shape with `layout_type`, `featured_quote`, `cta_*`, `author_note`, etc.
+- `ModularSection` — union of `text | callout | checklist | image` section shapes.
+- `FaqItem` — `{ question: string; answer: string }`.
+- `HowToStep`, `InsightDataPoint` — layout-specific content shapes.
+
+### Adding a new layout type
+
+1. Add the new `layout_type` value to `WPAcfFields` in `src/types/blog.ts`.
+2. Create a template component at `src/templates/blog/YourNewTemplate.tsx`.
+3. Add a new adapter function in `lib/blog-adapter.ts` following the `adaptHowToPostData` pattern.
+4. Add the new case to the `switch` block in `app/blog/post/BlogPostClient.tsx`.
+5. Register the field in the WordPress plugin if new ACF fields are needed.
+
+---
+
+## WordPress Plugin: GTMStack Headless Blog Kit
+
+The plugin at `wp-content/plugins/gtmstack-headless-blog-kit/gtmstack-headless-blog-kit.php` provides:
+
+- ACF field group registration for `layout_type` and all layout-specific sub-fields.
+- REST API field exposure — ACF values are included in the `acf` property of `/wp-json/wp/v2/posts` responses.
+- Optional CORS header injection (configurable).
+
+**Install on a new WordPress site:**
+1. Copy the plugin folder to `wp-content/plugins/` on the WordPress server.
+2. Activate in WP Admin → Plugins.
+3. Verify ACF fields appear when editing a post.
+4. Verify `acf` key is present in REST API post responses.
+
+**Prerequisite:** Advanced Custom Fields (ACF) plugin must be active on the WordPress site. The free version is sufficient.
 
 ---
 

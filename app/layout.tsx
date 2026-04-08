@@ -73,7 +73,7 @@ export default function RootLayout({
       lang="en"
       className={`${GeistSans.variable} ${GeistMono.variable} ${inter.variable} ${outfit.variable}`}
     >
-      <body className="min-h-screen flex flex-col font-sans antialiased">
+      <body className="min-h-screen flex flex-col bg-[var(--color-background)] font-sans antialiased text-[var(--color-foreground)]">
         <a href="#main-content" className="skip-link">
           Skip to main content
         </a>

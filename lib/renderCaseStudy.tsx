@@ -7,13 +7,20 @@ import { ArrowRight, CheckCircle2, TrendingUp, Target, Zap, BarChart3 } from 'lu
 import { SectionDark } from '@/components/layout/SectionDark'
 import { SectionLight } from '@/components/layout/SectionLight'
 import { SectionHeader } from '@/components/layout/Section'
-import { RelatedCaseStudies, RelatedExpertise } from '@/components/ui/RelatedItems'
+import { ConnectedTopics, RelatedCaseStudies, RelatedExpertise } from '@/components/ui/RelatedItems'
 import { HeroDark } from '@/components/ui/HeroDark'
 import { AnimatedStatCard } from '@/components/ui/AnimatedStatCard'
 import { FadeIn, StaggerContainer, StaggerItem } from '@/components/motion/FadeIn'
 import { caseStudyItems } from '@/src/data/caseStudies'
 import { expertiseItems } from '@/content/expertise'
 import { industryItems } from '@/src/data/industries'
+import {
+  dedupeConnectedLinks,
+  filterPublicCaseStudyItems,
+  filterPublicExpertiseItems,
+  getPublicCaseStudyHref,
+  getPublicIndustryHref,
+} from '@/lib/internalLinks'
 import { HERO_VISUALS } from '@/lib/heroVisuals'
 import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
 import type { CaseStudyItem, CaseStudyRouteKind } from '@/lib/types'
@@ -53,12 +60,51 @@ export default function RenderCaseStudy({
 
   const config = ROUTE_CONFIG[routeKind]
   const industry = industryItems.find((i) => i.slug === caseStudy.industry)
-  const relatedExpertise = expertiseItems
+  const relatedExpertise = filterPublicExpertiseItems(
+    expertiseItems
     .filter((e) => caseStudy.expertise.includes(e.slug))
     .slice(0, 3)
-  const relatedCaseStudies = caseStudyItems
+  )
+  const relatedCaseStudies = filterPublicCaseStudyItems(
+    caseStudyItems
     .filter((c) => c.slug !== caseStudy.slug && c.industry === caseStudy.industry)
-    .slice(0, 2)
+    .slice(0, 2),
+    routeKind
+  )
+
+  const industryHref = industry ? getPublicIndustryHref(industry.slug) : null
+  const connectedTopics = dedupeConnectedLinks([
+    ...(industry && industryHref
+      ? [{
+          href: industryHref,
+          label: `${industry.title} market context`,
+          description: `See the adjacent industry page for the buying environment and GTM constraints around this work.`,
+          icon: industry.icon,
+        }]
+      : []),
+    ...(relatedExpertise[0]
+      ? [{
+          href: `/expertise/${relatedExpertise[0].slug}`,
+          label: `Applied expertise: ${relatedExpertise[0].title}`,
+          description: `Go one layer deeper into the operating capability that supported this result.`,
+          icon: relatedExpertise[0].icon,
+        }]
+      : []),
+    ...(relatedCaseStudies[0]
+      ? [{
+          href: getPublicCaseStudyHref(relatedCaseStudies[0].slug, routeKind) ?? config.viewAllHref,
+          label: `Adjacent proof: ${relatedCaseStudies[0].title}`,
+          description: `Compare this outcome with another engagement in a similar market or motion.`,
+          icon: 'FileText',
+        }]
+      : []),
+    {
+      href: '/blog',
+      label: 'Field notes on GTM execution',
+      description: 'Browse the blog for strategic context, systems thinking, and lessons behind the work.',
+      icon: 'BookOpen',
+    },
+  ]).slice(0, 4)
 
   const outcomeHeadline = caseStudy.title
   const outcomeSubhead = caseStudy.description
@@ -99,7 +145,7 @@ export default function RenderCaseStudy({
         <div className="flex flex-wrap items-center gap-3 mt-6">
           {industry && (
             <Link
-              href={`/industries/${industry.slug}`}
+              href={industryHref ?? `/industries/${industry.slug}`}
               className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-white/90 text-sm hover:bg-white/20 transition-colors backdrop-blur-sm"
             >
               {industry.title}
@@ -276,6 +322,25 @@ export default function RenderCaseStudy({
               <p className="text-lg text-slate-700 leading-relaxed">
                 The value here is not just the headline metric. It is the combination of clearer operating
                 choices, better instrumentation, and tighter execution that made the result repeatable.
+                {industry && industryHref && (
+                  <>
+                    {' '}If you want the market context, start with{' '}
+                    <Link href={industryHref} className="font-medium text-brand-600 underline decoration-brand-200 underline-offset-4">
+                      the {industry.title} industry page
+                    </Link>.
+                  </>
+                )}
+                {relatedExpertise[0] && (
+                  <>
+                    {' '}For the underlying capability, review{' '}
+                    <Link
+                      href={`/expertise/${relatedExpertise[0].slug}`}
+                      className="font-medium text-brand-600 underline decoration-brand-200 underline-offset-4"
+                    >
+                      {relatedExpertise[0].title}
+                    </Link>.
+                  </>
+                )}
               </p>
               <div className="mt-8 grid md:grid-cols-2 gap-6">
                 <div className="p-6 rounded-xl bg-slate-50 border border-slate-200">
@@ -318,6 +383,16 @@ export default function RenderCaseStudy({
             items={relatedExpertise}
             title="Expertise Applied"
             viewAllHref="/expertise"
+          />
+        </SectionLight>
+      )}
+
+      {connectedTopics.length > 0 && (
+        <SectionLight variant="slate" padding="md">
+          <ConnectedTopics
+            title="Keep Exploring"
+            intro="Follow the adjacent market, capability, and proof links that connect this case study to the rest of the site."
+            links={connectedTopics}
           />
         </SectionLight>
       )}

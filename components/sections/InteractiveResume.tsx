@@ -118,7 +118,7 @@ function RoleCard({
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -8 }}
       transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-      className="overflow-hidden rounded-[18px] border border-white/8 bg-[#17344E]"
+      className="overflow-hidden rounded-[18px] border border-white/[0.08] bg-[#17344E]"
       style={{
         boxShadow: "inset 0 1px 0 rgba(255,255,255,0.03)",
       }}
@@ -194,7 +194,7 @@ function RoleCard({
               style={{ overflow: "hidden" }}
             >
               <div
-                className="mt-4 border-t border-white/8 pt-4"
+                className="mt-4 border-t border-white/[0.08] pt-4"
                 style={{ background: "rgba(255,255,255,0.015)" }}
               >
                 <ul className="space-y-2">
@@ -359,14 +359,14 @@ export default function InteractiveResume() {
 
         <div className="bg-[#10273C] p-4 md:p-5">
           {visibleRoles.length === 0 ? (
-            <div className="flex min-h-[220px] flex-col items-center justify-center rounded-[18px] border border-white/8 bg-white/4 p-6 text-center">
+            <div className="flex min-h-[220px] flex-col items-center justify-center rounded-[18px] border border-white/[0.08] bg-white/[0.04] p-6 text-center">
               <p className="text-[0.95rem] text-slate-200">No roles match these filters.</p>
               <p className="mt-2 max-w-sm text-sm leading-6 text-slate-400">
                 Clear the active filters to bring the full operating record back into view.
               </p>
               <button
                 onClick={resetFilters}
-                className="mt-4 rounded-full border border-[#FFDB58]/35 bg-[#FFDB58]/8 px-4 py-2 text-sm font-semibold text-[#FFDB58]"
+                className="mt-4 rounded-full border border-[#FFDB58]/35 bg-[#FFDB58]/[0.08] px-4 py-2 text-sm font-semibold text-[#FFDB58]"
               >
                 Reset Filters
               </button>
@@ -381,7 +381,7 @@ export default function InteractiveResume() {
             </motion.div>
           )}
 
-          <div className="mt-6 border-t border-white/8 pt-6">
+          <div className="mt-6 border-t border-white/[0.08] pt-6">
             <div className="grid grid-cols-2 gap-5 md:grid-cols-4">
               {RESUME_STATS.map(({ value, label }) => (
                 <div key={label} className="flex flex-col items-center text-center gap-1">

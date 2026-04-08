@@ -13,10 +13,17 @@ import {
   Wallet,
 } from 'lucide-react'
 import { SectionLight } from '@/components/layout/SectionLight'
-import { RelatedCaseStudies, RelatedExpertise } from '@/components/ui/RelatedItems'
+import { ConnectedTopics, RelatedCaseStudies, RelatedExpertise } from '@/components/ui/RelatedItems'
 import { caseStudyItems } from '@/src/data/caseStudies'
 import { expertiseItems } from '@/content/expertise'
 import { industryItems } from '@/src/data/industries'
+import {
+  dedupeConnectedLinks,
+  filterPublicCaseStudyItems,
+  filterPublicExpertiseItems,
+  getPublicCaseStudyHref,
+  getPublicIndustryHref,
+} from '@/lib/internalLinks'
 import type { CaseStudyItem, CaseStudyRouteKind } from '@/lib/types'
 
 const ROUTE_COPY: Record<
@@ -54,12 +61,50 @@ export interface RenderCaseStudyStitchProps {
 export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCaseStudyStitchProps) {
   const config = ROUTE_COPY[routeKind]
   const industry = industryItems.find((i) => i.slug === caseStudy.industry)
-  const relatedExpertise = expertiseItems
+  const relatedExpertise = filterPublicExpertiseItems(
+    expertiseItems
     .filter((e) => caseStudy.expertise.includes(e.slug))
     .slice(0, 3)
-  const relatedCaseStudies = caseStudyItems
+  )
+  const relatedCaseStudies = filterPublicCaseStudyItems(
+    caseStudyItems
     .filter((c) => c.slug !== caseStudy.slug && c.industry === caseStudy.industry)
-    .slice(0, 2)
+    .slice(0, 2),
+    routeKind
+  )
+  const industryHref = industry ? getPublicIndustryHref(industry.slug) : null
+  const connectedTopics = dedupeConnectedLinks([
+    ...(industry && industryHref
+      ? [{
+          href: industryHref,
+          label: `${industry.title} market context`,
+          description: 'See the broader industry page for GTM realities, proof, and adjacent capability pages.',
+          icon: industry.icon,
+        }]
+      : []),
+    ...(relatedExpertise[0]
+      ? [{
+          href: `/expertise/${relatedExpertise[0].slug}`,
+          label: `Expertise applied: ${relatedExpertise[0].title}`,
+          description: 'Review the capability page behind this engagement to connect strategy with execution.',
+          icon: relatedExpertise[0].icon,
+        }]
+      : []),
+    ...(relatedCaseStudies[0]
+      ? [{
+          href: getPublicCaseStudyHref(relatedCaseStudies[0].slug, routeKind) ?? config.viewAllHref,
+          label: `Adjacent proof: ${relatedCaseStudies[0].title}`,
+          description: 'Compare this engagement with a related case study from the same market.',
+          icon: 'FileText',
+        }]
+      : []),
+    {
+      href: '/blog',
+      label: 'GTM field notes',
+      description: 'Browse the blog for strategy, measurement, and operator lessons tied to this kind of work.',
+      icon: 'BookOpen',
+    },
+  ]).slice(0, 4)
 
   const solutionSteps = parseSolutionSteps(caseStudy.solution)
   const keyDecisions = caseStudy.keyDecisions ?? []
@@ -233,7 +278,7 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
                     {industry && (
                       <li>
                         <Link
-                          href={`/industries/${industry.slug}`}
+                          href={industryHref ?? `/industries/${industry.slug}`}
                           className="inline-flex items-center gap-2 text-sm text-brand-600 font-semibold hover:underline"
                         >
                           {industry.title} industry
@@ -315,6 +360,16 @@ export default function RenderCaseStudyStitch({ caseStudy, routeKind }: RenderCa
             items={relatedExpertise}
             title="Expertise applied"
             viewAllHref="/expertise"
+          />
+        </SectionLight>
+      )}
+
+      {connectedTopics.length > 0 && (
+        <SectionLight variant="slate" padding="md">
+          <ConnectedTopics
+            title="Connected Topics"
+            intro="Use these nearby links to move from this proof point into the surrounding market and capability pages."
+            links={connectedTopics}
           />
         </SectionLight>
       )}

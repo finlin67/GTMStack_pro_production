@@ -5,7 +5,14 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
 import * as Icons from 'lucide-react'
-import { ArrowRight, ArrowLeft, Compass, Sparkles, Layers, LineChart, ChevronRight, Search, MessageSquare, Rocket, BookOpen, RefreshCw } from 'lucide-react'
+import { ArrowRight, ArrowLeft, AlertCircle, BriefcaseBusiness, Compass, Sparkles, Layers, LineChart, ChevronRight, Search, MessageSquare, Rocket, BookOpen, RefreshCw } from 'lucide-react'
+import { IconBadge } from '@/components/ui/IconBadge'
+import { ConnectedTopics } from '@/components/ui/RelatedItems'
+import {
+  dedupeConnectedLinks,
+  getPublicCaseStudyHref,
+  getPublicIndustryHref,
+} from '@/lib/internalLinks'
 import { ExpertiseItem, CaseStudyItem, IndustryItem } from '@/lib/types'
 
 /* Preserved: Animated dashboard element in hero upper right — do not delete or modify */
@@ -290,6 +297,42 @@ export function ExpertiseDetailContent({
   type IconName = keyof typeof Icons
   const IconComponent = Icons[(item.icon || 'Sparkles') as IconName] as React.ComponentType<{ className?: string }> | undefined
   const tagline = heroConfig?.tagline ?? item.description ?? item.positioning ?? ''
+  const primaryCaseStudy = relatedCaseStudies[0]
+  const primaryIndustry = relatedIndustries[0]
+  const primaryCaseStudyHref = primaryCaseStudy ? getPublicCaseStudyHref(primaryCaseStudy.slug) : null
+  const primaryIndustryHref = primaryIndustry ? getPublicIndustryHref(primaryIndustry.slug) : null
+  const connectedTopics = dedupeConnectedLinks([
+    ...(primaryIndustry && primaryIndustryHref
+      ? [{
+          href: primaryIndustryHref,
+          label: `${primaryIndustry.title} industry page`,
+          description: `See how ${item.title} changes when it is applied inside a specific market context.`,
+          icon: primaryIndustry.icon,
+        }]
+      : []),
+    ...(primaryCaseStudy && primaryCaseStudyHref
+      ? [{
+          href: primaryCaseStudyHref,
+          label: `${primaryCaseStudy.title}`,
+          description: 'Review a case study that shows this expertise operating in the field.',
+          icon: 'BriefcaseBusiness',
+        }]
+      : []),
+    ...(relatedExpertise[0]
+      ? [{
+          href: `/expertise/${relatedExpertise[0].slug}`,
+          label: `Adjacent capability: ${relatedExpertise[0].title}`,
+          description: 'Explore the next-most-relevant expertise page to widen the implementation map.',
+          icon: relatedExpertise[0].icon,
+        }]
+      : []),
+    {
+      href: '/blog',
+      label: 'GTM field notes',
+      description: 'Browse the blog for operator lessons, systems thinking, and measurement guidance tied to this topic.',
+      icon: 'BookOpen',
+    },
+  ]).slice(0, 4)
 
   const isDemandGrowth = pillarId === 'demand-growth'
   const theme = usePmmAiTheme
@@ -324,7 +367,7 @@ export function ExpertiseDetailContent({
     <div className="min-h-screen text-white" style={theme ? { backgroundColor: bg } : { backgroundColor: 'var(--color-background-alt)' }}>
       {/* ========== HERO ========== */}
       <section
-        className="relative overflow-hidden pt-6 pb-4 md:pt-8 md:pb-6"
+        className="page-header-shell pt-5 pb-4 md:pt-6 md:pb-5 lg:pt-8 lg:pb-6"
         style={{ background: heroGradient }}
       >
         <div className="pointer-events-none absolute inset-0 z-0 opacity-70">
@@ -361,7 +404,7 @@ export function ExpertiseDetailContent({
           </svg>
         </div>
         <div className="container-width relative z-10">
-          <nav className="flex items-center gap-2 text-xs md:text-sm mb-2 text-white/90" aria-label="Breadcrumb">
+          <nav className="mb-3 flex items-center gap-2 text-xs text-white/90 md:text-sm" aria-label="Breadcrumb">
             <Link href="/" className="transition-colors hover:opacity-90" style={{ color: accent }}>Home</Link>
             <span className="text-white/60">/</span>
             <Link href="/expertise" className="transition-colors hover:opacity-90" style={{ color: accent }}>Expertise</Link>
@@ -372,12 +415,12 @@ export function ExpertiseDetailContent({
             <span className="text-white/60">/</span>
             <span className="text-white font-medium">{item.title}</span>
           </nav>
-          <div className="grid lg:grid-cols-[1.05fr_0.95fr] gap-3 lg:gap-4 items-center">
-            <div>
+          <div className="page-header-grid page-header-grid-with-visual gap-6 lg:gap-10">
+            <div className="page-header-copy max-w-[40rem]">
               <motion.div
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border text-xs mb-2"
+                className="page-header-kicker mb-3 text-xs"
                 style={{ borderColor: `${accent}99`, backgroundColor: `${accent}33` }}
               >
                 {IconComponent && (
@@ -391,7 +434,7 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 12 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4 }}
-                className="font-display font-bold text-4xl md:text-5xl lg:text-6xl xl:text-7xl tracking-tight text-white"
+                className="page-header-title page-header-title-default text-white"
                 style={{ textShadow: theme ? `0 0 40px ${accent}80, 0 0 80px ${accent}33` : `0 0 40px rgba(54,192,207,0.2), 0 0 80px rgba(54,192,207,0.15)` }}
               >
                 {item.title}
@@ -400,7 +443,7 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.08 }}
-                className="mt-1.5 text-base md:text-lg text-white/90 max-w-xl font-medium leading-[1.65]"
+                className="page-header-body mt-0 max-w-[36rem] text-white/90"
               >
                 {tagline}
               </motion.p>
@@ -408,11 +451,11 @@ export function ExpertiseDetailContent({
                 initial={{ opacity: 0, y: 8 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.4, delay: 0.12 }}
-                className="mt-3 flex flex-wrap gap-2"
+                className="page-header-actions mt-5"
               >
                 <Link
                   href="/contact"
-                  className={`inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-[1.04] ${usePmmAiTheme ? 'pmm-cta-primary' : ''} ${useStrategyInsightsTheme ? 'si-cta-primary' : ''} ${useSystemsOperationsTheme ? 'so-cta-primary' : ''}`}
+                  className={`inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-semibold text-white transition-all duration-300 hover:scale-[1.03] md:text-base ${usePmmAiTheme ? 'pmm-cta-primary' : ''} ${useStrategyInsightsTheme ? 'si-cta-primary' : ''} ${useSystemsOperationsTheme ? 'so-cta-primary' : ''}`}
                   style={
                     usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme
                       ? undefined
@@ -430,7 +473,7 @@ export function ExpertiseDetailContent({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.2 }}
-                  className="mt-3 grid grid-cols-2 gap-2 max-w-xs"
+                  className="mt-3 grid max-w-xs grid-cols-2 gap-2"
                 >
                   {heroConfig.metrics.map((m) => (
                     <div
@@ -450,12 +493,12 @@ export function ExpertiseDetailContent({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2 }}
-              className="relative hidden lg:block"
-            >
-              <div
-                className="relative mx-auto w-full max-w-[480px] aspect-square rounded-2xl overflow-hidden border-2"
-                style={{ borderColor: `${accent}99`, boxShadow: theme ? `0 0 60px ${accent}33` : `0 0 60px ${CYAN}20` }}
+                className="page-header-visual"
               >
+                <div
+                  className="page-header-visual-frame max-w-[420px] border-2"
+                  style={{ borderColor: `${accent}99`, boxShadow: theme ? `0 0 60px ${accent}33` : `0 0 60px ${CYAN}20` }}
+                >
                 <ExpertiseHeroVisual
                   config={heroConfig ? { engine: 'scan', accent: 'cyan', metrics: heroConfig.metrics ?? [], tagline: heroConfig.tagline ?? '' } : undefined}
                   borderClassName="border-white/20"
@@ -493,7 +536,7 @@ export function ExpertiseDetailContent({
                 className={`flex items-center gap-2 rounded-lg border p-3 transition-colors ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
                 style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
               >
-                <div className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: highlightColor }} />
+                <IconBadge icon={AlertCircle} tone="dark" size="sm" />
                 <span className={`text-sm ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white'}`}>{c}</span>
               </motion.li>
             ))}
@@ -668,6 +711,35 @@ export function ExpertiseDetailContent({
       <section className="relative py-3 md:py-4" style={{ backgroundColor: bgDark }}>
         <div className="container-width">
           <h2 className="font-display text-xl font-bold text-white mb-2.5">Related</h2>
+          {(primaryIndustry && primaryIndustryHref) || (primaryCaseStudy && primaryCaseStudyHref) ? (
+            <p className={`mb-3 max-w-3xl text-sm leading-7 ${usePmmAiTheme ? 'pmm-muted' : useStrategyInsightsTheme ? 'si-muted' : useSystemsOperationsTheme ? 'so-muted' : 'text-white/85'}`}>
+              If you want to move from capability into context, start with{' '}
+              {primaryIndustry && primaryIndustryHref ? (
+                <Link
+                  href={primaryIndustryHref}
+                  className="font-medium text-white underline decoration-white/30 underline-offset-4"
+                >
+                  the {primaryIndustry.title} industry page
+                </Link>
+              ) : (
+                'the matching industry pages'
+              )}
+              {primaryCaseStudy && primaryCaseStudyHref ? (
+                <>
+                  {' '}or jump to{' '}
+                  <Link
+                    href={primaryCaseStudyHref}
+                    className="font-medium text-white underline decoration-white/30 underline-offset-4"
+                  >
+                    {primaryCaseStudy.title}
+                  </Link>
+                  {' '}for a proof-driven example.
+                </>
+              ) : (
+                '.'
+              )}
+            </p>
+          ) : null}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-3">
             {relatedExpertise.slice(0, 3).map((e, i) => (
               <motion.div
@@ -683,6 +755,9 @@ export function ExpertiseDetailContent({
                   className={`block rounded-xl border-2 p-4 transition-all duration-300 group ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
                   style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
                 >
+                  <div className="mb-3">
+                    <IconBadge icon={e.icon ?? Sparkles} tone="dark" size="sm" />
+                  </div>
                   <h4 className="font-semibold text-white transition-colors mb-0.5 text-sm group-hover:opacity-90" style={{ color: 'inherit' }}>
                     {e.title}
                   </h4>
@@ -707,6 +782,9 @@ export function ExpertiseDetailContent({
                   className={`block rounded-xl border-2 p-4 transition-all duration-300 group ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
                   style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
                 >
+                  <div className="mb-3">
+                    <IconBadge icon={BriefcaseBusiness} tone="dark" size="sm" />
+                  </div>
                   <h4 className="font-semibold text-white transition-colors mb-0.5 text-sm group-hover:opacity-90">
                     {cs.title}
                   </h4>
@@ -731,6 +809,9 @@ export function ExpertiseDetailContent({
                   className={`block rounded-xl border-2 p-4 transition-all duration-300 group ${usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? 'dark-card' : ''}`}
                   style={usePmmAiTheme || useStrategyInsightsTheme || useSystemsOperationsTheme ? undefined : { borderColor: `${accent}80`, backgroundColor: `${bg}E6` }}
                 >
+                  <div className="mb-3">
+                    <IconBadge icon={ind.icon} tone="dark" size="sm" />
+                  </div>
                   <h4 className="font-semibold text-white transition-colors mb-0.5 text-sm group-hover:opacity-90">
                     {ind.title}
                   </h4>
@@ -753,6 +834,19 @@ export function ExpertiseDetailContent({
           </div>
         </div>
       </section>
+
+      {connectedTopics.length > 0 && (
+        <section className="relative py-4 md:py-5" style={{ backgroundColor: bg }}>
+          <div className="container-width">
+            <ConnectedTopics
+              title="Connected Topics"
+              intro="Follow the adjacent market, proof, and capability links that surround this expertise page."
+              links={connectedTopics}
+              tone="dark"
+            />
+          </div>
+        </section>
+      )}
 
       <motion.div
         className="h-0.5 w-full"

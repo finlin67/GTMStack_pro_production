@@ -2,12 +2,18 @@
 
 Full architecture, env vars, and troubleshooting: **[BLOG-WORDPRESS-DEVELOPER-GUIDE.md](./BLOG-WORDPRESS-DEVELOPER-GUIDE.md)**.
 
-## UI templates (Stitch migration)
+## UI templates
 
-| Page | Component | Data |
+| Page | Component | Data adapter |
 |------|-----------|------|
 | `/blog` | `BlogStitchFeedTemplate` | `adaptStitchBlogFeedData({ posts, categories, selectedCategory, searchQuery })` |
-| `/blog/post?slug=…` | `BlogStitchPostTemplate` | `adaptBlogSinglePostData(…)` → `AdaptedBlogSinglePostContent` |
+| `/blog/post?slug=…` (default / legacy) | `BlogStitchPostTemplate` | `adaptBlogSinglePostData(…)` |
+| `/blog/post?slug=…` (`layout_type: modular_article`) | `BlogStitchPostTemplate` (modular path) | `adaptBlogSinglePostData(…)` |
+| `/blog/post?slug=…` (`layout_type: how_to`) | `HowToPostTemplate` | `adaptHowToPostData(…)` |
+| `/blog/post?slug=…` (`layout_type: insight`) | `InsightPostTemplate` | `adaptInsightPostData(…)` |
+
+Template is selected at runtime in `app/blog/post/BlogPostClient.tsx` by reading `post.acf.layout_type`.  
+To add a new layout type, see the [developer guide](./BLOG-WORDPRESS-DEVELOPER-GUIDE.md#adding-a-new-layout-type).
 
 ## WordPress fields on the page
 

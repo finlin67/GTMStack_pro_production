@@ -130,27 +130,27 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
       </nav>
 
       <main>
-        <section className="bg-slate-900 pt-24 pb-14 md:pt-28 md:pb-16 px-6">
+        <section className="bg-slate-900 pt-20 pb-14 md:pt-24 md:pb-16 px-6">
           <div className="max-w-7xl mx-auto grid lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-7 space-y-4">
-              <h1 className="text-white text-5xl md:text-6xl font-black leading-tight">
+              <h1 className="text-white text-4xl md:text-5xl lg:text-[3.25rem] font-black leading-[1.05]">
                 {data.hero.title}
               </h1>
-              <p className="text-slate-400 text-lg max-w-lg leading-[1.65]">{data.hero.subtitle}</p>
+              <p className="text-slate-400 text-base md:text-lg max-w-xl leading-[1.7]">{data.hero.subtitle}</p>
               <div className="flex flex-wrap gap-4 pt-2">
-                <button className="bg-amber-500 text-slate-900 px-8 py-4 rounded-xl font-bold text-lg hover:bg-amber-600 transition-all">{data.hero.cta1}</button>
-                <button className="border border-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-white/5 transition-all">{data.hero.cta2}</button>
+                <button className="bg-amber-500 text-slate-900 px-6 py-3 rounded-xl font-bold text-base hover:bg-amber-600 transition-all">{data.hero.cta1}</button>
+                <button className="border border-white/20 text-white px-6 py-3 rounded-xl font-bold text-base hover:bg-white/5 transition-all">{data.hero.cta2}</button>
               </div>
             </div>
           </div>
         </section>
 
-        <section className="py-16 md:py-20 px-6 bg-slate-50">
+        <section className="py-14 md:py-20 px-6 bg-slate-50">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-slate-900 text-4xl font-bold mb-10 md:mb-12 text-center">{data.pillars.title}</h2>
+            <h2 className="text-slate-900 text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center">{data.pillars.title}</h2>
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
               {data.pillars.items.map((item, i) => (
-                <div key={i} className="bg-white p-6 md:p-7 rounded-xl shadow-sm border-t-4 border-amber-500 flex flex-col group hover:shadow-md transition-all">
+                <div key={i} className="card card-hover p-6 md:p-7 rounded-2xl border-t-4 border-amber-500 flex flex-col group">
                   <item.icon className="w-10 h-10 text-amber-500 mb-5" />
                   <h3 className="text-xl font-bold text-slate-900 mb-4">{item.title}</h3>
                   <p className="text-slate-600 mb-6 flex-grow leading-[1.65]">{item.desc}</p>
@@ -174,9 +174,9 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
           </div>
         </section>
 
-        <section className="py-16 md:py-20 px-6 bg-white">
+        <section className="py-14 md:py-20 px-6 bg-white">
           <div className="max-w-7xl mx-auto">
-            <h2 className="text-slate-900 text-4xl font-bold mb-10 md:mb-12 text-center">{data.methodology.title}</h2>
+            <h2 className="text-slate-900 text-3xl md:text-4xl font-bold mb-10 md:mb-12 text-center">{data.methodology.title}</h2>
             <div className="grid lg:grid-cols-4 gap-8">
               {data.methodology.steps.map((step, i) => (
                 <div key={i} className="relative">
@@ -189,11 +189,13 @@ export default function Template({ content, pageTitle }: { content?: unknown; pa
           </div>
         </section>
 
-        <section className="bg-slate-900 py-16 md:py-20 px-6">
-          <div className="max-w-3xl mx-auto text-center space-y-6">
-            <h2 className="text-white text-4xl md:text-5xl font-black leading-tight">{data.cta.title}</h2>
-            <p className="text-slate-400 text-lg">{data.cta.subtitle}</p>
-            <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-10 py-5 rounded-xl text-xl font-black transition-all">{data.cta.button}</button>
+        <section className="bg-slate-900 py-14 md:py-20 px-6">
+          <div className="max-w-5xl mx-auto template-cta-shell border-white/10 bg-white/[0.03] text-white">
+            <div className="template-cta-copy">
+              <h2 className="template-cta-title text-white">{data.cta.title}</h2>
+              <p className="template-cta-body text-slate-400">{data.cta.subtitle}</p>
+            </div>
+            <button className="bg-amber-500 hover:bg-amber-600 text-slate-900 px-8 py-4 rounded-xl text-base font-black transition-all">{data.cta.button}</button>
           </div>
         </section>
       </main>

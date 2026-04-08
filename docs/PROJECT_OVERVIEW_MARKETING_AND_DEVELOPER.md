@@ -1,6 +1,6 @@
 # GTMStack.pro Project Overview for Marketing and Development
 
-Last updated: 2026-03-29
+Last updated: 2026-04-04
 
 ## Purpose
 
@@ -20,7 +20,7 @@ GTMStack.pro is a founder-led B2B go-to-market consulting website that combines 
 3. A **content library** for expertise and industry positioning.
 4. A lightweight **operations layer** with admin tooling, generated registries, and a headless WordPress blog integration.
 
-From the codebase as it exists on **March 29, 2026**, the project is best described as a **registry-driven Next.js application** with a rich content model and a large amount of supporting documentation. The strongest parts of the project are the breadth of service positioning, the reusable template system, and the animation/gallery infrastructure. The biggest practical gap is that the content library is broader than the currently registered public route set, so not every content object appears to be published as a live page.
+From the codebase as it exists on **April 4, 2026**, the project is best described as a **registry-driven Next.js application** with a rich content model and a large amount of supporting documentation. The strongest parts of the project are the breadth of service positioning, the reusable template system, the animation/gallery infrastructure, and the now significantly expanded multi-template blog. The biggest practical gap remains that the content library is broader than the currently registered public route set, so not every content object appears to be published as a live page.
 
 ## Current Snapshot
 
@@ -117,7 +117,7 @@ Case studies provide proof and are essential for trust-building. However, the so
 
 #### Blog
 
-The blog is headless WordPress-driven and supports topical authority, SEO, and ongoing thought leadership. It appears architected for live publishing, but it has some route ambiguity that developers should keep in view.
+The blog is headless WordPress-driven and supports topical authority, SEO, and ongoing thought leadership. As of April 2026 it now supports **four distinct post layout types** (legacy article, modular article, how-to guide, and insight/analysis). This gives the editorial team fine-grained control over post presentation without requiring developer involvement per post. Layout type is set in WordPress via an ACF field.
 
 #### Gallery
 
@@ -146,9 +146,9 @@ Because the source content is broader than the live registry, marketing likely h
 
 There are many case study records in source content, but only a very small number are currently registered as public routes. That is likely the clearest content expansion opportunity in the current project.
 
-#### 3. Blog pathway clarity
+#### 3. Blog content type differentiation
 
-The blog is technically present and integrated with WordPress, but the canonical public detail route is flagged as uncertain in existing project context notes. Marketing should coordinate blog growth with development so content production does not outpace routing clarity.
+The blog now supports four layout types (legacy, modular article, how-to, insight). Marketing can assign richer, more structured formats to new posts by setting the `layout_type` ACF field in WordPress — no developer involvement required. This is a significant opportunity to produce more distinctive, high-value content that stands out from generic blog posts.
 
 #### 4. Conversion path sharpening
 
@@ -234,11 +234,14 @@ The admin layer is a custom internal operations interface, not a general-purpose
 #### Blog
 
 - `app/blog/page.tsx`
+- `app/blog/post/BlogPostClient.tsx` — selects template by `post.acf.layout_type`
 - `lib/wordpress.ts`
 - `lib/wp-client.ts`
-- `lib/blog-adapter.ts`
+- `lib/blog-adapter.ts` — four adapters: `adaptStitchBlogFeedData`, `adaptBlogSinglePostData`, `adaptHowToPostData`, `adaptInsightPostData`
+- `src/templates/blog/` — `BlogStitchFeedTemplate`, `BlogStitchPostTemplate`, `HowToPostTemplate`, `InsightPostTemplate`
+- `src/types/blog.ts` — all ACF and layout-specific TypeScript types
 
-The blog fetches content from WordPress and adapts it into the app's design system.
+The blog fetches content from WordPress and adapts it into four distinct post layout templates driven by an ACF `layout_type` field. The WordPress plugin at `wp-content/plugins/gtmstack-headless-blog-kit/` registers those fields on the WordPress side.
 
 #### Gallery and animation systems
 
@@ -334,9 +337,9 @@ This is not inherently wrong, but it creates an operational risk:
 - developers may change content files that are not actually rendered
 - audits based on file counts can be misleading unless checked against the registry
 
-#### 2. Blog detail route ambiguity
+#### 2. Blog detail route (resolved)
 
-Existing handoff notes identify uncertainty around the canonical blog detail route. Current code clearly supports the blog index and WordPress fetching, but the public post detail routing model should be treated as a stabilization item.
+The canonical blog post detail route is `/blog/post?slug={post-slug}` handled by `app/blog/post/page.tsx` and `BlogPostClient.tsx`. The template rendered is determined by `post.acf.layout_type`. This is no longer an ambiguity — it is a stable, well-defined routing model.
 
 #### 3. Documentation drift
 

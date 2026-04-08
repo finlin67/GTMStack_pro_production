@@ -2,7 +2,16 @@
 
 import React, { type ReactNode } from 'react'
 import Link from 'next/link'
-import { ArrowLeft, ArrowRight, CheckCircle2 } from 'lucide-react'
+import { ArrowLeft, ArrowRight, CheckCircle2, LineChart } from 'lucide-react'
+import { IconBadge } from '@/components/ui/IconBadge'
+import { ConnectedTopics } from '@/components/ui/RelatedItems'
+import {
+  dedupeConnectedLinks,
+  getPublicCaseStudyHref,
+  getPublicExpertiseHref,
+  getPublicIndustryHref,
+} from '@/lib/internalLinks'
+import { getExpertiseBySlug } from '@/content/expertise'
 import type { IndustryItem, CaseStudyItem } from '@/lib/types'
 import { industryItems } from '@/content/industries'
 
@@ -125,6 +134,50 @@ export default function IndustrySingleStitchLayout({
   const displayStats = stats.slice(0, 3)
   const tags = (industry.tags ?? []).slice(0, 5)
   const related = industryItems.filter((i) => i.slug !== industry.slug).slice(0, 4)
+  const publicRelated = related.filter((item) => Boolean(getPublicIndustryHref(item.slug)))
+  const primaryExpertiseSlug = industry.featuredExpertise?.[0]
+  const primaryExpertise = primaryExpertiseSlug ? getExpertiseBySlug(primaryExpertiseSlug) : null
+  const primaryCaseStudy = featuredCaseStudies?.[0]
+  const connectedTopics = dedupeConnectedLinks([
+    ...(primaryExpertise
+      ? (() => {
+          const href = getPublicExpertiseHref(primaryExpertise.slug)
+          return href
+            ? [{
+                href,
+                label: `${primaryExpertise.title} for ${industry.title}`,
+                description: 'Jump from market context into the capability page most closely tied to this vertical.',
+                icon: primaryExpertise.icon,
+              }]
+            : []
+        })()
+      : []),
+    ...(primaryCaseStudy
+      ? (() => {
+          const href = getPublicCaseStudyHref(primaryCaseStudy.slug)
+          return href
+            ? [{
+                href,
+                label: `Proof: ${primaryCaseStudy.title}`,
+                description: 'See how this market story turns into concrete execution and measurable outcomes.',
+                icon: 'FileText',
+              }]
+            : []
+        })()
+      : []),
+    {
+      href: '/case-studies',
+      label: 'Browse all case studies',
+      description: 'Compare this industry with adjacent proof across other motions and markets.',
+      icon: 'BriefcaseBusiness',
+    },
+    {
+      href: '/blog',
+      label: 'Read GTM field notes',
+      description: 'Use the blog to go deeper on themes, language, and systems that support this vertical.',
+      icon: 'BookOpen',
+    },
+  ]).slice(0, 4)
 
   const proofBandStats =
     displayStats.length >= 3
@@ -267,7 +320,7 @@ export default function IndustrySingleStitchLayout({
                   <ul className="mt-6 space-y-3">
                     {industry.gtmRealities.slice(0, 5).map((r, idx) => (
                       <li key={idx} className="flex items-start gap-2 text-slate-600">
-                        <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-[#007FFF]" />
+                        <IconBadge icon={CheckCircle2} tone="soft" size="sm" className="mt-0.5 border-[#007FFF]/15 text-[#007FFF]" />
                         <span>{r}</span>
                       </li>
                     ))}
@@ -307,7 +360,7 @@ export default function IndustrySingleStitchLayout({
               <ul className="mx-auto max-w-3xl space-y-3">
                 {industry.playbook.map((play, idx) => (
                   <li key={idx} className="flex items-start gap-3 text-slate-600">
-                    <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-[#A8E61D]" />
+                    <IconBadge icon={CheckCircle2} tone="soft" size="sm" className="mt-0.5 border-[#A8E61D]/30 text-[#0A1628]" iconClassName="text-[#76B900]" />
                     <span className="leading-relaxed">{play}</span>
                   </li>
                 ))}
@@ -374,11 +427,21 @@ export default function IndustrySingleStitchLayout({
                     key={idx}
                     className="rounded-xl border border-white/10 bg-[#112B3C] p-6"
                   >
-                    {p.company && (
-                      <p className="mb-2 text-xs font-bold uppercase tracking-widest text-[#A8E61D]">
-                        {p.company}
-                      </p>
-                    )}
+                    <div className="mb-3 flex items-start gap-3">
+                      <IconBadge icon={LineChart} tone="dark" size="sm" className="border-[#007FFF]/20 text-[#AED6F1]" />
+                      <div>
+                        {p.company && (
+                          <p className="text-xs font-bold uppercase tracking-widest text-[#A8E61D]">
+                            {p.company}
+                          </p>
+                        )}
+                        {!p.company && (
+                          <p className="text-xs font-bold uppercase tracking-widest text-[#AED6F1]">
+                            Proof point
+                          </p>
+                        )}
+                      </div>
+                    </div>
                     <h3 className="mb-2 font-bold text-white">{p.outcome}</h3>
                     {p.metrics && <p className="text-sm text-white/60">{p.metrics}</p>}
                   </div>
@@ -430,14 +493,14 @@ export default function IndustrySingleStitchLayout({
         )}
 
         {/* Related industries */}
-        {related.length > 0 && (
+        {publicRelated.length > 0 && (
           <section className="bg-[#F4F6F8] py-10 md:py-12">
             <div className="container-width py-8 md:py-10">
               <h2 className="mb-8 text-3xl font-bold text-[#0A1628] md:mb-10">
                 Other industries covered
               </h2>
               <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
-                {related.map((item, idx) => {
+                {publicRelated.map((item, idx) => {
                   const border = idx % 2 === 0 ? 'border-t-[#007FFF]' : 'border-t-[#A8E61D]'
                   return (
                     <Link
@@ -445,6 +508,9 @@ export default function IndustrySingleStitchLayout({
                       href={`/industries/${item.slug}`}
                       className={`rounded-lg border-t-4 ${border} bg-white p-6 shadow-sm transition-shadow hover:shadow-md`}
                     >
+                      <div className="mb-3">
+                        <IconBadge icon={item.icon} tone="soft" size="sm" className="border-slate-200/80 text-[#0A1628]" />
+                      </div>
                       <h4 className="mb-2 font-['Montserrat',sans-serif] font-bold text-[#0A1628]">
                         {item.title}
                       </h4>
@@ -453,6 +519,18 @@ export default function IndustrySingleStitchLayout({
                   )
                 })}
               </div>
+            </div>
+          </section>
+        )}
+
+        {connectedTopics.length > 0 && (
+          <section className="bg-white py-8 md:py-10">
+            <div className="container-width">
+              <ConnectedTopics
+                title="Keep Exploring"
+                intro="Move from this market page into the adjacent capability, proof, and editorial pages that complete the picture."
+                links={connectedTopics}
+              />
             </div>
           </section>
         )}

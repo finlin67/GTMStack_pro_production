@@ -9,6 +9,11 @@ import {
 import { getCaseStudiesByExpertise } from '@/content/case-studies'
 import { industryItems } from '@/content/industries'
 import { getExpertiseHeroConfig } from '@/content/expertiseHeroConfigs'
+import {
+  filterPublicCaseStudyItems,
+  filterPublicExpertiseItems,
+  filterPublicIndustryItems,
+} from '@/lib/internalLinks'
 import { getPageBySlug } from '@/lib/pageRegistry'
 import { getContentByKey, getExpertiseContentByKey } from '@/src/content/registry'
 import { getTemplate } from '@/src/templates/registry'
@@ -184,16 +189,28 @@ export default async function ExpertiseDetailPage({ params }: Props) {
   const results =
     parsedResults.length >= 3 ? parsedResults : DEFAULT_RESULTS
 
-  const relatedExpertise = item.pillar
-    ? getExpertiseByPillar(item.pillar)
-        .filter((e) => e.slug !== item.slug)
-        .slice(0, 4)
+  const explicitRelatedExpertise = item.relevant_expertise_slugs
+    ?.map((relatedSlug) => getExpertiseBySlug(relatedSlug))
+    .filter((relatedItem): relatedItem is NonNullable<typeof relatedItem> => Boolean(relatedItem))
+    .filter((relatedItem) => relatedItem.slug !== item.slug) ?? []
+
+  const siblingExpertise = item.pillar
+    ? getExpertiseByPillar(item.pillar).filter(
+        (expertiseItem) =>
+          expertiseItem.slug !== item.slug &&
+          !explicitRelatedExpertise.some((relatedItem) => relatedItem.slug === expertiseItem.slug)
+      )
     : []
 
-  const relatedCaseStudies = getCaseStudiesByExpertise(slug).slice(0, 3)
+  const relatedExpertise = filterPublicExpertiseItems([
+    ...explicitRelatedExpertise,
+    ...siblingExpertise,
+  ]).slice(0, 4)
 
-  const relatedIndustries = industryItems.filter(
-    (i) => i.featuredExpertise?.includes(slug)
+  const relatedCaseStudies = filterPublicCaseStudyItems(getCaseStudiesByExpertise(slug)).slice(0, 3)
+
+  const relatedIndustries = filterPublicIndustryItems(
+    industryItems.filter((i) => i.featuredExpertise?.includes(slug))
   ).slice(0, 3)
 
   const heroConfig = getExpertiseHeroConfig(slug)

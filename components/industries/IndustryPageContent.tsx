@@ -2,7 +2,8 @@
 
 import React, { useEffect, useState, type ReactNode } from 'react'
 import dynamic from 'next/dynamic'
-import { CheckCircle2 } from 'lucide-react'
+import Link from 'next/link'
+import { CheckCircle2, LineChart } from 'lucide-react'
 import { HeroDark } from '@/components/ui/HeroDark'
 import { SectionDark } from '@/components/layout/SectionDark'
 import { SectionLight } from '@/components/layout/SectionLight'
@@ -10,10 +11,16 @@ import { SectionHeader } from '@/components/layout/Section'
 import { CardGrid, CardGridItem } from '@/components/ui/CardGrid'
 import { Card } from '@/components/ui/Card'
 import { CTABand } from '@/components/ui/CTABand'
+import { IconBadge } from '@/components/ui/IconBadge'
 import { FadeIn } from '@/components/motion/FadeIn'
 import { IndustryItem, ExpertiseItem, CaseStudyItem } from '@/lib/types'
 import { TopoBackdrop, SignalField } from '@/components/motifs'
-import { RelatedCaseStudies } from '@/components/ui/RelatedItems'
+import { ConnectedTopics, RelatedCaseStudies } from '@/components/ui/RelatedItems'
+import {
+  dedupeConnectedLinks,
+  getPublicCaseStudyHref,
+  getPublicExpertiseHref,
+} from '@/lib/internalLinks'
 import { HERO_VISUALS, type HeroVisual as HeroVisualModel } from '@/lib/heroVisuals'
 import { ensureHeroVisualWithImage } from '@/lib/heroVisualDefaults'
 import { getHeroVisualForPath } from '@/lib/heroVisualRegistry'
@@ -114,6 +121,40 @@ export default function IndustryPageContent({
   heroVisualId,
 }: IndustryPageContentProps) {
   const whyNowText = whyNow || `${industry.title} has its own buying context, operating constraints, and proof requirements. This page shows how GTM changes in that market.`
+  const primaryExpertise = featuredExpertise[0]
+  const primaryCaseStudy = featuredCaseStudies?.[0]
+  const primaryExpertiseHref = primaryExpertise ? getPublicExpertiseHref(primaryExpertise.slug) : null
+  const primaryCaseStudyHref = primaryCaseStudy ? getPublicCaseStudyHref(primaryCaseStudy.slug) : null
+  const connectedTopics = dedupeConnectedLinks([
+    ...(primaryExpertise && primaryExpertiseHref
+      ? [{
+          href: primaryExpertiseHref,
+          label: `${primaryExpertise.title} for ${industry.title}`,
+          description: `See the capability page most directly tied to this market's GTM motion.`,
+          icon: primaryExpertise.icon,
+        }]
+      : []),
+    ...(primaryCaseStudy && primaryCaseStudyHref
+      ? [{
+          href: primaryCaseStudyHref,
+          label: `${primaryCaseStudy.title}`,
+          description: 'Review a concrete engagement that shows how these ideas translate into execution and proof.',
+          icon: 'FileText',
+        }]
+      : []),
+    {
+      href: '/expertise',
+      label: 'Browse the expertise index',
+      description: 'Scan adjacent capabilities if you are mapping this industry to a broader GTM stack.',
+      icon: 'Compass',
+    },
+    {
+      href: '/blog',
+      label: 'Read GTM field notes',
+      description: 'Use the blog to go deeper on messaging, measurement, and systems lessons connected to this market.',
+      icon: 'BookOpen',
+    },
+  ]).slice(0, 4)
 
   const route = `/industries/${industry.slug}`
   const routeAnimations = getAnimationsByRoute(route)
@@ -222,10 +263,10 @@ export default function IndustryPageContent({
               className="mb-8"
             />
             <FadeIn>
-              <ul className="space-y-4 max-w-3xl">
+              <ul className="icon-list max-w-3xl">
                 {industry.gtmRealities.map((reality, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brand-600 mt-0.5 shrink-0" />
+                  <li key={idx} className="icon-list-item">
+                    <IconBadge icon={CheckCircle2} tone="brand" size="sm" className="mt-0.5" />
                     <p className="text-slate-700 leading-relaxed">{reality}</p>
                   </li>
                 ))}
@@ -250,10 +291,10 @@ export default function IndustryPageContent({
               className="mb-8 text-white"
             />
             <FadeIn>
-              <ul className="space-y-4 max-w-3xl">
+              <ul className="icon-list max-w-3xl">
                 {industry.playbook.map((play, idx) => (
-                  <li key={idx} className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brand-400 mt-0.5 shrink-0" />
+                  <li key={idx} className="icon-list-item">
+                    <IconBadge icon={CheckCircle2} tone="dark" size="sm" className="mt-0.5" />
                     <p className="text-slate-200 leading-relaxed">{play}</p>
                   </li>
                 ))}
@@ -283,11 +324,21 @@ export default function IndustryPageContent({
               <div className="grid md:grid-cols-3 gap-6 max-w-5xl">
                 {industry.proof.map((proofItem, idx) => (
                   <div key={idx} className="card p-6 h-full">
-                    {proofItem.company && (
-                      <div className="text-sm font-semibold text-brand-600 mb-2">
-                        {proofItem.company}
+                    <div className="mb-3 flex items-start gap-3">
+                      <IconBadge icon={LineChart} tone="soft" size="sm" className="mt-0.5" />
+                      <div>
+                        {proofItem.company && (
+                          <div className="text-sm font-semibold text-brand-600">
+                            {proofItem.company}
+                          </div>
+                        )}
+                        {!proofItem.company && (
+                          <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500">
+                            Proof point
+                          </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                     <h3 className="font-semibold text-slate-900 mb-2">
                       {proofItem.outcome}
                     </h3>
@@ -300,6 +351,37 @@ export default function IndustryPageContent({
                 ))}
               </div>
             </FadeIn>
+            {(primaryExpertise && primaryExpertiseHref) || (primaryCaseStudy && primaryCaseStudyHref) ? (
+              <FadeIn>
+                <p className="mt-8 max-w-3xl text-sm leading-7 text-slate-600 md:text-base">
+                  To keep moving, go from the market view into{' '}
+                  {primaryExpertise && primaryExpertiseHref ? (
+                    <Link
+                      href={primaryExpertiseHref}
+                      className="font-medium text-brand-600 underline decoration-brand-200 underline-offset-4"
+                    >
+                      {primaryExpertise.title}
+                    </Link>
+                  ) : (
+                    'the underlying capability pages'
+                  )}
+                  {primaryCaseStudy && primaryCaseStudyHref ? (
+                    <>
+                      {' '}or review{' '}
+                      <Link
+                        href={primaryCaseStudyHref}
+                        className="font-medium text-brand-600 underline decoration-brand-200 underline-offset-4"
+                      >
+                        {primaryCaseStudy.title}
+                      </Link>
+                      {' '}for a proof-driven example.
+                    </>
+                  ) : (
+                    '.'
+                  )}
+                </p>
+              </FadeIn>
+            ) : null}
           </div>
         </SectionLight>
       )}
@@ -345,6 +427,16 @@ export default function IndustryPageContent({
             </CardGrid>
           </div>
         </SectionDark>
+      )}
+
+      {connectedTopics.length > 0 && (
+        <SectionLight variant="slate" padding="md">
+          <ConnectedTopics
+            title="Connected Topics"
+            intro="Use these adjacent pages to move from industry context into implementation detail, proof, and field notes."
+            links={connectedTopics}
+          />
+        </SectionLight>
       )}
 
       {/* CTA Band */}

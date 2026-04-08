@@ -23,15 +23,15 @@ export function CTABand({
   className,
 }: CTABandProps) {
   const variantStyles = {
-    default: 'bg-slate-50 border-y border-slate-200/60',
+    default: 'bg-slate-950 text-white',
     dark: 'bg-slate-900 text-white',
-    gradient: 'bg-gradient-to-r from-brand-600 via-brand-500 to-accent-500 text-white',
+    gradient: 'bg-slate-950 text-white',
   }
 
   const buttonStyles = {
     default: {
       primary: 'btn btn-primary',
-      secondary: 'btn btn-ghost text-slate-600 hover:text-slate-900',
+      secondary: 'btn btn-secondary',
     },
     dark: {
       primary: 'btn bg-white text-slate-900 hover:bg-slate-100 shadow-lg',
@@ -44,18 +44,25 @@ export function CTABand({
   }
 
   return (
-    <section className={cn(variantStyles[variant], 'py-16 md:py-20 lg:py-24', className)}>
+    <section className={cn(variantStyles[variant], 'py-12 md:py-16 lg:py-[4.5rem]', className)}>
       <div className="container-width">
         <FadeIn>
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="text-center lg:text-left max-w-2xl">
+          <div
+            className={cn(
+              'template-cta-shell',
+              variant === 'default' && 'surface-panel-dark border-white/10',
+              variant === 'dark' && 'surface-panel-dark border-white/10',
+              variant === 'gradient' && 'border-white/10 bg-gradient-to-r from-brand-700 via-brand-600 to-accent-500 shadow-[0_26px_80px_rgba(37,99,235,0.28)]'
+            )}
+          >
+            <div className="template-cta-copy">
               {variant === 'gradient' && (
-                <Sparkles className="w-6 h-6 mb-3 opacity-80" />
+                <Sparkles className="mb-3 h-6 w-6 opacity-80" />
               )}
               <h2
                 className={cn(
-                  'font-display text-2xl md:text-3xl font-bold tracking-tight',
-                  variant === 'default' ? 'text-slate-900' : ''
+                  'template-cta-title',
+                  variant === 'default' ? 'text-white' : ''
                 )}
               >
                 {title}
@@ -63,8 +70,8 @@ export function CTABand({
               {description && (
                 <p
                   className={cn(
-                    'mt-2 text-lg',
-                    variant === 'default' ? 'text-slate-600' : 'opacity-90'
+                    'template-cta-body',
+                    variant === 'default' ? 'text-slate-300/90' : 'opacity-90'
                   )}
                 >
                   {description}
@@ -72,12 +79,12 @@ export function CTABand({
               )}
             </div>
 
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="flex flex-wrap items-center gap-3 lg:justify-end">
               <Link
                 href={primaryCta.href}
                 className={cn(
                   buttonStyles[variant].primary,
-                  'px-6 py-3 text-base rounded-xl group'
+                  'group rounded-xl px-5 py-2.5 text-sm md:px-6 md:py-3 md:text-base'
                 )}
               >
                 {primaryCta.label}
@@ -88,7 +95,7 @@ export function CTABand({
                   href={secondaryCta.href}
                   className={cn(
                     buttonStyles[variant].secondary,
-                    'px-6 py-3 text-base rounded-xl'
+                    'rounded-xl px-5 py-2.5 text-sm md:px-6 md:py-3 md:text-base'
                   )}
                 >
                   {secondaryCta.label}
