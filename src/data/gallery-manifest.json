@@ -85,7 +85,7 @@
     "thumbnailPath": "animations/operations/pipeline-command-center-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/pipeline-command-center-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/pipeline-command-center-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.386Z"
+    "updatedAt": "2026-04-08T19:49:36.489Z"
   },
   {
     "id": "martech-ai-dashboard-engine-v2",
@@ -127,7 +127,7 @@
     "thumbnailPath": "animations/operations/marketingai-neural-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketingai-neural-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketingai-neural-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.388Z"
+    "updatedAt": "2026-04-08T19:49:36.491Z"
   },
   {
     "id": "marketingai-intelligence-dashboard-v2",
@@ -147,7 +147,7 @@
     "thumbnailPath": "animations/operations/marketingai-intelligence-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketingai-intelligence-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketingai-intelligence-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.388Z"
+    "updatedAt": "2026-04-08T19:49:36.492Z"
   },
   {
     "id": "marketing-revenue-analytics-v2",
@@ -168,7 +168,7 @@
     "thumbnailPath": "animations/operations/marketing-revenue-analytics-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketing-revenue-analytics-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketing-revenue-analytics-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.389Z"
+    "updatedAt": "2026-04-08T19:49:36.495Z"
   },
   {
     "id": "marketing-operations-workflow-tile-v2",
@@ -274,7 +274,7 @@
     "thumbnailPath": "animations/operations/lifecycle-engine-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/lifecycle-engine-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/lifecycle-engine-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.393Z"
+    "updatedAt": "2026-04-08T19:49:36.501Z"
   },
   {
     "id": "enterprise-sales-motion-dashboard-v2",
@@ -295,7 +295,7 @@
     "thumbnailPath": "animations/operations/enterprise-sales-motion-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/enterprise-sales-motion-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/enterprise-sales-motion-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.394Z"
+    "updatedAt": "2026-04-08T19:49:36.503Z"
   },
   {
     "id": "wellv3-landing-page-health-journey-tile-v2",
@@ -540,27 +540,6 @@
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
-    "id": "nexus-industrial-dashboard-v2",
-    "slug": "nexus-industrial-dashboard-v2",
-    "title": "Nexus Industrial Dashboard",
-    "category": "industries",
-    "projectPath": "animations/industries/nexus-industrial-dashboard-v2",
-    "entryHtml": "animations/industries/nexus-industrial-dashboard-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/nexus-industrial-dashboard-v2/README.md",
-    "summary": "Nexus Industrial Dashboard — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "nexus",
-      "industrial",
-      "dashboard"
-    ],
-    "thumbnailPath": "animations/industries/nexus-industrial-dashboard-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/nexus-industrial-dashboard-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/nexus-industrial-dashboard-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
     "id": "manufacturinghero-dashboard-tile-v2",
     "slug": "manufacturinghero-dashboard-tile-v2",
     "title": "Manufacturinghero Dashboard Tile",
@@ -642,7 +621,7 @@
     "thumbnailPath": "animations/industries/industrial-roi-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/industrial-roi-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/industrial-roi-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.407Z"
+    "updatedAt": "2026-04-08T19:49:36.515Z"
   },
   {
     "id": "grid-master-cyber-infrastructure-dashboard-v2",
@@ -1727,7 +1706,7 @@
     "thumbnailPath": "animations/digital-demand/infracore-deepdive-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/infracore-deepdive-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/digital-demand/infracore-deepdive-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.434Z"
+    "updatedAt": "2026-04-08T19:49:36.548Z"
   },
   {
     "id": "gtmstack-pro-hero-tile",
@@ -1922,7 +1901,7 @@
     "thumbnailPath": "animations/digital-demand/growth-ai-animation/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growth-ai-animation",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/digital-demand/growth-ai-animation/README.md",
-    "updatedAt": "2026-04-08T17:54:35.440Z"
+    "updatedAt": "2026-04-08T19:49:36.552Z"
   },
   {
     "id": "esg-analytics-hub-v2",
@@ -2193,7 +2172,7 @@
     "thumbnailPath": "animations/dashboard-tiles/quantum-data-field-analytics-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/quantum-data-field-analytics-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/quantum-data-field-analytics-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.447Z"
+    "updatedAt": "2026-04-08T19:49:36.559Z"
   },
   {
     "id": "marketingflow-ai-workflow-v2",
@@ -2276,7 +2255,7 @@
     "thumbnailPath": "animations/dashboard-tiles/marketing-automation-workflow-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/marketing-automation-workflow-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/marketing-automation-workflow-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.449Z"
+    "updatedAt": "2026-04-08T19:49:36.562Z"
   },
   {
     "id": "marketing-automation-live-feed-v2",
@@ -2614,7 +2593,7 @@
     "thumbnailPath": "animations/abm/abm-radar-analysis-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-radar-analysis-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/abm/abm-radar-analysis-v2/README.md",
-    "updatedAt": "2026-04-08T17:54:35.458Z"
+    "updatedAt": "2026-04-08T19:49:36.570Z"
   },
   {
     "id": "abm-pipeline-strategy-dashboard-v2",
