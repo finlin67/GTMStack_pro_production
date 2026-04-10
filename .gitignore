@@ -38,3 +38,4 @@ next-env.d.ts
 !/sandbox/stitch-html/
 !/sandbox/stitch-html/**
 nul
+gallery.bat
