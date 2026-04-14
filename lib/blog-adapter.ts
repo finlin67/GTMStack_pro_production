@@ -211,7 +211,7 @@ function buildArticleRelatedArticles(post: WPPost, relatedPosts: WPPost[]): Arra
     .slice(0, 3)
     .map((candidate) => ({
       title: stripHtml(candidate.title?.rendered || candidate.slug),
-      url: `/blog/post?slug=${encodeURIComponent(candidate.slug)}`,
+      url: `/blog/${encodeURIComponent(candidate.slug)}`,
     }))
 }
 
@@ -738,7 +738,7 @@ function stitchCardFromPost(post: WPPost, idx: number): StitchPostCard {
     authorName: embeddedAuthor?.name?.trim() || 'Editorial',
     imageUrl: img,
     imageAlt: media?.alt_text || stripHtml(post.title?.rendered || 'Post'),
-    href: `/blog/post?slug=${encodeURIComponent(post.slug)}`,
+    href: `/blog/${encodeURIComponent(post.slug)}`,
     categoryBadgeClass: STITCH_BADGE[idx % STITCH_BADGE.length],
     borderBottomClass: GRID_BORDER_BOTTOM[idx % GRID_BORDER_BOTTOM.length],
   }
@@ -924,7 +924,7 @@ export function adaptBlogSinglePostData(props: BlogSinglePostAdapterProps): Adap
       title: stripHtml(p.title?.rendered || p.slug),
       date: formatDate(p.date),
       image: relImg || BLOG_FALLBACK_IMAGE,
-      href: `/blog/post?slug=${encodeURIComponent(p.slug)}`,
+      href: `/blog/${encodeURIComponent(p.slug)}`,
       alt: relatedMedia?.alt_text || 'Related post image',
     }
   })

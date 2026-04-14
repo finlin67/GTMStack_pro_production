@@ -80,7 +80,7 @@ export function BlogNavPanel({ id, labelledBy }: BlogNavPanelProps) {
             {posts.map((post) => (
               <li key={post.slug}>
                 <Link
-                  href={`/blog/post?slug=${post.slug}`}
+                  href={`/blog/${post.slug}`}
                   className="group flex items-start gap-3 rounded-xl border border-transparent px-3.5 py-3 transition-all hover:border-white/[0.08] hover:bg-white/[0.05]"
                 >
                   <FileText className="h-3.5 w-3.5 text-slate-600 mt-0.5 shrink-0 group-hover:text-cyan-400 transition-colors" aria-hidden />

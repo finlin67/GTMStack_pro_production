@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
+import { redirect } from "next/navigation";
 import BlogPostClient from "./BlogPostClient";
 
 export const metadata: Metadata = {
@@ -9,7 +10,16 @@ export const metadata: Metadata = {
   robots: { index: false, follow: true },
 }
 
-export default function BlogPostPage() {
+export default async function BlogPostPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ slug?: string }>
+}) {
+  const { slug } = await searchParams
+  if (slug?.trim()) {
+    redirect(`/blog/${encodeURIComponent(slug.trim())}`)
+  }
+
   return (
     <Suspense fallback={<main className="mx-auto max-w-3xl px-6 py-12">Loading…</main>}>
       <BlogPostClient />
