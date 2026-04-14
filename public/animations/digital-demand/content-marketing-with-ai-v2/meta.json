@@ -1,0 +1,18 @@
+{
+  "id": "content-marketing-with-ai-v2",
+  "title": "Content Marketing with AI",
+  "description": "AI-enhanced content marketing workflow tile that visualizes planning, distribution, and optimization performance.",
+  "tags": [
+    "Content Marketing",
+    "AI",
+    "Workflow Dashboard",
+    "Campaign Performance"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/content-marketing-with-ai-v2/preview.png",
+  "componentPath": "animations/digital-demand/content-marketing-with-ai-v2/Content-Marketing.tsx"
+}

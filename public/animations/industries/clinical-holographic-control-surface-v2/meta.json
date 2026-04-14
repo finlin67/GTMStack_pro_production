@@ -1,0 +1,18 @@
+{
+  "id": "clinical-holographic-control-surface-v2",
+  "title": "Clinical Holographic Control Surface",
+  "description": "Clinical control-surface dashboard visualizing care-system telemetry, validation status, and operational readiness signals.",
+  "tags": [
+    "Clinical Analytics",
+    "Control Surface",
+    "Telemetry Dashboard",
+    "Operational Readiness"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/clinical-holographic-control-surface-v2/preview.png",
+  "componentPath": "animations/industries/clinical-holographic-control-surface-v2/ClinicalHolographicControlSurface.tsx"
+}

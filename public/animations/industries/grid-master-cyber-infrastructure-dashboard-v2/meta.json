@@ -1,0 +1,18 @@
+{
+  "id": "grid-master-cyber-infrastructure-dashboard-v2",
+  "title": "Grid Master Cyber Infrastructure Dashboard",
+  "description": "Cyber infrastructure dashboard visualizing grid resilience, system telemetry, and operational risk signals in real time.",
+  "tags": [
+    "Cyber Infrastructure",
+    "Grid Monitoring",
+    "Telemetry Dashboard",
+    "Risk Analytics"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/grid-master-cyber-infrastructure-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/grid-master-cyber-infrastructure-dashboard-v2/components/HealthCareTile.tsx"
+}

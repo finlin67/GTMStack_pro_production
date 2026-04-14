@@ -1,0 +1,18 @@
+{
+  "id": "growth-ai-harmonic-quad-tone",
+  "title": "Growth AI Harmonic Quad Tone",
+  "description": "AI-driven growth visualization featuring harmonic multi-signal motion, performance highlights, and strategic metric storytelling.",
+  "tags": [
+    "AI Growth",
+    "Performance Signals",
+    "Hero Visualization",
+    "Marketing Analytics"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/growth-ai-harmonic-quad-tone/preview.png",
+  "componentPath": "animations/digital-demand/growth-ai-harmonic-quad-tone/components/AIGrowth.tsx"
+}

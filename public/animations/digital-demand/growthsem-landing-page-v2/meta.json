@@ -1,0 +1,18 @@
+{
+  "id": "growthsem-landing-page-v2",
+  "title": "GrowthSEM Landing Page",
+  "description": "SEM landing-page hero tile showing paid acquisition metrics, campaign optimization, and performance lift indicators.",
+  "tags": [
+    "SEM Analytics",
+    "Paid Acquisition",
+    "Landing Page Hero",
+    "Performance Marketing"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/growthsem-landing-page-v2/preview.png",
+  "componentPath": "animations/digital-demand/growthsem-landing-page-v2/components/CampaignTile.tsx"
+}

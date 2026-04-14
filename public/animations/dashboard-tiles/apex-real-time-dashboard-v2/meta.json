@@ -1,0 +1,18 @@
+{
+  "id": "apex-real-time-dashboard-v2",
+  "title": "Apex Real-Time Dashboard",
+  "description": "Real-time demand dashboard highlighting live experiment metrics, performance shifts, and campaign efficiency in one compact view.",
+  "tags": [
+    "Real-Time Analytics",
+    "Demand Generation",
+    "Performance Dashboard",
+    "Experiment Monitoring"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/apex-real-time-dashboard-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/apex-real-time-dashboard-v2/DemandGen-Marketing.tsx"
+}

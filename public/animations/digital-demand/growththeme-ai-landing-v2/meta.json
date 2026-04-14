@@ -1,0 +1,18 @@
+{
+  "id": "growththeme-ai-landing-v2",
+  "title": "GrowthTheme AI Landing",
+  "description": "AI landing-page hero focused on growth storytelling, connected data flow, and conversion-oriented performance visuals.",
+  "tags": [
+    "AI Landing Page",
+    "Growth Strategy",
+    "Data Flow Visualization",
+    "Conversion Marketing"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/growththeme-ai-landing-v2/preview.png",
+  "componentPath": "animations/digital-demand/growththeme-ai-landing-v2/components/ProductPhaseTile.tsx"
+}

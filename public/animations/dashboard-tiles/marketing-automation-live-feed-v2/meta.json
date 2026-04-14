@@ -1,0 +1,18 @@
+{
+  "id": "marketing-automation-live-feed-v2",
+  "title": "Marketing Automation Live Feed",
+  "description": "Marketing automation live-feed tile visualizing workflow throughput, queue movement, and routing performance.",
+  "tags": [
+    "Marketing Automation",
+    "Live Feed",
+    "Workflow Throughput",
+    "Operations Dashboard"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/marketing-automation-live-feed-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/marketing-automation-live-feed-v2/Marketing-Automation-Live-Feed.tsx"
+}

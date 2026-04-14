@@ -1,0 +1,18 @@
+{
+  "id": "automotive-hero-dashboard-component-v2",
+  "title": "Automotive Hero Dashboard Component",
+  "description": "Automotive hero dashboard component visualizing buyer journey progression, conversion signals, and revenue momentum.",
+  "tags": [
+    "Automotive Analytics",
+    "Buyer Journey",
+    "Conversion Metrics",
+    "Revenue Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/automotive-hero-dashboard-component-v2/preview.png",
+  "componentPath": "animations/industries/automotive-hero-dashboard-component-v2/components/AutoTile.tsx"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "nexus-industrial-dashboard-v2",
+  "title": "Nexus Industrial Dashboard",
+  "description": "Industrial operations dashboard for monitoring telemetry flow, process stages, and production health indicators.",
+  "tags": [
+    "Industrial Analytics",
+    "Process Monitoring",
+    "Telemetry Dashboard",
+    "Operations Health"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/nexus-industrial-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/nexus-industrial-dashboard-v2/app-v2.html"
+}

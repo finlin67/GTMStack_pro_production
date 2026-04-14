@@ -1,0 +1,18 @@
+{
+  "id": "demandgrowthhero-component-v2",
+  "title": "DemandGrowthHero Component",
+  "description": "Hero component focused on demand growth performance, visual funnel flow, and metric-driven campaign movement.",
+  "tags": [
+    "Demand Growth",
+    "Funnel Analytics",
+    "Marketing Performance",
+    "Hero Component"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/demandgrowthhero-component-v2/preview.png",
+  "componentPath": "animations/digital-demand/demandgrowthhero-component-v2/components/DemandGrowthTile.tsx"
+}

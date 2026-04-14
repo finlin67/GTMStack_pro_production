@@ -1,0 +1,18 @@
+{
+  "id": "scalability-telemetry-radar-v2",
+  "title": "Scalability Telemetry Radar",
+  "description": "Scalability radar dashboard visualizing latency patterns, asset growth, and live telemetry performance trends.",
+  "tags": [
+    "Scalability Analytics",
+    "Telemetry Radar",
+    "Latency Monitoring",
+    "Performance Dashboard"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/scalability-telemetry-radar-v2/preview.png",
+  "componentPath": "animations/industries/scalability-telemetry-radar-v2/ScalabilityRadar.tsx"
+}

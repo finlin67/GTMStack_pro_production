@@ -1,0 +1,18 @@
+{
+  "id": "revenue-systems-data-flow-v2",
+  "title": "Revenue Systems Data Flow",
+  "description": "Revenue systems dashboard tile mapping data flow, pipeline health, and operational performance indicators.",
+  "tags": [
+    "Revenue Analytics",
+    "Data Flow",
+    "Pipeline Health",
+    "Operations Dashboard"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/operations/revenue-systems-data-flow-v2/preview.png",
+  "componentPath": "animations/operations/revenue-systems-data-flow-v2/RevenueData-Flow.tsx"
+}

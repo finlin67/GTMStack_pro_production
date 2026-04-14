@@ -1,0 +1,18 @@
+{
+  "id": "industrial-roi-dashboard-v2",
+  "title": "Industrial ROI Dashboard",
+  "description": "Industrial performance dashboard that tracks ROI impact, operational efficiency, and rollout progress for manufacturing initiatives.",
+  "tags": [
+    "Industrial Analytics",
+    "ROI Dashboard",
+    "Operations Performance",
+    "Executive Reporting"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/industrial-roi-dashboard-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/industrial-roi-dashboard-v2/app-v2.html"
+}

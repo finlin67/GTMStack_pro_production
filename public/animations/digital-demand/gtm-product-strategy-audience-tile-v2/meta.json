@@ -1,0 +1,18 @@
+{
+  "id": "gtm-product-strategy-audience-tile-v2",
+  "title": "GTM Product Strategy Audience Tile",
+  "description": "Product strategy tile focused on GTM audience mapping, messaging structure, and market-positioning signals.",
+  "tags": [
+    "GTM Product Strategy",
+    "Audience Mapping",
+    "Messaging Framework",
+    "Dashboard Tile"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/gtm-product-strategy-audience-tile-v2/preview.png",
+  "componentPath": "animations/digital-demand/gtm-product-strategy-audience-tile-v2/components/GTMAudienceTile.tsx"
+}

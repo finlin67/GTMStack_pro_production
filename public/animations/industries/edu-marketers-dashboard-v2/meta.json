@@ -1,0 +1,18 @@
+{
+  "id": "edu-marketers-dashboard-v2",
+  "title": "EduMarketers Dashboard",
+  "description": "EdTech marketer dashboard presenting dual-path adoption signals, campaign efficiency, and stakeholder-ready growth metrics.",
+  "tags": [
+    "EdTech Marketing",
+    "Adoption Analytics",
+    "Campaign Dashboard",
+    "Growth Insights"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/edu-marketers-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/edu-marketers-dashboard-v2/EduMarketersDashboard.tsx"
+}

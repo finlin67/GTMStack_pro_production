@@ -1,0 +1,18 @@
+{
+  "id": "automotivehero-dashboard-component-v2",
+  "title": "AutomotiveHero Dashboard Component",
+  "description": "Automotive dashboard component focused on revenue trajectory, performance indicators, and showroom-to-sale visibility.",
+  "tags": [
+    "Automotive Analytics",
+    "Revenue Dashboard",
+    "Sales Performance",
+    "Hero Component"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/automotivehero-dashboard-component-v2/preview.png",
+  "componentPath": "animations/industries/automotivehero-dashboard-component-v2/components/AutomotiveTile.tsx"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "devmarketers-bottom-up-adoption-loop-v2",
+  "title": "DevMarketers Bottom-Up Adoption Loop",
+  "description": "Bottom-up adoption dashboard visualizing product-led growth loops, user expansion, and activation momentum.",
+  "tags": [
+    "Product-Led Growth",
+    "Adoption Loop",
+    "Developer Marketing",
+    "Growth Dashboard"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/preview.png",
+  "componentPath": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/DevMarketers.tsx"
+}

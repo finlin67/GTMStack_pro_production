@@ -1,0 +1,18 @@
+{
+  "id": "student-lifecycle-analytics-dashboard-v2",
+  "title": "Student Lifecycle Analytics Dashboard",
+  "description": "Student lifecycle dashboard visualizing application flow, enrollment progression, and retention-oriented growth metrics.",
+  "tags": [
+    "Student Analytics",
+    "Enrollment Funnel",
+    "Lifecycle Dashboard",
+    "Education Growth"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/student-lifecycle-analytics-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/student-lifecycle-analytics-dashboard-v2/components/EDUMarketingTile.tsx"
+}

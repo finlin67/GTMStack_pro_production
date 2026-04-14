@@ -1,0 +1,19 @@
+{
+  "id": "martech-ai-landing-page-component-v2",
+  "title": "MarTech AI Landing Page Component",
+  "description": "Animated MarTech AI hero component that maps platform services, data connections, and live performance signals.",
+  "tags": [
+    "MarTech",
+    "AI",
+    "Marketing Technology",
+    "Landing Page",
+    "Hero Component"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/martech-ai-landing-page-component-v2/preview.png",
+  "componentPath": "animations/digital-demand/martech-ai-landing-page-component-v2/components/MarTechTile.tsx"
+}

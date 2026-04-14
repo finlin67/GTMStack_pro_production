@@ -1,0 +1,18 @@
+{
+  "id": "b2b-consulting-portfolio-gtmstack-pro",
+  "title": "B2B Consulting Portfolio GTMStack Pro",
+  "description": "B2B consulting portfolio visualization that presents GTM capabilities, service depth, and strategic execution focus.",
+  "tags": [
+    "B2B Consulting",
+    "GTM Strategy",
+    "Portfolio Dashboard",
+    "Service Analytics"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/b2b-consulting-portfolio-gtmstack-pro/preview.png",
+  "componentPath": "animations/industries/b2b-consulting-portfolio-gtmstack-pro/constants.tsx"
+}

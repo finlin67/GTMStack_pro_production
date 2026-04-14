@@ -1,0 +1,18 @@
+{
+  "id": "neonvideo-marketing-landing-page-v2",
+  "title": "NeonVideo Marketing Landing Page",
+  "description": "Video marketing landing-page hero emphasizing campaign visibility, media performance, and conversion-focused storytelling.",
+  "tags": [
+    "Video Marketing",
+    "Landing Page Hero",
+    "Campaign Performance",
+    "Conversion Analytics"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/neonvideo-marketing-landing-page-v2/preview.png",
+  "componentPath": "animations/digital-demand/neonvideo-marketing-landing-page-v2/components/CampaignTile.tsx"
+}

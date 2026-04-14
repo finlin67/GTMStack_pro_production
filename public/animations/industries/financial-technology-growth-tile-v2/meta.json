@@ -1,0 +1,18 @@
+{
+  "id": "financial-technology-growth-tile-v2",
+  "title": "Financial Technology Growth Tile",
+  "description": "Financial technology growth tile visualizing sales momentum, portfolio movement, and performance intelligence.",
+  "tags": [
+    "FinTech Analytics",
+    "Growth Dashboard",
+    "Sales Intelligence",
+    "Financial Performance"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/financial-technology-growth-tile-v2/preview.png",
+  "componentPath": "animations/industries/financial-technology-growth-tile-v2/components/FinServTile.tsx"
+}

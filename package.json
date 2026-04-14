@@ -15,6 +15,8 @@
     "sync:gallery:entry-html:dry": "node scripts/sync-gallery.js --dry-run --copy-entry-html --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
     "sync:gallery:entry-html": "node scripts/sync-gallery.js --apply --copy-entry-html --animations-repo=\"C:\\\\GitProd\\\\GTMStack_Animations\\\\gtmstack_animations\"",
     "audit:gallery:phase2": "npx tsx scripts/audit-gallery-phase2.ts",
+    "audit:gallery:runtime": "node scripts/audit-gallery-runtime.js",
+    "report:gallery:fix-queue": "node scripts/build-gallery-fix-queue.js",
     "gen:all": "npm run gen:registry && npm run gen:animations",
     "gen:hero-manifest": "node scripts/generate-hero-manifest.mjs",
     "gen:registry": "npx tsx scripts/gen-page-registry.ts",

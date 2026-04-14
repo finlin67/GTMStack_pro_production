@@ -1,0 +1,18 @@
+{
+  "id": "demandgen-pipeline-hero-v2",
+  "title": "DemandGen Pipeline Hero",
+  "description": "Animated demand generation hero showcasing funnel progression, lead velocity, and campaign stage performance.",
+  "tags": [
+    "Demand Generation",
+    "Pipeline Visualization",
+    "Lead Analytics",
+    "Hero Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/demandgen-pipeline-hero-v2/preview.png",
+  "componentPath": "animations/digital-demand/demandgen-pipeline-hero-v2/components/CampaignTile.tsx"
+}

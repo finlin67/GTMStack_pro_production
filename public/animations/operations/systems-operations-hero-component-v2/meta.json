@@ -1,0 +1,18 @@
+{
+  "id": "systems-operations-hero-component-v2",
+  "title": "Systems Operations Hero Component",
+  "description": "Systems operations hero component focused on core infrastructure KPIs, service status, and execution stability.",
+  "tags": [
+    "Systems Operations",
+    "Infrastructure KPI",
+    "Service Monitoring",
+    "Hero Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/operations/systems-operations-hero-component-v2/preview.png",
+  "componentPath": "animations/operations/systems-operations-hero-component-v2/components/SystemOperationsTile.tsx"
+}

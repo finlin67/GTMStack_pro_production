@@ -1,0 +1,18 @@
+{
+  "id": "fleetoptima-driver-performance-tile-v2",
+  "title": "FleetOptima Driver Performance Tile",
+  "description": "Driver performance tile showing fleet-level behavior, weekly efficiency patterns, and operational performance status.",
+  "tags": [
+    "Fleet Performance",
+    "Driver Analytics",
+    "Operational Dashboard",
+    "Efficiency Metrics"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/fleetoptima-driver-performance-tile-v2/preview.png",
+  "componentPath": "animations/industries/fleetoptima-driver-performance-tile-v2/components/FleetTile.tsx"
+}

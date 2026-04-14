@@ -1,0 +1,18 @@
+{
+  "id": "growthcore-component-extraction-v2",
+  "title": "GrowthCore Component Extraction",
+  "description": "Extracted GrowthCore visualization component presenting retention, engagement, and growth performance in a reusable hero module.",
+  "tags": [
+    "GrowthCore",
+    "Component Library",
+    "Retention Analytics",
+    "Hero Module"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/growthcore-component-extraction-v2/preview.png",
+  "componentPath": "animations/digital-demand/growthcore-component-extraction-v2/FleetTile.tsx"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "email-marketing-json-lottie-v2",
+  "title": "Email Marketing JSON Lottie",
+  "description": "Email marketing hero animation combining JSON/Lottie-style motion with campaign metrics and engagement signals.",
+  "tags": [
+    "Email Marketing",
+    "JSON Lottie",
+    "Campaign Animation",
+    "Engagement Analytics"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/email-marketing-json-lottie-v2/preview.png",
+  "componentPath": "animations/digital-demand/email-marketing-json-lottie-v2/components/EmailMarketingHero.tsx"
+}

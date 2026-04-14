@@ -1,0 +1,18 @@
+{
+  "id": "gtm-stack-data-sync-mesh-v2",
+  "title": "GTM Stack Data Sync Mesh",
+  "description": "Data sync mesh dashboard visualizing GTM system connectivity, synchronization health, and signal throughput.",
+  "tags": [
+    "GTM Stack",
+    "Data Sync",
+    "System Connectivity",
+    "Throughput Analytics"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2/components/RevOpsDashboard.tsx"
+}

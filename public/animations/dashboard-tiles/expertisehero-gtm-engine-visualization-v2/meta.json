@@ -1,0 +1,18 @@
+{
+  "id": "expertisehero-gtm-engine-visualization-v2",
+  "title": "ExpertiseHero GTM Engine Visualization",
+  "description": "GTM engine visualization tile mapping strategic growth nodes, signal pathways, and execution momentum.",
+  "tags": [
+    "GTM Engine",
+    "Growth Visualization",
+    "Strategy Nodes",
+    "Execution Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2/components/GtmCoreTile.tsx"
+}

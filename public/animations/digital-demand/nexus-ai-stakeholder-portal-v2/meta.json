@@ -1,0 +1,18 @@
+{
+  "id": "nexus-ai-stakeholder-portal-v2",
+  "title": "Nexus AI Stakeholder Portal",
+  "description": "AI stakeholder portal dashboard showing deployment health, model performance, and cross-team milestone visibility.",
+  "tags": [
+    "AI Dashboard",
+    "Stakeholder Reporting",
+    "Model Performance",
+    "Operations Visibility"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/preview.png",
+  "componentPath": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/NexusStakeholderPortal.tsx"
+}

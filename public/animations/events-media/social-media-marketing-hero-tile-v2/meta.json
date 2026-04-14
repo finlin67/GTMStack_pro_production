@@ -1,0 +1,18 @@
+{
+  "id": "social-media-marketing-hero-tile-v2",
+  "title": "Social Media Marketing Hero Tile",
+  "description": "Social media hero tile that visualizes viral momentum, channel engagement, and campaign amplification metrics.",
+  "tags": [
+    "Social Media Marketing",
+    "Viral Analytics",
+    "Channel Engagement",
+    "Hero Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/events-media/social-media-marketing-hero-tile-v2/preview.png",
+  "componentPath": "animations/events-media/social-media-marketing-hero-tile-v2/components/SocialMediaTile.tsx"
+}

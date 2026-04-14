@@ -1,0 +1,18 @@
+{
+  "id": "sequence-ladder-analytics-tile-v2",
+  "title": "Sequence Ladder Analytics Tile",
+  "description": "Sequence analytics tile that tracks campaign progression from send to conversion through a ladder-style performance view.",
+  "tags": [
+    "Sequence Analytics",
+    "Conversion Funnel",
+    "Email Performance",
+    "Dashboard Tile"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/sequence-ladder-analytics-tile-v2/preview.png",
+  "componentPath": "animations/digital-demand/sequence-ladder-analytics-tile-v2/components/EmailLadderTile.tsx"
+}

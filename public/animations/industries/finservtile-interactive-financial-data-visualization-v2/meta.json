@@ -1,0 +1,18 @@
+{
+  "id": "finservtile-interactive-financial-data-visualization-v2",
+  "title": "FinServTile Interactive Financial Data Visualization",
+  "description": "Interactive financial data tile combining portfolio metrics, growth indicators, and real-time visual movement.",
+  "tags": [
+    "Financial Visualization",
+    "Portfolio Analytics",
+    "Interactive Dashboard",
+    "Growth Metrics"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/finservtile-interactive-financial-data-visualization-v2/preview.png",
+  "componentPath": "animations/industries/finservtile-interactive-financial-data-visualization-v2/FinServTile.tsx"
+}

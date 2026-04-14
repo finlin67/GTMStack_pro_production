@@ -1,0 +1,18 @@
+{
+  "id": "manufacturing-agency-dashboard-v2",
+  "title": "Manufacturing Agency Dashboard",
+  "description": "Manufacturing dashboard tile for agency reporting on lifecycle efficiency, yield movement, and process impact.",
+  "tags": [
+    "Manufacturing Analytics",
+    "Lifecycle Dashboard",
+    "Yield Monitoring",
+    "Agency Reporting"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/manufacturing-agency-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/manufacturing-agency-dashboard-v2/components/Manufacturing-LifecycleDashboard.tsx"
+}

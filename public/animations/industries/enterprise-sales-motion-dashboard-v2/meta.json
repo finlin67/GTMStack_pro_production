@@ -1,0 +1,18 @@
+{
+  "id": "enterprise-sales-motion-dashboard-v2",
+  "title": "Enterprise Sales Motion Dashboard",
+  "description": "Enterprise sales-motion dashboard visualizing stakeholder movement, cycle progression, and deal execution momentum.",
+  "tags": [
+    "Enterprise Sales",
+    "Deal Progression",
+    "Stakeholder Analytics",
+    "Motion Dashboard"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/enterprise-sales-motion-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/enterprise-sales-motion-dashboard-v2/app-v2.html"
+}

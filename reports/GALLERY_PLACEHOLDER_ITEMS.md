@@ -1,10 +1,10 @@
 # Gallery Placeholder-Only Report
-Generated: 2026-03-21T01:06:16.277Z
+Generated: 2026-04-10T13:54:15.645Z
 
 ## Summary
-- Total gallery items: 129
-- Active visible items: 125
-- Placeholder-only items (all): 3
+- Total gallery items: 119
+- Active visible items: 115
+- Placeholder-only items (all): 0
 - Placeholder-only items (active visible): 0
 
 ## Placeholder Items by Category (Active Visible)

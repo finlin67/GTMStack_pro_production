@@ -1,6 +1,7 @@
 # Animation Change Checklist (Both Repos)
 
 Use this single checklist whenever you need to add, remove, or modify an animation.
+Quick command lookup: see `docs/GALLERY_COMMAND_QUICK_REFERENCE.md`.
 
 ## Repositories
 

@@ -1,0 +1,18 @@
+{
+  "id": "eoc-logistics-dashboard-v2",
+  "title": "EOC Logistics Dashboard",
+  "description": "EOC logistics dashboard tile visualizing incident flow, route stability, and emergency operations performance.",
+  "tags": [
+    "EOC Analytics",
+    "Logistics Monitoring",
+    "Incident Response",
+    "Operations Dashboard"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/events-media/eoc-logistics-dashboard-v2/preview.png",
+  "componentPath": "animations/events-media/eoc-logistics-dashboard-v2/EocLogisticsDashboard.tsx"
+}

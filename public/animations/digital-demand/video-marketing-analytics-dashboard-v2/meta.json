@@ -1,0 +1,18 @@
+{
+  "id": "video-marketing-analytics-dashboard-v2",
+  "title": "Video Marketing Analytics Dashboard",
+  "description": "Video analytics dashboard tracking engagement, retention, and campaign lift for marketing performance teams.",
+  "tags": [
+    "Video Analytics",
+    "Engagement Metrics",
+    "Retention Dashboard",
+    "Marketing Performance"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/video-marketing-analytics-dashboard-v2/preview.png",
+  "componentPath": "animations/digital-demand/video-marketing-analytics-dashboard-v2/Video-Marketing-Analytics-Tile.tsx"
+}

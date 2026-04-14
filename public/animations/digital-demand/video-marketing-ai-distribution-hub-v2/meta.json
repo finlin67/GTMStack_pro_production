@@ -1,0 +1,18 @@
+{
+  "id": "video-marketing-ai-distribution-hub-v2",
+  "title": "Video Marketing AI Distribution Hub",
+  "description": "AI-enabled video distribution hub showing campaign reach, channel optimization, and performance forecasts.",
+  "tags": [
+    "Video Marketing",
+    "AI Distribution",
+    "Campaign Reach",
+    "Performance Forecasting"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/video-marketing-ai-distribution-hub-v2/preview.png",
+  "componentPath": "animations/digital-demand/video-marketing-ai-distribution-hub-v2/components/AnalyticsPanel.tsx"
+}

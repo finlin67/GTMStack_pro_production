@@ -1,0 +1,18 @@
+{
+  "id": "product-growth-hero-v2",
+  "title": "Product Growth Hero",
+  "description": "Product growth hero tile visualizing activation, expansion, and retention signals in a single executive-ready scene.",
+  "tags": [
+    "Product Growth",
+    "Retention Analytics",
+    "Expansion Metrics",
+    "Hero Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/product-growth-hero-v2/preview.png",
+  "componentPath": "animations/digital-demand/product-growth-hero-v2/components/ProductPhaseTile.tsx"
+}

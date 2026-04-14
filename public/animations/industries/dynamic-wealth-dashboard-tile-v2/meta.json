@@ -1,0 +1,18 @@
+{
+  "id": "dynamic-wealth-dashboard-tile-v2",
+  "title": "Dynamic Wealth Dashboard Tile",
+  "description": "Financial dashboard tile highlighting portfolio stability, growth trajectory, and risk-adjusted performance metrics.",
+  "tags": [
+    "Wealth Analytics",
+    "Portfolio Dashboard",
+    "Financial Performance",
+    "Risk Signals"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/dynamic-wealth-dashboard-tile-v2/preview.png",
+  "componentPath": "animations/industries/dynamic-wealth-dashboard-tile-v2/components/FinancialTile.tsx"
+}

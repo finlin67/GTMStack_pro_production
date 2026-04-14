@@ -1,0 +1,18 @@
+{
+  "id": "education-journey-k-12-ecosystem-v2",
+  "title": "Education Journey K-12 Ecosystem",
+  "description": "K-12 ecosystem dashboard mapping parent demand, district cycles, and education adoption readiness across stages.",
+  "tags": [
+    "K-12 Analytics",
+    "Education Ecosystem",
+    "Adoption Journey",
+    "Program Insights"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/education-journey-k-12-ecosystem-v2/preview.png",
+  "componentPath": "animations/industries/education-journey-k-12-ecosystem-v2/EdJourneyK12Ecosystem.tsx"
+}

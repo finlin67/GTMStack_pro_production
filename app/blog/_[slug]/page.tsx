@@ -36,7 +36,7 @@ export default async function BlogSlugPage({ params }: { params: Promise<{ slug:
           ← Blog
         </Link>
       </nav>
-      <article className="max-w-3xl mx-auto px-6 py-12">
+      <article className="max-w-4xl mx-auto px-6 py-12">
         <h1 className="text-3xl font-bold text-white mb-4">
           {frontmatter.title as string}
         </h1>

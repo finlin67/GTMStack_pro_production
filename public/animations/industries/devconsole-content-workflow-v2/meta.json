@@ -1,0 +1,18 @@
+{
+  "id": "devconsole-content-workflow-v2",
+  "title": "DevConsole Content Workflow",
+  "description": "Developer-style content workflow console tracking production stages, telemetry health, and optimization guidance.",
+  "tags": [
+    "Content Workflow",
+    "Developer Console",
+    "Telemetry Dashboard",
+    "Operations"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/devconsole-content-workflow-v2/preview.png",
+  "componentPath": "animations/industries/devconsole-content-workflow-v2/Developer-Marketing.tsx"
+}

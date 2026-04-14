@@ -1,0 +1,18 @@
+{
+  "id": "aerospace-auto-engineering-workflow-v2",
+  "title": "Aerospace Auto Engineering Workflow",
+  "description": "Engineering workflow dashboard for aerospace and automotive programs, visualizing qualification stages, risk, and delivery readiness.",
+  "tags": [
+    "Engineering Workflow",
+    "Aerospace",
+    "Automotive",
+    "Program Analytics"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/aerospace-auto-engineering-workflow-v2/preview.png",
+  "componentPath": "animations/industries/aerospace-auto-engineering-workflow-v2/components/EngineeringWorkflow.tsx"
+}

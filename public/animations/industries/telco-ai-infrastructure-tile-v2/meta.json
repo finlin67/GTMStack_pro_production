@@ -1,0 +1,18 @@
+{
+  "id": "telco-ai-infrastructure-tile-v2",
+  "title": "Telco AI Infrastructure Tile",
+  "description": "Telecommunications AI infrastructure tile visualizing network intelligence, service load, and predictive operations signals.",
+  "tags": [
+    "Telco Analytics",
+    "AI Infrastructure",
+    "Network Monitoring",
+    "Predictive Operations"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/telco-ai-infrastructure-tile-v2/preview.png",
+  "componentPath": "animations/industries/telco-ai-infrastructure-tile-v2/components/TelcoAITile.tsx"
+}

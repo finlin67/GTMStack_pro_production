@@ -1,0 +1,18 @@
+{
+  "id": "marketing-operations-workflow-tile-v2",
+  "title": "Marketing Operations Workflow Tile",
+  "description": "Marketing operations tile visualizing process handoffs, system alignment, and throughput performance across workflow stages.",
+  "tags": [
+    "Marketing Operations",
+    "Workflow Management",
+    "Process Analytics",
+    "Throughput Monitoring"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/operations/marketing-operations-workflow-tile-v2/preview.png",
+  "componentPath": "animations/operations/marketing-operations-workflow-tile-v2/components/MarketingOperationsTile.tsx"
+}

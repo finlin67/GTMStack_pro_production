@@ -1,0 +1,18 @@
+{
+  "id": "powergrid-digital-modernization-dashboard-v2",
+  "title": "PowerGrid Digital Modernization Dashboard",
+  "description": "Digital modernization dashboard for power grids showing capital deployment, reliability improvements, and lifecycle progress.",
+  "tags": [
+    "PowerGrid Analytics",
+    "Digital Modernization",
+    "Reliability Monitoring",
+    "Capital Performance"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/powergrid-digital-modernization-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/powergrid-digital-modernization-dashboard-v2/PowerGridDashboard.tsx"
+}

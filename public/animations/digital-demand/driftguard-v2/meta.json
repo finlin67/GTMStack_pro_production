@@ -1,0 +1,18 @@
+{
+  "id": "driftguard-v2",
+  "title": "DriftGuard",
+  "description": "AI model monitoring tile designed to surface drift risk, stability signals, and alert-ready performance changes.",
+  "tags": [
+    "AI Monitoring",
+    "Model Drift",
+    "Risk Detection",
+    "Performance Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/driftguard-v2/preview.png",
+  "componentPath": "animations/digital-demand/driftguard-v2/DriftGuard.tsx"
+}

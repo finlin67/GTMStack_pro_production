@@ -1,0 +1,18 @@
+{
+  "id": "infracore-deepdive-dashboard-v2",
+  "title": "InfraCore DeepDive Dashboard",
+  "description": "Infrastructure analytics dashboard that visualizes service health, system reliability, and operational status with animated signal cues.",
+  "tags": [
+    "Infrastructure Monitoring",
+    "Service Health",
+    "Operations Dashboard",
+    "Data Visualization"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/infracore-deepdive-dashboard-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/infracore-deepdive-dashboard-v2/app-v2.html"
+}

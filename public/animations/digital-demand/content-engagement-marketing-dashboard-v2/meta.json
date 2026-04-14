@@ -1,0 +1,18 @@
+{
+  "id": "content-engagement-marketing-dashboard-v2",
+  "title": "Content Engagement Marketing Dashboard",
+  "description": "Content engagement dashboard tracking distribution performance, engagement quality, and channel effectiveness.",
+  "tags": [
+    "Content Marketing",
+    "Engagement Dashboard",
+    "Distribution Analytics",
+    "Channel Performance"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/content-engagement-marketing-dashboard-v2/preview.png",
+  "componentPath": "animations/digital-demand/content-engagement-marketing-dashboard-v2/Content-Engagement-Marketing.tsx"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "content-marketing-kpi-dashboard-v2",
+  "title": "Content Marketing KPI Dashboard",
+  "description": "Content marketing dashboard focused on KPI movement, funnel contribution, and growth outcomes across campaign stages.",
+  "tags": [
+    "Content Marketing",
+    "KPI Dashboard",
+    "Growth Analytics",
+    "Funnel Performance"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/content-marketing-kpi-dashboard-v2/preview.png",
+  "componentPath": "animations/digital-demand/content-marketing-kpi-dashboard-v2/components/ContentGrowthDashboard.tsx"
+}

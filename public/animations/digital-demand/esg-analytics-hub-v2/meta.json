@@ -1,0 +1,18 @@
+{
+  "id": "esg-analytics-hub-v2",
+  "title": "ESG Analytics Hub",
+  "description": "ESG analytics dashboard visualizing sustainability metrics, trend movement, and governance performance signals.",
+  "tags": [
+    "ESG Analytics",
+    "Sustainability Metrics",
+    "Governance Dashboard",
+    "Data Visualization"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/esg-analytics-hub-v2/preview.png",
+  "componentPath": "animations/digital-demand/esg-analytics-hub-v2/EsgAnalyticsHub.tsx"
+}

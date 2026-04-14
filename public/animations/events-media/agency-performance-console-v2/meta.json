@@ -1,0 +1,18 @@
+{
+  "id": "agency-performance-console-v2",
+  "title": "Agency Performance Console",
+  "description": "Performance console for agencies to monitor campaign velocity, benchmark movement, and system health indicators.",
+  "tags": [
+    "Agency Performance",
+    "Campaign Monitoring",
+    "Benchmark Analytics",
+    "Operations Console"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/events-media/agency-performance-console-v2/preview.png",
+  "componentPath": "animations/events-media/agency-performance-console-v2/components/PerformanceConsole.tsx"
+}

@@ -8,12 +8,12 @@
     "entryHtml": "animations/operations/systems-operations-hero-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/operations/systems-operations-hero-component-v2/README.md",
-    "summary": "Systems Operations Hero Component — GTMStack animation for operations use cases.",
+    "summary": "Systems operations hero component focused on core infrastructure KPIs, service status, and execution stability.",
     "tags": [
-      "operations",
-      "systems",
-      "hero",
-      "component"
+      "Systems Operations",
+      "Infrastructure KPI",
+      "Service Monitoring",
+      "Hero Dashboard"
     ],
     "thumbnailPath": "animations/operations/systems-operations-hero-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/systems-operations-hero-component-v2",
@@ -23,20 +23,19 @@
   {
     "id": "revenue-systems-data-flow-v2",
     "slug": "revenue-systems-data-flow-v2",
-    "animationId": "revenue-systems-data-flow-v2",
+    "animationId": "rev-ops-mesh-tile",
     "title": "Revenue Systems Data Flow",
     "category": "operations",
     "projectPath": "animations/operations/revenue-systems-data-flow-v2",
     "entryHtml": "animations/operations/revenue-systems-data-flow-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/operations/revenue-systems-data-flow-v2/README.md",
-    "summary": "Revenue Systems Data Flow — GTMStack animation for operations use cases.",
+    "summary": "Revenue systems dashboard tile mapping data flow, pipeline health, and operational performance indicators.",
     "tags": [
-      "operations",
-      "revenue",
-      "systems",
-      "data",
-      "flow"
+      "Revenue Analytics",
+      "Data Flow",
+      "Pipeline Health",
+      "Operations Dashboard"
     ],
     "thumbnailPath": "animations/operations/revenue-systems-data-flow-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/revenue-systems-data-flow-v2",
@@ -62,24 +61,24 @@
     "thumbnailPath": "animations/operations/pipeline-command-center-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/pipeline-command-center-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/pipeline-command-center-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.850Z"
+    "updatedAt": "2026-04-10T20:47:52.539Z"
   },
   {
     "id": "martech-ai-dashboard-engine-v2",
     "slug": "martech-ai-dashboard-engine-v2",
-    "animationId": "martech-ai-dashboard-engine-v2",
-    "title": "Martech Ai Dashboard Engine",
+    "animationId": "mar-tech-tile",
+    "title": "MarTech AI Dashboard Engine",
     "category": "operations",
     "projectPath": "animations/operations/martech-ai-dashboard-engine-v2",
     "entryHtml": "animations/operations/martech-ai-dashboard-engine-v2/martechtile-v2.html",
     "entryType": "html",
     "readmePath": "animations/operations/martech-ai-dashboard-engine-v2/README.md",
-    "summary": "Martech Ai Dashboard Engine — GTMStack animation for operations use cases.",
+    "summary": "Operations-focused MarTech AI dashboard engine that visualizes service health, orchestration flow, and optimization status.",
     "tags": [
-      "operations",
-      "martech",
-      "dashboard",
-      "engine"
+      "MarTech",
+      "AI",
+      "Operations Dashboard",
+      "System Monitoring"
     ],
     "thumbnailPath": "animations/operations/martech-ai-dashboard-engine-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/martech-ai-dashboard-engine-v2",
@@ -104,7 +103,7 @@
     "thumbnailPath": "animations/operations/marketingai-neural-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketingai-neural-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketingai-neural-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.852Z"
+    "updatedAt": "2026-04-10T20:47:52.541Z"
   },
   {
     "id": "marketingai-intelligence-dashboard-v2",
@@ -124,7 +123,7 @@
     "thumbnailPath": "animations/operations/marketingai-intelligence-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketingai-intelligence-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketingai-intelligence-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.852Z"
+    "updatedAt": "2026-04-10T20:47:52.541Z"
   },
   {
     "id": "marketing-revenue-analytics-v2",
@@ -145,7 +144,7 @@
     "thumbnailPath": "animations/operations/marketing-revenue-analytics-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketing-revenue-analytics-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketing-revenue-analytics-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.853Z"
+    "updatedAt": "2026-04-10T20:47:52.542Z"
   },
   {
     "id": "marketing-operations-workflow-tile-v2",
@@ -156,37 +155,16 @@
     "entryHtml": "animations/operations/marketing-operations-workflow-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/operations/marketing-operations-workflow-tile-v2/README.md",
-    "summary": "Marketing Operations Workflow Tile — GTMStack animation for operations use cases.",
+    "summary": "Marketing operations tile visualizing process handoffs, system alignment, and throughput performance across workflow stages.",
     "tags": [
-      "operations",
-      "marketing",
-      "workflow",
-      "tile"
+      "Marketing Operations",
+      "Workflow Management",
+      "Process Analytics",
+      "Throughput Monitoring"
     ],
     "thumbnailPath": "animations/operations/marketing-operations-workflow-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketing-operations-workflow-tile-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketing-operations-workflow-tile-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "marketing-analytics-carousel-v3",
-    "slug": "marketing-analytics-carousel-v3",
-    "title": "Marketing Analytics Carousel",
-    "category": "operations",
-    "projectPath": "animations/operations/marketing-analytics-carousel-v3",
-    "entryHtml": "animations/operations/marketing-analytics-carousel-v3/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/operations/marketing-analytics-carousel-v3/README.md",
-    "summary": "Marketing Analytics Carousel — GTMStack animation for operations use cases.",
-    "tags": [
-      "operations",
-      "marketing",
-      "analytics",
-      "carousel"
-    ],
-    "thumbnailPath": "animations/operations/marketing-analytics-carousel-v3/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/marketing-analytics-carousel-v3",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/marketing-analytics-carousel-v3/README.md",
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
@@ -198,13 +176,12 @@
     "entryHtml": "animations/operations/live-email-automation-ecosystem-v3/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/operations/live-email-automation-ecosystem-v3/README.md",
-    "summary": "Live Email Automation Ecosystem — GTMStack animation for operations use cases.",
+    "summary": "Updated live email automation ecosystem tile focused on orchestration flow, channel timing, and engagement lift.",
     "tags": [
-      "operations",
-      "live",
-      "email",
-      "automation",
-      "ecosystem"
+      "Email Automation",
+      "Workflow Orchestration",
+      "Engagement Analytics",
+      "Operations Dashboard"
     ],
     "thumbnailPath": "animations/operations/live-email-automation-ecosystem-v3/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/live-email-automation-ecosystem-v3",
@@ -220,13 +197,12 @@
     "entryHtml": "",
     "entryType": "tsx",
     "readmePath": "animations/operations/live-email-automation-ecosystem-v2/README.md",
-    "summary": "Live Email Automation Ecosystem — GTMStack animation for operations use cases.",
+    "summary": "Live email automation dashboard visualizing campaign flow, delivery signals, and performance movement across lifecycle stages.",
     "tags": [
-      "operations",
-      "live",
-      "email",
-      "automation",
-      "ecosystem"
+      "Email Automation",
+      "Campaign Workflow",
+      "Performance Dashboard",
+      "Lifecycle Analytics"
     ],
     "thumbnailPath": "animations/operations/live-email-automation-ecosystem-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/live-email-automation-ecosystem-v2",
@@ -251,7 +227,7 @@
     "thumbnailPath": "animations/operations/lifecycle-engine-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/lifecycle-engine-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/lifecycle-engine-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.858Z"
+    "updatedAt": "2026-04-10T20:47:52.545Z"
   },
   {
     "id": "enterprise-sales-motion-dashboard-v2",
@@ -272,53 +248,7 @@
     "thumbnailPath": "animations/operations/enterprise-sales-motion-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/operations/enterprise-sales-motion-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/operations/enterprise-sales-motion-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.858Z"
-  },
-  {
-    "id": "wellv3-landing-page-health-journey-tile-v2",
-    "slug": "wellv3-landing-page-health-journey-tile-v2",
-    "title": "Wellv3 Landing Page Health Journey Tile",
-    "category": "industries",
-    "projectPath": "animations/industries/wellv3-landing-page-health-journey-tile-v2",
-    "entryHtml": "animations/industries/wellv3-landing-page-health-journey-tile-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/wellv3-landing-page-health-journey-tile-v2/README.md",
-    "summary": "Wellv3 Landing Page Health Journey Tile — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "wellv3",
-      "landing",
-      "page",
-      "health",
-      "journey",
-      "tile"
-    ],
-    "thumbnailPath": "animations/industries/wellv3-landing-page-health-journey-tile-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/wellv3-landing-page-health-journey-tile-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/wellv3-landing-page-health-journey-tile-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "waste-management-ai-hero-component-v2",
-    "slug": "waste-management-ai-hero-component-v2",
-    "title": "Waste Management Ai Hero Component",
-    "category": "industries",
-    "projectPath": "animations/industries/waste-management-ai-hero-component-v2",
-    "entryHtml": "animations/industries/waste-management-ai-hero-component-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/waste-management-ai-hero-component-v2/README.md",
-    "summary": "Waste Management Ai Hero Component — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "waste",
-      "management",
-      "hero",
-      "component"
-    ],
-    "thumbnailPath": "animations/industries/waste-management-ai-hero-component-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/waste-management-ai-hero-component-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/waste-management-ai-hero-component-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
+    "updatedAt": "2026-04-10T20:47:52.546Z"
   },
   {
     "id": "utilities-command-center-tile-v2",
@@ -329,13 +259,12 @@
     "entryHtml": "animations/industries/utilities-command-center-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/utilities-command-center-tile-v2/README.md",
-    "summary": "Utilities Command Center Tile — GTMStack animation for industries use cases.",
+    "summary": "Utilities command center tile showing grid stability, operational load, and critical infrastructure health status.",
     "tags": [
-      "industries",
-      "utilities",
-      "command",
-      "center",
-      "tile"
+      "Utilities Analytics",
+      "Grid Stability",
+      "Command Center",
+      "Infrastructure Health"
     ],
     "thumbnailPath": "animations/industries/utilities-command-center-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/utilities-command-center-tile-v2",
@@ -345,18 +274,18 @@
   {
     "id": "telco-ai-infrastructure-tile-v2",
     "slug": "telco-ai-infrastructure-tile-v2",
-    "title": "Telco Ai Infrastructure Tile",
+    "title": "Telco AI Infrastructure Tile",
     "category": "industries",
     "projectPath": "animations/industries/telco-ai-infrastructure-tile-v2",
     "entryHtml": "animations/industries/telco-ai-infrastructure-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/telco-ai-infrastructure-tile-v2/README.md",
-    "summary": "Telco Ai Infrastructure Tile — GTMStack animation for industries use cases.",
+    "summary": "Telecommunications AI infrastructure tile visualizing network intelligence, service load, and predictive operations signals.",
     "tags": [
-      "industries",
-      "telco",
-      "infrastructure",
-      "tile"
+      "Telco Analytics",
+      "AI Infrastructure",
+      "Network Monitoring",
+      "Predictive Operations"
     ],
     "thumbnailPath": "animations/industries/telco-ai-infrastructure-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/telco-ai-infrastructure-tile-v2",
@@ -372,60 +301,16 @@
     "entryHtml": "animations/industries/student-lifecycle-analytics-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/student-lifecycle-analytics-dashboard-v2/README.md",
-    "summary": "Student Lifecycle Analytics Dashboard — GTMStack animation for industries use cases.",
+    "summary": "Student lifecycle dashboard visualizing application flow, enrollment progression, and retention-oriented growth metrics.",
     "tags": [
-      "industries",
-      "student",
-      "lifecycle",
-      "analytics",
-      "dashboard"
+      "Student Analytics",
+      "Enrollment Funnel",
+      "Lifecycle Dashboard",
+      "Education Growth"
     ],
     "thumbnailPath": "animations/industries/student-lifecycle-analytics-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/student-lifecycle-analytics-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/student-lifecycle-analytics-dashboard-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "scalability-telemetry-radar-v2",
-    "slug": "scalability-telemetry-radar-v2",
-    "title": "Scalability Telemetry Radar",
-    "category": "industries",
-    "projectPath": "animations/industries/scalability-telemetry-radar-v2",
-    "entryHtml": "animations/industries/scalability-telemetry-radar-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/scalability-telemetry-radar-v2/README.md",
-    "summary": "Scalability Telemetry Radar — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "scalability",
-      "telemetry",
-      "radar"
-    ],
-    "thumbnailPath": "animations/industries/scalability-telemetry-radar-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/scalability-telemetry-radar-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/scalability-telemetry-radar-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "saas-premium-analytics-component-v2",
-    "slug": "saas-premium-analytics-component-v2",
-    "title": "Saas Premium Analytics Component",
-    "category": "industries",
-    "projectPath": "animations/industries/saas-premium-analytics-component-v2",
-    "entryHtml": "animations/industries/saas-premium-analytics-component-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/saas-premium-analytics-component-v2/README.md",
-    "summary": "Saas Premium Analytics Component — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "saas",
-      "premium",
-      "analytics",
-      "component"
-    ],
-    "thumbnailPath": "animations/industries/saas-premium-analytics-component-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/saas-premium-analytics-component-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/saas-premium-analytics-component-v2/README.md",
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
@@ -437,13 +322,12 @@
     "entryHtml": "animations/industries/retail-pulse-analytics-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/retail-pulse-analytics-tile-v2/README.md",
-    "summary": "Retail Pulse Analytics Tile — GTMStack animation for industries use cases.",
+    "summary": "Retail analytics tile tracking traffic-to-conversion performance, engagement pulse, and revenue trend direction.",
     "tags": [
-      "industries",
-      "retail",
-      "pulse",
-      "analytics",
-      "tile"
+      "Retail Analytics",
+      "Conversion Metrics",
+      "Engagement Pulse",
+      "Revenue Dashboard"
     ],
     "thumbnailPath": "animations/industries/retail-pulse-analytics-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/retail-pulse-analytics-tile-v2",
@@ -451,44 +335,20 @@
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
-    "id": "powergrid-digital-modernization-dashboard-v2",
-    "slug": "powergrid-digital-modernization-dashboard-v2",
-    "title": "Powergrid Digital Modernization Dashboard",
-    "category": "industries",
-    "projectPath": "animations/industries/powergrid-digital-modernization-dashboard-v2",
-    "entryHtml": "animations/industries/powergrid-digital-modernization-dashboard-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/powergrid-digital-modernization-dashboard-v2/README.md",
-    "summary": "Powergrid Digital Modernization Dashboard — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "powergrid",
-      "digital",
-      "modernization",
-      "dashboard"
-    ],
-    "thumbnailPath": "animations/industries/powergrid-digital-modernization-dashboard-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/powergrid-digital-modernization-dashboard-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/powergrid-digital-modernization-dashboard-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
     "id": "oil-gas-performance-tile-component-v2",
     "slug": "oil-gas-performance-tile-component-v2",
-    "title": "Oil Gas Performance Tile Component",
+    "title": "Oil & Gas Performance Tile Component",
     "category": "industries",
     "projectPath": "animations/industries/oil-gas-performance-tile-component-v2",
     "entryHtml": "animations/industries/oil-gas-performance-tile-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/oil-gas-performance-tile-component-v2/README.md",
-    "summary": "Oil Gas Performance Tile Component — GTMStack animation for industries use cases.",
+    "summary": "Oil and gas performance tile tracking operational efficiency, cost dynamics, and yield performance indicators.",
     "tags": [
-      "industries",
-      "oil",
-      "gas",
-      "performance",
-      "tile",
-      "component"
+      "Oil & Gas Analytics",
+      "Operational Efficiency",
+      "Yield Dashboard",
+      "Cost Performance"
     ],
     "thumbnailPath": "animations/industries/oil-gas-performance-tile-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/oil-gas-performance-tile-component-v2",
@@ -496,41 +356,41 @@
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
-    "id": "nonprofithero-impact-visualization-v2",
-    "slug": "nonprofithero-impact-visualization-v2",
-    "title": "Nonprofithero Impact Visualization",
+    "id": "nexus-industrial-dashboard-v2",
+    "slug": "nexus-industrial-dashboard-v2",
+    "title": "Nexus Industrial Dashboard",
     "category": "industries",
-    "projectPath": "animations/industries/nonprofithero-impact-visualization-v2",
-    "entryHtml": "animations/industries/nonprofithero-impact-visualization-v2/ngosdotile-v2.html",
+    "projectPath": "animations/industries/nexus-industrial-dashboard-v2",
+    "entryHtml": "animations/industries/nexus-industrial-dashboard-v2/app-v2.html",
     "entryType": "html",
-    "readmePath": "animations/industries/nonprofithero-impact-visualization-v2/README.md",
-    "summary": "Nonprofithero Impact Visualization — GTMStack animation for industries use cases.",
+    "readmePath": "animations/industries/nexus-industrial-dashboard-v2/README.md",
+    "summary": "Industrial operations dashboard for monitoring telemetry flow, process stages, and production health indicators.",
     "tags": [
-      "industries",
-      "nonprofithero",
-      "impact",
-      "visualization"
+      "Industrial Analytics",
+      "Process Monitoring",
+      "Telemetry Dashboard",
+      "Operations Health"
     ],
-    "thumbnailPath": "animations/industries/nonprofithero-impact-visualization-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/nonprofithero-impact-visualization-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/nonprofithero-impact-visualization-v2/README.md",
+    "thumbnailPath": "animations/industries/nexus-industrial-dashboard-v2/preview.png",
+    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/nexus-industrial-dashboard-v2",
+    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/nexus-industrial-dashboard-v2/README.md",
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
     "id": "manufacturinghero-dashboard-tile-v2",
     "slug": "manufacturinghero-dashboard-tile-v2",
-    "title": "Manufacturinghero Dashboard Tile",
+    "title": "ManufacturingHero Dashboard Tile",
     "category": "industries",
     "projectPath": "animations/industries/manufacturinghero-dashboard-tile-v2",
     "entryHtml": "animations/industries/manufacturinghero-dashboard-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/manufacturinghero-dashboard-tile-v2/README.md",
-    "summary": "Manufacturinghero Dashboard Tile — GTMStack animation for industries use cases.",
+    "summary": "Manufacturing dashboard tile focused on factory KPIs, throughput visibility, and performance trend movement.",
     "tags": [
-      "industries",
-      "manufacturinghero",
-      "dashboard",
-      "tile"
+      "Manufacturing Analytics",
+      "Factory KPI Dashboard",
+      "Throughput Monitoring",
+      "Performance Trends"
     ],
     "thumbnailPath": "animations/industries/manufacturinghero-dashboard-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/manufacturinghero-dashboard-tile-v2",
@@ -546,13 +406,12 @@
     "entryHtml": "animations/industries/manufacturing-hero-dashboard-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/manufacturing-hero-dashboard-tile-v2/README.md",
-    "summary": "Manufacturing Hero Dashboard Tile — GTMStack animation for industries use cases.",
+    "summary": "Manufacturing hero tile focused on operational KPIs, throughput trends, and performance stabilization signals.",
     "tags": [
-      "industries",
-      "manufacturing",
-      "hero",
-      "dashboard",
-      "tile"
+      "Manufacturing KPI",
+      "Throughput Analytics",
+      "Hero Dashboard",
+      "Operational Performance"
     ],
     "thumbnailPath": "animations/industries/manufacturing-hero-dashboard-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/manufacturing-hero-dashboard-tile-v2",
@@ -568,12 +427,12 @@
     "entryHtml": "animations/industries/manufacturing-agency-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/manufacturing-agency-dashboard-v2/README.md",
-    "summary": "Manufacturing Agency Dashboard — GTMStack animation for industries use cases.",
+    "summary": "Manufacturing dashboard tile for agency reporting on lifecycle efficiency, yield movement, and process impact.",
     "tags": [
-      "industries",
-      "manufacturing",
-      "agency",
-      "dashboard"
+      "Manufacturing Analytics",
+      "Lifecycle Dashboard",
+      "Yield Monitoring",
+      "Agency Reporting"
     ],
     "thumbnailPath": "animations/industries/manufacturing-agency-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/manufacturing-agency-dashboard-v2",
@@ -598,7 +457,7 @@
     "thumbnailPath": "animations/industries/industrial-roi-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/industrial-roi-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/industrial-roi-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.869Z"
+    "updatedAt": "2026-04-10T20:47:52.554Z"
   },
   {
     "id": "grid-master-cyber-infrastructure-dashboard-v2",
@@ -609,14 +468,12 @@
     "entryHtml": "animations/industries/grid-master-cyber-infrastructure-dashboard-v2/utilitiestile-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/grid-master-cyber-infrastructure-dashboard-v2/README.md",
-    "summary": "Grid Master Cyber Infrastructure Dashboard — GTMStack animation for industries use cases.",
+    "summary": "Cyber infrastructure dashboard visualizing grid resilience, system telemetry, and operational risk signals in real time.",
     "tags": [
-      "industries",
-      "grid",
-      "master",
-      "cyber",
-      "infrastructure",
-      "dashboard"
+      "Cyber Infrastructure",
+      "Grid Monitoring",
+      "Telemetry Dashboard",
+      "Risk Analytics"
     ],
     "thumbnailPath": "animations/industries/grid-master-cyber-infrastructure-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/grid-master-cyber-infrastructure-dashboard-v2",
@@ -626,19 +483,18 @@
   {
     "id": "fleetoptima-driver-performance-tile-v2",
     "slug": "fleetoptima-driver-performance-tile-v2",
-    "title": "Fleetoptima Driver Performance Tile",
+    "title": "FleetOptima Driver Performance Tile",
     "category": "industries",
     "projectPath": "animations/industries/fleetoptima-driver-performance-tile-v2",
     "entryHtml": "animations/industries/fleetoptima-driver-performance-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/fleetoptima-driver-performance-tile-v2/README.md",
-    "summary": "Fleetoptima Driver Performance Tile — GTMStack animation for industries use cases.",
+    "summary": "Driver performance tile showing fleet-level behavior, weekly efficiency patterns, and operational performance status.",
     "tags": [
-      "industries",
-      "fleetoptima",
-      "driver",
-      "performance",
-      "tile"
+      "Fleet Performance",
+      "Driver Analytics",
+      "Operational Dashboard",
+      "Efficiency Metrics"
     ],
     "thumbnailPath": "animations/industries/fleetoptima-driver-performance-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/fleetoptima-driver-performance-tile-v2",
@@ -648,114 +504,22 @@
   {
     "id": "fleet-roi-calculator-v2",
     "slug": "fleet-roi-calculator-v2",
-    "title": "Fleet Roi Calculator",
+    "title": "Fleet ROI Calculator",
     "category": "industries",
     "projectPath": "animations/industries/fleet-roi-calculator-v2",
     "entryHtml": "animations/industries/fleet-roi-calculator-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/fleet-roi-calculator-v2/README.md",
-    "summary": "Fleet Roi Calculator — GTMStack animation for industries use cases.",
+    "summary": "Fleet ROI calculator tile that models savings impact, operational efficiency, and performance gains from scenario inputs.",
     "tags": [
-      "industries",
-      "fleet",
-      "roi",
-      "calculator"
+      "Fleet Analytics",
+      "ROI Calculator",
+      "Operational Efficiency",
+      "Savings Modeling"
     ],
     "thumbnailPath": "animations/industries/fleet-roi-calculator-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/fleet-roi-calculator-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/fleet-roi-calculator-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "fintech-growth-studio-animated-sales-tile-v2",
-    "slug": "fintech-growth-studio-animated-sales-tile-v2",
-    "title": "Fintech Growth Studio Animated Sales Tile",
-    "category": "industries",
-    "projectPath": "animations/industries/fintech-growth-studio-animated-sales-tile-v2",
-    "entryHtml": "animations/industries/fintech-growth-studio-animated-sales-tile-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/fintech-growth-studio-animated-sales-tile-v2/README.md",
-    "summary": "Fintech Growth Studio Animated Sales Tile — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "fintech",
-      "growth",
-      "studio",
-      "animated",
-      "sales",
-      "tile"
-    ],
-    "thumbnailPath": "animations/industries/fintech-growth-studio-animated-sales-tile-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/fintech-growth-studio-animated-sales-tile-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/fintech-growth-studio-animated-sales-tile-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "fintech-growth-animated-sales-tile-v3",
-    "slug": "fintech-growth-animated-sales-tile-v3",
-    "title": "Fintech Growth Animated Sales Tile",
-    "category": "industries",
-    "projectPath": "animations/industries/fintech-growth-animated-sales-tile-v3",
-    "entryHtml": "animations/industries/fintech-growth-animated-sales-tile-v3/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/fintech-growth-animated-sales-tile-v3/README.md",
-    "summary": "Fintech Growth Animated Sales Tile — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "fintech",
-      "growth",
-      "animated",
-      "sales",
-      "tile"
-    ],
-    "thumbnailPath": "animations/industries/fintech-growth-animated-sales-tile-v3/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/fintech-growth-animated-sales-tile-v3",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/fintech-growth-animated-sales-tile-v3/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "finservtile-interactive-financial-data-visualization-v2",
-    "slug": "finservtile-interactive-financial-data-visualization-v2",
-    "title": "Finservtile Interactive Financial Data Visualization",
-    "category": "industries",
-    "projectPath": "animations/industries/finservtile-interactive-financial-data-visualization-v2",
-    "entryHtml": "animations/industries/finservtile-interactive-financial-data-visualization-v2/finservtile-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/finservtile-interactive-financial-data-visualization-v2/README.md",
-    "summary": "Finservtile Interactive Financial Data Visualization — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "finservtile",
-      "interactive",
-      "financial",
-      "data",
-      "visualization"
-    ],
-    "thumbnailPath": "animations/industries/finservtile-interactive-financial-data-visualization-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/finservtile-interactive-financial-data-visualization-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/finservtile-interactive-financial-data-visualization-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "financial-technology-growth-tile-v2",
-    "slug": "financial-technology-growth-tile-v2",
-    "title": "Financial Technology Growth Tile",
-    "category": "industries",
-    "projectPath": "animations/industries/financial-technology-growth-tile-v2",
-    "entryHtml": "animations/industries/financial-technology-growth-tile-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/industries/financial-technology-growth-tile-v2/README.md",
-    "summary": "Financial Technology Growth Tile — GTMStack animation for industries use cases.",
-    "tags": [
-      "industries",
-      "financial",
-      "technology",
-      "growth",
-      "tile"
-    ],
-    "thumbnailPath": "animations/industries/financial-technology-growth-tile-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/financial-technology-growth-tile-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/industries/financial-technology-growth-tile-v2/README.md",
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
@@ -767,13 +531,12 @@
     "entryHtml": "animations/industries/enterprise-sales-motion-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/enterprise-sales-motion-dashboard-v2/README.md",
-    "summary": "Enterprise Sales Motion Dashboard — GTMStack animation for industries use cases.",
+    "summary": "Enterprise sales-motion dashboard visualizing stakeholder movement, cycle progression, and deal execution momentum.",
     "tags": [
-      "industries",
-      "enterprise",
-      "sales",
-      "motion",
-      "dashboard"
+      "Enterprise Sales",
+      "Deal Progression",
+      "Stakeholder Analytics",
+      "Motion Dashboard"
     ],
     "thumbnailPath": "animations/industries/enterprise-sales-motion-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/enterprise-sales-motion-dashboard-v2",
@@ -789,13 +552,12 @@
     "entryHtml": "animations/industries/engineering-excellence-workflow-system-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/engineering-excellence-workflow-system-v2/README.md",
-    "summary": "Engineering Excellence Workflow System — GTMStack animation for industries use cases.",
+    "summary": "Engineering workflow system tile presenting lifecycle execution, system load, and delivery readiness in a compact view.",
     "tags": [
-      "industries",
-      "engineering",
-      "excellence",
-      "workflow",
-      "system"
+      "Engineering Operations",
+      "Workflow System",
+      "Execution Monitoring",
+      "Delivery Readiness"
     ],
     "thumbnailPath": "animations/industries/engineering-excellence-workflow-system-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/engineering-excellence-workflow-system-v2",
@@ -805,18 +567,18 @@
   {
     "id": "energyflow-minimal-dashboard-v2",
     "slug": "energyflow-minimal-dashboard-v2",
-    "title": "Energyflow Minimal Dashboard",
+    "title": "EnergyFlow Minimal Dashboard",
     "category": "industries",
     "projectPath": "animations/industries/energyflow-minimal-dashboard-v2",
     "entryHtml": "animations/industries/energyflow-minimal-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/energyflow-minimal-dashboard-v2/README.md",
-    "summary": "Energyflow Minimal Dashboard — GTMStack animation for industries use cases.",
+    "summary": "Minimal energy operations dashboard visualizing asset health, workflow status, and efficiency performance signals.",
     "tags": [
-      "industries",
-      "energyflow",
-      "minimal",
-      "dashboard"
+      "Energy Analytics",
+      "Operations Dashboard",
+      "Asset Monitoring",
+      "Efficiency Tracking"
     ],
     "thumbnailPath": "animations/industries/energyflow-minimal-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/energyflow-minimal-dashboard-v2",
@@ -826,18 +588,18 @@
   {
     "id": "education-journey-k-12-ecosystem-v2",
     "slug": "education-journey-k-12-ecosystem-v2",
-    "title": "Education Journey K 12 Ecosystem",
+    "title": "Education Journey K-12 Ecosystem",
     "category": "industries",
     "projectPath": "animations/industries/education-journey-k-12-ecosystem-v2",
     "entryHtml": "animations/industries/education-journey-k-12-ecosystem-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/education-journey-k-12-ecosystem-v2/README.md",
-    "summary": "Education Journey K 12 Ecosystem — GTMStack animation for industries use cases.",
+    "summary": "K-12 ecosystem dashboard mapping parent demand, district cycles, and education adoption readiness across stages.",
     "tags": [
-      "industries",
-      "education",
-      "journey",
-      "ecosystem"
+      "K-12 Analytics",
+      "Education Ecosystem",
+      "Adoption Journey",
+      "Program Insights"
     ],
     "thumbnailPath": "animations/industries/education-journey-k-12-ecosystem-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/education-journey-k-12-ecosystem-v2",
@@ -847,18 +609,18 @@
   {
     "id": "edu-marketers-dashboard-v2",
     "slug": "edu-marketers-dashboard-v2",
-    "title": "Edu Marketers Dashboard",
+    "title": "EduMarketers Dashboard",
     "category": "industries",
     "projectPath": "animations/industries/edu-marketers-dashboard-v2",
     "entryHtml": "animations/industries/edu-marketers-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/edu-marketers-dashboard-v2/README.md",
-    "summary": "Edu Marketers Dashboard — GTMStack animation for industries use cases.",
+    "summary": "EdTech marketer dashboard presenting dual-path adoption signals, campaign efficiency, and stakeholder-ready growth metrics.",
     "tags": [
-      "industries",
-      "edu",
-      "marketers",
-      "dashboard"
+      "EdTech Marketing",
+      "Adoption Analytics",
+      "Campaign Dashboard",
+      "Growth Insights"
     ],
     "thumbnailPath": "animations/industries/edu-marketers-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/edu-marketers-dashboard-v2",
@@ -868,19 +630,18 @@
   {
     "id": "edu-hero-analytics-dashboard-v2",
     "slug": "edu-hero-analytics-dashboard-v2",
-    "title": "Edu Hero Analytics Dashboard",
+    "title": "EduHero Analytics Dashboard",
     "category": "industries",
     "projectPath": "animations/industries/edu-hero-analytics-dashboard-v2",
     "entryHtml": "animations/industries/edu-hero-analytics-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/edu-hero-analytics-dashboard-v2/README.md",
-    "summary": "Edu Hero Analytics Dashboard — GTMStack animation for industries use cases.",
+    "summary": "Education analytics dashboard tile showing learner funnel movement, campaign performance, and institutional growth trends.",
     "tags": [
-      "industries",
-      "edu",
-      "hero",
-      "analytics",
-      "dashboard"
+      "Education Analytics",
+      "Learner Funnel",
+      "Growth Dashboard",
+      "Performance Metrics"
     ],
     "thumbnailPath": "animations/industries/edu-hero-analytics-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/edu-hero-analytics-dashboard-v2",
@@ -890,19 +651,18 @@
   {
     "id": "edtech-compact-roi-funnel-v3",
     "slug": "edtech-compact-roi-funnel-v3",
-    "title": "Edtech Compact Roi Funnel",
+    "title": "EdTech Compact ROI Funnel",
     "category": "industries",
     "projectPath": "animations/industries/edtech-compact-roi-funnel-v3",
     "entryHtml": "animations/industries/edtech-compact-roi-funnel-v3/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/edtech-compact-roi-funnel-v3/README.md",
-    "summary": "Edtech Compact Roi Funnel — GTMStack animation for industries use cases.",
+    "summary": "Updated compact EdTech ROI funnel focused on stage conversion, campaign efficiency, and enrollment growth visibility.",
     "tags": [
-      "industries",
-      "edtech",
-      "compact",
-      "roi",
-      "funnel"
+      "EdTech Analytics",
+      "ROI Funnel",
+      "Conversion Dashboard",
+      "Enrollment Growth"
     ],
     "thumbnailPath": "animations/industries/edtech-compact-roi-funnel-v3/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/edtech-compact-roi-funnel-v3",
@@ -912,19 +672,18 @@
   {
     "id": "edtech-compact-roi-funnel-v2",
     "slug": "edtech-compact-roi-funnel-v2",
-    "title": "Edtech Compact Roi Funnel",
+    "title": "EdTech Compact ROI Funnel",
     "category": "industries",
     "projectPath": "animations/industries/edtech-compact-roi-funnel-v2",
     "entryHtml": "",
     "entryType": "tsx",
     "readmePath": "animations/industries/edtech-compact-roi-funnel-v2/README.md",
-    "summary": "Edtech Compact Roi Funnel — GTMStack animation for industries use cases.",
+    "summary": "Compact EdTech ROI funnel visualizing learner acquisition stages, efficiency metrics, and enrollment conversion impact.",
     "tags": [
-      "industries",
-      "edtech",
-      "compact",
-      "roi",
-      "funnel"
+      "EdTech Analytics",
+      "ROI Funnel",
+      "Enrollment Conversion",
+      "Marketing Performance"
     ],
     "thumbnailPath": "animations/industries/edtech-compact-roi-funnel-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/edtech-compact-roi-funnel-v2",
@@ -940,13 +699,12 @@
     "entryHtml": "animations/industries/dynamic-wealth-dashboard-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/dynamic-wealth-dashboard-tile-v2/README.md",
-    "summary": "Dynamic Wealth Dashboard Tile — GTMStack animation for industries use cases.",
+    "summary": "Financial dashboard tile highlighting portfolio stability, growth trajectory, and risk-adjusted performance metrics.",
     "tags": [
-      "industries",
-      "dynamic",
-      "wealth",
-      "dashboard",
-      "tile"
+      "Wealth Analytics",
+      "Portfolio Dashboard",
+      "Financial Performance",
+      "Risk Signals"
     ],
     "thumbnailPath": "animations/industries/dynamic-wealth-dashboard-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/dynamic-wealth-dashboard-tile-v2",
@@ -956,19 +714,18 @@
   {
     "id": "devmarketers-bottom-up-adoption-loop-v2",
     "slug": "devmarketers-bottom-up-adoption-loop-v2",
-    "title": "Devmarketers Bottom Up Adoption Loop",
+    "title": "DevMarketers Bottom-Up Adoption Loop",
     "category": "industries",
     "projectPath": "animations/industries/devmarketers-bottom-up-adoption-loop-v2",
     "entryHtml": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/README.md",
-    "summary": "Devmarketers Bottom Up Adoption Loop — GTMStack animation for industries use cases.",
+    "summary": "Bottom-up adoption dashboard visualizing product-led growth loops, user expansion, and activation momentum.",
     "tags": [
-      "industries",
-      "devmarketers",
-      "bottom",
-      "adoption",
-      "loop"
+      "Product-Led Growth",
+      "Adoption Loop",
+      "Developer Marketing",
+      "Growth Dashboard"
     ],
     "thumbnailPath": "animations/industries/devmarketers-bottom-up-adoption-loop-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/devmarketers-bottom-up-adoption-loop-v2",
@@ -978,18 +735,18 @@
   {
     "id": "devconsole-content-workflow-v2",
     "slug": "devconsole-content-workflow-v2",
-    "title": "Devconsole Content Workflow",
+    "title": "DevConsole Content Workflow",
     "category": "industries",
     "projectPath": "animations/industries/devconsole-content-workflow-v2",
     "entryHtml": "animations/industries/devconsole-content-workflow-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/devconsole-content-workflow-v2/README.md",
-    "summary": "Devconsole Content Workflow — GTMStack animation for industries use cases.",
+    "summary": "Developer-style content workflow console tracking production stages, telemetry health, and optimization guidance.",
     "tags": [
-      "industries",
-      "devconsole",
-      "content",
-      "workflow"
+      "Content Workflow",
+      "Developer Console",
+      "Telemetry Dashboard",
+      "Operations"
     ],
     "thumbnailPath": "animations/industries/devconsole-content-workflow-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/devconsole-content-workflow-v2",
@@ -999,18 +756,18 @@
   {
     "id": "cyberagency-lifecycle-engine-v2",
     "slug": "cyberagency-lifecycle-engine-v2",
-    "title": "Cyberagency Lifecycle Engine",
+    "title": "CyberAgency Lifecycle Engine",
     "category": "industries",
     "projectPath": "animations/industries/cyberagency-lifecycle-engine-v2",
     "entryHtml": "animations/industries/cyberagency-lifecycle-engine-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/cyberagency-lifecycle-engine-v2/README.md",
-    "summary": "Cyberagency Lifecycle Engine — GTMStack animation for industries use cases.",
+    "summary": "Security lifecycle engine dashboard showing audit progress, remediation flow, and deployment readiness signals.",
     "tags": [
-      "industries",
-      "cyberagency",
-      "lifecycle",
-      "engine"
+      "Cybersecurity Analytics",
+      "Lifecycle Engine",
+      "Risk Monitoring",
+      "Operations Dashboard"
     ],
     "thumbnailPath": "animations/industries/cyberagency-lifecycle-engine-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/cyberagency-lifecycle-engine-v2",
@@ -1020,19 +777,18 @@
   {
     "id": "clinical-validation-surface-dash-v2",
     "slug": "clinical-validation-surface-dash-v2",
-    "title": "Clinical Validation Surface Dash",
+    "title": "Clinical Validation Surface Dashboard",
     "category": "industries",
     "projectPath": "animations/industries/clinical-validation-surface-dash-v2",
     "entryHtml": "animations/industries/clinical-validation-surface-dash-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/clinical-validation-surface-dash-v2/README.md",
-    "summary": "Clinical Validation Surface Dash — GTMStack animation for industries use cases.",
+    "summary": "Clinical validation dashboard tile focused on protocol status, compliance progression, and quality assurance signals.",
     "tags": [
-      "industries",
-      "clinical",
-      "validation",
-      "surface",
-      "dash"
+      "Clinical Validation",
+      "Compliance Dashboard",
+      "Quality Monitoring",
+      "Healthcare Analytics"
     ],
     "thumbnailPath": "animations/industries/clinical-validation-surface-dash-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/clinical-validation-surface-dash-v2",
@@ -1048,13 +804,12 @@
     "entryHtml": "animations/industries/clinical-holographic-control-surface-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/clinical-holographic-control-surface-v2/README.md",
-    "summary": "Clinical Holographic Control Surface — GTMStack animation for industries use cases.",
+    "summary": "Clinical control-surface dashboard visualizing care-system telemetry, validation status, and operational readiness signals.",
     "tags": [
-      "industries",
-      "clinical",
-      "holographic",
-      "control",
-      "surface"
+      "Clinical Analytics",
+      "Control Surface",
+      "Telemetry Dashboard",
+      "Operational Readiness"
     ],
     "thumbnailPath": "animations/industries/clinical-holographic-control-surface-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/clinical-holographic-control-surface-v2",
@@ -1064,20 +819,18 @@
   {
     "id": "b2b-consulting-portfolio-gtmstack-pro",
     "slug": "b2b-consulting-portfolio-gtmstack-pro",
-    "title": "B2b Consulting Portfolio Gtmstack Pro",
+    "title": "B2B Consulting Portfolio GTMStack Pro",
     "category": "industries",
     "projectPath": "animations/industries/b2b-consulting-portfolio-gtmstack-pro",
     "entryHtml": "animations/industries/b2b-consulting-portfolio-gtmstack-pro/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/b2b-consulting-portfolio-gtmstack-pro/README.md",
-    "summary": "B2b Consulting Portfolio Gtmstack Pro — GTMStack animation for industries use cases.",
+    "summary": "B2B consulting portfolio visualization that presents GTM capabilities, service depth, and strategic execution focus.",
     "tags": [
-      "industries",
-      "b2b",
-      "consulting",
-      "portfolio",
-      "gtmstack",
-      "pro"
+      "B2B Consulting",
+      "GTM Strategy",
+      "Portfolio Dashboard",
+      "Service Analytics"
     ],
     "thumbnailPath": "animations/industries/b2b-consulting-portfolio-gtmstack-pro/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/b2b-consulting-portfolio-gtmstack-pro",
@@ -1087,19 +840,18 @@
   {
     "id": "automotivehero-growth-dashboard-tile-v2",
     "slug": "automotivehero-growth-dashboard-tile-v2",
-    "title": "Automotivehero Growth Dashboard Tile",
+    "title": "AutomotiveHero Growth Dashboard Tile",
     "category": "industries",
     "projectPath": "animations/industries/automotivehero-growth-dashboard-tile-v2",
     "entryHtml": "animations/industries/automotivehero-growth-dashboard-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/automotivehero-growth-dashboard-tile-v2/README.md",
-    "summary": "Automotivehero Growth Dashboard Tile — GTMStack animation for industries use cases.",
+    "summary": "Growth dashboard tile for automotive teams showing lead movement, journey progression, and conversion momentum.",
     "tags": [
-      "industries",
-      "automotivehero",
-      "growth",
-      "dashboard",
-      "tile"
+      "Automotive Growth",
+      "Lead Journey",
+      "Conversion Analytics",
+      "Dashboard Tile"
     ],
     "thumbnailPath": "animations/industries/automotivehero-growth-dashboard-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/automotivehero-growth-dashboard-tile-v2",
@@ -1109,18 +861,18 @@
   {
     "id": "automotivehero-dashboard-component-v2",
     "slug": "automotivehero-dashboard-component-v2",
-    "title": "Automotivehero Dashboard Component",
+    "title": "AutomotiveHero Dashboard Component",
     "category": "industries",
     "projectPath": "animations/industries/automotivehero-dashboard-component-v2",
     "entryHtml": "animations/industries/automotivehero-dashboard-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/automotivehero-dashboard-component-v2/README.md",
-    "summary": "Automotivehero Dashboard Component — GTMStack animation for industries use cases.",
+    "summary": "Automotive dashboard component focused on revenue trajectory, performance indicators, and showroom-to-sale visibility.",
     "tags": [
-      "industries",
-      "automotivehero",
-      "dashboard",
-      "component"
+      "Automotive Analytics",
+      "Revenue Dashboard",
+      "Sales Performance",
+      "Hero Component"
     ],
     "thumbnailPath": "animations/industries/automotivehero-dashboard-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/automotivehero-dashboard-component-v2",
@@ -1136,13 +888,12 @@
     "entryHtml": "animations/industries/automotive-hero-dashboard-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/automotive-hero-dashboard-component-v2/README.md",
-    "summary": "Automotive Hero Dashboard Component — GTMStack animation for industries use cases.",
+    "summary": "Automotive hero dashboard component visualizing buyer journey progression, conversion signals, and revenue momentum.",
     "tags": [
-      "industries",
-      "automotive",
-      "hero",
-      "dashboard",
-      "component"
+      "Automotive Analytics",
+      "Buyer Journey",
+      "Conversion Metrics",
+      "Revenue Dashboard"
     ],
     "thumbnailPath": "animations/industries/automotive-hero-dashboard-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/automotive-hero-dashboard-component-v2",
@@ -1158,13 +909,12 @@
     "entryHtml": "animations/industries/aerospace-auto-engineering-workflow-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/industries/aerospace-auto-engineering-workflow-v2/README.md",
-    "summary": "Aerospace Auto Engineering Workflow — GTMStack animation for industries use cases.",
+    "summary": "Engineering workflow dashboard for aerospace and automotive programs, visualizing qualification stages, risk, and delivery readiness.",
     "tags": [
-      "industries",
-      "aerospace",
-      "auto",
-      "engineering",
-      "workflow"
+      "Engineering Workflow",
+      "Aerospace",
+      "Automotive",
+      "Program Analytics"
     ],
     "thumbnailPath": "animations/industries/aerospace-auto-engineering-workflow-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/industries/aerospace-auto-engineering-workflow-v2",
@@ -1180,14 +930,12 @@
     "entryHtml": "animations/events-media/social-media-marketing-hero-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/social-media-marketing-hero-tile-v2/README.md",
-    "summary": "Social Media Marketing Hero Tile — GTMStack animation for events media use cases.",
+    "summary": "Social media hero tile that visualizes viral momentum, channel engagement, and campaign amplification metrics.",
     "tags": [
-      "events-media",
-      "social",
-      "media",
-      "marketing",
-      "hero",
-      "tile"
+      "Social Media Marketing",
+      "Viral Analytics",
+      "Channel Engagement",
+      "Hero Dashboard"
     ],
     "thumbnailPath": "animations/events-media/social-media-marketing-hero-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/social-media-marketing-hero-tile-v2",
@@ -1203,12 +951,12 @@
     "entryHtml": "animations/events-media/executive-logistics-dashboard-v3/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/executive-logistics-dashboard-v3/README.md",
-    "summary": "Executive Logistics Dashboard — GTMStack animation for events media use cases.",
+    "summary": "Advanced logistics dashboard for executive monitoring of route reliability, node health, and live distribution performance.",
     "tags": [
-      "events-media",
-      "executive",
-      "logistics",
-      "dashboard"
+      "Logistics Intelligence",
+      "Route Reliability",
+      "Node Health",
+      "Executive Monitoring"
     ],
     "thumbnailPath": "animations/events-media/executive-logistics-dashboard-v3/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/executive-logistics-dashboard-v3",
@@ -1224,12 +972,12 @@
     "entryHtml": "",
     "entryType": "tsx",
     "readmePath": "animations/events-media/executive-logistics-dashboard-v2/README.md",
-    "summary": "Executive Logistics Dashboard — GTMStack animation for events media use cases.",
+    "summary": "Executive logistics dashboard visualizing network throughput, route status, and operational efficiency across global nodes.",
     "tags": [
-      "events-media",
-      "executive",
-      "logistics",
-      "dashboard"
+      "Logistics Analytics",
+      "Executive Dashboard",
+      "Route Monitoring",
+      "Operational Efficiency"
     ],
     "thumbnailPath": "animations/events-media/executive-logistics-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/executive-logistics-dashboard-v2",
@@ -1239,18 +987,18 @@
   {
     "id": "eventpulse-enterprise-dashboard-v2",
     "slug": "eventpulse-enterprise-dashboard-v2",
-    "title": "Eventpulse Enterprise Dashboard",
+    "title": "EventPulse Enterprise Dashboard",
     "category": "events-media",
     "projectPath": "animations/events-media/eventpulse-enterprise-dashboard-v2",
     "entryHtml": "animations/events-media/eventpulse-enterprise-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/eventpulse-enterprise-dashboard-v2/README.md",
-    "summary": "Eventpulse Enterprise Dashboard — GTMStack animation for events media use cases.",
+    "summary": "EventPulse enterprise dashboard focused on event performance visibility, engagement signals, and conversion flow.",
     "tags": [
-      "events-media",
-      "eventpulse",
-      "enterprise",
-      "dashboard"
+      "EventPulse",
+      "Enterprise Events",
+      "Engagement Analytics",
+      "Conversion Dashboard"
     ],
     "thumbnailPath": "animations/events-media/eventpulse-enterprise-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/eventpulse-enterprise-dashboard-v2",
@@ -1260,19 +1008,18 @@
   {
     "id": "event-roi-analytics-dashboard-v2",
     "slug": "event-roi-analytics-dashboard-v2",
-    "title": "Event Roi Analytics Dashboard",
+    "title": "Event ROI Analytics Dashboard",
     "category": "events-media",
     "projectPath": "animations/events-media/event-roi-analytics-dashboard-v2",
     "entryHtml": "animations/events-media/event-roi-analytics-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/event-roi-analytics-dashboard-v2/README.md",
-    "summary": "Event Roi Analytics Dashboard — GTMStack animation for events media use cases.",
+    "summary": "Event performance dashboard visualizing funnel progression, ROI trends, and campaign efficiency across media channels.",
     "tags": [
-      "events-media",
-      "event",
-      "roi",
-      "analytics",
-      "dashboard"
+      "Event Marketing",
+      "ROI Analytics",
+      "Funnel Visualization",
+      "Dashboard"
     ],
     "thumbnailPath": "animations/events-media/event-roi-analytics-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/event-roi-analytics-dashboard-v2",
@@ -1288,13 +1035,12 @@
     "entryHtml": "animations/events-media/event-pulse-enterprise-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/event-pulse-enterprise-dashboard-v2/README.md",
-    "summary": "Event Pulse Enterprise Dashboard — GTMStack animation for events media use cases.",
+    "summary": "Enterprise event dashboard showing attendee momentum, funnel progression, and campaign impact metrics.",
     "tags": [
-      "events-media",
-      "event",
-      "pulse",
-      "enterprise",
-      "dashboard"
+      "Event Analytics",
+      "Enterprise Dashboard",
+      "Funnel Performance",
+      "Campaign Impact"
     ],
     "thumbnailPath": "animations/events-media/event-pulse-enterprise-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/event-pulse-enterprise-dashboard-v2",
@@ -1304,18 +1050,18 @@
   {
     "id": "eoc-logistics-dashboard-v2",
     "slug": "eoc-logistics-dashboard-v2",
-    "title": "Eoc Logistics Dashboard",
+    "title": "EOC Logistics Dashboard",
     "category": "events-media",
     "projectPath": "animations/events-media/eoc-logistics-dashboard-v2",
     "entryHtml": "animations/events-media/eoc-logistics-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/eoc-logistics-dashboard-v2/README.md",
-    "summary": "Eoc Logistics Dashboard — GTMStack animation for events media use cases.",
+    "summary": "EOC logistics dashboard tile visualizing incident flow, route stability, and emergency operations performance.",
     "tags": [
-      "events-media",
-      "eoc",
-      "logistics",
-      "dashboard"
+      "EOC Analytics",
+      "Logistics Monitoring",
+      "Incident Response",
+      "Operations Dashboard"
     ],
     "thumbnailPath": "animations/events-media/eoc-logistics-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/eoc-logistics-dashboard-v2",
@@ -1331,12 +1077,12 @@
     "entryHtml": "animations/events-media/agency-performance-console-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/agency-performance-console-v2/README.md",
-    "summary": "Agency Performance Console — GTMStack animation for events media use cases.",
+    "summary": "Performance console for agencies to monitor campaign velocity, benchmark movement, and system health indicators.",
     "tags": [
-      "events-media",
-      "agency",
-      "performance",
-      "console"
+      "Agency Performance",
+      "Campaign Monitoring",
+      "Benchmark Analytics",
+      "Operations Console"
     ],
     "thumbnailPath": "animations/events-media/agency-performance-console-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/agency-performance-console-v2",
@@ -1352,12 +1098,12 @@
     "entryHtml": "animations/events-media/agency-impact-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/events-media/agency-impact-dashboard-v2/README.md",
-    "summary": "Agency Impact Dashboard — GTMStack animation for events media use cases.",
+    "summary": "Agency impact dashboard visualizing supporter engagement, growth momentum, and measurable program outcomes.",
     "tags": [
-      "events-media",
-      "agency",
-      "impact",
-      "dashboard"
+      "Agency Analytics",
+      "Impact Reporting",
+      "Engagement Lifecycle",
+      "Dashboard"
     ],
     "thumbnailPath": "animations/events-media/agency-impact-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/events-media/agency-impact-dashboard-v2",
@@ -1373,13 +1119,12 @@
     "entryHtml": "animations/digital-demand/video-marketing-analytics-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/video-marketing-analytics-dashboard-v2/README.md",
-    "summary": "Video Marketing Analytics Dashboard — GTMStack animation for digital demand use cases.",
+    "summary": "Video analytics dashboard tracking engagement, retention, and campaign lift for marketing performance teams.",
     "tags": [
-      "digital-demand",
-      "video",
-      "marketing",
-      "analytics",
-      "dashboard"
+      "Video Analytics",
+      "Engagement Metrics",
+      "Retention Dashboard",
+      "Marketing Performance"
     ],
     "thumbnailPath": "animations/digital-demand/video-marketing-analytics-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/video-marketing-analytics-dashboard-v2",
@@ -1389,19 +1134,18 @@
   {
     "id": "video-marketing-ai-distribution-hub-v2",
     "slug": "video-marketing-ai-distribution-hub-v2",
-    "title": "Video Marketing Ai Distribution Hub",
+    "title": "Video Marketing AI Distribution Hub",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/video-marketing-ai-distribution-hub-v2",
     "entryHtml": "animations/digital-demand/video-marketing-ai-distribution-hub-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/video-marketing-ai-distribution-hub-v2/README.md",
-    "summary": "Video Marketing Ai Distribution Hub — GTMStack animation for digital demand use cases.",
+    "summary": "AI-enabled video distribution hub showing campaign reach, channel optimization, and performance forecasts.",
     "tags": [
-      "digital-demand",
-      "video",
-      "marketing",
-      "distribution",
-      "hub"
+      "Video Marketing",
+      "AI Distribution",
+      "Campaign Reach",
+      "Performance Forecasting"
     ],
     "thumbnailPath": "animations/digital-demand/video-marketing-ai-distribution-hub-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/video-marketing-ai-distribution-hub-v2",
@@ -1417,12 +1161,12 @@
     "entryHtml": "animations/digital-demand/vibrant-impact-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/vibrant-impact-dashboard-v2/README.md",
-    "summary": "Vibrant Impact Dashboard — GTMStack animation for digital demand use cases.",
+    "summary": "Impact-focused dashboard tile visualizing engagement flow, KPI movement, and outcome trends in a vibrant executive format.",
     "tags": [
-      "digital-demand",
-      "vibrant",
-      "impact",
-      "dashboard"
+      "Impact Analytics",
+      "Engagement Dashboard",
+      "KPI Visualization",
+      "Executive Reporting"
     ],
     "thumbnailPath": "animations/digital-demand/vibrant-impact-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/vibrant-impact-dashboard-v2",
@@ -1432,18 +1176,18 @@
   {
     "id": "strategyinsights-tile-component-v2",
     "slug": "strategyinsights-tile-component-v2",
-    "title": "Strategyinsights Tile Component",
+    "title": "StrategyInsights Tile Component",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/strategyinsights-tile-component-v2",
     "entryHtml": "animations/digital-demand/strategyinsights-tile-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/strategyinsights-tile-component-v2/README.md",
-    "summary": "Strategyinsights Tile Component — GTMStack animation for digital demand use cases.",
+    "summary": "Strategy insights tile combining central intelligence, connected metrics, and decision-support visuals for growth planning.",
     "tags": [
-      "digital-demand",
-      "strategyinsights",
-      "tile",
-      "component"
+      "Strategy Insights",
+      "Decision Dashboard",
+      "Growth Planning",
+      "Tile Component"
     ],
     "thumbnailPath": "animations/digital-demand/strategyinsights-tile-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/strategyinsights-tile-component-v2",
@@ -1453,17 +1197,18 @@
   {
     "id": "strategist-os-dashboard-v2",
     "slug": "strategist-os-dashboard-v2",
-    "title": "Strategist Os Dashboard",
+    "title": "Strategist OS Dashboard",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/strategist-os-dashboard-v2",
     "entryHtml": "animations/digital-demand/strategist-os-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/strategist-os-dashboard-v2/README.md",
-    "summary": "Strategist Os Dashboard — GTMStack animation for digital demand use cases.",
+    "summary": "Strategist dashboard visualizing content lifecycle velocity, execution status, and omni-channel performance signals.",
     "tags": [
-      "digital-demand",
-      "strategist",
-      "dashboard"
+      "Content Strategy",
+      "Operations Dashboard",
+      "Lifecycle Analytics",
+      "Omni-Channel"
     ],
     "thumbnailPath": "animations/digital-demand/strategist-os-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/strategist-os-dashboard-v2",
@@ -1473,18 +1218,18 @@
   {
     "id": "sequenceflow-animated-tile-v2",
     "slug": "sequenceflow-animated-tile-v2",
-    "title": "Sequenceflow Animated Tile",
+    "title": "SequenceFlow Animated Tile",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/sequenceflow-animated-tile-v2",
     "entryHtml": "animations/digital-demand/sequenceflow-animated-tile-v2/emailseqtile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/sequenceflow-animated-tile-v2/README.md",
-    "summary": "Sequenceflow Animated Tile — GTMStack animation for digital demand use cases.",
+    "summary": "Animated sequence dashboard that visualizes outreach stages, engagement movement, and return-on-channel performance.",
     "tags": [
-      "digital-demand",
-      "sequenceflow",
-      "animated",
-      "tile"
+      "SequenceFlow",
+      "Email Automation",
+      "Engagement Analytics",
+      "Animated Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/sequenceflow-animated-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/sequenceflow-animated-tile-v2",
@@ -1500,13 +1245,12 @@
     "entryHtml": "animations/digital-demand/sequence-ladder-analytics-tile-v2/emailladdertile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/sequence-ladder-analytics-tile-v2/README.md",
-    "summary": "Sequence Ladder Analytics Tile — GTMStack animation for digital demand use cases.",
+    "summary": "Sequence analytics tile that tracks campaign progression from send to conversion through a ladder-style performance view.",
     "tags": [
-      "digital-demand",
-      "sequence",
-      "ladder",
-      "analytics",
-      "tile"
+      "Sequence Analytics",
+      "Conversion Funnel",
+      "Email Performance",
+      "Dashboard Tile"
     ],
     "thumbnailPath": "animations/digital-demand/sequence-ladder-analytics-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/sequence-ladder-analytics-tile-v2",
@@ -1522,14 +1266,12 @@
     "entryHtml": "animations/digital-demand/sales-enablement-hero-animated-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/sales-enablement-hero-animated-tile-v2/README.md",
-    "summary": "Sales Enablement Hero Animated Tile — GTMStack animation for digital demand use cases.",
+    "summary": "Sales enablement hero tile focused on rep productivity, win-rate lift, and cycle-time improvement metrics.",
     "tags": [
-      "digital-demand",
-      "sales",
-      "enablement",
-      "hero",
-      "animated",
-      "tile"
+      "Sales Enablement",
+      "Revenue Performance",
+      "Win Rate Analytics",
+      "Hero Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/sales-enablement-hero-animated-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/sales-enablement-hero-animated-tile-v2",
@@ -1545,12 +1287,12 @@
     "entryHtml": "animations/digital-demand/product-growth-hero-v2/productphasetile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/product-growth-hero-v2/README.md",
-    "summary": "Product Growth Hero — GTMStack animation for digital demand use cases.",
+    "summary": "Product growth hero tile visualizing activation, expansion, and retention signals in a single executive-ready scene.",
     "tags": [
-      "digital-demand",
-      "product",
-      "growth",
-      "hero"
+      "Product Growth",
+      "Retention Analytics",
+      "Expansion Metrics",
+      "Hero Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/product-growth-hero-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/product-growth-hero-v2",
@@ -1566,13 +1308,12 @@
     "entryHtml": "animations/digital-demand/omnichannel-live-analytics-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/omnichannel-live-analytics-tile-v2/README.md",
-    "summary": "Omnichannel Live Analytics Tile — GTMStack animation for digital demand use cases.",
+    "summary": "Omnichannel analytics tile showing live channel performance, conversion behavior, and revenue impact visibility.",
     "tags": [
-      "digital-demand",
-      "omnichannel",
-      "live",
-      "analytics",
-      "tile"
+      "Omnichannel Analytics",
+      "Live Performance",
+      "Conversion Monitoring",
+      "Revenue Signals"
     ],
     "thumbnailPath": "animations/digital-demand/omnichannel-live-analytics-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/omnichannel-live-analytics-tile-v2",
@@ -1582,18 +1323,18 @@
   {
     "id": "nexus-ai-stakeholder-portal-v2",
     "slug": "nexus-ai-stakeholder-portal-v2",
-    "title": "Nexus Ai Stakeholder Portal",
+    "title": "Nexus AI Stakeholder Portal",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/nexus-ai-stakeholder-portal-v2",
     "entryHtml": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/README.md",
-    "summary": "Nexus Ai Stakeholder Portal — GTMStack animation for digital demand use cases.",
+    "summary": "AI stakeholder portal dashboard showing deployment health, model performance, and cross-team milestone visibility.",
     "tags": [
-      "digital-demand",
-      "nexus",
-      "stakeholder",
-      "portal"
+      "AI Dashboard",
+      "Stakeholder Reporting",
+      "Model Performance",
+      "Operations Visibility"
     ],
     "thumbnailPath": "animations/digital-demand/nexus-ai-stakeholder-portal-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/nexus-ai-stakeholder-portal-v2",
@@ -1603,19 +1344,18 @@
   {
     "id": "neonvideo-marketing-landing-page-v2",
     "slug": "neonvideo-marketing-landing-page-v2",
-    "title": "Neonvideo Marketing Landing Page",
+    "title": "NeonVideo Marketing Landing Page",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/neonvideo-marketing-landing-page-v2",
     "entryHtml": "animations/digital-demand/neonvideo-marketing-landing-page-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/neonvideo-marketing-landing-page-v2/README.md",
-    "summary": "Neonvideo Marketing Landing Page — GTMStack animation for digital demand use cases.",
+    "summary": "Video marketing landing-page hero emphasizing campaign visibility, media performance, and conversion-focused storytelling.",
     "tags": [
-      "digital-demand",
-      "neonvideo",
-      "marketing",
-      "landing",
-      "page"
+      "Video Marketing",
+      "Landing Page Hero",
+      "Campaign Performance",
+      "Conversion Analytics"
     ],
     "thumbnailPath": "animations/digital-demand/neonvideo-marketing-landing-page-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/neonvideo-marketing-landing-page-v2",
@@ -1625,19 +1365,19 @@
   {
     "id": "martech-ai-landing-page-component-v2",
     "slug": "martech-ai-landing-page-component-v2",
-    "title": "Martech Ai Landing Page Component",
+    "title": "MarTech AI Landing Page Component",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/martech-ai-landing-page-component-v2",
     "entryHtml": "animations/digital-demand/martech-ai-landing-page-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/martech-ai-landing-page-component-v2/README.md",
-    "summary": "Martech Ai Landing Page Component — GTMStack animation for digital demand use cases.",
+    "summary": "Animated MarTech AI hero component that maps platform services, data connections, and live performance signals.",
     "tags": [
-      "digital-demand",
-      "martech",
-      "landing",
-      "page",
-      "component"
+      "MarTech",
+      "AI",
+      "Marketing Technology",
+      "Landing Page",
+      "Hero Component"
     ],
     "thumbnailPath": "animations/digital-demand/martech-ai-landing-page-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/martech-ai-landing-page-component-v2",
@@ -1647,18 +1387,18 @@
   {
     "id": "kpi-spotlight-mosaic-v2",
     "slug": "kpi-spotlight-mosaic-v2",
-    "title": "Kpi Spotlight Mosaic",
+    "title": "KPI Spotlight Mosaic",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/kpi-spotlight-mosaic-v2",
     "entryHtml": "animations/digital-demand/kpi-spotlight-mosaic-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/kpi-spotlight-mosaic-v2/README.md",
-    "summary": "Kpi Spotlight Mosaic — GTMStack animation for digital demand use cases.",
+    "summary": "Animated KPI mosaic that surfaces core performance metrics, trend movement, and system status in a single hero view.",
     "tags": [
-      "digital-demand",
-      "kpi",
-      "spotlight",
-      "mosaic"
+      "KPI",
+      "Performance Analytics",
+      "Dashboard",
+      "Mosaic"
     ],
     "thumbnailPath": "animations/digital-demand/kpi-spotlight-mosaic-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/kpi-spotlight-mosaic-v2",
@@ -1683,24 +1423,23 @@
     "thumbnailPath": "animations/digital-demand/infracore-deepdive-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/infracore-deepdive-dashboard-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/digital-demand/infracore-deepdive-dashboard-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.907Z"
+    "updatedAt": "2026-04-10T20:47:52.581Z"
   },
   {
     "id": "gtmstack-pro-hero-tile",
     "slug": "gtmstack-pro-hero-tile",
-    "title": "Gtmstack Pro Hero Tile",
+    "title": "GTMStack Pro Hero Tile",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/gtmstack-pro-hero-tile",
     "entryHtml": "animations/digital-demand/gtmstack-pro-hero-tile/gtmstackhero-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/gtmstack-pro-hero-tile/README.md",
-    "summary": "Gtmstack Pro Hero Tile — GTMStack animation for digital demand use cases.",
+    "summary": "Premium GTMStack hero tile illustrating operational alignment from fragmented workflows to a unified go-to-market system.",
     "tags": [
-      "digital-demand",
-      "gtmstack",
-      "pro",
-      "hero",
-      "tile"
+      "GTMStack",
+      "Go-To-Market",
+      "Workflow Alignment",
+      "Hero Tile"
     ],
     "thumbnailPath": "animations/digital-demand/gtmstack-pro-hero-tile/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/gtmstack-pro-hero-tile",
@@ -1710,20 +1449,18 @@
   {
     "id": "gtm-product-strategy-audience-tile-v2",
     "slug": "gtm-product-strategy-audience-tile-v2",
-    "title": "Gtm Product Strategy Audience Tile",
+    "title": "GTM Product Strategy Audience Tile",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/gtm-product-strategy-audience-tile-v2",
     "entryHtml": "animations/digital-demand/gtm-product-strategy-audience-tile-v2/productgtmtile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/gtm-product-strategy-audience-tile-v2/README.md",
-    "summary": "Gtm Product Strategy Audience Tile — GTMStack animation for digital demand use cases.",
+    "summary": "Product strategy tile focused on GTM audience mapping, messaging structure, and market-positioning signals.",
     "tags": [
-      "digital-demand",
-      "gtm",
-      "product",
-      "strategy",
-      "audience",
-      "tile"
+      "GTM Product Strategy",
+      "Audience Mapping",
+      "Messaging Framework",
+      "Dashboard Tile"
     ],
     "thumbnailPath": "animations/digital-demand/gtm-product-strategy-audience-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/gtm-product-strategy-audience-tile-v2",
@@ -1733,20 +1470,18 @@
   {
     "id": "gtm-engine-visualization-hero-animation-v2",
     "slug": "gtm-engine-visualization-hero-animation-v2",
-    "title": "Gtm Engine Visualization Hero Animation",
+    "title": "GTM Engine Visualization Hero Animation",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/gtm-engine-visualization-hero-animation-v2",
     "entryHtml": "animations/digital-demand/gtm-engine-visualization-hero-animation-v2/gtmcoretile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/gtm-engine-visualization-hero-animation-v2/README.md",
-    "summary": "Gtm Engine Visualization Hero Animation — GTMStack animation for digital demand use cases.",
+    "summary": "Hero animation that visualizes the GTM engine as connected growth nodes, live metrics, and strategy flow paths.",
     "tags": [
-      "digital-demand",
-      "gtm",
-      "engine",
-      "visualization",
-      "hero",
-      "animation"
+      "GTM Strategy",
+      "Engine Visualization",
+      "Hero Animation",
+      "Growth Analytics"
     ],
     "thumbnailPath": "animations/digital-demand/gtm-engine-visualization-hero-animation-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/gtm-engine-visualization-hero-animation-v2",
@@ -1756,17 +1491,18 @@
   {
     "id": "growththeme-ai-landing-v2",
     "slug": "growththeme-ai-landing-v2",
-    "title": "Growththeme Ai Landing",
+    "title": "GrowthTheme AI Landing",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/growththeme-ai-landing-v2",
     "entryHtml": "animations/digital-demand/growththeme-ai-landing-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/growththeme-ai-landing-v2/README.md",
-    "summary": "Growththeme Ai Landing — GTMStack animation for digital demand use cases.",
+    "summary": "AI landing-page hero focused on growth storytelling, connected data flow, and conversion-oriented performance visuals.",
     "tags": [
-      "digital-demand",
-      "growththeme",
-      "landing"
+      "AI Landing Page",
+      "Growth Strategy",
+      "Data Flow Visualization",
+      "Conversion Marketing"
     ],
     "thumbnailPath": "animations/digital-demand/growththeme-ai-landing-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growththeme-ai-landing-v2",
@@ -1776,18 +1512,18 @@
   {
     "id": "growthsem-landing-page-v2",
     "slug": "growthsem-landing-page-v2",
-    "title": "Growthsem Landing Page",
+    "title": "GrowthSEM Landing Page",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/growthsem-landing-page-v2",
     "entryHtml": "animations/digital-demand/growthsem-landing-page-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/growthsem-landing-page-v2/README.md",
-    "summary": "Growthsem Landing Page — GTMStack animation for digital demand use cases.",
+    "summary": "SEM landing-page hero tile showing paid acquisition metrics, campaign optimization, and performance lift indicators.",
     "tags": [
-      "digital-demand",
-      "growthsem",
-      "landing",
-      "page"
+      "SEM Analytics",
+      "Paid Acquisition",
+      "Landing Page Hero",
+      "Performance Marketing"
     ],
     "thumbnailPath": "animations/digital-demand/growthsem-landing-page-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growthsem-landing-page-v2",
@@ -1797,18 +1533,18 @@
   {
     "id": "growthflow-seo-engine-v2",
     "slug": "growthflow-seo-engine-v2",
-    "title": "Growthflow Seo Engine",
+    "title": "GrowthFlow SEO Engine",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/growthflow-seo-engine-v2",
     "entryHtml": "animations/digital-demand/growthflow-seo-engine-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/growthflow-seo-engine-v2/README.md",
-    "summary": "Growthflow Seo Engine — GTMStack animation for digital demand use cases.",
+    "summary": "SEO-focused growth engine animation visualizing search momentum, ranking movement, and organic pipeline performance.",
     "tags": [
-      "digital-demand",
-      "growthflow",
-      "seo",
-      "engine"
+      "SEO Analytics",
+      "Organic Growth",
+      "Search Performance",
+      "Marketing Engine"
     ],
     "thumbnailPath": "animations/digital-demand/growthflow-seo-engine-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growthflow-seo-engine-v2",
@@ -1818,18 +1554,18 @@
   {
     "id": "growthcore-component-extraction-v2",
     "slug": "growthcore-component-extraction-v2",
-    "title": "Growthcore Component Extraction",
+    "title": "GrowthCore Component Extraction",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/growthcore-component-extraction-v2",
     "entryHtml": "animations/digital-demand/growthcore-component-extraction-v2/growthmarketingtile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/growthcore-component-extraction-v2/README.md",
-    "summary": "Growthcore Component Extraction — GTMStack animation for digital demand use cases.",
+    "summary": "Extracted GrowthCore visualization component presenting retention, engagement, and growth performance in a reusable hero module.",
     "tags": [
-      "digital-demand",
-      "growthcore",
-      "component",
-      "extraction"
+      "GrowthCore",
+      "Component Library",
+      "Retention Analytics",
+      "Hero Module"
     ],
     "thumbnailPath": "animations/digital-demand/growthcore-component-extraction-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growthcore-component-extraction-v2",
@@ -1839,19 +1575,18 @@
   {
     "id": "growth-ai-harmonic-quad-tone",
     "slug": "growth-ai-harmonic-quad-tone",
-    "title": "Growth Ai Harmonic Quad Tone",
+    "title": "Growth AI Harmonic Quad Tone",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/growth-ai-harmonic-quad-tone",
     "entryHtml": "animations/digital-demand/growth-ai-harmonic-quad-tone/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/growth-ai-harmonic-quad-tone/README.md",
-    "summary": "Growth Ai Harmonic Quad Tone — GTMStack animation for digital demand use cases.",
+    "summary": "AI-driven growth visualization featuring harmonic multi-signal motion, performance highlights, and strategic metric storytelling.",
     "tags": [
-      "digital-demand",
-      "growth",
-      "harmonic",
-      "quad",
-      "tone"
+      "AI Growth",
+      "Performance Signals",
+      "Hero Visualization",
+      "Marketing Analytics"
     ],
     "thumbnailPath": "animations/digital-demand/growth-ai-harmonic-quad-tone/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growth-ai-harmonic-quad-tone",
@@ -1878,23 +1613,23 @@
     "thumbnailPath": "animations/digital-demand/growth-ai-animation/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/growth-ai-animation",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/digital-demand/growth-ai-animation/README.md",
-    "updatedAt": "2026-04-08T20:03:45.912Z"
+    "updatedAt": "2026-04-10T20:47:52.585Z"
   },
   {
     "id": "esg-analytics-hub-v2",
     "slug": "esg-analytics-hub-v2",
-    "title": "Esg Analytics Hub",
+    "title": "ESG Analytics Hub",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/esg-analytics-hub-v2",
     "entryHtml": "animations/digital-demand/esg-analytics-hub-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/esg-analytics-hub-v2/README.md",
-    "summary": "Esg Analytics Hub — GTMStack animation for digital demand use cases.",
+    "summary": "ESG analytics dashboard visualizing sustainability metrics, trend movement, and governance performance signals.",
     "tags": [
-      "digital-demand",
-      "esg",
-      "analytics",
-      "hub"
+      "ESG Analytics",
+      "Sustainability Metrics",
+      "Governance Dashboard",
+      "Data Visualization"
     ],
     "thumbnailPath": "animations/digital-demand/esg-analytics-hub-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/esg-analytics-hub-v2",
@@ -1904,19 +1639,18 @@
   {
     "id": "email-marketing-json-lottie-v2",
     "slug": "email-marketing-json-lottie-v2",
-    "title": "Email Marketing Json Lottie",
+    "title": "Email Marketing JSON Lottie",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/email-marketing-json-lottie-v2",
     "entryHtml": "animations/digital-demand/email-marketing-json-lottie-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/email-marketing-json-lottie-v2/README.md",
-    "summary": "Email Marketing Json Lottie — GTMStack animation for digital demand use cases.",
+    "summary": "Email marketing hero animation combining JSON/Lottie-style motion with campaign metrics and engagement signals.",
     "tags": [
-      "digital-demand",
-      "email",
-      "marketing",
-      "json",
-      "lottie"
+      "Email Marketing",
+      "JSON Lottie",
+      "Campaign Animation",
+      "Engagement Analytics"
     ],
     "thumbnailPath": "animations/digital-demand/email-marketing-json-lottie-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/email-marketing-json-lottie-v2",
@@ -1926,16 +1660,18 @@
   {
     "id": "driftguard-v2",
     "slug": "driftguard-v2",
-    "title": "Driftguard",
+    "title": "DriftGuard",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/driftguard-v2",
     "entryHtml": "animations/digital-demand/driftguard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/driftguard-v2/README.md",
-    "summary": "Driftguard — GTMStack animation for digital demand use cases.",
+    "summary": "AI model monitoring tile designed to surface drift risk, stability signals, and alert-ready performance changes.",
     "tags": [
-      "digital-demand",
-      "driftguard"
+      "AI Monitoring",
+      "Model Drift",
+      "Risk Detection",
+      "Performance Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/driftguard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/driftguard-v2",
@@ -1945,17 +1681,18 @@
   {
     "id": "driftguard-ai-monitor-v2",
     "slug": "driftguard-ai-monitor-v2",
-    "title": "Driftguard Ai Monitor",
+    "title": "DriftGuard AI Monitor",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/driftguard-ai-monitor-v2",
     "entryHtml": "animations/digital-demand/driftguard-ai-monitor-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/driftguard-ai-monitor-v2/README.md",
-    "summary": "Driftguard Ai Monitor — GTMStack animation for digital demand use cases.",
+    "summary": "AI monitoring dashboard that highlights model drift signals, performance stability, and alert-ready operational status.",
     "tags": [
-      "digital-demand",
-      "driftguard",
-      "monitor"
+      "AI Monitoring",
+      "Model Drift",
+      "Performance Stability",
+      "Operations Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/driftguard-ai-monitor-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/driftguard-ai-monitor-v2",
@@ -1965,17 +1702,18 @@
   {
     "id": "demandgrowthhero-component-v2",
     "slug": "demandgrowthhero-component-v2",
-    "title": "Demandgrowthhero Component",
+    "title": "DemandGrowthHero Component",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/demandgrowthhero-component-v2",
     "entryHtml": "animations/digital-demand/demandgrowthhero-component-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/demandgrowthhero-component-v2/README.md",
-    "summary": "Demandgrowthhero Component — GTMStack animation for digital demand use cases.",
+    "summary": "Hero component focused on demand growth performance, visual funnel flow, and metric-driven campaign movement.",
     "tags": [
-      "digital-demand",
-      "demandgrowthhero",
-      "component"
+      "Demand Growth",
+      "Funnel Analytics",
+      "Marketing Performance",
+      "Hero Component"
     ],
     "thumbnailPath": "animations/digital-demand/demandgrowthhero-component-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/demandgrowthhero-component-v2",
@@ -1985,18 +1723,18 @@
   {
     "id": "demandgen-pipeline-hero-v2",
     "slug": "demandgen-pipeline-hero-v2",
-    "title": "Demandgen Pipeline Hero",
+    "title": "DemandGen Pipeline Hero",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/demandgen-pipeline-hero-v2",
     "entryHtml": "animations/digital-demand/demandgen-pipeline-hero-v2/dashboardtile-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/demandgen-pipeline-hero-v2/README.md",
-    "summary": "Demandgen Pipeline Hero — GTMStack animation for digital demand use cases.",
+    "summary": "Animated demand generation hero showcasing funnel progression, lead velocity, and campaign stage performance.",
     "tags": [
-      "digital-demand",
-      "demandgen",
-      "pipeline",
-      "hero"
+      "Demand Generation",
+      "Pipeline Visualization",
+      "Lead Analytics",
+      "Hero Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/demandgen-pipeline-hero-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/demandgen-pipeline-hero-v2",
@@ -2012,12 +1750,12 @@
     "entryHtml": "animations/digital-demand/demand-gen-hero-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/demand-gen-hero-v2/README.md",
-    "summary": "Demand Gen Hero — GTMStack animation for digital demand use cases.",
+    "summary": "Demand generation hero tile visualizing funnel progression, conversion flow, and pipeline acceleration.",
     "tags": [
-      "digital-demand",
-      "demand",
-      "gen",
-      "hero"
+      "Demand Generation",
+      "Funnel Analytics",
+      "Conversion Flow",
+      "Hero Tile"
     ],
     "thumbnailPath": "animations/digital-demand/demand-gen-hero-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/demand-gen-hero-v2",
@@ -2027,18 +1765,18 @@
   {
     "id": "content-marketing-with-ai-v2",
     "slug": "content-marketing-with-ai-v2",
-    "title": "Content Marketing With Ai",
+    "title": "Content Marketing with AI",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/content-marketing-with-ai-v2",
     "entryHtml": "animations/digital-demand/content-marketing-with-ai-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/content-marketing-with-ai-v2/README.md",
-    "summary": "Content Marketing With Ai — GTMStack animation for digital demand use cases.",
+    "summary": "AI-enhanced content marketing workflow tile that visualizes planning, distribution, and optimization performance.",
     "tags": [
-      "digital-demand",
-      "content",
-      "marketing",
-      "with"
+      "Content Marketing",
+      "AI",
+      "Workflow Dashboard",
+      "Campaign Performance"
     ],
     "thumbnailPath": "animations/digital-demand/content-marketing-with-ai-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/content-marketing-with-ai-v2",
@@ -2048,19 +1786,18 @@
   {
     "id": "content-marketing-kpi-dashboard-v2",
     "slug": "content-marketing-kpi-dashboard-v2",
-    "title": "Content Marketing Kpi Dashboard",
+    "title": "Content Marketing KPI Dashboard",
     "category": "digital-demand",
     "projectPath": "animations/digital-demand/content-marketing-kpi-dashboard-v2",
     "entryHtml": "animations/digital-demand/content-marketing-kpi-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/content-marketing-kpi-dashboard-v2/README.md",
-    "summary": "Content Marketing Kpi Dashboard — GTMStack animation for digital demand use cases.",
+    "summary": "Content marketing dashboard focused on KPI movement, funnel contribution, and growth outcomes across campaign stages.",
     "tags": [
-      "digital-demand",
-      "content",
-      "marketing",
-      "kpi",
-      "dashboard"
+      "Content Marketing",
+      "KPI Dashboard",
+      "Growth Analytics",
+      "Funnel Performance"
     ],
     "thumbnailPath": "animations/digital-demand/content-marketing-kpi-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/content-marketing-kpi-dashboard-v2",
@@ -2076,13 +1813,12 @@
     "entryHtml": "animations/digital-demand/content-engagement-marketing-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/content-engagement-marketing-dashboard-v2/README.md",
-    "summary": "Content Engagement Marketing Dashboard — GTMStack animation for digital demand use cases.",
+    "summary": "Content engagement dashboard tracking distribution performance, engagement quality, and channel effectiveness.",
     "tags": [
-      "digital-demand",
-      "content",
-      "engagement",
-      "marketing",
-      "dashboard"
+      "Content Marketing",
+      "Engagement Dashboard",
+      "Distribution Analytics",
+      "Channel Performance"
     ],
     "thumbnailPath": "animations/digital-demand/content-engagement-marketing-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/content-engagement-marketing-dashboard-v2",
@@ -2098,12 +1834,12 @@
     "entryHtml": "animations/digital-demand/content-engagement-hero-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/digital-demand/content-engagement-hero-v2/README.md",
-    "summary": "Content Engagement Hero — GTMStack animation for digital demand use cases.",
+    "summary": "Content engagement hero tile visualizing audience interaction, channel response, and campaign lift signals.",
     "tags": [
-      "digital-demand",
-      "content",
-      "engagement",
-      "hero"
+      "Content Engagement",
+      "Audience Analytics",
+      "Campaign Performance",
+      "Hero Dashboard"
     ],
     "thumbnailPath": "animations/digital-demand/content-engagement-hero-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/digital-demand/content-engagement-hero-v2",
@@ -2119,11 +1855,12 @@
     "entryHtml": "animations/dashboard-tiles/workflow-visualization-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/workflow-visualization-v2/README.md",
-    "summary": "Workflow Visualization — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Workflow visualization tile focused on stage progression, process health, and execution continuity.",
     "tags": [
-      "dashboard-tiles",
-      "workflow",
-      "visualization"
+      "Workflow Analytics",
+      "Process Visualization",
+      "Execution Monitoring",
+      "Dashboard Tile"
     ],
     "thumbnailPath": "animations/dashboard-tiles/workflow-visualization-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/workflow-visualization-v2",
@@ -2149,68 +1886,27 @@
     "thumbnailPath": "animations/dashboard-tiles/quantum-data-field-analytics-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/quantum-data-field-analytics-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/quantum-data-field-analytics-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.919Z"
+    "updatedAt": "2026-04-10T20:47:52.592Z"
   },
   {
     "id": "marketingflow-ai-workflow-v2",
     "slug": "marketingflow-ai-workflow-v2",
-    "title": "Marketingflow Ai Workflow",
+    "title": "MarketingFlow AI Workflow",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/marketingflow-ai-workflow-v2",
     "entryHtml": "animations/dashboard-tiles/marketingflow-ai-workflow-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/marketingflow-ai-workflow-v2/README.md",
-    "summary": "Marketingflow Ai Workflow — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Workflow visualization for AI-assisted content operations, from planning through optimization and performance feedback.",
     "tags": [
-      "dashboard-tiles",
-      "marketingflow",
-      "workflow"
+      "AI Workflow",
+      "Content Operations",
+      "Marketing Automation",
+      "Performance Analytics"
     ],
     "thumbnailPath": "animations/dashboard-tiles/marketingflow-ai-workflow-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/marketingflow-ai-workflow-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/marketingflow-ai-workflow-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "dashboard-tiles-marketingai-neural-dashboard-v2",
-    "slug": "dashboard-tiles-marketingai-neural-dashboard-v2",
-    "title": "Marketingai Neural Dashboard",
-    "category": "dashboard-tiles",
-    "projectPath": "animations/dashboard-tiles/marketingai-neural-dashboard-v2",
-    "entryHtml": "animations/dashboard-tiles/marketingai-neural-dashboard-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/dashboard-tiles/marketingai-neural-dashboard-v2/README.md",
-    "summary": "Marketingai Neural Dashboard — GTMStack animation for dashboard tiles use cases.",
-    "tags": [
-      "dashboard-tiles",
-      "marketingai",
-      "neural",
-      "dashboard"
-    ],
-    "thumbnailPath": "animations/dashboard-tiles/marketingai-neural-dashboard-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/marketingai-neural-dashboard-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/marketingai-neural-dashboard-v2/README.md",
-    "updatedAt": "2026-03-23T20:00:00.000Z"
-  },
-  {
-    "id": "dashboard-tiles-marketingai-intelligence-dashboard-v2",
-    "slug": "dashboard-tiles-marketingai-intelligence-dashboard-v2",
-    "title": "Marketingai Intelligence Dashboard",
-    "category": "dashboard-tiles",
-    "projectPath": "animations/dashboard-tiles/marketingai-intelligence-dashboard-v2",
-    "entryHtml": "animations/dashboard-tiles/marketingai-intelligence-dashboard-v2/app-v2.html",
-    "entryType": "html",
-    "readmePath": "animations/dashboard-tiles/marketingai-intelligence-dashboard-v2/README.md",
-    "summary": "Marketingai Intelligence Dashboard — GTMStack animation for dashboard tiles use cases.",
-    "tags": [
-      "dashboard-tiles",
-      "marketingai",
-      "intelligence",
-      "dashboard"
-    ],
-    "thumbnailPath": "animations/dashboard-tiles/marketingai-intelligence-dashboard-v2/preview.png",
-    "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/marketingai-intelligence-dashboard-v2",
-    "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/marketingai-intelligence-dashboard-v2/README.md",
     "updatedAt": "2026-03-23T20:00:00.000Z"
   },
   {
@@ -2232,7 +1928,7 @@
     "thumbnailPath": "animations/dashboard-tiles/marketing-automation-workflow-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/marketing-automation-workflow-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/dashboard-tiles/marketing-automation-workflow-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.922Z"
+    "updatedAt": "2026-04-10T20:47:52.593Z"
   },
   {
     "id": "marketing-automation-live-feed-v2",
@@ -2243,13 +1939,12 @@
     "entryHtml": "animations/dashboard-tiles/marketing-automation-live-feed-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/marketing-automation-live-feed-v2/README.md",
-    "summary": "Marketing Automation Live Feed — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Marketing automation live-feed tile visualizing workflow throughput, queue movement, and routing performance.",
     "tags": [
-      "dashboard-tiles",
-      "marketing",
-      "automation",
-      "live",
-      "feed"
+      "Marketing Automation",
+      "Live Feed",
+      "Workflow Throughput",
+      "Operations Dashboard"
     ],
     "thumbnailPath": "animations/dashboard-tiles/marketing-automation-live-feed-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/marketing-automation-live-feed-v2",
@@ -2265,12 +1960,12 @@
     "entryHtml": "animations/dashboard-tiles/lifecycle-engine-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/lifecycle-engine-dashboard-v2/README.md",
-    "summary": "Lifecycle Engine Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Lifecycle engine dashboard showing user-stage movement, retention dynamics, and live performance telemetry.",
     "tags": [
-      "dashboard-tiles",
-      "lifecycle",
-      "engine",
-      "dashboard"
+      "Lifecycle Analytics",
+      "Retention Dashboard",
+      "Performance Telemetry",
+      "User Journey"
     ],
     "thumbnailPath": "animations/dashboard-tiles/lifecycle-engine-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/lifecycle-engine-dashboard-v2",
@@ -2280,18 +1975,18 @@
   {
     "id": "insightagency-strategy-dashboard-v2",
     "slug": "insightagency-strategy-dashboard-v2",
-    "title": "Insightagency Strategy Dashboard",
+    "title": "InsightAgency Strategy Dashboard",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/insightagency-strategy-dashboard-v2",
     "entryHtml": "animations/dashboard-tiles/insightagency-strategy-dashboard-v2/agencyanalysis-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/insightagency-strategy-dashboard-v2/README.md",
-    "summary": "Insightagency Strategy Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Strategy dashboard focused on account expansion signals, planning workflows, and opportunity prioritization.",
     "tags": [
-      "dashboard-tiles",
-      "insightagency",
-      "strategy",
-      "dashboard"
+      "Strategy Analytics",
+      "Opportunity Planning",
+      "Account Expansion",
+      "Dashboard"
     ],
     "thumbnailPath": "animations/dashboard-tiles/insightagency-strategy-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/insightagency-strategy-dashboard-v2",
@@ -2301,18 +1996,18 @@
   {
     "id": "dashboard-tiles-infracore-deepdive-dashboard-v2",
     "slug": "dashboard-tiles-infracore-deepdive-dashboard-v2",
-    "title": "Infracore Deepdive Dashboard",
+    "title": "InfraCore DeepDive Dashboard",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/infracore-deepdive-dashboard-v2",
     "entryHtml": "animations/dashboard-tiles/infracore-deepdive-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/infracore-deepdive-dashboard-v2/README.md",
-    "summary": "Infracore Deepdive Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Infrastructure analytics dashboard that visualizes service health, system reliability, and operational status with animated signal cues.",
     "tags": [
-      "dashboard-tiles",
-      "infracore",
-      "deepdive",
-      "dashboard"
+      "Infrastructure Monitoring",
+      "Service Health",
+      "Operations Dashboard",
+      "Data Visualization"
     ],
     "thumbnailPath": "animations/dashboard-tiles/infracore-deepdive-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/infracore-deepdive-dashboard-v2",
@@ -2322,18 +2017,18 @@
   {
     "id": "dashboard-tiles-industrial-roi-dashboard-v2",
     "slug": "dashboard-tiles-industrial-roi-dashboard-v2",
-    "title": "Industrial Roi Dashboard",
+    "title": "Industrial ROI Dashboard",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/industrial-roi-dashboard-v2",
     "entryHtml": "animations/dashboard-tiles/industrial-roi-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/industrial-roi-dashboard-v2/README.md",
-    "summary": "Industrial Roi Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Industrial performance dashboard that tracks ROI impact, operational efficiency, and rollout progress for manufacturing initiatives.",
     "tags": [
-      "dashboard-tiles",
-      "industrial",
-      "roi",
-      "dashboard"
+      "Industrial Analytics",
+      "ROI Dashboard",
+      "Operations Performance",
+      "Executive Reporting"
     ],
     "thumbnailPath": "animations/dashboard-tiles/industrial-roi-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/industrial-roi-dashboard-v2",
@@ -2343,18 +2038,18 @@
   {
     "id": "gtmstack-route-planner-v2",
     "slug": "gtmstack-route-planner-v2",
-    "title": "Gtmstack Route Planner",
+    "title": "GTMStack Route Planner",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/gtmstack-route-planner-v2",
     "entryHtml": "animations/dashboard-tiles/gtmstack-route-planner-v2/gtmstack-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/gtmstack-route-planner-v2/README.md",
-    "summary": "Gtmstack Route Planner — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Route planner dashboard tile visualizing GTM phase progression, momentum tracking, and strategic waypoint execution.",
     "tags": [
-      "dashboard-tiles",
-      "gtmstack",
-      "route",
-      "planner"
+      "GTM Route Planning",
+      "Phase Progression",
+      "Momentum Tracking",
+      "Strategy Dashboard"
     ],
     "thumbnailPath": "animations/dashboard-tiles/gtmstack-route-planner-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/gtmstack-route-planner-v2",
@@ -2364,18 +2059,18 @@
   {
     "id": "gtmstack-industry-template-v2",
     "slug": "gtmstack-industry-template-v2",
-    "title": "Gtmstack Industry Template",
+    "title": "GTMStack Industry Template",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/gtmstack-industry-template-v2",
     "entryHtml": "animations/dashboard-tiles/gtmstack-industry-template-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/gtmstack-industry-template-v2/README.md",
-    "summary": "Gtmstack Industry Template — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Industry template dashboard for GTM strategy presentation, service mapping, and operational planning.",
     "tags": [
-      "dashboard-tiles",
-      "gtmstack",
-      "industry",
-      "template"
+      "GTM Strategy",
+      "Industry Template",
+      "Service Mapping",
+      "Planning Dashboard"
     ],
     "thumbnailPath": "animations/dashboard-tiles/gtmstack-industry-template-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/gtmstack-industry-template-v2",
@@ -2385,18 +2080,18 @@
   {
     "id": "gtmstack-hero-tile-v2",
     "slug": "gtmstack-hero-tile-v2",
-    "title": "Gtmstack Hero Tile",
+    "title": "GTMStack Hero Tile",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/gtmstack-hero-tile-v2",
     "entryHtml": "animations/dashboard-tiles/gtmstack-hero-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/gtmstack-hero-tile-v2/README.md",
-    "summary": "Gtmstack Hero Tile — GTMStack animation for dashboard tiles use cases.",
+    "summary": "GTMStack hero tile illustrating the transition from fragmented workflows to a unified operating model.",
     "tags": [
-      "dashboard-tiles",
-      "gtmstack",
-      "hero",
-      "tile"
+      "GTMStack",
+      "Hero Dashboard",
+      "Workflow Alignment",
+      "Operating Model"
     ],
     "thumbnailPath": "animations/dashboard-tiles/gtmstack-hero-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/gtmstack-hero-tile-v2",
@@ -2406,19 +2101,18 @@
   {
     "id": "gtm-strategy-audience-tile-v2",
     "slug": "gtm-strategy-audience-tile-v2",
-    "title": "Gtm Strategy Audience Tile",
+    "title": "GTM Strategy Audience Tile",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/gtm-strategy-audience-tile-v2",
     "entryHtml": "animations/dashboard-tiles/gtm-strategy-audience-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/gtm-strategy-audience-tile-v2/README.md",
-    "summary": "Gtm Strategy Audience Tile — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Animated GTM strategy tile centered on audience planning, positioning, and messaging alignment for product launches.",
     "tags": [
-      "dashboard-tiles",
-      "gtm",
-      "strategy",
-      "audience",
-      "tile"
+      "GTM",
+      "Audience Strategy",
+      "Product Marketing",
+      "Dashboard Tile"
     ],
     "thumbnailPath": "animations/dashboard-tiles/gtm-strategy-audience-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/gtm-strategy-audience-tile-v2",
@@ -2428,20 +2122,18 @@
   {
     "id": "gtm-stack-data-sync-mesh-v2",
     "slug": "gtm-stack-data-sync-mesh-v2",
-    "title": "Gtm Stack Data Sync Mesh",
+    "title": "GTM Stack Data Sync Mesh",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2",
     "entryHtml": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2/revopsdashboard-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2/README.md",
-    "summary": "Gtm Stack Data Sync Mesh — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Data sync mesh dashboard visualizing GTM system connectivity, synchronization health, and signal throughput.",
     "tags": [
-      "dashboard-tiles",
-      "gtm",
-      "stack",
-      "data",
-      "sync",
-      "mesh"
+      "GTM Stack",
+      "Data Sync",
+      "System Connectivity",
+      "Throughput Analytics"
     ],
     "thumbnailPath": "animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/gtm-stack-data-sync-mesh-v2",
@@ -2451,19 +2143,18 @@
   {
     "id": "expertisehero-gtm-engine-visualization-v2",
     "slug": "expertisehero-gtm-engine-visualization-v2",
-    "title": "Expertisehero Gtm Engine Visualization",
+    "title": "ExpertiseHero GTM Engine Visualization",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2",
     "entryHtml": "animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2/README.md",
-    "summary": "Expertisehero Gtm Engine Visualization — GTMStack animation for dashboard tiles use cases.",
+    "summary": "GTM engine visualization tile mapping strategic growth nodes, signal pathways, and execution momentum.",
     "tags": [
-      "dashboard-tiles",
-      "expertisehero",
-      "gtm",
-      "engine",
-      "visualization"
+      "GTM Engine",
+      "Growth Visualization",
+      "Strategy Nodes",
+      "Execution Dashboard"
     ],
     "thumbnailPath": "animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/expertisehero-gtm-engine-visualization-v2",
@@ -2479,11 +2170,12 @@
     "entryHtml": "animations/dashboard-tiles/experience-dashboard-v2/demandgenflow-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/experience-dashboard-v2/README.md",
-    "summary": "Experience Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Experience-focused dashboard tile visualizing growth signals, conversion movement, and channel performance for demand teams.",
     "tags": [
-      "dashboard-tiles",
-      "experience",
-      "dashboard"
+      "Experience Analytics",
+      "Growth Dashboard",
+      "Conversion Tracking",
+      "Demand Generation"
     ],
     "thumbnailPath": "animations/dashboard-tiles/experience-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/experience-dashboard-v2",
@@ -2493,19 +2185,18 @@
   {
     "id": "apex-real-time-dashboard-v2",
     "slug": "apex-real-time-dashboard-v2",
-    "title": "Apex Real Time Dashboard",
+    "title": "Apex Real-Time Dashboard",
     "category": "dashboard-tiles",
     "projectPath": "animations/dashboard-tiles/apex-real-time-dashboard-v2",
     "entryHtml": "animations/dashboard-tiles/apex-real-time-dashboard-v2/demandgen-marketing-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/apex-real-time-dashboard-v2/README.md",
-    "summary": "Apex Real Time Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Real-time demand dashboard highlighting live experiment metrics, performance shifts, and campaign efficiency in one compact view.",
     "tags": [
-      "dashboard-tiles",
-      "apex",
-      "real",
-      "time",
-      "dashboard"
+      "Real-Time Analytics",
+      "Demand Generation",
+      "Performance Dashboard",
+      "Experiment Monitoring"
     ],
     "thumbnailPath": "animations/dashboard-tiles/apex-real-time-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/apex-real-time-dashboard-v2",
@@ -2521,12 +2212,12 @@
     "entryHtml": "animations/dashboard-tiles/advocacy-loop-dashboard-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/dashboard-tiles/advocacy-loop-dashboard-v2/README.md",
-    "summary": "Advocacy Loop Dashboard — GTMStack animation for dashboard tiles use cases.",
+    "summary": "Advocacy loop dashboard showing referral momentum, engagement progression, and lifecycle conversion performance.",
     "tags": [
-      "dashboard-tiles",
-      "advocacy",
-      "loop",
-      "dashboard"
+      "Advocacy Analytics",
+      "Referral Loop",
+      "Engagement Dashboard",
+      "Conversion Performance"
     ],
     "thumbnailPath": "animations/dashboard-tiles/advocacy-loop-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/dashboard-tiles/advocacy-loop-dashboard-v2",
@@ -2536,17 +2227,18 @@
   {
     "id": "abm-success-visualizer-v2",
     "slug": "abm-success-visualizer-v2",
-    "title": "Abm Success Visualizer",
+    "title": "ABM Success Visualizer",
     "category": "abm",
     "projectPath": "animations/abm/abm-success-visualizer-v2",
     "entryHtml": "animations/abm/abm-success-visualizer-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/abm/abm-success-visualizer-v2/README.md",
-    "summary": "Abm Success Visualizer — GTMStack animation for abm use cases.",
+    "summary": "ABM success visualization tile focused on account performance, campaign impact, and growth signal tracking.",
     "tags": [
-      "abm",
-      "success",
-      "visualizer"
+      "ABM Analytics",
+      "Success Metrics",
+      "Campaign Performance",
+      "Growth Visualization"
     ],
     "thumbnailPath": "animations/abm/abm-success-visualizer-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-success-visualizer-v2",
@@ -2570,23 +2262,23 @@
     "thumbnailPath": "animations/abm/abm-radar-analysis-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-radar-analysis-v2",
     "githubReadmeUrl": "https://github.com/finlin67/GTMStack-Animations/blob/main/animations/abm/abm-radar-analysis-v2/README.md",
-    "updatedAt": "2026-04-08T20:03:45.930Z"
+    "updatedAt": "2026-04-10T20:47:52.602Z"
   },
   {
     "id": "abm-pipeline-strategy-dashboard-v2",
     "slug": "abm-pipeline-strategy-dashboard-v2",
-    "title": "Abm Pipeline Strategy Dashboard",
+    "title": "ABM Pipeline Strategy Dashboard",
     "category": "abm",
     "projectPath": "animations/abm/abm-pipeline-strategy-dashboard-v2",
     "entryHtml": "animations/abm/abm-pipeline-strategy-dashboard-v2/abm-pipeline-strategy-v2.html",
     "entryType": "html",
     "readmePath": "animations/abm/abm-pipeline-strategy-dashboard-v2/README.md",
-    "summary": "Abm Pipeline Strategy Dashboard — GTMStack animation for abm use cases.",
+    "summary": "Strategic ABM pipeline dashboard highlighting stage conversion, account prioritization, and campaign momentum.",
     "tags": [
-      "abm",
-      "pipeline",
-      "strategy",
-      "dashboard"
+      "ABM",
+      "Pipeline Strategy",
+      "Conversion Analytics",
+      "Executive Dashboard"
     ],
     "thumbnailPath": "animations/abm/abm-pipeline-strategy-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-pipeline-strategy-dashboard-v2",
@@ -2596,18 +2288,18 @@
   {
     "id": "abm-pipeline-strategy-dashboard",
     "slug": "abm-pipeline-strategy-dashboard",
-    "title": "Abm Pipeline Strategy Dashboard",
+    "title": "ABM Pipeline Strategy Dashboard",
     "category": "abm",
     "projectPath": "animations/abm/abm-pipeline-strategy-dashboard",
     "entryHtml": "animations/abm/abm-pipeline-strategy-dashboard/dashboard-v2.html",
     "entryType": "html",
     "readmePath": "animations/abm/abm-pipeline-strategy-dashboard/README.md",
-    "summary": "Abm Pipeline Strategy Dashboard — GTMStack animation for abm use cases.",
+    "summary": "ABM strategy dashboard visualizing stage conversion, target account progression, and pipeline momentum.",
     "tags": [
-      "abm",
-      "pipeline",
-      "strategy",
-      "dashboard"
+      "ABM Strategy",
+      "Pipeline Dashboard",
+      "Conversion Analytics",
+      "Account Progression"
     ],
     "thumbnailPath": "animations/abm/abm-pipeline-strategy-dashboard/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-pipeline-strategy-dashboard",
@@ -2617,17 +2309,18 @@
   {
     "id": "abm-network-dashboard-v2",
     "slug": "abm-network-dashboard-v2",
-    "title": "Abm Network Dashboard",
+    "title": "ABM Network Dashboard",
     "category": "abm",
     "projectPath": "animations/abm/abm-network-dashboard-v2",
     "entryHtml": "animations/abm/abm-network-dashboard-v2/abm-network-dashboard.html",
     "entryType": "html",
     "readmePath": "animations/abm/abm-network-dashboard-v2/README.md",
-    "summary": "Abm Network Dashboard — GTMStack animation for abm use cases.",
+    "summary": "Interactive ABM network dashboard showing relationships between accounts, channels, and engagement signals in real time.",
     "tags": [
-      "abm",
-      "network",
-      "dashboard"
+      "ABM",
+      "Network Visualization",
+      "Engagement Analytics",
+      "Dashboard"
     ],
     "thumbnailPath": "animations/abm/abm-network-dashboard-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-network-dashboard-v2",
@@ -2637,18 +2330,18 @@
   {
     "id": "abm-flow-premium-tile-v2",
     "slug": "abm-flow-premium-tile-v2",
-    "title": "Abm Flow Premium Tile",
+    "title": "ABM Flow Premium Tile",
     "category": "abm",
     "projectPath": "animations/abm/abm-flow-premium-tile-v2",
     "entryHtml": "animations/abm/abm-flow-premium-tile-v2/app-v2.html",
     "entryType": "html",
     "readmePath": "animations/abm/abm-flow-premium-tile-v2/README.md",
-    "summary": "Abm Flow Premium Tile — GTMStack animation for abm use cases.",
+    "summary": "Premium ABM flow tile that visualizes target accounts progressing from activation to revenue stages in a compact card layout.",
     "tags": [
-      "abm",
-      "flow",
-      "premium",
-      "tile"
+      "ABM",
+      "Pipeline Flow",
+      "Revenue Operations",
+      "Dashboard Tile"
     ],
     "thumbnailPath": "animations/abm/abm-flow-premium-tile-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-flow-premium-tile-v2",
@@ -2658,18 +2351,18 @@
   {
     "id": "abm-campaign-radar-analysis-v2",
     "slug": "abm-campaign-radar-analysis-v2",
-    "title": "Abm Campaign Radar Analysis",
+    "title": "ABM Campaign Radar Analysis",
     "category": "abm",
     "projectPath": "animations/abm/abm-campaign-radar-analysis-v2",
     "entryHtml": "animations/abm/abm-campaign-radar-analysis-v2/abm-radar-analysis-v2.html",
     "entryType": "html",
     "readmePath": "animations/abm/abm-campaign-radar-analysis-v2/README.md",
-    "summary": "Abm Campaign Radar Analysis — GTMStack animation for abm use cases.",
+    "summary": "Animated ABM radar dashboard that maps campaign coverage, engagement intensity, and account movement across target segments.",
     "tags": [
-      "abm",
-      "campaign",
-      "radar",
-      "analysis"
+      "ABM",
+      "Campaign Analytics",
+      "Radar Visualization",
+      "Pipeline Strategy"
     ],
     "thumbnailPath": "animations/abm/abm-campaign-radar-analysis-v2/preview.png",
     "githubUrl": "https://github.com/finlin67/GTMStack-Animations/tree/main/animations/abm/abm-campaign-radar-analysis-v2",

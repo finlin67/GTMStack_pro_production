@@ -143,7 +143,7 @@ export default function HowToPostTemplate({ post }: Props) {
                 </div>
               ) : null}
 
-              <div className="mx-auto max-w-[44rem]">
+              <div className="mx-auto max-w-4xl">
                 <div
                   className="article-body prose prose-slate max-w-none prose-headings:scroll-mt-24 prose-headings:font-semibold prose-h2:mt-16 prose-h2:border-t prose-h2:border-slate-200 prose-h2:pt-8 prose-h2:text-[2rem] prose-h2:tracking-[-0.035em] prose-h2:text-slate-950 prose-h2:leading-tight prose-h3:mt-10 prose-h3:rounded-2xl prose-h3:border prose-h3:border-slate-200 prose-h3:bg-slate-50 prose-h3:px-4 prose-h3:py-3 prose-h3:text-[1.05rem] prose-h3:font-semibold prose-h3:tracking-[-0.02em] prose-h3:text-slate-900 prose-p:my-6 prose-p:text-[1.035rem] prose-p:leading-8 prose-p:text-slate-700 prose-strong:font-semibold prose-strong:text-slate-950 prose-a:font-medium prose-a:text-blue-700 prose-a:underline prose-a:decoration-blue-200 prose-a:underline-offset-4 hover:prose-a:text-blue-600 hover:prose-a:decoration-blue-400 prose-ul:my-7 prose-ul:space-y-3 prose-ul:pl-5 prose-ol:my-7 prose-ol:space-y-3 prose-ol:pl-5 prose-li:pl-1 prose-li:leading-8 prose-li:marker:text-slate-400 prose-blockquote:my-10 prose-blockquote:border-l-4 prose-blockquote:border-blue-200 prose-blockquote:bg-blue-50/60 prose-blockquote:px-6 prose-blockquote:py-4 prose-blockquote:italic prose-hr:my-14 prose-hr:border-slate-200 [&_h2+*]:mt-6 [&_h3+*]:mt-4 [&_ul+h2]:mt-16 [&_ol+h2]:mt-16 [&_p+ul]:mt-4 [&_p+ol]:mt-4 [&>p:first-of-type]:text-[1.22rem] [&>p:first-of-type]:leading-9 [&>p:first-of-type]:text-slate-900 [&>p:first-of-type]:font-medium"
                   dangerouslySetInnerHTML={{ __html: htmlWithAnchors }}

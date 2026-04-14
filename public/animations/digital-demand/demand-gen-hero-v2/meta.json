@@ -1,0 +1,18 @@
+{
+  "id": "demand-gen-hero-v2",
+  "title": "Demand Gen Hero",
+  "description": "Demand generation hero tile visualizing funnel progression, conversion flow, and pipeline acceleration.",
+  "tags": [
+    "Demand Generation",
+    "Funnel Analytics",
+    "Conversion Flow",
+    "Hero Tile"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/demand-gen-hero-v2/preview.png",
+  "componentPath": "animations/digital-demand/demand-gen-hero-v2/components/DemandGenerationHero.tsx"
+}

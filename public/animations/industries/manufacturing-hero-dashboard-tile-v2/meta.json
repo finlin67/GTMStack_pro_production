@@ -1,0 +1,18 @@
+{
+  "id": "manufacturing-hero-dashboard-tile-v2",
+  "title": "Manufacturing Hero Dashboard Tile",
+  "description": "Manufacturing hero tile focused on operational KPIs, throughput trends, and performance stabilization signals.",
+  "tags": [
+    "Manufacturing KPI",
+    "Throughput Analytics",
+    "Hero Dashboard",
+    "Operational Performance"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/manufacturing-hero-dashboard-tile-v2/preview.png",
+  "componentPath": "animations/industries/manufacturing-hero-dashboard-tile-v2/components/ManufacturingHeroTile.tsx"
+}

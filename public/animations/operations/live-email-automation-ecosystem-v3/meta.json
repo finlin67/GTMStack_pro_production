@@ -1,0 +1,18 @@
+{
+  "id": "live-email-automation-ecosystem-v3",
+  "title": "Live Email Automation Ecosystem",
+  "description": "Updated live email automation ecosystem tile focused on orchestration flow, channel timing, and engagement lift.",
+  "tags": [
+    "Email Automation",
+    "Workflow Orchestration",
+    "Engagement Analytics",
+    "Operations Dashboard"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/operations/live-email-automation-ecosystem-v3/preview.png",
+  "componentPath": "animations/operations/live-email-automation-ecosystem-v3/Live-Email-Automation.tsx"
+}

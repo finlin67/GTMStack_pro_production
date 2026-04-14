@@ -1,0 +1,18 @@
+{
+  "id": "gtmstack-industry-template-v2",
+  "title": "GTMStack Industry Template",
+  "description": "Industry template dashboard for GTM strategy presentation, service mapping, and operational planning.",
+  "tags": [
+    "GTM Strategy",
+    "Industry Template",
+    "Service Mapping",
+    "Planning Dashboard"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/gtmstack-industry-template-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/gtmstack-industry-template-v2/components/CTA.tsx"
+}

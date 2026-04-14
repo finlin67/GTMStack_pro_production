@@ -1,0 +1,18 @@
+{
+  "id": "edtech-compact-roi-funnel-v3",
+  "title": "EdTech Compact ROI Funnel",
+  "description": "Updated compact EdTech ROI funnel focused on stage conversion, campaign efficiency, and enrollment growth visibility.",
+  "tags": [
+    "EdTech Analytics",
+    "ROI Funnel",
+    "Conversion Dashboard",
+    "Enrollment Growth"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/edtech-compact-roi-funnel-v3/preview.png",
+  "componentPath": "animations/industries/edtech-compact-roi-funnel-v3/EdTechCompactROIFunnel.tsx"
+}

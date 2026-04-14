@@ -1,0 +1,18 @@
+{
+  "id": "vibrant-impact-dashboard-v2",
+  "title": "Vibrant Impact Dashboard",
+  "description": "Impact-focused dashboard tile visualizing engagement flow, KPI movement, and outcome trends in a vibrant executive format.",
+  "tags": [
+    "Impact Analytics",
+    "Engagement Dashboard",
+    "KPI Visualization",
+    "Executive Reporting"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/vibrant-impact-dashboard-v2/preview.png",
+  "componentPath": "animations/digital-demand/vibrant-impact-dashboard-v2/components/ImpactDashboard.tsx"
+}

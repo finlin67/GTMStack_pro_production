@@ -1,0 +1,18 @@
+{
+  "id": "martech-ai-dashboard-engine-v2",
+  "title": "MarTech AI Dashboard Engine",
+  "description": "Operations-focused MarTech AI dashboard engine that visualizes service health, orchestration flow, and optimization status.",
+  "tags": [
+    "MarTech",
+    "AI",
+    "Operations Dashboard",
+    "System Monitoring"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/operations/martech-ai-dashboard-engine-v2/preview.png",
+  "componentPath": "animations/operations/martech-ai-dashboard-engine-v2/components/MarTechTile.tsx"
+}

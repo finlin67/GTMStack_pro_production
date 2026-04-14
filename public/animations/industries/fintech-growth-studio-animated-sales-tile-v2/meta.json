@@ -1,0 +1,18 @@
+{
+  "id": "fintech-growth-studio-animated-sales-tile-v2",
+  "title": "FinTech Growth Studio Animated Sales Tile",
+  "description": "Animated FinTech sales tile highlighting revenue trajectory, pipeline movement, and growth-stage performance.",
+  "tags": [
+    "FinTech Sales",
+    "Revenue Analytics",
+    "Animated Dashboard",
+    "Pipeline Growth"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/fintech-growth-studio-animated-sales-tile-v2/preview.png",
+  "componentPath": "animations/industries/fintech-growth-studio-animated-sales-tile-v2/components/FinServTile.tsx"
+}

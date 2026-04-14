@@ -69,7 +69,9 @@ function FeaturedPost({ post }: { post: StitchPostCard }) {
           {post.categoryName}
         </span>
         <h2 className="font-display text-4xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
-          {post.title}
+          <Link href={post.href} className="focus:outline-none">
+            {post.title}
+          </Link>
         </h2>
         <p className="max-w-3xl text-base font-light text-slate-500">{post.excerpt}</p>
         <div className="flex items-center gap-6 pt-2">
@@ -110,7 +112,9 @@ function SecondaryPost({ post }: { post: StitchPostCard }) {
             {post.categoryName}
           </span>
           <h3 className="mb-4 font-display text-3xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
-            {post.title}
+            <Link href={post.href} className="focus:outline-none">
+              {post.title}
+            </Link>
           </h3>
           <p className="mb-6 text-base font-light text-slate-500">{post.excerpt}</p>
           <div className="flex items-center gap-6">

@@ -1,0 +1,18 @@
+{
+  "id": "abm-pipeline-strategy-dashboard",
+  "title": "ABM Pipeline Strategy Dashboard",
+  "description": "ABM strategy dashboard visualizing stage conversion, target account progression, and pipeline momentum.",
+  "tags": [
+    "ABM Strategy",
+    "Pipeline Dashboard",
+    "Conversion Analytics",
+    "Account Progression"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/abm/abm-pipeline-strategy-dashboard/preview.png",
+  "componentPath": "animations/abm/abm-pipeline-strategy-dashboard/ABM-Pipeline-Strategy.tsx"
+}

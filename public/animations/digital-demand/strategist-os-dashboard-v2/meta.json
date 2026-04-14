@@ -1,0 +1,18 @@
+{
+  "id": "strategist-os-dashboard-v2",
+  "title": "Strategist OS Dashboard",
+  "description": "Strategist dashboard visualizing content lifecycle velocity, execution status, and omni-channel performance signals.",
+  "tags": [
+    "Content Strategy",
+    "Operations Dashboard",
+    "Lifecycle Analytics",
+    "Omni-Channel"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/strategist-os-dashboard-v2/preview.png",
+  "componentPath": "animations/digital-demand/strategist-os-dashboard-v2/components/ContentStrategistDashboard.tsx"
+}

@@ -1,0 +1,18 @@
+{
+  "id": "event-pulse-enterprise-dashboard-v2",
+  "title": "Event Pulse Enterprise Dashboard",
+  "description": "Enterprise event dashboard showing attendee momentum, funnel progression, and campaign impact metrics.",
+  "tags": [
+    "Event Analytics",
+    "Enterprise Dashboard",
+    "Funnel Performance",
+    "Campaign Impact"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/events-media/event-pulse-enterprise-dashboard-v2/preview.png",
+  "componentPath": "animations/events-media/event-pulse-enterprise-dashboard-v2/components/EventPulse.tsx"
+}

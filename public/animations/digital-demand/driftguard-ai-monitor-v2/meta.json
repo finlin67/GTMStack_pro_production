@@ -1,0 +1,18 @@
+{
+  "id": "driftguard-ai-monitor-v2",
+  "title": "DriftGuard AI Monitor",
+  "description": "AI monitoring dashboard that highlights model drift signals, performance stability, and alert-ready operational status.",
+  "tags": [
+    "AI Monitoring",
+    "Model Drift",
+    "Performance Stability",
+    "Operations Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/driftguard-ai-monitor-v2/preview.png",
+  "componentPath": "animations/digital-demand/driftguard-ai-monitor-v2/DriftGuard.tsx"
+}

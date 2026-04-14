@@ -111,7 +111,7 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
           return (
             <section
               key={idx}
-              className={`relative overflow-hidden rounded-[28px] border p-7 shadow-sm md:p-9 ${calloutTone(section.style)}`}
+              className={`relative overflow-hidden rounded-lg border p-7 shadow-sm md:p-9 ${calloutTone(section.style)}`}
             >
               <div className="absolute inset-x-0 top-0 h-1 bg-current opacity-20" />
               {section.heading && (
@@ -131,7 +131,7 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
 
         if (section.type === 'checklist') {
           return (
-            <section key={idx} className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+            <section key={idx}>
               {section.heading && (
                 <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight text-slate-900">
                   {section.heading}
@@ -163,7 +163,7 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
           const hasImage = Boolean(section.imageUrl)
 
           return (
-            <section key={idx} className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+            <section key={idx}>
               {section.heading && (
                 <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight text-slate-900">
                   {section.heading}
@@ -210,7 +210,7 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
         }
 
         return (
-          <section key={idx} className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm md:p-9">
+          <section key={idx}>
             {section.heading && (
               <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight text-slate-900">
                 {section.heading}

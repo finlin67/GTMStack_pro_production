@@ -1,0 +1,18 @@
+{
+  "id": "executive-logistics-dashboard-v3",
+  "title": "Executive Logistics Dashboard",
+  "description": "Advanced logistics dashboard for executive monitoring of route reliability, node health, and live distribution performance.",
+  "tags": [
+    "Logistics Intelligence",
+    "Route Reliability",
+    "Node Health",
+    "Executive Monitoring"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/events-media/executive-logistics-dashboard-v3/preview.png",
+  "componentPath": "animations/events-media/executive-logistics-dashboard-v3/app-v2.html"
+}

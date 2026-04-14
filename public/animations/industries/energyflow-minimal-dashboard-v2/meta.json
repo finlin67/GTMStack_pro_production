@@ -1,0 +1,18 @@
+{
+  "id": "energyflow-minimal-dashboard-v2",
+  "title": "EnergyFlow Minimal Dashboard",
+  "description": "Minimal energy operations dashboard visualizing asset health, workflow status, and efficiency performance signals.",
+  "tags": [
+    "Energy Analytics",
+    "Operations Dashboard",
+    "Asset Monitoring",
+    "Efficiency Tracking"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/energyflow-minimal-dashboard-v2/preview.png",
+  "componentPath": "animations/industries/energyflow-minimal-dashboard-v2/EnergyFlowDigital.tsx"
+}

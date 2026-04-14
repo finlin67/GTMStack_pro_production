@@ -1,0 +1,18 @@
+{
+  "id": "engineering-excellence-workflow-system-v2",
+  "title": "Engineering Excellence Workflow System",
+  "description": "Engineering workflow system tile presenting lifecycle execution, system load, and delivery readiness in a compact view.",
+  "tags": [
+    "Engineering Operations",
+    "Workflow System",
+    "Execution Monitoring",
+    "Delivery Readiness"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/engineering-excellence-workflow-system-v2/preview.png",
+  "componentPath": "animations/industries/engineering-excellence-workflow-system-v2/EngineeringWorkflowSystem.tsx"
+}

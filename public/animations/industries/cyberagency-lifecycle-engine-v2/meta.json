@@ -1,0 +1,18 @@
+{
+  "id": "cyberagency-lifecycle-engine-v2",
+  "title": "CyberAgency Lifecycle Engine",
+  "description": "Security lifecycle engine dashboard showing audit progress, remediation flow, and deployment readiness signals.",
+  "tags": [
+    "Cybersecurity Analytics",
+    "Lifecycle Engine",
+    "Risk Monitoring",
+    "Operations Dashboard"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/cyberagency-lifecycle-engine-v2/preview.png",
+  "componentPath": "animations/industries/cyberagency-lifecycle-engine-v2/ApexShieldLifecycleEngine.tsx"
+}

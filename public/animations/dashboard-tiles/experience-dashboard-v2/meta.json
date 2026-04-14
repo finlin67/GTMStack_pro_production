@@ -1,0 +1,18 @@
+{
+  "id": "experience-dashboard-v2",
+  "title": "Experience Dashboard",
+  "description": "Experience-focused dashboard tile visualizing growth signals, conversion movement, and channel performance for demand teams.",
+  "tags": [
+    "Experience Analytics",
+    "Growth Dashboard",
+    "Conversion Tracking",
+    "Demand Generation"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/experience-dashboard-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/experience-dashboard-v2/DemandGenFlow.tsx"
+}

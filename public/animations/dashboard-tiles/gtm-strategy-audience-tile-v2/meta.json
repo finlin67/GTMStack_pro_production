@@ -1,0 +1,18 @@
+{
+  "id": "gtm-strategy-audience-tile-v2",
+  "title": "GTM Strategy Audience Tile",
+  "description": "Animated GTM strategy tile centered on audience planning, positioning, and messaging alignment for product launches.",
+  "tags": [
+    "GTM",
+    "Audience Strategy",
+    "Product Marketing",
+    "Dashboard Tile"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/gtm-strategy-audience-tile-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/gtm-strategy-audience-tile-v2/components/GTMAudienceTile.tsx"
+}

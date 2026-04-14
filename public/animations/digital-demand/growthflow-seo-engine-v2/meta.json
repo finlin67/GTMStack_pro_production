@@ -1,0 +1,18 @@
+{
+  "id": "growthflow-seo-engine-v2",
+  "title": "GrowthFlow SEO Engine",
+  "description": "SEO-focused growth engine animation visualizing search momentum, ranking movement, and organic pipeline performance.",
+  "tags": [
+    "SEO Analytics",
+    "Organic Growth",
+    "Search Performance",
+    "Marketing Engine"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/growthflow-seo-engine-v2/preview.png",
+  "componentPath": "animations/digital-demand/growthflow-seo-engine-v2/components/SEOAnimation.tsx"
+}

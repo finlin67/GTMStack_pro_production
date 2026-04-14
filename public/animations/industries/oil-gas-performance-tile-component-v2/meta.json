@@ -1,0 +1,18 @@
+{
+  "id": "oil-gas-performance-tile-component-v2",
+  "title": "Oil & Gas Performance Tile Component",
+  "description": "Oil and gas performance tile tracking operational efficiency, cost dynamics, and yield performance indicators.",
+  "tags": [
+    "Oil & Gas Analytics",
+    "Operational Efficiency",
+    "Yield Dashboard",
+    "Cost Performance"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/oil-gas-performance-tile-component-v2/preview.png",
+  "componentPath": "animations/industries/oil-gas-performance-tile-component-v2/components/HealthCareTile.tsx"
+}

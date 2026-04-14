@@ -1,0 +1,18 @@
+{
+  "id": "retail-pulse-analytics-tile-v2",
+  "title": "Retail Pulse Analytics Tile",
+  "description": "Retail analytics tile tracking traffic-to-conversion performance, engagement pulse, and revenue trend direction.",
+  "tags": [
+    "Retail Analytics",
+    "Conversion Metrics",
+    "Engagement Pulse",
+    "Revenue Dashboard"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/retail-pulse-analytics-tile-v2/preview.png",
+  "componentPath": "animations/industries/retail-pulse-analytics-tile-v2/components/RetailTile.tsx"
+}

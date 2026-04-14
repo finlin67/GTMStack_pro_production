@@ -1,0 +1,18 @@
+{
+  "id": "gtm-engine-visualization-hero-animation-v2",
+  "title": "GTM Engine Visualization Hero Animation",
+  "description": "Hero animation that visualizes the GTM engine as connected growth nodes, live metrics, and strategy flow paths.",
+  "tags": [
+    "GTM Strategy",
+    "Engine Visualization",
+    "Hero Animation",
+    "Growth Analytics"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/gtm-engine-visualization-hero-animation-v2/preview.png",
+  "componentPath": "animations/digital-demand/gtm-engine-visualization-hero-animation-v2/components/GtmCoreTile.tsx"
+}

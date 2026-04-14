@@ -1,0 +1,18 @@
+{
+  "id": "strategyinsights-tile-component-v2",
+  "title": "StrategyInsights Tile Component",
+  "description": "Strategy insights tile combining central intelligence, connected metrics, and decision-support visuals for growth planning.",
+  "tags": [
+    "Strategy Insights",
+    "Decision Dashboard",
+    "Growth Planning",
+    "Tile Component"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/strategyinsights-tile-component-v2/preview.png",
+  "componentPath": "animations/digital-demand/strategyinsights-tile-component-v2/components/StrategyInsightsTile.tsx"
+}

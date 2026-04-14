@@ -1,0 +1,18 @@
+{
+  "id": "abm-campaign-radar-analysis-v2",
+  "title": "ABM Campaign Radar Analysis",
+  "description": "Animated ABM radar dashboard that maps campaign coverage, engagement intensity, and account movement across target segments.",
+  "tags": [
+    "ABM",
+    "Campaign Analytics",
+    "Radar Visualization",
+    "Pipeline Strategy"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/abm/abm-campaign-radar-analysis-v2/preview.png",
+  "componentPath": "animations/abm/abm-campaign-radar-analysis-v2/ABM-Radar-Analysis.tsx"
+}

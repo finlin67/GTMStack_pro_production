@@ -1,0 +1,18 @@
+{
+  "id": "gtmstack-route-planner-v2",
+  "title": "GTMStack Route Planner",
+  "description": "Route planner dashboard tile visualizing GTM phase progression, momentum tracking, and strategic waypoint execution.",
+  "tags": [
+    "GTM Route Planning",
+    "Phase Progression",
+    "Momentum Tracking",
+    "Strategy Dashboard"
+  ],
+  "category": "card",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/dashboard-tiles/gtmstack-route-planner-v2/preview.png",
+  "componentPath": "animations/dashboard-tiles/gtmstack-route-planner-v2/components/GTMStack.tsx"
+}

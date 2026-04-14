@@ -1,0 +1,18 @@
+{
+  "id": "content-engagement-hero-v2",
+  "title": "Content Engagement Hero",
+  "description": "Content engagement hero tile visualizing audience interaction, channel response, and campaign lift signals.",
+  "tags": [
+    "Content Engagement",
+    "Audience Analytics",
+    "Campaign Performance",
+    "Hero Dashboard"
+  ],
+  "category": "hero",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/digital-demand/content-engagement-hero-v2/preview.png",
+  "componentPath": "animations/digital-demand/content-engagement-hero-v2/components/CampaignTile.tsx"
+}

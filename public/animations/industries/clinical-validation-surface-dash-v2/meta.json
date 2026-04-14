@@ -1,0 +1,18 @@
+{
+  "id": "clinical-validation-surface-dash-v2",
+  "title": "Clinical Validation Surface Dashboard",
+  "description": "Clinical validation dashboard tile focused on protocol status, compliance progression, and quality assurance signals.",
+  "tags": [
+    "Clinical Validation",
+    "Compliance Dashboard",
+    "Quality Monitoring",
+    "Healthcare Analytics"
+  ],
+  "category": "other",
+  "published": true,
+  "featured": false,
+  "createdAt": "2026-03-23T20:00:00.000Z",
+  "updatedAt": "2026-03-23T20:00:00.000Z",
+  "thumbnail": "animations/industries/clinical-validation-surface-dash-v2/preview.png",
+  "componentPath": "animations/industries/clinical-validation-surface-dash-v2/components/ClinicalValidationTracker.tsx"
+}
