@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation'
 import BlogStitchPostTemplate from '@/src/templates/blog/BlogStitchPostTemplate'
 import HowToPostTemplate from '@/src/templates/blog/HowToPostTemplate'
 import InsightPostTemplate from '@/src/templates/blog/InsightPostTemplate'
-import { getPostBySlug, getPosts, type WPPost } from '@/lib/wordpress'
+import { getPostBySlug, getPosts, fetchPostsWithTotal, type WPPost } from '@/lib/wordpress'
 import { adaptBlogSinglePostData, adaptHowToPostData, adaptInsightPostData } from '@/lib/blog-adapter'
 
 function stripHtml(input: string): string {
@@ -48,6 +48,23 @@ async function getPostAndRelated(slug: string): Promise<{ post: WPPost; relatedP
 
   return { post, relatedPosts: Array.from(relatedMap.values()).slice(0, 4) }
 }
+
+export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
+  const first = await fetchPostsWithTotal({ page: 1, per_page: 100 })
+  const all = [...first.posts]
+
+  for (let page = 2; page <= first.totalPages; page += 1) {
+    const next = await fetchPostsWithTotal({ page, per_page: 100 })
+    all.push(...next.posts)
+  }
+
+  return all
+    .map((post) => post.slug?.trim())
+    .filter((slug): slug is string => Boolean(slug))
+    .map((slug) => ({ slug }))
+}
+
+export const dynamicParams = false
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
