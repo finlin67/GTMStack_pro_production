@@ -68,11 +68,11 @@ function FeaturedPost({ post }: { post: StitchPostCard }) {
         <span className="block text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
           {post.categoryName}
         </span>
-        <h2 className="font-display text-4xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
-          <Link href={post.href} className="focus:outline-none">
+        <Link href={post.href} className="block focus:outline-none">
+          <h2 className="font-display text-4xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
             {post.title}
-          </Link>
-        </h2>
+          </h2>
+        </Link>
         <p className="max-w-3xl text-base font-light text-slate-500">{post.excerpt}</p>
         <div className="flex items-center gap-6 pt-2">
           <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
@@ -111,11 +111,11 @@ function SecondaryPost({ post }: { post: StitchPostCard }) {
           <span className="mb-3 block text-[11px] font-bold uppercase tracking-[0.2em] text-slate-400">
             {post.categoryName}
           </span>
-          <h3 className="mb-4 font-display text-3xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
-            <Link href={post.href} className="focus:outline-none">
+          <Link href={post.href} className="mb-4 block focus:outline-none">
+            <h3 className="font-display text-3xl leading-tight text-slate-900 transition-colors group-hover:text-[#0d5cab]">
               {post.title}
-            </Link>
-          </h3>
+            </h3>
+          </Link>
           <p className="mb-6 text-base font-light text-slate-500">{post.excerpt}</p>
           <div className="flex items-center gap-6">
             <span className="text-xs font-medium uppercase tracking-widest text-slate-400">
