@@ -2,7 +2,8 @@
 
 import React from 'react'
 import Link from 'next/link'
-import { Clock, ChevronDown } from 'lucide-react'
+import { Clock, ChevronDown, Image as ImageIcon } from 'lucide-react'
+import { motion, useReducedMotion } from 'framer-motion'
 import { sanitizeHtml } from '@/lib/sanitize-html'
 import type { AdaptedBlogSinglePostContent } from '@/lib/blog-adapter'
 
@@ -10,23 +11,86 @@ function stripInner(html: string): string {
   return html.replace(/<[^>]*>/g, '').trim()
 }
 
+function getSectionMotionProps(index: number, shouldReduceMotion: boolean) {
+  if (shouldReduceMotion) {
+    return {}
+  }
+
+  return {
+    initial: { opacity: 0, y: 24 },
+    whileInView: { opacity: 1, y: 0 },
+    viewport: { once: true, margin: '-10% 0px' },
+    transition: {
+      duration: 0.5,
+      delay: index * 0.1,
+      ease: [0.16, 1, 0.3, 1] as const,
+    },
+  }
+}
+
+function ReadingProgressBar({ targetRef }: { targetRef: React.RefObject<HTMLElement | null> }) {
+  const [progress, setProgress] = React.useState(0)
+
+  React.useEffect(() => {
+    const updateProgress = () => {
+      const target = targetRef.current
+      if (!target) {
+        setProgress(0)
+        return
+      }
+
+      const rect = target.getBoundingClientRect()
+      const scrollTop = window.scrollY || window.pageYOffset
+      const elementTop = rect.top + scrollTop
+      const elementHeight = target.offsetHeight
+      const viewportHeight = window.innerHeight
+      const maxScroll = Math.max(1, elementHeight - viewportHeight)
+      const raw = (scrollTop - elementTop) / maxScroll
+      const next = Math.max(0, Math.min(1, raw))
+      setProgress(next)
+    }
+
+    updateProgress()
+    window.addEventListener('scroll', updateProgress, { passive: true })
+    window.addEventListener('resize', updateProgress)
+
+    return () => {
+      window.removeEventListener('scroll', updateProgress)
+      window.removeEventListener('resize', updateProgress)
+    }
+  }, [targetRef])
+
+  return (
+    <div className="pointer-events-none fixed inset-x-0 top-0 z-[70] h-[3px]">
+      <div
+        className="h-full origin-left bg-[linear-gradient(90deg,#0d5cab_0%,#9BC4E2_100%)] transition-opacity duration-200"
+        style={{
+          transform: `scaleX(${progress})`,
+          opacity: progress > 0 ? 1 : 0,
+        }}
+        aria-hidden
+      />
+    </div>
+  )
+}
+
 function calloutTone(style?: string): string {
   const value = (style || '').trim().toLowerCase()
 
   if (value === 'warning') {
-    return 'border-amber-200 bg-amber-50 text-amber-950'
+    return 'border-l-amber-500 bg-[#F59E0B12] text-amber-950'
   }
   if (value === 'success') {
-    return 'border-emerald-200 bg-emerald-50 text-emerald-950'
+    return 'border-l-emerald-500 bg-[#10B98112] text-emerald-950'
   }
   if (value === 'highlight') {
-    return 'border-[#F9C74F] bg-[#FFF8DB] text-[#0D2137]'
+    return 'border-l-[#F9C74F] bg-[#F9C74F12] text-[#0D2137]'
   }
   if (value === 'info') {
-    return 'border-[#9BC4E2] bg-[#EAF4FB] text-[#0D2137]'
+    return 'border-l-[#9BC4E2] bg-[#9BC4E212] text-[#0D2137]'
   }
 
-  return 'border-slate-200 bg-slate-50 text-slate-900'
+  return 'border-l-slate-300 bg-[#33415512] text-slate-900'
 }
 
 function renderLegacyArticle(article: AdaptedBlogSinglePostContent['article']) {
@@ -77,7 +141,10 @@ function renderLegacyArticle(article: AdaptedBlogSinglePostContent['article']) {
   )
 }
 
-function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) {
+function renderModularArticle(
+  article: AdaptedBlogSinglePostContent['article'],
+  shouldReduceMotion: boolean
+) {
   return (
     <div className="space-y-8 md:space-y-9">
       {article.dek && (
@@ -94,9 +161,12 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
       )}
 
       {article.featuredQuote && (
-        <blockquote className="rounded-[28px] border border-[#C7DFF1] bg-gradient-to-br from-[#0A1628] to-[#154360] p-7 text-white shadow-lg shadow-[#0A1628]/10 md:p-8">
-          <p className="text-[1.6rem] font-light leading-9 md:text-[2rem] md:leading-[1.35]">
-            "{article.featuredQuote}"
+        <blockquote className="relative my-16 rounded-[28px] border border-[#C7DFF1] bg-gradient-to-br from-[#0A1628] to-[#154360] p-8 text-white shadow-lg shadow-[#0A1628]/10 md:my-20 md:p-10">
+          <span className="absolute left-6 top-4 font-display text-6xl leading-none text-[#9BC4E2]/70 md:left-8 md:top-5 md:text-7xl" aria-hidden>
+            &ldquo;
+          </span>
+          <p className="pl-8 text-[1.85rem] font-light italic leading-[1.4] md:pl-10 md:text-[2.35rem]">
+            {article.featuredQuote}
           </p>
           {article.quoteSource && (
             <footer className="mt-5 text-xs uppercase tracking-[0.2em] text-[#9BC4E2]">
@@ -109,11 +179,11 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
       {article.modularSections?.map((section, idx) => {
         if (section.type === 'callout') {
           return (
-            <section
+            <motion.section
               key={idx}
-              className={`relative overflow-hidden rounded-lg border p-7 shadow-sm md:p-9 ${calloutTone(section.style)}`}
+              {...getSectionMotionProps(idx, shouldReduceMotion)}
+              className={`border-l-4 rounded-r py-5 pl-4 pr-0 md:py-6 md:pl-6 ${calloutTone(section.style)}`}
             >
-              <div className="absolute inset-x-0 top-0 h-1 bg-current opacity-20" />
               {section.heading && (
                 <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight">
                   {section.heading}
@@ -125,13 +195,17 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
                   dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.body) }}
                 />
               )}
-            </section>
+            </motion.section>
           )
         }
 
         if (section.type === 'checklist') {
           return (
-            <section key={idx}>
+            <motion.section
+              key={idx}
+              {...getSectionMotionProps(idx, shouldReduceMotion)}
+              className="border-l border-slate-200 pl-5"
+            >
               {section.heading && (
                 <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight text-slate-900">
                   {section.heading}
@@ -144,18 +218,18 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
                 />
               )}
               {section.items.length > 0 && (
-                <ul className="space-y-3.5">
+                <ul className="space-y-4">
                   {section.items.map((item, itemIdx) => (
-                    <li key={`${item}-${itemIdx}`} className="flex items-start gap-4 rounded-2xl border border-slate-200 bg-slate-50 px-5 py-4">
-                      <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#0d5cab] text-xs font-bold text-white">
-                        ✓
+                    <li key={`${item}-${itemIdx}`} className="flex items-start gap-4">
+                      <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#0d5cab] text-[10px] font-bold text-white">
+                        <span aria-hidden>✓</span>
                       </span>
-                      <span className="pt-0.5 text-[1rem] leading-7 text-slate-700">{item}</span>
+                      <span className="pt-0.5 text-[1rem] font-normal leading-7 text-slate-700">{item}</span>
                     </li>
                   ))}
                 </ul>
               )}
-            </section>
+            </motion.section>
           )
         }
 
@@ -163,7 +237,7 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
           const hasImage = Boolean(section.imageUrl)
 
           return (
-            <section key={idx}>
+            <motion.section key={idx} {...getSectionMotionProps(idx, shouldReduceMotion)}>
               {section.heading && (
                 <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight text-slate-900">
                   {section.heading}
@@ -176,7 +250,7 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
                 />
               )}
               {hasImage ? (
-                <figure className="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-100">
+                <figure className="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-100 shadow-[0_8px_32px_rgba(0,0,0,0.12)] -mx-4 w-[calc(100%+2rem)] md:-mx-6 md:w-[calc(100%+3rem)]">
                   <img
                     src={section.imageUrl}
                     alt={section.imageAlt || section.heading || 'Article image'}
@@ -184,33 +258,33 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
                   />
                 </figure>
               ) : (
-                <div className="rounded-[24px] border border-dashed border-[#BDD8EA] bg-[linear-gradient(180deg,#F7FBFE_0%,#EEF6FB_100%)] px-8 py-12 text-center">
+                <div className="rounded-[24px] border border-dashed border-[#BDD8EA] bg-[linear-gradient(180deg,#F7FBFE_0%,#EEF6FB_100%)] px-8 py-12 text-center -mx-4 w-[calc(100%+2rem)] md:-mx-6 md:w-[calc(100%+3rem)]">
                   <div className="mx-auto flex max-w-xl flex-col items-center gap-3">
-                    <span className="inline-flex rounded-full border border-[#9BC4E2] bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#0d5cab]">
+                    <span className="inline-flex items-center gap-2 rounded-full border border-[#9BC4E2] bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#0d5cab]">
+                      <ImageIcon className="h-3.5 w-3.5" aria-hidden />
                       Image concept
                     </span>
-                    <p className="text-sm leading-7 text-slate-500">
-                      A visual has not been attached to this section yet.
-                    </p>
+                    {section.imagePrompt ? (
+                      <p className="text-sm italic leading-7 text-slate-500">{section.imagePrompt}</p>
+                    ) : (
+                      <p className="text-sm leading-7 text-slate-500">
+                        A visual has not been attached to this section yet.
+                      </p>
+                    )}
                   </div>
                 </div>
               )}
-              {(section.imageCaption || (!hasImage && section.imagePrompt)) && (
-                <div className="mt-4 space-y-1.5">
-                  {section.imageCaption && (
-                    <p className="text-sm text-slate-500">{section.imageCaption}</p>
-                  )}
-                  {!hasImage && section.imagePrompt && (
-                    <p className="text-sm italic leading-6 text-slate-500">{section.imagePrompt}</p>
-                  )}
+              {section.imageCaption && (
+                <div className="mt-4 border-t border-slate-200/70 pl-4 pt-3">
+                  <p className="text-sm italic leading-6 text-slate-500">{section.imageCaption}</p>
                 </div>
               )}
-            </section>
+            </motion.section>
           )
         }
 
         return (
-          <section key={idx}>
+          <motion.section key={idx} {...getSectionMotionProps(idx, shouldReduceMotion)}>
             {section.heading && (
               <h2 className="mb-3 font-display text-[1.9rem] font-bold tracking-tight text-slate-900">
                 {section.heading}
@@ -218,11 +292,11 @@ function renderModularArticle(article: AdaptedBlogSinglePostContent['article']) 
             )}
             {section.body && (
               <div
-                className="gtm-wp-content prose prose-slate max-w-none prose-headings:font-display prose-p:my-4 prose-p:text-[1.04rem] prose-p:leading-8 prose-a:text-[#0d5cab]"
+                className="gtm-wp-content prose prose-slate max-w-none prose-headings:font-display prose-p:my-4 prose-p:text-[1.125rem] prose-p:leading-[1.75] prose-a:text-[#0d5cab]"
                 dangerouslySetInnerHTML={{ __html: sanitizeHtml(section.body) }}
               />
             )}
-          </section>
+          </motion.section>
         )
       })}
 
@@ -296,10 +370,13 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
   const { hero, article, sidebar } = content
   const isModularArticle = article.layoutType === 'modular_article'
   const showHeroImage = article.showFeaturedImage ?? true
+  const shouldReduceMotion = useReducedMotion() ?? false
+  const postBodyRef = React.useRef<HTMLDivElement | null>(null)
 
   return (
     <div className="min-h-screen bg-[#f4f6f8] font-sans text-slate-900 antialiased">
-      <section className="relative overflow-hidden bg-gradient-to-br from-[#0A1628] to-[#154360] px-8 pb-24 pt-16">
+      <ReadingProgressBar targetRef={postBodyRef} />
+      <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#0A1628] to-[#154360] px-8 pb-28 pt-24 md:pb-32 md:pt-28">
         <div className="relative z-10 mx-auto max-w-7xl">
           <div className="max-w-4xl">
             <nav className="mb-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
@@ -315,34 +392,37 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
             </nav>
 
             {isModularArticle && article.heroKicker && (
-              <p className="mb-5 text-[11px] font-bold uppercase tracking-[0.24em] text-[#9BC4E2]">
-                {article.heroKicker}
-              </p>
+              <div className="mb-5 flex items-center gap-3">
+                <span className="h-1.5 w-1.5 rounded-full bg-[#0d5cab]" aria-hidden />
+                <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-300">
+                  {article.heroKicker}
+                </p>
+              </div>
             )}
 
-            <h1 className="mb-8 font-display text-5xl font-bold leading-[1.1] tracking-tight text-white md:text-6xl">
+            <h1 className="mb-8 font-display text-6xl font-extrabold leading-[1.12] tracking-tight text-white md:text-7xl">
               {hero.title}
             </h1>
 
             {!isModularArticle && article.dek && (
-              <p className="mb-8 max-w-3xl text-xl font-light leading-relaxed text-slate-300">
+              <p className="mb-8 max-w-3xl text-[1.35rem] font-normal leading-[1.55] text-slate-300">
                 {article.dek}
               </p>
             )}
 
-            <div className="flex flex-wrap items-center gap-6 text-slate-300">
+            <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400">
               <div className="flex items-center gap-3">
                 <img
                   src={hero.author.image}
                   alt={hero.author.name ? `${hero.author.name} avatar` : 'Author'}
                   className="h-10 w-10 rounded-full border-2 border-white/10 object-cover"
                 />
-                <span className="text-sm font-medium">{hero.author.name}</span>
+                <span className="font-medium">{hero.author.name}</span>
               </div>
-              <div className="h-4 w-px bg-white/20" />
-              <span className="text-sm font-light">{hero.publishedDate}</span>
-              <div className="h-4 w-px bg-white/20" />
-              <span className="flex items-center gap-1 text-sm font-light">
+              <div className="h-3 w-px bg-white/15" />
+              <span className="font-normal">{hero.publishedDate}</span>
+              <div className="h-3 w-px bg-white/15" />
+              <span className="flex items-center gap-1 font-normal">
                 <Clock className="h-3 w-3" aria-hidden />
                 {hero.readingTime}
               </span>
@@ -354,7 +434,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
 
       <section className="relative z-30 mx-auto -mt-12 max-w-7xl px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div className="space-y-12 rounded-3xl border border-slate-100 bg-white p-8 shadow-sm lg:col-span-8 md:p-12">
+          <div ref={postBodyRef} className="space-y-12 rounded-3xl border border-slate-100 bg-white p-8 shadow-sm lg:col-span-8 md:p-12">
             {showHeroImage && (
               <div className="mb-12 aspect-[21/9] overflow-hidden rounded-2xl">
                 <img
@@ -371,7 +451,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
               </p>
             )}
 
-            {isModularArticle ? renderModularArticle(article) : renderLegacyArticle(article)}
+            {isModularArticle ? renderModularArticle(article, shouldReduceMotion) : renderLegacyArticle(article)}
 
             <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-12">
               <div className="flex items-center gap-2">
