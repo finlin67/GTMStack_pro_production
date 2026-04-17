@@ -16,13 +16,15 @@ function getSectionMotionProps(index: number, shouldReduceMotion: boolean) {
     return {}
   }
 
+  // Keep text visible on first paint; opacity-0 + whileInView can leave long bodies
+  // invisible until scroll, which reads as a huge empty gap on wide screens.
   return {
-    initial: { opacity: 0, y: 24 },
+    initial: { opacity: 1, y: 12 },
     whileInView: { opacity: 1, y: 0 },
-    viewport: { once: true, margin: '-10% 0px' },
+    viewport: { once: true, amount: 0.15, margin: '0px 0px -8% 0px' },
     transition: {
-      duration: 0.5,
-      delay: index * 0.1,
+      duration: 0.45,
+      delay: Math.min(index, 6) * 0.06,
       ease: [0.16, 1, 0.3, 1] as const,
     },
   }
@@ -148,28 +150,28 @@ function renderModularArticle(
   return (
     <div className="space-y-8 md:space-y-9">
       {article.dek && (
-        <div className="rounded-[28px] border border-[#D7E6F2] bg-[#F8FBFD] p-7 md:p-8">
+        <div>
           {article.heroKicker && (
             <p className="mb-3 text-[11px] font-bold uppercase tracking-[0.24em] text-[#0d5cab]">
               {article.heroKicker}
             </p>
           )}
-          <p className="text-[1.15rem] font-light leading-8 text-slate-700 md:text-[1.45rem] md:leading-9">
+          <p className="text-[1.1rem] font-light leading-8 text-slate-700 md:text-[1.3rem] md:leading-9">
             {article.dek}
           </p>
         </div>
       )}
 
       {article.featuredQuote && (
-        <blockquote className="relative my-16 rounded-[28px] border border-[#C7DFF1] bg-gradient-to-br from-[#0A1628] to-[#154360] p-8 text-white shadow-lg shadow-[#0A1628]/10 md:my-20 md:p-10">
-          <span className="absolute left-6 top-4 font-display text-6xl leading-none text-[#9BC4E2]/70 md:left-8 md:top-5 md:text-7xl" aria-hidden>
+        <blockquote className="relative my-10 border-l-4 border-[#9BC4E2] bg-[#F8FBFD] py-5 pl-6 pr-4 text-slate-800 md:my-12 md:py-6 md:pl-8 md:pr-6">
+          <span className="absolute left-2 top-2 font-display text-4xl leading-none text-[#9BC4E2]/60 md:left-3 md:top-2 md:text-5xl" aria-hidden>
             &ldquo;
           </span>
-          <p className="pl-8 text-[1.85rem] font-light italic leading-[1.4] md:pl-10 md:text-[2.35rem]">
+          <p className="pl-5 text-[1.2rem] font-light italic leading-[1.6] md:pl-6 md:text-[1.35rem]">
             {article.featuredQuote}
           </p>
           {article.quoteSource && (
-            <footer className="mt-5 text-xs uppercase tracking-[0.2em] text-[#9BC4E2]">
+            <footer className="mt-4 pl-5 text-[10px] uppercase tracking-[0.2em] text-slate-500 md:pl-6">
               {article.quoteSource}
             </footer>
           )}
@@ -250,7 +252,7 @@ function renderModularArticle(
                 />
               )}
               {hasImage ? (
-                <figure className="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-100 shadow-[0_8px_32px_rgba(0,0,0,0.12)] -mx-4 w-[calc(100%+2rem)] md:-mx-6 md:w-[calc(100%+3rem)]">
+                <figure className="overflow-hidden rounded-[24px] border border-slate-200 bg-slate-100 shadow-[0_8px_32px_rgba(0,0,0,0.12)]">
                   <img
                     src={section.imageUrl}
                     alt={section.imageAlt || section.heading || 'Article image'}
@@ -258,7 +260,7 @@ function renderModularArticle(
                   />
                 </figure>
               ) : (
-                <div className="rounded-[24px] border border-dashed border-[#BDD8EA] bg-[linear-gradient(180deg,#F7FBFE_0%,#EEF6FB_100%)] px-8 py-12 text-center -mx-4 w-[calc(100%+2rem)] md:-mx-6 md:w-[calc(100%+3rem)]">
+                <div className="rounded-[24px] border border-dashed border-[#BDD8EA] bg-[linear-gradient(180deg,#F7FBFE_0%,#EEF6FB_100%)] px-8 py-12 text-center">
                   <div className="mx-auto flex max-w-xl flex-col items-center gap-3">
                     <span className="inline-flex items-center gap-2 rounded-full border border-[#9BC4E2] bg-white/80 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.22em] text-[#0d5cab]">
                       <ImageIcon className="h-3.5 w-3.5" aria-hidden />
@@ -374,69 +376,100 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
   const postBodyRef = React.useRef<HTMLDivElement | null>(null)
 
   return (
-    <div className="min-h-screen bg-[#f4f6f8] font-sans text-slate-900 antialiased">
+    <div className="min-h-screen bg-[radial-gradient(circle_at_top,#f8fbff_0%,#f4f6f8_45%,#eef2f7_100%)] font-sans text-slate-900 antialiased">
       <ReadingProgressBar targetRef={postBodyRef} />
-      <section className="relative overflow-hidden border-b border-white/10 bg-gradient-to-br from-[#0A1628] to-[#154360] px-8 pb-28 pt-24 md:pb-32 md:pt-28">
-        <div className="relative z-10 mx-auto max-w-7xl">
-          <div className="max-w-4xl">
-            <nav className="mb-8 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-              <Link href="/blog" className="transition-colors hover:text-[#FFDB58]">Journal</Link>
-              {hero.breadcrumbs.slice(1).map((crumb) => (
-                <React.Fragment key={crumb.label}>
-                  <span>/</span>
-                  <Link href={crumb.href} className="transition-colors hover:text-[#FFDB58]">
-                    {crumb.label}
-                  </Link>
-                </React.Fragment>
-              ))}
-            </nav>
+      <section className="relative overflow-hidden rounded-b-[2rem] border-b border-white/10 bg-gradient-to-br from-[#0A1628] via-[#0f2844] to-[#154360] pb-14 pt-10 md:rounded-b-[2.5rem] md:pb-16 md:pt-12">
+        {/* Soft blend into page background — eases the hard cut to the light article area */}
+        <div
+          className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-16 bg-gradient-to-b from-transparent to-[#f4f6f8] md:h-20"
+          aria-hidden
+        />
+        <div className="pointer-events-none absolute -right-16 top-1/4 z-0 h-[min(520px,70vh)] w-[min(520px,55vw)] rounded-full bg-[#0d5cab]/25 blur-[100px] md:-right-8 md:top-20" aria-hidden />
+        <div className="pointer-events-none absolute -left-24 top-0 z-0 h-72 w-72 rounded-full bg-[#9BC4E2]/10 blur-[90px]" aria-hidden />
 
-            {isModularArticle && article.heroKicker && (
-              <div className="mb-5 flex items-center gap-3">
-                <span className="h-1.5 w-1.5 rounded-full bg-[#0d5cab]" aria-hidden />
-                <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-300">
-                  {article.heroKicker}
-                </p>
+        <div className="relative z-10 mx-auto w-full max-w-[1500px] px-8">
+          <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:items-end lg:gap-12 2xl:gap-16">
+            <div className="lg:col-span-9">
+              <nav className="mb-8 flex flex-wrap items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
+                <Link href="/blog" className="transition-colors hover:text-[#FFDB58]">Journal</Link>
+                {hero.breadcrumbs.slice(1).map((crumb) => (
+                  <React.Fragment key={crumb.label}>
+                    <span>/</span>
+                    <Link href={crumb.href} className="transition-colors hover:text-[#FFDB58]">
+                      {crumb.label}
+                    </Link>
+                  </React.Fragment>
+                ))}
+              </nav>
+
+              {isModularArticle && article.heroKicker && (
+                <div className="mb-5 flex items-center gap-3">
+                  <span className="h-1.5 w-1.5 rounded-full bg-[#9BC4E2]" aria-hidden />
+                  <p className="text-[11px] font-medium uppercase tracking-[0.24em] text-slate-300">
+                    {article.heroKicker}
+                  </p>
+                </div>
+              )}
+
+              <div>
+                <h1 className="mb-4 font-display text-3xl font-bold leading-[1.1] tracking-tight text-white md:mb-5 md:text-4xl xl:text-[2.6rem]">
+                  {hero.title}
+                </h1>
+
+                {!isModularArticle && article.dek && (
+                  <p className="mb-8 text-[1.2rem] font-normal leading-[1.55] text-slate-300 md:text-[1.35rem]">
+                    {article.dek}
+                  </p>
+                )}
               </div>
-            )}
 
-            <h1 className="mb-8 font-display text-6xl font-extrabold leading-[1.12] tracking-tight text-white md:text-7xl">
-              {hero.title}
-            </h1>
-
-            {!isModularArticle && article.dek && (
-              <p className="mb-8 max-w-3xl text-[1.35rem] font-normal leading-[1.55] text-slate-300">
-                {article.dek}
-              </p>
-            )}
-
-            <div className="flex flex-wrap items-center gap-4 text-xs text-slate-400">
-              <div className="flex items-center gap-3">
-                <img
-                  src={hero.author.image}
-                  alt={hero.author.name ? `${hero.author.name} avatar` : 'Author'}
-                  className="h-10 w-10 rounded-full border-2 border-white/10 object-cover"
-                />
-                <span className="font-medium">{hero.author.name}</span>
+              <div className="mt-2 flex flex-wrap items-center gap-4 text-xs text-slate-400 lg:max-w-[72ch] 2xl:max-w-[76ch]">
+                <div className="flex items-center gap-3">
+                  <img
+                    src={hero.author.image}
+                    alt={hero.author.name ? `${hero.author.name} avatar` : 'Author'}
+                    className="h-10 w-10 rounded-full border-2 border-white/15 object-cover"
+                  />
+                  <span className="font-medium text-slate-200">{hero.author.name}</span>
+                </div>
+                <div className="h-3 w-px bg-white/15 lg:hidden" />
+                <span className="font-normal lg:hidden">{hero.publishedDate}</span>
+                <div className="h-3 w-px bg-white/15 lg:hidden" />
+                <span className="flex items-center gap-1 font-normal lg:hidden">
+                  <Clock className="h-3 w-3" aria-hidden />
+                  {hero.readingTime}
+                </span>
               </div>
-              <div className="h-3 w-px bg-white/15" />
-              <span className="font-normal">{hero.publishedDate}</span>
-              <div className="h-3 w-px bg-white/15" />
-              <span className="flex items-center gap-1 font-normal">
-                <Clock className="h-3 w-3" aria-hidden />
-                {hero.readingTime}
-              </span>
+            </div>
+
+            {/* Mirrors the article sidebar: fills right-side hero space and surfaces meta without a floating title */}
+            <div className="hidden lg:col-span-3 lg:block">
+              <div className="rounded-2xl border border-white/10 bg-white/[0.06] p-6 shadow-[0_20px_50px_-28px_rgba(0,0,0,0.45)] backdrop-blur-md">
+                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-slate-400">This article</p>
+                <dl className="mt-5 space-y-4 text-sm">
+                  <div>
+                    <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Published</dt>
+                    <dd className="mt-1 font-medium text-slate-100">{hero.publishedDate}</dd>
+                  </div>
+                  <div>
+                    <dt className="text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-500">Reading time</dt>
+                    <dd className="mt-1 flex items-center gap-2 font-medium text-slate-100">
+                      <Clock className="h-3.5 w-3.5 shrink-0 text-[#9BC4E2]" aria-hidden />
+                      {hero.readingTime}
+                    </dd>
+                  </div>
+                </dl>
+              </div>
             </div>
           </div>
         </div>
-        <div className="pointer-events-none absolute -right-20 top-0 h-[600px] w-[600px] rounded-full bg-[#0d5cab]/20 blur-[120px]" />
       </section>
 
-      <section className="relative z-30 mx-auto -mt-12 max-w-7xl px-8">
-        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-          <div ref={postBodyRef} className="space-y-12 rounded-3xl border border-slate-100 bg-white p-8 shadow-sm lg:col-span-8 md:p-12">
+      <section className="relative z-30 mx-auto mt-0 w-full max-w-[1500px] px-8 pt-10 pb-20">
+        <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12 2xl:gap-16">
+          <div ref={postBodyRef} className="min-w-0 space-y-10 lg:col-span-9 lg:pr-6 xl:pr-10">
             {showHeroImage && (
-              <div className="mb-12 aspect-[21/9] overflow-hidden rounded-2xl">
+              <div className="mb-10 aspect-[21/9] overflow-hidden rounded-2xl border border-slate-200/70 shadow-[0_20px_45px_-30px_rgba(15,23,42,0.45)]">
                 <img
                   src={article.featuredImage.src}
                   alt={article.featuredImage.alt}
@@ -445,15 +478,17 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
               </div>
             )}
 
-            {article.intro && (
-              <p className="mb-12 text-xl font-light leading-relaxed text-slate-600">
-                {article.intro}
-              </p>
-            )}
+            <div className="w-full">
+              {article.intro && (
+                <p className="mb-10 text-[1.2rem] font-light leading-relaxed text-slate-600 md:text-[1.28rem]">
+                  {article.intro}
+                </p>
+              )}
 
-            {isModularArticle ? renderModularArticle(article, shouldReduceMotion) : renderLegacyArticle(article)}
+              {isModularArticle ? renderModularArticle(article, shouldReduceMotion) : renderLegacyArticle(article)}
+            </div>
 
-            <div className="mt-12 flex flex-wrap items-center justify-between gap-4 border-t border-slate-100 pt-12">
+            <div className="mt-12 flex w-full flex-wrap items-center justify-between gap-4 border-t border-slate-200/80 pt-10">
               <div className="flex items-center gap-2">
                 <span className="text-xs font-bold uppercase tracking-widest text-slate-400">Share:</span>
                 <div className="flex gap-2">
@@ -488,9 +523,9 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
             </div>
           </div>
 
-          <aside className="hidden space-y-8 lg:col-span-4 lg:block">
-            <div className="sticky top-28 space-y-8">
-              <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-200/40">
+          <aside className="hidden space-y-8 lg:col-span-3 lg:block lg:border-l lg:border-slate-200/80 lg:pl-8 xl:pl-10">
+            <div className="sticky top-24 space-y-6">
+              <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-6 shadow-sm shadow-slate-200/40 backdrop-blur">
                 <div className="mb-4 flex items-center justify-between border-b border-slate-50 pb-3">
                   <h4 className="flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
                     <span className="h-2 w-2 animate-pulse rounded-full bg-[#0d5cab]" />
@@ -528,50 +563,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
                 )}
               </div>
 
-              {article.tags.length > 0 && (
-                <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm shadow-slate-200/40">
-                  <h4 className="mb-6 flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">
-                    <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden>
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A2 2 0 013 12V7a4 4 0 014-4z" />
-                    </svg>
-                    Semantic Index
-                  </h4>
-                  <div className="flex flex-wrap items-center gap-2">
-                    {article.tags.map((tag, idx) => {
-                      const styles = [
-                        'text-lg font-bold text-[#0d5cab]',
-                        'text-xs font-medium text-slate-400',
-                        'text-base font-semibold text-slate-700',
-                        'text-sm font-medium text-slate-500',
-                        'text-xs font-medium text-slate-400',
-                      ]
-                      return (
-                        <span key={tag} className={styles[idx % styles.length]}>
-                          {tag}
-                        </span>
-                      )
-                    })}
-                  </div>
-                </div>
-              )}
-
-              <div className="group relative overflow-hidden rounded-3xl bg-[#0047AB] p-7 shadow-lg shadow-blue-500/15">
-                <div className="relative z-10">
-                  <h4 className="mb-3 font-display text-xl font-bold text-white">Marketing Assessment Tool</h4>
-                  <p className="mb-6 text-sm font-medium leading-relaxed text-blue-100">
-                    Quantify Your GTM Stack: Start Assessment Now
-                  </p>
-                  <Link
-                    href="/contact"
-                    className="block w-full rounded-xl bg-white py-3 text-center text-xs font-bold uppercase tracking-widest text-[#0047AB] shadow-lg transition-all hover:bg-slate-100 active:scale-[0.98]"
-                  >
-                    Launch Terminal
-                  </Link>
-                </div>
-                <div className="absolute -bottom-8 -right-8 h-32 w-32 rounded-full bg-white/10 blur-2xl transition-transform duration-700 group-hover:scale-150" />
-              </div>
-
-              <div className="rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-sm shadow-slate-200/30">
+              <div className="rounded-3xl border border-slate-200/80 bg-white/90 p-7 shadow-sm shadow-slate-200/40 backdrop-blur">
                 <h4 className="mb-6 text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400">Expert Author</h4>
                 <div className="space-y-4 text-center">
                   <img
@@ -605,7 +597,7 @@ export default function BlogStitchPostTemplate({ content }: { content: AdaptedBl
         </div>
       </section>
 
-      <section className="relative mx-auto mb-32 mt-16 max-w-7xl overflow-hidden rounded-3xl bg-[#0A1628] px-8 py-24">
+      <section className="relative mx-auto mb-32 mt-16 w-full max-w-[1500px] overflow-hidden rounded-3xl bg-[#0A1628] px-8 py-24">
         <div className="relative z-10 mx-auto max-w-3xl text-center">
           <h2 className="mb-6 font-display text-4xl font-bold text-white">Master the SaaS Architecture.</h2>
           <p className="mx-auto mb-12 max-w-xl text-lg text-slate-400">

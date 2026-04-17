@@ -50,21 +50,34 @@ async function getPostAndRelated(slug: string): Promise<{ post: WPPost; relatedP
 }
 
 export async function generateStaticParams(): Promise<Array<{ slug: string }>> {
-  const first = await fetchPostsWithTotal({ page: 1, per_page: 100 })
-  const all = [...first.posts]
+  try {
+    const first = await fetchPostsWithTotal({ page: 1, per_page: 100 })
+    const all = [...first.posts]
 
-  for (let page = 2; page <= first.totalPages; page += 1) {
-    const next = await fetchPostsWithTotal({ page, per_page: 100 })
-    all.push(...next.posts)
+    for (let page = 2; page <= first.totalPages; page += 1) {
+      const next = await fetchPostsWithTotal({ page, per_page: 100 })
+      all.push(...next.posts)
+    }
+
+    return all
+      .map((post) => post.slug?.trim())
+      .filter((slug): slug is string => Boolean(slug))
+      .map((slug) => ({ slug }))
+  } catch (err) {
+    console.error('[blog/[slug]] generateStaticParams failed:', err)
+    return []
   }
-
-  return all
-    .map((post) => post.slug?.trim())
-    .filter((slug): slug is string => Boolean(slug))
-    .map((slug) => ({ slug }))
 }
 
-export const dynamicParams = false
+/**
+ * ISR configuration.
+ * - `dynamicParams = true`: slugs not pre-rendered at build are generated on first request.
+ * - `revalidate`: regenerate HTML + metadata at most every 60 seconds.
+ * Together these mean new WordPress posts become reachable at /blog/{slug} within a minute
+ * without needing a full redeploy.
+ */
+export const dynamicParams = true
+export const revalidate = 60
 
 export async function generateMetadata(
   { params }: { params: Promise<{ slug: string }> }
